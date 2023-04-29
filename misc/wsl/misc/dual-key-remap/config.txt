@@ -1,0 +1,7 @@
+remap_key=RIGHT_CTRL
+when_alone=ESCAPE
+with_other=CTRL
+
+remap_key=LEFT_ALT
+when_alone=TAB
+with_other=ALT

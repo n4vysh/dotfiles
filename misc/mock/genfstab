@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ $1 == -U ]] && [[ $2 == /mnt ]]; then
+  true
+else
+  /usr/bin/genfstab "$@"
+fi

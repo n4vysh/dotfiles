@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ $1 == enable ]] && [[ $2 == --now ]]; then
+  /usr/bin/systemctl enable "${@:3}"
+elif [[ $1 == --user ]] && [[ $2 == enable ]] && [[ $3 == --now ]]; then
+  /usr/bin/systemctl --user enable "${@:3}"
+elif [[ $1 == start ]] && [[ $2 == reflector.service ]]; then
+  reflector @/etc/xdg/reflector/reflector.conf
+elif [[ $1 == start ]] && [[ $2 == pkgfile-update.service ]]; then
+  pkgfile -u
+elif [[ $1 == restart ]]; then
+  true
+else
+  /usr/bin/systemctl "$@"
+fi

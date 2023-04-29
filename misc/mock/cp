@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ ${*:$#:1} == /mnt/etc/xdg/reflector/reflector.conf ]] ||
+  [[ ${*:$#:1} == /mnt/var/lib/ ]] ||
+  [[ ${*:$#:1} == /mnt/tmp/dotfiles/ ]]; then
+  true
+else
+  /usr/bin/cp "$@"
+fi

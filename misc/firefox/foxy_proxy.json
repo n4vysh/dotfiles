@@ -1,0 +1,33 @@
+{
+  "fne9fr1677150037323": {
+    "type": 1,
+    "color": "#66cc66",
+    "title": "burp",
+    "active": true,
+    "address": "127.0.0.1",
+    "port": 8080,
+    "proxyDNS": false,
+    "username": "",
+    "password": "",
+    "whitePatterns": [
+      {
+        "title": "all URLs",
+        "active": true,
+        "pattern": "*",
+        "type": 1,
+        "protocols": 1
+      }
+    ],
+    "blackPatterns": [],
+    "pacURL": "",
+    "index": 9007199254740990
+  },
+  "logging": {
+    "size": 100,
+    "active": false
+  },
+  "mode": "fne9fr1677150037323",
+  "browserVersion": "110.0",
+  "foxyProxyVersion": "7.5.1",
+  "foxyProxyEdition": "standard"
+}

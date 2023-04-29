@@ -1,0 +1,159 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: trailing-whitespace
+        exclude_types: [markdown, diff]
+      - id: end-of-file-fixer
+        exclude: |
+          (?x)^(
+            src/.config/nvim/lazy-lock.json|
+            misc/firefox/ublock.txt|
+            misc/firefox/foxy_proxy.json|
+            misc/firefox/twp.txt
+          )$
+      - id: check-added-large-files
+      - id: fix-byte-order-marker
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+        exclude: .config/nvim/skel/default.*$
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.4.1
+    hooks:
+      - id: prettier
+        types_or: [json, yaml]
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.26.3
+    hooks:
+      - id: yamllint
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    # use markdownlint-fix
+    rev: 2d2ba47
+    hooks:
+      - id: markdownlint
+      - id: markdownlint-fix
+  - repo: https://github.com/koalaman/shellcheck-precommit
+    rev: v0.8.0
+    hooks:
+      - id: shellcheck
+        name: check bash configs with shellcheck
+        args: [-s, bash]
+        types: [bash, non-executable]
+  - repo: local
+    hooks:
+      - id: shellcheck
+        name: check shell scripts with shellcheck
+        language: system
+        entry: shellcheck -x
+        types: [executable]
+      - id: zsh-no-exec
+        name: check zsh files with --no-exec option of zsh
+        language: system
+        entry: zsh --no-exec
+        types: [zsh]
+      - id: fish-no-exec
+        name: check fish files with --no-exec option of fish
+        language: system
+        entry: fish --no-exec
+        types: [fish]
+      - id: sway
+        name: check config of sway with sway --validate option
+        language: system
+        entry: sway --validate
+        files: .config/sway/config$
+        pass_filenames: false
+      - id: selene
+        name: check lua files with selene
+        language: system
+        entry: selene
+        types: [lua]
+      - id: editorconfig-checker
+        name: check files with editorconfig-checker
+        language: system
+        entry: ec
+      - id: taplo-format
+        name: format toml files with taplo format
+        language: system
+        entry: taplo format
+        types: [toml]
+        exclude: |
+          (?x)^(
+            src/.config/pet/config.toml|
+            src/.config/pet/snippet.toml
+          )$
+      - id: shellharden
+        name: format shell scripts with shellharden
+        language: system
+        entry: shellharden --replace
+        types_or: [sh, bash]
+      - id: shfmt
+        name: format shell scripts with shfmt
+        minimum_pre_commit_version: 2.4.0
+        language: docker_image
+        types_or: [sh, bash]
+        entry: mvdan/shfmt:v3.4.0 -w
+      - id: just
+        name: format justfile with just --fmt option
+        language: system
+        entry: just --fmt --unstable
+        files: justfile$
+        pass_filenames: false
+      - id: fish_indent
+        name: format fish files with fish_indent
+        language: system
+        entry: fish_indent -w
+        types: [fish]
+      - id: stylua
+        name: format lua files with stylua
+        language: system
+        entry: stylua
+        types: [lua]
+      - id: taplo-lint
+        name: format toml files with taplo lint
+        language: system
+        entry: taplo lint
+        types: [toml]
+      - id: clang-format
+        name: format c files with clang-format
+        language: system
+        entry: just src/.config/qmk/fmt
+        files: .config/qmk/keymap/*.(h|c)$
+      - id: pkglist
+        name: format pkglist
+        language: system
+        entry: sh -c "printf '%s\n' $@ | xargs -I {} -t sort -uo {} {}"
+        files: misc/pkglist/*
+      - id: visudo
+        name: check sudoers
+        language: system
+        entry: sh -c "printf '%s\n' $@ | xargs -I {} -t visudo -c -f {}"
+        files: misc/etc/sudoer.d/*
+      - id: goss
+        name: check dotfiles with goss
+        language: system
+        entry: direnv exec . goss validate
+        pass_filenames: false
+      - id: goss-privileged
+        name: check dotfiles with goss in privileged user
+        language: system
+        entry: direnv exec . sudo goss -g ./goss_privileged.yaml validate
+        pass_filenames: false
+      - id: fishtape
+        name: test fish functions
+        language: system
+        entry: fishtape
+        args: [src/.config/fish/tests/functions/*]
+        files: .config/fish/{usr,tests}/functions/*.fish$
+        pass_filenames: false
+      - id: commitlint
+        name: check commit message with commitlint
+        language: node
+        minimum_pre_commit_version: 0.7.0
+        additional_dependencies:
+          - "@commitlint/cli@15.0.0"
+          - "@commitlint/config-conventional@15.0.0"
+        stages: [commit-msg]
+        entry: commitlint --edit

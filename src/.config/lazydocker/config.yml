@@ -1,0 +1,5 @@
+---
+gui:
+  showBottomLine: false
+commandTemplates:
+  dockerCompose: docker compose

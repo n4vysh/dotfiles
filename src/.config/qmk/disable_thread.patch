@@ -1,0 +1,29 @@
+diff --git a/keyboards/moonlander/moonlander.c b/keyboards/moonlander/moonlander.c
+index 39f61b5c4..af45da79a 100644
+--- a/keyboards/moonlander/moonlander.c
++++ b/keyboards/moonlander/moonlander.c
+@@ -131,6 +131,7 @@ void moonlander_led_task(void) {
+ #endif
+ }
+ 
++/*
+ static THD_WORKING_AREA(waLEDThread, 128);
+ static THD_FUNCTION(LEDThread, arg) {
+     (void)arg;
+@@ -139,6 +140,7 @@ static THD_FUNCTION(LEDThread, arg) {
+         moonlander_led_task();
+     }
+ }
++*/
+ 
+ void keyboard_pre_init_kb(void) {
+     setPinOutput(B5);
+@@ -149,7 +151,7 @@ void keyboard_pre_init_kb(void) {
+     writePinLow(B4);
+     writePinLow(B3);
+ 
+-    chThdCreateStatic(waLEDThread, sizeof(waLEDThread), NORMALPRIO - 16, LEDThread, NULL);
++    // chThdCreateStatic(waLEDThread, sizeof(waLEDThread), NORMALPRIO - 16, LEDThread, NULL);
+ 
+     /* the array is initialized to 0, no need to re-set it here */
+     // mcp23018_leds[0] = 0;  // blue

@@ -1,0 +1,3 @@
+aur/protonmail-bridge
+community/mailnag
+extra/thunderbird

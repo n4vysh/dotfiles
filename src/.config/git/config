@@ -1,0 +1,63 @@
+[core]
+	editor = nvim
+	pager = delta
+	quotepath = false
+
+[pager]
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
+
+[diff]
+	colorMoved = default
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	side-by-side = true
+	features = line-numbers decorations
+	whitespace-error-style = 22 reverse
+	syntax-theme = ansi
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+
+[tag]
+	forceSignAnnotated = true
+
+[pull]
+	rebase = true
+
+[push]
+	default = current
+
+[rebase]
+	autostash = true
+	abbreviateCommands = true
+	autosquash = true
+
+[fetch]
+	prune = true
+
+[init]
+	defaultBranch = main
+	templateDir = ~/.config/git/templates/
+
+[commit]
+	gpgsign = true
+
+[ghq]
+	root = ~/Workspaces/
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[diff "sopsdiffer"]
+	textconv = sops -d
+
+[include]
+	path = ~/.config/git/config.local

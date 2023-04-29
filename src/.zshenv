@@ -1,0 +1,128 @@
+# XDG
+export XDG_CONFIG_HOME=~/.config
+export XDG_CACHE_HOME=~/.cache
+export XDG_DATA_HOME=~/.local/share
+export XDG_STATE_HOME=~/.local/state
+
+# base
+export PAGER=less
+export EDITOR=nvim
+export BROWSER=firefox
+export DIFFPROG='nvim -d'
+export QT_STYLE_OVERRIDE=Adwaita-Dark
+if type vivid >/dev/null 2>&1; then
+	export LS_COLORS="$(vivid generate one-dark)"
+fi
+if [[ -n $DISPLAY ]]; then
+	eval $(gnome-keyring-daemon --start 2>/dev/null)
+	export SSH_AUTH_SOCK
+fi
+if type tty gpg-connect-agent >/dev/null 2>&1; then
+	export GPG_TTY=$(tty)
+	gpg-connect-agent updatestartuptty /bye >/dev/null
+fi
+
+# tmux
+export TMUX_PLUGIN_MANAGER_PATH="${XDG_DATA_HOME}/tmux/plugins"
+
+# path
+typeset -U path PATH
+path=($HOME/.local/bin(N-/) $path)
+path=($path $HOME/.gem/ruby/*/bin(N-/))
+path=($path $XDG_DATA_HOME/npm/bin(N-/))
+path=($path $XDG_DATA_HOME/yarn/global/node_modules/.bin(N-/))
+path=($path $HOME/.krew/bin(N-/))
+
+# Programming
+export GOPATH="$HOME/.local"
+
+# Less
+export LESS='-ciMR'
+export LESS_TERMCAP_mb=$'\e[1;31m'
+export LESS_TERMCAP_md=$'\e[1;38;05;75m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[1;44m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;36m'
+export LESS_CACHE_HOME="$XDG_CACHE_HOME/less"
+export LESSHISTFILE="$LESS_CACHE_HOME/history"
+
+# fzf
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
+export FZF_DEFAULT_OPTS="
+	--ansi
+	--exit-0
+	--extended
+	--cycle
+	--multi
+	--height 40%
+	--reverse
+	--prompt='▶ '
+	--color hl:27,bg+:21,hl+:75
+	--color info:69,prompt:75,spinner:69,pointer:69,marker:69
+	--bind ctrl-j:jump-accept
+"
+
+# nnn
+export LC_COLLATE=C
+export NNN_OPTS=aAcdeUx
+export NNN_NO_AUTOSELECT=1
+export NNN_TRASH=1
+export NNN_PLUG=$(
+	cat <<-'EOS' | tr -d '\n'
+		c:!nnn-fzf-cd*;
+		C:!tokei --hidden | less*;
+		d:!nnn-diff*;
+		D:-!vd $nnn*;
+		e:-!$EDITOR*;
+		f:fzopen;
+		h:!nnn-home*;
+		l:!lazygit --filter $PWD/$nnn*;
+		n:bulknew;
+		p:-!$PAGER $nnn*;
+		P:preview-tui;
+		r:gitroot;
+		R:renamer;
+		s:!$SHELL -l*;
+		t:!unbuffer tree | less*;
+		T:!trash-restore*;
+		u:-!dust -r | less*;
+		v:!lazygit*;
+		y:!echo -n "$nnn" | wl-copy*;
+		z:autojump
+	EOS
+)
+export GUI=1
+export NNN_OPENER=nuke
+export NNN_ARCHIVE=$(
+	cat <<-'EOS' | tr -d '\n'
+		\.(
+			7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|
+			rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip
+		)$
+	EOS
+)
+
+# bemenu
+export BEMENU_OPTS="
+	--tb '#0018a8'
+	--tf '#f5f5f5'
+	--hb '#0018a8'
+	--hf '#f5f5f5'
+	--fn 'NotoSansMonoCJKJP 13.5'
+"
+
+# aws-vault
+export AWS_VAULT_BACKEND=pass
+export AWS_VAULT_PASS_CMD=gopass
+export AWS_VAULT_PASS_PREFIX=aws-vault
+
+# john
+# https://github.com/open-mpi/hwloc/issues/354
+export HWLOC_HIDE_ERRORS=2
+# https://github.com/openwall/john/issues/4765
+export OMPI_MCA_opal_warn_on_missing_libcuda=0
+
+# local
+[[ -f ~/.zshenv.local ]] && source ~/.zshenv.local

@@ -1,0 +1,51 @@
+format = """
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$aws\
+$cmd_duration\
+$kubernetes\
+$line_break\
+$character"""
+
+[character]
+success_symbol = "[\u25b6\u25b6\u25b6](fg:#4289ff)"
+error_symbol = "[\u25b6\u25b6\u25b6](fg:#f7768e)"
+vimcmd_symbol = "[\u25b6\u25b6\u25b6](fg:#7aa2f7)"
+vimcmd_replace_one_symbol = "[\u25b6\u25b6\u25b6](fg:#9d7cd8)"
+vimcmd_replace_symbol = "[\u25b6\u25b6\u25b6](fg:#ff9e64)"
+vimcmd_visual_symbol = "[\u25b6\u25b6\u25b6](fg:#7dcfff)"
+
+[directory]
+truncation_length = 1
+fish_style_pwd_dir_length = 1
+style = "#767676"
+
+[git_status]
+format = "([$all_status$ahead_behind]($style) )"
+style = "#00afff"
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+stashed = "\u2691"
+deleted = "\u00D7"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+style = "#767676"
+
+[cmd_duration]
+format = "[$duration](bold fg:#00afff)"
+
+[aws]
+format = "[$symbol](#ff9e64) [$profile]($style) "
+style = "#767676"
+symbol = ""
+
+[kubernetes]
+format = "\n[$symbol](#7aa2f7) [[$context](bold fg:#00afff)[:](#7aa2f7)$namespace]($style) "
+disabled = false
+style = "#767676"
+symbol = "⎈"

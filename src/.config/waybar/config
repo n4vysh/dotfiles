@@ -1,0 +1,103 @@
+{
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode"
+  ],
+  "modules-right": [
+    "custom/check-rootkit",
+    "custom/pkg-audit",
+    "custom/im-info",
+    "custom/vpn",
+    "bluetooth",
+    "pulseaudio",
+    "network",
+    "battery",
+    "clock"
+  ],
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "disable-click": true,
+    "disable-markup": true
+  },
+  "custom/check-rootkit": {
+    "format": "<span font='11'> {} </span>",
+    "exec": "~/.config/waybar/lib/check-rootkit.bash",
+    "interval": 60,
+    "tooltip": false
+  },
+  "custom/pkg-audit": {
+    "format": "<span font='11'> {} </span>",
+    "exec": "~/.config/waybar/lib/pkg-audit.bash",
+    "interval": 86400,
+    "tooltip": false
+  },
+  "custom/im-info": {
+    "format": "<span font='12'> {} </span>",
+    "exec": "~/.config/waybar/lib/im-info.bash",
+    "interval": 1,
+    "tooltip": false
+  },
+  "custom/vpn": {
+    "format": "<span font='11'> {icon} </span>",
+    "format-icons": {
+      "connected": "",
+      "disconnected": ""
+    },
+    "return-type": "json",
+    "exec": "~/.config/waybar/lib/vpn.bash",
+    "interval": 1,
+    "tooltip": false
+  },
+  "bluetooth": {
+    "format": "<span font='11'>  </span>",
+    "format-off": "<span font='11'>  </span>",
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "<span font='11'>{icon}</span>",
+    "format-muted": "<span font='11'>婢</span>",
+    "format-icons": {
+      "headphone": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "tooltip": false
+  },
+  "network": {
+    "format": "{icon}",
+    "format-icons": {
+      "wifi": [
+        ""
+      ],
+      "ethernet": [
+        ""
+      ],
+      "disconnected": [
+        "睊"
+      ]
+    },
+    "tooltip": false
+  },
+  "battery": {
+    "format": "{icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "format-charging": "",
+    "states": {
+      "warning": 25,
+      "critical": 10
+    },
+    "tooltip": false
+  },
+  "clock": {
+    "format": "{:%a, %d. %b  %H:%M}",
+    "tooltip": false
+  }
+}

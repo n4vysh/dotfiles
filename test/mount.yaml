@@ -1,0 +1,27 @@
+---
+mount:
+  /:
+    exists: true
+    # NOTE: Check for mount options doesn't work
+    # https://github.com/aelsabbahy/goss/issues/443
+    opts:
+      - rw
+      - relatime
+    source: /dev/mapper/volume-root
+    filesystem: btrfs
+  /boot:
+    exists: true
+    opts:
+      - rw
+      - relatime
+    source: /dev/nvme0n1p1
+    filesystem: vfat
+  /home:
+    exists: true
+    # NOTE: Check for mount options doesn't work
+    # https://github.com/aelsabbahy/goss/issues/443
+    opts:
+      - rw
+      - relatime
+    source: /dev/mapper/volume-home
+    filesystem: btrfs

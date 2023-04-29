@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# HACK: does not exists ssh key in container, so use always https
+git config --global --unset url."git@github.com:".insteadOf
+
+if [[ $1 == clone ]] &&
+  [[ $2 == https://github.com/n4vysh/dotfiles ]] &&
+  [[ $3 == $XDG_DATA_HOME/dotfiles/ ]]; then
+  mkdir -p "$XDG_DATA_HOME/"
+  cp -r /tmp/dotfiles/ "$XDG_DATA_HOME/"
+else
+  /usr/bin/git "$@"
+fi

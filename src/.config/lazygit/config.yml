@@ -1,0 +1,57 @@
+---
+gui:
+  showIcons: true
+  showCommandLog: false
+  showBottomLine: false
+git:
+  paging:
+    colorArg: always
+    pager: delta --paging=never
+  # delta not support `git log --graph`
+  # https://github.com/jesseduffield/lazygit/blob/v0.28.2/docs/Config.md#default
+  # https://github.com/dandavison/delta/issues/141
+  branchLogCmd: "git log --abbrev-commit --pretty=medium {{branchName}} --"
+  allBranchesLogCmd: "git log --all --abbrev-commit --pretty=medium"
+disableStartupPopups: false
+customCommands:
+  - key: "c"
+    command: "git cz"
+    context: "files"
+    loadingText: "opening commitizen commit tool"
+    subprocess: true
+  - key: "c"
+    prompts:
+      - type: "input"
+        title: "What is the new repository URL?"
+        initialValue: ""
+    command: "ghq get {{index .PromptResponses 0}}"
+    context: "status"
+    loadingText: "cloning repository"
+    subprocess: true
+  - key: "o"
+    command: "git open"
+    context: "status"
+    loadingText: "opening browser"
+    subprocess: false
+  - key: "f"
+    command: "nnn"
+    context: "status"
+    loadingText: "opening file manager"
+    subprocess: true
+  - key: "<c-f>"
+    command: "nnn {{.SelectedFile.Name}}"
+    context: "files"
+    loadingText: "opening file manager"
+    subprocess: true
+  # https://github.com/jesseduffield/lazygit/issues/1807
+  - key: "<c-t>"
+    command: "git revert --continue"
+    context: "commits"
+    loadingText: "continue the revert operation in progress"
+    subprocess: true
+  # https://github.com/jesseduffield/lazygit/issues/2028
+  - key: "<c-m>"
+    command: "git merge --squash {{.SelectedLocalBranch.Name}}"
+    context: "localBranches"
+    loadingText: "merge squash"
+    subprocess: true

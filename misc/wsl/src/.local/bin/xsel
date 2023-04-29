@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# HACK: emulate `xsel -bi` with win32yank for lazygit
+#       copy command of lazygit does not support WSL
+# https://github.com/jesseduffield/lazygit/blob/v0.35.0/pkg/commands/oscommands/os.go
+# https://github.com/atotto/clipboard/issues/45
+win32yank.exe -i

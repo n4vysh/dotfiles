@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# shellcheck disable=SC2016
+powershell.exe -c '& "$env:USERPROFILE\scoop\apps\mpv\current\mpv.com"' "$@"

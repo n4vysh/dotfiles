@@ -1,0 +1,60 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[justfile]
+indent_size = 4
+
+[*/.config/git/config]
+indent_style = tab
+
+[{**/,}.gitmodules]
+indent_style = tab
+
+[{**/,}.envrc]
+indent_style = tab
+
+[**/.local/bin/*]
+indent_style = unset
+
+[**/*.bash]
+indent_style = tab
+
+[**/*.z*]
+indent_style = tab
+
+[**/*.tmux]
+indent_style = tab
+
+[**/*.lua]
+indent_style = tab
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*/.config/nvim/lazy-lock.json]
+insert_final_newline = false
+
+[misc/wsl/misc/remap.skl]
+insert_final_newline = false
+
+[misc/firefox/ublock.txt]
+insert_final_newline = false
+
+[misc/firefox/foxy_proxy.json]
+insert_final_newline = false
+
+[misc/firefox/search.json.mozlz4]
+end_of_line = unset
+indent_style = unset
+insert_final_newline = false
+trim_trailing_whitespace = false
+
+[misc/firefox/twp.txt]
+insert_final_newline = false

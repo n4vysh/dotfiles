@@ -1,0 +1,62 @@
+---
+service:
+  systemd-networkd.service:
+    enabled: true
+    running: true
+  systemd-resolved.service:
+    enabled: true
+    running: true
+  iwd.service:
+    enabled: true
+    running: true
+  systemd-homed.service:
+    enabled: true
+    running: true
+  pkgfile-update.timer:
+    enabled: true
+    running: true
+  ufw.service:
+    enabled: true
+    running: true
+  irqbalance.service:
+    enabled: true
+    running: true
+  systemd-oomd.service:
+    enabled: true
+    running: true
+  fstrim.timer:
+    enabled: true
+    running: true
+  udevmon.service:
+    enabled: true
+    running: true
+  bluetooth.service:
+    enabled: true
+    running: true
+  pcscd.service:
+    enabled: true
+    running:
+      or:
+        - true
+        - false
+  docker.service:
+    enabled: true
+    running: true
+  systemd-timesyncd.service:
+    enabled: true
+    running: true
+  nordvpnd.service:
+    enabled: true
+    running: true
+  atd.service:
+    enabled: true
+    running: true
+  containerd.service:
+    enabled: true
+    running: true
+  postgresql.service:
+    enabled: true
+    running: true
+  nessusd.service:
+    enabled: true
+    running: true

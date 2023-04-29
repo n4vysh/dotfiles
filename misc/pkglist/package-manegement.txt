@@ -1,0 +1,6 @@
+aur/downgrade
+aur/informant
+aur/topgrade-bin
+community/ccache
+core/zstd
+extra/pkgfile

@@ -1,0 +1,8 @@
+# yamllint disable-file
+---
+command:
+{{range .Vars.commands}}
+  {{.}}:
+    exit-status: 0
+    exec: "type {{.}}"
+{{end}}

@@ -1,0 +1,10 @@
+aur/ttf-ubraille
+community/adwaita-qt5
+community/adwaita-qt6
+community/arc-gtk-theme
+community/ttf-fira-code
+community/ttf-nerd-fonts-symbols-2048-em-mono
+extra/gtk2
+extra/noto-fonts
+extra/noto-fonts-cjk
+extra/noto-fonts-emoji

@@ -1,0 +1,5 @@
+[submodule "src/.config/qmk/firmware"]
+	path = src/.config/qmk/firmware
+	url = git@github.com:qmk/qmk_firmware.git
+	shallow = true
+	ignore = dirty

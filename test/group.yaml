@@ -1,0 +1,18 @@
+---
+group:
+  lock:
+    exists: true
+  docker:
+    exists: true
+  uucp:
+    exists: true
+  storage:
+    exists: true
+  lp:
+    exists: true
+  wheel:
+    exists: true
+  nordvpn:
+    exists: true
+  wireshark:
+    exists: true

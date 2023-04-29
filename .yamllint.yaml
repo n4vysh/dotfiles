@@ -1,0 +1,9 @@
+---
+extends: default
+rules:
+  comments:
+    min-spaces-from-content: 1
+ignore: |
+  test/templates/*.yaml
+  misc/pentest-lab/charts/*/templates/*.yaml
+  misc/pentest-lab/charts/*/templates/tests/*.yaml

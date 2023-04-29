@@ -1,0 +1,6 @@
+community/fcitx5
+community/fcitx5-configtool
+community/fcitx5-gtk
+community/fcitx5-mozc
+community/fcitx5-nord
+community/fcitx5-qt

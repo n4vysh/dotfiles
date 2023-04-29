@@ -1,0 +1,3 @@
+community/udiskie
+extra/polkit
+extra/udisks2

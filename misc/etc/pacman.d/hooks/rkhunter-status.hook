@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = rkhunter.service status check
+When = PreTransaction
+Exec = /usr/bin/sh -c "! /usr/bin/systemctl is-failed rkhunter.service"
+Depends = rkhunter
+AbortOnFail = yes

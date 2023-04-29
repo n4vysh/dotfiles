@@ -1,0 +1,58 @@
+root_dir := justfile_directory()
+keyboard := "moonlander"
+keymap := "custom"
+origin_dir := root_dir + "/firmware/keyboards/" + keyboard + "/keymaps/" + keymap
+
+flash:
+    qmk flash
+
+_stow *opts:
+    stow {{ opts }} -v -d {{ root_dir }}/keymap/ -t {{ origin_dir }} .
+
+link: _stow
+
+unlink: (_stow "-D")
+
+dry-run-link: (_stow "-n")
+
+dry-run-unlink: (_stow "-n" "-D")
+
+init: init-submodule create-dummy-file link patch setup
+
+init-submodule:
+    git submodule update --init --recursive firmware/
+
+update-submodule: reverse
+    git submodule update --remote --recursive firmware/
+    make -C firmware git-submodule
+
+create-dummy-file:
+    mkdir -p {{ origin_dir }}
+    touch {{ origin_dir }}/readme.md # resolve lint error
+
+patch:
+    patch -p 1 -d {{ root_dir }}/firmware/ < {{ root_dir }}/disable_thread.patch
+
+reverse:
+    patch -p 1 -d {{ root_dir }}/firmware/ < {{ root_dir }}/disable_thread.patch -R
+
+setup:
+    qmk setup
+
+compile:
+    qmk compile
+
+lint:
+    qmk lint --strict
+
+doctor:
+    qmk doctor
+
+info:
+    qmk info
+
+clean:
+    qmk clean
+
+fmt:
+    qmk format-c {{ root_dir }}/keymap/{config.h,keymap.c}

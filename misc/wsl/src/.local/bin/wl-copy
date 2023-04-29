@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# HACK: emulate `xsel -bi` with win32yank for nnn yank plugin
+win32yank.exe -i

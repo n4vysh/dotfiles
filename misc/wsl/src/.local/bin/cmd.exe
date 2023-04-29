@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# for markdown-preview.nvim
+/mnt/c/Windows/System32/cmd.exe "$@"

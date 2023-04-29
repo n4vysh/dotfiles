@@ -1,0 +1,11 @@
+{
+  "diagnostics": {
+    "globals": ["vim"]
+  },
+  "format": {
+    "enable": false
+  },
+  "workspace": {
+    "ignoreDir": ["*", "!src/.config/nvim/"]
+  }
+}

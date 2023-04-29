@@ -1,0 +1,9 @@
+#!/bin/bash
+
+dir=$(
+  cd "$(dirname "$0")" || exit
+  git rev-parse --show-toplevel
+)
+
+"$dir/test/scripts/output-vars.bash" >"$dir/goss-vars.yaml"
+command -p goss "$@"

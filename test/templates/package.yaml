@@ -1,0 +1,7 @@
+# yamllint disable-file
+---
+package:
+{{range .Vars.packages}}
+  {{.}}:
+    installed: true
+{{end}}

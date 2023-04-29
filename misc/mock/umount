@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ $1 == -R ]] && [[ $2 == /mnt ]]; then
+  true
+else
+  /usr/bin/unmount "$@"
+fi

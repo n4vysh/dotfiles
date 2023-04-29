@@ -1,0 +1,1 @@
+rd.luks.name={UUID}=cryptlvm rd.luks.options={UUID}=fido2-device=auto root=/dev/volume/root quiet rw loglevel=3 rd.systemd.show_status=false rd.udev.log-priority=3

@@ -1,0 +1,11 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = *
+
+[Action]
+Description = rkhunter --propupd
+When = PostTransaction
+# NOTE: use /dev/null to ignore grep warning
+Exec = /usr/bin/sh -c '/usr/bin/rkhunter --propupd 2>/dev/null'
+Depends = rkhunter

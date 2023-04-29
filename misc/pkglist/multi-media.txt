@@ -1,0 +1,16 @@
+community/imv
+community/mpv
+community/mpv-mpris
+community/ncspot
+community/pamixer
+community/playerctl
+community/spotify-launcher
+community/yt-dlp
+community/zathura
+community/zathura-pdf-mupdf
+extra/pipewire
+extra/pipewire-alsa
+extra/pipewire-jack
+extra/pipewire-pulse
+extra/sound-theme-freedesktop
+extra/wireplumber

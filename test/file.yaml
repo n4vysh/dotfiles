@@ -1,0 +1,214 @@
+---
+file:
+  /etc/xdg/reflector/reflector.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    contains:
+      - "/^--latest 30$/"
+      - "/^# Sort the mirrors by download rate \\(--sort\\).$/"
+      - "/^--sort rate$/"
+      - "/^# Print extra information$/"
+      - "/^--verbose$/"
+  /etc/localtime:
+    exists: true
+    mode: "0777"
+    owner: root
+    group: root
+    filetype: symlink
+    linked-to: /usr/share/zoneinfo/Asia/Tokyo
+  /etc/locale.gen:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    contains: ["/^en_US.UTF-8 UTF-8  $/"]
+  /etc/locale.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 20b9888adda3aaace774d4268c01d2f6e91244ad8ba0c0a1d7718d67bc501e65fa16b14c9dab6892b2b7be422c490beb7dd1f9617cba6a127c545fae7a496735
+  /etc/vconsole.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 5f27d33bab5513b42eed01c1bbb92c1d4d096a23ffab97a79ef5418c14c492f3ac42ab145590cc2bba7f78a6005db3aa9b7c4a01b4b360ae77e08be9d6c0d68b
+  /etc/mkinitcpio.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable rule:line-length
+    contains:
+      [
+        "/^HOOKS=\\(base systemd autodetect keyboard sd-vconsole modconf block sd-encrypt lvm2 filesystems\\)$/",
+      ]
+      # yamllint enable rule:line-length
+  /etc/kernel/cmdline:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable rule:line-length
+    contains:
+      [
+        "/^rd.luks.name=.*=cryptlvm rd.luks.options=.*=fido2-device=auto root=/dev/volume/root quiet rw loglevel=3 rd.systemd.show_status=false rd.udev.log-priority=3$/",
+      ]
+      # yamllint enable rule:line-length
+
+  /etc/resolv.conf:
+    exists: true
+    mode: "0777"
+    owner: root
+    group: root
+    filetype: symlink
+    linked-to: /run/systemd/resolve/stub-resolv.conf
+  /etc/pacman.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    contains:
+      - "/^Color$/"
+      - "/^VerbosePkgLists$/"
+      - "/^ParallelDownloads = 20$/"
+  /etc/makepkg.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    contains:
+      - '/^MAKEFLAGS="-j.*"/'
+  /etc/iwd/main.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 4f952c7d2ef4eb95b02513f14d82680c9f8ecc450a67cf2d57ce4337b1e71f9c8fd706ea491a589faefaf9e792bf6b727fc48da59eabf0ecdbbba761b80e0733
+  /etc/systemd/network/20-wired.network:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: aaae6782b28037ca2b27ecdd53a65a6975256bcc2e1656b5e9b86f4627550634686403f19af86e02d5b5a91772a7b2ddc79396e5b88a7cf0e9387d785c0accf5
+  /etc/systemd/network/25-wireless.network:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: eeedfa41d8a42b1b4b0195b5828fb2d7df3c46830e464c21253d0cf1ead65f1aeafac2b69e8dcced8e34f8728d06da93594fd479ba6dccb60792794e13ff0bef
+  /etc/systemd/resolved.conf.d/dns_servers.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 5d8fbbe22951ee9cdb56fbb09cdbf67cb408556361c56d5f4a501eb8e1b27cb63e7d987458b7b7ed48c5203a6f85db591300a91a72b54e094678ec5af606897f
+  /etc/systemd/system/systemd-fsck-root.service.d/io.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 8195883dcf29ebd9c121654404277741f426a69f90a3468ee4ca99cabf74b81ec21fbf4bc3798ab8530bbd56754033b17675050d7e985aff014f76e2c916c263
+  /etc/systemd/system/systemd-fsck@.service.d/io.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 8195883dcf29ebd9c121654404277741f426a69f90a3468ee4ca99cabf74b81ec21fbf4bc3798ab8530bbd56754033b17675050d7e985aff014f76e2c916c263
+  /etc/interception/dual-function-keys/xcape.yaml:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 42364defea0492f49b7d7a84dc7c9530b92386ed0f58d6418eeafe7defc78f465517e4b67a30699669090c0cedb91eda7d7f5e417fcb38277f8951658f917108
+  /etc/interception/udevmon.yaml:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 797d1c9efa0b2d711e7d23d931d0b392b85dcd2b6e44a0413efe67404b7abe3fbab61456f648fc4e5abbf933c9093e130a3e073c7c8b28720166efa4c4da215b
+  /etc/docker/daemon.json:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 9d8a9281c0b7727dde7d33fc40b17f812ef834748a8566c73b074c765943d4bd7c039fd2373026789e7ef7ab4108db8e45fe5c1674c329a546b2fd66ab6a2682
+  /etc/systemd/zram-generator.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: afc4edc8a9c42ab38632a743525b874d1687af1ea8e6b9c6dfea3e3c0238a8ef34f07cca1f9b53929e612d8e1b01c50715892de4a1015fa8c7450ab050858328
+  /etc/udev/rules.d/99-lowbat.rules:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 434364a62e93852603267a596b6e2ce9df8d273baf909f2266fb7f570ffcda21cc0ae6d2738e0e973760df2b9a1ca43118abe955079b75aa1a16491b3b193520
+  /etc/pacman.d/hooks/rkhunter-status.hook:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 611a71396905a525dd9b75b3985f72591cb475ac3388a5113f02862bc4cf0ffa8ae0a179dc10783e0ba9e2bcee4a94daf9472532f8fba545a919212f3dbe033a
+  /etc/pacman.d/hooks/rkhunter-propupd.hook:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 7f5f02aff3a9b76d4902eb2d5887a113fdc5d3c14bbcc4e589ab1b30b49de8aa031b60cb2f2b2885ce36e9d96d0bc0d7d0822648b3e7987995bccb54cf5ced5e
+  /etc/systemd/system/rkhunter.service:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 9b567be68cb56fc09b6dc8cbac2f89e7ad0d2295b4757f818ff763e0be2453c784f31b6f1a72d72ea7ef187aaca1301d6525dd50ec2c7f90e1049be07c87f961
+  /etc/systemd/system/rkhunter.timer:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 9fc9db894e25b2c6eb14d3bb268823449c80b0f469b1a511d8adfe9fbad23f070759fc33fa9280463d3569710b0122036c2bf58b836258778f7b7de2c42c6e89

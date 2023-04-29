@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ $1 == /mnt ]]; then
+  cd /mnt/ || exit
+  "${@:2}"
+else
+  /usr/bin/arch-chroot "$@"
+fi

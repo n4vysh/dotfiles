@@ -1,0 +1,37 @@
+unbind x
+bind x tabclose
+bind X undo tab
+colorscheme dark
+
+unbind d
+unbind u
+unbind <C-d>
+unbind <C-u>
+bind d scrollpage 0.5
+bind u scrollpage -0.5
+
+unbind J
+unbind K
+unbind b
+bind [b tabprev
+bind ]b tabnext
+
+unbind H
+unbind L
+bind <C-o> back
+bind <C-i> forward
+
+unbind F
+bind gf hint -b
+
+unbind <C-f>
+
+bind --mode=normal i mode ignore
+bind --mode=ignore <Esc> mode normal
+
+set allowautofocus false
+set smoothscroll true
+set modeindicator false
+
+seturl ^https://.*\.tryhackme\.tech superignore true
+seturl ^https://vnc\.htb-cloud\.com superignore true

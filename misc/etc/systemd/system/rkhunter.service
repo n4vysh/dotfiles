@@ -1,0 +1,10 @@
+[Unit]
+Description=Scan rootkit
+Documentation=man:rkhunter
+
+[Service]
+Type=oneshot
+# NOTE: use /dev/null to ignore grep warning
+ExecStartPre=/usr/bin/sh -c '/usr/bin/rkhunter --update --report-warnings-only 2>/dev/null'
+ExecStart=/usr/bin/sh -c '/usr/bin/rkhunter --cronjob --report-warnings-only 2>/dev/null'
+ExecStartPost=/usr/bin/sh -c '/usr/bin/rkhunter --propupd --report-warnings-only 2>/dev/null'
