@@ -121,6 +121,7 @@ if status --is-interactive
     __fish_abbr_add_extend ip ip -c
     __fish_abbr_add_extend j just
     __fish_abbr_add_extend jh john
+    __fish_abbr_add_extend jnc journalctl
     __fish_abbr_add_extend k kubie
     __fish_abbr_add_extend kc kubectl
     __fish_abbr_add_extend kl kube-linter
