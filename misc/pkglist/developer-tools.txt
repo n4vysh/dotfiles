@@ -60,6 +60,7 @@ community/fd
 community/fish
 community/fx
 community/fzf
+community/git-crypt
 community/git-delta
 community/github-cli
 community/glab

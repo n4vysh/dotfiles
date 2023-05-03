@@ -90,6 +90,7 @@ packages:
   - fzf
   - gammastep
   - ghq-bin
+  - git-crypt
   - git-delta
   - git-open
   - github-cli
