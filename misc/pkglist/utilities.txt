@@ -48,6 +48,7 @@ extra/gptfdisk
 extra/imagemagick
 extra/irqbalance
 extra/libreoffice-fresh
+extra/p7zip
 extra/poppler
 extra/unrar
 extra/unzip

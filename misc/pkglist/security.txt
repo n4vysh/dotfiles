@@ -21,6 +21,7 @@ blackarch/neo4j-community
 blackarch/nikto
 blackarch/payloadsallthethings
 blackarch/peass
+blackarch/peepdf
 blackarch/perl-image-exiftool
 blackarch/recon-ng
 blackarch/seclists
@@ -34,6 +35,7 @@ blackarch/steghide
 blackarch/stegseek
 blackarch/sublist3r
 blackarch/theharvester
+blackarch/vipermonkey
 blackarch/webshells
 blackarch/wordlistctl
 blackarch/wpscan

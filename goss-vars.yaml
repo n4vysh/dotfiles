@@ -197,6 +197,7 @@ packages:
   - openssh
   - openvpn
   - oxipng
+  - p7zip
   - pack-cli-bin
   - pacman-contrib
   - pamixer
@@ -206,6 +207,7 @@ packages:
   - pbzip2
   - pcsc-tools
   - peass
+  - peepdf
   - percona-server-clients
   - perl-image-exiftool
   - pet-bin
@@ -310,6 +312,7 @@ packages:
   - vercel
   - viddy
   - vint
+  - vipermonkey
   - visidata
   - vivid
   - watchexec
