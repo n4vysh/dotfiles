@@ -375,8 +375,8 @@ files:
   - .zprofile
   - .zshenv
   - .bashrc
-  - .tool-versions
   - .msf4
+  - .tool-versions
 xdg_config_files:
   - .config/bat
   - .config/direnv

@@ -28,6 +28,7 @@ kubectl system
 kubectx system
 kubeval system
 kubie system
+lazydocker system
 lefthook system
 nodejs system
 pre-commit system
