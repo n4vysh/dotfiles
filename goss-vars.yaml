@@ -89,6 +89,7 @@ packages:
   - fx
   - fzf
   - gammastep
+  - ghidra
   - ghq-bin
   - git-crypt
   - git-delta
@@ -364,6 +365,7 @@ commands:
   - sysinfo
   - nnn-home
   - zoom
+  - ghidra
 files:
   - .atoolrc
   - .hushlogin
@@ -434,4 +436,5 @@ xdg_local_files:
   - .local/bin/sysinfo
   - .local/bin/nnn-home
   - .local/bin/zoom
+  - .local/bin/ghidra
   - .local/src/dotfiles
