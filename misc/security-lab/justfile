@@ -1,4 +1,4 @@
-name := "pentest-lab"
+name := "security-lab"
 kubeconfig := env_var('HOME') + "/.kube/configs/" + name + "/config.yaml"
 
 # Create kubernetes cluster

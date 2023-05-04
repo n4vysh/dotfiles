@@ -3,7 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.name }}
-  namespace: pentest-machine
   {{- with .Values.labels }}
   labels:
     {{- toYaml . | nindent 4 }}

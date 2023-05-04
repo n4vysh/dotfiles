@@ -5,23 +5,30 @@ deploy:
   helm:
     releases:
       - name: kalilinux
-        chartPath: ./charts/pentest-machine/
+        chartPath: ./charts/machine/
         namespace: pentest-machine
         createNamespace: true
       - name: parrot
-        chartPath: ./charts/pentest-machine/
+        chartPath: ./charts/machine/
         namespace: pentest-machine
         createNamespace: true
         setValues:
           name: parrot
           image.repository: parrotsec/security
       - name: blackarch
-        chartPath: ./charts/pentest-machine/
+        chartPath: ./charts/machine/
         namespace: pentest-machine
         createNamespace: true
         setValues:
           name: blackarch
           image.repository: blackarchlinux/blackarch
+      - name: remnux
+        chartPath: ./charts/machine/
+        namespace: analysis-machine
+        createNamespace: true
+        setValues:
+          name: remnux
+          image.repository: remnux/remnux-distro
       - name: juice-shop
         repo: https://charts.securecodebox.io
         remoteChart: juice-shop

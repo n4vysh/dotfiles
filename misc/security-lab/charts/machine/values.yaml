@@ -6,5 +6,5 @@ image:
 
 labels:
   app.kubernetes.io/version: 2.1.2
-  app.kubernetes.io/component: pentest-machine
+  app.kubernetes.io/component: machine
   app.kubernetes.io/managed-by: helm

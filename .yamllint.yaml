@@ -5,5 +5,5 @@ rules:
     min-spaces-from-content: 1
 ignore: |
   test/templates/*.yaml
-  misc/pentest-lab/charts/*/templates/*.yaml
-  misc/pentest-lab/charts/*/templates/tests/*.yaml
+  misc/security-lab/charts/*/templates/*.yaml
+  misc/security-lab/charts/*/templates/tests/*.yaml

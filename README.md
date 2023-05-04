@@ -80,7 +80,7 @@ No window                   | Lockscreen
   - Mouse keys (Keyboards Powered by QMK)
 - Test bootstrap script with
   [Docker][docker-link] and [goss][goss-link]
-- [Virtual pentest lab](./misc/pentest-lab/) with [Kubernetes][kubernetes-link]
+- [Cybersecurity training lab](#cybersecurity-training-lab) with [Kubernetes][kubernetes-link]
 
 [rolling-release-link]: https://en.wikipedia.org/wiki/Rolling_release
 [zen-kernel-link]: https://github.com/zen-kernel/zen-kernel
@@ -471,7 +471,7 @@ If rkhunter or arch-audit found some problem, show following.
 
 ![pet](./misc/screenshots/pet.png)
 
-### Virtual pentest lab
+### Cybersecurity training lab
 
 Create local Kubernetes cluster with [kind][kind-link].
 Change kubernetes context with [Kubie][kubie-link].
@@ -483,11 +483,29 @@ Check kubernetes resources and port forward with [k9s][k9s-link].
 
 ![pentest lab 2](./misc/screenshots/pentest_lab_2.png)
 
+Available following linux distributions and vulnerable web applications.
+
+- linux distributions
+  - [Kali Linux][kalilinux-link]
+  - [ParrotOS][parrotos-link]
+  - [BlackArch][blackarch-link]
+  - [REMnux][remnux-link]
+- vulnerable web applications
+  - [OWASP Juice Shop][juice-shop-link]
+  - [OWASP WebGoat][webgoat-link]
+  - [Damn Vulnerable GraphQL Application][dvga-link]
+
 [kind-link]: https://kind.sigs.k8s.io
 [kubie-link]: https://github.com/sbstp/kubie
 [helm-link]: https://helm.sh/
 [skaffold-link]: https://skaffold.dev/
 [k9s-link]: https://k9scli.io/
+[kalilinux-link]: https://www.kali.org/
+[parrotos-link]: https://www.parrotsec.org/
+[remnux-link]: https://remnux.org/
+[juice-shop-link]: https://owasp.org/www-project-juice-shop/#
+[webgoat-link]: https://owasp.org/www-project-webgoat/
+[dvga-link]: https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
 
 ## Tips
 
