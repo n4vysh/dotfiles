@@ -1,4 +1,5 @@
 aur/nessus
+aur/python-pydash
 blackarch/bloodhound
 blackarch/burpsuite
 blackarch/cmseek
@@ -16,6 +17,7 @@ blackarch/john
 blackarch/kerbrute
 blackarch/linenum
 blackarch/linux-smart-enumeration
+blackarch/maigret
 blackarch/metasploit
 blackarch/neo4j-community
 blackarch/nikto
@@ -23,6 +25,9 @@ blackarch/payloadsallthethings
 blackarch/peass
 blackarch/peepdf
 blackarch/perl-image-exiftool
+blackarch/python-chepy
+blackarch/python-defang
+blackarch/python2-termcolor
 blackarch/recon-ng
 blackarch/seclists
 blackarch/sherlock

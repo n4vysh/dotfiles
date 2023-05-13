@@ -165,6 +165,7 @@ packages:
   - linux-smart-enumeration
   - linux-zen
   - lvm2
+  - maigret
   - mailnag
   - mako
   - man-db
@@ -227,7 +228,11 @@ packages:
   - procs
   - protonmail-bridge
   - pueue
+  - python-chepy
+  - python-defang
   - python-pip
+  - python-pydash
+  - python2-termcolor
   - qmk
   - recon-ng
   - reflector
