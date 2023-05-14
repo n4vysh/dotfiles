@@ -374,6 +374,7 @@ commands:
   - nnn-home
   - zoom
   - ghidra
+  - tun0ip
 files:
   - .atoolrc
   - .hushlogin
@@ -445,4 +446,5 @@ xdg_local_files:
   - .local/bin/nnn-home
   - .local/bin/zoom
   - .local/bin/ghidra
+  - .local/bin/tun0ip
   - .local/src/dotfiles

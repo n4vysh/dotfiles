@@ -49,11 +49,6 @@
   output = ""
 
 [[snippets]]
-  description = "copy ip address of tun0"
-  command = "ip -4 addr show tun0 | grep -oP '(?<=inet\\s)\\d+(\\.\\d+){3}' | tr -d '\\n' | wl-copy"
-  output = ""
-
-[[snippets]]
   description = "add padding to avoid invalid input for base64"
   command = " | fold -w 4 | sed '$ d' | tr -d '\\n'"
   output = ""
