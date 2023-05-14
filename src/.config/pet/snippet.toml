@@ -30,12 +30,20 @@
 
 [[snippets]]
   description = "allow incoming traffic"
-  command = "sudo ufw allow from <ip:> proto tcp to any port <port=8888,9999>"
+  command = "sh -c '( set -x; sudo ufw allow from <ip:> proto tcp to any port <port=8888,9999> && sudo ufw status verbose )'"
+  tag = ["firewall"]
   output = ""
 
 [[snippets]]
   description = "delete incoming traffic rule"
-  command = "sudo ufw delete allow from <ip:> proto tcp to any port <port=8888,9999>"
+  command = "sh -c '( set -x; sudo ufw delete allow from <ip:> proto tcp to any port <port=8888,9999> && sudo ufw status verbose )'"
+  tag = ["firewall"]
+  output = ""
+
+[[snippets]]
+  description = "reset and restart ufw"
+  command = "sh -c '( set -x; sudo ufw --force reset && sudo ufw enable && sudo ufw status verbose )'"
+  tag = ["firewall"]
   output = ""
 
 [[snippets]]
