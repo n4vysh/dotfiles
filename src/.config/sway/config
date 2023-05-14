@@ -144,20 +144,23 @@ mode "$mode_notification" {
 }
 bindsym $mod+n mode "$mode_notification"
 
-set $mode_launcher Launcher: (b) firefox (e) thunderbird (f) nnn (i) slack (C-i) discord (A-i) signal (n) iwctl (m) bottom (C-m) spotify (p) 1password (C-p) authy (r) remmina (s) neofetch
+set $mode_launcher Launcher
 mode "$mode_launcher" {
   bindsym b exec firefox, mode "default"
+  bindsym ctrl+b exec torbrowser-launcher, mode "default"
   bindsym e exec thunderbird, mode "default"
   bindsym f exec "$term start nnn", mode "default"
   bindsym i exec slack, mode "default"
   bindsym ctrl+i exec discord, mode "default"
   bindsym alt+i exec signal-desktop, mode "default"
   bindsym n exec "$term start iwctl", mode "default"
+  bindsym ctrl+n exec wireshark, mode "default"
   bindsym m exec "$term start btm", mode "default"
   bindsym ctrl+m exec spotify-launcher, mode "default"
   bindsym p exec 1password, mode "default"
   bindsym ctrl+p exec authy, mode "default"
   bindsym s exec sysinfo, mode "default"
+  bindsym t exec burpsuite, mode "default"
   bindsym r exec remmina, mode "default"
   bindsym q mode "default"
 }
