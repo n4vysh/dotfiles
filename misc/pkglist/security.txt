@@ -26,6 +26,7 @@ blackarch/payloadsallthethings
 blackarch/peass
 blackarch/peepdf
 blackarch/perl-image-exiftool
+blackarch/python-base58
 blackarch/python-chepy
 blackarch/python-defang
 blackarch/python2-termcolor

@@ -229,6 +229,7 @@ packages:
   - procs
   - protonmail-bridge
   - pueue
+  - python-base58
   - python-chepy
   - python-defang
   - python-pip
