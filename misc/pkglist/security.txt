@@ -40,6 +40,7 @@ blackarch/sqlmap
 blackarch/ssdeep
 blackarch/steghide
 blackarch/stegseek
+blackarch/stegsolve
 blackarch/sublist3r
 blackarch/theharvester
 blackarch/vipermonkey

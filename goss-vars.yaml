@@ -273,6 +273,7 @@ packages:
   - starship
   - steghide
   - stegseek
+  - stegsolve
   - stern-bin
   - stow
   - stylelint
@@ -377,6 +378,7 @@ commands:
   - zoom
   - ghidra
   - tun0ip
+  - stegsolve
 files:
   - .atoolrc
   - .hushlogin
@@ -449,4 +451,5 @@ xdg_local_files:
   - .local/bin/zoom
   - .local/bin/ghidra
   - .local/bin/tun0ip
+  - .local/bin/stegsolve
   - .local/src/dotfiles
