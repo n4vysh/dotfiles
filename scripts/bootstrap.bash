@@ -506,6 +506,7 @@ _configure_without_privileged() {
 	sudo nessuscli fix --set listen_address=127.0.0.1
 
 	_print 'Downloads wordlists'
+	sudo wordlistctl fetch best110
 	sudo wordlistctl fetch -d rockyou
 	sudo wordlistctl fetch -d fasttrack
 	sudo wordlistctl fetch subdomains-top1million-5000
