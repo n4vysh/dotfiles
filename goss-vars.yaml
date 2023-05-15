@@ -29,6 +29,7 @@ packages:
   - bemenu
   - bemenu-wayland
   - bind
+  - binwalk
   - bloodhound
   - bluetuith-bin
   - bluez

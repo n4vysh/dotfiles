@@ -1,5 +1,6 @@
 aur/nessus
 aur/python-pydash
+blackarch/binwalk
 blackarch/bloodhound
 blackarch/burpsuite
 blackarch/cmseek
