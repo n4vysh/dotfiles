@@ -12,6 +12,7 @@ function fish_user_key_bindings
     fish_user_execute_key_bindings \cob bluetuith
     fish_user_execute_key_bindings \coc lazydocker
     fish_user_execute_key_bindings \co\cc k9s
+    fish_user_execute_key_bindings \cod nvim -c DBUI
     fish_user_execute_key_bindings \coe nvim
     fish_user_execute_key_bindings \cof n
     fish_user_execute_key_bindings \com btm
