@@ -4,6 +4,7 @@ blackarch/binwalk
 blackarch/bloodhound
 blackarch/burpsuite
 blackarch/cmseek
+blackarch/dirb
 blackarch/dirbuster
 blackarch/enum4linux
 blackarch/evil-winrm

@@ -50,6 +50,7 @@ packages:
   - csvkit
   - delve
   - deno
+  - dirb
   - dirbuster
   - direnv
   - discord
