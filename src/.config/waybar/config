@@ -40,8 +40,8 @@
   "custom/vpn": {
     "format": "<span font='11'> {icon} </span>",
     "format-icons": {
-      "connected": "",
-      "disconnected": ""
+      "connected": "󰌆",
+      "disconnected": "󰌊"
     },
     "return-type": "json",
     "exec": "~/.config/waybar/lib/vpn.bash",
@@ -49,13 +49,13 @@
     "tooltip": false
   },
   "bluetooth": {
-    "format": "<span font='11'>  </span>",
-    "format-off": "<span font='11'>  </span>",
+    "format": "<span font='11'> 󰂯 </span>",
+    "format-off": "<span font='11'> 󰂲 </span>",
     "tooltip": false
   },
   "pulseaudio": {
     "format": "<span font='11'>{icon}</span>",
-    "format-muted": "<span font='11'>婢</span>",
+    "format-muted": "<span font='11'>󰝟</span>",
     "format-icons": {
       "headphone": "",
       "default": [
@@ -75,7 +75,7 @@
         ""
       ],
       "disconnected": [
-        "睊"
+        ""
       ]
     },
     "tooltip": false
