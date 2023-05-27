@@ -48,7 +48,7 @@ blackarch/vipermonkey
 blackarch/webshells
 blackarch/wordlistctl
 blackarch/wpscan
-community/arch-audit
-community/hexedit
-community/rkhunter
-community/torbrowser-launcher
+extra/arch-audit
+extra/hexedit
+extra/rkhunter
+extra/torbrowser-launcher

@@ -1,2 +1,2 @@
-community/go
-community/go-tools
+extra/go
+extra/go-tools

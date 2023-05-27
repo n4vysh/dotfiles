@@ -1,5 +1,5 @@
-community/containerd
-community/docker
-community/docker-buildx
-community/nerdctl
-community/rootlesskit
+extra/containerd
+extra/docker
+extra/docker-buildx
+extra/nerdctl
+extra/rootlesskit

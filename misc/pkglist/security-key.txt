@@ -1,5 +1,5 @@
-community/ccid
-community/opensc
-community/pcsc-tools
-community/yubikey-manager
+extra/ccid
 extra/libusb-compat
+extra/opensc
+extra/pcsc-tools
+extra/yubikey-manager
