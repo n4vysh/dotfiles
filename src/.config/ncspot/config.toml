@@ -1,3 +1,4 @@
+use_nerdfont = true
 hide_display_names = true
 
 [keybindings]
@@ -13,6 +14,8 @@ hide_display_names = true
 # https://github.com/hrkfdn/ncspot/issues/230#issuecomment-683444176
 "G" = "move bottom"
 "g" = "move top"
+"Ctrl+f" = "move pagedown 1.0"
+"Ctrl+b" = "move pageup 1.0"
 
 [theme]
 background = "#191414"
