@@ -156,12 +156,6 @@ return {
 		end,
 	},
 	{
-		"luukvbaal/stabilize.nvim",
-		config = function()
-			require("stabilize").setup()
-		end,
-	},
-	{
 		"echuraev/translate-shell.vim",
 		init = function()
 			vim.g.trans_join_lines = 1

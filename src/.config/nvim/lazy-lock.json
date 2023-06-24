@@ -78,7 +78,6 @@
   "refactoring.nvim": { "branch": "master", "commit": "9f28801ed1803306ddbe5b8058849da412a90648" },
   "smart-splits.nvim": { "branch": "master", "commit": "87b0f3374b5c4dd0ff601558a247a2dc78dc7b4e" },
   "ssr.nvim": { "branch": "main", "commit": "e5768511518a397fa712f26389ba30d0404990de" },
-  "stabilize.nvim": { "branch": "master", "commit": "eeb1873daffaba67246188a5668b366e45ed1de1" },
   "statuscol.nvim": { "branch": "main", "commit": "9f1ff2dcf614544c5022e876d83b4894c1944e87" },
   "swayconfig.vim": { "branch": "master", "commit": "ce04a8e8c494590382d1b32a20ed3b451d608623" },
   "symbols-outline.nvim": { "branch": "master", "commit": "512791925d57a61c545bc303356e8a8f7869763c" },
