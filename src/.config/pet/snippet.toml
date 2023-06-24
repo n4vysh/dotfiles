@@ -125,8 +125,8 @@
   output = ""
 
 [[snippets]]
-  description = "stabilize shell using python"
-  command = "python -c 'import pty;pty.spawn(\"/bin/bash\")'"
+  description = "stabilize shell using script command"
+  command = "/usr/bin/script -qc /bin/bash /dev/null"
   tag = ["reverse-shell"]
   output = ""
 
