@@ -69,6 +69,7 @@ return {
 					return ":IncRename " .. vim.fn.expand("<cword>")
 				end, { expr = true })
 				vim.keymap.set({ "n", "v" }, "gA", require("code_action_menu").open_code_action_menu, bufopts)
+				vim.keymap.set("n", "<space>lb", require("nvim-navbuddy").open, bufopts)
 
 				if client.supports_method("textDocument/formatting") then
 					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -120,7 +121,9 @@ return {
 
 				if client.server_capabilities.documentSymbolProvider then
 					local navic = require("nvim-navic")
+					local navbuddy = require("nvim-navbuddy")
 					navic.attach(client, bufnr)
+					navbuddy.attach(client, bufnr)
 				end
 			end
 
@@ -283,6 +286,13 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 			{ "weilbith/nvim-code-action-menu" },
 			{ "b0o/SchemaStore.nvim" },
+			{
+				"SmiteshP/nvim-navbuddy",
+				dependencies = {
+					"SmiteshP/nvim-navic",
+					"MunifTanjim/nui.nvim",
+				},
+			},
 			{
 				"smjonas/inc-rename.nvim",
 				config = function()
