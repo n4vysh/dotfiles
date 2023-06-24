@@ -91,7 +91,7 @@ end, {
 })
 
 vim.keymap.set("n", "<space>yr", function()
-	require("user.utils.yank").exec("relative path", vim.fn.expand("%"))
+	require("user.utils.yank").exec("relative path", vim.fn.expand("%:~:."))
 end, {
 	silent = true,
 	desc = "Yank relative path",
