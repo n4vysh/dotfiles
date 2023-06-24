@@ -8,5 +8,4 @@ gossfile:
   test/mount.yaml: {}
   test/file.yaml: {}
   test/templates/file.yaml: {}
-  test/http.yaml: {}
   test/port.yaml: {}

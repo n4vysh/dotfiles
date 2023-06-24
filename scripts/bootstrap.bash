@@ -501,10 +501,6 @@ _configure_without_privileged() {
 	_print 'Configure wireshark'
 	sudo gpasswd -a "$USER" wireshark
 
-	_print 'Configure nessus'
-	sudo systemctl enable --now nessusd.service
-	sudo nessuscli fix --set listen_address=127.0.0.1
-
 	_print 'Downloads wordlists'
 	sudo wordlistctl fetch best110
 	sudo wordlistctl fetch -d rockyou

@@ -57,6 +57,3 @@ service:
   postgresql.service:
     enabled: true
     running: true
-  nessusd.service:
-    enabled: true
-    running: true

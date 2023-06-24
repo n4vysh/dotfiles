@@ -1,7 +1,0 @@
----
-http:
-  https://localhost:8834:
-    status: 200
-    allow-insecure: true
-    body:
-      - nessus

@@ -182,7 +182,6 @@ packages:
   - neofetch
   - neovim
   - nerdctl
-  - nessus
   - nfs-utils
   - nikto
   - nmap

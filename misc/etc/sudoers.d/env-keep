@@ -1,3 +1,3 @@
 Defaults env_reset,env_keep += "EDITOR ftp_proxy http_proxy https_proxy no_proxy"
 # FIXME: sudo command preserve PATH environment for some reason, so reset with secure_path
-Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/opt/nessus/bin:/opt/nessus/sbin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
