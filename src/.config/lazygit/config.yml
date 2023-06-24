@@ -1,6 +1,6 @@
 ---
 gui:
-  showIcons: true
+  nerdFontsVersion: 3
   showCommandLog: false
   showBottomLine: false
 git:
@@ -50,7 +50,7 @@ customCommands:
     loadingText: "continue the revert operation in progress"
     subprocess: true
   # https://github.com/jesseduffield/lazygit/issues/2028
-  - key: "<c-m>"
+  - key: "<enter>"
     command: "git merge --squash {{.SelectedLocalBranch.Name}}"
     context: "localBranches"
     loadingText: "merge squash"
