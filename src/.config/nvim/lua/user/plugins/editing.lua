@@ -1,4 +1,5 @@
 return {
+	{ "inkarkat/vim-ReplaceWithRegister" },
 	{
 		"tommcdo/vim-exchange",
 		init = function()

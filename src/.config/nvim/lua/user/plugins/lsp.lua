@@ -65,7 +65,7 @@ return {
 					end
 				end, bufopts)
 				vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-				vim.keymap.set("n", "gr", function()
+				vim.keymap.set("n", "g<C-r>", function()
 					return ":IncRename " .. vim.fn.expand("<cword>")
 				end, { expr = true })
 				vim.keymap.set({ "n", "v" }, "gA", require("code_action_menu").open_code_action_menu, bufopts)
