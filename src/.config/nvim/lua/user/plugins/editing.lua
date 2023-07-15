@@ -186,6 +186,8 @@ return {
 	{
 		"kylechui/nvim-surround",
 		config = function()
+			-- HACK: change keymap to avoid conflict for leap.nvim
+			-- https://github.com/ggandor/leap.nvim/discussions/59#discussioncomment-3842315
 			require("nvim-surround").setup({
 				keymaps = {
 					visual = "gs",
