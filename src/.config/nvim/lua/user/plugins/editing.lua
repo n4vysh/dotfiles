@@ -1,5 +1,27 @@
 return {
 	{
+		"tommcdo/vim-exchange",
+		init = function()
+			vim.g.exchange_no_mappings = 1
+		end,
+		config = function()
+			-- HACK: change keymap to avoid conflict for leap.nvim
+			-- https://github.com/ggandor/leap.nvim/discussions/59#discussioncomment-3842315
+			vim.keymap.set({ "n" }, "cx", "<Plug>(Exchange)", {
+				silent = true,
+			})
+			vim.keymap.set({ "x" }, "gX", "<Plug>(Exchange)", {
+				silent = true,
+			})
+			vim.keymap.set({ "n" }, "cxc", "<Plug>(ExchangeClear)", {
+				silent = true,
+			})
+			vim.keymap.set({ "n" }, "cxx", "<Plug>(ExchangeLine)", {
+				silent = true,
+			})
+		end,
+	},
+	{
 		"windwp/nvim-spectre",
 		config = function()
 			vim.keymap.set("n", "<space>sr", require("spectre").open, {

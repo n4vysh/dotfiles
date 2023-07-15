@@ -22,11 +22,6 @@ vim.keymap.set("x", "y", "y`]", {
 	desc = "Put and jump the text",
 })
 
-vim.keymap.set("x", "p", "p`]:let @+=@0<CR>", {
-	silent = true,
-	desc = "Put and jump the text without override",
-})
-
 vim.keymap.set("n", "p", "p`]", {
 	silent = true,
 	desc = "Put and jump the text",
