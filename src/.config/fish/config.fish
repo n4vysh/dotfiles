@@ -158,8 +158,23 @@ if status --is-interactive
     __fish_abbr_add_extend t rlwrap -a trans -b
     __fish_abbr_add_extend td tldr
     __fish_abbr_add_extend tf terraform
+    __fish_abbr_add_extend tfa terraform apply
+    __fish_abbr_add_extend tfc terraform console
+    __fish_abbr_add_extend tfi terraform import
+    __fish_abbr_add_extend tfp terraform plan
+    __fish_abbr_add_extend tfst terraform state
+    __fish_abbr_add_extend tfsh terraform show
+    __fish_abbr_add_extend tfo terraform output
+    __fish_abbr_add_extend tfl tflint
     __fish_abbr_add_extend tfd terraform-docs
     __fish_abbr_add_extend tg terragrunt
+    __fish_abbr_add_extend tga terragrunt apply
+    __fish_abbr_add_extend tgc terragrunt console
+    __fish_abbr_add_extend tgi terragrunt import
+    __fish_abbr_add_extend tgp terragrunt plan
+    __fish_abbr_add_extend tgst terragrunt state
+    __fish_abbr_add_extend tgsh terragrunt show
+    __fish_abbr_add_extend tgo terragrunt output
     __fish_abbr_add_extend ti tokei --hidden
     __fish_abbr_add_extend tm tmux
     __fish_abbr_add_extend tmp tmuxp
