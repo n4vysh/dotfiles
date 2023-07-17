@@ -1,4 +1,10 @@
 return {
+	{
+		"tpope/vim-abolish",
+		config = function()
+			vim.opt.iskeyword:append({ "-" })
+		end,
+	},
 	{ "inkarkat/vim-ReplaceWithRegister" },
 	{
 		"tommcdo/vim-exchange",
