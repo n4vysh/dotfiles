@@ -35,6 +35,7 @@ return {
 					"rego",
 					"rust",
 					"sql",
+					"terraform",
 					"toml",
 					"tsx",
 					"typescript",
