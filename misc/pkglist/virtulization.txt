@@ -3,3 +3,4 @@ extra/docker
 extra/docker-buildx
 extra/nerdctl
 extra/rootlesskit
+extra/skopeo

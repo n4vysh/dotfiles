@@ -257,6 +257,7 @@ packages:
   - shfmt
   - signal-desktop
   - skaffold
+  - skopeo
   - slack-electron
   - slurp
   - smbclient
