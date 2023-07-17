@@ -344,7 +344,7 @@ return {
 						ui = {
 							title = false,
 							border = "single",
-							code_action = "",
+							code_action = "",
 						},
 					})
 				end,
