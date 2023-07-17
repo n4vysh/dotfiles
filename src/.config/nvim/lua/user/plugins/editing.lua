@@ -110,10 +110,6 @@ return {
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
-		"Julian/vim-textobj-variable-segment",
-		dependencies = "kana/vim-textobj-user",
-	},
-	{
 		"rsrchboy/vim-textobj-heredocs",
 		dependencies = "kana/vim-textobj-user",
 	},

@@ -129,7 +129,6 @@
   "vim-textobj-toplevel": { "branch": "master", "commit": "5a0bb5fe489df213538efb9bab6cae5f7e3052f0" },
   "vim-textobj-url": { "branch": "master", "commit": "782d5b990caaa4519d5b4f39ca9ec48bd2e4bfc5" },
   "vim-textobj-user": { "branch": "master", "commit": "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
-  "vim-textobj-variable-segment": { "branch": "main", "commit": "51c323dca5c44f7a8e5a689b9156ef818d02188e" },
   "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" },
   "vim-visual-multi": { "branch": "master", "commit": "724bd53adfbaf32e129b001658b45d4c5c29ca1a" },
   "which-key.nvim": { "branch": "main", "commit": "96e99913df649d45333a9ad625ad4c72d5e65fe1" },
