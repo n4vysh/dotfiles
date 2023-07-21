@@ -4,12 +4,6 @@ return {
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "romainl/vim-cool" },
 	{
-		"tzachar/highlight-undo.nvim",
-		config = function()
-			require("highlight-undo").setup({})
-		end,
-	},
-	{
 		"moll/vim-bbye",
 		config = function()
 			vim.keymap.set("n", "gq", "<cmd>Bdelete<cr>", {
