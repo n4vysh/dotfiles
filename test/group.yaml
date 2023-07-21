@@ -16,3 +16,5 @@ group:
     exists: true
   wireshark:
     exists: true
+  nix-users:
+    exists: true

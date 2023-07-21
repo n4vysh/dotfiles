@@ -15,7 +15,6 @@ packages:
   - aria2
   - asciidoctor
   - asciinema
-  - asdf-vm
   - at
   - atool
   - authy
@@ -50,6 +49,7 @@ packages:
   - csvkit
   - delve
   - deno
+  - devbox-bin
   - dirb
   - dirbuster
   - direnv
@@ -184,6 +184,7 @@ packages:
   - nerdctl
   - nfs-utils
   - nikto
+  - nix
   - nmap
   - nnn-nerd
   - nodejs-commitizen
@@ -243,6 +244,7 @@ packages:
   - rkhunter
   - rlwrap
   - rootlesskit
+  - rtx-bin
   - s-bin
   - sad
   - sbctl
@@ -390,7 +392,6 @@ files:
   - .zshenv
   - .bashrc
   - .msf4
-  - .tool-versions
 xdg_config_files:
   - .config/bat
   - .config/direnv

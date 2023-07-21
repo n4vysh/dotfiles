@@ -3,7 +3,7 @@ src/.kube/*
 src/.msf4/*
 !src/.msf4/config
 src/.config/direnv/allow/
-src/.config/direnv/lib/use_asdf.sh
+src/.config/direnv/lib/use_rtx.sh
 src/.config/fish/completions/*
 src/.config/fish/conf.d/*
 src/.config/fish/fish_variables

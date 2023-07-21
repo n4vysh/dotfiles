@@ -124,5 +124,8 @@ export HWLOC_HIDE_ERRORS=2
 # https://github.com/openwall/john/issues/4765
 export OMPI_MCA_opal_warn_on_missing_libcuda=0
 
+# Nix
+export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
+
 # local
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local

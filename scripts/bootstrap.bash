@@ -451,14 +451,11 @@ _configure_without_privileged() {
 			$ a password	optional	pam_gnome_keyring.so
 		}' /etc/pam.d/passwd
 
-	_print 'Install asdf plugins'
-	# shellcheck source=/dev/null
-	. /opt/asdf-vm/asdf.sh
-	awk '{print $1}' ~/.tool-versions |
-		grep -v 'just' |
-		xargs -I {} asdf plugin add {}
-	asdf plugin add just https://github.com/heliumbrain/asdf-just
-	asdf install
+	_print 'Setup nix'
+	sudo systemctl enable --now nix-daemon.service
+	sudo gpasswd -a "$USER" nix-users
+	nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+	nix-channel --update
 
 	_print 'Install kubectl packages'
 	kubectl krew install <"/tmp/dotfiles/misc/kubectl-plugins.txt"

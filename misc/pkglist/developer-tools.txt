@@ -1,8 +1,8 @@
 aur/actionlint-bin
-aur/asdf-vm
 aur/chart-testing
 aur/conftest
 aur/crudini
+aur/devbox-bin
 aur/docker-credential-pass-bin
 aur/dprint-bin
 aur/drawio-desktop-bin
@@ -32,6 +32,7 @@ aur/nodejs-jsonlint
 aur/opa
 aur/pack-cli-bin
 aur/pet-bin
+aur/rtx-bin
 aur/semgrep-bin
 aur/sqls-bin
 aur/stern-bin
@@ -83,6 +84,7 @@ extra/kubie
 extra/lazygit
 extra/libwebp
 extra/neovim
+extra/nix
 extra/npm
 extra/oxipng
 extra/parallel

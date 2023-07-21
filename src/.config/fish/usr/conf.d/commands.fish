@@ -3,28 +3,18 @@ if status --is-interactive
       string replace $XDG_CONFIG_HOME '$XDG_CONFIG_HOME' (status filename)
     )
 
-    set -l function /opt/asdf-vm/asdf.fish
-    if not test -e "$function"
-        printf '%s: Not found %s\n' "$file" "$function" >&2
-    else if not test -f "$function"
-        printf '%s: Not regular file %s\n' "$file" "$function" >&2
-    else if not test -r "$function"
-        printf '%s: Not readable %s\n' "$file" "$function" >&2
-    else if test -f "$function"; and test -r "$function"
-        if not functions -q asdf
-            source "$function"
+    if command -q rtx
+        if not functions -q rtx
+            rtx activate fish |
+                source
         end
-    end
 
-    if not test -e "$ASDF_DIRENV_BIN"
-        printf '%s: Add direnv plugin of asdf\n' "$file"
-        asdf plugin-add direnv
-    end
-
-    set -l conf "$XDG_CONFIG_HOME/fish/conf.d/asdf_direnv.fish"
-    if not test -e "$conf"
-        printf '%s: execute setup command of asdf-direnv\n' "$file"
-        asdf direnv setup --shell fish --version latest
+        set -l lib $XDG_CONFIG_HOME/direnv/lib/use_rtx.sh
+        if not test -e "$lib"
+            rtx direnv activate >$lib
+        end
+    else
+        printf '%s: Not found rtx command\n' "$file" >&2
     end
 end
 

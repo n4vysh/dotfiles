@@ -57,3 +57,6 @@ service:
   postgresql.service:
     enabled: true
     running: true
+  nix-daemon.service:
+    enabled: true
+    running: true
