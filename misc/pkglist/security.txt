@@ -42,6 +42,7 @@ blackarch/steghide
 blackarch/stegseek
 blackarch/stegsolve
 blackarch/sublist3r
+blackarch/tfsec
 blackarch/theharvester
 blackarch/vipermonkey
 blackarch/webshells

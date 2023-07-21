@@ -499,6 +499,7 @@ return {
 					null_ls.builtins.formatting.clang_format,
 					null_ls.builtins.diagnostics.eslint,
 					null_ls.builtins.formatting.eslint,
+					null_ls.builtins.diagnostics.tfsec,
 				},
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then

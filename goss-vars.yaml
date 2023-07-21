@@ -297,6 +297,7 @@ packages:
   - terragrunt
   - testssl.sh
   - tflint-bin
+  - tfsec
   - theharvester
   - thunderbird
   - tmux
