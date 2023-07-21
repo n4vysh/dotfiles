@@ -34,12 +34,6 @@ return {
 					[[:lua vim.diagnostic.open_float()<cr><C-w><C-w>]],
 					{ desc = "Show diagnostics in float window", silent = true }
 				)
-				vim.keymap.set("n", "gO", function()
-					require("symbols-outline").open_outline()
-				end, {
-					silent = true,
-					desc = "Toggle symbols outline",
-				})
 				vim.keymap.set("n", "g<C-t>", function()
 					require("trouble").open()
 				end, {
@@ -346,41 +340,6 @@ return {
 							title = false,
 							border = "single",
 							code_action = "",
-						},
-					})
-				end,
-			},
-			{
-				"simrat39/symbols-outline.nvim",
-				config = function()
-					require("symbols-outline").setup({
-						symbols = {
-							File = { hl = "@text.uri" },
-							Module = { hl = "@namespace" },
-							Namespace = { hl = "@namespace" },
-							Package = { hl = "@namespace" },
-							Class = { hl = "@type" },
-							Method = { hl = "@method" },
-							Property = { hl = "@method" },
-							Field = { hl = "@field" },
-							Constructor = { hl = "@constructor" },
-							Enum = { hl = "@type" },
-							Interface = { hl = "@type" },
-							Function = { hl = "@function" },
-							Variable = { hl = "@constant" },
-							Constant = { hl = "@constant" },
-							String = { hl = "@string" },
-							Number = { hl = "@number" },
-							Boolean = { hl = "@boolean" },
-							Array = { hl = "@constant" },
-							Object = { hl = "@type" },
-							Key = { hl = "@type" },
-							Null = { hl = "@type" },
-							EnumMember = { hl = "@field" },
-							Struct = { hl = "@type" },
-							Event = { hl = "@type" },
-							Operator = { hl = "@operator" },
-							TypeParameter = { hl = "@parameter" },
 						},
 					})
 				end,
