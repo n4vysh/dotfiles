@@ -62,10 +62,6 @@ vim.keymap.set("v", "<space>cs", ":s///g<left><left><left>", {
 	desc = "Set command for substitute to command-line",
 })
 
-vim.keymap.set("n", "<space>cr", [[:%s//\=@"/g]], {
-	desc = "Set command for replace to command-line",
-})
-
 -- +open
 vim.keymap.set("n", "<Space>ot", "<cmd>edit ~/Documents/tasks.md<cr>", {
 	silent = true,
