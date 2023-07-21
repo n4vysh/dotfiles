@@ -136,6 +136,7 @@ return {
 				"marksman",
 				"taplo",
 				"terraformls",
+				"tflint",
 				"tsserver",
 				"yamlls",
 			}
