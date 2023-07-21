@@ -68,6 +68,7 @@ extra/github-cli
 extra/glab
 extra/glow
 extra/go-yq
+extra/gofumpt
 extra/grex
 extra/helm
 extra/helmfile

@@ -104,6 +104,7 @@ packages:
   - go-tools
   - go-yq
   - gobuster
+  - gofumpt
   - golangci-lint-bin
   - google-cloud-sdk
   - gopass
