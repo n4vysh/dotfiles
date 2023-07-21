@@ -282,13 +282,6 @@ return {
 			{ "weilbith/nvim-code-action-menu" },
 			{ "b0o/SchemaStore.nvim" },
 			{
-				"SmiteshP/nvim-navbuddy",
-				dependencies = {
-					"SmiteshP/nvim-navic",
-					"MunifTanjim/nui.nvim",
-				},
-			},
-			{
 				"smjonas/inc-rename.nvim",
 				config = function()
 					require("inc_rename").setup({})
