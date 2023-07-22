@@ -34,6 +34,14 @@ return {
 					[[:lua vim.diagnostic.open_float()<cr><C-w><C-w>]],
 					{ desc = "Show diagnostics in float window", silent = true }
 				)
+				vim.keymap.set("n", "go", function()
+					vim.cmd([[normal m']])
+
+					require("lspsaga.symbol.outline"):outline()
+				end, {
+					silent = true,
+					desc = "Toggle symbols outline",
+				})
 				vim.keymap.set("n", "g<C-t>", function()
 					-- HACK:Use jump list
 					-- https://github.com/folke/trouble.nvim/issues/235
@@ -329,6 +337,9 @@ return {
 						request_timeout = 5000,
 						lightbulb = {
 							virtual_text = false,
+						},
+						outline = {
+							close_after_jump = true,
 						},
 						symbol_in_winbar = {
 							enable = false,
