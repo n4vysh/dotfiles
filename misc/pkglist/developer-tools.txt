@@ -57,6 +57,7 @@ extra/delve
 extra/deno
 extra/direnv
 extra/editorconfig-checker
+extra/eslint
 extra/exa
 extra/fd
 extra/fish
