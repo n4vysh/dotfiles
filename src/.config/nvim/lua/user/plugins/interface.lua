@@ -271,7 +271,7 @@ return {
 		dependencies = "neovim/nvim-lspconfig",
 	},
 	{
-		"hoob3rt/lualine.nvim",
+		"nvim-lualine/lualine.nvim",
 		config = function()
 			require("lualine").setup({
 				options = {
