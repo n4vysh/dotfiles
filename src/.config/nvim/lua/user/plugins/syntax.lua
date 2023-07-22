@@ -97,18 +97,12 @@ return {
 					enable = true,
 				},
 			})
-			require("treesitter-context").setup({
-				enable = false,
-			})
-
-			vim.keymap.set("n", "g<C-c>", vim.cmd.TSContextToggle, { desc = "Toggle context" })
 		end,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"RRethy/nvim-treesitter-endwise",
 			"andymass/vim-matchup",
 			"windwp/nvim-ts-autotag",
-			"nvim-treesitter/nvim-treesitter-context",
 			{
 				"numToStr/Comment.nvim",
 				config = function()
