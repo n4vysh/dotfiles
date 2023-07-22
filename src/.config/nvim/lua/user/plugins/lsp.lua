@@ -35,6 +35,10 @@ return {
 					{ desc = "Show diagnostics in float window", silent = true }
 				)
 				vim.keymap.set("n", "g<C-t>", function()
+					-- HACK:Use jump list
+					-- https://github.com/folke/trouble.nvim/issues/235
+					vim.cmd([[normal m']])
+
 					require("trouble").open()
 				end, {
 					silent = true,
@@ -340,7 +344,13 @@ return {
 			{
 				"folke/trouble.nvim",
 				config = function()
-					require("trouble").setup({})
+					require("trouble").setup({
+						action_keys = {
+							-- NOTE: jump action can't work jump back,
+							--       so use always jump_close action
+							jump = {},
+						},
+					})
 				end,
 			},
 		},
