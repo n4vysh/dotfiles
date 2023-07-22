@@ -119,6 +119,7 @@ extra/testssl.sh
 extra/tmux
 extra/tmuxp
 extra/tree
+extra/tree-sitter-cli
 extra/vint
 extra/vivid
 extra/watchexec

@@ -311,6 +311,7 @@ packages:
   - translate-shell
   - trash-cli
   - tree
+  - tree-sitter-cli
   - trivy-bin
   - ttf-fira-code
   - ttf-nerd-fonts-symbols-mono
