@@ -25,7 +25,6 @@ return {
 					"gomod",
 					"graphql",
 					"hcl",
-					"help",
 					"javascript",
 					"json",
 					"lua",
@@ -40,6 +39,7 @@ return {
 					"tsx",
 					"typescript",
 					"vim",
+					"vimdoc",
 					"yaml",
 				},
 				textobjects = {
