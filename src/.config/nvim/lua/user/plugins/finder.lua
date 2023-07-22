@@ -36,9 +36,6 @@ return {
 					},
 				},
 				extensions = {
-					heading = {
-						treesitter = true,
-					},
 					live_grep_args = {
 						auto_quoting = true,
 						mappings = {
@@ -101,11 +98,6 @@ return {
 				desc = "Search for keymaps with fuzzy finder",
 			})
 
-			vim.keymap.set("n", "<space>s<C-h>", require("user.utils.finder").heading, {
-				silent = true,
-				desc = "Search for heading with fuzzy finder",
-			})
-
 			vim.keymap.set("n", "<space>sh", require("user.utils.finder").help_tags, {
 				silent = true,
 				desc = "Search for help info with fuzzy finder",
@@ -135,7 +127,6 @@ return {
 			{ "nvim-lua/popup.nvim" },
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-			{ "crispgm/telescope-heading.nvim" },
 			{ "nvim-telescope/telescope-live-grep-args.nvim" },
 			{ "smartpde/telescope-recent-files" },
 			{ "jvgrootveld/telescope-zoxide" },

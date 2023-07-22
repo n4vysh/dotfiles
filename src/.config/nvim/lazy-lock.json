@@ -81,7 +81,6 @@
   "swayconfig.vim": { "branch": "master", "commit": "ce04a8e8c494590382d1b32a20ed3b451d608623" },
   "targets.vim": { "branch": "master", "commit": "642d3a4ce306264b05ea3219920b13ea80931767" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "9bc8237565ded606e6c366a71c64c0af25cd7a50" },
-  "telescope-heading.nvim": { "branch": "main", "commit": "dbd3bde034117e4dc716732093e8290462e1e388" },
   "telescope-live-grep-args.nvim": { "branch": "master", "commit": "0f75ea809c46af8997c64f49c52e3c641d887885" },
   "telescope-luasnip.nvim": { "branch": "master", "commit": "849c4ee1951f34041a26744d2a88284545564ff0" },
   "telescope-recent-files": { "branch": "main", "commit": "6893cda11625254cc7dc2ea76e0a100c7deeb028" },

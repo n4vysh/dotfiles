@@ -76,12 +76,6 @@ function M.grep_string()
 	builtin.grep_string({})
 end
 
-function M.heading()
-	local telescope = require("telescope")
-	telescope.load_extension("heading")
-	telescope.extensions.heading.heading({})
-end
-
 function M.recent_files()
 	local telescope = require("telescope")
 	telescope.load_extension("recent_files")
