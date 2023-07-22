@@ -21,10 +21,10 @@ return {
 
 				local bufopts = { silent = true, buffer = bufnr }
 				vim.keymap.set("n", "gh", function()
-					require("lspsaga.finder"):lsp_finder()
+					require("lspsaga.finder"):new({})
 				end, bufopts)
 				vim.keymap.set("n", "gd", function()
-					require("lspsaga.definition"):peek_definition()
+					require("lspsaga.definition"):peek_definition(1)
 				end, bufopts)
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 				vim.keymap.set("n", "g<C-i>", vim.lsp.buf.implementation, bufopts)
@@ -67,7 +67,7 @@ return {
 				vim.keymap.set("n", "K", function()
 					local winid = require("ufo").peekFoldedLinesUnderCursor()
 					if not winid then
-						require("lspsaga.hover"):render_hover_doc()
+						require("lspsaga.hover"):render_hover_doc({})
 					end
 				end, bufopts)
 				vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
