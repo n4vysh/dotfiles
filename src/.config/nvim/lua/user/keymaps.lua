@@ -43,6 +43,11 @@ vim.keymap.set("n", "g<C-n>", "<cmd>enew<cr>", {
 	desc = "Create new buffer",
 })
 
+vim.keymap.set("n", "g<C-w><C-n>", "<cmd>vnew<cr>", {
+	silent = true,
+	desc = "Create new buffer in vertically split",
+})
+
 vim.keymap.set("v", "g/", [[<ESC>/\%V]], {
 	desc = "Search forward in the range",
 })

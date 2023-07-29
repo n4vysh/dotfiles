@@ -11,6 +11,8 @@ local options = {
 	shiftwidth = 2,
 	expandtab = true,
 	-- appearance
+	splitbelow = true,
+	splitright = true,
 	splitkeep = "topline",
 	laststatus = 3,
 	termguicolors = true,
