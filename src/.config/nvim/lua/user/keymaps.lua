@@ -27,6 +27,11 @@ vim.keymap.set("n", "p", "p`]", {
 	desc = "Put and jump the text",
 })
 
+vim.keymap.set("x", "p", "pgvy", {
+	silent = true,
+	desc = "Put and yank the text",
+})
+
 -- keymaps using the g
 vim.keymap.set("n", "g<C-e>", "<cmd>edit!<cr>", {
 	silent = true,

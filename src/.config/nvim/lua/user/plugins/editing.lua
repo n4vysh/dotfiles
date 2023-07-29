@@ -5,7 +5,6 @@ return {
 			vim.opt.iskeyword:append({ "-" })
 		end,
 	},
-	{ "inkarkat/vim-ReplaceWithRegister" },
 	{
 		"tommcdo/vim-exchange",
 		init = function()
