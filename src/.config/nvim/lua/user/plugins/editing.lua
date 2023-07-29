@@ -48,22 +48,6 @@ return {
 		end,
 	},
 	{
-		"fedepujol/move.nvim",
-		config = function()
-			local opts = { silent = true }
-
-			vim.keymap.set("n", "<A-j>", ":MoveLine(1)<CR>", opts)
-			vim.keymap.set("n", "<A-k>", ":MoveLine(-1)<CR>", opts)
-			vim.keymap.set("n", "<A-h>", ":MoveHChar(-1)<CR>", opts)
-			vim.keymap.set("n", "<A-l>", ":MoveHChar(1)<CR>", opts)
-
-			vim.keymap.set("v", "<A-j>", ":MoveBlock(1)<CR>", opts)
-			vim.keymap.set("v", "<A-k>", ":MoveBlock(-1)<CR>", opts)
-			vim.keymap.set("v", "<A-h>", ":MoveHBlock(-1)<CR>", opts)
-			vim.keymap.set("v", "<A-l>", ":MoveHBlock(1)<CR>", opts)
-		end,
-	},
-	{
 		"junegunn/vim-easy-align",
 		keys = {
 			{ "ga", "<Plug>(EasyAlign)", mode = { "x", "n" }, desc = "Align text" },
@@ -95,10 +79,6 @@ return {
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
-		"adolenc/vim-textobj-toplevel",
-		dependencies = "kana/vim-textobj-user",
-	},
-	{
 		"mattn/vim-textobj-url",
 		dependencies = "kana/vim-textobj-user",
 	},
@@ -108,10 +88,6 @@ return {
 	},
 	{
 		"kana/vim-textobj-indent",
-		dependencies = "kana/vim-textobj-user",
-	},
-	{
-		"glts/vim-textobj-indblock",
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
