@@ -53,33 +53,33 @@ return {
 						keymaps = {
 							["aa"] = "@parameter.outer",
 							["ia"] = "@parameter.inner",
-							["iC"] = "@conditional.inner",
-							["aC"] = "@conditional.outer",
 							["af"] = "@function.outer",
 							["if"] = "@function.inner",
-							["aL"] = "@loop.outer",
-							["iL"] = "@loop.inner",
 						},
 					},
-				},
-				move = {
-					enable = true,
-					set_jumps = false,
-					goto_next_start = {
-						["]m"] = "@function.outer",
-						["]]"] = { query = "@class.outer", desc = "Next class start" },
-					},
-					goto_next_end = {
-						["]M"] = "@function.outer",
-						["]["] = "@class.outer",
-					},
-					goto_previous_start = {
-						["[m"] = "@function.outer",
-						["[["] = "@class.outer",
-					},
-					goto_previous_end = {
-						["[M"] = "@function.outer",
-						["[]"] = "@class.outer",
+					move = {
+						enable = true,
+						set_jumps = true,
+						goto_next_start = {
+							["]m"] = { query = "@function.outer", desc = "Next function start" },
+							["]]"] = { query = "@class.outer", desc = "Next class start" },
+							["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
+							["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
+						},
+						goto_next_end = {
+							["]M"] = { query = "@function.outer", desc = "Next function end" },
+							["]["] = { query = "@class.outer", desc = "Next class end" },
+						},
+						goto_previous_start = {
+							["[m"] = { query = "@function.outer", desc = "Previous function start" },
+							["[["] = { query = "@class.outer", desc = "Previous class start" },
+							["[s"] = { query = "@scope", query_group = "locals", desc = "Previous scope" },
+							["[z"] = { query = "@fold", query_group = "folds", desc = "Previous fold" },
+						},
+						goto_previous_end = {
+							["[M"] = { query = "@function.outer", desc = "Previous function end" },
+							["[]"] = { query = "@class.outer", desc = "Previous class end" },
+						},
 					},
 				},
 				highlight = {
