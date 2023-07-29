@@ -88,6 +88,10 @@ return {
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
+		"kana/vim-textobj-line",
+		dependencies = "kana/vim-textobj-user",
+	},
+	{
 		"kana/vim-textobj-datetime",
 		dependencies = "kana/vim-textobj-user",
 	},

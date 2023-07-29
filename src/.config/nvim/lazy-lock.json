@@ -121,6 +121,7 @@
   "vim-textobj-indblock": { "branch": "master", "commit": "fe7031cb8cebe7ede82234fedb4959f51ad98fd7" },
   "vim-textobj-indent": { "branch": "master", "commit": "deb76867c302f933c8f21753806cbf2d8461b548" },
   "vim-textobj-indented-paragraph": { "branch": "master", "commit": "376f478ab5cb45bcb434eedbd7c513ad145a99b4" },
+  "vim-textobj-line": { "branch": "master", "commit": "1a6780d29adcf7e464e8ddbcd0be0a9df1a37339" },
   "vim-textobj-markdown": { "branch": "master", "commit": "9cba182b2c30afc982ace0deb1200cc394799799" },
   "vim-textobj-toplevel": { "branch": "master", "commit": "5a0bb5fe489df213538efb9bab6cae5f7e3052f0" },
   "vim-textobj-url": { "branch": "master", "commit": "782d5b990caaa4519d5b4f39ca9ec48bd2e4bfc5" },
