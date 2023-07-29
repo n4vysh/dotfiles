@@ -27,7 +27,7 @@ vim.keymap.set("n", "p", "p`]", {
 	desc = "Put and jump the text",
 })
 
-vim.keymap.set("x", "p", "pgvy", {
+vim.keymap.set("x", "p", "pgvy`]", {
 	silent = true,
 	desc = "Put and yank the text",
 })
