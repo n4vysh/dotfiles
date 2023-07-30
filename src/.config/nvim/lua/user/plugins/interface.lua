@@ -1,31 +1,35 @@
 return {
-	{ "RRethy/vim-illuminate" },
-	{ "kyazdani42/nvim-web-devicons" },
-	{ "lukas-reineke/indent-blankline.nvim" },
-	{ "romainl/vim-cool" },
+	{
+		"RRethy/vim-illuminate",
+		event = { "BufReadPost", "BufNewFile" },
+	},
+	{
+		"kyazdani42/nvim-web-devicons",
+		lazy = true,
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		event = "VeryLazy",
+	},
+	{
+		"romainl/vim-cool",
+		event = { "CursorMoved", "InsertEnter" },
+	},
 	{
 		"moll/vim-bbye",
-		config = function()
-			vim.keymap.set("n", "gq", "<cmd>Bdelete<cr>", {
-				silent = true,
-				desc = "Delete current buffer",
-			})
+		keys = {
+			{ "gq", "<cmd>Bdelete<cr>", silent = true, desc = "Delete current buffer" },
 
-			vim.keymap.set("n", "gQ", "<cmd>bufdo Bdelete<cr>", {
-				silent = true,
-				desc = "Delete all buffer",
-			})
+			{ "gQ", "<cmd>bufdo Bdelete<cr>", silent = true, desc = "Delete all buffer" },
 
-			vim.keymap.set("n", "g<C-q>", "<cmd>Bdelete!<cr>", {
-				silent = true,
-				desc = "Delete current buffer without save",
-			})
-		end,
+			{ "g<C-q>", "<cmd>Bdelete!<cr>", silent = true, desc = "Delete current buffer without save" },
+		},
 	},
 	{
 		-- NOTE: Use for multi line visual star motions
 		--       Native feature support only single line in visual mode
 		"haya14busa/vim-asterisk",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			vim.cmd([[
 				map *  <Plug>(asterisk-z*)
@@ -37,6 +41,7 @@ return {
 	},
 	{
 		"ethanholz/nvim-lastplace",
+		event = "VeryLazy",
 		config = function()
 			require("nvim-lastplace").setup({
 				lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
@@ -50,6 +55,7 @@ return {
 		dependencies = {
 			"mrjones2014/smart-splits.nvim",
 		},
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			local hydra = require("hydra")
 			local splits = require("smart-splits")
@@ -57,7 +63,10 @@ return {
 			hydra({
 				name = "Window resize",
 				mode = "n",
-				body = "<space>w",
+				body = "gw",
+				config = {
+					invoke_on_body = true,
+				},
 				heads = {
 					{
 						"h",
@@ -91,7 +100,10 @@ return {
 			hydra({
 				name = "Side scroll",
 				mode = "n",
-				body = "<space>z",
+				body = "gz",
+				config = {
+					invoke_on_body = true,
+				},
 				heads = {
 					{ "h", "5zh" },
 					{ "l", "5zl", { desc = "←/→" } },
@@ -103,6 +115,7 @@ return {
 	},
 	{
 		"goolord/alpha-nvim",
+		event = "BufWinEnter",
 		dependencies = {
 			"kyazdani42/nvim-web-devicons",
 			{
@@ -137,43 +150,24 @@ return {
 		ft = { "qf" },
 	},
 	{
-		"mbbill/undotree",
-		cmd = "UndotreeToggle",
-		init = function()
-			vim.g.undotree_SplitWidth = 35
-			vim.g.undotree_SetFocusWhenToggle = 1
-
-			vim.keymap.set("n", "g<C-u>", ":UndotreeToggle<cr>", {
-				silent = true,
-				desc = "Toggle the undo-tree panel",
-			})
-		end,
-	},
-	{
 		"kwkarlwang/bufresize.nvim",
-		config = function()
-			require("bufresize").setup()
-		end,
+		event = { "BufReadPost", "BufNewFile" },
+		opts = {},
 	},
 	{
 		"echuraev/translate-shell.vim",
+		keys = {
+			{ "<C-t>", ":Trans<CR>", silent = true, desc = "Translate word under cursor" },
+
+			{ "<C-t>", ":Trans -b<CR>", silent = true, mode = "v", desc = "Translate text in visual selection" },
+		},
 		init = function()
 			vim.g.trans_join_lines = 1
-		end,
-		config = function()
-			vim.keymap.set("n", "<C-t>", ":Trans<CR>", {
-				silent = true,
-				desc = "Translate word under cursor",
-			})
-
-			vim.keymap.set("v", "<C-t>", ":Trans -b<CR>", {
-				silent = true,
-				desc = "Translate text in visual selection",
-			})
 		end,
 	},
 	{
 		"norcalli/nvim-colorizer.lua",
+		event = "BufReadPost",
 		init = function()
 			vim.opt.termguicolors = true
 		end,
@@ -183,18 +177,20 @@ return {
 	},
 	{
 		"uga-rosa/ccc.nvim",
-		config = function()
-			require("ccc").setup()
-
-			vim.keymap.set("n", "gC", function()
-				require("ccc.ui"):open(false)
-			end, {
+		keys = {
+			{
+				"gC",
+				function()
+					require("ccc.ui"):open(false)
+				end,
 				desc = "Open color picker",
-			})
-		end,
+			},
+		},
+		opts = {},
 	},
 	{
 		"gelguy/wilder.nvim",
+		event = "CmdlineEnter",
 		config = function()
 			local wilder = require("wilder")
 			wilder.setup({
@@ -254,13 +250,16 @@ return {
 
 	{
 		"karb94/neoscroll.nvim",
-		config = function()
-			require("neoscroll").setup()
-		end,
+		event = { "VeryLazy" },
+		opts = {},
 	},
 
 	{
 		"SmiteshP/nvim-navic",
+		event = "LspAttach",
+		init = function()
+			vim.o.winbar = " "
+		end,
 		config = function()
 			local navic = require("nvim-navic")
 			navic.setup({
@@ -379,6 +378,7 @@ return {
 
 	{
 		"akinsho/nvim-bufferline.lua",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		config = function()
 			require("bufferline").setup({
 				options = {

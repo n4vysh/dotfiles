@@ -1,51 +1,51 @@
 return {
 	{
 		"tpope/vim-abolish",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			vim.opt.iskeyword:append({ "-" })
 		end,
 	},
 	{
 		"tommcdo/vim-exchange",
-		init = function()
-			vim.g.exchange_no_mappings = 1
-		end,
-		config = function()
+		keys = {
 			-- HACK: change keymap to avoid conflict for leap.nvim
 			-- https://github.com/ggandor/leap.nvim/discussions/59#discussioncomment-3842315
-			vim.keymap.set({ "n" }, "cx", "<Plug>(Exchange)", {
-				silent = true,
-			})
-			vim.keymap.set({ "x" }, "gX", "<Plug>(Exchange)", {
-				silent = true,
-			})
-			vim.keymap.set({ "n" }, "cxc", "<Plug>(ExchangeClear)", {
-				silent = true,
-			})
-			vim.keymap.set({ "n" }, "cxx", "<Plug>(ExchangeLine)", {
-				silent = true,
-			})
+			{ "cx", "<Plug>(Exchange)", silent = true },
+			{ "gX", "<Plug>(Exchange)", mode = "x", silent = true },
+			{ "cxc", "<Plug>(ExchangeClear)", silent = true },
+			{ "cxx", "<Plug>(ExchangeLine)", silent = true },
+		},
+		init = function()
+			vim.g.exchange_no_mappings = 1
 		end,
 	},
 	{
 		"windwp/nvim-spectre",
-		config = function()
-			vim.keymap.set("n", "<space>sr", require("spectre").open, {
+		keys = {
+			{
+				"<space>sr",
+				function()
+					require("spectre").open()
+				end,
 				desc = "Search and replace",
-			})
-		end,
+			},
+		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
 	},
 	{
 		"cshuaimin/ssr.nvim",
-		config = function()
-			require("ssr").setup({})
-			vim.keymap.set({ "n", "x" }, "<space>s<C-r>", require("ssr").open, {
+		keys = {
+			{
+				"<space>s<C-r>",
+				"<cmd>lua require('ssr').open()<cr>",
+				mode = { "n", "x" },
 				desc = "Structural search and replace",
-			})
-		end,
+			},
+		},
+		opts = {},
 	},
 	{
 		"junegunn/vim-easy-align",
@@ -55,6 +55,7 @@ return {
 	},
 	{
 		"mg979/vim-visual-multi",
+		event = { "BufReadPost", "BufNewFile" },
 		init = function()
 			vim.g.VM_theme = "neon"
 			vim.g.VM_silent_exit = 1
@@ -63,43 +64,56 @@ return {
 			-- https://github.com/mg979/vim-visual-multi/issues/172#issuecomment-1092293500
 			vim.g.VM_maps = {
 				["I BS"] = "",
+				["Select Cursor Down"] = "<M-j>",
+				["Select Cursor Up"] = "<M-k>",
 			}
 		end,
 	},
 	{
 		"kana/vim-textobj-entire",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"kana/vim-textobj-line",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"kana/vim-textobj-datetime",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"mattn/vim-textobj-url",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"pianohacker/vim-textobj-indented-paragraph",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"kana/vim-textobj-indent",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
+		-- NOTE: nvim-treesitter-textobjects not work multiline comments
+		-- https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/133
 		"glts/vim-textobj-comment",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"rsrchboy/vim-textobj-heredocs",
+		event = { "BufReadPost", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"coachshea/vim-textobj-markdown",
+		ft = { "markdown" },
 		dependencies = {
 			"kana/vim-textobj-user",
 			"nvim-treesitter/nvim-treesitter",
@@ -146,27 +160,35 @@ return {
 	},
 	{
 		"windwp/nvim-autopairs",
+		event = "InsertEnter",
 		config = function()
 			require("nvim-autopairs").setup({})
 		end,
 	},
 	{
 		"danymat/neogen",
-		config = function()
-			require("neogen").setup({
-				snippet_engine = "luasnip",
-			})
-
-			vim.keymap.set("n", "gca", require("neogen").generate, {
+		keys = {
+			{
+				"gca",
+				function()
+					require("neogen").generate()
+				end,
 				silent = true,
 				desc = "Generate annotation",
-			})
-		end,
+			},
+		},
+		opts = {
+			snippet_engine = "luasnip",
+		},
 		dependencies = "nvim-treesitter/nvim-treesitter",
 	},
-	{ "tpope/vim-repeat" },
+	{
+		"tpope/vim-repeat",
+		event = { "BufReadPost", "BufNewFile" },
+	},
 	{
 		"kylechui/nvim-surround",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			-- HACK: change keymap to avoid conflict for leap.nvim
 			-- https://github.com/ggandor/leap.nvim/discussions/59#discussioncomment-3842315
@@ -178,76 +200,121 @@ return {
 			})
 		end,
 	},
-	{ "wellle/targets.vim" },
+	{
+		"wellle/targets.vim",
+		event = { "BufReadPost", "BufNewFile" },
+	},
 	{
 		"Wansmer/treesj",
 		dependencies = { "nvim-treesitter" },
-		config = function()
-			require("treesj").setup({
-				use_default_keymaps = false,
-			})
-
-			vim.keymap.set("n", "gS", require("treesj").split, {
-				desc = "Split node under cursor",
-			})
-
-			vim.keymap.set("n", "gJ", require("treesj").join, {
-				desc = "Join node under cursor",
-			})
-		end,
+		keys = {
+			{ "gS", "<cmd>TSJSplit<cr>", desc = "Split node under cursor" },
+			{ "gJ", "<cmd>TSJJoin<cr>", desc = "Join node under cursor" },
+		},
+		opts = { use_default_keymaps = false },
 	},
 	{
 		"ThePrimeagen/refactoring.nvim",
-		config = function()
-			require("refactoring").setup({})
-
-			vim.keymap.set("v", "<space>re", function()
-				require("refactoring").refactor("Extract Function")
-			end, { silent = true })
-
-			vim.keymap.set("v", "<space>rf", function()
-				require("refactoring").refactor("Extract Function To File")
-			end, { silent = true })
-
-			vim.keymap.set("v", "<space>rv", function()
-				require("refactoring").refactor("Extract Variable")
-			end, { silent = true })
-
-			vim.keymap.set("v", "<space>ri", function()
-				require("refactoring").refactor("Inline Variable")
-			end, { silent = true })
-
-			vim.keymap.set("n", "<space>rb", function()
-				require("refactoring").refactor("Extract Block")
-			end, { silent = true })
-
-			vim.keymap.set("n", "<space>rbf", function()
-				require("refactoring").refactor("Extract Block To File")
-			end, { silent = true })
-
-			vim.keymap.set("n", "<space>ri", function()
-				require("refactoring").refactor("Inline Variable")
-			end, { noremap = true, silent = true, expr = false })
-
-			require("telescope").load_extension("refactoring")
-
-			vim.keymap.set("v", "<space>rr", require("telescope").extensions.refactoring.refactors)
-
-			vim.keymap.set("n", "<space>rp", function()
-				require("refactoring").debug.printf({ below = false })
-			end)
-
-			vim.keymap.set("n", "<space>rv", function()
-				require("refactoring").debug.print_var({ normal = true })
-			end)
-
-			vim.keymap.set("v", "<space>rv", require("refactoring").debug.print_var)
-
-			vim.keymap.set("n", "<space>rc", require("refactoring").debug.cleanup)
-		end,
+		keys = {
+			{
+				"<space>re",
+				function()
+					require("refactoring").refactor("Extract Function")
+				end,
+				mode = "v",
+				silent = true,
+				desc = "Extract function",
+			},
+			{
+				"<space>rf",
+				function()
+					require("refactoring").refactor("Extract Function To File")
+				end,
+				mode = "v",
+				silent = true,
+				desc = "Extract function to file",
+			},
+			{
+				"<space>rv",
+				function()
+					require("refactoring").refactor("Extract Variable")
+				end,
+				mode = "v",
+				silent = true,
+				desc = "Extract variable",
+			},
+			{
+				"<space>ri",
+				function()
+					require("refactoring").refactor("Inline Variable")
+				end,
+				mode = "v",
+				silent = true,
+				desc = "Inline variable",
+			},
+			{
+				"<space>rb",
+				function()
+					require("refactoring").refactor("Extract Block")
+				end,
+				silent = true,
+				desc = "Extract block",
+			},
+			{
+				"<space>rbf",
+				function()
+					require("refactoring").refactor("Extract Block To File")
+				end,
+				silent = true,
+				desc = "Extract block to file",
+			},
+			{
+				"<space>ri",
+				function()
+					require("refactoring").refactor("Inline Variable")
+				end,
+				noremap = true,
+				silent = true,
+				expr = false,
+				desc = "Inline variable",
+			},
+			{
+				"<space>rr",
+				function()
+					require("telescope").load_extension("refactoring")
+					require("telescope").extensions.refactoring.refactors()
+				end,
+				mode = "v",
+				desc = "Search for refactor operations",
+			},
+			{
+				"<space>rp",
+				function()
+					require("refactoring").debug.printf({ below = false })
+				end,
+				desc = "Add debug printf",
+			},
+			{
+				"<space>rv",
+				function()
+					require("refactoring").debug.print_var()
+				end,
+				mode = { "n", "x" },
+				desc = "Add debug print_var",
+			},
+			{
+				"<space>rc",
+				function()
+					require("refactoring").debug.cleanup({})
+				end,
+				desc = "Cleanup debug print",
+			},
+		},
+		opts = {},
 	},
 	{
 		"monaqa/dial.nvim",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			local augend = require("dial.augend")
 			require("dial.config").augends:register_group({
@@ -363,11 +430,10 @@ return {
 	},
 	{
 		"smjonas/live-command.nvim",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			require("live-command").setup({
 				commands = {
-					Normal = { cmd = "normal" },
-					Delete = { cmd = "delete" },
 					Global = { cmd = "global" },
 					Vglobal = { cmd = "vglobal" },
 					Sort = { cmd = "sort" },
@@ -375,35 +441,27 @@ return {
 			})
 
 			vim.keymap.set("n", "<space>c<C-s>", ":%Sort ", {
-				desc = "Set command for sort to command-line",
+				desc = "Set command for sort",
 			})
 
 			vim.keymap.set("v", "<space>c<C-s>", ":Sort ", {
-				desc = "Set command for sort to command-line",
+				desc = "Set command for sort",
 			})
 
 			vim.keymap.set("n", "<space>cd", ":%Global//d<left><left>", {
-				desc = "Set command for deleting line where pattern matches to command-line",
+				desc = "Set command to delete with global",
 			})
 
 			vim.keymap.set("v", "<space>cd", ":Global//d<left><left>", {
-				desc = "Set command for deleting line where pattern matches to command-line",
+				desc = "Set command to delete with global",
 			})
 
 			vim.keymap.set("n", "<space>c<C-d>", ":%Vglobal//d<left><left>", {
-				desc = "Set command for deleting line where pattern not matches to command-line",
+				desc = "Set command to delete with vglobal",
 			})
 
 			vim.keymap.set("v", "<space>c<C-d>", ":Vglobal//d<left><left>", {
-				desc = "Set command for deleting line where pattern not matches to command-line",
-			})
-
-			vim.keymap.set("n", "<space>cn", ":%Normal ", {
-				desc = "Set command for executing normal command to command-line",
-			})
-
-			vim.keymap.set("v", "<space>cn", ":Normal ", {
-				desc = "Set command for executing normal command to command-line",
+				desc = "Set command to delete with vglobal",
 			})
 		end,
 	},

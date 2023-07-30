@@ -1,6 +1,56 @@
 return {
 	{
 		"nvim-neotest/neotest",
+		keys = {
+			{
+				"[<C-t>",
+				function()
+					require("neotest").jump.prev({ status = "failed" })
+				end,
+				silent = true,
+				desc = "Jump previous failed",
+			},
+			{
+				"]<C-t>",
+				function()
+					require("neotest").jump.next({ status = "failed" })
+				end,
+				silent = true,
+				desc = "Jump next failed",
+			},
+			{
+				"<space>tt",
+				function()
+					require("neotest").run.run()
+				end,
+				silent = true,
+				desc = "Run test",
+			},
+			{
+				"<space>t<C-t>",
+				function()
+					require("neotest").run.run(vim.fn.expand("%"))
+				end,
+				silent = true,
+				desc = "Run test in current file",
+			},
+			{
+				"<space>to",
+				function()
+					require("neotest").output.open()
+				end,
+				silent = true,
+				desc = "Open test output",
+			},
+			{
+				"<space>ts",
+				function()
+					require("neotest").summary.toggle()
+				end,
+				silent = true,
+				desc = "Toggle test summary",
+			},
+		},
 		config = function()
 			require("neotest").setup({
 				adapters = {
@@ -13,42 +63,6 @@ return {
 						allow_file_types = { "bash" },
 					}),
 				},
-			})
-
-			vim.keymap.set("n", "[<C-t>", function()
-				require("neotest").jump.prev({ status = "failed" })
-			end, {
-				silent = true,
-			})
-
-			vim.keymap.set("n", "]<C-t>", function()
-				require("neotest").jump.next({ status = "failed" })
-			end, {
-				silent = true,
-			})
-
-			vim.keymap.set("n", "<space>tt", function()
-				require("neotest").run.run()
-			end, {
-				silent = true,
-			})
-
-			vim.keymap.set("n", "<space>t<C-t>", function()
-				require("neotest").run.run(vim.fn.expand("%"))
-			end, {
-				silent = true,
-			})
-
-			vim.keymap.set("n", "<space>to", function()
-				require("neotest").output.open()
-			end, {
-				silent = true,
-			})
-
-			vim.keymap.set("n", "<space>ts", function()
-				require("neotest").summary.toggle()
-			end, {
-				silent = true,
 			})
 		end,
 		dependencies = {

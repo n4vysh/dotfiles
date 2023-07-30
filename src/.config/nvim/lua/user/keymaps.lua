@@ -13,10 +13,6 @@ vim.keymap.set("n", "<C-w><C-q>", "<cmd>quit!<CR>", {
 	desc = "Quit without writing",
 })
 
-vim.keymap.set("n", "<C-c>", "<Nop>", {
-	desc = "Remap for plugin",
-})
-
 vim.keymap.set("x", "y", "y`]", {
 	silent = true,
 	desc = "Put and jump the text",
@@ -58,29 +54,12 @@ vim.keymap.set("v", "g?", [[<ESC>?\%V]], {
 
 -- keymaps using the space bar like Spacemacs
 -- +commands
-vim.keymap.set("n", "<space>ca", ":%!awk '{print $}'<left><left>", { desc = "Set command for awk to command-line" })
-
-vim.keymap.set("v", "<space>ca", ":!awk '{print $}'<left><left>", { desc = "Set command for awk to command-line" })
-
-vim.keymap.set("n", "<space>c<C-a>", ":args ", { desc = "Set command for args to command-line" })
-
 vim.keymap.set("n", "<space>cs", ":%s///g<left><left><left>", {
-	desc = "Set command for substitute to command-line",
+	desc = "Set command for substitute",
 })
 
 vim.keymap.set("v", "<space>cs", ":s///g<left><left><left>", {
-	desc = "Set command for substitute to command-line",
-})
-
--- +open
-vim.keymap.set("n", "<Space>ot", "<cmd>edit ~/Documents/tasks.md<cr>", {
-	silent = true,
-	desc = "Open task file",
-})
-
-vim.keymap.set("n", "<Space>on", "<cmd>edit ~/Documents/note.md<cr>", {
-	silent = true,
-	desc = "Open note",
+	desc = "Set command for substitute",
 })
 
 -- +yank

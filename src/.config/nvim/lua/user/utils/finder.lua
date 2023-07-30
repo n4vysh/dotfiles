@@ -61,11 +61,6 @@ function M.keymaps()
 	builtin.keymaps({})
 end
 
-function M.filetypes()
-	local builtin = require("telescope.builtin")
-	builtin.filetypes()
-end
-
 function M.man_pages()
 	local builtin = require("telescope.builtin")
 	builtin.man_pages()
@@ -86,12 +81,6 @@ function M.harpoon()
 	local telescope = require("telescope")
 	telescope.load_extension("harpoon")
 	telescope.extensions.harpoon.marks({})
-end
-
-function M.zoxide()
-	local telescope = require("telescope")
-	telescope.load_extension("zoxide")
-	telescope.extensions.zoxide.list({})
 end
 
 return M

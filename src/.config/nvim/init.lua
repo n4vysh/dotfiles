@@ -22,10 +22,6 @@ vim.g.mapleader = "\\"
 local lazy = require("lazy")
 
 local kv = {
-	clean = {
-		lhs = "<C-c>",
-		desc = "Remove any disabled or unused plugins",
-	},
 	sync = {
 		lhs = "s",
 		desc = "Remove and update plugins",

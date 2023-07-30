@@ -1,6 +1,7 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("neodev").setup({})
 
@@ -204,19 +205,6 @@ return {
 				capabilities = capabilities,
 			})
 
-			require("lspconfig").denols.setup({
-				-- NOTE: Ignore .git to avoid conflict between tsserver and denols
-				root_dir = require("lspconfig").util.root_pattern("deno.json", "deno.jsonc"),
-				init_options = {
-					enable = true,
-					lint = false,
-					unstable = false,
-					importMap = "./import_map.json",
-				},
-				on_attach = on_attach,
-				capabilities = capabilities,
-			})
-
 			require("lspconfig").lua_ls.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
@@ -329,7 +317,7 @@ return {
 			},
 			{
 				"nvimdev/lspsaga.nvim",
-				event = "BufRead",
+				event = "LspAttach",
 				config = function()
 					require("lspsaga").setup({
 						request_timeout = 5000,
@@ -366,6 +354,7 @@ return {
 	},
 	{
 		"williamboman/mason.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("mason").setup({
 				PATH = "append",
@@ -410,6 +399,7 @@ return {
 
 	{
 		"jose-elias-alvarez/null-ls.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local null_ls = require("null-ls")
 			local augroup = vim.api.nvim_create_augroup("null_ls_lsp_document_formatting", {})
@@ -492,6 +482,7 @@ return {
 	{
 		"j-hui/fidget.nvim",
 		tag = "legacy",
+		event = "LspAttach",
 		config = function()
 			require("fidget").setup({
 				text = {

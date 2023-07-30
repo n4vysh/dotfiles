@@ -1,6 +1,7 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
+		event = { "CursorHold", "CursorHoldI" },
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
 		},
@@ -41,8 +42,8 @@ return {
 						return "<Ignore>"
 					end, { expr = true })
 
-					map("n", "<space>vr", gs.reset_hunk)
-					map("n", "<space>vp", gs.preview_hunk)
+					map("n", "<space>vr", gs.reset_hunk, { desc = "Reset hunk" })
+					map("n", "<space>vp", gs.preview_hunk, { desc = "Preview hunk" })
 
 					-- Text object
 					map({ "o", "x" }, "ih", "<cmd>Gitsigns select_hunk<CR>")
@@ -54,6 +55,58 @@ return {
 	{
 		"ruifm/gitlinker.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
+		keys = {
+			{
+				"<space>vo",
+				function()
+					require("gitlinker").get_buf_range_url(
+						"n",
+						{ action_callback = require("gitlinker.actions").open_in_browser }
+					)
+				end,
+				silent = true,
+				desc = "Open link in browser",
+			},
+			{
+				"<space>vo",
+				function()
+					require("gitlinker").get_buf_range_url(
+						"v",
+						{ action_callback = require("gitlinker.actions").open_in_browser }
+					)
+				end,
+				mode = "v",
+				silent = true,
+				desc = "Open link in browser",
+			},
+			{
+				"<space>v<C-o>",
+				function()
+					require("gitlinker").get_repo_url({
+						action_callback = require("gitlinker.actions").open_in_browser,
+					})
+				end,
+				silent = true,
+				desc = "Open repository link in browser",
+			},
+			{
+				"<space>vy",
+				function()
+					require("gitlinker").get_buf_range_url("n")
+				end,
+				silent = true,
+				desc = "Yank link",
+			},
+			{
+				"<space>vy",
+				function()
+					require("gitlinker").get_buf_range_url("v")
+				end,
+				mode = "v",
+				silent = true,
+				desc = "Yank link",
+			},
+		},
 		config = function()
 			local gitlinker = require("gitlinker")
 			gitlinker.setup({
@@ -62,26 +115,6 @@ return {
 				},
 				mappings = nil,
 			})
-
-			vim.keymap.set("n", "<space>vo", function()
-				require("gitlinker").get_buf_range_url("n", { action_callback = require("gitlinker.actions").open_in_browser })
-			end, { silent = true })
-
-			vim.keymap.set("v", "<space>vo", function()
-				require("gitlinker").get_buf_range_url("v", { action_callback = require("gitlinker.actions").open_in_browser })
-			end, { silent = true })
-
-			vim.keymap.set("n", "<space>v<C-o>", function()
-				require("gitlinker").get_repo_url({
-					action_callback = require("gitlinker.actions").open_in_browser,
-				})
-			end, { silent = true })
-
-			for _, mode in pairs({ "n", "v" }) do
-				vim.keymap.set(mode, "<space>vy", function()
-					require("gitlinker").get_buf_range_url(mode)
-				end, { silent = true })
-			end
 		end,
 	},
 
@@ -101,10 +134,12 @@ return {
 
 			vim.keymap.set("n", "<Space>vd", ":DiffviewOpen<cr><c-w>l", {
 				silent = true,
+				desc = "Open diff view",
 			})
 
 			vim.keymap.set({ "n", "v" }, "<Space>vh", ":DiffviewFileHistory %<cr>", {
 				silent = true,
+				desc = "Open file history",
 			})
 		end,
 		config = function()

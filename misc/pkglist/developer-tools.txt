@@ -54,7 +54,6 @@ extra/cmctl
 extra/codespell
 extra/csvkit
 extra/delve
-extra/deno
 extra/direnv
 extra/editorconfig-checker
 extra/eslint

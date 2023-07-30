@@ -1,7 +1,11 @@
 return {
-	{ "tpope/vim-unimpaired" },
+	{
+		"tpope/vim-unimpaired",
+		event = { "BufReadPost", "BufNewFile" },
+	},
 	{
 		"echasnovski/mini.bracketed",
+		event = { "BufReadPost", "BufNewFile" },
 		version = "*",
 		config = function()
 			-- remove keymap of vim-unimpaired
@@ -37,7 +41,10 @@ return {
 			})
 		end,
 	},
-	{ "tpope/vim-rsi" },
+	{
+		"tpope/vim-rsi",
+		event = { "InsertEnter", "CmdlineEnter" },
+	},
 	{
 		"folke/which-key.nvim",
 		keys = {
@@ -68,18 +75,16 @@ return {
 					b = { name = "+buffer" },
 					c = { name = "+command" },
 					d = { name = "+debug" },
+					e = { name = "+edit" },
 					f = { name = "+file" },
-					l = { name = "+lsp" },
+					l = { name = "+lang" },
 					m = { name = "+mark" },
-					o = { name = "+open" },
 					p = { name = "+package" },
 					r = { name = "+refactor" },
 					s = { name = "+search" },
 					t = { name = "+test" },
 					v = { name = "+version" },
-					w = { name = "+window" },
 					y = { name = "+yank" },
-					z = { name = "+side-scroll" },
 				},
 			})
 		end,

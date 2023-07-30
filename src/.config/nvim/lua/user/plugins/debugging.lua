@@ -1,6 +1,48 @@
 return {
 	{
 		"rcarriga/nvim-dap-ui",
+		keys = {
+			{
+				"<space>db",
+				function()
+					require("dap").toggle_breakpoint()
+				end,
+				silent = true,
+				desc = "Toggle breakpoint for debugger",
+			},
+			{
+				"<space>dd",
+				function()
+					require("dapui").toggle()
+				end,
+				silent = true,
+				desc = "Toggle UI for debugger",
+			},
+			{
+				"<space>dc",
+				function()
+					require("dap").continue()
+				end,
+				silent = true,
+				desc = "Continue execution for debugger",
+			},
+			{
+				"<space>ds",
+				function()
+					require("dap").step_over()
+				end,
+				silent = true,
+				desc = "Requests the debugger to step over",
+			},
+			{
+				"<space>d<C-s>",
+				function()
+					require("dap").step_into()
+				end,
+				silent = true,
+				desc = "Requests the debugger to step into",
+			},
+		},
 		config = function()
 			require("dapui").setup()
 			require("nvim-dap-virtual-text").setup()
@@ -28,27 +70,6 @@ return {
 			require("dap").listeners.before["event_terminated"]["custom"] = function()
 				require("dapui").close()
 			end
-
-			vim.keymap.set("n", "<space>db", require("dap").toggle_breakpoint, {
-				silent = true,
-			})
-
-			vim.keymap.set("n", "<space>dd", require("dapui").toggle, {
-				silent = true,
-				desc = "Toggle UI for debugger",
-			})
-
-			vim.keymap.set("n", "<space>dc", require("dap").continue, {
-				silent = true,
-			})
-
-			vim.keymap.set("n", "<space>ds", require("dap").step_over, {
-				silent = true,
-			})
-
-			vim.keymap.set("n", "<space>d<C-s>", require("dap").step_into, {
-				silent = true,
-			})
 		end,
 		dependencies = {
 			"mfussenegger/nvim-dap",

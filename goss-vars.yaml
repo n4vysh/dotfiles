@@ -48,7 +48,6 @@ packages:
   - crudini
   - csvkit
   - delve
-  - deno
   - devbox-bin
   - dirb
   - dirbuster

@@ -1,22 +1,22 @@
 return {
 	{
 		"ahmedkhalf/project.nvim",
+		keys = {
+			{ "<space>cr", "<cmd>ProjectRoot<cr>", silent = true, desc = "Change to root directory" },
+		},
 		config = function()
 			require("project_nvim").setup({
 				manual_mode = true,
-			})
-			vim.keymap.set("n", "<space>cr", ":ProjectRoot<cr>", {
-				silent = true,
-				desc = "Change to root directory",
 			})
 		end,
 	},
 	{
 		"tpope/vim-projectionist",
+		event = { "BufReadPost", "BufNewFile" },
 		config = function()
 			vim.keymap.set("n", "<Space>aa", ":A<cr>", {
 				silent = true,
-				desc = "Edit the alternate file for the current buffer",
+				desc = "Edit the alternate file",
 			})
 
 			vim.keymap.set("n", "<Space>as", ":AS<cr>", {
@@ -29,19 +29,14 @@ return {
 				desc = "Edit the alternate file in a vertical split",
 			})
 
-			vim.keymap.set("n", "<Space>od", ":Edoc<cr>", {
+			vim.keymap.set("n", "<Space>ed", ":Edoc<cr>", {
 				silent = true,
-				desc = "Open the doc file",
+				desc = "Edit the doc file",
 			})
 
-			vim.keymap.set("n", "<Space>o<c-d>", ":Edoc ", {
+			vim.keymap.set("n", "<Space>er", ":Erunner<cr>", {
 				silent = true,
-				desc = "Open doc files",
-			})
-
-			vim.keymap.set("n", "<Space>or", ":Erunner<cr>", {
-				silent = true,
-				desc = "Open the runner file",
+				desc = "Edit the runner file",
 			})
 		end,
 	},
