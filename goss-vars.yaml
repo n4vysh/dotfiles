@@ -237,6 +237,7 @@ packages:
   - python-pip
   - python-pydash
   - python2-termcolor
+  - python2-xlsx2csv
   - qmk
   - recon-ng
   - reflector
