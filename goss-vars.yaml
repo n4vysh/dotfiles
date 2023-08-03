@@ -436,6 +436,7 @@ xdg_config_files:
   - .config/pet
   - .config/ncspot
   - .config/bluetuith
+  - .config/rtx
 xdg_local_files:
   - .local/bin/clamshell
   - .local/bin/import-gsettings
