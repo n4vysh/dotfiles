@@ -5,6 +5,7 @@ packages:
   - 1password-cli
   - acpi
   - actionlint-bin
+  - adr-tools
   - adwaita-qt5
   - adwaita-qt6
   - aic94xx-firmware
