@@ -1,7 +1,7 @@
 return {
 	{
 		"ggandor/leap.nvim",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		config = function()
 			require("leap").add_default_mappings()
 		end,

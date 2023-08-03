@@ -1,7 +1,7 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "VeryLazy" },
 		config = function()
 			require("neodev").setup({})
 
@@ -310,25 +310,6 @@ return {
 				dependencies = "kevinhwang91/promise-async",
 			},
 			{
-				"luukvbaal/statuscol.nvim",
-				config = function()
-					local builtin = require("statuscol.builtin")
-					require("statuscol").setup({
-						segments = {
-							{
-								sign = { name = { "Diagnostic" }, colwidth = 1 },
-								click = "v:lua.ScSa",
-							},
-							{ text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
-							{
-								sign = { name = { ".*" }, colwidth = 1 },
-								click = "v:lua.ScSa",
-							},
-						},
-					})
-				end,
-			},
-			{
 				"nvimdev/lspsaga.nvim",
 				event = "LspAttach",
 				config = function()
@@ -367,7 +348,7 @@ return {
 	},
 	{
 		"williamboman/mason.nvim",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "VeryLazy" },
 		config = function()
 			require("mason").setup({
 				PATH = "append",
@@ -413,7 +394,7 @@ return {
 
 	{
 		"jose-elias-alvarez/null-ls.nvim",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "VeryLazy" },
 		config = function()
 			local null_ls = require("null-ls")
 			local augroup = vim.api.nvim_create_augroup("null_ls_lsp_document_formatting", {})

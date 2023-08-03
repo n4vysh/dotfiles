@@ -1,7 +1,7 @@
 return {
 	{
 		"tpope/vim-abolish",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		config = function()
 			vim.opt.iskeyword:append({ "-" })
 		end,
@@ -55,7 +55,7 @@ return {
 	},
 	{
 		"mg979/vim-visual-multi",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		init = function()
 			vim.g.VM_theme = "neon"
 			vim.g.VM_silent_exit = 1
@@ -71,44 +71,44 @@ return {
 	},
 	{
 		"kana/vim-textobj-entire",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"kana/vim-textobj-line",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"kana/vim-textobj-datetime",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"mattn/vim-textobj-url",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"pianohacker/vim-textobj-indented-paragraph",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"kana/vim-textobj-indent",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		-- NOTE: nvim-treesitter-textobjects not work multiline comments
 		-- https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/133
 		"glts/vim-textobj-comment",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"rsrchboy/vim-textobj-heredocs",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
@@ -184,11 +184,11 @@ return {
 	},
 	{
 		"tpope/vim-repeat",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 	},
 	{
 		"kylechui/nvim-surround",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		config = function()
 			-- HACK: change keymap to avoid conflict for leap.nvim
 			-- https://github.com/ggandor/leap.nvim/discussions/59#discussioncomment-3842315
@@ -202,7 +202,7 @@ return {
 	},
 	{
 		"wellle/targets.vim",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 	},
 	{
 		"Wansmer/treesj",
@@ -314,7 +314,7 @@ return {
 	},
 	{
 		"monaqa/dial.nvim",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		config = function()
 			local augend = require("dial.augend")
 			require("dial.config").augends:register_group({
@@ -430,7 +430,7 @@ return {
 	},
 	{
 		"smjonas/live-command.nvim",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		config = function()
 			require("live-command").setup({
 				commands = {

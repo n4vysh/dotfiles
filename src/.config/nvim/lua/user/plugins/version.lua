@@ -1,7 +1,7 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
-		event = { "CursorHold", "CursorHoldI" },
+		event = { "VeryLazy" },
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
 		},

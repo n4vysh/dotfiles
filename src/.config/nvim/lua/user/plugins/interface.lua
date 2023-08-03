@@ -1,7 +1,7 @@
 return {
 	{
 		"RRethy/vim-illuminate",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 	},
 	{
 		"kyazdani42/nvim-web-devicons",
@@ -29,7 +29,7 @@ return {
 		-- NOTE: Use for multi line visual star motions
 		--       Native feature support only single line in visual mode
 		"haya14busa/vim-asterisk",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		config = function()
 			vim.cmd([[
 				map *  <Plug>(asterisk-z*)
@@ -51,11 +51,30 @@ return {
 		end,
 	},
 	{
+		"luukvbaal/statuscol.nvim",
+		config = function()
+			local builtin = require("statuscol.builtin")
+			require("statuscol").setup({
+				segments = {
+					{
+						sign = { name = { "Diagnostic" }, colwidth = 1 },
+						click = "v:lua.ScSa",
+					},
+					{ text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
+					{
+						sign = { name = { ".*" }, colwidth = 1 },
+						click = "v:lua.ScSa",
+					},
+				},
+			})
+		end,
+	},
+	{
 		"anuvyklack/hydra.nvim",
 		dependencies = {
 			"mrjones2014/smart-splits.nvim",
 		},
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		config = function()
 			local hydra = require("hydra")
 			local splits = require("smart-splits")
@@ -115,7 +134,6 @@ return {
 	},
 	{
 		"goolord/alpha-nvim",
-		event = "BufWinEnter",
 		dependencies = {
 			"kyazdani42/nvim-web-devicons",
 			{
@@ -151,7 +169,7 @@ return {
 	},
 	{
 		"kwkarlwang/bufresize.nvim",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		opts = {},
 	},
 	{
@@ -378,7 +396,6 @@ return {
 
 	{
 		"akinsho/nvim-bufferline.lua",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		config = function()
 			require("bufferline").setup({
 				options = {

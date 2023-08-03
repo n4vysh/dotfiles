@@ -12,7 +12,7 @@ return {
 	},
 	{
 		"tpope/vim-projectionist",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		config = function()
 			vim.keymap.set("n", "<Space>aa", ":A<cr>", {
 				silent = true,

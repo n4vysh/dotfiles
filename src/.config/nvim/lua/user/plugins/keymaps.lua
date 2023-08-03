@@ -1,11 +1,11 @@
 return {
 	{
 		"tpope/vim-unimpaired",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 	},
 	{
 		"echasnovski/mini.bracketed",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		version = "*",
 		config = function()
 			-- remove keymap of vim-unimpaired

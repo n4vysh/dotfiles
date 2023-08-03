@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "VeryLazy" },
 		build = function()
 			vim.cmd.TSUpdate()
 		end,
@@ -138,17 +138,17 @@ return {
 	},
 	{
 		"m-demare/hlargs.nvim",
-		event = { "BufReadPost", "BufNewFile" },
+		event = { "VeryLazy" },
 		opts = {},
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 	{
 		"itchyny/vim-highlighturl",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "VeryLazy" },
 	},
 	{
 		"folke/todo-comments.nvim",
-		event = { "BufReadPre", "BufNewFile" },
+		event = { "VeryLazy" },
 		dependencies = "nvim-lua/plenary.nvim",
 		config = function()
 			require("todo-comments").setup({})
