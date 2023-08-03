@@ -12,7 +12,7 @@ aur/flux-bin
 aur/ghq-bin
 aur/git-open
 aur/golangci-lint-bin
-aur/google-cloud-sdk
+aur/google-cloud-cli
 aur/goss-bin
 aur/hadolint-bin
 aur/helm-diff

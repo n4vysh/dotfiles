@@ -106,7 +106,7 @@ packages:
   - gobuster
   - gofumpt
   - golangci-lint-bin
-  - google-cloud-sdk
+  - google-cloud-cli
   - gopass
   - goss-bin
   - gpg-tui
