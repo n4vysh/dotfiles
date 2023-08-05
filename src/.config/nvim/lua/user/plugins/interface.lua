@@ -4,7 +4,7 @@ return {
 		event = { "VeryLazy" },
 	},
 	{
-		"kyazdani42/nvim-web-devicons",
+		"nvim-tree/nvim-web-devicons",
 		lazy = true,
 	},
 	{
@@ -135,7 +135,7 @@ return {
 	{
 		"goolord/alpha-nvim",
 		dependencies = {
-			"kyazdani42/nvim-web-devicons",
+			"nvim-tree/nvim-web-devicons",
 			{
 				"Shatur/neovim-session-manager",
 				config = function()

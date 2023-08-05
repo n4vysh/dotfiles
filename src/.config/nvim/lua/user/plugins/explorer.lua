@@ -1,6 +1,6 @@
 return {
 	{
-		"kyazdani42/nvim-tree.lua",
+		"nvim-tree/nvim-tree.lua",
 		cmd = { "NvimTreeToggle", "NvimTreeFindFile" },
 		init = function()
 			vim.keymap.set("n", "<Space>ft", function()
