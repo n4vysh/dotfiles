@@ -144,7 +144,6 @@ return {
 	},
 	{
 		"itchyny/vim-highlighturl",
-		event = { "VeryLazy" },
 	},
 	{
 		"folke/todo-comments.nvim",
