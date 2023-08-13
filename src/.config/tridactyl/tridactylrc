@@ -35,3 +35,4 @@ set modeindicator false
 
 seturl ^https://.*\.tryhackme\.tech superignore true
 seturl ^https://vnc\.htb-cloud\.com superignore true
+seturl ^https://.*\.datadoghq\.com superignore true
