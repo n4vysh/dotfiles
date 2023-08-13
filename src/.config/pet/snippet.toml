@@ -96,13 +96,13 @@
 
 [[snippets]]
   description = "fast port scan"
-  command = "nmap -F -sV -Pn -oN nmap_report_$(date +%Y%m%d%H%M%S).txt <ip:>"
+  command = "grc nmap -F -sV -Pn -oN nmap_report_$(date +%Y%m%d%H%M%S).txt <ip:>"
   tag = ["recon"]
   output = ""
 
 [[snippets]]
   description = "full port scan"
-  command = "nmap -sV -sC -oN nmap_report_$(date +%Y%m%d%H%M%S).txt <ip:>"
+  command = "grc nmap -sV -sC -oN nmap_report_$(date +%Y%m%d%H%M%S).txt <ip:>"
   tag = ["recon"]
   output = ""
 
@@ -144,7 +144,7 @@
 
 [[snippets]]
   description = "show ssl certificate"
-  command = "sudo nmap -p 443 --script ssl-cert <domain=>"
+  command = "sudo grc nmap -p 443 --script ssl-cert <domain=>"
   tag = ["ops"]
   output = ""
 

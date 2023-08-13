@@ -113,6 +113,7 @@ packages:
   - gpg-tui
   - gping
   - gptfdisk
+  - grc
   - grex
   - grim
   - gtk2

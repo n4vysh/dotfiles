@@ -70,6 +70,7 @@ extra/glab
 extra/glow
 extra/go-yq
 extra/gofumpt
+extra/grc
 extra/grex
 extra/helm
 extra/helmfile

@@ -133,8 +133,8 @@ if status --is-interactive
     __fish_abbr_add_extend N sudo -E nnn
     __fish_abbr_add_extend ne nerdctl
     __fish_abbr_add_extend nkt nikto
-    __fish_abbr_add_extend nm nmap -vv
-    __fish_abbr_add_extend nmap nmap -vv
+    __fish_abbr_add_extend nm grc nmap -vv
+    __fish_abbr_add_extend nmap grc nmap -vv
     __fish_abbr_add_extend nv nvim
     __fish_abbr_add_extend ns ncspot
     __fish_abbr_add_extend p procs
