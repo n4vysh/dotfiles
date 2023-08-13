@@ -149,6 +149,12 @@
   output = ""
 
 [[snippets]]
+  description = "show all resources"
+  command = "kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 -t kubectl get --show-kind --ignore-not-found"
+  tag = ["container"]
+  output = ""
+
+[[snippets]]
   description = "edit hosts file"
   command = "sh -c '[ -z \"$EDITOR\" ] && export EDITOR=$(type vim >/dev/null 2>&1 && echo vim || echo vi); [ $(id -u) = 0 ] && $EDITOR /etc/hosts || sudoedit /etc/hosts'"
   tag = ["misc"]
