@@ -143,6 +143,12 @@
   output = ""
 
 [[snippets]]
+  description = "show ssl certificate"
+  command = "sudo nmap -p 443 --script ssl-cert <domain=>"
+  tag = ["ops"]
+  output = ""
+
+[[snippets]]
   description = "edit hosts file"
   command = "sh -c '[ -z \"$EDITOR\" ] && export EDITOR=$(type vim >/dev/null 2>&1 && echo vim || echo vi); [ $(id -u) = 0 ] && $EDITOR /etc/hosts || sudoedit /etc/hosts'"
   tag = ["misc"]
