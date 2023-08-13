@@ -458,6 +458,7 @@ return {
 					null_ls.builtins.formatting.eslint,
 					null_ls.builtins.diagnostics.tfsec,
 					--[[ null_ls.builtins.diagnostics.terraform_validate, ]]
+					null_ls.builtins.diagnostics.hadolint,
 				},
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then
