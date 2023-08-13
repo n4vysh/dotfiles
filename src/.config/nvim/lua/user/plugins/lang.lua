@@ -1,7 +1,6 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		event = { "VeryLazy" },
 		config = function()
 			require("neodev").setup({})
 
@@ -289,6 +288,7 @@ return {
 			})
 		end,
 		dependencies = {
+			{ "williamboman/mason.nvim" },
 			{ "nvim-lua/plenary.nvim" },
 			{ "weilbith/nvim-code-action-menu" },
 			{ "b0o/SchemaStore.nvim" },
