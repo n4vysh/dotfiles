@@ -41,7 +41,7 @@ file:
     group: root
     filetype: file
     # yamllint disable-line rule:line-length
-    sha512: 5f27d33bab5513b42eed01c1bbb92c1d4d096a23ffab97a79ef5418c14c492f3ac42ab145590cc2bba7f78a6005db3aa9b7c4a01b4b360ae77e08be9d6c0d68b
+    sha512: b184cfd1032ee6963c96de19b57dd02f7bbc0a8b6aa4032eabde47859392c852a11318d2e2083f40d962653ef6dec3c63bbf4c17fe63d5fd2bc187798df46d22
   /etc/mkinitcpio.conf:
     exists: true
     mode: "0644"

@@ -377,15 +377,18 @@ _configure_without_privileged() {
 	_print 'Configure keyboard layouts'
 	keymap=us
 
-	sudo mkdir -p /usr/local/share/kbd/keymaps/
 	sudo cp \
 		"/usr/share/kbd/keymaps/i386/qwerty/$keymap.map.gz" \
-		"/usr/local/share/kbd/keymaps/$keymap.custom.map.gz"
-	sudo gunzip "/usr/local/share/kbd/keymaps/$keymap.custom.map.gz"
+		"/usr/share/kbd/keymaps/$keymap-custom.map.gz"
+	sudo gunzip "/usr/share/kbd/keymaps/$keymap-custom.map.gz"
+	# Disable caps lock
 	sudo bash -c \
-		"echo 'keycode 58 = Control' >>/usr/local/share/kbd/keymaps/$keymap.custom.map"
+		"sed -i -e 's/keycode  58 = Caps_Lock/keycode  58 = VoidSymbol/' /usr/share/kbd/keymaps/$keymap-custom.map"
+	# Change right alt to control
+	sudo bash -c \
+		"echo 'keycode 100 = Control' >>/usr/share/kbd/keymaps/$keymap-custom.map"
 	sudo sed -i \
-		-e "s|KEYMAP=$keymap|KEYMAP=/usr/local/share/kbd/keymaps/$keymap.custom.map|" \
+		-e "s|KEYMAP=$keymap|KEYMAP=$keymap-custom|" \
 		/etc/vconsole.conf
 	sudo systemctl enable --now udevmon.service # for interception tools
 
