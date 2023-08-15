@@ -376,7 +376,6 @@ commands:
   - nnn-diff
   - nuke
   - bgm
-  - nnn-fzf-cd
   - extrakto-open
   - ft
   - tmuxr
@@ -449,7 +448,6 @@ xdg_local_files:
   - .local/bin/nnn-diff
   - .local/bin/nuke
   - .local/bin/bgm
-  - .local/bin/nnn-fzf-cd
   - .local/bin/extrakto-open
   - .local/bin/ft
   - .local/bin/tmuxr

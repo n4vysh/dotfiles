@@ -71,23 +71,17 @@ export NNN_NO_AUTOSELECT=1
 export NNN_TRASH=1
 export NNN_PLUG=$(
 	cat <<-'EOS' | tr -d '\n'
-		c:!nnn-fzf-cd*;
-		C:!tokei --hidden | less*;
 		d:!nnn-diff*;
-		D:-!vd $nnn*;
 		e:-!$EDITOR*;
-		f:fzopen;
+		f:-!$PAGER $nnn*;
 		h:!nnn-home*;
 		l:!lazygit --filter $PWD/$nnn*;
 		n:bulknew;
-		p:-!$PAGER $nnn*;
-		P:preview-tui;
+		p:preview-tui;
 		r:gitroot;
-		R:renamer;
 		s:!$SHELL -l*;
-		t:!unbuffer tree | less*;
-		T:!trash-restore*;
-		u:-!dust -r | less*;
+		t:!trash-restore*;
+		u:-!dust -rP | less*;
 		v:!lazygit*;
 		y:!echo -n "$nnn" | wl-copy*;
 		z:autojump
