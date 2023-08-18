@@ -410,9 +410,9 @@ return {
 					null_ls.builtins.diagnostics.opacheck.with({
 						args = { "check", "-f", "json", "--strict", "$DIRNAME" },
 					}),
-					--[[ null_ls.builtins.diagnostics.semgrep.with({ ]]
-					--[[ 	args = { "-q", "--json", "--config", "auto", "$FILENAME" }, ]]
-					--[[ }), ]]
+					null_ls.builtins.diagnostics.semgrep.with({
+						args = { "-q", "--json", "--config", "auto", "$FILENAME" },
+					}),
 					null_ls.builtins.formatting.sql_formatter.with({
 						args = { "-c", vim.fn.expand("~/.config/sql-formatter/config.json") },
 						filetypes = { "sql", "mysql" },
