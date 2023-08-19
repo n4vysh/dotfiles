@@ -177,3 +177,9 @@
   command = "vim -p -c 'set ignorecase smartcase wildignorecase tabstop=2 softtabstop=2 shiftwidth=2 expandtab paste' "
   tag = ["misc"]
   output = ""
+
+[[snippets]]
+  description = "regenerate and sign initramfs"
+  command = "sudo mkinitcpio -p linux-zen && sudo sbctl generate-bundles && sudo sbctl sign /boot/EFI/Linux/linux-zen.efi && sudo sbctl verify"
+  tag = ["misc"]
+  output = ""
