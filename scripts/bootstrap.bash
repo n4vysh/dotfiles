@@ -466,10 +466,12 @@ _configure_without_privileged() {
 		}' /etc/pam.d/passwd
 
 	_print 'Setup nix'
-	sudo systemctl enable --now nix-daemon.service
+	sudo grep -q "max-jobs = auto" /etc/nix/nix.conf ||
+		sudo tee -a /etc/nix/nix.conf <<<"max-jobs = auto" >/dev/null
 	sudo gpasswd -a "$USER" nix-users
 	nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 	nix-channel --update
+	sudo systemctl enable --now nix-daemon.service
 
 	_print 'Install kubectl packages'
 	kubectl krew install <"/tmp/dotfiles/misc/kubectl-plugins.txt"
