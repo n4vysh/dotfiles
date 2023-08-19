@@ -669,9 +669,8 @@ _configure_disks() {
 
 	_print 'Mount the filesystems'
 	mount -o defaults,relatime,space_cache,ssd,compress=zstd /dev/volume/root /mnt
-	mkdir -p /mnt/{boot,home}
-	mount -o defaults,relatime,space_cache,ssd,compress=zstd /dev/volume/home /mnt/home
-	mount "/dev/${partitions[0]}" /mnt/boot
+	mount --mkdir -o defaults,relatime,space_cache,ssd,compress=zstd /dev/volume/home /mnt/home
+	mount --mkdir -o uid=0,gid=0,fmask=0077,dmask=0077 "/dev/${partitions[0]}" /mnt/boot
 }
 
 _configure_secure_boot() {
