@@ -64,7 +64,7 @@ file:
     # yamllint disable rule:line-length
     contains:
       [
-        "/^rd.luks.name=.*=cryptlvm rd.luks.options=.*=fido2-device=auto root=/dev/volume/root quiet rw loglevel=3 rd.systemd.show_status=false rd.udev.log-priority=3$/",
+        "/^rd.luks.name=.*=cryptlvm rd.luks.options=.*=fido2-device=auto root=/dev/volume/root quiet rw loglevel=3 rd.systemd.show_status=false rd.udev.log-priority=3 nosgx mds=full,nosmt$/",
       ]
       # yamllint enable rule:line-length
 
