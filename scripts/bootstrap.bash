@@ -333,6 +333,7 @@ _configure_without_privileged() {
 		etc/polkit-1/rules.d/50-udisks.rules
 		etc/systemd/zram-generator.conf
 		etc/udev/rules.d/99-lowbat.rules
+		etc/ssh/sshd_config.d/permit_root_login.conf
 	EOF
 
 	_print 'Change default shell'
@@ -483,13 +484,6 @@ _configure_without_privileged() {
 	sudo systemctl start plocate-updatedb.service
 	sudo systemctl enable --now plocate-updatedb.timer
 
-	_print 'Configure sshd'
-	sudo sed \
-		-i \
-		-e '/^#PermitRootLogin/s/#//' \
-		-e '/^PermitRootLogin/s/prohibit-password/no/' \
-		/etc/ssh/sshd_config
-
 	_print 'Configure etckeeper'
 	sudo etckeeper init
 	sudo git -C /etc/ config --local user.name "etckeeper"
@@ -533,6 +527,8 @@ _configure_without_privileged() {
 		-i \
 		-e '/^#ALLOW_SSH_PROT_V1/s/#//' \
 		-e '/^ALLOW_SSH_PROT_V1/s/0/2/' \
+		-e '/^#ALLOW_SSH_ROOT_USER/s/#//' \
+		-e '/^ALLOW_SSH_ROOT_USER/s/no/unset/' \
 		/etc/rkhunter.conf
 
 	sudo grep "RTKT_FILE_WHITELIST=/usr/sbin/s" /etc/rkhunter.conf ||

@@ -180,6 +180,14 @@ file:
     filetype: file
     # yamllint disable-line rule:line-length
     sha512: 434364a62e93852603267a596b6e2ce9df8d273baf909f2266fb7f570ffcda21cc0ae6d2738e0e973760df2b9a1ca43118abe955079b75aa1a16491b3b193520
+  /etc/ssh/sshd_config.d/permit_root_login.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 77b514c3a594f9e29345e94b3393729e11aeeda35892d9a7077701685439161a05c19275bd3f0f4b0f0bfe6da86d5a3c827f97925904b69eb40fb5365a73c15c
   /etc/pacman.d/hooks/rkhunter-status.hook:
     exists: true
     mode: "0644"
