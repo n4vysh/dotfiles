@@ -51,7 +51,7 @@ file:
     # yamllint disable rule:line-length
     contains:
       [
-        "/^HOOKS=\\(base systemd autodetect keyboard sd-vconsole modconf block sd-encrypt lvm2 filesystems\\)$/",
+        "/^HOOKS=\\(systemd autodetect keyboard sd-vconsole modconf block sd-encrypt lvm2 filesystems\\)$/",
         "/^COMPRESSION_OPTIONS=\\(-1 -T0\\)$/",
       ]
       # yamllint enable rule:line-length

@@ -149,7 +149,7 @@ _install() {
 	arch-chroot /mnt sed \
 		-i \
 		-E \
-		-e '/^HOOKS/s/udev/systemd/' \
+		-e '/^HOOKS/s/base udev/systemd/' \
 		-e '/^HOOKS/s/(autodetect) (modconf)/\1 keyboard sd-vconsole \2/' \
 		-e '/^HOOKS/s/(modconf) kms keyboard keymap consolefont (block)/\1 \2/' \
 		-e '/^HOOKS/s/(block) (filesystems)/\1 sd-encrypt lvm2 \2/' \
