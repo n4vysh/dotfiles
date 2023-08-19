@@ -154,6 +154,8 @@ _install() {
 		-e '/^HOOKS/s/(modconf) kms keyboard keymap consolefont (block)/\1 \2/' \
 		-e '/^HOOKS/s/(block) (filesystems)/\1 sd-encrypt lvm2 \2/' \
 		-e '/^HOOKS/s/(filesystems) fsck/\1/' \
+		-e '/^#COMPRESSION_OPTIONS/s/#//' \
+		-e '/^COMPRESSION_OPTIONS/s/\(\)/\(-1 -T0\)/' \
 		/etc/mkinitcpio.conf
 	arch-chroot /mnt cp -v \
 		/usr/lib/systemd/system/systemd-fsck{@,-root}.service /etc/systemd/system
