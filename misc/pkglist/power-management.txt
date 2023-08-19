@@ -1,1 +1,2 @@
 extra/acpi
+extra/cpupower

@@ -60,3 +60,6 @@ service:
   nix-daemon.service:
     enabled: true
     running: true
+  cpupower.service:
+    enabled: true
+    running: true

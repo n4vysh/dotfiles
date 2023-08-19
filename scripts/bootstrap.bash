@@ -376,6 +376,10 @@ _configure_without_privileged() {
 
 	sudo systemctl restart systemd-logind
 
+	_print 'Configure Scaling governors'
+	sudo systemctl enable --now cpupower
+	sudo cpupower frequency-set -g performance
+
 	# Multimedia
 	_print 'Configure sound'
 	pamixer --unmute

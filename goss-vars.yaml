@@ -46,6 +46,7 @@ packages:
   - codespell
   - conftest
   - containerd
+  - cpupower
   - crudini
   - csvkit
   - delve
