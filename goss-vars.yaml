@@ -167,6 +167,7 @@ packages:
   - libwebp
   - linenum
   - linux-firmware
+  - linux-firmware-qlogic
   - linux-smart-enumeration
   - linux-zen
   - lvm2

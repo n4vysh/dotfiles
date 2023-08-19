@@ -7,6 +7,7 @@ aur/sysz
 aur/upd72020x-fw
 aur/wd719x-firmware
 core/dosfstools
+core/linux-firmware-qlogic
 core/man-db
 core/man-pages
 extra/arch-wiki-docs
