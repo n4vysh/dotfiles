@@ -108,7 +108,8 @@ _install() {
 		/mnt/etc/iwd/ \
 		/mnt/etc/systemd/resolved.conf.d/ \
 		/mnt/etc/systemd/system/systemd-fsck-root.service.d/ \
-		/mnt/etc/systemd/system/systemd-fsck@.service.d/
+		/mnt/etc/systemd/system/systemd-fsck@.service.d/ \
+		/mnt/etc/systemd/system/systemd-networkd-wait-online.service.d/
 	xargs -I {} cp -v "$dir/misc/{}" /mnt/{} <<-EOF
 		etc/iwd/main.conf
 		etc/systemd/network/20-wired.network
@@ -116,6 +117,7 @@ _install() {
 		etc/systemd/resolved.conf.d/dns_servers.conf
 		etc/systemd/system/systemd-fsck-root.service.d/io.conf
 		etc/systemd/system/systemd-fsck@.service.d/io.conf
+		etc/systemd/system/systemd-networkd-wait-online.service.d/wait-for-only-one-interface.conf
 		etc/systemd/system/rkhunter.service
 		etc/systemd/system/rkhunter.timer
 	EOF
