@@ -3,6 +3,7 @@ aur/nordvpn-bin
 core/inetutils
 core/nfs-utils
 core/traceroute
+core/wireless-regdb
 extra/bind
 extra/bluez
 extra/bluez-utils

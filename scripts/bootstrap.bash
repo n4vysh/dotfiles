@@ -213,6 +213,12 @@ _configure_with_privileged() {
 _configure_without_privileged() {
 	_verify_internet_connection
 
+	_print 'Configure the regulatory domain'
+	sudo sed \
+		-i \
+		-e '/^#WIRELESS_REGDOM="JP"/s/#//' \
+		/etc/conf.d/wireless-regdom
+
 	_print 'Configure pacman'
 	sudo sed \
 		-i \

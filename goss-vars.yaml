@@ -340,6 +340,7 @@ packages:
   - wezterm
   - wf-recorder
   - whois
+  - wireless-regdb
   - wireplumber
   - wireshark-cli
   - wireshark-qt
