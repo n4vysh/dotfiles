@@ -47,7 +47,7 @@ local options = {
 		verthoriz = "╋",
 	},
 	-- https://github.com/ray-x/lsp_signature.nvim/issues/255
-	updatetime = 5000,
+	updatetime = 500,
 }
 
 for k, v in pairs(options) do
