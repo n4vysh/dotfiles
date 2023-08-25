@@ -30,6 +30,13 @@ return {
 				end,
 				desc = "Search and replace",
 			},
+			{
+				"<space>sr",
+				-- https://github.com/nvim-pack/nvim-spectre/issues/79
+				":lua require('spectre').open_visual()<CR>",
+				desc = "Search and replace current word",
+				mode = "v",
+			},
 		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
