@@ -67,6 +67,10 @@ return {
 				["Select Cursor Down"] = "<M-j>",
 				["Select Cursor Up"] = "<M-k>",
 			}
+
+			-- NOTE: Use clipboard
+			-- https://github.com/mg979/vim-visual-multi/issues/116#issuecomment-639322793
+			vim.cmd([[autocmd User visual_multi_mappings nmap <buffer> p "+<Plug>(VM-p-Paste)]])
 		end,
 	},
 	{
