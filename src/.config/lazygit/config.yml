@@ -4,6 +4,7 @@ gui:
   showCommandLog: false
   showBottomLine: false
 git:
+  parseEmoji: true
   paging:
     colorArg: always
     pager: delta --paging=never
