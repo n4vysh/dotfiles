@@ -23,6 +23,7 @@ winget install -e --id Insecure.Nmap
 winget install -e --id OpenVPNTechnologies.OpenVPN
 winget install -e --id QMK.QMKToolbox
 winget install -e --id JGraph.Draw
+winget install -e --id emoacht.Monitorian
 ```
 
 [winget-link]: https://github.com/microsoft/winget-cli
