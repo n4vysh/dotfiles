@@ -1,16 +1,5 @@
 return {
 	{
-		"ahmedkhalf/project.nvim",
-		keys = {
-			{ "<space>cr", "<cmd>ProjectRoot<cr>", silent = true, desc = "Change to root directory" },
-		},
-		config = function()
-			require("project_nvim").setup({
-				manual_mode = true,
-			})
-		end,
-	},
-	{
 		"tpope/vim-projectionist",
 		event = { "VeryLazy" },
 		config = function()
