@@ -39,10 +39,10 @@ function M.switch_buffer()
 	})
 end
 
-function M.search()
+function M.search(opts)
 	local telescope = require("telescope")
 	telescope.load_extension("live_grep_args")
-	telescope.extensions.live_grep_args.live_grep_args({})
+	telescope.extensions.live_grep_args.live_grep_args(opts)
 end
 
 function M.snippets()

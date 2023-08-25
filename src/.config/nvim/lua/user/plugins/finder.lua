@@ -53,7 +53,7 @@ return {
 			{
 				"<space>s/",
 				function()
-					require("user.utils.finder").search()
+					require("user.utils.finder").search({})
 				end,
 				silent = true,
 				desc = "Search for a string",
@@ -69,10 +69,39 @@ return {
 			{
 				"<space>sa",
 				function()
-					require("user.utils.finder").grep_string()
+					require("telescope-live-grep-args.shortcuts").grep_word_under_cursor({
+						postfix = "",
+						quote = false,
+					})
 				end,
 				silent = true,
 				desc = "Search for the string under cursor",
+			},
+			{
+				"<space>sa",
+				function()
+					-- NOTE: grep_visual_selection shortcut not work
+					-- https://github.com/nvim-telescope/telescope-live-grep-args.nvim/issues/55
+					function vim.getVisualSelection()
+						vim.cmd('noau normal! "vy"')
+						local text = vim.fn.getreg("v")
+						vim.fn.setreg("v", {})
+
+						text = string.gsub(text, "\n", "")
+						if #text > 0 then
+							return text
+						else
+							return ""
+						end
+					end
+
+					local text = vim.getVisualSelection()
+
+					require("user.utils.finder").search({ default_text = text })
+				end,
+				silent = true,
+				desc = "Search for the string under cursor",
+				mode = "v",
 			},
 			{
 				"<space>sk",
