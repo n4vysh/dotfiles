@@ -9,4 +9,4 @@ windows:
           - set -l s /run/user/(id -u)/nvim-$n.sock
           - $EDITOR --listen $s
   - panes:
-      - exit
+      - lazygit
