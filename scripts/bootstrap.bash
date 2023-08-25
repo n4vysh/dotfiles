@@ -481,7 +481,7 @@ _configure_without_privileged() {
 	kubectl krew install <"/tmp/dotfiles/misc/kubectl-plugins.txt"
 
 	_print 'Install formatter'
-	yarn global add sql-formatter
+	pnpm add -g sql-formatter
 
 	_print 'Configure VPN'
 	sudo systemctl enable --now nordvpnd

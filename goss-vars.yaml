@@ -229,6 +229,7 @@ packages:
   - pkgfile
   - playerctl
   - plocate
+  - pnpm
   - polkit
   - poppler
   - postgresql
@@ -360,7 +361,6 @@ packages:
   - xorg-xwayland
   - xsv
   - yamllint
-  - yarn
   - yt-dlp
   - yubikey-manager
   - zathura
@@ -398,9 +398,9 @@ files:
   - .czrc
   - .kube
   - .zprofile
-  - .zshenv
   - .bashrc
   - .msf4
+  - .zshenv
 xdg_config_files:
   - .config/bat
   - .config/direnv

@@ -10,6 +10,7 @@ export EDITOR=nvim
 export BROWSER=firefox
 export DIFFPROG='nvim -d'
 export QT_STYLE_OVERRIDE=Adwaita-Dark
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 if type vivid >/dev/null 2>&1; then
 	export LS_COLORS="$(vivid generate one-dark)"
 fi
@@ -29,8 +30,7 @@ export TMUX_PLUGIN_MANAGER_PATH="${XDG_DATA_HOME}/tmux/plugins"
 typeset -U path PATH
 path=($HOME/.local/bin(N-/) $path)
 path=($path $HOME/.gem/ruby/*/bin(N-/))
-path=($path $XDG_DATA_HOME/npm/bin(N-/))
-path=($path $XDG_DATA_HOME/yarn/global/node_modules/.bin(N-/))
+path=($path $PNPM_HOME(N-/))
 path=($path $HOME/.krew/bin(N-/))
 
 # Programming

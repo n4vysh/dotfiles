@@ -92,6 +92,7 @@ extra/npm
 extra/oxipng
 extra/parallel
 extra/percona-server-clients
+extra/pnpm
 extra/postgresql
 extra/prettier
 extra/progress
@@ -128,6 +129,5 @@ extra/wezterm
 extra/xh
 extra/xsv
 extra/yamllint
-extra/yarn
 extra/zoxide
 extra/zsh
