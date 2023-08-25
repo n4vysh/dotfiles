@@ -26,10 +26,6 @@ local kv = {
 		lhs = "s",
 		desc = "Remove and update plugins",
 	},
-	home = {
-		lhs = "p",
-		desc = "Show loaded state of plugins",
-	},
 	install = {
 		lhs = "i",
 		desc = "Install missing plugins",

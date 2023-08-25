@@ -47,7 +47,6 @@ return {
 				vim.keymap.set("n", "gh", function()
 					require("lspsaga.finder"):new({})
 				end, bufopts)
-				vim.keymap.set("n", "gH", vim.lsp.buf.signature_help, bufopts)
 				vim.keymap.set("n", "gd", function()
 					require("lspsaga.definition"):peek_definition(1)
 				end, bufopts)
