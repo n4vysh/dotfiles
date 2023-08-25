@@ -285,3 +285,7 @@ for_window [class="sysinfo"] floating enable
 for_window [app_id="firefox" title="Firefox — Sharing Indicator"] {
   floating enable
 }
+
+for_window [app_id="firefox" title="^Picture-in-Picture$"] {
+    floating enable, move position 1350 800, sticky enable
+}
