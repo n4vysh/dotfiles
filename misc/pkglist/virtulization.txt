@@ -1,4 +1,5 @@
 extra/containerd
+extra/dive
 extra/docker
 extra/docker-buildx
 extra/nerdctl

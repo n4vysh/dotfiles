@@ -55,6 +55,7 @@ packages:
   - dirbuster
   - direnv
   - discord
+  - dive
   - docker
   - docker-buildx
   - docker-credential-pass-bin
