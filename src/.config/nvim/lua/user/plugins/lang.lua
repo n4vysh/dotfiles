@@ -365,6 +365,7 @@ return {
 					"golangci-lint-langserver",
 					"graphql-language-service-cli",
 					"helm-ls",
+					"json-lsp",
 					"marksman",
 					"taplo",
 					"terraform-ls",
