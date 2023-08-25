@@ -41,6 +41,16 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
+		opts = {
+			live_update = true,
+			mapping = {
+				["quit"] = {
+					map = "q",
+					cmd = "<cmd>quit<CR>",
+					desc = "quit spectre",
+				},
+			},
+		},
 	},
 	{
 		"cshuaimin/ssr.nvim",
