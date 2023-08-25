@@ -29,7 +29,6 @@ export TMUX_PLUGIN_MANAGER_PATH="${XDG_DATA_HOME}/tmux/plugins"
 # path
 typeset -U path PATH
 path=($HOME/.local/bin(N-/) $path)
-path=($path $HOME/.gem/ruby/*/bin(N-/))
 path=($path $PNPM_HOME(N-/))
 path=($path $HOME/.krew/bin(N-/))
 
