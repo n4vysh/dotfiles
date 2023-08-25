@@ -80,16 +80,6 @@ return {
 				desc = "Open link in browser",
 			},
 			{
-				"<space>v<C-o>",
-				function()
-					require("gitlinker").get_repo_url({
-						action_callback = require("gitlinker.actions").open_in_browser,
-					})
-				end,
-				silent = true,
-				desc = "Open repository link in browser",
-			},
-			{
 				"<space>vy",
 				function()
 					require("gitlinker").get_buf_range_url("n")

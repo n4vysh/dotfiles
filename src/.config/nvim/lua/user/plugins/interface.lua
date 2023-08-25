@@ -1,5 +1,13 @@
 return {
 	{
+		"stevearc/dressing.nvim",
+		opts = {
+			select = {
+				backend = { "builtin" },
+			},
+		},
+	},
+	{
 		"RRethy/vim-illuminate",
 		event = { "VeryLazy" },
 	},

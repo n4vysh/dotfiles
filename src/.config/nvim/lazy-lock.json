@@ -14,6 +14,7 @@
   "dial.nvim": { "branch": "master", "commit": "c6657df5453a6cbe4e8356e1675e9652cadc332f" },
   "diffview.nvim": { "branch": "main", "commit": "db97e667e03294bfa9f15e544e78f3082247bf79" },
   "direnv.vim": { "branch": "master", "commit": "165031fa2c8dbb1e78dfd7054fe064ea926384cb" },
+  "dressing.nvim": { "branch": "master", "commit": "ee571505f3566f84fd252e76c4ce6df6eaf2fb94" },
   "fidget.nvim": { "branch": "main", "commit": "0ba1e16d07627532b6cae915cc992ecac249fb97" },
   "friendly-snippets": { "branch": "main", "commit": "377d45475b49e37460a902d6d569d2093d4037d0" },
   "fzy-lua-native": { "branch": "master", "commit": "820f745b7c442176bcc243e8f38ef4b985febfaf" },

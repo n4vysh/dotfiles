@@ -3,7 +3,7 @@ return {
 		"nvim-neotest/neotest",
 		keys = {
 			{
-				"[<C-t>",
+				"[f",
 				function()
 					require("neotest").jump.prev({ status = "failed" })
 				end,
@@ -11,7 +11,7 @@ return {
 				desc = "Jump previous failed",
 			},
 			{
-				"]<C-t>",
+				"]f",
 				function()
 					require("neotest").jump.next({ status = "failed" })
 				end,
@@ -27,7 +27,7 @@ return {
 				desc = "Run test",
 			},
 			{
-				"<space>t<C-t>",
+				"<space>tc",
 				function()
 					require("neotest").run.run(vim.fn.expand("%"))
 				end,

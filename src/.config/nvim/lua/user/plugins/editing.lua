@@ -24,14 +24,14 @@ return {
 		"windwp/nvim-spectre",
 		keys = {
 			{
-				"<space>sr",
+				"<space>rr",
 				function()
 					require("spectre").open()
 				end,
 				desc = "Search and replace",
 			},
 			{
-				"<space>sr",
+				"<space>rr",
 				-- https://github.com/nvim-pack/nvim-spectre/issues/79
 				":lua require('spectre').open_visual()<CR>",
 				desc = "Search and replace current word",
@@ -46,7 +46,7 @@ return {
 		"cshuaimin/ssr.nvim",
 		keys = {
 			{
-				"<space>s<C-r>",
+				"<space>rs",
 				"<cmd>lua require('ssr').open()<cr>",
 				mode = { "n", "x" },
 				desc = "Structural search and replace",

@@ -10,10 +10,34 @@ return {
 				virtual_text = false,
 			})
 
-			vim.keymap.set("n", "<space>li", vim.cmd.LspInfo, { desc = "Show LSP information" })
-			vim.keymap.set("n", "<space>ll", vim.cmd.LspLog, { desc = "Show LSP log" })
-			vim.keymap.set("n", "<space>l<C-i>", vim.cmd.NullLsInfo, { desc = "Show null-ls information" })
-			vim.keymap.set("n", "<space>l<C-l>", vim.cmd.NullLsLog, { desc = "Show null-ls log" })
+			vim.keymap.set("n", "<space>li", function()
+				vim.ui.select({ "normal lang server", "null lang server" }, {
+					prompt = "lang server information",
+				}, function(choice)
+					if choice == nil then
+						do
+						end
+					elseif choice == "normal lang server" then
+						vim.cmd.LspInfo()
+					else
+						vim.cmd.NullLsInfo()
+					end
+				end)
+			end, { desc = "Show lang server information" })
+			vim.keymap.set("n", "<space>ll", function()
+				vim.ui.select({ "normal lang server", "null lang server" }, {
+					prompt = "lang server log",
+				}, function(choice)
+					if choice == nil then
+						do
+						end
+					elseif choice == "normal lang server" then
+						vim.cmd.LspLog()
+					else
+						vim.cmd.NullLsLog()
+					end
+				end)
+			end, { desc = "Show lang server log" })
 
 			local augroup = vim.api.nvim_create_augroup("lsp_document_formatting", {})
 			local on_attach = function(client, bufnr)
@@ -58,12 +82,6 @@ return {
 				end, bufopts)
 				vim.keymap.set("n", "]d", function()
 					vim.diagnostic.goto_next({ float = false })
-				end, bufopts)
-				vim.keymap.set("n", "[<C-d>", function()
-					vim.diagnostic.goto_prev({ float = false, severity = vim.diagnostic.severity.ERROR })
-				end, bufopts)
-				vim.keymap.set("n", "]<C-d>", function()
-					vim.diagnostic.goto_next({ float = false, severity = vim.diagnostic.severity.ERROR })
 				end, bufopts)
 				vim.keymap.set("n", "K", function()
 					local winid = require("ufo").peekFoldedLinesUnderCursor()
@@ -376,9 +394,22 @@ return {
 					"lua-language-server",
 				},
 			})
-			vim.keymap.set("n", "<Space>p<C-p>", vim.cmd.Mason, {
+			vim.keymap.set("n", "<Space>pp", function()
+				vim.ui.select({ "plugins", "external tool" }, {
+					prompt = "package manager information",
+				}, function(choice)
+					if choice == nil then
+						do
+						end
+					elseif choice == "plugins" then
+						require("lazy").home()
+					else
+						vim.cmd.Mason()
+					end
+				end)
+			end, {
 				silent = true,
-				desc = "Show package manager for LSP",
+				desc = "Show package manager information",
 			})
 			do
 				local auname = "mason"

@@ -27,20 +27,20 @@ return {
 				desc = "Continue execution for debugger",
 			},
 			{
-				"<space>ds",
-				function()
-					require("dap").step_over()
-				end,
-				silent = true,
-				desc = "Requests the debugger to step over",
-			},
-			{
-				"<space>d<C-s>",
+				"<space>di",
 				function()
 					require("dap").step_into()
 				end,
 				silent = true,
 				desc = "Requests the debugger to step into",
+			},
+			{
+				"<space>do",
+				function()
+					require("dap").step_over()
+				end,
+				silent = true,
+				desc = "Requests the debugger to step over",
 			},
 		},
 		config = function()
