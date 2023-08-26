@@ -1,6 +1,7 @@
 user_pref("browser.aboutConfig.showWarning", false);
 user_pref("browser.gesture.swipe.left", "cmd_scrollLeft");
 user_pref("browser.gesture.swipe.right", "cmd_scrollRight");
+user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("browser.newtabpage.enabled", false);
 user_pref("browser.startup.homepage", "chrome://browser/content/blanktab.html");
 user_pref("browser.startup.page", 3);
