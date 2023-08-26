@@ -16,6 +16,7 @@ src/.config/ncspot/userstate.cbor
 src/.config/nnn/mounts/
 src/.config/nnn/sessions/
 src/.config/nvim/lua/user/local.lua
+src/.config/psd/.psd.conf
 src/.config/systemd/user/*.target.wants/
 src/.config/systemd/user/containerd.service
 src/.config/systemd/user/buildkit.service

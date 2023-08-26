@@ -501,6 +501,9 @@ _configure_without_privileged() {
 	sudo etckeeper commit "Initial commit"
 	sudo systemctl enable --now etckeeper.timer
 
+	_print 'Configure profile-sync-daemon'
+	systemctl enable --now psd.service
+
 	_print 'Configure metasploit'
 	sudo mkdir -p /var/lib/postgres/data
 	sudo chattr +C /var/lib/postgres/data

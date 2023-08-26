@@ -39,6 +39,7 @@ extra/pixz
 extra/plocate
 extra/poppler
 extra/procs
+extra/profile-sync-daemon
 extra/progress
 extra/pueue
 extra/remmina

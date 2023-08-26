@@ -235,6 +235,7 @@ packages:
   - postgresql
   - prettier
   - procs
+  - profile-sync-daemon
   - protonmail-bridge
   - pueue
   - python-base58
@@ -443,6 +444,7 @@ xdg_config_files:
   - .config/ncspot
   - .config/bluetuith
   - .config/rtx
+  - .config/psd
 xdg_local_files:
   - .local/bin/clamshell
   - .local/bin/import-gsettings

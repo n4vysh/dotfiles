@@ -35,7 +35,10 @@ No window                   | Lockscreen
 - More-responsive with
   [Zen Kernel][zen-kernel-link],
   [zram-generator][zram-generator-link],
-  and [systemd-oomd][systemd-oomd-link]
+  [systemd-oomd][systemd-oomd-link],
+  [irqbalance][irqbalance-link],
+  [cpupower][cpupower-link],
+  and [profile-sync-daemon][profile-sync-daemon-link]
 - Parallelized [init process][init-link] with
   [systemd][systemd-link],
   [systemd-network][systemd-network-link],
@@ -86,6 +89,9 @@ No window                   | Lockscreen
 [zen-kernel-link]: https://github.com/zen-kernel/zen-kernel
 [zram-generator-link]: https://github.com/systemd/zram-generator
 [systemd-oomd-link]: https://www.freedesktop.org/software/systemd/man/systemd-oomd.service.html
+[irqbalance-link]: https://github.com/irqbalance/irqbalance
+[cpupower-link]: https://github.com/torvalds/linux/tree/master/tools/power/cpupower
+[profile-sync-daemon-link]: https://github.com/graysky2/profile-sync-daemon
 [init-link]: https://wiki.archlinux.org/title/Init
 [systemd-link]: https://systemd.io/
 [systemd-network-link]: https://www.freedesktop.org/software/systemd/man/systemd.network.html
