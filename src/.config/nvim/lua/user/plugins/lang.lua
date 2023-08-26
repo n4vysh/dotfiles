@@ -494,7 +494,6 @@ return {
 						only_local = "node_modules/.bin",
 					}),
 					null_ls.builtins.diagnostics.tfsec,
-					--[[ null_ls.builtins.diagnostics.terraform_validate, ]]
 					null_ls.builtins.diagnostics.hadolint,
 				},
 				on_attach = function(client, bufnr)
