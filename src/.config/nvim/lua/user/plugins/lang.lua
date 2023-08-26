@@ -487,8 +487,12 @@ return {
 					null_ls.builtins.diagnostics.selene,
 					null_ls.builtins.diagnostics.codespell,
 					null_ls.builtins.formatting.clang_format,
-					null_ls.builtins.diagnostics.eslint,
-					null_ls.builtins.formatting.eslint,
+					null_ls.builtins.diagnostics.eslint.with({
+						only_local = "node_modules/.bin",
+					}),
+					null_ls.builtins.formatting.eslint.with({
+						only_local = "node_modules/.bin",
+					}),
 					null_ls.builtins.diagnostics.tfsec,
 					--[[ null_ls.builtins.diagnostics.terraform_validate, ]]
 					null_ls.builtins.diagnostics.hadolint,
