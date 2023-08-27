@@ -1,26 +1,54 @@
 #!/bin/bash
+#
+# Install packages and configure archlinux.
 
-script_name="bootstrap"
-option="${#}"
+set -eEu
+shopt -s inherit_errexit
+
+on_error() {
+	_log::fatal "${BASH_SOURCE[1]}:${BASH_LINENO[0]} - '${BASH_COMMAND}' failed" >&2
+}
+
+trap on_error ERR
+
+readonly SCRIPT_NAME="bootstrap"
+readonly ARGC="${#}"
+readonly USERNAME=n4vysh
+
+readonly MAIN_COLOR='#4289ff'
+readonly SUB_COLOR='#7aa2f7'
+readonly ACCENT_COLOR_1='#FBBF24'
+readonly ACCENT_COLOR_2='#f7768e'
+
+readonly BLOCK_DEVICE=nvme0n1
+readonly PARTITIONS=(nvme0n1p1 nvme0n1p2)
+
+# Partition the disks
+#
+# | Mount point | Partition        | Partition type | Filesystem | Size  |
+# |:------------|:-----------------|:---------------|:-----------|:------|
+# | /boot       | ${PARTITIONS[0]} | EFI System     | FAT32      | 1GB   |
+# | /           | ${PARTITIONS[1]} | Linux LVM      | Btrfs      | 200GB |
+# | /home       | ${PARTITIONS[1]} | Linux LVM      | Btrfs      | rest  |
 
 export XDG_DATA_HOME=${XDG_DATA_HOME:-${HOME}/.local/share}
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-${HOME}/.config}
 
-_is_archiso() {
-	[[ $(cat /etc/hostname) == archiso ]]
-}
-
-_is_container() {
-	[[ $CONTAINER == true ]]
-}
-
+#######################################
+# Parse command options
+# Globals:
+#   ARGC
+#   OPTARG
+#   OPTIND
+# Arguments:
+#   Options
+#######################################
 main() {
-	if ((option == 0)); then
-		if _is_archiso; then
+	if ((ARGC == 0)); then
+		if _runtime::is_archiso; then
 			_install
 		else
-			_print_err 'try Arch Linux live system'
-			exit 1
+			_log::fatal 'try Arch Linux live system'
 		fi
 	else
 		while getopts puh opt; do
@@ -28,29 +56,26 @@ main() {
 			p)
 				_verify_arch_linux
 
-				if _is_privileged; then
+				if _runtime::is_privileged; then
 					_configure_with_privileged
 				else
-					_print_err 'try privileged user'
-					exit 1
+					_log::fatal 'try privileged user'
 				fi
 				;;
 			u)
 				_verify_arch_linux
 
-				if ! _is_privileged; then
+				if ! _runtime::is_privileged; then
 					_configure_without_privileged
 				else
-					_print_err 'try unprivileged user'
-					exit 1
+					_log::fatal 'try unprivileged user'
 				fi
 				;;
 			h)
 				_print_usage
 				;;
 			\?)
-				_print_err "illegal option -- $OPTARG"
-				exit 1
+				_log::fatal "illegal option -- $OPTARG"
 				;;
 			esac
 		done
@@ -59,50 +84,79 @@ main() {
 	fi
 }
 
+#######################################
+# Print command usage
+# Globals:
+#   SCRIPT_NAME
+#######################################
+_print_usage() {
+	# editorconfig-checker-disable
+	cat <<-EOF 1>&2
+		$(_color::main "Usage:")
+		  ${SCRIPT_NAME} [options]
+
+		$(_color::main "OPTIONS:")
+		  $(_color::sub "-h") show list of command-line options
+		  $(_color::sub "-p") configure Arch Linux by privileged user after install
+		  $(_color::sub "-u") configure Arch Linux by unprivileged user after install
+	EOF
+	# editorconfig-checker-enable
+	exit 1
+}
+
+#######################################
+# Install packages on live system
+# Globals:
+#   PARTITIONS[1]
+# Arguments:
+#   None
+#######################################
 _install() {
-	_check_boot_mode
+	_verify_boot_mode
 
 	_verify_internet_connection
 
-	_print 'Update the system clock of live environment'
+	_log::info 'Update the system clock of live environment'
 	timedatectl set-ntp true
 
 	_configure_disks
 
-	_print 'Update the latest mirror list of pacman in live environment'
+	_log::info 'Update the latest mirror list of pacman in live environment'
 	if ! [[ -e /etc/pacman.d/mirrorlist.bak ]]; then
 		cp -fv /etc/pacman.d/mirrorlist{,.bak}
 		sed \
 			-i \
-			-e 's/\(--latest\) 5/\1 30/' \
-			-e '/# Sort the mirrors/s/synchronization time/download rate/' \
+			-e 's/\(--latest\) 20/\1 30/' \
 			-e 's/\(--sort\) age/\1 rate/' \
 			/etc/xdg/reflector/reflector.conf
-		grep -- --verbose /etc/xdg/reflector/reflector.conf ||
+		if ! grep -- --verbose /etc/xdg/reflector/reflector.conf; then
 			printf '\n# Print extra information\n--verbose\n' >>/etc/xdg/reflector/reflector.conf
+		fi
 		systemctl start reflector.service
 	else
-		_print 'already updated'
+		_log::warn 'already updated -- skipping'
 	fi
 
-	_print 'Download dotfiles repository in live environment'
+	_log::info 'Download dotfiles repository in live environment'
 	if ! [[ -e /tmp/dotfiles/ ]]; then
 		branch=main
 		mkdir -p /tmp/dotfiles/
 		curl -L \
-			"https://github.com/n4vysh/dotfiles/archive/refs/heads/{$branch.tar.gz}" |
+			"https://github.com/$USERNAME/dotfiles/archive/refs/heads/{$branch.tar.gz}" |
 			tar xz -C /tmp/dotfiles/ --strip-components 1
+		# NOTE: make dotfiles readable to configure by unprivileged user
+		chmod 777 /tmp/dotfiles/
 	else
-		_print 'dotfiles already exists'
+		_log::warn 'dotfiles already exists -- skipping'
 	fi
 
-	_print 'Install the base packages'
+	_log::info 'Install the base packages'
 	yes '' | bash -c "pacstrap /mnt $(tr '\n' ' ' </tmp/dotfiles/misc/pkglist/base.txt)"
 
-	_print 'Copy reflector config from live environment'
+	_log::info 'Copy reflector config from live environment'
 	cp -fv /{,mnt/}etc/xdg/reflector/reflector.conf
 
-	_print 'Deploy config files from live environment'
+	_log::info 'Deploy config files from live environment'
 	dir=/tmp/dotfiles
 	mkdir -p \
 		/mnt/etc/iwd/ \
@@ -122,58 +176,69 @@ _install() {
 		etc/systemd/system/rkhunter.timer
 	EOF
 
-	_print 'Configure fstab'
-	if ! [[ -e /mnt/etc/fstab ]]; then
+	_log::info 'Configure fstab'
+
+	# NOTE: /etc/fstab is already placed by arch-install-scripts package
+	if ! grep -q "/dev/" /mnt/etc/fstab; then
 		genfstab -U /mnt >>/mnt/etc/fstab
 	else
-		_print 'fstab already exists'
+		_log::warn 'fstab already updated -- skipping'
 	fi
 
-	_print 'Configure time zone'
+	_log::info 'Configure time zone'
 	arch-chroot /mnt ln -sfv /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
-	_print 'Set system time from hardware clock'
+	_log::info 'Set system time from hardware clock'
 	arch-chroot /mnt hwclock --systohc
 
-	_print 'Configure locale'
-	arch-chroot /mnt sed -i -e '/#en_US.UTF-8 UTF-8  /s/#//' /etc/locale.gen
+	_log::info 'Configure locale'
+	arch-chroot /mnt sed -i -e '/^#en_US.UTF-8 UTF-8  $/s/#//' /etc/locale.gen
 	arch-chroot /mnt locale-gen
 	cp -fv /tmp/dotfiles/misc/etc/locale.conf /mnt/etc/
 
-	_print 'Configure keyboard'
+	_log::info 'Configure keyboard'
 	arch-chroot /mnt bash -c 'echo KEYMAP=us >/etc/vconsole.conf'
 
-	_print 'Configure hostname'
+	_log::info 'Configure hostname'
 	cp -fv /tmp/dotfiles/misc/etc/hostname /mnt/etc/
 
-	_print 'Configure initramfs'
-	# https://wiki.archlinux.org/title/dm-crypt/Encrypting_an_entire_system#Configuring_mkinitcpio_2
-	# https://wiki.archlinux.org/title/silent_boot#fsck
+	_log::info 'Configure initramfs'
+	# NOTE: 1. use systemd hook and remove fsck hook to hide fsck message
+	#       2. systemd support for emergency target, rescue target, and debug shell,
+	#       so remove busybox recovery shell of base hook
+	#       3. add lvm2, sd-vconsole, and sd-encrypt hook to use LVM on LUKS
+	#
+	#       https://wiki.archlinux.org/title/Fsck#Mechanism
+	#       https://wiki.archlinux.org/title/silent_boot#fsck
+	#       https://wiki.archlinux.org/title/mkinitcpio#Common_hooks
+	#       https://wiki.archlinux.org/title/dm-crypt/Encrypting_an_entire_system#Configuring_mkinitcpio_2
 	arch-chroot /mnt sed \
 		-i \
 		-E \
 		-e '/^HOOKS/s/base udev/systemd/' \
-		-e '/^HOOKS/s/(autodetect) (modconf)/\1 keyboard sd-vconsole \2/' \
-		-e '/^HOOKS/s/(modconf) kms keyboard keymap consolefont (block)/\1 \2/' \
+		-e '/^HOOKS/s/keymap consolefont/sd-vconsole/' \
 		-e '/^HOOKS/s/(block) (filesystems)/\1 sd-encrypt lvm2 \2/' \
 		-e '/^HOOKS/s/(filesystems) fsck/\1/' \
-		-e '/^#COMPRESSION_OPTIONS/s/#//' \
-		-e '/^COMPRESSION_OPTIONS/s/\(\)/\(-1 -T0\)/' \
 		/etc/mkinitcpio.conf
+	if ! grep -q "COMPRESSION='cat'" /mnt/etc/mkinitcpio.conf; then
+		echo "COMPRESSION='cat'" >>/mnt/etc/mkinitcpio.conf
+	else
+		_log::warn 'mkinitcpio compression already updated -- skipping'
+	fi
 	arch-chroot /mnt cp -v \
 		/usr/lib/systemd/system/systemd-fsck{@,-root}.service /etc/systemd/system
 	arch-chroot /mnt mkinitcpio -p linux-zen
 
-	_print 'Set the root password'
+	_log::info 'Set the root password'
 	arch-chroot /mnt passwd
 
-	_print 'Register keys in a LUKS slot'
-	_print 'Waiting for security key device'
-	_print 'connect device and press enter key'
+	_log::info 'Register keys in a LUKS slot'
+	_log::info 'Waiting for security key device'
+	_log::info 'connect device and press enter key'
 	read -r
-	arch-chroot /mnt systemd-cryptenroll --fido2-device=list
-	arch-chroot /mnt systemd-cryptenroll --fido2-device=auto "/dev/${partitions[1]}"
+	systemd-cryptenroll --fido2-device=list
+	systemd-cryptenroll --fido2-device=auto "/dev/${PARTITIONS[1]}"
 
-	_print 'Configure Boot loader'
+	_log::info 'Configure Boot loader'
 	arch-chroot /mnt bootctl install
 	xargs -I {} cp "$dir/misc/{}" /mnt/{} <<-EOF
 		boot/loader/loader.conf
@@ -185,149 +250,161 @@ _install() {
 
 	_configure_secure_boot
 
-	_print 'Configure network'
+	_log::info 'Configure network'
 	arch-chroot /mnt systemctl enable \
 		systemd-networkd.service \
 		systemd-resolved.service \
 		iwd.service \
 		reflector.timer
-	arch-chroot /mnt ln -rsfv /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
-	_print 'Copy network passphrase from live environment'
+	_log::info 'Configure the regulatory domain'
+	arch-chroot /mnt sed \
+		-i \
+		-e '/^#WIRELESS_REGDOM="JP"$/s/#//' \
+		/etc/conf.d/wireless-regdom
+
+	_log::info 'Copy network passphrase from live environment'
 	cp -frv /var/lib/iwd/ /mnt/var/lib/
 
-	_print 'Copy dotfiles repository from live environment'
+	_log::info 'Copy dotfiles repository from live environment'
 	cp -r /{,mnt/}tmp/dotfiles/
 
-	_print 'Unmount the filesystems'
+	_log::info 'Unmount the filesystems'
 	umount -R /mnt
 }
 
+#######################################
+# Configure by privileged user
+# Globals:
+#   None
+# Arguments:
+#   None
+#######################################
 _configure_with_privileged() {
-	_print 'Configure user'
-	username=n4vysh
+	_log::info 'Configure user'
 	systemctl enable --now systemd-homed.service
 
-	homectl create "$username" --member-of=wheel --storage=directory
+	homectl create "$USERNAME" --member-of=wheel --storage=directory
 
-	_print 'Configure privilege escalation'
+	_log::info 'Configure privilege escalation'
 	cp -fv /tmp/dotfiles/misc/etc/sudoers.d/* /etc/sudoers.d/
 }
 
+#######################################
+# Configure by unprivileged user
+# Globals:
+#   XDG_DATA_HOME
+#   USER
+# Arguments:
+#   None
+#######################################
 _configure_without_privileged() {
 	_verify_internet_connection
 
-	_print 'Configure the regulatory domain'
-	sudo sed \
-		-i \
-		-e '/^#WIRELESS_REGDOM="JP"/s/#//' \
-		/etc/conf.d/wireless-regdom
+	# NOTE: stub-resolv.conf does not exist unless systemd-resolved starts
+	sudo ln -rsfv /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
-	_print 'Configure pacman'
+	_log::info 'Configure pacman'
 	sudo sed \
 		-i \
-		-e '/^#Color/s/#//' \
-		-e '/^#VerbosePkgLists/s/#//' \
-		-e 's/ParallelDownloads = 5/ParallelDownloads = 20/' \
+		-e '/^#Color$/s/#//' \
+		-e '/^#VerbosePkgLists$/s/#//' \
+		-e 's/^#ParallelDownloads = 5$/ParallelDownloads = 20/' \
 		/etc/pacman.conf
 
-	_print 'Add blackarch repository'
+	_log::info 'Add blackarch repository'
 	curl -o '/tmp/#1' 'https://blackarch.org/{strap.sh}'
 	echo 5ea40d49ecd14c2e024deecf90605426db97ea0c /tmp/strap.sh | sha1sum -c
 	chmod +x /tmp/strap.sh
 	sudo /tmp/strap.sh
-	# HACK: strap.sh change owner of ~/.gnupg/ to root user,
-	#       so change owner to unprivileged user
-	sudo chown -R "$USER" ~/.gnupg/
 
 	sudo cp /etc/pacman.d/blackarch-mirrorlist{,.bak}
 	rankmirrors -r blackarch /etc/pacman.d/blackarch-mirrorlist.bak |
 		sudo tee /etc/pacman.d/blackarch-mirrorlist >/dev/null
 
-	_print 'Install packages'
+	_log::info 'Install packages'
 	sudo bash -c "yes '' | pacman -S --noconfirm --needed --disable-download-timeout $(
 		find /tmp/dotfiles/misc/pkglist/ \
 			-type f \
 			-not -name base.txt \
-			-not -name aur.txt \
 			-print0 |
 			xargs -0 cat |
+			grep -v aur |
 			tr '\n' ' '
 	)"
 
-	_print 'Configure makepkg'
-	sudo sed -i -e '/^#MAKEFLAGS/s/#//' /etc/makepkg.conf
+	_log::info 'Configure makepkg'
 	sudo sed \
 		-i \
-		-e "/^MAKEFLAGS=\"-j2\"/s/-j2/-j$(nproc)/" \
+		-e "/^#MAKEFLAGS=\"-j2\"$/s/-j2/-j$(nproc)/" \
 		-e '/^COMPRESSZST/s/zstd -c/zstd --threads=0 -c/' \
 		-e '/^BUILDENV/s/!ccache/ccache/' \
 		/etc/makepkg.conf
 
-	_print 'Configure pkgfile'
+	_log::info 'Configure pkgfile'
 	sudo systemctl start pkgfile-update.service
 	sudo systemctl enable --now pkgfile-update.timer
 
-	_print 'Install AUR helper'
+	_log::info 'Install AUR helper'
 	curl -L -o '/tmp/#1' \
 		'https://aur.archlinux.org/cgit/aur.git/snapshot/{paru-bin.tar.gz}'
 	tar xzvf /tmp/paru-bin.tar.gz -C /tmp/
-	cd /tmp/paru-bin/ ||
-		exit
+	cd /tmp/paru-bin/
 	makepkg -si --noconfirm
-	cd - ||
-		exit
+	cd -
 
-	_print 'Import 1Password signing key'
+	_log::info 'Import 1Password signing key'
 	curl -sS https://downloads.1password.com/linux/keys/1password.asc |
 		gpg --import
 
-	_print 'Install AUR packages'
+	_log::info 'Install AUR packages'
 	# HACK: enter password before running AUR helper to skip selection of package group with yes command
 	sudo true
 	# HACK: mark news item as read to avoid interruption a pacman transaction
 	paru -S --noconfirm --needed --disable-download-timeout --skipreview informant
 	sudo informant read --all
-	bash -c "yes '' | paru -S --noconfirm --needed --disable-download-timeout --skipreview $(tr '\n' ' ' </tmp/dotfiles/misc/pkglist/aur.txt)"
+	bash -c "yes '' | paru -S --noconfirm --needed --disable-download-timeout --skipreview $(
+		find /tmp/dotfiles/misc/pkglist/ \
+			-type f \
+			-print0 |
+			xargs -0 cat |
+			grep aur |
+			tr '\n' ' '
+	)"
 
-	_print 'Lock the password of root user'
+	_log::info 'Lock the password of root user'
 	sudo passwd -l root
 
-	_print 'Configure securetty'
+	_log::info 'Configure securetty'
 	sudo sed \
 		-i \
-		-e '/console/s/^/# /' \
-		-e '/tty1/s/^/# /' \
-		-e '/tty2/s/^/# /' \
-		-e '/tty3/s/^/# /' \
-		-e '/tty4/s/^/# /' \
-		-e '/tty5/s/^/# /' \
-		-e '/tty6/s/^/# /' \
-		-e '/ttyS0/s/^/# /' \
-		-e '/hvc0/s/^/# /' \
+		-e '/^console$/s/^/# /' \
+		-e '/^tty1$/s/^/# /' \
+		-e '/^tty2$/s/^/# /' \
+		-e '/^tty3$/s/^/# /' \
+		-e '/^tty4$/s/^/# /' \
+		-e '/^tty5$/s/^/# /' \
+		-e '/^tty6$/s/^/# /' \
+		-e '/^ttyS0$/s/^/# /' \
+		-e '/^hvc0$/s/^/# /' \
 		/etc/securetty
 
-	_print 'Configure firewall'
+	_log::info 'Configure firewall'
 	sudo systemctl enable --now ufw
 	sudo ufw enable
 	sudo ufw status verbose
 
-	_print 'Enable irqbalance'
+	_log::info 'Enable irqbalance'
 	sudo systemctl enable --now irqbalance.service
 
-	_print 'Clone dotfiles repository'
+	_log::info 'Clone dotfiles repository'
 	if ! [[ -e "$XDG_DATA_HOME/dotfiles/" ]]; then
-		git clone https://github.com/n4vysh/dotfiles "$XDG_DATA_HOME/dotfiles/"
+		git clone "https://github.com/$USERNAME/dotfiles" "$XDG_DATA_HOME/dotfiles/"
 	else
-		_print 'dotfiles already exists'
+		_log::warn 'dotfiles already exists -- skipping'
 	fi
 
-	_print 'Deploy dotfiles'
-	# HACK: move default dotfiles to avoid conflict
-	mv -v ~/.bashrc{,.bak}
-	just --justfile "$XDG_DATA_HOME/dotfiles/justfile"
-
-	_print 'Deploy config files'
+	_log::info 'Deploy config files'
 	sudo mkdir -p /etc/interception/dual-function-keys/ /etc/docker/
 	dir="$XDG_DATA_HOME/dotfiles"
 	xargs -I {} sudo cp -v "$dir/misc/{}" /{} <<-EOF
@@ -340,56 +417,62 @@ _configure_without_privileged() {
 		etc/ssh/sshd_config.d/permit_root_login.conf
 	EOF
 
-	_print 'Change default shell'
-	sudo homectl update --shell="$(which zsh)" "$username"
+	_log::info 'Change default shell'
+	sudo homectl update --shell="$(which zsh)" "$USER"
 
-	_print 'Configure clock synchronization'
-	sudo sed -i -e "s/#NTP=/NTP=$(echo {0..3}.jp.pool.ntp.org)/" \
+	_log::info 'Configure clock synchronization'
+	sudo sed \
+		-i \
+		-e "s/^#NTP=/NTP=$(echo {0..3}.jp.pool.ntp.org)/" \
+		-e '/^#FallbackNTP/s/#//' \
 		/etc/systemd/timesyncd.conf
-	sudo sed -i -e '/#FallbackNTP/s/#//' /etc/systemd/timesyncd.conf
 	sudo systemctl enable --now systemd-timesyncd
 	sudo timedatectl set-ntp true
 	sudo timedatectl status
 
 	# System administration
-	_print 'Configure service management'
-	sudo sed -i -e '/#DefaultTimeoutStopSec/s/90s/5s/' /etc/systemd/system.conf
-	sudo sed -i -e '/#DefaultTimeoutStopSec/s/#//' /etc/systemd/system.conf
-	sudo sed -i -e 's/#SystemMaxUse=/SystemMaxUse=5M/' /etc/systemd/journald.conf
+	_log::info 'Configure service management'
+	sudo sed \
+		-i \
+		-e '/^#DefaultTimeoutStopSec/s/90s/5s/' \
+		-e '/^#DefaultTimeoutStopSec/s/#//' \
+		/etc/systemd/system.conf
+	sudo sed \
+		-i \
+		-e 's/^#SystemMaxUse=/SystemMaxUse=5M/' \
+		/etc/systemd/journald.conf
 
 	# Graphical User Interface
-	_print 'Configure screen locker'
+	_log::info 'Configure screen locker'
 	mkdir -p "$XDG_DATA_HOME/sway/"
 	convert "$dir/misc/lockscreen.svg" "$XDG_DATA_HOME/sway/lockscreen.png"
 
 	# OOM-killer
-	_print 'Configure OOM-killer'
+	_log::info 'Configure OOM-killer'
 	sudo systemctl enable --now systemd-oomd
 
 	# TRIM
-	_print 'Configure Periodic TRIM'
+	_log::info 'Configure Periodic TRIM'
 	sudo systemctl enable --now fstrim.timer
 
 	# Power management
-	_print 'Configure ACPI events'
-	sudo sed -i -e 's/#HandlePowerKey=poweroff/HandlePowerKey=suspend/' \
-		/etc/systemd/logind.conf
-
-	sudo sed -i -e 's/#HandleLidSwitch=suspend/HandleLidSwitch=ignore/' \
+	_log::info 'Configure ACPI events'
+	sudo sed \
+		-i \
+		-e '/^#HandlePowerKey=/s/poweroff/suspend/' \
+		-e '/^#HandlePowerKey=/s/#//' \
+		-e '/^#HandleLidSwitch=/s/suspend/ignore/' \
+		-e '/^#HandleLidSwitch=/s/#//' \
 		/etc/systemd/logind.conf
 
 	sudo systemctl restart systemd-logind
 
-	_print 'Configure Scaling governors'
+	_log::info 'Configure Scaling governors'
 	sudo systemctl enable --now cpupower
 	sudo cpupower frequency-set -g performance
 
-	# Multimedia
-	_print 'Configure sound'
-	pamixer --unmute
-
 	# Input devices
-	_print 'Configure keyboard layouts'
+	_log::info 'Configure keyboard layouts'
 	keymap=us
 
 	sudo cp \
@@ -397,29 +480,36 @@ _configure_without_privileged() {
 		"/usr/share/kbd/keymaps/$keymap-custom.map.gz"
 	sudo gunzip "/usr/share/kbd/keymaps/$keymap-custom.map.gz"
 	# Disable caps lock
-	sudo bash -c \
-		"sed -i -e 's/keycode  58 = Caps_Lock/keycode  58 = VoidSymbol/' /usr/share/kbd/keymaps/$keymap-custom.map"
+	sudo sed \
+		-i \
+		-e 's/^keycode  58 = Caps_Lock$/keycode  58 = VoidSymbol/' \
+		"/usr/share/kbd/keymaps/$keymap-custom.map"
 	# Change right alt to control
-	sudo bash -c \
-		"echo 'keycode 100 = Control' >>/usr/share/kbd/keymaps/$keymap-custom.map"
+	if ! sudo grep -q "keycode 100 = Control" "/usr/share/kbd/keymaps/$keymap-custom.map"; then
+		sudo tee -a "/usr/share/kbd/keymaps/$keymap-custom.map" <<<"keycode 100 = Control" >/dev/null
+	fi
 	sudo sed -i \
-		-e "s|KEYMAP=$keymap|KEYMAP=$keymap-custom|" \
+		-e "s|^KEYMAP=$keymap$|KEYMAP=$keymap-custom|" \
 		/etc/vconsole.conf
 	sudo systemctl enable --now udevmon.service # for interception tools
 
-	_print 'Configure bluetooth'
+	_log::info 'Configure bluetooth'
 	sudo gpasswd -a "$USER" lp
-	sudo sed -i -e 's/^#AutoEnable=false$/AutoEnable=true/' /etc/bluetooth/main.conf
+	sudo sed \
+		-i \
+		-e '/^#AutoEnable=/s/false/true/' \
+		-e '/^#AutoEnable=/s/#//' \
+		/etc/bluetooth/main.conf
 	sudo systemctl enable --now bluetooth
 
-	_print 'Configure yubikey'
+	_log::info 'Configure yubikey'
 	sudo systemctl enable --now pcscd.service
 
-	_print 'Configure avrdude'
+	_log::info 'Configure avrdude'
 	sudo gpasswd -a "$USER" uucp
 	sudo gpasswd -a "$USER" lock
 
-	_print 'Configure virtualization'
+	_log::info 'Configure virtualization'
 	sudo systemctl enable --now docker
 	sudo gpasswd -a "$USER" docker
 	dir=$HOME/.docker/
@@ -441,103 +531,107 @@ _configure_without_privileged() {
 	containerd-rootless-setuptool.sh install-buildkit
 
 	# Utilities
-	_print 'Configure password manager'
+	_log::info 'Configure password manager'
 	sudo ln -sf /usr/bin/pinentry-curses /usr/bin/pinentry
 
-	_print 'Configure mount helper'
+	_log::info 'Configure mount helper'
 	sudo gpasswd --add "$USER" storage
 
-	_print 'Create user directorys'
+	_log::info 'Create user directorys'
 	mkdir "$HOME"/{Downloads,Public,Workspaces}
 
-	_print 'Configure GNOME keyring'
+	_log::info 'Configure GNOME keyring'
 	sudo sed \
 		-i \
-		-e '/auth *optional *pam_gnome_keyring.so/! {
-			/auth *include *system-local-login/a auth       optional     pam_gnome_keyring.so
-		}' /etc/pam.d/login
+		-e '/^auth *optional *pam_gnome_keyring.so$/! {
+			/^auth *include *system-local-login$/a auth       optional     pam_gnome_keyring.so
+		}' \
+		-e '/^session *optional *pam_gnome_keyring.so auto_start$/! {
+			/^session *include *system-local-login$/a session    optional     pam_gnome_keyring.so auto_start
+		}' \
+		/etc/pam.d/login
 
 	sudo sed \
 		-i \
-		-e '/session *optional *pam_gnome_keyring.so auto_start/! {
-			/session *include *system-local-login/a session    optional     pam_gnome_keyring.so auto_start
-		}' /etc/pam.d/login
-
-	sudo sed \
-		-i \
-		-e '/password	optional	pam_gnome_keyring.so/! {
+		-e '/^password	optional	pam_gnome_keyring.so$/! {
 			$ a password	optional	pam_gnome_keyring.so
 		}' /etc/pam.d/passwd
 
-	_print 'Setup nix'
-	sudo grep -q "max-jobs = auto" /etc/nix/nix.conf ||
+	_log::info 'Setup nix'
+	if ! sudo grep -q "max-jobs = auto" /etc/nix/nix.conf; then
 		sudo tee -a /etc/nix/nix.conf <<<"max-jobs = auto" >/dev/null
+	else
+		_log::warn 'nix max-jobs already updated -- skipping'
+	fi
 	sudo gpasswd -a "$USER" nix-users
+	sudo systemctl enable --now nix-daemon.service
 	nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 	nix-channel --update
-	sudo systemctl enable --now nix-daemon.service
 
-	_print 'Install kubectl packages'
-	kubectl krew install <"/tmp/dotfiles/misc/kubectl-plugins.txt"
+	_log::info 'Install kubectl packages'
+	bash -c "yes | kubectl krew install $(
+		tr '\n' ' ' </tmp/dotfiles/misc/kubectl-plugins.txt
+	)"
 
-	_print 'Install formatter'
+	_log::info 'Install formatter'
 	pnpm add -g sql-formatter
 
-	_print 'Install packages for editor'
+	_log::info 'Install packages for editor'
 	go install github.com/rhysd/vim-startuptime@latest
 
-	_print 'Configure VPN'
+	_log::info 'Configure VPN'
 	sudo systemctl enable --now nordvpnd
 	sudo gpasswd -a "$USER" nordvpn
 
-	_print 'Configure scheduling utility'
+	_log::info 'Configure scheduling utility'
 	sudo systemctl enable --now atd
 
-	_print 'Configure plocate'
+	_log::info 'Configure plocate'
 	sudo systemctl start plocate-updatedb.service
 	sudo systemctl enable --now plocate-updatedb.timer
 
-	_print 'Configure etckeeper'
+	_log::info 'Configure etckeeper'
 	sudo etckeeper init
 	sudo git -C /etc/ config --local user.name "etckeeper"
 	sudo git -C /etc/ config --local user.email "etckeeper@localhost"
 	sudo etckeeper commit "Initial commit"
 	sudo systemctl enable --now etckeeper.timer
 
-	_print 'Configure profile-sync-daemon'
-	systemctl enable --now psd.service
+	_log::info 'Configure profile-sync-daemon'
+	systemctl --user enable --now psd.service
 
-	_print 'Configure metasploit'
+	_log::info 'Configure metasploit'
 	sudo mkdir -p /var/lib/postgres/data
 	sudo chattr +C /var/lib/postgres/data
 	sudo -u postgres initdb -D /var/lib/postgres/data
 	sudo systemctl enable --now postgresql
 	yes no | msfdb init
 
-	_print 'Configure wireshark'
+	_log::info 'Configure wireshark'
 	sudo gpasswd -a "$USER" wireshark
 
-	_print 'Downloads wordlists'
+	_log::info 'Downloads wordlists'
 	sudo wordlistctl fetch best110
 	sudo wordlistctl fetch -d rockyou
 	sudo wordlistctl fetch -d fasttrack
 	sudo wordlistctl fetch subdomains-top1million-5000
 
-	_print 'Configure wpscan'
-	sudo chown -R n4vysh: ~/.wpscan
+	_log::info 'Configure wpscan'
 	wpscan --update
 
-	_print 'Configure rkhunter'
+	_log::info 'Configure rkhunter'
 	lists=(
 		/usr/bin/egrep
 		/usr/bin/fgrep
 		/usr/bin/ldd
-		/usr/bin/vendor_perl/GET
 		/usr/sbin/s
 	)
 	for list in "${lists[@]}"; do
-		sudo grep "SCRIPTWHITELIST=$list" /etc/rkhunter.conf ||
+		if ! sudo grep "SCRIPTWHITELIST=$list" /etc/rkhunter.conf; then
 			sudo tee -a /etc/rkhunter.conf <<<"SCRIPTWHITELIST=$list" >/dev/null
+		else
+			_log::warn "rkhunter SCRIPTWHITELIST=$list already set -- skipping"
+		fi
 	done
 	sudo sed \
 		-i \
@@ -547,15 +641,27 @@ _configure_without_privileged() {
 		-e '/^ALLOW_SSH_ROOT_USER/s/no/unset/' \
 		/etc/rkhunter.conf
 
-	sudo grep "RTKT_FILE_WHITELIST=/usr/sbin/s" /etc/rkhunter.conf ||
+	if ! sudo grep "RTKT_FILE_WHITELIST=/usr/sbin/s" /etc/rkhunter.conf; then
 		sudo tee -a /etc/rkhunter.conf <<<"RTKT_FILE_WHITELIST=/usr/sbin/s" >/dev/null
-	sudo grep "ALLOWDEVFILE=/dev/shm/PostgreSQL.*" /etc/rkhunter.conf ||
+	else
+		_log::warn "rkhunter RTKT_FILE_WHITELIST=/usr/sbin/s already set -- skipping"
+	fi
+	if ! sudo grep "ALLOWDEVFILE=/dev/shm/PostgreSQL.*" /etc/rkhunter.conf; then
 		sudo tee -a /etc/rkhunter.conf <<<"ALLOWDEVFILE=/dev/shm/PostgreSQL.*" >/dev/null
+	else
+		_log::warn "rkhunter ALLOWDEVFILE=/dev/shm/PostgreSQL.* already set -- skipping"
+	fi
 	# For zoom
-	sudo grep "ALLOWDEVFILE=/dev/shm/aomshm.*" /etc/rkhunter.conf ||
+	if ! sudo grep "ALLOWDEVFILE=/dev/shm/aomshm.*" /etc/rkhunter.conf; then
 		sudo tee -a /etc/rkhunter.conf <<<"ALLOWDEVFILE=/dev/shm/aomshm.*" >/dev/null
-	sudo grep "ALLOWHIDDENDIR=/etc/.git" /etc/rkhunter.conf ||
+	else
+		_log::warn "rkhunter ALLOWDEVFILE=/dev/shm/aomshm.* already set -- skipping"
+	fi
+	if ! sudo grep "ALLOWHIDDENDIR=/etc/.git" /etc/rkhunter.conf; then
 		sudo tee -a /etc/rkhunter.conf <<<"ALLOWHIDDENDIR=/etc/.git" >/dev/null
+	else
+		_log::warn "rkhunter ALLOWHIDDENDIR=/etc/.git already set -- skipping"
+	fi
 	lists=(
 		/etc/.etckeeper
 		/etc/.gitignore
@@ -564,12 +670,18 @@ _configure_without_privileged() {
 		/usr/share/man/man5/.k5login.5.gz
 	)
 	for list in "${lists[@]}"; do
-		sudo grep "ALLOWHIDDENFILE=$list" /etc/rkhunter.conf ||
+		if ! sudo grep "ALLOWHIDDENFILE=$list" /etc/rkhunter.conf; then
 			sudo tee -a /etc/rkhunter.conf <<<"ALLOWHIDDENFILE=$list" >/dev/null
+		else
+			_log::warn "rkhunter ALLOWHIDDENFILE=$list already set -- skipping"
+		fi
 	done
 	# NOTE: allow IPC for ueberzug
-	sudo grep "ALLOWIPCUSER=$USER" /etc/rkhunter.conf ||
+	if ! sudo grep "ALLOWIPCUSER=$USER" /etc/rkhunter.conf; then
 		sudo tee -a /etc/rkhunter.conf <<<"ALLOWIPCUSER=$USER" >/dev/null
+	else
+		_log::warn "rkhunter ALLOWIPCUSER=$USER already set -- skipping"
+	fi
 	sudo cp -fv "$dir"/misc/etc/pacman.d/hooks/rkhunter-* /etc/pacman.d/hooks/
 	# NOTE: use /dev/null to ignore grep warning
 	sudo rkhunter --update 2>/dev/null
@@ -577,121 +689,121 @@ _configure_without_privileged() {
 	sudo rkhunter --propupd 2>/dev/null
 	sudo rkhunter -c --sk 2>/dev/null
 	sudo systemctl enable --now rkhunter.timer
+
+	# NOTE: git clone fails when forcing ssh protocol
+	#       in ~/.config/git/config before creating ssh key
+	_log::info 'Deploy dotfiles'
+	# HACK: move default dotfiles to avoid conflict
+	mv -v ~/.bashrc{,.bak}
+	just --justfile "$XDG_DATA_HOME/dotfiles/justfile"
 }
 
-_is_arch_linux() {
-	[[ -f /etc/arch-release ]]
-}
+#######################################
+# Verify boot mode
+# Globals:
+#   None
+# Arguments:
+#   None
+#######################################
+_verify_boot_mode() {
+	_runtime::is_container && return
 
-_is_privileged() {
-	[[ $(id -u) == 0 ]]
-}
-
-_print_usage() {
-	cat <<-EOF 1>&2
-		Usage:
-			${script_name} [options]
-
-		OPTIONS
-			-h show list of command-line options
-			-p configure Arch Linux with privileged user after install
-			-u configure Arch Linux with unprivileged user after install
-	EOF
-	exit 1
-}
-
-_print() {
-	echo "$script_name: ${1}"
-}
-
-_print_err() {
-	echo -e "$script_name: \e[31m${1}\e[m"
-}
-
-_check_boot_mode() {
-	_is_container && return
-
-	_print 'Check boot mode of live environment'
+	_log::info 'Verify boot mode of live environment'
 	if ! [[ -d /sys/firmware/efi/efivars ]]; then
-		_print_err 'UEFI mode is disabled'
-		exit 1
+		_log::fatal 'UEFI mode is disabled'
 	else
-		_print 'UEFI mode is enabled'
+		_log::info 'UEFI mode is enabled'
 	fi
 }
 
+#######################################
+# Verify internet connection
+# Globals:
+#   None
+# Arguments:
+#   None
+#######################################
 _verify_internet_connection() {
-	_print 'Verify the internet connection'
+	_log::info 'Verify the internet connection'
 	if ! nc -zw1 google.com 443; then
-		_print_err 'No connection is available'
-		exit 1
+		_log::fatal 'No connection is available'
 	fi
 }
 
+#######################################
+# Verify Arch Linux
+# Globals:
+#   None
+# Arguments:
+#   None
+#######################################
 _verify_arch_linux() {
-	_is_arch_linux ||
-		{
-			_print_err 'try newly installed Arch Linux system'
-			exit 1
-		}
+	if ! _runtime::is_arch_linux; then
+		_log::fatal 'try newly installed Arch Linux system'
+	fi
 }
 
+#######################################
+# Setup LVM on LUKS
+# Globals:
+#   BLOCK_DEVICE
+#   PARTITIONS[0]
+#   PARTITIONS[1]
+# Arguments:
+#   None
+#######################################
 _configure_disks() {
-	# Partition the disks
-	#
-	# | Mount point | Partition        | Partition type | Filesystem | Size  |
-	# |:------------|:-----------------|:---------------|:-----------|:------|
-	# | /boot       | ${partitions[0]} | EFI System     | FAT32      | 200MB |
-	# | /           | ${partitions[1]} | Linux LVM      | Btrfs      | 30GB  |
-	# | /home       | ${partitions[1]} | Linux LVM      | Btrfs      | rest  |
+	_log::info 'Create the PARTITIONS'
+	sgdisk -n 0::+1G -t 0:EF00 -c 0:'EFI System' "/dev/$BLOCK_DEVICE"
+	sgdisk -n 0::: -t 0:8E00 -c 0:'Linux LVM' "/dev/$BLOCK_DEVICE"
+	sgdisk -p "/dev/$BLOCK_DEVICE"
 
-	block_device=nvme0n1
-	partitions[0]=nvme0n1p1
-	partitions[1]=nvme0n1p2
+	_log::info 'Format the partition'
+	mkfs.vfat -F 32 "/dev/${PARTITIONS[0]}"
 
-	_print 'Create the partitions'
-	sgdisk -n 0::+200M -t 0:EF00 -c 0:'EFI System' "/dev/$block_device"
-	sgdisk -n 0::: -t 0:8E00 -c 0:'Linux LVM' "/dev/$block_device"
-	sgdisk -p "/dev/$block_device"
+	_log::info 'Encrypt the disk'
+	cryptsetup -v luksFormat "/dev/${PARTITIONS[1]}"
+	cryptsetup open --type luks "/dev/${PARTITIONS[1]}" cryptlvm
 
-	_print 'Format the partition'
-	mkfs.vfat -F 32 "/dev/${partitions[0]}"
-
-	_print 'Encrypt the disk'
-	cryptsetup -v luksFormat "/dev/${partitions[1]}"
-	cryptsetup open --type luks "/dev/${partitions[1]}" cryptlvm
-
-	_print 'Create the physical volume'
+	_log::info 'Create the physical volume'
 	pvcreate /dev/mapper/cryptlvm
 
-	_print 'Create the volume group'
+	_log::info 'Create the volume group'
 	vgcreate volume /dev/mapper/cryptlvm
 
-	_print 'Create the logical volumes'
-	lvcreate -y volume -L 30GB -n root
+	_log::info 'Create the logical volumes'
+	lvcreate -y volume -L 200GB -n root
 	lvcreate -y volume -l 100%FREE -n home
 
-	_print 'Format the logical volumes'
+	_log::info 'Format the logical volumes'
 	mkfs.btrfs /dev/volume/root
 	mkfs.btrfs /dev/volume/home
 
-	_print 'Mount the filesystems'
-	mount -o defaults,relatime,space_cache,ssd,compress=zstd /dev/volume/root /mnt
-	mount --mkdir -o defaults,relatime,space_cache,ssd,compress=zstd /dev/volume/home /mnt/home
-	mount --mkdir -o uid=0,gid=0,fmask=0077,dmask=0077 "/dev/${partitions[0]}" /mnt/boot
+	_log::info 'Mount the filesystems'
+	mount -o defaults,relatime,space_cache=v2,ssd,compress=zstd /dev/volume/root /mnt
+	mount --mkdir -o defaults,relatime,space_cache=v2,ssd,compress=zstd /dev/volume/home /mnt/home
+	mount --mkdir -o uid=0,gid=0,fmask=0077,dmask=0077 "/dev/${PARTITIONS[0]}" /mnt/boot
 }
 
+#######################################
+# Enroll secure boot signing keys
+# Globals:
+#   None
+# Arguments:
+#   None
+#######################################
 _configure_secure_boot() {
-	_print 'Configure secure boot'
+	_log::info 'Configure secure boot'
+	# NOTE: use $ESP_PATH to vaoid `failed to find EFI system partition`
 	arch-chroot /mnt sbctl status
 	arch-chroot /mnt sbctl create-keys
-	arch-chroot /mnt sbctl enroll-keys
+	arch-chroot /mnt sbctl enroll-keys --yes-this-might-brick-my-machine
 	arch-chroot /mnt sbctl status
 	arch-chroot /mnt sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI
 	# arch-chroot /mnt sbctl sign -s /boot/EFI/arch/fwupdx64.efi
 	arch-chroot /mnt sbctl sign -s /boot/EFI/systemd/systemd-bootx64.efi
 	# arch-chroot /mnt sbctl sign -s /usr/lib/fwupd/efi/fwupdx64.efi -o /usr/lib/fwupd/efi/fwupdx64.efi.signed
-	arch-chroot /mnt sbctl verify
+	arch-chroot /mnt sbctl env ESP_PATH=/boot/efi verify
 	arch-chroot /mnt sbctl list-files
 	arch-chroot /mnt sbctl bundle \
 		-s \
@@ -701,7 +813,174 @@ _configure_secure_boot() {
 		-f /boot/initramfs-linux-zen.img \
 		/boot/EFI/Linux/linux-zen.efi
 	arch-chroot /mnt sbctl sign /boot/EFI/Linux/linux-zen.efi
-	arch-chroot /mnt sbctl list-bundles
+	arch-chroot /mnt sbctl env ESP_PATH=/boot/efi list-bundles
 }
 
-main "${@}"
+#######################################
+# Return true when archiso
+# Globals:
+#   None
+# Arguments:
+#   None
+#######################################
+_runtime::is_archiso() {
+	[[ $(cat /etc/hostname) == archiso ]]
+}
+
+#######################################
+# Return true when container
+# Globals:
+#   CONTAINER
+# Arguments:
+#   None
+#######################################
+_runtime::is_container() {
+	[[ $CONTAINER == true ]]
+}
+
+#######################################
+# Return true when Arch Linux
+# Globals:
+#   None
+# Arguments:
+#   None
+#######################################
+_runtime::is_arch_linux() {
+	[[ -f /etc/arch-release ]]
+}
+
+#######################################
+# Return true when privileged user
+# Globals:
+#   None
+# Arguments:
+#   None
+#######################################
+_runtime::is_privileged() {
+	[[ $(id -u) == 0 ]]
+}
+
+#######################################
+# Print log output for info level
+# Globals:
+#   None
+# Arguments:
+#   Message to print
+#######################################
+_log::info() {
+	echo "$(_print::logprefix "$(_color::sub "INFO")") ""$1"
+}
+
+#######################################
+# Print log output for warn level
+# Globals:
+#   None
+# Arguments:
+#   Message to print
+#######################################
+_log::warn() {
+	echo "$(_print::logprefix "$(_color::accent1 "WARN")") ""$1"
+}
+
+#######################################
+# Print log output for fatal level
+# Globals:
+#   None
+# Arguments:
+#   Message to print
+#######################################
+_log::fatal() {
+	echo -e "$(_print::logprefix "$(_color::accent2 "FATA")") ""$1" >&2
+	exit 1
+}
+
+#######################################
+# Print timestamp with ISO 8601
+# Globals:
+#   None
+# Arguments:
+#   None
+#######################################
+_print::timestamp() {
+	echo -n "$(date +'%Y-%m-%dT%H:%M:%S%z')"
+}
+
+#######################################
+# Print script name, log level, and timestamp before messages
+# Globals:
+#   SCRIPT_NAME
+# Arguments:
+#   Log level
+#######################################
+_print::logprefix() {
+	local name
+	local level="|$1|"
+	local timestamp
+	name="[$(_color::main "$SCRIPT_NAME")]"
+	timestamp="$(_print::timestamp)"
+
+	echo -n "$name $timestamp $level"
+}
+
+#######################################
+# Print bold text of true color with escape sequence
+# Globals:
+#   None
+# Arguments:
+#   Message to print
+#   True Color to print
+#######################################
+_print::color() {
+	local msg=""$1
+	local color=""$2
+	local r="$((16#${color:1:2}))"
+	local g="$((16#${color:3:2}))"
+	local b="$((16#${color:5:2}))"
+	printf "\x1b[1m\x1b[38;2;%d;%d;%dm%s\x1b[0m" "$r" "$g" "$b" "$msg"
+}
+
+#######################################
+# Print bold text with main color
+# Globals:
+#   MAIN_COLOR
+# Arguments:
+#   Message to print
+#######################################
+_color::main() {
+	_print::color "$1" "$MAIN_COLOR"
+}
+
+#######################################
+# Print bold text with sub color
+# Globals:
+#   SUB_COLOR
+# Arguments:
+#   Message to print
+#######################################
+_color::sub() {
+	_print::color "$1" "$SUB_COLOR"
+}
+
+#######################################
+# Print bold text with accent color 1
+# Globals:
+#   ACCENT_COLOR_1
+# Arguments:
+#   Message to print
+#######################################
+_color::accent1() {
+	_print::color "$1" "$ACCENT_COLOR_1"
+}
+
+#######################################
+# Print bold text with accent color 2
+# Globals:
+#   ACCENT_COLOR_2
+# Arguments:
+#   Message to print
+#######################################
+_color::accent2() {
+	_print::color "$1" "$ACCENT_COLOR_2"
+}
+
+main """${@}"

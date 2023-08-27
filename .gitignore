@@ -13,6 +13,7 @@ src/.config/git/templates/hooks/*
 src/.config/gtk-2.0/gtkfilechooser.ini
 src/.config/lazygit/state.yml
 src/.config/ncspot/userstate.cbor
+src/.config/nnn/.selection
 src/.config/nnn/mounts/
 src/.config/nnn/sessions/
 src/.config/nvim/lua/user/local.lua

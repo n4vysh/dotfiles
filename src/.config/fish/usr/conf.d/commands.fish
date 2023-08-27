@@ -9,6 +9,7 @@ if status --is-interactive
                 source
         end
 
+        mkdir -p $XDG_CONFIG_HOME/direnv/lib/
         set -l lib $XDG_CONFIG_HOME/direnv/lib/use_rtx.sh
         if not test -e "$lib"
             rtx direnv activate >$lib

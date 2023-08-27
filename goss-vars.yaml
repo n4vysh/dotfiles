@@ -16,6 +16,7 @@ packages:
   - aria2
   - asciidoctor
   - asciinema
+  - ast-firmware
   - at
   - atool
   - authy
@@ -119,6 +120,8 @@ packages:
   - grex
   - grim
   - gtk2
+  - gtk3
+  - gtk4
   - hadolint-bin
   - hash-identifier
   - hashcat
@@ -236,12 +239,14 @@ packages:
   - prettier
   - procs
   - profile-sync-daemon
-  - protonmail-bridge
+  - protonmail-bridge-bin
   - pueue
+  - pv
   - python-base58
   - python-chepy
   - python-defang
   - python-pip
+  - python-pre-commit
   - python-pydash
   - python2-termcolor
   - python2-xlsx2csv
@@ -262,6 +267,7 @@ packages:
   - seclists
   - selene
   - semgrep-bin
+  - sequoia-sq
   - shellcheck
   - shellharden
   - sherlock
@@ -270,6 +276,7 @@ packages:
   - skaffold
   - skopeo
   - slack-electron
+  - slirp4netns
   - slurp
   - smbclient
   - smbmap
@@ -373,70 +380,74 @@ packages:
   - zsh
   - zstd
 commands:
-  - clamshell
-  - import-gsettings
-  - imvr
-  - swaygeo
-  - tmuxs
-  - nnn-diff
-  - nuke
   - bgm
+  - burpsuite
+  - clamshell
   - extrakto-open
   - ft
-  - tmuxr
-  - protonmail-bridge
-  - burpsuite
-  - sysinfo
+  - import-gsettings
+  - imvr
+  - nnn-diff
   - nnn-home
   - zoom
   - ghidra
   - tun0ip
   - stegsolve
+  - swaygeo
+  - sysinfo
+  - tmuxr
+  - tmuxs
+  - tun0ip
+  - zoom
 files:
   - .atoolrc
-  - .hushlogin
-  - .stylelintrc.yaml
-  - .czrc
-  - .kube
-  - .zprofile
   - .bashrc
+  - .czrc
+  - .hushlogin
+  - .kube
   - .msf4
+  - .stylelintrc.yaml
+  - .zprofile
   - .zshenv
 xdg_config_files:
   - .config/bat
-  - .config/direnv
+  - .config/bottom
+  - .config/dprint
   - .config/fish
+  - .config/fontconfig
   - .config/gammastep
   - .config/git
   - .config/go
   - .config/gtk-2.0
   - .config/gtk-3.0
+  - .config/lazydocker
   - .config/lazygit
+  - .config/luacheck
   - .config/mako
+  - .config/mimeapps.list
   - .config/mpv
+  - .config/ncspot
   - .config/neofetch
+  - .config/nnn
   - .config/nvim
+  - .config/pet
+  - .config/psd
+  - .config/qmk
+  - .config/rtx
+  - .config/s
+  - .config/sql-formatter
+  - .config/starship.toml
   - .config/sway
   - .config/systemd
+  - .config/tealdeer
   - .config/tmux
+  - .config/tmuxp
+  - .config/translate-shell
   - .config/tridactyl
-  - .config/waybar
-  - .config/zathura
-  - .config/luacheck
   - .config/user-dirs.dirs
   - .config/user-dirs.locale
-  - .config/translate-shell
-  - .config/starship.toml
-  - .config/qmk
-  - .config/nnn
-  - .config/dprint
-  - .config/sql-formatter
-  - .config/bottom
-  - .config/tmuxp
+  - .config/waybar
   - .config/wezterm
-  - .config/fontconfig
-  - .config/s
-  - .config/lazydocker
   - .config/xkb
   - .config/mimeapps.list
   - .config/tealdeer
@@ -446,23 +457,23 @@ xdg_config_files:
   - .config/rtx
   - .config/psd
 xdg_local_files:
-  - .local/bin/clamshell
-  - .local/bin/import-gsettings
-  - .local/bin/imvr
-  - .local/bin/swaygeo
-  - .local/bin/tmuxs
-  - .local/bin/nnn-diff
-  - .local/bin/nuke
   - .local/bin/bgm
+  - .local/bin/burpsuite
+  - .local/bin/clamshell
   - .local/bin/extrakto-open
   - .local/bin/ft
-  - .local/bin/tmuxr
-  - .local/bin/protonmail-bridge
-  - .local/bin/burpsuite
-  - .local/bin/sysinfo
+  - .local/bin/import-gsettings
+  - .local/bin/imvr
+  - .local/bin/nnn-diff
   - .local/bin/nnn-home
   - .local/bin/zoom
   - .local/bin/ghidra
   - .local/bin/tun0ip
   - .local/bin/stegsolve
+  - .local/bin/swaygeo
+  - .local/bin/sysinfo
+  - .local/bin/tmuxr
+  - .local/bin/tmuxs
+  - .local/bin/tun0ip
+  - .local/bin/zoom
   - .local/src/dotfiles

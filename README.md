@@ -56,7 +56,9 @@ No window                   | Lockscreen
   [systemd-cryptenroll][systemd-cryptenroll-link]
   and [FIDO2][fido2-link]
 - User-related information encryption with [systemd-homed][systemd-homed-link]
-- [Improving Boot process][boot-process-link] with [Silent boot][silent-boot-link]
+- [Improving Boot process][boot-process-link] with
+  [uncompressed initramfs][uncompressed-initramfs-link],
+  [Silent boot][silent-boot-link],
   and [systemd-boot][systemd-boot-link]
 - [UEFI Secure Boot][uefi-secure-boot-link] with [unified kernel image (UKI)][uki-link]
   and [sbctl][sbctl-link]
@@ -92,6 +94,7 @@ No window                   | Lockscreen
 [irqbalance-link]: https://github.com/irqbalance/irqbalance
 [cpupower-link]: https://github.com/torvalds/linux/tree/master/tools/power/cpupower
 [profile-sync-daemon-link]: https://github.com/graysky2/profile-sync-daemon
+[uncompressed-initramfs-link]: https://bbs.archlinux.org/viewtopic.php?id=148172
 [init-link]: https://wiki.archlinux.org/title/Init
 [systemd-link]: https://systemd.io/
 [systemd-network-link]: https://www.freedesktop.org/software/systemd/man/systemd.network.html
@@ -144,7 +147,7 @@ No window                   | Lockscreen
 
 ## Requirements
 
-- [VAIO SX14 | ALL BLACK EDITION (VJS142C11N)][vaio-sx14-link]
+- [VAIO SX14 | ALL BLACK EDITION - June 2023 model (VJS1468)][vaio-sx14-link]
 - USB drive
 - [YubiKey 4][yubikey-link]
 - [ZSA Moonlander Mark I][moonlander-link]
@@ -154,7 +157,7 @@ No window                   | Lockscreen
 - [Kensington SlimBlade Pro Trackball][wireless-trackball-link]
   - [Grey ball of Kensington Expert Mouse Wired Trackball][wired-trackball-link]
 
-[vaio-sx14-link]: https://us.vaio.com/pages/vaio-sx12-sx14-black-edition
+[vaio-sx14-link]: https://store.vaio.com/shop/pages/allblack_sx1214-6g.aspx
 [yubikey-link]: https://support.yubico.com/hc/en-us/articles/360013714599-YubiKey-4
 [moonlander-link]: https://www.zsa.io/moonlander/
 [keycaps-link]: https://ergodox-ez.com/our-keycaps

@@ -209,10 +209,11 @@
   "wolframAlpha": {
     "enabled": false,
     "unsupportedUrls": "bypass",
-    "frontend": "wolfreeAlpha"
+    "frontend": "wolfreeAlpha",
+    "redirectType": "main_frame"
   },
   "wolfreeAlpha": [],
-  "version": "2.7.1",
+  "version": "2.8.0",
   "speedTest": {
     "enabled": false,
     "unsupportedUrls": "bypass",
@@ -257,5 +258,14 @@
     "frontend": "wtfismyip"
   },
   "wtfismyip": [],
-  "hyperpipe": []
+  "hyperpipe": [],
+  "twitch": {
+    "enabled": false,
+    "redirectType": "main_frame",
+    "unsupportedUrls": "bypass",
+    "frontend": "safetwitch",
+    "instance": "public"
+  },
+  "safetwitch": [],
+  "destructables": []
 }

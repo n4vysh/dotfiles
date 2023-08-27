@@ -29,6 +29,10 @@ repos:
     rev: v1.26.3
     hooks:
       - id: yamllint
+    exclude: |
+      (?x)^(
+        goss-var.yaml
+      )$
   - repo: https://github.com/igorshubovych/markdownlint-cli
     # use markdownlint-fix
     rev: 2d2ba47

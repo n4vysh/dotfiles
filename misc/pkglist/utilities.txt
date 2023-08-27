@@ -1,4 +1,5 @@
 aur/aic94xx-firmware
+aur/ast-firmware
 aur/dropbox
 aur/dropbox-cli
 aur/firefox-tridactyl-native-bin
@@ -42,8 +43,10 @@ extra/procs
 extra/profile-sync-daemon
 extra/progress
 extra/pueue
+extra/pv
 extra/remmina
 extra/rlwrap
+extra/sequoia-sq
 extra/speedtest-cli
 extra/tealdeer
 extra/tokei

@@ -96,6 +96,7 @@ extra/postgresql
 extra/prettier
 extra/progress
 extra/python-pip
+extra/python-pre-commit
 extra/qmk
 extra/ripgrep
 extra/sad

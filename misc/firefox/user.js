@@ -18,3 +18,6 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", fa
 user_pref("findbar.highlightAll", true);
 user_pref("services.sync.engine.passwords", false);
 user_pref("signon.rememberSignons", false);
+user_pref("browser.tabs.firefox-view", false);
+user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
+user_pref("extensions.webextensions.restrictedDomains", "");

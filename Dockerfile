@@ -51,7 +51,6 @@ COPY misc/lockscreen.svg /tmp/dotfiles/misc/
 COPY misc/kubectl-plugins.txt /tmp/dotfiles/misc/
 COPY src/ /tmp/dotfiles/src/
 COPY justfile /tmp/dotfiles/
-COPY .tool-versions /tmp/dotfiles/
 RUN set -eux; \
   # NOTE: su-exec does not change user directory, so change manually directory
   cd /home/$USERNAME; \

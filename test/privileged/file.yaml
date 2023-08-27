@@ -15,7 +15,7 @@ file:
     group: root
     filetype: file
     # yamllint disable-line rule:line-length
-    sha512: e455f6d867a5879835dbaa6fba782236b24b2500a8ff44a4a2f359d7d30881a8b590d845871d561ebacbe5955cde0cda49812da98a35a9bada53b633b030647e
+    sha512: 7b8840fd324bd6485e5e1e3e7598cca9ef86ad4a9eeee3243903a494901c98505a2e377139019adf27d52ca0d1a5498472734d095fb7ce5ca9cbcad5295f4378
   /etc/sudoers.d/pwfeedback:
     exists: true
     mode: "0644"

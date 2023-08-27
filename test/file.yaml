@@ -8,7 +8,6 @@ file:
     filetype: file
     contains:
       - "/^--latest 30$/"
-      - "/^# Sort the mirrors by download rate \\(--sort\\).$/"
       - "/^--sort rate$/"
       - "/^# Print extra information$/"
       - "/^--verbose$/"
@@ -50,10 +49,8 @@ file:
     filetype: file
     # yamllint disable rule:line-length
     contains:
-      [
-        "/^HOOKS=\\(systemd autodetect keyboard sd-vconsole modconf block sd-encrypt lvm2 filesystems\\)$/",
-        "/^COMPRESSION_OPTIONS=\\(-1 -T0\\)$/",
-      ]
+      - "/^HOOKS=\\(systemd autodetect modconf kms keyboard sd-vconsole block sd-encrypt lvm2 filesystems\\)$/"
+      - "/^COMPRESSION=cat$/"
       # yamllint enable rule:line-length
   /etc/kernel/cmdline:
     exists: true
@@ -61,11 +58,9 @@ file:
     owner: root
     group: root
     filetype: file
-    # yamllint disable rule:line-length
     contains:
-      [
-        "/^rd.luks.name=.*=cryptlvm rd.luks.options=.*=fido2-device=auto root=/dev/volume/root quiet rw loglevel=3 rd.systemd.show_status=false rd.udev.log-priority=3 nosgx mitigations=auto,nosmt modprobe.blacklist=iTCO_wdt$/",
-      ]
+      # yamllint disable rule:line-length
+      - "/^rd.luks.name=.*=cryptlvm rd.luks.options=.*=fido2-device=auto root=/dev/volume/root quiet ro loglevel=3 rd.systemd.show_status=false rd.udev.log-priority=3 nosgx mitigations=auto,nosmt modprobe.blacklist=iTCO_wdt$/"
       # yamllint enable rule:line-length
 
   /etc/resolv.conf:
@@ -74,7 +69,7 @@ file:
     owner: root
     group: root
     filetype: symlink
-    linked-to: /run/systemd/resolve/stub-resolv.conf
+    linked-to: ../run/systemd/resolve/stub-resolv.conf
   /etc/pacman.conf:
     exists: true
     mode: "0644"
@@ -156,7 +151,7 @@ file:
     group: root
     filetype: file
     # yamllint disable-line rule:line-length
-    sha512: 797d1c9efa0b2d711e7d23d931d0b392b85dcd2b6e44a0413efe67404b7abe3fbab61456f648fc4e5abbf933c9093e130a3e073c7c8b28720166efa4c4da215b
+    sha512: fb7b71dde00e2668dee7484bc7cb10c9d689e56c9858514143f23a3ba84d87bb3dfc0e4bd572f3f2947288221ee83f07ffebbd3b3e92684850cd9fe5d3bc34b1
   /etc/docker/daemon.json:
     exists: true
     mode: "0644"

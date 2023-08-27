@@ -5,3 +5,4 @@ extra/docker-buildx
 extra/nerdctl
 extra/rootlesskit
 extra/skopeo
+extra/slirp4netns

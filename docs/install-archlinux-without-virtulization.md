@@ -2,17 +2,30 @@
 
 ## Acquire an installation image
 
-- <https://www.archlinux.jp/download/>
-- <https://www.archlinux.jp/mirrors/status/>
+- <https://archlinux.org/download/>
+
+```bash
+read -rp 'ISO URL: ' iso_url
+read -rp 'ISO PGP signature URL: ' iso_sig_url
+aria2c -d ~/Downloads/ "$iso_url"
+wget -P ~/Downloads/ "$iso_sig_url"
+gpg \
+  --keyserver-options auto-key-retrieve \
+  --verify \
+  ~/Downloads/archlinux-*.*.*-x86_64.iso.sig
+```
 
 ## Prepare an installation medium
 
 ```bash
+ls -l /dev/disk/by-id/usb-*
 lsblk
+# /dev/disk/by-id/usb-My_flash_drive
+read -rp 'drive path: ' usb_path
 dd \
   bs=4M \
-  if=path/to/archlinux-version-x86_64.iso \
-  of=/dev/sdx \
+  if=~/Downloads/archlinux-*.*.*-x86_64.iso \
+  of="$usb_path" \
   conv=fsync \
   oflag=direct \
   status=progress
@@ -20,12 +33,19 @@ dd \
 
 ## Boot the live environment
 
-In the case of VAIO SX14, Press the power button while holding down the [F3]
-button. Since rescue mode screen is displayed, and then select "Start BIOS
-setup". Putting firmware in "Setup Mode" for secure boot in BIOS setup menu and
-exit. Select "Start from medium" to boot the live environment.
+Run following procedures to put firmware in [Setup Mode][setup-mode-link]
+and boot the live environment.
 
-[Setup Mode](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Putting_firmware_in_%22Setup_Mode%22)
+1. Press the power button while holding down the `F3` button.
+1. Since rescue mode screen is displayed, and then select "Start BIOS setup".
+1. When the “PHOENIX SECURECORE TECHNOLOGY SETUP” screen is displayed,
+  press the `↓` key and select "Secure Boot" menu, and press the `Enter` key.
+1. Press the `→` key, select "Clear All Secure Boot Settings", and press
+  the `Enter` key.
+1. Press the `↓` key, select "Exit", and `Enter` key.
+1. Select "Start from medium" to boot the live environment.
+
+[setup-mode-link]: https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Putting_firmware_in_%22Setup_Mode%22
 
 ## Wipe all data left on the device
 
@@ -46,6 +66,7 @@ dd if=/dev/zero of=/dev/nvme0n1 bs=4096 status=progress
 
 ```bash
 tmux
+tmux set -g mode-keys vi
 ```
 
 ## Authenticate to the wireless network
@@ -75,7 +96,8 @@ reboot
 login privileged user
 
 ```bash
-iwctl
+tmux
+tmux set -g mode-keys vi
 bash <(
   curl -s https://raw.githubusercontent.com/n4vysh/dotfiles/main/scripts/bootstrap.bash
 ) -p
@@ -85,7 +107,8 @@ exit
 login unprivileged user
 
 ```bash
-iwctl
+tmux
+tmux set -g mode-keys vi
 bash <(
   curl -s https://raw.githubusercontent.com/n4vysh/dotfiles/main/scripts/bootstrap.bash
 ) -u

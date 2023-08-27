@@ -10,7 +10,7 @@ output * bg #000000 solid_color
 
 input * {
   xkb_layout "us-custom"
-  xkb_options "caps:none,terminate:ctrl_alt_bksp"
+  xkb_options "caps:none"
 }
 
 input type:touchpad {
