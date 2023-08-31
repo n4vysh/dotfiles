@@ -185,6 +185,12 @@
   output = ""
 
 [[snippets]]
+  description = "reboot into the firmware setup interface"
+  command = "systemctl reboot --firmware-setup"
+  tag = ["misc"]
+  output = ""
+
+[[snippets]]
   description = "show nvim startup time"
   command = "vim-startuptime -vimpath nvim"
   tag = ["misc"]
