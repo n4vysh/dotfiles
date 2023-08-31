@@ -483,6 +483,9 @@ _configure_without_privileged() {
 	_print 'Install formatter'
 	pnpm add -g sql-formatter
 
+	_print 'Install packages for editor'
+	go install github.com/rhysd/vim-startuptime@latest
+
 	_print 'Configure VPN'
 	sudo systemctl enable --now nordvpnd
 	sudo gpasswd -a "$USER" nordvpn

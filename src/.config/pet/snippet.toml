@@ -183,3 +183,9 @@
   command = "sudo mkinitcpio -p linux-zen && sudo sbctl generate-bundles && sudo sbctl sign /boot/EFI/Linux/linux-zen.efi && sudo sbctl verify"
   tag = ["misc"]
   output = ""
+
+[[snippets]]
+  description = "show nvim startup time"
+  command = "vim-startuptime -vimpath nvim"
+  tag = ["misc"]
+  output = ""
