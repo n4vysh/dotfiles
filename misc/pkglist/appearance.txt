@@ -1,6 +1,6 @@
+aur/adwaita-qt5-git
+aur/adwaita-qt6-git
 aur/ttf-ubraille
-extra/adwaita-qt5
-extra/adwaita-qt6
 extra/arc-gtk-theme
 extra/gtk2
 extra/noto-fonts

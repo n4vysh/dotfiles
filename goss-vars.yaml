@@ -6,8 +6,8 @@ packages:
   - acpi
   - actionlint-bin
   - adr-tools
-  - adwaita-qt5
-  - adwaita-qt6
+  - adwaita-qt5-git
+  - adwaita-qt6-git
   - aic94xx-firmware
   - arc-gtk-theme
   - arch-audit
