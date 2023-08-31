@@ -12,6 +12,14 @@ return {
 		event = { "VeryLazy" },
 	},
 	{
+		"winston0410/range-highlight.nvim",
+		event = { "VeryLazy" },
+		dependencies = {
+			"winston0410/cmd-parser.nvim",
+		},
+		opts = {},
+	},
+	{
 		"nvim-tree/nvim-web-devicons",
 		lazy = true,
 	},
