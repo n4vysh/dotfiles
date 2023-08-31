@@ -191,6 +191,12 @@
   output = ""
 
 [[snippets]]
+  description = "show system startup time"
+  command = "sh -c '(set -x; systemd-analyze; systemd-analyze critical-chain)'"
+  tag = ["misc"]
+  output = ""
+
+[[snippets]]
   description = "show nvim startup time"
   command = "vim-startuptime -vimpath nvim"
   tag = ["misc"]
