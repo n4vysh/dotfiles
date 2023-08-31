@@ -7,7 +7,12 @@ return {
 	},
 	{
 		"direnv/direnv.vim",
-		ft = { "direnv" },
+		config = function()
+			vim.keymap.set("n", "<space>ee", vim.cmd.EditEnvrc, {
+				silent = true,
+				desc = "Edit .envrc",
+			})
+		end,
 	},
 	{
 		"towolf/vim-helm",
