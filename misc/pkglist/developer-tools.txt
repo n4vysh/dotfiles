@@ -86,7 +86,6 @@ extra/kubectx
 extra/kubie
 extra/lazygit
 extra/libwebp
-extra/neovim
 extra/nix
 extra/npm
 extra/oxipng
@@ -118,7 +117,6 @@ extra/teensy_loader_cli
 extra/terraform
 extra/terragrunt
 extra/testssl.sh
-extra/tmux
 extra/tmuxp
 extra/tree
 extra/tree-sitter-cli

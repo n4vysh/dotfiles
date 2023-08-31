@@ -3,11 +3,15 @@ core/base-devel
 core/btrfs-progs
 core/linux-firmware
 core/lvm2
+core/wireless-regdb
 extra/fwupd
+extra/gnu-netcat
 extra/intel-ucode
 extra/iwd
 extra/libfido2
 extra/linux-zen
+extra/neovim
 extra/pacman-contrib
 extra/reflector
 extra/sbctl
+extra/tmux
