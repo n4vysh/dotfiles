@@ -106,6 +106,10 @@ export BEMENU_OPTS="
 	--fn 'NotoSansMonoCJKJP 13.5'
 "
 
+# Terraform
+export TF_CLI_ARGS_plan="-parallelism=30"
+export TF_CLI_ARGS_apply="-parallelism=30"
+
 # aws-vault
 export AWS_VAULT_BACKEND=pass
 export AWS_VAULT_PASS_CMD=gopass
