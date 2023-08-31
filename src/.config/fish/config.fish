@@ -159,7 +159,8 @@ if status --is-interactive
     __fish_abbr_add_extend tf terraform
     __fish_abbr_add_extend tfa terraform apply
     __fish_abbr_add_extend tfc terraform console
-    __fish_abbr_add_extend tfi terraform import
+    __fish_abbr_add_extend tfin terraform init
+    __fish_abbr_add_extend tfim terraform import
     __fish_abbr_add_extend tfp terraform plan
     __fish_abbr_add_extend tfst terraform state
     __fish_abbr_add_extend tfsh terraform show
@@ -169,7 +170,7 @@ if status --is-interactive
     __fish_abbr_add_extend tg terragrunt
     __fish_abbr_add_extend tga terragrunt apply
     __fish_abbr_add_extend tgc terragrunt console
-    __fish_abbr_add_extend tgi terragrunt import
+    __fish_abbr_add_extend tgim terragrunt import
     __fish_abbr_add_extend tgp terragrunt plan
     __fish_abbr_add_extend tgst terragrunt state
     __fish_abbr_add_extend tgsh terragrunt show
