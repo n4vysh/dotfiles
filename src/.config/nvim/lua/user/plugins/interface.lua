@@ -192,7 +192,7 @@ return {
 		end,
 	},
 	{
-		"norcalli/nvim-colorizer.lua",
+		"NvChad/nvim-colorizer.lua",
 		event = "BufReadPost",
 		init = function()
 			vim.opt.termguicolors = true
