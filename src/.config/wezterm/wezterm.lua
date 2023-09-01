@@ -15,6 +15,7 @@ return {
 		"Noto Sans Math",
 	}),
 	font_size = 13.0,
+	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	enable_tab_bar = false,
 	window_background_opacity = 0.8,
 	use_ime = true,
@@ -23,4 +24,5 @@ return {
 	-- https://github.com/swaywm/sway/pull/7226
 	enable_wayland = false,
 	check_for_updates = false,
+	window_close_confirmation = "NeverPrompt",
 }
