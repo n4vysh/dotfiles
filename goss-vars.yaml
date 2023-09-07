@@ -95,7 +95,6 @@ packages:
   - fx
   - fzf
   - gammastep
-  - ghidra
   - ghq-bin
   - git-crypt
   - git-delta
@@ -390,7 +389,6 @@ commands:
   - nnn-diff
   - nnn-home
   - zoom
-  - ghidra
   - tun0ip
   - stegsolve
   - swaygeo
@@ -467,7 +465,6 @@ xdg_local_files:
   - .local/bin/nnn-diff
   - .local/bin/nnn-home
   - .local/bin/zoom
-  - .local/bin/ghidra
   - .local/bin/tun0ip
   - .local/bin/stegsolve
   - .local/bin/swaygeo

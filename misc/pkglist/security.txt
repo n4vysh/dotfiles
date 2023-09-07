@@ -8,7 +8,6 @@ blackarch/dirbuster
 blackarch/enum4linux
 blackarch/evil-winrm
 blackarch/exploitdb
-blackarch/ghidra
 blackarch/gobuster
 blackarch/hash-identifier
 blackarch/hashcat
