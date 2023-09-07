@@ -37,7 +37,9 @@ return {
 			vim.g.csv_no_conceal = 1
 		end,
 	},
-
+	{
+		"hjson/vim-hjson",
+	},
 	{
 		"iamcco/markdown-preview.nvim",
 		ft = { "markdown" },
