@@ -143,10 +143,12 @@ if status --is-interactive
     __fish_abbr_add_extend prsi paru -Si
     __fish_abbr_add_extend prss paru -Ss
     __fish_abbr_add_extend prsc paru -Sc
+    __fish_abbr_add_extend prscc paru -Scc
     __fish_abbr_add_extend prsyu paru -Syu
     __fish_abbr_add_extend prql paru -Ql
     __fish_abbr_add_extend prqo paru -Qo
     __fish_abbr_add_extend prr paru -R
+    __fish_abbr_add_extend prrs paru -Rs
     __fish_abbr_add_extend pd sudo -E pacdiff
     __fish_abbr_add_extend pl plocate
     __fish_abbr_add_extend r rg
