@@ -84,8 +84,8 @@ packages:
   - fcitx5-configtool
   - fcitx5-gtk
   - fcitx5-mozc
-  - fcitx5-nord
   - fcitx5-qt
+  - fcitx5-skin-fluentdark-git
   - fd
   - firefox
   - firefox-tridactyl-native-bin
@@ -447,13 +447,13 @@ xdg_config_files:
   - .config/waybar
   - .config/wezterm
   - .config/xkb
-  - .config/mimeapps.list
   - .config/tealdeer
   - .config/pet
   - .config/ncspot
   - .config/bluetuith
   - .config/rtx
   - .config/psd
+  - .config/mimeapps.list
 xdg_local_files:
   - .local/bin/bgm
   - .local/bin/burpsuite

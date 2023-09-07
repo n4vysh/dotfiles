@@ -1,6 +1,6 @@
+aur/fcitx5-skin-fluentdark-git
 extra/fcitx5
 extra/fcitx5-configtool
 extra/fcitx5-gtk
 extra/fcitx5-mozc
-extra/fcitx5-nord
 extra/fcitx5-qt
