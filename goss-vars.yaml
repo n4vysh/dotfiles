@@ -454,6 +454,7 @@ xdg_config_files:
   - .config/rtx
   - .config/psd
   - .config/mimeapps.list
+  - .config/gh
 xdg_local_files:
   - .local/bin/bgm
   - .local/bin/burpsuite

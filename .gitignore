@@ -8,6 +8,7 @@ src/.config/fish/completions/*
 src/.config/fish/conf.d/*
 src/.config/fish/fish_variables
 src/.config/fish/functions/*
+src/.config/gh/hosts.yml
 src/.config/git/config.local
 src/.config/git/templates/hooks/*
 src/.config/gtk-2.0/gtkfilechooser.ini
