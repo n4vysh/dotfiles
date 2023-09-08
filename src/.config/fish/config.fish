@@ -97,6 +97,7 @@ if status --is-interactive
     __fish_abbr_add_extend co chown
     __fish_abbr_add_extend cp cp -iv
     __fish_abbr_add_extend d docker
+    __fish_abbr_add_extend db devbox
     __fish_abbr_add_extend dc docker compose
     __fish_abbr_add_extend ds dust -r
     __fish_abbr_add_extend do dog
@@ -153,6 +154,7 @@ if status --is-interactive
     __fish_abbr_add_extend pl plocate
     __fish_abbr_add_extend r rg
     __fish_abbr_add_extend rm rm -iv
+    __fish_abbr_add_extend rt rtx
     __fish_abbr_add_extend sc systemctl
     __fish_abbr_add_extend se sudoedit
     __fish_abbr_add_extend st stern
