@@ -388,8 +388,8 @@ commands:
   - imvr
   - nnn-diff
   - nnn-home
-  - zoom
-  - tun0ip
+  - nuke
+  - protonmail-bridge
   - stegsolve
   - swaygeo
   - sysinfo
@@ -447,13 +447,8 @@ xdg_config_files:
   - .config/waybar
   - .config/wezterm
   - .config/xkb
-  - .config/tealdeer
-  - .config/pet
-  - .config/ncspot
+  - .config/zathura
   - .config/bluetuith
-  - .config/rtx
-  - .config/psd
-  - .config/mimeapps.list
   - .config/gh
 xdg_local_files:
   - .local/bin/bgm
@@ -465,8 +460,8 @@ xdg_local_files:
   - .local/bin/imvr
   - .local/bin/nnn-diff
   - .local/bin/nnn-home
-  - .local/bin/zoom
-  - .local/bin/tun0ip
+  - .local/bin/nuke
+  - .local/bin/protonmail-bridge
   - .local/bin/stegsolve
   - .local/bin/swaygeo
   - .local/bin/sysinfo
