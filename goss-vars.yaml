@@ -77,9 +77,9 @@ packages:
   - etckeeper
   - eva
   - evil-winrm
-  - exa
   - expect
   - exploitdb
+  - eza
   - fcitx5
   - fcitx5-configtool
   - fcitx5-gtk

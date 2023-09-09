@@ -101,8 +101,8 @@ if status --is-interactive
     __fish_abbr_add_extend dc docker compose
     __fish_abbr_add_extend ds dust -r
     __fish_abbr_add_extend do dog
-    __fish_abbr_add_extend e exa -gF --icons --git --time-style long-iso -l
-    __fish_abbr_add_extend ea exa -gF --icons --git --time-style long-iso -al
+    __fish_abbr_add_extend e eza -gF --icons --git --time-style long-iso -l
+    __fish_abbr_add_extend ea eza -gF --icons --git --time-style long-iso -al
     __fish_abbr_add_extend ev eva
     __fish_abbr_add_extend f fd -L
     __fish_abbr_add_extend g go
