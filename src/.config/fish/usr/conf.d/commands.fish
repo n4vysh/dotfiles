@@ -3,6 +3,19 @@ if status --is-interactive
       string replace $XDG_CONFIG_HOME '$XDG_CONFIG_HOME' (status filename)
     )
 
+    if command -q direnv
+        direnv hook fish |
+            source
+    else
+        printf '%s: Not found direnv command\n' "$file" >&2
+    end
+end
+
+if status --is-interactive
+    set -l file (
+      string replace $XDG_CONFIG_HOME '$XDG_CONFIG_HOME' (status filename)
+    )
+
     if command -q rtx
         if not functions -q rtx
             rtx activate fish |
