@@ -12,7 +12,7 @@ export DIFFPROG='nvim -d'
 export QT_STYLE_OVERRIDE=Adwaita-Dark
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 if type vivid >/dev/null 2>&1; then
-	export LS_COLORS="$(vivid generate one-dark)"
+	export LS_COLORS="$(vivid generate catppuccin-mocha)"
 fi
 if [[ -n $DISPLAY ]]; then
 	eval $(gnome-keyring-daemon --start 2>/dev/null)
