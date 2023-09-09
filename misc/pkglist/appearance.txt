@@ -3,6 +3,8 @@ aur/adwaita-qt6-git
 aur/ttf-ubraille
 extra/arc-gtk-theme
 extra/gtk2
+extra/gtk3
+extra/gtk4
 extra/noto-fonts
 extra/noto-fonts-cjk
 extra/noto-fonts-emoji
