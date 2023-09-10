@@ -1,10 +1,4 @@
-extra/buildkit
-extra/cni-plugins
-extra/containerd
 extra/dive
 extra/docker
 extra/docker-buildx
-extra/nerdctl
-extra/rootlesskit
 extra/skopeo
-extra/slirp4netns

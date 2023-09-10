@@ -525,13 +525,6 @@ _configure_without_privileged() {
 		' |
 		sponge "$file"
 
-	sudo systemctl enable --now containerd
-	sudo systemctl enable --now buildkit
-	# https://github.com/containerd/nerdctl/issues/2056
-	sudo usermod --add-subuids 524288-589823 --add-subgids 524288-589823 "$(whoami)"
-	containerd-rootless-setuptool.sh install
-	containerd-rootless-setuptool.sh install-buildkit
-
 	# Utilities
 	_log::info 'Configure password manager'
 	sudo ln -sf /usr/bin/pinentry-curses /usr/bin/pinentry

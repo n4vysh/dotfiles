@@ -51,9 +51,6 @@ service:
   atd.service:
     enabled: true
     running: true
-  containerd.service:
-    enabled: true
-    running: true
   postgresql.service:
     enabled: true
     running: true
