@@ -808,7 +808,6 @@ _configure_secure_boot() {
 	arch-chroot /mnt sbctl bundle \
 		-s \
 		-i /boot/intel-ucode.img \
-		-l /usr/share/systemd/bootctl/splash-arch.bmp \
 		-k /boot/vmlinuz-linux-zen \
 		-f /boot/initramfs-linux-zen.img \
 		/boot/EFI/Linux/linux-zen.efi
