@@ -257,7 +257,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
 exec_always import-gsettings
 
-exec brightnessctl set 2%          # Brightness
+exec brightnessctl set 1           # Brightness
 exec fcitx5                        # Input Method Framework
 exec mako                          # Notification daemon
 exec gammastep                     # Display colour temperature adjustment
