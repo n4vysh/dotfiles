@@ -125,6 +125,7 @@ if status --is-interactive
     __fish_abbr_add_extend k kubie
     __fish_abbr_add_extend kc kubectl
     __fish_abbr_add_extend kl kube-linter
+    __fish_abbr_add_extend kn kubens
     __fish_abbr_add_extend kv kubeval
     __fish_abbr_add_extend l last
     __fish_abbr_add_extend lg lazygit
