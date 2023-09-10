@@ -300,15 +300,6 @@ return {
 				desc = "Inline variable",
 			},
 			{
-				"<space>rr",
-				function()
-					require("telescope").load_extension("refactoring")
-					require("telescope").extensions.refactoring.refactors()
-				end,
-				mode = "v",
-				desc = "Search for refactor operations",
-			},
-			{
 				"<space>rp",
 				function()
 					require("refactoring").debug.printf({ below = false })
