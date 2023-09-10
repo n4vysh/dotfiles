@@ -472,7 +472,7 @@ return {
 					}),
 					null_ls.builtins.diagnostics.shellcheck,
 					null_ls.builtins.formatting.prettier.with({
-						filetypes = { "yaml", "css" },
+						filetypes = { "css" },
 					}),
 					null_ls.builtins.diagnostics.stylelint.with({
 						args = {
@@ -497,6 +497,7 @@ return {
 					}),
 					null_ls.builtins.diagnostics.tfsec,
 					null_ls.builtins.diagnostics.hadolint,
+					null_ls.builtins.formatting.yamlfmt,
 				},
 				on_attach = function(client, bufnr)
 					if client.supports_method("textDocument/formatting") then

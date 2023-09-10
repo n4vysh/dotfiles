@@ -363,6 +363,7 @@ packages:
   - xorg-xmodmap
   - xorg-xwayland
   - xsv
+  - yamlfmt
   - yamllint
   - yt-dlp
   - yubikey-manager

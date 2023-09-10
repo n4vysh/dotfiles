@@ -43,6 +43,7 @@ aur/trivy-bin
 aur/vale-bin
 aur/vercel
 aur/viddy
+aur/yamlfmt
 core/openssh
 extra/asciidoctor
 extra/asciinema
