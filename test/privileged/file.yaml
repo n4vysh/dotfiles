@@ -32,3 +32,11 @@ file:
     filetype: file
     # yamllint disable-line rule:line-length
     sha512: aa5eccb42a650ebd169ae3d8f52f620a45b7d88a4c918af62aa9fd0092e1f39d1f19c4f75aa487feddd45a5348e540a6ed4df20e05b20bf60076a3420bdc9cc3
+  /etc/modprobe.d/disable-overlay-redirect-dir.conf:
+    exists: true
+    mode: "0600"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: d8cffb2a17178da7f04e7c87f1273d4b98e0a9bc9a4c928a3453e6b2f4824d5cfee2ea7ae0d4b25cc1456c6ce762f8422fef607957041f652110f8d50dd34665

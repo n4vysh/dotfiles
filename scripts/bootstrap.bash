@@ -174,6 +174,7 @@ _install() {
 		etc/systemd/system/systemd-networkd-wait-online.service.d/wait-for-only-one-interface.conf
 		etc/systemd/system/rkhunter.service
 		etc/systemd/system/rkhunter.timer
+		etc/modprobe.d/disable-overlay-redirect-dir.conf
 	EOF
 
 	_log::info 'Configure fstab'
