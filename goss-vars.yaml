@@ -38,12 +38,14 @@ packages:
   - bottom
   - brightnessctl
   - btrfs-progs
+  - buildkit
   - burpsuite
   - ccache
   - ccid
   - chart-testing
   - cmctl
   - cmseek
+  - cni-plugins
   - codespell
   - conftest
   - containerd

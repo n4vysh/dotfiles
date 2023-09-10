@@ -526,7 +526,9 @@ _configure_without_privileged() {
 		sponge "$file"
 
 	sudo systemctl enable --now containerd
-	sudo usermod --add-subuids 100000-165535 --add-subgids 100000-165535 "$(whoami)"
+	sudo systemctl enable --now buildkit
+	# https://github.com/containerd/nerdctl/issues/2056
+	sudo usermod --add-subuids 524288-589823 --add-subgids 524288-589823 "$(whoami)"
 	containerd-rootless-setuptool.sh install
 	containerd-rootless-setuptool.sh install-buildkit
 

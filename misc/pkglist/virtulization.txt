@@ -1,3 +1,5 @@
+extra/buildkit
+extra/cni-plugins
 extra/containerd
 extra/dive
 extra/docker
