@@ -99,6 +99,7 @@ if status --is-interactive
     __fish_abbr_add_extend d docker
     __fish_abbr_add_extend db devbox
     __fish_abbr_add_extend dc docker compose
+    __fish_abbr_add_extend de direnv
     __fish_abbr_add_extend ds dust -r
     __fish_abbr_add_extend do dog
     __fish_abbr_add_extend e eza -gF --icons --git --time-style long-iso -l
