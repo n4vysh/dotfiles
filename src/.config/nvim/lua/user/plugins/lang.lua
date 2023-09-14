@@ -157,7 +157,6 @@ return {
 				"golangci_lint_ls",
 				"graphql",
 				"helm_ls",
-				"ltex",
 				"marksman",
 				"taplo",
 				"terraformls",
@@ -197,6 +196,14 @@ return {
 						end
 					end
 				end,
+			})
+
+			require("lspconfig").ltex.setup({
+				settings = {
+					ltex = {
+						language = "ja-JP",
+					},
+				},
 			})
 
 			require("lspconfig").jsonls.setup({
