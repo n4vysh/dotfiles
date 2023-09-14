@@ -1,4 +1,4 @@
-aur/slack-electron
+aur/slack-desktop
 aur/zoom
 extra/discord
 extra/signal-desktop

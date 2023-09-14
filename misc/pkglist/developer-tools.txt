@@ -25,7 +25,6 @@ aur/kube-score-bin
 aur/kubeval-bin
 aur/lab-bin
 aur/lazydocker-bin
-aur/markdownlint-cli
 aur/nnn-nerd
 aur/nodejs-commitizen
 aur/nodejs-cz-conventional-changelog
@@ -34,12 +33,8 @@ aur/opa
 aur/pack-cli-bin
 aur/pet-bin
 aur/rtx-bin
-aur/semgrep-bin
-aur/sqls-bin
-aur/stern-bin
 aur/terraform-docs-bin
 aur/tflint-bin
-aur/trivy-bin
 aur/vale-bin
 aur/vercel
 aur/viddy
@@ -87,6 +82,7 @@ extra/kubectx
 extra/kubie
 extra/lazygit
 extra/libwebp
+extra/markdownlint-cli2
 extra/nix
 extra/npm
 extra/oxipng
@@ -109,6 +105,7 @@ extra/shfmt
 extra/skaffold
 extra/sops
 extra/starship
+extra/stern
 extra/stow
 extra/stylelint
 extra/stylelint-config-standard
@@ -122,6 +119,7 @@ extra/testssl.sh
 extra/tmuxp
 extra/tree
 extra/tree-sitter-cli
+extra/trivy
 extra/vint
 extra/vivid
 extra/watchexec

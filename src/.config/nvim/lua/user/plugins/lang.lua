@@ -452,18 +452,7 @@ return {
 					}),
 					null_ls.builtins.formatting.just,
 					null_ls.builtins.formatting.fish_indent,
-					null_ls.builtins.formatting.dprint.with({
-						args = {
-							"fmt",
-							"--config",
-							vim.fn.expand("~/.config/dprint/dprint.json"),
-							"--stdin",
-							"$FILENAME",
-						},
-						filetypes = { "markdown", "json" },
-					}),
-					null_ls.builtins.formatting.markdownlint,
-					null_ls.builtins.diagnostics.markdownlint,
+					null_ls.builtins.diagnostics.markdownlint_cli2,
 					null_ls.builtins.formatting.shellharden.with({
 						filetypes = { "sh", "direnv" },
 					}),
@@ -472,7 +461,17 @@ return {
 					}),
 					null_ls.builtins.diagnostics.shellcheck,
 					null_ls.builtins.formatting.prettier.with({
-						filetypes = { "css" },
+						filetypes = {
+							"javascript",
+							"javascriptreact",
+							"typescript",
+							"typescriptreact",
+							"json",
+							"jsonc",
+							"markdown",
+							"markdown.mdx",
+							"graphql",
+						},
 					}),
 					null_ls.builtins.diagnostics.stylelint.with({
 						args = {

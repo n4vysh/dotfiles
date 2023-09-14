@@ -179,7 +179,7 @@ packages:
   - mako
   - man-db
   - man-pages
-  - markdownlint-cli
+  - markdownlint-cli2
   - metasploit
   - moreutils
   - mpv
@@ -244,7 +244,6 @@ packages:
   - python-defang
   - python-pip
   - python-pre-commit
-  - python-pydash
   - python2-termcolor
   - python2-xlsx2csv
   - qmk
@@ -262,7 +261,7 @@ packages:
   - seahorse
   - seclists
   - selene
-  - semgrep-bin
+  - semgrep
   - sequoia-sq
   - shellcheck
   - shellharden
@@ -271,7 +270,7 @@ packages:
   - signal-desktop
   - skaffold
   - skopeo
-  - slack-electron
+  - slack-desktop
   - slurp
   - smbclient
   - smbmap
@@ -282,13 +281,12 @@ packages:
   - speedtest-cli
   - spotify-launcher
   - sqlmap
-  - sqls-bin
   - ssdeep
   - starship
   - steghide
   - stegseek
   - stegsolve
-  - stern-bin
+  - stern
   - stow
   - stylelint
   - stylelint-config-standard
@@ -321,7 +319,7 @@ packages:
   - trash-cli
   - tree
   - tree-sitter-cli
-  - trivy-bin
+  - trivy
   - ttf-fira-code
   - ttf-nerd-fonts-symbols-mono
   - ttf-ubraille
@@ -407,7 +405,6 @@ files:
 xdg_config_files:
   - .config/bat
   - .config/bottom
-  - .config/dprint
   - .config/fish
   - .config/fontconfig
   - .config/gammastep

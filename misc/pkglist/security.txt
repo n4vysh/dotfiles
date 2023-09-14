@@ -1,4 +1,3 @@
-aur/python-pydash
 blackarch/binwalk
 blackarch/bloodhound
 blackarch/burpsuite
@@ -32,6 +31,7 @@ blackarch/python2-termcolor
 blackarch/python2-xlsx2csv
 blackarch/recon-ng
 blackarch/seclists
+blackarch/semgrep
 blackarch/sherlock
 blackarch/smbmap
 blackarch/smtp-user-enum
