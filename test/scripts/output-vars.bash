@@ -7,6 +7,7 @@ dir=$(
 
 cd "$dir/" || exit
 
+echo "---"
 echo "# This file is auto-generated"
 echo "# script path: test/scripts/output-vars.bash"
 cat <(

@@ -1,12 +1,12 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.4.0
     hooks:
       - id: check-merge-conflict
       - id: check-case-conflict
       - id: trailing-whitespace
-        exclude_types: [markdown, diff]
+        args: [ --markdown-linebreak-ext=md ]
       - id: end-of-file-fixer
         exclude: |
           (?x)^(
@@ -20,49 +20,43 @@ repos:
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
         exclude: .config/nvim/skel/default.*$
-  - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.4.1
-    hooks:
-      - id: prettier
-        types_or: [json, yaml]
-  - repo: https://github.com/adrienverge/yamllint
-    rev: v1.26.3
-    hooks:
-      - id: yamllint
-    exclude: |
-      (?x)^(
-        goss-var.yaml
-      )$
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    # use markdownlint-fix
-    rev: 2d2ba47
-    hooks:
-      - id: markdownlint
-      - id: markdownlint-fix
-  - repo: https://github.com/koalaman/shellcheck-precommit
-    rev: v0.8.0
-    hooks:
-      - id: shellcheck
-        name: check bash configs with shellcheck
-        args: [-s, bash]
-        types: [bash, non-executable]
   - repo: local
     hooks:
+      - id: prettier
+        name: format json, yaml, and markdown files with prettier
+        language: system
+        entry: prettier
+        types_or: [ json, yaml, markdown ]
+      - id: yamllint
+        name: check yaml files with yamllint
+        language: system
+        entry: yamllint
+        types: [ file, yaml ]
+      - id: markdownlint-cli2
+        name: check markdown files with markdownlint-cli2
+        language: system
+        entry: markdownlint-cli2
+        types: [ markdown ]
+      - id: shellcheck
+        name: check bash configs with shellcheck
+        language: system
+        entry: shellcheck -s bash
+        types: [ bash, non-executable ]
       - id: shellcheck
         name: check shell scripts with shellcheck
         language: system
         entry: shellcheck -x
-        types: [executable]
+        types: [ executable ]
       - id: zsh-no-exec
         name: check zsh files with --no-exec option of zsh
         language: system
         entry: zsh --no-exec
-        types: [zsh]
+        types: [ zsh ]
       - id: fish-no-exec
         name: check fish files with --no-exec option of fish
         language: system
         entry: fish --no-exec
-        types: [fish]
+        types: [ fish ]
       - id: sway
         name: check config of sway with sway --validate option
         language: system
@@ -73,7 +67,7 @@ repos:
         name: check lua files with selene
         language: system
         entry: selene
-        types: [lua]
+        types: [ lua ]
       - id: editorconfig-checker
         name: check files with editorconfig-checker
         language: system
@@ -82,7 +76,7 @@ repos:
         name: format toml files with taplo format
         language: system
         entry: taplo format
-        types: [toml]
+        types: [ toml ]
         exclude: |
           (?x)^(
             src/.config/pet/config.toml|
@@ -92,13 +86,12 @@ repos:
         name: format shell scripts with shellharden
         language: system
         entry: shellharden --replace
-        types_or: [sh, bash]
+        types_or: [ sh, bash ]
       - id: shfmt
         name: format shell scripts with shfmt
-        minimum_pre_commit_version: 2.4.0
-        language: docker_image
-        types_or: [sh, bash]
-        entry: mvdan/shfmt:v3.4.0 -w
+        language: system
+        entry: shfmt -w
+        types_or: [ sh, bash ]
       - id: just
         name: format justfile with just --fmt option
         language: system
@@ -109,17 +102,17 @@ repos:
         name: format fish files with fish_indent
         language: system
         entry: fish_indent -w
-        types: [fish]
+        types: [ fish ]
       - id: stylua
         name: format lua files with stylua
         language: system
         entry: stylua
-        types: [lua]
+        types: [ lua ]
       - id: taplo-lint
         name: format toml files with taplo lint
         language: system
         entry: taplo lint
-        types: [toml]
+        types: [ toml ]
       - id: clang-format
         name: format c files with clang-format
         language: system
@@ -149,7 +142,7 @@ repos:
         name: test fish functions
         language: system
         entry: fishtape
-        args: [src/.config/fish/tests/functions/*]
+        args: [ src/.config/fish/tests/functions/* ]
         files: .config/fish/{usr,tests}/functions/*.fish$
         pass_filenames: false
       - id: commitlint
@@ -157,7 +150,7 @@ repos:
         language: node
         minimum_pre_commit_version: 0.7.0
         additional_dependencies:
-          - "@commitlint/cli@15.0.0"
-          - "@commitlint/config-conventional@15.0.0"
-        stages: [commit-msg]
+          - "@commitlint/cli@17.7.1"
+          - "@commitlint/config-conventional@17.7.0"
+        stages: [ commit-msg ]
         entry: commitlint --edit

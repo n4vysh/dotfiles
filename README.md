@@ -2,9 +2,9 @@
 
 ![overview][overview-link]
 
-No window                   | Lockscreen
-:-                          | :-
-![no window][nowindow-link] | ![lockscreen][lockscreen-link]
+| No window                   | Lockscreen                     |
+| :-------------------------- | :----------------------------- |
+| ![no window][nowindow-link] | ![lockscreen][lockscreen-link] |
 
 [overview-link]: ./misc/screenshots/overview.png
 [nowindow-link]: ./misc/screenshots/no_window.png
@@ -121,10 +121,10 @@ No window                   | Lockscreen
 [uefi-secure-boot-link]: https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot
 [uki-link]: https://wiki.archlinux.org/title/Unified_kernel_image
 [sbctl-link]: https://github.com/Foxboron/sbctl
-[1password-link]: <https://1password.com/>
-[authy-link]: <https://authy.com/>
-[signal-link]: <https://signal.org/>
-[proton-bridge-link]: <https://proton.me/mail/bridge>
+[1password-link]: https://1password.com/
+[authy-link]: https://authy.com/
+[signal-link]: https://signal.org/
+[proton-bridge-link]: https://proton.me/mail/bridge
 [https-only-mode-link]: https://support.mozilla.org/en-US/kb/https-only-prefs
 [multi-account-containers-link]: https://support.mozilla.org/en-US/kb/containers
 [ublock-origin-link]: https://ublockorigin.com/
@@ -135,7 +135,7 @@ No window                   | Lockscreen
 [rkhunter-link]: https://rkhunter.sourceforge.net/
 [arch-audit-link]: https://gitlab.com/ilpianista/arch-audit
 [tor-browser-link]: https://www.torproject.org/download/
-[nordvpn-link]: <https://nordvpn.com/>
+[nordvpn-link]: https://nordvpn.com/
 [pet-link]: https://github.com/knqyf263/pet
 [blackarch-link]: https://blackarch.org
 [xkb-link]: https://www.x.org/wiki/XKB/
@@ -192,12 +192,12 @@ just configure-firefox
 Install addons refer to the [collections][collections-link]
 and restore settings from following files in [misc/firefox/](misc/firefox/) directory.
 
-Addon name                          | File name
-:-                                  | :-
-[uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)
-[FoxyProxy][foxy-proxy-link]        | [foxy_proxy.json](misc/firefox/foxy_proxy.json)
-[Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)
-[LibRedirect][libredirect-link]     | [libredirect.json](misc/firefox/libredirect.json)
+| Addon name                          | File name                                         |
+| :---------------------------------- | :------------------------------------------------ |
+| [uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)             |
+| [FoxyProxy][foxy-proxy-link]        | [foxy_proxy.json](misc/firefox/foxy_proxy.json)   |
+| [Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)                   |
+| [LibRedirect][libredirect-link]     | [libredirect.json](misc/firefox/libredirect.json) |
 
 [collections-link]: https://addons.mozilla.org/en-US/firefox/collections/17575539/n4vysh/
 [foxy-proxy-link]: https://getfoxyproxy.org/
@@ -208,60 +208,59 @@ Addon name                          | File name
 Run `just test` to lint and format the source code with
 [pre-commit][pre-commit-link]. pre-commit run following tools.
 
-| Name                                                                                                                                                                                                                        | Target type                   |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------ |
-| [prettier][prettier-link]                                                                                                                                                                                                   | JSON and YAML files           |
-| [yamllint][yamllint-link]                                                                                                                                                                                                   | YAML files                    |
-| [taplo][taplo-link]                                                                                                                                                                                                         | TOML files                    |
-| [just][just-link]                                                                                                                                                                                                           | justfile                      |
-| [markdownlint][markdownlint-link]                                                                                                                                                                                           | Markdown files                |
-| [shfmt][shfmt-link] + [shellharden][shellharden-link] + [shellcheck][shellcheck-link]                                                                                                                                       | shell scripts                 |
-| [commitlint][commitlint-link]                                                                                                                                                                                               | commit messages               |
-| zsh --no-exec                                                                                                                                                                                                               | zsh files                     |
-| fish --no-exec + fish_indent + [fishtape][fishtape-link]                                                                                                                                                                    | fish files                    |
-| sway --validate                                                                                                                                                                                                             | sway config file              |
-| [selene][selene-link] + [stylua][stylua-link]                                                                                                                                                                               | lua files                     |
-| [editorconfig-checker][ec-link]                                                                                                                                                                                             | all files                     |
-| [goss][goss-link]                                                                                                                                                                                                           | etc files                     |
+| Name                                                                                  | Target type                |
+| :------------------------------------------------------------------------------------ | :------------------------- |
+| [prettier][prettier-link]                                                             | JSON, YAML, Markdown files |
+| [yamllint][yamllint-link]                                                             | YAML files                 |
+| [taplo][taplo-link]                                                                   | TOML files                 |
+| [just][just-link]                                                                     | justfile                   |
+| [markdownlint-cli2][markdownlint-cli2-link]                                           | Markdown files             |
+| [shfmt][shfmt-link] + [shellharden][shellharden-link] + [shellcheck][shellcheck-link] | shell scripts              |
+| [commitlint][commitlint-link]                                                         | commit messages            |
+| zsh --no-exec                                                                         | zsh files                  |
+| fish --no-exec + fish_indent + [fishtape][fishtape-link]                              | fish files                 |
+| sway --validate                                                                       | sway config file           |
+| [selene][selene-link] + [stylua][stylua-link]                                         | lua files                  |
+| [editorconfig-checker][ec-link]                                                       | all files                  |
+| [goss][goss-link]                                                                     | etc files                  |
 
-[pre-commit-link]: <https://pre-commit.com/>
-
-[prettier-link]: <https://prettier.io/>
-[yamllint-link]: <https://github.com/adrienverge/yamllint>
-[taplo-link]: <https://taplo.tamasfe.dev/>
-[just-link]: <https://github.com/casey/just>
-[markdownlint-link]: <https://github.com/DavidAnson/markdownlint>
-[shfmt-link]: <https://github.com/mvdan/sh>
-[shellharden-link]: <https://github.com/anordal/shellharden>
-[shellcheck-link]: <https://www.shellcheck.net/>
-[commitlint-link]: <https://commitlint.js.org/#/>
-[fishtape-link]: <https://github.com/jorgebucaran/fishtape>
-[selene-link]: <https://github.com/Kampfkarren/selene>
-[stylua-link]: <https://github.com/JohnnyMorganz/StyLua>
-[ec-link]: <https://github.com/editorconfig-checker/editorconfig-checker>
+[pre-commit-link]: https://pre-commit.com/
+[prettier-link]: https://prettier.io/
+[yamllint-link]: https://github.com/adrienverge/yamllint
+[taplo-link]: https://taplo.tamasfe.dev/
+[just-link]: https://github.com/casey/just
+[markdownlint-cli2-link]: https://github.com/DavidAnson/markdownlint-cli2
+[shfmt-link]: https://github.com/mvdan/sh
+[shellharden-link]: https://github.com/anordal/shellharden
+[shellcheck-link]: https://www.shellcheck.net/
+[commitlint-link]: https://commitlint.js.org/#/
+[fishtape-link]: https://github.com/jorgebucaran/fishtape
+[selene-link]: https://github.com/Kampfkarren/selene
+[stylua-link]: https://github.com/JohnnyMorganz/StyLua
+[ec-link]: https://github.com/editorconfig-checker/editorconfig-checker
 
 ## Custom keybinds
 
 ### XKB + Interception Tools
 
-Physical key  | Mapped To      | Note
-:-            | :-             | :-
-`Menu`        | `F13`          |
-`Alt (Right)` | `Ctrl (Right)` | `Escape` when pressed alone
-`Alt (Left)`  | `Alt (Left)`   | `Tab` when pressed alone
+| Physical key  | Mapped To      | Note                        |
+| :------------ | :------------- | :-------------------------- |
+| `Menu`        | `F13`          |
+| `Alt (Right)` | `Ctrl (Right)` | `Escape` when pressed alone |
+| `Alt (Left)`  | `Alt (Left)`   | `Tab` when pressed alone    |
 
-Physical shortcut | Mapped To
-:-                | :-
-`Menu` + `b`      | `Left`
-`Menu` + `f`      | `Right`
-`Menu` + `p`      | `Up`
-`Menu` + `n`      | `Down`
-`Menu` + `a`      | `Home`
-`Menu` + `e`      | `End`
-`Menu` + `i`      | `Tab`
-`Menu` + `h`      | `Backspace`
-`Menu` + `d`      | `Delete`
-`Menu` + `m`      | `Enter`
+| Physical shortcut | Mapped To   |
+| :---------------- | :---------- |
+| `Menu` + `b`      | `Left`      |
+| `Menu` + `f`      | `Right`     |
+| `Menu` + `p`      | `Up`        |
+| `Menu` + `n`      | `Down`      |
+| `Menu` + `a`      | `Home`      |
+| `Menu` + `e`      | `End`       |
+| `Menu` + `i`      | `Tab`       |
+| `Menu` + `h`      | `Backspace` |
+| `Menu` + `d`      | `Delete`    |
+| `Menu` + `m`      | `Enter`     |
 
 ### QMK
 
@@ -271,123 +270,123 @@ See [./src/.config/qmk/keymap/keymap.c](./src/.config/qmk/keymap/keymap.c)
 
 prefix is `C-j`
 
-Key table    | Keys  | Description
-:-           | :-    | :-
-root         | `C-j` | Send `C-j`
-root         | `v`   | Paste from clipboard
-root         | `C-c` | Create new session
-root         | `C-l` | Switch last window
-root         | `L`   | Switch last session
-root         | `C-s` | Create a new pane by vertical split
-root         | `C-v` | Create a new pane by horizontal split
-root         | `C-k` | List keybindings
-root         | `C-m` | Show manual
-root         | `e`   | Edit config of tmux
-root         | `C-e` | Edit and send commands
-root         | `C-o` | Goto open-mode table
-open-mode    | `b`   | Create session for BGM
-open-mode    | `c`   | Open container client in new window
-open-mode    | `d`   | Open database client in new window
-open-mode    | `C-d` | Create session to edit documents
-open-mode    | `M-d` | Create session to edit dotfiles
-open-mode    | `e`   | Open editor in new window
-open-mode    | `f`   | Open file manager in new window
-open-mode    | `m`   | Open system monitor in new window
-open-mode    | `C-m` | Open system monitor with privileged user in new window
-open-mode    | `p`   | Open news reader for package manager
-open-mode    | `s`   | Open new session with fuzzy finder
-open-mode    | `C-s` | Paste snippet with fuzzy finder
-open-mode    | `t`   | Open translate tool in new window
-open-mode    | `v`   | Open git client in new window
-copy-mode-vi | `C-t` | Translate selected text
-copy-mode-vi | `C-e` | Send selected file path to editor
+| Key table    | Keys  | Description                                            |
+| :----------- | :---- | :----------------------------------------------------- |
+| root         | `C-j` | Send `C-j`                                             |
+| root         | `v`   | Paste from clipboard                                   |
+| root         | `C-c` | Create new session                                     |
+| root         | `C-l` | Switch last window                                     |
+| root         | `L`   | Switch last session                                    |
+| root         | `C-s` | Create a new pane by vertical split                    |
+| root         | `C-v` | Create a new pane by horizontal split                  |
+| root         | `C-k` | List keybindings                                       |
+| root         | `C-m` | Show manual                                            |
+| root         | `e`   | Edit config of tmux                                    |
+| root         | `C-e` | Edit and send commands                                 |
+| root         | `C-o` | Goto open-mode table                                   |
+| open-mode    | `b`   | Create session for BGM                                 |
+| open-mode    | `c`   | Open container client in new window                    |
+| open-mode    | `d`   | Open database client in new window                     |
+| open-mode    | `C-d` | Create session to edit documents                       |
+| open-mode    | `M-d` | Create session to edit dotfiles                        |
+| open-mode    | `e`   | Open editor in new window                              |
+| open-mode    | `f`   | Open file manager in new window                        |
+| open-mode    | `m`   | Open system monitor in new window                      |
+| open-mode    | `C-m` | Open system monitor with privileged user in new window |
+| open-mode    | `p`   | Open news reader for package manager                   |
+| open-mode    | `s`   | Open new session with fuzzy finder                     |
+| open-mode    | `C-s` | Paste snippet with fuzzy finder                        |
+| open-mode    | `t`   | Open translate tool in new window                      |
+| open-mode    | `v`   | Open git client in new window                          |
+| copy-mode-vi | `C-t` | Translate selected text                                |
+| copy-mode-vi | `C-e` | Send selected file path to editor                      |
 
 ### Neovim
 
-Mode   | Keys         | Description
-:-     | :-           | :-
-Normal | `<C-s>`      | Save the current file
-Normal | `g<C-s>`     | Save all changed files
-Normal | `<C-w><C-q>` | Quit without writing
-Normal | `g<C-e>`     | Reload current buffer
-Normal | `gq`         | Delete current buffer
-Normal | `g<C-q>`     | Delete current buffer without save
-Normal | `g<C-n>`     | Create new buffer
-Visual | `g/`         | Search forward in the range
-Visual | `g?`         | Search backward in the range
-Normal | `<C-/>`      | Show custom keymaps
-Normal | `g<C-/>`     | Show all custom keymaps
+| Mode   | Keys         | Description                        |
+| :----- | :----------- | :--------------------------------- |
+| Normal | `<C-s>`      | Save the current file              |
+| Normal | `g<C-s>`     | Save all changed files             |
+| Normal | `<C-w><C-q>` | Quit without writing               |
+| Normal | `g<C-e>`     | Reload current buffer              |
+| Normal | `gq`         | Delete current buffer              |
+| Normal | `g<C-q>`     | Delete current buffer without save |
+| Normal | `g<C-n>`     | Create new buffer                  |
+| Visual | `g/`         | Search forward in the range        |
+| Visual | `g?`         | Search backward in the range       |
+| Normal | `<C-/>`      | Show custom keymaps                |
+| Normal | `g<C-/>`     | Show all custom keymaps            |
 
 ### nnn
 
-Keys      | Description
-:-        | :-
-`;` + `c` | Change directory with fuzzy finder
-`;` + `C` | Show statistics about code
-`;` + `d` | Diff for selection items
-`;` + `e` | Open editor
-`;` + `f` | Open file with fuzzy finder
-`;` + `l` | Show git log for selection item
-`;` + `n` | Create multiple files/dirs at once
-`;` + `p` | Show file with pager
-`;` + `P` | Preview file/dir contents
-`;` + `r` | Change git root directory
-`;` + `R` | Batch rename selection or files in dir
-`;` + `s` | Start shell
-`;` + `t` | Show files in a tree-like format
-`;` + `T` | Restore trashed files
-`;` + `u` | Show disk usage
-`;` + `v` | Open git client
-`;` + `y` | Yank file name
-`;` + `z` | Navigate to dir/path
+| Keys      | Description                            |
+| :-------- | :------------------------------------- |
+| `;` + `c` | Change directory with fuzzy finder     |
+| `;` + `C` | Show statistics about code             |
+| `;` + `d` | Diff for selection items               |
+| `;` + `e` | Open editor                            |
+| `;` + `f` | Open file with fuzzy finder            |
+| `;` + `l` | Show git log for selection item        |
+| `;` + `n` | Create multiple files/dirs at once     |
+| `;` + `p` | Show file with pager                   |
+| `;` + `P` | Preview file/dir contents              |
+| `;` + `r` | Change git root directory              |
+| `;` + `R` | Batch rename selection or files in dir |
+| `;` + `s` | Start shell                            |
+| `;` + `t` | Show files in a tree-like format       |
+| `;` + `T` | Restore trashed files                  |
+| `;` + `u` | Show disk usage                        |
+| `;` + `v` | Open git client                        |
+| `;` + `y` | Yank file name                         |
+| `;` + `z` | Navigate to dir/path                   |
 
 ### lazygit
 
-Context | Keys  | Description
-:-      | :-    | :-
-status  | `c`   | Clone repository with ghq
-status  | `o`   | Open browser with git-open
-status  | `f`   | Open file manager
-files   | `c`   | Commit with commitizen
-files   | `f`   | Open selected file with file manager
-commits | `C-t` | Continue the revert operation in progress
+| Context | Keys  | Description                               |
+| :------ | :---- | :---------------------------------------- |
+| status  | `c`   | Clone repository with ghq                 |
+| status  | `o`   | Open browser with git-open                |
+| status  | `f`   | Open file manager                         |
+| files   | `c`   | Commit with commitizen                    |
+| files   | `f`   | Open selected file with file manager      |
+| commits | `C-t` | Continue the revert operation in progress |
 
 ## List of applications
 
-Category                      | Name
-:-                            | :-
-Taskbar                       | [waybar][waybar-link]
-Launcher                      | [bemenu][bemenu-link]
-Web Browser                   | [Firefox][firefox-link]
-Password Manager              | [1Password][1password-link] + [Authy][authy-link]
-VPN client                    | [NordVPN][nordvpn-link]
-Mail client                   | [Thunderbird][thunderbird-link] + [Proton Mail Bridge][proton-bridge-link] + [Mailnag][mailnag-link]
-Instant messaging clients     | [Signal][signal-link]
-Audio player                  | [ncspot][ncspot-link]
-Media player                  | [mpv][mpv-link]
-Cloud synchronization clients | [Dropbox][dropbox-link]
-Screenshot                    | [grim][grim-link] + [slurp][slurp-link]
-Screen record                 | [wf-recorder][wf-recorder-link] + [slurp][slurp-link]
-Notification                  | [mako][mako-link]
-Font                          | [Fira Code][firacode-link] + [NerdFontsSymbolsOnly][nerd-font-link] + [Noto Sans][noto-sans-link]
-GTK Theme                     | [Arc][arc-link]
+| Category                      | Name                                                                                                 |
+| :---------------------------- | :--------------------------------------------------------------------------------------------------- |
+| Taskbar                       | [waybar][waybar-link]                                                                                |
+| Launcher                      | [bemenu][bemenu-link]                                                                                |
+| Web Browser                   | [Firefox][firefox-link]                                                                              |
+| Password Manager              | [1Password][1password-link] + [Authy][authy-link]                                                    |
+| VPN client                    | [NordVPN][nordvpn-link]                                                                              |
+| Mail client                   | [Thunderbird][thunderbird-link] + [Proton Mail Bridge][proton-bridge-link] + [Mailnag][mailnag-link] |
+| Instant messaging clients     | [Signal][signal-link]                                                                                |
+| Audio player                  | [ncspot][ncspot-link]                                                                                |
+| Media player                  | [mpv][mpv-link]                                                                                      |
+| Cloud synchronization clients | [Dropbox][dropbox-link]                                                                              |
+| Screenshot                    | [grim][grim-link] + [slurp][slurp-link]                                                              |
+| Screen record                 | [wf-recorder][wf-recorder-link] + [slurp][slurp-link]                                                |
+| Notification                  | [mako][mako-link]                                                                                    |
+| Font                          | [Fira Code][firacode-link] + [NerdFontsSymbolsOnly][nerd-font-link] + [Noto Sans][noto-sans-link]    |
+| GTK Theme                     | [Arc][arc-link]                                                                                      |
 
-[waybar-link]: <https://github.com/Alexays/Waybar>
-[bemenu-link]: <https://github.com/Cloudef/bemenu>
-[firefox-link]: <https://www.mozilla.org/en-US/firefox/new/>
-[thunderbird-link]: <https://www.thunderbird.net/en-US/>
-[mailnag-link]: <https://github.com/pulb/mailnag>
-[ncspot-link]: <https://github.com/hrkfdn/ncspot>
-[mpv-link]: <https://mpv.io/>
-[dropbox-link]: <https://www.dropbox.com/>
-[grim-link]: <https://sr.ht/~emersion/grim/>
-[slurp-link]: <https://github.com/emersion/slurp>
-[wf-recorder-link]: <https://github.com/ammen99/wf-recorder>
-[mako-link]: <https://github.com/emersion/mako>
-[firacode-link]: <https://github.com/tonsky/FiraCode>
-[nerd-font-link]: <https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/NerdFontsSymbolsOnly>
-[noto-sans-link]: <https://fonts.google.com/noto/specimen/Noto+Sans>
-[arc-link]: <https://github.com/jnsh/arc-theme>
+[waybar-link]: https://github.com/Alexays/Waybar
+[bemenu-link]: https://github.com/Cloudef/bemenu
+[firefox-link]: https://www.mozilla.org/en-US/firefox/new/
+[thunderbird-link]: https://www.thunderbird.net/en-US/
+[mailnag-link]: https://github.com/pulb/mailnag
+[ncspot-link]: https://github.com/hrkfdn/ncspot
+[mpv-link]: https://mpv.io/
+[dropbox-link]: https://www.dropbox.com/
+[grim-link]: https://sr.ht/~emersion/grim/
+[slurp-link]: https://github.com/emersion/slurp
+[wf-recorder-link]: https://github.com/ammen99/wf-recorder
+[mako-link]: https://github.com/emersion/mako
+[firacode-link]: https://github.com/tonsky/FiraCode
+[nerd-font-link]: https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/NerdFontsSymbolsOnly
+[noto-sans-link]: https://fonts.google.com/noto/specimen/Noto+Sans
+[arc-link]: https://github.com/jnsh/arc-theme
 
 ## Screenshots
 
