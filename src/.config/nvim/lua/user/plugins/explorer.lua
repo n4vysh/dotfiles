@@ -18,6 +18,11 @@ return {
 			require("nvim-tree").setup({
 				hijack_cursor = true,
 				hijack_netrw = false,
+				view = {
+					float = {
+						enable = false,
+					},
+				},
 			})
 		end,
 	},

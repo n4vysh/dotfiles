@@ -112,16 +112,6 @@ return {
 		"sindrets/diffview.nvim",
 		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
 		init = function()
-			local auname = "nocursorword"
-			vim.api.nvim_create_augroup(auname, { clear = true })
-			vim.api.nvim_create_autocmd("FileType", {
-				group = auname,
-				pattern = "DiffviewFiles",
-				callback = function()
-					vim.b.cursorword = 0
-				end,
-			})
-
 			vim.keymap.set("n", "<Space>vd", ":DiffviewOpen<cr><c-w>l", {
 				silent = true,
 				desc = "Open diff view",

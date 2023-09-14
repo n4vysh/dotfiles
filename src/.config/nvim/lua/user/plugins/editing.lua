@@ -192,7 +192,7 @@ return {
 			{
 				"gca",
 				function()
-					require("neogen").generate()
+					require("neogen").generate({})
 				end,
 				silent = true,
 				desc = "Generate annotation",
@@ -309,7 +309,7 @@ return {
 			{
 				"<space>rv",
 				function()
-					require("refactoring").debug.print_var()
+					require("refactoring").debug.print_var({})
 				end,
 				mode = { "n", "x" },
 				desc = "Add debug print_var",

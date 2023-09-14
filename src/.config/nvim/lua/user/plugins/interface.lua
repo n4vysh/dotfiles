@@ -206,7 +206,7 @@ return {
 			vim.opt.termguicolors = true
 		end,
 		config = function()
-			require("colorizer").setup()
+			require("colorizer").setup({})
 		end,
 	},
 	{
@@ -481,25 +481,6 @@ return {
 				silent = true,
 				desc = "Move the current buffer backwards",
 			})
-
-			for i = 1, 9 do
-				local num
-				if i == 1 then
-					num = i .. "st"
-				elseif i == 2 then
-					num = i .. "nd"
-				elseif i == 3 then
-					num = i .. "rd"
-				else
-					num = i .. "th"
-				end
-				vim.keymap.set("n", "<Space>b" .. i, function()
-					require("bufferline").go_to_buffer(i, true)
-				end, {
-					silent = true,
-					desc = string.format("Go to the %s visible buffer", num),
-				})
-			end
 		end,
 	},
 }

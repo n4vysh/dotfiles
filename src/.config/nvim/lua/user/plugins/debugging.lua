@@ -45,7 +45,7 @@ return {
 		},
 		config = function()
 			require("dapui").setup()
-			require("nvim-dap-virtual-text").setup()
+			require("nvim-dap-virtual-text").setup({})
 			require("dap-go").setup()
 
 			vim.api.nvim_set_hl(0, "DapBreakpoint", {
