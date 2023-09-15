@@ -197,6 +197,7 @@ packages:
   - nodejs-commitizen
   - nodejs-cz-conventional-changelog
   - nodejs-jsonlint
+  - nodejs-nestjs-cli
   - nordvpn-bin
   - noto-fonts
   - noto-fonts-cjk
