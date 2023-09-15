@@ -160,6 +160,7 @@ if status --is-interactive
     __fish_abbr_add_extend se sudoedit
     __fish_abbr_add_extend st stern
     __fish_abbr_add_extend t rlwrap -a trans -b
+    __fish_abbr_add_extend ta trash
     __fish_abbr_add_extend td tldr
     __fish_abbr_add_extend tf terraform
     __fish_abbr_add_extend tfa terraform apply
