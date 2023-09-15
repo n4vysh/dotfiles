@@ -393,8 +393,8 @@ commands:
   - sysinfo
   - tmuxr
   - tmuxs
-  - tun0ip
   - zoom
+  - tunip
 files:
   - .atoolrc
   - .bashrc
@@ -464,6 +464,6 @@ xdg_local_files:
   - .local/bin/sysinfo
   - .local/bin/tmuxr
   - .local/bin/tmuxs
-  - .local/bin/tun0ip
   - .local/bin/zoom
+  - .local/bin/tunip
   - .local/src/dotfiles
