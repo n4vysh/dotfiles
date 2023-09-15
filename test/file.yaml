@@ -24,7 +24,7 @@ file:
     owner: root
     group: root
     filetype: file
-    contains: ["/^en_US.UTF-8 UTF-8  $/"]
+    contains: [ "/^en_US.UTF-8 UTF-8  $/" ]
   /etc/locale.conf:
     exists: true
     mode: "0644"
