@@ -87,7 +87,12 @@ file:
     group: root
     filetype: file
     contains:
+      - '-march=native'
+      - '!-march=x86-64'
+      - '!-mtune=generic'
       - '/^MAKEFLAGS="-j.*"/'
+      - 'zstd -1 --threads=0'
+      - 'color ccache check'
   /etc/iwd/main.conf:
     exists: true
     mode: "0644"

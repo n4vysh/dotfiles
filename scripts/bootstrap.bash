@@ -337,8 +337,9 @@ _configure_without_privileged() {
 	_log::info 'Configure makepkg'
 	sudo sed \
 		-i \
+		-e 's/-march=x86-64 -mtune=generic/-march=native/' \
 		-e "/^#MAKEFLAGS=\"-j2\"$/s/-j2/-j$(nproc)/" \
-		-e '/^COMPRESSZST/s/zstd -c/zstd --threads=0 -c/' \
+		-e '/^COMPRESSZST/s/zstd -c/zstd -1 --threads=0 -c/' \
 		-e '/^BUILDENV/s/!ccache/ccache/' \
 		/etc/makepkg.conf
 
