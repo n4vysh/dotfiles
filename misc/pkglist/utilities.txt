@@ -1,14 +1,10 @@
-aur/aic94xx-firmware
-aur/ast-firmware
 aur/dropbox
 aur/dropbox-cli
 aur/firefox-tridactyl-native-bin
 aur/s-bin
 aur/sysz
 aur/upd72020x-fw
-aur/wd719x-firmware
 core/dosfstools
-core/linux-firmware-qlogic
 core/man-db
 core/man-pages
 extra/arch-wiki-docs

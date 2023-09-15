@@ -278,6 +278,7 @@ packages:
   - smbmap
   - smtp-user-enum
   - socat
+  - sof-firmware
   - sops
   - sound-theme-freedesktop
   - speedtest-cli
