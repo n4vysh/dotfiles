@@ -256,7 +256,6 @@ packages:
   - rkhunter
   - rlwrap
   - rtx-bin
-  - s-bin
   - sad
   - sbctl
   - sd
@@ -315,7 +314,6 @@ packages:
   - tmux
   - tmuxp
   - tokei
-  - topgrade-bin
   - torbrowser-launcher
   - traceroute
   - translate-shell

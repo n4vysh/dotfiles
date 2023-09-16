@@ -1,6 +1,5 @@
 aur/downgrade
 aur/informant
-aur/topgrade-bin
 core/zstd
 extra/ccache
 extra/pkgfile

@@ -1,7 +1,6 @@
 aur/dropbox
 aur/dropbox-cli
 aur/firefox-tridactyl-native-bin
-aur/s-bin
 aur/sysz
 aur/upd72020x-fw
 core/dosfstools
