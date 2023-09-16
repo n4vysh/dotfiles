@@ -96,6 +96,7 @@ packages:
   - fzf
   - gammastep
   - ghq-bin
+  - gibo
   - git-crypt
   - git-delta
   - git-open

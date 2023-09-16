@@ -11,6 +11,7 @@ aur/driftctl-bin
 aur/dyff-bin
 aur/flux-bin
 aur/ghq-bin
+aur/gibo
 aur/git-open
 aur/golangci-lint-bin
 aur/google-cloud-cli
