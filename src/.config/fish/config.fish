@@ -133,6 +133,7 @@ if status --is-interactive
     __fish_abbr_add_extend lg lazygit
     __fish_abbr_add_extend ld lazydocker
     __fish_abbr_add_extend mc msfconsole -q
+    __fish_abbr_add_extend md mkdir -p
     __fish_abbr_add_extend mv mv -iv
     __fish_abbr_add_extend N sudo -E nnn
     __fish_abbr_add_extend nkt nikto
