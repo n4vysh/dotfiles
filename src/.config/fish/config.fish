@@ -95,7 +95,7 @@ if status --is-interactive
     __fish_abbr_add_extend bw sudo bandwhich
     __fish_abbr_add_extend cm chmod
     __fish_abbr_add_extend co chown
-    __fish_abbr_add_extend cp cp -iv
+    __fish_abbr_add_extend cp cp -irv
     __fish_abbr_add_extend d docker
     __fish_abbr_add_extend db devbox
     __fish_abbr_add_extend dc docker compose
