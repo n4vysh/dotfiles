@@ -570,6 +570,9 @@ _configure_without_privileged() {
 		tr '\n' ' ' </tmp/dotfiles/misc/kubectl-plugins.txt
 	)"
 
+	_log::info 'Install gh extensions'
+	gh extension install dlvhdr/gh-dash
+
 	_log::info 'Install formatter'
 	pnpm add -g sql-formatter
 

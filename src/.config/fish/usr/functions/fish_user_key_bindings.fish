@@ -22,6 +22,7 @@ function fish_user_key_bindings
     fish_user_execute_key_bindings \cot unbuffer tree \| less
     fish_user_execute_key_bindings \co\ct rlwrap -a trans -b
     fish_user_execute_key_bindings \cov lazygit
+    fish_user_execute_key_bindings \co\cv gh dash
     fish_user_execute_key_bindings \coz zi
     fish_user_execute_key_bindings \cz fg
 end
