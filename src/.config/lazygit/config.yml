@@ -17,43 +17,68 @@ git:
 disableStartupPopups: false
 customCommands:
   - key: "c"
-    command: "git cz"
-    context: "files"
-    loadingText: "opening commitizen commit tool"
-    subprocess: true
-  - key: "c"
-    prompts:
-      - type: "input"
-        title: "What is the new repository URL?"
-        initialValue: ""
-    command: "ghq get {{index .PromptResponses 0}}"
+    command: "git browse-ci"
     context: "status"
-    loadingText: "cloning repository"
-    subprocess: true
-  - key: "o"
-    command: "git open"
-    context: "status"
-    loadingText: "opening browser"
+    loadingText: "opening CI page"
     subprocess: false
   - key: "f"
     command: "nnn"
     context: "status"
     loadingText: "opening file manager"
     subprocess: true
+  - key: "i"
+    command: "git open --issue"
+    context: "status"
+    loadingText: "opening issue page"
+    subprocess: false
+  - key: "o"
+    command: "git open"
+    context: "status"
+    loadingText: "opening repository page"
+    subprocess: false
+  - key: "c"
+    command: "git cz"
+    context: "files"
+    loadingText: "opening commitizen commit tool"
+    subprocess: true
   - key: "<c-f>"
     command: "nnn {{.SelectedFile.Name}}"
     context: "files"
     loadingText: "opening file manager"
-    subprocess: true
-  # https://github.com/jesseduffield/lazygit/issues/1807
-  - key: "<c-t>"
-    command: "git revert --continue"
-    context: "commits"
-    loadingText: "continue the revert operation in progress"
     subprocess: true
   # https://github.com/jesseduffield/lazygit/issues/2028
   - key: "<enter>"
     command: "git merge --squash {{.SelectedLocalBranch.Name}}"
     context: "localBranches"
     loadingText: "merge squash"
+    subprocess: true
+  - key: "D"
+    # yamllint disable-line rule:line-length
+    command: "git delete-merged-branches"
+    context: "localBranches"
+    loadingText: "Pruning..."
+    description: "prune local branches that have been merged to default branch"
+    prompts:
+      - type: 'confirm'
+        title: 'Prune local branches'
+        body: 'Are you sure you want to prune local branches?'
+  - key: "D"
+    command: "git remote prune {{.SelectedRemote.Name}}"
+    context: "remotes"
+    loadingText: "Pruning..."
+    description: "prune deleted remote branches"
+    prompts:
+      - type: 'confirm'
+        title: 'Prune deleted remote branches'
+        body: 'Are you sure you want to prune deleted remote branches?'
+  - key: "<C-f>"
+    command: "git absorb"
+    context: "commits"
+    loadingText: "automatic fixup"
+    showOutput: true
+  # https://github.com/jesseduffield/lazygit/issues/1807
+  - key: "<c-t>"
+    command: "git revert --continue"
+    context: "commits"
+    loadingText: "continue the revert operation in progress"
     subprocess: true

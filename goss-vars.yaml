@@ -97,8 +97,10 @@ packages:
   - gammastep
   - ghq-bin
   - gibo
+  - git-absorb
   - git-crypt
   - git-delta
+  - git-extras
   - git-open
   - github-cli
   - glab

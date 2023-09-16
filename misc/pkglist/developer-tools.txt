@@ -12,6 +12,7 @@ aur/dyff-bin
 aur/flux-bin
 aur/ghq-bin
 aur/gibo
+aur/git-extras
 aur/git-open
 aur/golangci-lint-bin
 aur/google-cloud-cli
@@ -61,6 +62,7 @@ extra/fd
 extra/fish
 extra/fx
 extra/fzf
+extra/git-absorb
 extra/git-crypt
 extra/git-delta
 extra/github-cli
