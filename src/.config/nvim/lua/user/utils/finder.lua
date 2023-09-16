@@ -32,6 +32,11 @@ function M.edit_dotfiles()
 	})
 end
 
+function M.file_browser()
+	require("telescope").load_extension("file_browser")
+	require("telescope").extensions.file_browser.file_browser()
+end
+
 function M.switch_buffer()
 	local builtin = require("telescope.builtin")
 	builtin.buffers({

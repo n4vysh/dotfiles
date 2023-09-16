@@ -51,6 +51,14 @@ return {
 				desc = "Search for dotfiles",
 			},
 			{
+				"<space>fm",
+				function()
+					require("user.utils.finder").file_browser()
+				end,
+				silent = true,
+				desc = "Toggle file manager",
+			},
+			{
 				"<space>s/",
 				function()
 					require("user.utils.finder").search({})
@@ -141,7 +149,9 @@ return {
 		},
 		config = function()
 			local telescope = require("telescope")
+			local actions = require("telescope.actions")
 			local lga_actions = require("telescope-live-grep-args.actions")
+			local fb_actions = require("telescope").extensions.file_browser.actions
 
 			local telescope_config = require("telescope.config")
 
@@ -183,6 +193,18 @@ return {
 							},
 						},
 					},
+					file_browser = {
+						initial_mode = "normal",
+						hide_parent_dir = true,
+						grouped = true,
+						mappings = {
+							n = {
+								["h"] = fb_actions.goto_parent_dir,
+								["l"] = actions.select_default,
+								["."] = fb_actions.toggle_hidden,
+							},
+						},
+					},
 				},
 			})
 			telescope.load_extension("fzf")
@@ -192,6 +214,10 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{ "nvim-telescope/telescope-live-grep-args.nvim" },
+			{
+				"nvim-telescope/telescope-file-browser.nvim",
+				dependencies = { "nvim-lua/plenary.nvim" },
+			},
 			{ "smartpde/telescope-recent-files" },
 			{ "benfowler/telescope-luasnip.nvim" },
 		},
