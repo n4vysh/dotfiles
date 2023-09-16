@@ -223,7 +223,7 @@ mode "$mode_system" {
   bindsym p exec systemctl poweroff, mode "default"
   bindsym q mode "default"
 }
-bindsym $mod+bracketleft mode "$mode_system"
+bindsym $mod+Escape mode "$mode_system"
 
 set $mode_media Media: (k) pause/play, (j) rewind, (k) fast forward, (P) previous, (N) next
 mode "$mode_media" {
