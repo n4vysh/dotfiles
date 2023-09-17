@@ -112,6 +112,8 @@ if status --is-interactive
     __fish_abbr_add_extend gi git
     __fish_abbr_add_extend gib gibo
     __fish_abbr_add_extend gp gping
+    __fish_abbr_add_extend gq ghq
+    __fish_abbr_add_extend gqg ghq get
     __fish_abbr_add_extend gr grex
     __fish_abbr_add_extend gt gpg-tui --style colored
     __fish_abbr_add_extend h helm
