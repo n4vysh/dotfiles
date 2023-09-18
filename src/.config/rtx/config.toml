@@ -1,2 +1,3 @@
 [settings]
 jobs = 20
+legacy_version_file = false
