@@ -333,7 +333,19 @@ return {
 					null_ls.builtins.diagnostics.todo_comments,
 					null_ls.builtins.diagnostics.proselint,
 					null_ls.builtins.diagnostics.fish,
-					null_ls.builtins.diagnostics.cspell,
+					null_ls.builtins.diagnostics.cspell.with({
+						filetypes = {
+							"go",
+							"javascript",
+							"javascriptreact",
+							"markdown",
+							"text",
+							"typescript",
+							"typescriptreact",
+							"yaml",
+							"sql",
+						},
+					}),
 				},
 				on_attach = on_attach,
 			})
