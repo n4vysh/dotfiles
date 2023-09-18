@@ -39,10 +39,12 @@ packages:
   - bottom
   - brightnessctl
   - btrfs-progs
+  - buf
   - burpsuite
   - ccache
   - ccid
   - chart-testing
+  - clang
   - cmctl
   - cmseek
   - codespell
@@ -198,6 +200,7 @@ packages:
   - nmap
   - nnn-nerd
   - nodejs-commitizen
+  - nodejs-cspell
   - nodejs-cz-conventional-changelog
   - nodejs-jsonlint
   - nodejs-nestjs-cli
@@ -241,6 +244,7 @@ packages:
   - prettier
   - procs
   - profile-sync-daemon
+  - proselint
   - protonmail-bridge-bin
   - pueue
   - pv
@@ -327,6 +331,7 @@ packages:
   - ttf-fira-code
   - ttf-nerd-fonts-symbols-mono
   - ttf-ubraille
+  - typos
   - udiskie
   - udisks2
   - ueberzug
@@ -356,6 +361,7 @@ packages:
   - wl-clipboard
   - wordlistctl
   - wpscan
+  - write-good
   - wtype
   - xdg-desktop-portal
   - xdg-desktop-portal-wlr

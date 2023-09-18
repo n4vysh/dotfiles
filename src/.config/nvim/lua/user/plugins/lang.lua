@@ -150,6 +150,7 @@ return {
 
 			local servers = {
 				"bashls",
+				"bufls",
 				"cssls",
 				"dockerls",
 				"docker_compose_language_service",
@@ -262,6 +263,81 @@ return {
 				},
 			})
 
+			local null_ls = require("null-ls")
+			null_ls.setup({
+				sources = {
+					null_ls.builtins.diagnostics.actionlint,
+					null_ls.builtins.diagnostics.buf,
+					null_ls.builtins.formatting.buf,
+					null_ls.builtins.diagnostics.jsonlint,
+					null_ls.builtins.diagnostics.editorconfig_checker,
+					null_ls.builtins.formatting.rego,
+					null_ls.builtins.diagnostics.opacheck,
+					null_ls.builtins.diagnostics.semgrep.with({
+						args = { "-q", "--json", "--config", "auto", "$FILENAME" },
+					}),
+					null_ls.builtins.formatting.sql_formatter.with({
+						args = { "-c", vim.fn.expand("~/.config/sql-formatter/config.json") },
+						filetypes = { "sql", "mysql" },
+					}),
+					null_ls.builtins.formatting.just,
+					null_ls.builtins.formatting.fish_indent,
+					null_ls.builtins.diagnostics.markdownlint_cli2,
+					null_ls.builtins.formatting.shellharden.with({
+						filetypes = { "sh", "direnv" },
+					}),
+					null_ls.builtins.formatting.shfmt.with({
+						filetypes = { "sh", "direnv" },
+					}),
+					null_ls.builtins.diagnostics.shellcheck,
+					null_ls.builtins.formatting.prettier.with({
+						filetypes = {
+							"javascript",
+							"javascriptreact",
+							"typescript",
+							"typescriptreact",
+							"json",
+							"jsonc",
+							"markdown",
+							"markdown.mdx",
+							"graphql",
+						},
+					}),
+					null_ls.builtins.diagnostics.stylelint.with({
+						args = {
+							"--formatter",
+							"json",
+							"--stdin-filename",
+							"$FILENAME",
+							"--config",
+							vim.fn.expand("~/.stylelintrc.yaml"),
+						},
+					}),
+					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.diagnostics.yamllint,
+					null_ls.builtins.diagnostics.selene,
+					null_ls.builtins.diagnostics.codespell,
+					null_ls.builtins.formatting.clang_format,
+					null_ls.builtins.diagnostics.eslint.with({
+						only_local = "node_modules/.bin",
+					}),
+					null_ls.builtins.formatting.eslint.with({
+						only_local = "node_modules/.bin",
+					}),
+					null_ls.builtins.diagnostics.tfsec,
+					null_ls.builtins.diagnostics.hadolint,
+					null_ls.builtins.formatting.yamlfmt,
+					null_ls.builtins.diagnostics.write_good,
+					null_ls.builtins.diagnostics.zsh,
+					null_ls.builtins.diagnostics.typos,
+					null_ls.builtins.diagnostics.todo_comments,
+					null_ls.builtins.diagnostics.proselint,
+					null_ls.builtins.diagnostics.fish,
+					null_ls.builtins.diagnostics.cspell,
+				},
+				on_attach = on_attach,
+			})
+
 			local handler = function(virtText, lnum, endLnum, width, truncate)
 				local newVirtText = {}
 				local suffix = (" 󰁂 %d "):format(endLnum - lnum)
@@ -315,6 +391,10 @@ return {
 			})
 		end,
 		dependencies = {
+			{
+				"jose-elias-alvarez/null-ls.nvim",
+				dependencies = { "nvim-lua/plenary.nvim" },
+			},
 			{ "williamboman/mason.nvim" },
 			{ "nvim-lua/plenary.nvim" },
 			{ "weilbith/nvim-code-action-menu" },
@@ -383,6 +463,7 @@ return {
 			require("mason-tool-installer").setup({
 				ensure_installed = {
 					"bash-language-server",
+					"buf-language-server",
 					"css-lsp",
 					"dockerfile-language-server",
 					"docker-compose-language-service",
@@ -435,93 +516,6 @@ return {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 		},
 	},
-
-	{
-		"jose-elias-alvarez/null-ls.nvim",
-		event = { "VeryLazy" },
-		config = function()
-			local null_ls = require("null-ls")
-			local augroup = vim.api.nvim_create_augroup("null_ls_lsp_document_formatting", {})
-			null_ls.setup({
-				sources = {
-					null_ls.builtins.diagnostics.actionlint,
-					null_ls.builtins.diagnostics.jsonlint,
-					null_ls.builtins.diagnostics.editorconfig_checker,
-					null_ls.builtins.diagnostics.opacheck.with({
-						args = { "check", "-f", "json", "--strict", "$DIRNAME" },
-					}),
-					null_ls.builtins.diagnostics.semgrep.with({
-						args = { "-q", "--json", "--config", "auto", "$FILENAME" },
-					}),
-					null_ls.builtins.formatting.sql_formatter.with({
-						args = { "-c", vim.fn.expand("~/.config/sql-formatter/config.json") },
-						filetypes = { "sql", "mysql" },
-					}),
-					null_ls.builtins.formatting.just,
-					null_ls.builtins.formatting.fish_indent,
-					null_ls.builtins.diagnostics.markdownlint_cli2,
-					null_ls.builtins.formatting.shellharden.with({
-						filetypes = { "sh", "direnv" },
-					}),
-					null_ls.builtins.formatting.shfmt.with({
-						filetypes = { "sh", "direnv" },
-					}),
-					null_ls.builtins.diagnostics.shellcheck,
-					null_ls.builtins.formatting.prettier.with({
-						filetypes = {
-							"javascript",
-							"javascriptreact",
-							"typescript",
-							"typescriptreact",
-							"json",
-							"jsonc",
-							"markdown",
-							"markdown.mdx",
-							"graphql",
-						},
-					}),
-					null_ls.builtins.diagnostics.stylelint.with({
-						args = {
-							"--formatter",
-							"json",
-							"--stdin-filename",
-							"$FILENAME",
-							"--config",
-							vim.fn.expand("~/.stylelintrc.yaml"),
-						},
-					}),
-					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.diagnostics.yamllint,
-					null_ls.builtins.diagnostics.selene,
-					null_ls.builtins.diagnostics.codespell,
-					null_ls.builtins.formatting.clang_format,
-					null_ls.builtins.diagnostics.eslint.with({
-						only_local = "node_modules/.bin",
-					}),
-					null_ls.builtins.formatting.eslint.with({
-						only_local = "node_modules/.bin",
-					}),
-					null_ls.builtins.diagnostics.tfsec,
-					null_ls.builtins.diagnostics.hadolint,
-					null_ls.builtins.formatting.yamlfmt,
-				},
-				on_attach = function(client, bufnr)
-					if client.supports_method("textDocument/formatting") then
-						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = augroup,
-							buffer = bufnr,
-							callback = function()
-								vim.lsp.buf.format({ bufnr = bufnr })
-							end,
-						})
-					end
-				end,
-			})
-		end,
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-
 	{
 		"j-hui/fidget.nvim",
 		tag = "legacy",
