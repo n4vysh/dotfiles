@@ -326,7 +326,11 @@ return {
 					null_ls.builtins.diagnostics.tfsec,
 					null_ls.builtins.diagnostics.hadolint,
 					null_ls.builtins.formatting.yamlfmt,
-					null_ls.builtins.diagnostics.write_good,
+					null_ls.builtins.diagnostics.write_good.with({
+						diagnostics_postprocess = function(diagnostic)
+							diagnostic.severity = vim.diagnostic.severity.WARN
+						end,
+					}),
 					null_ls.builtins.diagnostics.zsh,
 					null_ls.builtins.diagnostics.typos,
 					null_ls.builtins.diagnostics.todo_comments,
