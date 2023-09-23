@@ -33,6 +33,7 @@ extra/pbzip2
 extra/pigz
 extra/pixz
 extra/plocate
+extra/polkit-gnome
 extra/poppler
 extra/procs
 extra/profile-sync-daemon
