@@ -23,7 +23,7 @@ customCommands:
   - key: "f"
     command: "nnn"
     context: "status"
-    loadingText: "opening file manager"
+    description: "Open file manager"
     subprocess: true
   - key: "i"
     command: "git open --issue"
@@ -38,12 +38,12 @@ customCommands:
   - key: "c"
     command: "git cz"
     context: "files"
-    loadingText: "opening commitizen commit tool"
+    description: "Commit changes with git cz"
     subprocess: true
   - key: "<c-f>"
     command: "nnn {{.SelectedFile.Name}}"
     context: "files"
-    loadingText: "opening file manager"
+    description: "Open file manager"
     subprocess: true
   - key: "D"
     # yamllint disable-line rule:line-length
@@ -73,5 +73,5 @@ customCommands:
   - key: "<c-t>"
     command: "git revert --continue"
     context: "commits"
-    loadingText: "continue the revert operation in progress"
+    description: "Continue the revert operation in progress"
     subprocess: true
