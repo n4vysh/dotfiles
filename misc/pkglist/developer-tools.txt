@@ -99,10 +99,10 @@ extra/parallel
 extra/percona-server-clients
 extra/pnpm
 extra/postgresql
+extra/pre-commit
 extra/prettier
 extra/progress
 extra/python-pip
-extra/python-pre-commit
 extra/qmk
 extra/ripgrep
 extra/sad

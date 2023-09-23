@@ -241,6 +241,7 @@ packages:
   - polkit
   - poppler
   - postgresql
+  - pre-commit
   - prettier
   - procs
   - profile-sync-daemon
@@ -252,7 +253,6 @@ packages:
   - python-chepy
   - python-defang
   - python-pip
-  - python-pre-commit
   - python2-termcolor
   - python2-xlsx2csv
   - qmk
