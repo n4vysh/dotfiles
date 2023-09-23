@@ -29,7 +29,6 @@ aur/lab-bin
 aur/lazydocker-bin
 aur/nnn-nerd
 aur/nodejs-commitizen
-aur/nodejs-cspell
 aur/nodejs-cz-conventional-changelog
 aur/nodejs-jsonlint
 aur/nodejs-nestjs-cli
@@ -56,7 +55,6 @@ extra/bat
 extra/buf
 extra/clang
 extra/cmctl
-extra/codespell
 extra/csvkit
 extra/delve
 extra/direnv

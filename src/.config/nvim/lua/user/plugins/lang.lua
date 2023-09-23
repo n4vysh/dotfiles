@@ -316,7 +316,6 @@ return {
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.diagnostics.yamllint,
 					null_ls.builtins.diagnostics.selene,
-					null_ls.builtins.diagnostics.codespell,
 					null_ls.builtins.formatting.clang_format,
 					null_ls.builtins.diagnostics.eslint.with({
 						only_local = "node_modules/.bin",
@@ -333,19 +332,6 @@ return {
 					null_ls.builtins.diagnostics.todo_comments,
 					null_ls.builtins.diagnostics.proselint,
 					null_ls.builtins.diagnostics.fish,
-					null_ls.builtins.diagnostics.cspell.with({
-						filetypes = {
-							"go",
-							"javascript",
-							"javascriptreact",
-							"markdown",
-							"text",
-							"typescript",
-							"typescriptreact",
-							"yaml",
-							"sql",
-						},
-					}),
 				},
 				on_attach = on_attach,
 			})

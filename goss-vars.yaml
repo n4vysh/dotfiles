@@ -46,7 +46,6 @@ packages:
   - clang
   - cmctl
   - cmseek
-  - codespell
   - conftest
   - cpupower
   - crudini
@@ -199,7 +198,6 @@ packages:
   - nmap
   - nnn-nerd
   - nodejs-commitizen
-  - nodejs-cspell
   - nodejs-cz-conventional-changelog
   - nodejs-jsonlint
   - nodejs-nestjs-cli
