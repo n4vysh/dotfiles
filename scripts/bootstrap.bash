@@ -232,6 +232,8 @@ _install() {
 	_log::info 'Set the root password'
 	arch-chroot /mnt passwd
 
+	# NOTE: support for enrolling multiple FIDO2 tokens is currently limited
+	# https://man.archlinux.org/man/systemd-cryptenroll.1.en
 	_log::info 'Register keys in a LUKS slot'
 	_log::info 'Waiting for security key device'
 	_log::info 'connect device and press enter key'
