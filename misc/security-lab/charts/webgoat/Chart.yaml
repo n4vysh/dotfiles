@@ -1,4 +1,3 @@
----
 apiVersion: v2
 name: webgoat
 description: A deliberately insecure application

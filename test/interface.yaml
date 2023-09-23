@@ -1,4 +1,3 @@
----
 interface:
   docker0:
     exists: true

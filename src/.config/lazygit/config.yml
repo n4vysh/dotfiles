@@ -1,5 +1,4 @@
 # yaml-language-server: $schema=https://json.schemastore.org/lazygit.json
----
 gui:
   nerdFontsVersion: 3
   showCommandLog: false

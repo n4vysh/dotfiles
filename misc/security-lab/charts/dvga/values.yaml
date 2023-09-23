@@ -1,11 +1,9 @@
----
 name: dvga
 port: 5013
 image:
   repository: dolevf/dvga
   # yamllint disable-line rule:line-length
   digest: sha256:d8e9590c00c016bf789cb5ad23e5d80ab8890edc0196cf5a330f973a6964323c
-
 labels:
   app.kubernetes.io/name: dvga
   app.kubernetes.io/instance: dvga

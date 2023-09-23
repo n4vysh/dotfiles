@@ -1,4 +1,3 @@
----
 session_name: dotfiles
 suppress_history: true
 start_directory: $XDG_DATA_HOME/dotfiles/

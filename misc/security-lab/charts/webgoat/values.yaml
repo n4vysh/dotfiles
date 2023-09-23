@@ -1,11 +1,9 @@
----
 name: webgoat
 port: 8080
 image:
   repository: webgoat/webgoat
   # yamllint disable-line rule:line-length
   digest: sha256:2775102b8186df1656f8a69cfb7a6bf6c77b43a25fa0accd6d44e6ae04c8d3b7
-
 labels:
   app.kubernetes.io/name: webgoat
   app.kubernetes.io/instance: webgoat

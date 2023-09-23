@@ -1,4 +1,3 @@
----
 file:
   /etc/polkit-1/rules.d/50-udisks.rules:
     exists: true

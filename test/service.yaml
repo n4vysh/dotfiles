@@ -1,4 +1,3 @@
----
 service:
   systemd-networkd.service:
     enabled: true

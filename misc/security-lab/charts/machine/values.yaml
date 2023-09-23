@@ -1,9 +1,7 @@
----
 name: kalilinux
 port: 9999
 image:
   repository: kalilinux/kali-rolling
-
 labels:
   app.kubernetes.io/version: 2.1.2
   app.kubernetes.io/component: machine

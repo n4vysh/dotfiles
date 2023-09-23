@@ -1,4 +1,3 @@
----
 gossfile:
   test/templates/package.yaml: {}
   test/service.yaml: {}

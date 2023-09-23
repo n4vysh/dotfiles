@@ -1,4 +1,3 @@
----
 session_name: misc
 suppress_history: true
 start_directory: $HOME
