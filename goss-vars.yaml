@@ -409,9 +409,9 @@ files:
   - .hushlogin
   - .kube
   - .msf4
-  - .stylelintrc.yaml
   - .zprofile
   - .zshenv
+  - .stylelintrc.yaml
 xdg_config_files:
   - .config/bat
   - .config/bottom
@@ -454,6 +454,7 @@ xdg_config_files:
   - .config/zathura
   - .config/bluetuith
   - .config/gh
+  - .config/yamlfmt
 xdg_local_files:
   - .local/bin/bgm
   - .local/bin/burpsuite
