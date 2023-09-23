@@ -162,6 +162,8 @@ mode "$mode_launcher" {
   bindsym s exec sysinfo, mode "default"
   bindsym t exec burpsuite, mode "default"
   bindsym r exec remmina, mode "default"
+  bindsym w exec "$term start iwctl", mode "default"
+  bindsym ctrl+w exec "$term start bluetuith", mode "default"
   bindsym q mode "default"
 }
 bindsym $mod+o mode "$mode_launcher"
