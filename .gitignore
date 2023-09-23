@@ -25,3 +25,4 @@ src/.config/systemd/user/buildkit.service
 src/.config/systemd/user/default-buildkit.service
 src/.config/tmux/tmux.conf.local
 !.gitkeep
+goss-vars.yaml
