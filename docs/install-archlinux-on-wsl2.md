@@ -19,7 +19,7 @@ winget install -e --id Lexikos.AutoHotkey
 winget install -e --id SlackTechnologies.Slack
 winget install -e --id PortSwigger.BurpSuite.Community
 winget install -e --id WiresharkFoundation.Wireshark
-winget install -e --id Insecure.Nmap 
+winget install -e --id Insecure.Nmap
 winget install -e --id OpenVPNTechnologies.OpenVPN
 winget install -e --id QMK.QMKToolbox
 winget install -e --id JGraph.Draw
@@ -50,24 +50,24 @@ Deploy [remap.skl][sharpkeys-config-link], [dual-key-remap/config.txt][dual-key-
 and [remap.ahk][ahk-config-link] to remap following keys and shortcuts
 with [SharpKeys][sharpkeys-link], [dual-key-remap][dual-key-remap-link], and [AutoHotKey][ahk-link].
 
-Physical key  | Mapped To      | Note
-:-            | :-             | :-
-`Menu`        | `F13`          |
-`Alt (Right)` | `Ctrl (Right)` | `Escape` when pressed alone
-`Alt (Left)`  | `Alt (Left)`   | `Tab` when pressed alone
+| Physical key  | Mapped To      | Note                        |
+| :------------ | :------------- | :-------------------------- |
+| `Menu`        | `F13`          |
+| `Alt (Right)` | `Ctrl (Right)` | `Escape` when pressed alone |
+| `Alt (Left)`  | `Alt (Left)`   | `Tab` when pressed alone    |
 
-Physical shortcut | Mapped To
-:-                | :-
-`Menu` + `b`      | `Left`
-`Menu` + `f`      | `Right`
-`Menu` + `p`      | `Up`
-`Menu` + `n`      | `Down`
-`Menu` + `a`      | `Home`
-`Menu` + `e`      | `End`
-`Menu` + `i`      | `Tab`
-`Menu` + `h`      | `Backspace`
-`Menu` + `d`      | `Delete`
-`Menu` + `m`      | `Enter`
+| Physical shortcut | Mapped To   |
+| :---------------- | :---------- |
+| `Menu` + `b`      | `Left`      |
+| `Menu` + `f`      | `Right`     |
+| `Menu` + `p`      | `Up`        |
+| `Menu` + `n`      | `Down`      |
+| `Menu` + `a`      | `Home`      |
+| `Menu` + `e`      | `End`       |
+| `Menu` + `i`      | `Tab`       |
+| `Menu` + `h`      | `Backspace` |
+| `Menu` + `d`      | `Delete`    |
+| `Menu` + `m`      | `Enter`     |
 
 [sharpkeys-config-link]: ../misc/wsl/misc/remap.skl
 [dual-key-remap-config-link]: ../misc/wsl/misc/dual-key-remap/config.txt
@@ -193,7 +193,7 @@ convert \
 ```
 
 [install-wsl-link]: https://learn.microsoft.com/en-us/windows/wsl/install
-[archwsl-setup-link]: [https://wsldl-pg.github.io/ArchW-docs/How-to-Setup]
+[archwsl-setup-link]: https://wsldl-pg.github.io/ArchW-docs/How-to-Setup
 [wslu-link]: https://wslutiliti.es/wslu/
 [wslconfig-link]: https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-setting-for-wslconfig
 [genie-link]: https://github.com/arkane-systems/genie
