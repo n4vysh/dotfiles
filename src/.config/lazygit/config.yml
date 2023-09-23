@@ -45,12 +45,6 @@ customCommands:
     context: "files"
     loadingText: "opening file manager"
     subprocess: true
-  # https://github.com/jesseduffield/lazygit/issues/2028
-  - key: "<enter>"
-    command: "git merge --squash {{.SelectedLocalBranch.Name}}"
-    context: "localBranches"
-    loadingText: "merge squash"
-    subprocess: true
   - key: "D"
     # yamllint disable-line rule:line-length
     command: "git delete-merged-branches"
