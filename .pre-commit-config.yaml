@@ -116,17 +116,17 @@ repos:
         name: format c files with clang-format
         language: system
         entry: just src/.config/qmk/fmt
-        files: .config/qmk/keymap/*.(h|c)$
+        files: .config/qmk/keymap/.*\.(h|c)$
       - id: pkglist
         name: format pkglist
         language: system
         entry: sh -c "printf '%s\n' $@ | xargs -I {} -t sort -uo {} {}"
-        files: misc/pkglist/*
+        files: misc/pkglist/.*
       - id: visudo
         name: check sudoers
         language: system
         entry: sh -c "printf '%s\n' $@ | xargs -I {} -t visudo -c -f {}"
-        files: misc/etc/sudoer.d/*
+        files: misc/etc/sudoer.d/.*
       - id: goss
         name: check dotfiles with goss
         language: system
@@ -142,7 +142,7 @@ repos:
         language: system
         entry: fishtape
         args: [src/.config/fish/tests/functions/*]
-        files: .config/fish/{usr,tests}/functions/*.fish$
+        files: .config/fish/{usr,tests}/functions/.*\.fish$
         pass_filenames: false
       - id: commitlint
         name: check commit message with commitlint
