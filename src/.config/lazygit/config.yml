@@ -43,6 +43,11 @@ customCommands:
     context: "files"
     description: "Commit changes with git cz"
     subprocess: true
+  - key: "w"
+    command: "git cz --no-verify"
+    context: "files"
+    description: "Commit changes with git cz --no-verify"
+    subprocess: true
   - key: "<c-f>"
     command: "nnn {{.SelectedFile.Name}}"
     context: "files"
