@@ -18,7 +18,8 @@ customCommands:
   - key: "c"
     command: "git browse-ci"
     context: "status"
-    loadingText: "opening CI page"
+    description: "Open CI page"
+    loadingText: "Opening CI page..."
     subprocess: false
   - key: "f"
     command: "nnn"
@@ -28,12 +29,14 @@ customCommands:
   - key: "i"
     command: "git open --issue"
     context: "status"
-    loadingText: "opening issue page"
+    description: "Open issue page"
+    loadingText: "Opening issue page..."
     subprocess: false
   - key: "o"
     command: "git open"
     context: "status"
-    loadingText: "opening repository page"
+    description: "Open repository page"
+    loadingText: "Opening repository page..."
     subprocess: false
   - key: "c"
     command: "git cz"
@@ -49,8 +52,8 @@ customCommands:
     # yamllint disable-line rule:line-length
     command: "git delete-merged-branches"
     context: "localBranches"
+    description: "Prune local branches that have been merged to default branch"
     loadingText: "Pruning..."
-    description: "prune local branches that have been merged to default branch"
     prompts:
       - type: 'confirm'
         title: 'Prune local branches'
@@ -58,8 +61,8 @@ customCommands:
   - key: "D"
     command: "git remote prune {{.SelectedRemote.Name}}"
     context: "remotes"
+    description: "Prune deleted remote branches"
     loadingText: "Pruning..."
-    description: "prune deleted remote branches"
     prompts:
       - type: 'confirm'
         title: 'Prune deleted remote branches'
@@ -67,6 +70,7 @@ customCommands:
   - key: "<C-f>"
     command: "git absorb"
     context: "commits"
+    description: "Create fixup commit automatically"
     loadingText: "automatic fixup"
     showOutput: true
   # https://github.com/jesseduffield/lazygit/issues/1807
