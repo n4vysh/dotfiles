@@ -539,6 +539,32 @@ _configure_without_privileged() {
 	_log::info 'Create user directorys'
 	mkdir "$HOME"/{Downloads,Public,Workspaces}
 
+	_log::info 'Configure U2F PAM'
+	if ! sudo grep -q "pam_u2f.so" /etc/pam.d/sudo; then
+		sudo sed \
+			-i \
+			-e '/^#%PAM-1.0$/a auth		sufficient		pam_u2f.so		cue		origin=pam:\/\/localhost		appid=pam:\/\/localhost' \
+			/etc/pam.d/sudo
+	else
+		_log::warn "U2F PAM already set in /etc/pam.d/sudo -- skipping"
+	fi
+	if ! sudo grep -q "pam_u2f.so" /etc/pam.d/polkit-1; then
+		sudo sed \
+			-i \
+			-e '/^#%PAM-1.0$/a auth		sufficient		pam_u2f.so		cue		origin=pam:\/\/localhost		appid=pam:\/\/localhost' \
+			/etc/pam.d/polkit-1
+	else
+		_log::warn "U2F PAM already set in /etc/pam.d/polkit-1 -- skipping"
+	fi
+	if ! sudo grep -q "pam_u2f.so" /etc/pam.d/swaylock; then
+		sudo sed \
+			-i \
+			-e '/^auth include login$/i auth		sufficient		pam_u2f.so		cue		origin=pam:\/\/localhost		appid=pam:\/\/localhost' \
+			/etc/pam.d/swaylock
+	else
+		_log::warn "U2F PAM already set in /etc/pam.d/swaylock -- skipping"
+	fi
+
 	_log::info 'Configure GNOME keyring'
 	sudo sed \
 		-i \

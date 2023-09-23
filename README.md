@@ -55,6 +55,7 @@
   [LUKS][luks-link],
   [systemd-cryptenroll][systemd-cryptenroll-link]
   and [FIDO2][fido2-link]
+- Passwordless sudo with [PAM U2F module][pam-u2f-module-link]
 - User-related information encryption with [systemd-homed][systemd-homed-link]
 - [Improving Boot process][boot-process-link] with
   [uncompressed initramfs][uncompressed-initramfs-link],
@@ -114,6 +115,7 @@
 [luks-link]: https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup
 [systemd-cryptenroll-link]: https://www.freedesktop.org/software/systemd/man/systemd-cryptenroll.html
 [fido2-link]: https://fidoalliance.org/fido2
+[pam-u2f-module-link]: https://developers.yubico.com/pam-u2f/
 [systemd-homed-link]: https://systemd.io/HOME_DIRECTORY/
 [boot-process-link]: https://wiki.archlinux.org/title/Improving_performance/Boot_process
 [silent-boot-link]: https://wiki.archlinux.org/title/Silent_boot

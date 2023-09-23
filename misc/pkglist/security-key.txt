@@ -1,5 +1,6 @@
 extra/ccid
 extra/libusb-compat
 extra/opensc
+extra/pam-u2f
 extra/pcsc-tools
 extra/yubikey-manager
