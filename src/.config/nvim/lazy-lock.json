@@ -92,6 +92,7 @@
   "translate-shell.vim": { "branch": "master", "commit": "d72a2eabd2a5466369df794777e662ecc2d732e9" },
   "treesj": { "branch": "main", "commit": "bff8c32b826e188fa558e94c7c93ac17a8ef0365" },
   "trouble.nvim": { "branch": "main", "commit": "3f85d8ed30e97ceeddbbcf80224245d347053711" },
+  "urlview.nvim": { "branch": "main", "commit": "bdbdf1e020e283551f003e71b0004096c746ef57" },
   "vim-abolish": { "branch": "master", "commit": "cb3dcb220262777082f63972298d57ef9e9455ec" },
   "vim-asterisk": { "branch": "master", "commit": "77e97061d6691637a034258cc415d98670698459" },
   "vim-bbye": { "branch": "master", "commit": "25ef93ac5a87526111f43e5110675032dbcacf56" },

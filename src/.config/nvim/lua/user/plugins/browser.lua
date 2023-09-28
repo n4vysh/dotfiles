@@ -9,4 +9,11 @@ return {
 			vim.g.netrw_nogx = 1
 		end,
 	},
+	{
+		"axieax/urlview.nvim",
+		keys = {
+			{ "<space>su", "<cmd>UrlView buffer bufnr=0<cr>", silent = true, desc = "Search for URLs" },
+		},
+		opts = { default_picker = "telescope" },
+	},
 }
