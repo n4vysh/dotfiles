@@ -169,23 +169,35 @@ if status --is-interactive
     __fish_abbr_add_extend td tldr
     __fish_abbr_add_extend tf terraform
     __fish_abbr_add_extend tfa terraform apply
+    __fish_abbr_add_extend tfar terraform apply -replace
+    __fish_abbr_add_extend tfat terraform apply -target
     __fish_abbr_add_extend tfc terraform console
     __fish_abbr_add_extend tfin terraform init
     __fish_abbr_add_extend tfim terraform import
     __fish_abbr_add_extend tfp terraform plan
+    __fish_abbr_add_extend tfpr terraform plan -replace
+    __fish_abbr_add_extend tfpt terraform plan -target
     __fish_abbr_add_extend tfst terraform state
+    __fish_abbr_add_extend tfstp terraform state pull
     __fish_abbr_add_extend tfsh terraform show
     __fish_abbr_add_extend tfo terraform output
+    __fish_abbr_add_extend tfoj terraform output -json
     __fish_abbr_add_extend tfl tflint
     __fish_abbr_add_extend tfd terraform-docs
     __fish_abbr_add_extend tg terragrunt
     __fish_abbr_add_extend tga terragrunt apply
+    __fish_abbr_add_extend tgar terragrunt apply -replace
+    __fish_abbr_add_extend tgat terragrunt apply -target
     __fish_abbr_add_extend tgc terragrunt console
     __fish_abbr_add_extend tgim terragrunt import
     __fish_abbr_add_extend tgp terragrunt plan
+    __fish_abbr_add_extend tgpr terragrunt plan -replace
+    __fish_abbr_add_extend tgpt terragrunt plan -target
     __fish_abbr_add_extend tgst terragrunt state
+    __fish_abbr_add_extend tgstp terragrunt state pull
     __fish_abbr_add_extend tgsh terragrunt show
     __fish_abbr_add_extend tgo terragrunt output
+    __fish_abbr_add_extend tgoj terragrunt output -json
     __fish_abbr_add_extend ti tokei --hidden
     __fish_abbr_add_extend tm tmux
     __fish_abbr_add_extend tmp tmuxp
