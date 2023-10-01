@@ -12,14 +12,7 @@ return {
 			vim.cmd("silent! xunmap ]uU")
 			vim.cmd("silent! nunmap [uU")
 			vim.cmd("silent! nunmap ]uU")
-		end,
-	},
-	{
-		"echasnovski/mini.bracketed",
-		event = { "VeryLazy" },
-		version = "*",
-		config = function()
-			-- remove keymap of vim-unimpaired
+			-- remove keymap for mini.bracketed
 			vim.cmd("silent! xunmap [n")
 			vim.cmd("silent! xunmap ]n")
 			vim.cmd("silent! nunmap [n")
@@ -34,6 +27,24 @@ return {
 			vim.cmd("silent! xunmap ]y")
 			vim.cmd("silent! nunmap [yy")
 			vim.cmd("silent! nunmap ]yy")
+		end,
+	},
+	{
+		"echasnovski/mini.bracketed",
+		version = "*",
+		keys = {
+			{ "[k" },
+			{ "]k" },
+			{ "[x" },
+			{ "]x" },
+			{ "[i" },
+			{ "]i" },
+			{ "[j" },
+			{ "]j" },
+			{ "[y" },
+			{ "]y" },
+		},
+		config = function()
 			require("mini.bracketed").setup({
 				buffer = { suffix = "", options = {} },
 				comment = { suffix = "k", options = {} },

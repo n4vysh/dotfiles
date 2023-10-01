@@ -1,7 +1,9 @@
 return {
 	{
 		"kristijanhusak/vim-dadbod-ui",
-		cmd = { "DBUI" },
+		keys = {
+			{ "g<C-d>", ":DBUI<CR>", silent = true, desc = "Toggle UI for database" },
+		},
 		init = function()
 			vim.g.db_ui_use_nerd_fonts = 1
 			vim.g.db_ui_save_location = "~/Documents/sql/"
@@ -38,11 +40,6 @@ return {
 					end,
 				})
 			end
-
-			vim.keymap.set("n", "g<C-d>", ":DBUI<CR>", {
-				silent = true,
-				desc = "Toggle UI for database",
-			})
 		end,
 		dependencies = {
 			{ "tpope/vim-dadbod" },

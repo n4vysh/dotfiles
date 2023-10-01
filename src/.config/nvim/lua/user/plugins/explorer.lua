@@ -9,10 +9,7 @@ return {
 				else
 					vim.cmd.NvimTreeFindFile()
 				end
-			end, {
-				silent = true,
-				desc = "Toggle file tree",
-			})
+			end)
 		end,
 		config = function()
 			require("nvim-tree").setup({

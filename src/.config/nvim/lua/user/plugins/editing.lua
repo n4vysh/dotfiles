@@ -72,7 +72,7 @@ return {
 	},
 	{
 		"mg979/vim-visual-multi",
-		event = { "VeryLazy" },
+		keys = { { "<C-n>", mode = { "n", "x" } }, { "<M-j>" }, { "<M-k>" } },
 		init = function()
 			vim.g.VM_theme = "neon"
 			vim.g.VM_silent_exit = 1
@@ -140,43 +140,33 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 		},
 		config = function()
-			do
-				local auname = "vim_textobj_markdown"
-				vim.api.nvim_create_augroup(auname, { clear = true })
-				vim.api.nvim_create_autocmd("FileType", {
-					group = auname,
-					pattern = { "markdown" },
-					callback = function()
-						-- remove keymap of nvim-treesitter-textobjects
-						vim.cmd([[silent! ounmap <buffer> af]])
-						vim.cmd([[silent! ounmap <buffer> if]])
-						vim.cmd([[silent! ounmap <buffer> aF]])
-						vim.cmd([[silent! ounmap <buffer> iF]])
-						vim.cmd([[silent! xunmap <buffer> af]])
-						vim.cmd([[silent! xunmap <buffer> if]])
-						vim.cmd([[silent! xunmap <buffer> aF]])
-						vim.cmd([[silent! xunmap <buffer> iF]])
-						-- remap for vim-textobj-markdown
-						-- https://github.com/coachshea/vim-textobj-markdown/blob/master/README.md#conflicts-with-other-plugins
-						vim.keymap.set({ "o", "x" }, "af", "<plug>(textobj-markdown-chunk-a)", {
-							silent = true,
-							desc = "around the current fence",
-						})
-						vim.keymap.set({ "o", "x" }, "if", "<plug>(textobj-markdown-chunk-i)", {
-							silent = true,
-							desc = "inside the current fence",
-						})
-						vim.keymap.set({ "o", "x" }, "aF", "<plug>(textobj-markdown-Bchunk-a)", {
-							silent = true,
-							desc = "around the backward fence",
-						})
-						vim.keymap.set({ "o", "x" }, "iF", "<plug>(textobj-markdown-Bchunk-i)", {
-							silent = true,
-							desc = "inside the backward fence",
-						})
-					end,
-				})
-			end
+			-- remove keymap of nvim-treesitter-textobjects
+			vim.cmd([[silent! ounmap <buffer> af]])
+			vim.cmd([[silent! ounmap <buffer> if]])
+			vim.cmd([[silent! ounmap <buffer> aF]])
+			vim.cmd([[silent! ounmap <buffer> iF]])
+			vim.cmd([[silent! xunmap <buffer> af]])
+			vim.cmd([[silent! xunmap <buffer> if]])
+			vim.cmd([[silent! xunmap <buffer> aF]])
+			vim.cmd([[silent! xunmap <buffer> iF]])
+			-- remap for vim-textobj-markdown
+			-- https://github.com/coachshea/vim-textobj-markdown/blob/master/README.md#conflicts-with-other-plugins
+			vim.keymap.set({ "o", "x" }, "af", "<plug>(textobj-markdown-chunk-a)", {
+				silent = true,
+				desc = "around the current fence",
+			})
+			vim.keymap.set({ "o", "x" }, "if", "<plug>(textobj-markdown-chunk-i)", {
+				silent = true,
+				desc = "inside the current fence",
+			})
+			vim.keymap.set({ "o", "x" }, "aF", "<plug>(textobj-markdown-Bchunk-a)", {
+				silent = true,
+				desc = "around the backward fence",
+			})
+			vim.keymap.set({ "o", "x" }, "iF", "<plug>(textobj-markdown-Bchunk-i)", {
+				silent = true,
+				desc = "inside the backward fence",
+			})
 		end,
 	},
 	{
@@ -209,7 +199,19 @@ return {
 	},
 	{
 		"kylechui/nvim-surround",
-		event = { "VeryLazy" },
+		keys = {
+			{ "<C-g>s", mode = "i" },
+			{ "<C-g>S", mode = "i" },
+			{ "ys" },
+			{ "yss" },
+			{ "yS" },
+			{ "ySS" },
+			{ "gs", mode = "x" },
+			{ "gS", mode = "x" },
+			{ "ds" },
+			{ "cs" },
+			{ "cS" },
+		},
 		config = function()
 			-- HACK: change keymap to avoid conflict for leap.nvim
 			-- https://github.com/ggandor/leap.nvim/discussions/59#discussioncomment-3842315
@@ -326,7 +328,54 @@ return {
 	},
 	{
 		"monaqa/dial.nvim",
-		event = { "VeryLazy" },
+		keys = {
+			{
+				"<C-a>",
+				function()
+					require("dial.map").manipulate("increment", "normal")
+				end,
+				desc = "Increment",
+			},
+			{
+				"<C-x>",
+				function()
+					require("dial.map").manipulate("decrement", "normal")
+				end,
+				desc = "Decrement",
+			},
+			{
+				"<C-a>",
+				function()
+					require("dial.map").manipulate("increment", "visual")
+				end,
+				mode = "v",
+				desc = "Increment",
+			},
+			{
+				"<C-x>",
+				function()
+					require("dial.map").manipulate("decrement", "visual")
+				end,
+				mode = "v",
+				desc = "Decrement",
+			},
+			{
+				"g<C-a>",
+				function()
+					require("dial.map").manipulate("increment", "gvisual")
+				end,
+				mode = "v",
+				desc = "Increment",
+			},
+			{
+				"g<C-x>",
+				function()
+					require("dial.map").manipulate("decrement", "gvisual")
+				end,
+				mode = "v",
+				desc = "Decrement",
+			},
+		},
 		config = function()
 			local augend = require("dial.augend")
 			require("dial.config").augends:register_group({
@@ -414,35 +463,18 @@ return {
 					augend.misc.alias.markdown_header,
 				},
 			})
-
-			vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal(), {
-				desc = "Increment",
-			})
-
-			vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal(), {
-				desc = "Decrement",
-			})
-
-			vim.keymap.set("v", "<C-a>", require("dial.map").inc_visual(), {
-				desc = "Increment",
-			})
-
-			vim.keymap.set("v", "<C-x>", require("dial.map").dec_visual(), {
-				desc = "Decrement",
-			})
-
-			vim.keymap.set("v", "g<C-a>", require("dial.map").inc_gvisual(), {
-				desc = "Increment",
-			})
-
-			vim.keymap.set("v", "g<C-x>", require("dial.map").dec_gvisual(), {
-				desc = "Decrement",
-			})
 		end,
 	},
 	{
 		"smjonas/live-command.nvim",
-		event = { "VeryLazy" },
+		keys = {
+			{ "<space>c<C-s>", ":%Sort ", desc = "Set command for sort" },
+			{ "<space>c<C-s>", mode = "v", ":Sort ", desc = "Set command for sort" },
+			{ "<space>cd", ":%Global//d<left><left>", desc = "Set command to delete with global" },
+			{ "<space>cd", mode = "v", ":Global//d<left><left>", desc = "Set command to delete with global" },
+			{ "<space>c<C-d>", ":%Vglobal//d<left><left>", desc = "Set command to delete with vglobal" },
+			{ "<space>c<C-d>", mode = "v", ":Vglobal//d<left><left>", desc = "Set command to delete with vglobal" },
+		},
 		config = function()
 			require("live-command").setup({
 				commands = {
@@ -450,30 +482,6 @@ return {
 					Vglobal = { cmd = "vglobal" },
 					Sort = { cmd = "sort" },
 				},
-			})
-
-			vim.keymap.set("n", "<space>c<C-s>", ":%Sort ", {
-				desc = "Set command for sort",
-			})
-
-			vim.keymap.set("v", "<space>c<C-s>", ":Sort ", {
-				desc = "Set command for sort",
-			})
-
-			vim.keymap.set("n", "<space>cd", ":%Global//d<left><left>", {
-				desc = "Set command to delete with global",
-			})
-
-			vim.keymap.set("v", "<space>cd", ":Global//d<left><left>", {
-				desc = "Set command to delete with global",
-			})
-
-			vim.keymap.set("n", "<space>c<C-d>", ":%Vglobal//d<left><left>", {
-				desc = "Set command to delete with vglobal",
-			})
-
-			vim.keymap.set("v", "<space>c<C-d>", ":Vglobal//d<left><left>", {
-				desc = "Set command to delete with vglobal",
 			})
 		end,
 	},

@@ -45,15 +45,12 @@ return {
 		-- NOTE: Use for multi line visual star motions
 		--       Native feature support only single line in visual mode
 		"haya14busa/vim-asterisk",
-		event = { "VeryLazy" },
-		config = function()
-			vim.cmd([[
-				map *  <Plug>(asterisk-z*)
-				map #  <Plug>(asterisk-z#)
-				map g* <Plug>(asterisk-gz*)
-				map g# <Plug>(asterisk-gz#)
-			]])
-		end,
+		keys = {
+			{ "*", "<Plug>(asterisk-z*)", remap = true },
+			{ "#", "<Plug>(asterisk-z#)", remap = true },
+			{ "g*", "<Plug>(asterisk-gz*)", remap = true },
+			{ "g#", "<Plug>(asterisk-gz#)", remap = true },
+		},
 	},
 	{
 		"ethanholz/nvim-lastplace",

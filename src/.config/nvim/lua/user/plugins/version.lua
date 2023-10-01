@@ -110,18 +110,16 @@ return {
 
 	{
 		"sindrets/diffview.nvim",
-		cmd = { "DiffviewOpen", "DiffviewFileHistory" },
-		init = function()
-			vim.keymap.set("n", "<Space>vd", ":DiffviewOpen<cr><c-w>l", {
-				silent = true,
-				desc = "Open diff view",
-			})
-
-			vim.keymap.set({ "n", "v" }, "<Space>vh", ":DiffviewFileHistory %<cr>", {
+		keys = {
+			{ "<Space>vd", ":DiffviewOpen<cr><c-w>l", silent = true, desc = "Open diff view" },
+			{
+				"<Space>vh",
+				":DiffviewFileHistory %<cr>",
+				mode = { "n", "v" },
 				silent = true,
 				desc = "Open file history",
-			})
-		end,
+			},
+		},
 		config = function()
 			local diffview = require("diffview")
 			diffview.setup({
