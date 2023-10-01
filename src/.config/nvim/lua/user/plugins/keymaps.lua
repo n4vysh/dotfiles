@@ -2,6 +2,17 @@ return {
 	{
 		"tpope/vim-unimpaired",
 		event = { "VeryLazy" },
+		config = function()
+			-- remove keymap for urlview.nvim
+			vim.cmd("silent! xunmap [uu")
+			vim.cmd("silent! xunmap ]uu")
+			vim.cmd("silent! nunmap [uu")
+			vim.cmd("silent! nunmap ]uu")
+			vim.cmd("silent! xunmap [uU")
+			vim.cmd("silent! xunmap ]uU")
+			vim.cmd("silent! nunmap [uU")
+			vim.cmd("silent! nunmap ]uU")
+		end,
 	},
 	{
 		"echasnovski/mini.bracketed",

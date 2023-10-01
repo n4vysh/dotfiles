@@ -13,6 +13,8 @@ return {
 		"axieax/urlview.nvim",
 		keys = {
 			{ "<space>su", "<cmd>UrlView buffer bufnr=0<cr>", silent = true, desc = "Search for URLs" },
+			{ "[u" },
+			{ "]u" },
 		},
 		opts = { default_picker = "telescope" },
 	},
