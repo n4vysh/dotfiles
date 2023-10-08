@@ -29,6 +29,10 @@ unbind <C-f>
 bind --mode=normal i mode ignore
 bind --mode=ignore <Esc> mode normal
 
+unbind --mode=visual S
+bind --mode=visual s composite js document.getSelection().toString() | tabopen search
+bind --mode=visual o composite js document.getSelection().toString() | tabopen
+
 set allowautofocus false
 set smoothscroll true
 set modeindicator false
