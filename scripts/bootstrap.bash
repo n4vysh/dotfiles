@@ -718,6 +718,15 @@ _configure_without_privileged() {
 	sudo rkhunter -c --sk 2>/dev/null
 	sudo systemctl enable --now rkhunter.timer
 
+	# GUI Java Application
+	sudo archlinux-java set "$(
+		archlinux-java status |
+			grep 'java-.*-openjdk' |
+			awk '{print $1}' |
+			sort |
+			tail -1
+	)"
+
 	# NOTE: git clone fails when forcing ssh protocol
 	#       in ~/.config/git/config before creating ssh key
 	_log::info 'Deploy dotfiles'

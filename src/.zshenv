@@ -124,5 +124,8 @@ export OMPI_MCA_opal_warn_on_missing_libcuda=0
 # Nix
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
+# GUI Java Application
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 # local
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
