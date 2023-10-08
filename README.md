@@ -194,15 +194,15 @@ just configure-firefox
 Install addons refer to the [collections][collections-link]
 and restore settings from following files in [misc/firefox/](misc/firefox/) directory.
 
-| Addon name                          | File name                                         |
-| :---------------------------------- | :------------------------------------------------ |
-| [uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)             |
-| [FoxyProxy][foxy-proxy-link]        | [foxy_proxy.json](misc/firefox/foxy_proxy.json)   |
-| [Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)                   |
-| [LibRedirect][libredirect-link]     | [libredirect.json](misc/firefox/libredirect.json) |
+| Addon name                          | File name                                           |
+| :---------------------------------- | :------------------------------------------------   |
+| [uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)               |
+| [SwitchyOmega][switchy-omega-link]  | [switchy_omega.bak](misc/firefox/switchy_omega.bak) |
+| [Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)                     |
+| [LibRedirect][libredirect-link]     | [libredirect.json](misc/firefox/libredirect.json)   |
 
 [collections-link]: https://addons.mozilla.org/en-US/firefox/collections/17575539/n4vysh/
-[foxy-proxy-link]: https://getfoxyproxy.org/
+[switchy-omega-link]: https://github.com/FelisCatus/SwitchyOmega
 [twp-link]: https://github.com/FilipePS/Traduzir-paginas-web
 
 ### Test

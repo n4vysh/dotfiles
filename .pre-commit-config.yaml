@@ -11,7 +11,7 @@ repos:
           (?x)^(
             src/.config/nvim/lazy-lock.json|
             misc/firefox/ublock.txt|
-            misc/firefox/foxy_proxy.json|
+            misc/firefox/switchy_omega.bak|
             misc/firefox/twp.txt
           )$
       - id: check-added-large-files

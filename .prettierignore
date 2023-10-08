@@ -1,6 +1,5 @@
 test/templates/*.yaml
 src/.config/nvim/lazy-lock.json
-misc/firefox/foxy_proxy.json
 misc/firefox/libredirect.json
 misc/security-lab/charts/*/templates/*.yaml
 misc/security-lab/charts/*/templates/tests/*.yaml

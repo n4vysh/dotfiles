@@ -47,7 +47,7 @@ insert_final_newline = false
 [misc/firefox/ublock.txt]
 insert_final_newline = false
 
-[misc/firefox/foxy_proxy.json]
+[misc/firefox/switchy_omega.bak]
 insert_final_newline = false
 
 [misc/firefox/search.json.mozlz4]
