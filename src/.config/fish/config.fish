@@ -160,6 +160,7 @@ if status --is-interactive
     __fish_abbr_add_extend pl plocate
     __fish_abbr_add_extend r rg
     __fish_abbr_add_extend rm rm -iv
+    __fish_abbr_add_extend rs rustscan
     __fish_abbr_add_extend rt rtx
     __fish_abbr_add_extend sc systemctl
     __fish_abbr_add_extend se sudoedit

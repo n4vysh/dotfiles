@@ -10,6 +10,7 @@ extra/dog
 extra/gping
 extra/nmap
 extra/openvpn
+extra/rustscan
 extra/smbclient
 extra/termshark
 extra/ufw
