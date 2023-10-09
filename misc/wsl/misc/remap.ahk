@@ -1,3 +1,5 @@
+Capslock::LWin
+
 F13 & b::Left
 F13 & f::Right
 F13 & p::Up

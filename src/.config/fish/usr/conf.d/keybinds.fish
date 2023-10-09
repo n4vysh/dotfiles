@@ -6,7 +6,12 @@ set -l file (
 
 set -l cmd fzf
 if command -q "$cmd"
-    fzf_configure_bindings --variables=\cq
+    fzf_configure_bindings \
+        --directory=\cx\cf \
+        --git_log= \
+        --git_status= \
+        --processes= \
+        --variables=\cq
 else
     printf '%s: Not found %s command\n' "$file" "$cmd" >&2
 end

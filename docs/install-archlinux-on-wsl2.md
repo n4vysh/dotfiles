@@ -14,6 +14,8 @@ Install some packages with winget.
 ```pwsh
 winget install -e --id wez.wezterm
 winget install -e --id Mozilla.Firefox
+winget install -e --id LGUG2Z.whkd
+winget install -e --id LGUG2Z.komorebi
 winget install -e --id RandyRants.SharpKeys
 winget install -e --id Lexikos.AutoHotkey
 winget install -e --id SlackTechnologies.Slack
@@ -52,6 +54,7 @@ with [SharpKeys][sharpkeys-link], [dual-key-remap][dual-key-remap-link], and [Au
 | Physical key  | Mapped To      | Note                        |
 | :------------ | :------------- | :-------------------------- |
 | `Menu`        | `F13`          |
+| `Capslock`    | `Super (Left)` |
 | `Alt (Right)` | `Ctrl (Right)` | `Escape` when pressed alone |
 | `Alt (Left)`  | `Alt (Left)`   | `Tab` when pressed alone    |
 
@@ -136,7 +139,17 @@ Deploy dotfiles to Windows user directory.
 
 ```bash
 user=$(powershell.exe '$env:UserName' | sed -e 's/\r//g')
+dir="/mnt/c/Users/$user"
+cp -iv \
+  "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/komorebi.json" \
+  "$dir/komorebi.json"
+cp -iv \
+  "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/komorebi.bat" \
+  "$dir/komorebi.bat"
 dir="/mnt/c/Users/$user/.config"
+cp -iv \
+  "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/whkdrc" \
+  "$dir/whkdrc"
 mkdir "$dir/wezterm/"
 cp -iv \
   "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/wezterm/wezterm.lua" \
