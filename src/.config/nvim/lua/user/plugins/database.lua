@@ -1,6 +1,8 @@
 return {
 	{
 		"kristijanhusak/vim-dadbod-ui",
+		-- NOTE: call from shell
+		cmd = { "DBUI" },
 		keys = {
 			{ "g<C-d>", ":DBUI<CR>", silent = true, desc = "Toggle UI for database" },
 		},
