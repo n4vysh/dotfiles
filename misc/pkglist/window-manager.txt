@@ -8,6 +8,7 @@ extra/grim
 extra/interception-dual-function-keys
 extra/interception-tools
 extra/kanshi
+extra/ly
 extra/mako
 extra/slurp
 extra/sway

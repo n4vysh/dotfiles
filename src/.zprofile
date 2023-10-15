@@ -1,4 +1,5 @@
-if [[ -z $DISPLAY ]] && [[ $XDG_VTNR = 1 ]]; then
+# NOTE: Use tty2 for ly
+if [[ -z $DISPLAY ]] && [[ $XDG_VTNR = 2 ]]; then
 	export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
 	export GTK_IM_MODULE=fcitx
 	export QT_IM_MODULE=fcitx

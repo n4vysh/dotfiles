@@ -11,6 +11,7 @@
 [lockscreen-link]: ./misc/screenshots/lockscreen.png
 
 - Distro: [Arch Linux][archlinux-link]
+- Display Manager: [ly][ly-link]
 - Window Manager: [Sway][sway-link]
 - Shell: [Zsh][zsh-link] + [fish][fish-link]
 - Editor: [Neovim][neovim-link]
@@ -21,6 +22,7 @@
 [package list](./misc/pkglist/)
 
 [archlinux-link]: https://archlinux.org/
+[ly-link]: https://github.com/fairyglade/ly
 [sway-link]: https://swaywm.org/
 [zsh-link]: https://www.zsh.org/
 [fish-link]: https://fishshell.com/

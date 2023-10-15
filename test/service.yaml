@@ -59,3 +59,6 @@ service:
   cpupower.service:
     enabled: true
     running: true
+  ly.service:
+    enabled: true
+    running: true
