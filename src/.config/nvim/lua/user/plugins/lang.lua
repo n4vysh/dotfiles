@@ -435,7 +435,6 @@ return {
 							enable = false,
 						},
 						ui = {
-							title = false,
 							border = "single",
 							code_action = "",
 						},
