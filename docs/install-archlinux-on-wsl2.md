@@ -16,6 +16,7 @@ winget install -e --id wez.wezterm
 winget install -e --id Mozilla.Firefox
 winget install -e --id LGUG2Z.whkd
 winget install -e --id LGUG2Z.komorebi
+winget install -e --id OliverSchwendener.ueli
 winget install -e --id RandyRants.SharpKeys
 winget install -e --id Lexikos.AutoHotkey
 winget install -e --id SlackTechnologies.Slack
