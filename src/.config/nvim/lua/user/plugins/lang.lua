@@ -329,7 +329,7 @@ return {
 					null_ls.builtins.formatting.yamlfmt,
 					null_ls.builtins.diagnostics.write_good.with({
 						diagnostics_postprocess = function(diagnostic)
-							diagnostic.severity = vim.diagnostic.severity.WARN
+							diagnostic.severity = vim.diagnostic.severity.INFO
 						end,
 					}),
 					null_ls.builtins.diagnostics.zsh,
