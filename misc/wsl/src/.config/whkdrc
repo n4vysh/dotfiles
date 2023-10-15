@@ -1,7 +1,7 @@
 .shell powershell
 
 # Reload whkd configuration
-alt + o                 : taskkill /f /im whkd.exe && Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
+alt + o                 : taskkill /f /im whkd.exe; Start-Process whkd -WindowStyle hidden # if shell is pwsh / powershell
 alt + shift + o         : komorebic reload-configuration
 
 # Focus windows
@@ -34,3 +34,6 @@ alt + shift + 2         : komorebic send-to-workspace 1
 alt + shift + 3         : komorebic send-to-workspace 2
 alt + shift + p         : komorebic cycle-send-to-workspace previous
 alt + shift + n         : komorebic cycle-send-to-workspace next
+
+# Misc
+alt + shift + q         : komorebic close
