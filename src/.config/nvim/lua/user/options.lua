@@ -18,6 +18,7 @@ local options = {
 	termguicolors = true,
 	cursorline = true,
 	number = true,
+	relativenumber = true,
 	showmatch = true,
 	matchtime = 1,
 	showcmd = false,
