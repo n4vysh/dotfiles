@@ -9,6 +9,21 @@ return {
 	},
 	{
 		"RRethy/vim-illuminate",
+		config = function()
+			require("illuminate").configure({
+				filetypes_denylist = {
+					"lspinfo",
+					"checkhealth",
+					"help",
+					"man",
+					"gitcommit",
+					"TelescopePrompt",
+					"TelescopeResults",
+					"alpha",
+					"lazy",
+				},
+			})
+		end,
 		event = { "VeryLazy" },
 	},
 	{
