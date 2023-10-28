@@ -1,3 +1,10 @@
+-- NOTE: avoid remove trailing space when going into normal mode
+-- https://github.com/neovim/neovim/issues/21525
+vim.keymap.set("i", "<Esc>", "<left><right><Esc>", {
+	silent = true,
+	desc = nil,
+})
+
 vim.keymap.set("n", "<C-s>", "<cmd>write<CR>", {
 	silent = true,
 	desc = "Save the current file",
