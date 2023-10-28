@@ -44,7 +44,6 @@ aur/vale-bin
 aur/vercel
 aur/viddy
 aur/write-good
-aur/yamlfmt
 core/openssh
 extra/asciidoctor
 extra/asciinema
@@ -135,6 +134,7 @@ extra/watchexec
 extra/wezterm
 extra/xh
 extra/xsv
+extra/yamlfmt
 extra/yamllint
 extra/zoxide
 extra/zsh
