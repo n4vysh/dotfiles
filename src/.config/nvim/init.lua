@@ -82,3 +82,10 @@ require("user.keymaps")
 if pcall(require, "user.local") then
 	require("user.local")
 end
+
+for _, v in ipairs(vim.fn.argv()) do
+	if vim.fn.isdirectory(v) ~= 0 then
+		vim.api.nvim_echo({ { "Delete directory from buffer list: " .. v .. "\n", "WarningMsg" } }, true, {})
+		vim.cmd.bw(v)
+	end
+end

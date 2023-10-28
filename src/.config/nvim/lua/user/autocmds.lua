@@ -42,6 +42,22 @@ do
 	})
 end
 
+do
+	local auname = "delete_directory"
+	vim.api.nvim_create_augroup(auname, { clear = true })
+	vim.api.nvim_create_autocmd("BufEnter", {
+		group = auname,
+		pattern = { "*" },
+		callback = function()
+			local v = vim.fn.expand("%")
+			if vim.fn.isdirectory(v) ~= 0 then
+				vim.api.nvim_echo({ { "Delete directory from buffer list: " .. v .. "\n", "WarningMsg" } }, true, {})
+				vim.cmd.bw(v)
+			end
+		end,
+	})
+end
+
 -- appearance
 do
 	local auname = "highlight_yank"
