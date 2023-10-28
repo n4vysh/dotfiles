@@ -13,6 +13,11 @@ vim.keymap.set("n", "<C-w><C-q>", "<cmd>quit!<CR>", {
 	desc = "Quit without writing",
 })
 
+vim.keymap.set("n", "<C-q>", "<cmd>qa<CR>", {
+	silent = true,
+	desc = "Quit all buffer",
+})
+
 vim.keymap.set("x", "y", "y`]", {
 	silent = true,
 	desc = "Put and jump the text",
