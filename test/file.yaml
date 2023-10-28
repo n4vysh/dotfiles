@@ -146,7 +146,7 @@ file:
     group: root
     filetype: file
     # yamllint disable-line rule:line-length
-    sha512: 42364defea0492f49b7d7a84dc7c9530b92386ed0f58d6418eeafe7defc78f465517e4b67a30699669090c0cedb91eda7d7f5e417fcb38277f8951658f917108
+    sha512: bae0b44a89ffeca00d732b983d4b5b095841826bf12ac895a3de83d221e9d9bd21bfeb2c64d77557b92f8c904d1326d4aeb64762360b41b7345a6574a7a216e4
   /etc/interception/udevmon.yaml:
     exists: true
     mode: "0644"
