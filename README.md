@@ -40,6 +40,8 @@
   [systemd-oomd][systemd-oomd-link],
   [irqbalance][irqbalance-link],
   [cpupower][cpupower-link],
+  [tlp][tlp-link],
+  [thermald][thermald-link],
   and [profile-sync-daemon][profile-sync-daemon-link]
 - Parallelized [init process][init-link] with
   [systemd][systemd-link],
@@ -96,6 +98,8 @@
 [systemd-oomd-link]: https://www.freedesktop.org/software/systemd/man/systemd-oomd.service.html
 [irqbalance-link]: https://github.com/irqbalance/irqbalance
 [cpupower-link]: https://github.com/torvalds/linux/tree/master/tools/power/cpupower
+[tlp-link]: https://linrunner.de/tlp/index.html
+[thermald-link]: https://github.com/intel/thermal_daemon
 [profile-sync-daemon-link]: https://github.com/graysky2/profile-sync-daemon
 [uncompressed-initramfs-link]: https://bbs.archlinux.org/viewtopic.php?id=148172
 [init-link]: https://wiki.archlinux.org/title/Init
@@ -197,7 +201,7 @@ Install addons refer to the [collections][collections-link]
 and restore settings from following files in [misc/firefox/](misc/firefox/) directory.
 
 | Addon name                          | File name                                           |
-| :---------------------------------- | :------------------------------------------------   |
+| :---------------------------------- | :-------------------------------------------------- |
 | [uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)               |
 | [SwitchyOmega][switchy-omega-link]  | [switchy_omega.bak](misc/firefox/switchy_omega.bak) |
 | [Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)                     |
