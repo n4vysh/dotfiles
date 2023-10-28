@@ -7,12 +7,17 @@ return {
 	},
 	{
 		"direnv/direnv.vim",
-		config = function()
-			vim.keymap.set("n", "<space>ee", vim.cmd.EditEnvrc, {
-				silent = true,
-				desc = "Edit .envrc",
-			})
-		end,
+		ft = { "direnv" },
+		keys = {
+			{
+				"<space>ee",
+				vim.cmd.EditEnvrc,
+				{
+					silent = true,
+					desc = "Edit .envrc",
+				},
+			},
+		},
 	},
 	{
 		"towolf/vim-helm",
@@ -39,6 +44,7 @@ return {
 	},
 	{
 		"hjson/vim-hjson",
+		ft = { "hjson" },
 	},
 	{
 		"iamcco/markdown-preview.nvim",

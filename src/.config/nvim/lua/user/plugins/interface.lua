@@ -1,6 +1,7 @@
 return {
 	{
 		"stevearc/dressing.nvim",
+		event = { "VimEnter" },
 		opts = {
 			select = {
 				backend = { "builtin" },
@@ -9,6 +10,7 @@ return {
 	},
 	{
 		"RRethy/vim-illuminate",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		config = function()
 			require("illuminate").configure({
 				filetypes_denylist = {
@@ -24,22 +26,18 @@ return {
 				},
 			})
 		end,
-		event = { "VeryLazy" },
 	},
 	{
 		"winston0410/range-highlight.nvim",
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		dependencies = {
 			"winston0410/cmd-parser.nvim",
 		},
 		opts = {},
 	},
 	{
-		"nvim-tree/nvim-web-devicons",
-		lazy = true,
-	},
-	{
 		"lukas-reineke/indent-blankline.nvim",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		main = "ibl",
 		opts = {
 			indent = {
@@ -48,7 +46,6 @@ return {
 			},
 			scope = { enabled = false },
 		},
-		event = "VeryLazy",
 	},
 	{
 		"romainl/vim-cool",
@@ -77,7 +74,7 @@ return {
 	},
 	{
 		"ethanholz/nvim-lastplace",
-		event = "VeryLazy",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		config = function()
 			require("nvim-lastplace").setup({
 				lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
@@ -88,6 +85,7 @@ return {
 	},
 	{
 		"luukvbaal/statuscol.nvim",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		config = function()
 			local builtin = require("statuscol.builtin")
 			require("statuscol").setup({
@@ -106,10 +104,7 @@ return {
 	},
 	{
 		"anuvyklack/hydra.nvim",
-		dependencies = {
-			"mrjones2014/smart-splits.nvim",
-		},
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		config = function()
 			local hydra = require("hydra")
 			local splits = require("smart-splits")
@@ -166,20 +161,13 @@ return {
 				},
 			})
 		end,
+		dependencies = {
+			"mrjones2014/smart-splits.nvim",
+		},
 	},
 	{
 		"goolord/alpha-nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-			{
-				"Shatur/neovim-session-manager",
-				config = function()
-					require("session_manager").setup({
-						autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
-					})
-				end,
-			},
-		},
+		event = { "VimEnter" },
 		config = function()
 			local alpha = require("alpha")
 			local dashboard = require("alpha.themes.dashboard")
@@ -197,6 +185,17 @@ return {
 			}
 			alpha.setup(dashboard.config)
 		end,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			{
+				"Shatur/neovim-session-manager",
+				config = function()
+					require("session_manager").setup({
+						autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
+					})
+				end,
+			},
+		},
 	},
 	{
 		"kevinhwang91/nvim-bqf",
@@ -204,7 +203,7 @@ return {
 	},
 	{
 		"kwkarlwang/bufresize.nvim",
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		opts = {},
 	},
 	{
@@ -220,13 +219,11 @@ return {
 	},
 	{
 		"NvChad/nvim-colorizer.lua",
-		event = "BufReadPost",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		init = function()
 			vim.opt.termguicolors = true
 		end,
-		config = function()
-			require("colorizer").setup({})
-		end,
+		opts = {},
 	},
 	{
 		"uga-rosa/ccc.nvim",
@@ -300,30 +297,14 @@ return {
 			{ "romgrk/fzy-lua-native" },
 		},
 	},
-
 	{
 		"karb94/neoscroll.nvim",
-		event = { "VeryLazy" },
+		event = { "VimEnter" },
 		opts = {},
-	},
-
-	{
-		"SmiteshP/nvim-navic",
-		event = "LspAttach",
-		init = function()
-			vim.o.winbar = " "
-		end,
-		config = function()
-			local navic = require("nvim-navic")
-			navic.setup({
-				highlight = true,
-			})
-			vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
-		end,
-		dependencies = "neovim/nvim-lspconfig",
 	},
 	{
 		"nvim-lualine/lualine.nvim",
+		event = { "VimEnter" },
 		config = function()
 			require("lualine").setup({
 				options = {
@@ -428,9 +409,9 @@ return {
 			},
 		},
 	},
-
 	{
 		"akinsho/nvim-bufferline.lua",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		config = function()
 			require("bufferline").setup({
 				options = {

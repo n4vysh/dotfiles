@@ -1,7 +1,19 @@
 return {
 	{
 		"tpope/vim-abolish",
-		event = { "VeryLazy" },
+		-- NOTE: use only coercion
+		keys = {
+			"crc",
+			"crp",
+			"crm",
+			"cr_",
+			"crs",
+			"cru",
+			"crU",
+			"crk",
+			"cr-",
+			"cr.",
+		},
 		config = function()
 			vim.opt.iskeyword:append({ "-" })
 		end,
@@ -92,39 +104,39 @@ return {
 	},
 	{
 		"kana/vim-textobj-entire",
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"kana/vim-textobj-datetime",
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"mattn/vim-textobj-url",
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"pianohacker/vim-textobj-indented-paragraph",
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"kana/vim-textobj-indent",
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		-- NOTE: nvim-treesitter-textobjects not work multiline comments
 		-- https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/133
 		"glts/vim-textobj-comment",
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
 		"rsrchboy/vim-textobj-heredocs",
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
@@ -167,9 +179,7 @@ return {
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
-		config = function()
-			require("nvim-autopairs").setup({})
-		end,
+		opts = {},
 	},
 	{
 		"danymat/neogen",
@@ -190,7 +200,7 @@ return {
 	},
 	{
 		"tpope/vim-repeat",
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	},
 	{
 		"kylechui/nvim-surround",
@@ -220,16 +230,16 @@ return {
 	},
 	{
 		"wellle/targets.vim",
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	},
 	{
 		"Wansmer/treesj",
-		dependencies = { "nvim-treesitter" },
 		keys = {
 			{ "gS", "<cmd>TSJSplit<cr>", desc = "Split node under cursor" },
 			{ "gJ", "<cmd>TSJJoin<cr>", desc = "Join node under cursor" },
 		},
 		opts = { use_default_keymaps = false },
+		dependencies = { "nvim-treesitter" },
 	},
 	{
 		"ThePrimeagen/refactoring.nvim",

@@ -1,44 +1,120 @@
 return {
 	{
-		"neovim/nvim-lspconfig",
-		event = "VeryLazy",
+		"williamboman/mason.nvim",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		keys = {
+			{
+				"<Space>pp",
+				function()
+					vim.ui.select({ "plugins", "external tool" }, {
+						prompt = "package manager information",
+					}, function(choice)
+						if choice == nil then
+							do
+							end
+						elseif choice == "plugins" then
+							require("lazy").home()
+						else
+							vim.cmd.Mason()
+						end
+					end)
+				end,
+				{
+					silent = true,
+					desc = "Show package manager information",
+				},
+			},
+		},
 		config = function()
-			require("neodev").setup({})
-
+			require("mason").setup({
+				PATH = "append",
+			})
+			require("mason-tool-installer").setup({
+				ensure_installed = {
+					"bash-language-server",
+					"buf-language-server",
+					"css-lsp",
+					"dockerfile-language-server",
+					"docker-compose-language-service",
+					"emmet-ls",
+					"golangci-lint-langserver",
+					"graphql-language-service-cli",
+					"helm-ls",
+					"ltex-ls",
+					"json-lsp",
+					"marksman",
+					"taplo",
+					"terraform-ls",
+					"tflint",
+					"typescript-language-server",
+					"yaml-language-server",
+					"gopls",
+					"lua-language-server",
+				},
+			})
+			do
+				local auname = "mason"
+				vim.api.nvim_create_augroup(auname, { clear = true })
+				vim.api.nvim_create_autocmd("FileType", {
+					group = auname,
+					pattern = "mason",
+					callback = function()
+						vim.opt_local.winblend = 0
+					end,
+				})
+			end
+		end,
+		dependencies = {
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+		},
+	},
+	{
+		"neovim/nvim-lspconfig",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		keys = {
+			{
+				"<space>li",
+				function()
+					vim.ui.select({ "normal lang server", "null lang server" }, {
+						prompt = "lang server information",
+					}, function(choice)
+						if choice == nil then
+							do
+							end
+						elseif choice == "normal lang server" then
+							vim.cmd.LspInfo()
+						else
+							vim.cmd.NullLsInfo()
+						end
+					end)
+				end,
+				{ desc = "Show lang server information" },
+			},
+			{
+				"<space>ll",
+				function()
+					vim.ui.select({ "normal lang server", "null lang server" }, {
+						prompt = "lang server log",
+					}, function(choice)
+						if choice == nil then
+							do
+							end
+						elseif choice == "normal lang server" then
+							vim.cmd.LspLog()
+						else
+							vim.cmd.NullLsLog()
+						end
+					end)
+				end,
+				{ desc = "Show lang server log" },
+			},
+		},
+		config = function()
 			local lspconfig = require("lspconfig")
 
 			vim.diagnostic.config({
 				virtual_text = false,
 			})
-
-			vim.keymap.set("n", "<space>li", function()
-				vim.ui.select({ "normal lang server", "null lang server" }, {
-					prompt = "lang server information",
-				}, function(choice)
-					if choice == nil then
-						do
-						end
-					elseif choice == "normal lang server" then
-						vim.cmd.LspInfo()
-					else
-						vim.cmd.NullLsInfo()
-					end
-				end)
-			end, { desc = "Show lang server information" })
-			vim.keymap.set("n", "<space>ll", function()
-				vim.ui.select({ "normal lang server", "null lang server" }, {
-					prompt = "lang server log",
-				}, function(choice)
-					if choice == nil then
-						do
-						end
-					elseif choice == "normal lang server" then
-						vim.cmd.LspLog()
-					else
-						vim.cmd.NullLsLog()
-					end
-				end)
-			end, { desc = "Show lang server log" })
 
 			local augroup = vim.api.nvim_create_augroup("lsp_document_formatting", {})
 			local on_attach = function(client, bufnr)
@@ -49,7 +125,7 @@ return {
 					require("lspsaga.finder"):new({})
 				end, bufopts)
 				vim.keymap.set("n", "gd", function()
-					require("lspsaga.definition"):peek_definition(1)
+					require("lspsaga.definition"):init(1, 1)
 				end, bufopts)
 				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
 				vim.keymap.set("n", "g<C-i>", vim.lsp.buf.implementation, bufopts)
@@ -147,6 +223,58 @@ return {
 					local navic = require("nvim-navic")
 					navic.attach(client, bufnr)
 				end
+
+				local handler = function(virtText, lnum, endLnum, width, truncate)
+					local newVirtText = {}
+					local suffix = (" 󰁂 %d "):format(endLnum - lnum)
+					local sufWidth = vim.fn.strdisplaywidth(suffix)
+					local targetWidth = width - sufWidth
+					local curWidth = 0
+					for _, chunk in ipairs(virtText) do
+						local chunkText = chunk[1]
+						local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+						if targetWidth > curWidth + chunkWidth then
+							table.insert(newVirtText, chunk)
+						else
+							chunkText = truncate(chunkText, targetWidth - curWidth)
+							local hlGroup = chunk[2]
+							table.insert(newVirtText, { chunkText, hlGroup })
+							chunkWidth = vim.fn.strdisplaywidth(chunkText)
+							-- str width returned from truncate() may less than 2nd argument, need padding
+							if curWidth + chunkWidth < targetWidth then
+								suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
+							end
+							break
+						end
+						curWidth = curWidth + chunkWidth
+					end
+					table.insert(newVirtText, { suffix, "MoreMsg" })
+					return newVirtText
+				end
+
+				require("ufo").setup({
+					preview = {
+						win_config = {
+							border = { "", "─", "", "", "", "─", "", "" },
+							winhighlight = "Normal:Folded",
+							winblend = 0,
+						},
+						mappings = {
+							scrollU = "<C-u>",
+							scrollD = "<C-d>",
+						},
+					},
+					fold_virt_text_handler = handler,
+				})
+
+				require("ufo").setFoldVirtTextHandler(bufnr, handler)
+
+				require("lsp_signature").on_attach({
+					hint_enable = false,
+					handler_opts = {
+						border = "single",
+					},
+				}, bufnr)
 			end
 
 			local servers = {
@@ -199,7 +327,7 @@ return {
 				end,
 			})
 
-			require("lspconfig").ltex.setup({
+			lspconfig.ltex.setup({
 				settings = {
 					ltex = {
 						language = "ja-JP",
@@ -207,7 +335,7 @@ return {
 				},
 			})
 
-			require("lspconfig").jsonls.setup({
+			lspconfig.jsonls.setup({
 				settings = {
 					json = {
 						schemas = require("schemastore").json.schemas(),
@@ -216,7 +344,7 @@ return {
 				},
 			})
 
-			require("lspconfig").yamlls.setup({
+			lspconfig.yamlls.setup({
 				settings = {
 					yaml = {
 						schemaStore = {
@@ -249,7 +377,7 @@ return {
 				end,
 			})
 
-			require("lspconfig").gopls.setup({
+			lspconfig.gopls.setup({
 				settings = {
 					gopls = {
 						gofumpt = true,
@@ -259,7 +387,7 @@ return {
 				capabilities = capabilities,
 			})
 
-			require("lspconfig").lua_ls.setup({
+			lspconfig.lua_ls.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
 				settings = {
@@ -355,195 +483,121 @@ return {
 				},
 				on_attach = on_attach,
 			})
-
-			local handler = function(virtText, lnum, endLnum, width, truncate)
-				local newVirtText = {}
-				local suffix = (" 󰁂 %d "):format(endLnum - lnum)
-				local sufWidth = vim.fn.strdisplaywidth(suffix)
-				local targetWidth = width - sufWidth
-				local curWidth = 0
-				for _, chunk in ipairs(virtText) do
-					local chunkText = chunk[1]
-					local chunkWidth = vim.fn.strdisplaywidth(chunkText)
-					if targetWidth > curWidth + chunkWidth then
-						table.insert(newVirtText, chunk)
-					else
-						chunkText = truncate(chunkText, targetWidth - curWidth)
-						local hlGroup = chunk[2]
-						table.insert(newVirtText, { chunkText, hlGroup })
-						chunkWidth = vim.fn.strdisplaywidth(chunkText)
-						-- str width returned from truncate() may less than 2nd argument, need padding
-						if curWidth + chunkWidth < targetWidth then
-							suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
-						end
-						break
-					end
-					curWidth = curWidth + chunkWidth
-				end
-				table.insert(newVirtText, { suffix, "MoreMsg" })
-				return newVirtText
-			end
-
-			require("ufo").setup({
-				preview = {
-					win_config = {
-						border = { "", "─", "", "", "", "─", "", "" },
-						winhighlight = "Normal:Folded",
-						winblend = 0,
-					},
-					mappings = {
-						scrollU = "<C-u>",
-						scrollD = "<C-d>",
-					},
-				},
-				fold_virt_text_handler = handler,
-			})
-
-			local bufnr = vim.api.nvim_get_current_buf()
-			require("ufo").setFoldVirtTextHandler(bufnr, handler)
-			require("lsp_signature").setup({
-				hint_enable = false,
-				handler_opts = {
-					border = "single",
-				},
-			})
 		end,
 		dependencies = {
+			{ "williamboman/mason.nvim" },
 			{
 				"nvimtools/none-ls.nvim",
 				dependencies = { "nvim-lua/plenary.nvim" },
 			},
-			{ "williamboman/mason.nvim" },
-			{ "nvim-lua/plenary.nvim" },
-			{ "weilbith/nvim-code-action-menu" },
 			{ "b0o/SchemaStore.nvim" },
-			{
-				"smjonas/inc-rename.nvim",
-				config = function()
-					require("inc_rename").setup({})
-				end,
-			},
-			{ "folke/neodev.nvim" },
-			{
-				"kevinhwang91/nvim-ufo",
-				config = function()
-					vim.o.foldcolumn = "0"
-					vim.o.foldlevel = 99
-					vim.o.foldlevelstart = 99
-					vim.o.foldenable = true
-				end,
-				dependencies = "kevinhwang91/promise-async",
-			},
-			{
-				"nvimdev/lspsaga.nvim",
-				event = "LspAttach",
-				config = function()
-					require("lspsaga").setup({
-						request_timeout = 5000,
-						lightbulb = {
-							virtual_text = false,
-						},
-						outline = {
-							close_after_jump = true,
-						},
-						symbol_in_winbar = {
-							enable = false,
-						},
-						ui = {
-							border = "single",
-							code_action = "",
-						},
-					})
-				end,
-			},
-			{
-				"folke/trouble.nvim",
-				config = function()
-					require("trouble").setup({
-						action_keys = {
-							-- NOTE: jump action can't work jump back,
-							--       so use always jump_close action
-							jump = {},
-						},
-					})
-				end,
-			},
+			{ "folke/neodev.nvim", opts = {} },
 		},
 	},
 	{
-		"williamboman/mason.nvim",
-		event = { "VeryLazy" },
+		"ray-x/lsp_signature.nvim",
+		event = "LspAttach",
+		dependencies = {
+			"neovim/nvim-lspconfig",
+		},
+	},
+	{
+		"weilbith/nvim-code-action-menu",
+		event = "LspAttach",
+		dependencies = {
+			"neovim/nvim-lspconfig",
+		},
+	},
+	{
+		"smjonas/inc-rename.nvim",
+		event = "LspAttach",
+		opts = {},
+		dependencies = {
+			"neovim/nvim-lspconfig",
+		},
+	},
+	{
+		"kevinhwang91/nvim-ufo",
+		event = "LspAttach",
 		config = function()
-			require("mason").setup({
-				PATH = "append",
-			})
-			require("mason-tool-installer").setup({
-				ensure_installed = {
-					"bash-language-server",
-					"buf-language-server",
-					"css-lsp",
-					"dockerfile-language-server",
-					"docker-compose-language-service",
-					"emmet-ls",
-					"golangci-lint-langserver",
-					"graphql-language-service-cli",
-					"helm-ls",
-					"ltex-ls",
-					"json-lsp",
-					"marksman",
-					"taplo",
-					"terraform-ls",
-					"tflint",
-					"typescript-language-server",
-					"yaml-language-server",
-					"gopls",
-					"lua-language-server",
-				},
-			})
-			vim.keymap.set("n", "<Space>pp", function()
-				vim.ui.select({ "plugins", "external tool" }, {
-					prompt = "package manager information",
-				}, function(choice)
-					if choice == nil then
-						do
-						end
-					elseif choice == "plugins" then
-						require("lazy").home()
-					else
-						vim.cmd.Mason()
-					end
-				end)
-			end, {
-				silent = true,
-				desc = "Show package manager information",
-			})
-			do
-				local auname = "mason"
-				vim.api.nvim_create_augroup(auname, { clear = true })
-				vim.api.nvim_create_autocmd("FileType", {
-					group = auname,
-					pattern = "mason",
-					callback = function()
-						vim.opt_local.winblend = 0
-					end,
-				})
-			end
+			vim.o.foldcolumn = "0"
+			vim.o.foldlevel = 99
+			vim.o.foldlevelstart = 99
+			vim.o.foldenable = true
 		end,
 		dependencies = {
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			"neovim/nvim-lspconfig",
+			"kevinhwang91/promise-async",
+		},
+	},
+	{
+		"nvimdev/lspsaga.nvim",
+		event = "LspAttach",
+		opts = {
+			request_timeout = 5000,
+			lightbulb = {
+				virtual_text = false,
+			},
+			outline = {
+				close_after_jump = true,
+			},
+			symbol_in_winbar = {
+				enable = false,
+			},
+			ui = {
+				border = "single",
+				code_action = "",
+			},
+		},
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
+	{
+		"folke/trouble.nvim",
+		event = "LspAttach",
+		opts = {
+			action_keys = {
+				-- NOTE: jump action can't work jump back,
+				--       so use always jump_close action
+				jump = {},
+			},
+		},
+		dependencies = {
+			"neovim/nvim-lspconfig",
+			"nvim-tree/nvim-web-devicons",
 		},
 	},
 	{
 		"j-hui/fidget.nvim",
 		tag = "legacy",
 		event = "LspAttach",
-		config = function()
-			require("fidget").setup({
-				text = {
-					spinner = "dots",
-					done = "✓",
-				},
-			})
+		opts = {
+			text = {
+				spinner = "dots",
+				done = "✓",
+			},
+		},
+		dependencies = {
+			"neovim/nvim-lspconfig",
+		},
+	},
+	{
+		"SmiteshP/nvim-navic",
+		event = "LspAttach",
+		init = function()
+			vim.o.winbar = " "
 		end,
+		config = function()
+			local navic = require("nvim-navic")
+			navic.setup({
+				highlight = true,
+			})
+			vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+		end,
+		dependencies = {
+			"neovim/nvim-lspconfig",
+		},
 	},
 }

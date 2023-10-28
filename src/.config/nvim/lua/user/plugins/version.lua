@@ -1,10 +1,7 @@
 return {
 	{
 		"lewis6991/gitsigns.nvim",
-		event = { "VeryLazy" },
-		dependencies = {
-			{ "nvim-lua/plenary.nvim" },
-		},
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		config = function()
 			require("gitsigns").setup({
 				current_line_blame = true,
@@ -50,6 +47,9 @@ return {
 				end,
 			})
 		end,
+		dependencies = {
+			{ "nvim-lua/plenary.nvim" },
+		},
 	},
 
 	{

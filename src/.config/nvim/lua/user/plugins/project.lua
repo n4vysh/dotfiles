@@ -1,7 +1,9 @@
 return {
 	{
 		"tpope/vim-projectionist",
-		-- event = { "VeryLazy" },
+		-- NOTE: vim-projectionist lazy load automatically
+		-- https://github.com/tpope/vim-projectionist/issues/130
+		lazy = false,
 		config = function()
 			vim.keymap.set("n", "<Space>aa", ":A<cr>", {
 				silent = true,

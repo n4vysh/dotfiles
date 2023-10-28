@@ -1,7 +1,7 @@
 return {
 	{
 		"tpope/vim-unimpaired",
-		event = { "VeryLazy" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		config = function()
 			-- remove keymap for urlview.nvim
 			vim.cmd("silent! xunmap [uu")
