@@ -72,7 +72,7 @@ return {
 	},
 	{
 		"mg979/vim-visual-multi",
-		keys = { { "<C-n>", mode = { "n", "x" } }, { "<C-m>" }, { "<C-h>" } },
+		keys = { { "<C-n>", mode = { "n", "x" } }, { "<C-m>" }, { "<C-c>" } },
 		init = function()
 			vim.g.VM_theme = "neon"
 			vim.g.VM_silent_exit = 1
@@ -82,7 +82,7 @@ return {
 			vim.g.VM_maps = {
 				["I BS"] = "",
 				["Add Cursor Down"] = "<C-m>",
-				["Add Cursor Up"] = "<C-h>",
+				["Add Cursor Up"] = "<C-c>",
 			}
 
 			-- NOTE: Use clipboard
