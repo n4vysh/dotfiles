@@ -11,6 +11,9 @@ trim_trailing_whitespace = true
 [justfile]
 indent_size = 4
 
+[**/*.ahk]
+indent_style = tab
+
 [*/.config/git/config]
 indent_style = tab
 

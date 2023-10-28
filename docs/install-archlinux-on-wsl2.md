@@ -14,7 +14,6 @@ Install some packages with winget.
 ```pwsh
 winget install -e --id wez.wezterm
 winget install -e --id Mozilla.Firefox
-winget install -e --id LGUG2Z.whkd
 winget install -e --id LGUG2Z.komorebi
 winget install -e --id OliverSchwendener.ueli
 winget install -e --id RandyRants.SharpKeys
@@ -145,12 +144,9 @@ cp -iv \
   "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/komorebi.json" \
   "$dir/komorebi.json"
 cp -iv \
-  "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/komorebi.bat" \
-  "$dir/komorebi.bat"
+  "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/komorebi.json" \
+  "$dir/komorebi.ahk"
 dir="/mnt/c/Users/$user/.config"
-cp -iv \
-  "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/whkdrc" \
-  "$dir/whkdrc"
 mkdir "$dir/wezterm/"
 cp -iv \
   "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/wezterm/wezterm.lua" \
