@@ -19,7 +19,7 @@ return {
 				desc = "Switch buffer",
 			},
 			{
-				"<space>ff",
+				"<c-p>",
 				function()
 					require("user.utils.finder").find_files()
 				end,
