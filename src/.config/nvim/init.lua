@@ -51,24 +51,20 @@ lazy.setup("user.plugins", {
 	install = {
 		colorscheme = { "tokyonight" },
 	},
-	rtp = {
-		disabled_plugins = {
-			"2html_plugin",
-			"getscript",
-			"getscriptPlugin",
-			"gzip",
-			"matchit",
-			"rrhelper",
-			"spellfile_plugin",
-			"tar",
-			"tarPlugin",
-			"tutor_mode_plugin",
-			"vimball",
-			"vimballPlugin",
-			"zip",
-			"zipPlugin",
-			"netrw",
-			"netrwPlugin",
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"gzip",
+				"matchit",
+				"matchparen",
+				"netrwPlugin",
+				"rplugin",
+				"spellfile",
+				"tarPlugin",
+				"tohtml",
+				"tutor",
+				"zipPlugin",
+			},
 		},
 	},
 	change_detection = {
