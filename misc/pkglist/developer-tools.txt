@@ -36,6 +36,7 @@ aur/opa
 aur/pack-cli-bin
 aur/pet-bin
 aur/proselint
+aur/redocly
 aur/rtx-bin
 aur/terraform-docs-bin
 aur/tflint-bin
