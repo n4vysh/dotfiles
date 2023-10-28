@@ -62,3 +62,6 @@ service:
   ly.service:
     enabled: true
     running: true
+  tlp.service:
+    enabled: true
+    running: true
