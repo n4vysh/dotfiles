@@ -96,11 +96,6 @@ return {
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
-		"kana/vim-textobj-line",
-		event = { "VeryLazy" },
-		dependencies = "kana/vim-textobj-user",
-	},
-	{
 		"kana/vim-textobj-datetime",
 		event = { "VeryLazy" },
 		dependencies = "kana/vim-textobj-user",
