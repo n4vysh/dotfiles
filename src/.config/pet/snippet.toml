@@ -207,3 +207,15 @@
   command = "gpg-connect-agent \"scd serialno\" \"learn --force\" /bye"
   tag = ["misc"]
   output = ""
+
+[[snippets]]
+  description = "show CPU frequency"
+  command = "sudo cpupower frequency-info"
+  tag = ["misc"]
+  output = ""
+
+[[snippets]]
+  description = "change maximum CPU frequency"
+  command = "sudo cpupower frequency-set -u <freq=5GHz>"
+  tag = ["misc"]
+  output = ""
