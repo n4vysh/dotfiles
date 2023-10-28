@@ -476,9 +476,14 @@ _configure_without_privileged() {
 
 	sudo systemctl restart systemd-logind
 
-	_log::info 'Configure Scaling governors'
+	_log::info 'Configure CPU frequency scaling'
+	sudo sed \
+		-i \
+		-e '/^#governor=/s/ondemand/performance/' \
+		-e '/^#governor=/s/#//' \
+		-e '/^#max_freq=/s/#//' \
+		/etc/default/cpupower
 	sudo systemctl enable --now cpupower
-	sudo cpupower frequency-set -g performance
 
 	# Input devices
 	_log::info 'Configure keyboard layouts'
