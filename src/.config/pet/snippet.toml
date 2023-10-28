@@ -205,4 +205,5 @@
 [[snippets]]
   description = "switch yubikeys for same GPG key"
   command = "gpg-connect-agent \"scd serialno\" \"learn --force\" /bye"
+  tag = ["misc"]
   output = ""
