@@ -65,3 +65,6 @@ service:
   tlp.service:
     enabled: true
     running: true
+  thermald.service:
+    enabled: true
+    running: true

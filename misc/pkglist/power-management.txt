@@ -1,3 +1,4 @@
 extra/acpi
 extra/cpupower
+extra/thermald
 extra/tlp
