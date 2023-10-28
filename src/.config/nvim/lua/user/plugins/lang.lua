@@ -164,7 +164,6 @@ return {
 				"terraformls",
 				"tflint",
 				"tsserver",
-				"yamlls",
 			}
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -213,6 +212,20 @@ return {
 					json = {
 						schemas = require("schemastore").json.schemas(),
 						validate = { enable = true },
+					},
+				},
+			})
+
+			require("lspconfig").yamlls.setup({
+				settings = {
+					yaml = {
+						schemaStore = {
+							-- NOTE: disable built-in schemaStore support and use SchemaStore.nvim
+							enable = false,
+							-- NOTE: Avoid TypeError: Cannot read properties of undefined (reading 'length')
+							url = "",
+						},
+						schemas = require("schemastore").yaml.schemas(),
 					},
 				},
 			})
