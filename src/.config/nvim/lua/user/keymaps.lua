@@ -57,16 +57,15 @@ vim.keymap.set("v", "g?", [[<ESC>?\%V]], {
 	desc = "Search backward in the range",
 })
 
+vim.keymap.set("n", "<C-h>", ":%s///g<left><left><left>", {
+	desc = "Set command for substitute",
+})
+
+vim.keymap.set("v", "<C-h>", ":s///g<left><left><left>", {
+	desc = "Set command for substitute",
+})
+
 -- keymaps using the space bar like Spacemacs
--- +commands
-vim.keymap.set("n", "<space>cs", ":%s///g<left><left><left>", {
-	desc = "Set command for substitute",
-})
-
-vim.keymap.set("v", "<space>cs", ":s///g<left><left><left>", {
-	desc = "Set command for substitute",
-})
-
 -- +yank
 vim.keymap.set("n", "<space>yn", function()
 	require("user.utils.yank").exec("file name", vim.fn.expand("%:t"))
