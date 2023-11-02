@@ -1,4 +1,4 @@
-set $mod Mod1
+set $mod Mod4
 set $left h
 set $down j
 set $up k
@@ -10,7 +10,7 @@ output * bg #000000 solid_color
 
 input * {
   xkb_layout "us-custom"
-  xkb_options "caps:super"
+  xkb_options "caps:none"
 }
 
 input type:touchpad {
@@ -33,8 +33,7 @@ input type:touchpad {
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
-    # HACK: Mod1 not work
-    floating_modifier Mod4 normal
+    floating_modifier $mod normal
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
@@ -157,7 +156,7 @@ mode "$mode_launcher" {
   bindsym f exec "$term start nnn", mode "default"
   bindsym i exec slack, mode "default"
   bindsym ctrl+i exec discord, mode "default"
-  bindsym ctrl+shift+i exec signal-desktop, mode "default"
+  bindsym alt+i exec signal-desktop, mode "default"
   bindsym n exec "$term start iwctl", mode "default"
   bindsym ctrl+n exec wireshark, mode "default"
   bindsym m exec "$term start btm", mode "default"

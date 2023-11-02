@@ -254,7 +254,6 @@ Run `just test` to lint and format the source code with
 | Physical key  | Mapped To      | Note                        |
 | :------------ | :------------- | :-------------------------- |
 | `Menu`        | `F13`          |
-| `Capslock`    | `Super (Left)` |
 | `Alt (Right)` | `Ctrl (Right)` | `Escape` when pressed alone |
 | `Alt (Left)`  | `Alt (Left)`   | `Tab` when pressed alone    |
 

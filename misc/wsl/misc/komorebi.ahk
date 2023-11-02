@@ -21,58 +21,124 @@ Loop {
 #Include komorebic.lib.ahk
 
 ; Reload configuration
-!+c::Reload
+F13 & c::
+{
+	if GetKeyState("Shift") {
+		Reload
+	}
+}
 
-; Focus windows
-!h::Focus("left")
-!j::Focus("down")
-!k::Focus("up")
-!l::Focus("right")
+; Focus or move windows
+F13 & h::
+{
+	if ! GetKeyState("Shift") {
+		Focus("left")
+	} else {
+		Move("left")
+	}
+}
 
-; Move windows
-!+h::Move("left")
-!+j::Move("down")
-!+k::Move("up")
-!+l::Move("right")
+F13 & j::
+{
+	if ! GetKeyState("Shift") {
+		Focus("down")
+	} else {
+		Move("down")
+	}
+}
+
+F13 & k::
+{
+	if ! GetKeyState("Shift") {
+		Focus("up")
+	} else {
+		Move("up")
+	}
+}
+
+F13 & l::
+{
+	if ! GetKeyState("Shift") {
+		Focus("right")
+	} else {
+		Move("right")
+	}
+}
 
 ; Manipulate windows
-!+space::ToggleFloat()
-!f::ToggleMaximize()
+F13 & space::
+{
+	if GetKeyState("Shift") {
+		ToggleFloat()
+	}
+}
+
+F13 & f::ToggleMaximize()
 
 ; Workspaces
-!1::FocusWorkspace(0)
-!2::FocusWorkspace(1)
-!3::FocusWorkspace(2)
-!4::FocusWorkspace(3)
-!p::CycleWorkspace("previous")
-!n::CycleWorkspace("next")
+F13 & 1::
+{
+	if ! GetKeyState("Shift") {
+		FocusWorkspace(0)
+	} else {
+		SendToWorkspace(0)
+	}
+}
 
-; Send windows across workspaces
-!+1::SendToWorkspace(0)
-!+2::SendToWorkspace(1)
-!+3::SendToWorkspace(2)
-!+4::SendToWorkspace(3)
-!+p::CycleSendToWorkspace("previous")
-!+n::CycleSendToWorkspace("next")
+F13 & 2::
+{
+	if ! GetKeyState("Shift") {
+		FocusWorkspace(1)
+	} else {
+		SendToWorkspace(1)
+	}
+}
+
+F13 & 3::
+{
+	if ! GetKeyState("Shift") {
+		FocusWorkspace(2)
+	} else {
+		SendToWorkspace(2)
+	}
+}
+
+F13 & 4::
+{
+	if ! GetKeyState("Shift") {
+		FocusWorkspace(3)
+	} else {
+		SendToWorkspace(3)
+	}
+}
+
+F13 & p::
+{
+	if ! GetKeyState("Shift") {
+		CycleWorkspace("previous")
+	} else {
+		CycleSendToWorkspace("previous")
+	}
+}
+
+F13 & n::
+{
+	if ! GetKeyState("Shift") {
+		CycleWorkspace("next")
+	} else {
+		CycleSendToWorkspace("next")
+	}
+}
 
 ; Misc
-!+q::Close()
+F13 & q::
+{
+	if GetKeyState("Shift") {
+		Close()
+	}
+}
 
-Capslock::LWin
-
-F13 & b::Left
-F13 & f::Right
-F13 & p::Up
-F13 & n::Down
-
-F13 & a::Home
-F13 & e::End
-
-F13 & i::Tab
-
-F13 & h::Backspace
-F13 & d::Delete
-F13 & m::Enter
+AppsKey::LWin
 
 ~LShift::
 {

@@ -51,25 +51,12 @@ Deploy [remap.skl][sharpkeys-config-link], [dual-key-remap/config.txt][dual-key-
 and [remap.ahk][ahk-config-link] to remap following keys and shortcuts
 with [SharpKeys][sharpkeys-link], [dual-key-remap][dual-key-remap-link], and [AutoHotKey][ahk-link].
 
-| Physical key  | Mapped To      | Note                        |
-| :------------ | :------------- | :-------------------------- |
-| `Menu`        | `F13`          |
-| `Capslock`    | `Super (Left)` |
-| `Alt (Right)` | `Ctrl (Right)` | `Escape` when pressed alone |
-| `Alt (Left)`  | `Alt (Left)`   | `Tab` when pressed alone    |
-
-| Physical shortcut | Mapped To   |
-| :---------------- | :---------- |
-| `Menu` + `b`      | `Left`      |
-| `Menu` + `f`      | `Right`     |
-| `Menu` + `p`      | `Up`        |
-| `Menu` + `n`      | `Down`      |
-| `Menu` + `a`      | `Home`      |
-| `Menu` + `e`      | `End`       |
-| `Menu` + `i`      | `Tab`       |
-| `Menu` + `h`      | `Backspace` |
-| `Menu` + `d`      | `Delete`    |
-| `Menu` + `m`      | `Enter`     |
+| Physical key   | Mapped To      | Note                        |
+| :------------- | :------------- | :-------------------------- |
+| `Super (Left)` | `F13`          |
+| `Menu`         | `Super (Left)` |
+| `Alt (Right)`  | `Ctrl (Right)` | `Escape` when pressed alone |
+| `Alt (Left)`   | `Alt (Left)`   | `Tab` when pressed alone    |
 
 [sharpkeys-config-link]: ../misc/wsl/misc/remap.skl
 [dual-key-remap-config-link]: ../misc/wsl/misc/dual-key-remap/config.txt
