@@ -66,6 +66,7 @@ return {
 		end,
 		dependencies = {
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			"stevearc/dressing.nvim",
 		},
 	},
 	{
@@ -489,6 +490,7 @@ return {
 			})
 		end,
 		dependencies = {
+			{ "stevearc/dressing.nvim" },
 			{ "williamboman/mason.nvim" },
 			{
 				"nvimtools/none-ls.nvim",

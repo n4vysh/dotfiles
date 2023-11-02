@@ -1,7 +1,7 @@
 return {
 	{
 		"stevearc/dressing.nvim",
-		event = { "VimEnter" },
+		lazy = true,
 		opts = {
 			select = {
 				backend = { "builtin" },
