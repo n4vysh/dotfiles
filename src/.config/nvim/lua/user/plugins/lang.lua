@@ -342,6 +342,8 @@ return {
 						validate = { enable = true },
 					},
 				},
+				on_attach = on_attach,
+				capabilities = capabilities,
 			})
 
 			lspconfig.yamlls.setup({
@@ -356,6 +358,8 @@ return {
 						schemas = require("schemastore").yaml.schemas(),
 					},
 				},
+				on_attach = on_attach,
+				capabilities = capabilities,
 			})
 
 			vim.api.nvim_create_autocmd("BufWritePre", {
