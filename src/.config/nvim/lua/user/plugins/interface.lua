@@ -303,7 +303,7 @@ return {
 	},
 	{
 		"karb94/neoscroll.nvim",
-		event = { "VimEnter" },
+		event = { "CursorMoved" },
 		opts = {},
 	},
 	{
