@@ -66,10 +66,10 @@ return {
 		--       Native feature support only single line in visual mode
 		"haya14busa/vim-asterisk",
 		keys = {
-			{ "*", "<Plug>(asterisk-z*)", remap = true },
-			{ "#", "<Plug>(asterisk-z#)", remap = true },
-			{ "g*", "<Plug>(asterisk-gz*)", remap = true },
-			{ "g#", "<Plug>(asterisk-gz#)", remap = true },
+			{ "*", "<Plug>(asterisk-z*)", mode = { "n", "v" } },
+			{ "#", "<Plug>(asterisk-z#)", mode = { "n", "v" } },
+			{ "g*", "<Plug>(asterisk-gz*)", mode = { "n", "v" } },
+			{ "g#", "<Plug>(asterisk-gz#)", mode = { "n", "v" } },
 		},
 	},
 	{
