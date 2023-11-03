@@ -253,22 +253,8 @@ Run `just test` to lint and format the source code with
 
 | Physical key  | Mapped To      | Note                        |
 | :------------ | :------------- | :-------------------------- |
-| `Menu`        | `F13`          |
 | `Alt (Right)` | `Ctrl (Right)` | `Escape` when pressed alone |
 | `Alt (Left)`  | `Alt (Left)`   | `Tab` when pressed alone    |
-
-| Physical shortcut | Mapped To   |
-| :---------------- | :---------- |
-| `Menu` + `b`      | `Left`      |
-| `Menu` + `f`      | `Right`     |
-| `Menu` + `p`      | `Up`        |
-| `Menu` + `n`      | `Down`      |
-| `Menu` + `a`      | `Home`      |
-| `Menu` + `e`      | `End`       |
-| `Menu` + `i`      | `Tab`       |
-| `Menu` + `h`      | `Backspace` |
-| `Menu` + `d`      | `Delete`    |
-| `Menu` + `m`      | `Enter`     |
 
 ### QMK
 
