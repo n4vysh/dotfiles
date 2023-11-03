@@ -34,15 +34,12 @@ aur/nodejs-nestjs-cli
 aur/opa
 aur/pack-cli-bin
 aur/pet-bin
-aur/proselint
 aur/redocly
 aur/rtx-bin
 aur/terraform-docs-bin
 aur/tflint-bin
-aur/vale-bin
 aur/vercel
 aur/viddy
-aur/write-good
 core/openssh
 extra/asciidoctor
 extra/asciinema
