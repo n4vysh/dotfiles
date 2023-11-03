@@ -33,6 +33,10 @@ unbind --mode=visual S
 bind --mode=visual s composite js document.getSelection().toString() | tabopen search
 bind --mode=visual o composite js document.getSelection().toString() | tabopen
 
+unbind o
+unbind t
+unbind w
+
 set allowautofocus false
 set smoothscroll true
 set modeindicator false
