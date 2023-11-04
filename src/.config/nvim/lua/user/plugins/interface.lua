@@ -52,6 +52,14 @@ return {
 		event = { "CursorMoved", "InsertEnter" },
 	},
 	{
+		"wsdjeg/vim-fetch",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		keys = {
+			{ "gf", "<cmd>call fetch#cfile(v:count1)<CR>" },
+			{ "gf", "<cmd>call fetch#visual(v:count1)<CR>", mode = "x" },
+		},
+	},
+	{
 		"moll/vim-bbye",
 		keys = {
 			{ "gq", "<cmd>Bdelete<cr>", silent = true, desc = "Delete current buffer" },
