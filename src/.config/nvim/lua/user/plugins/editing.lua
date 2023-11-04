@@ -1,5 +1,26 @@
 return {
 	{
+		"numToStr/Comment.nvim",
+		keys = {
+			{ "gc", mode = { "n", "x" } },
+			{ "gb", mode = { "n", "x" } },
+			{ "gcc" },
+			{ "gcb" },
+			{ "gco" },
+			{ "gcO" },
+			{ "gcA" },
+		},
+		config = function()
+			require("Comment").setup({
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			})
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
+	},
+	{
 		"tpope/vim-abolish",
 		-- NOTE: use only coercion
 		keys = {

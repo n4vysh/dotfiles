@@ -112,18 +112,6 @@ return {
 		},
 	},
 	{
-		"numToStr/Comment.nvim",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		config = function()
-			require("Comment").setup({
-				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-			})
-		end,
-		dependencies = {
-			"JoosepAlviste/nvim-ts-context-commentstring",
-		},
-	},
-	{
 		"m-demare/hlargs.nvim",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		opts = {},
