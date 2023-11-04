@@ -27,6 +27,11 @@ return {
 			vim.cmd("silent! xunmap ]y")
 			vim.cmd("silent! nunmap [yy")
 			vim.cmd("silent! nunmap ]yy")
+			-- remove keymap for nvim-treesitter-textobjects
+			vim.cmd("silent! nunmap [o")
+			vim.cmd("silent! nunmap ]o")
+			vim.cmd("silent! nunmap [o<Esc>")
+			vim.cmd("silent! nunmap ]o<Esc>")
 		end,
 	},
 	{
