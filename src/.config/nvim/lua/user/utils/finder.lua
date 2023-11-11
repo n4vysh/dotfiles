@@ -4,7 +4,6 @@ function M.find_files()
 	local builtin = require("telescope.builtin")
 	builtin.find_files({
 		hidden = true,
-		no_ignore = true,
 	})
 end
 
