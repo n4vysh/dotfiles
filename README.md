@@ -517,6 +517,13 @@ Available following linux distributions and vulnerable web applications.
 
 [on WSL2](./docs/install-archlinux-on-wsl2.md)
 
+## License
+
+This project distributed under the [Unlicense][unlicense-link].
+See the [UNLICENSE](./UNLICENSE) file for details.
+
+[unlicense-link]: https://choosealicense.com/licenses/unlicense/
+
 <!-- markdownlint-configure-file
 {
   "MD013": { "tables": false }
