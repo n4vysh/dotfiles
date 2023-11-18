@@ -24,6 +24,9 @@ Loop {
 F13 & c::
 {
 	if GetKeyState("Shift") {
+		RunWait("taskkill /f /im komorebi.exe", , "Hide")
+		USERPROFILE := EnvGet("USERPROFILE")
+		RunWait("komorebic.exe start -c " USERPROFILE "\komorebi.json", , "Hide")
 		Reload
 	}
 }
