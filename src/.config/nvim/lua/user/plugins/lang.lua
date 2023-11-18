@@ -461,7 +461,6 @@ return {
 					null_ls.builtins.formatting.eslint.with({
 						only_local = "node_modules/.bin",
 					}),
-					null_ls.builtins.diagnostics.tfsec,
 					null_ls.builtins.diagnostics.hadolint,
 					null_ls.builtins.formatting.yamlfmt,
 					null_ls.builtins.diagnostics.zsh,
