@@ -164,6 +164,12 @@ if status --is-interactive
     __fish_abbr_add_extend rm rm -iv
     __fish_abbr_add_extend rs rustscan
     __fish_abbr_add_extend rt rtx
+    __fish_abbr_add_extend rti rtx install
+    __fish_abbr_add_extend rtl rtx local
+    __fish_abbr_add_extend rtlr rtx ls-remote
+    __fish_abbr_add_extend rtplr rtx plugins ls-remote
+    __fish_abbr_add_extend rtu rtx use
+    __fish_abbr_add_extend rtug rtx use -g
     __fish_abbr_add_extend sc systemctl
     __fish_abbr_add_extend se sudoedit
     __fish_abbr_add_extend st stern
@@ -196,6 +202,12 @@ if status --is-interactive
     __fish_abbr_add_extend tgp terragrunt plan
     __fish_abbr_add_extend tgpr terragrunt plan -replace
     __fish_abbr_add_extend tgpt terragrunt plan -target
+    __fish_abbr_add_extend tgra terragrunt run-all apply
+    __fish_abbr_add_extend tgrar terragrunt run-all apply -replace
+    __fish_abbr_add_extend tgrat terragrunt run-all apply -target
+    __fish_abbr_add_extend tgrp terragrunt run-all plan
+    __fish_abbr_add_extend tgrpr terragrunt run-all plan -replace
+    __fish_abbr_add_extend tgrpt terragrunt run-all plan -target
     __fish_abbr_add_extend tgst terragrunt state
     __fish_abbr_add_extend tgstp terragrunt state pull
     __fish_abbr_add_extend tgsh terragrunt show
