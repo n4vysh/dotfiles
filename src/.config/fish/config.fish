@@ -202,9 +202,11 @@ if status --is-interactive
     __fish_abbr_add_extend tgp terragrunt plan
     __fish_abbr_add_extend tgpr terragrunt plan -replace
     __fish_abbr_add_extend tgpt terragrunt plan -target
+    __fish_abbr_add_extend tgr terragrunt run-all
     __fish_abbr_add_extend tgra terragrunt run-all apply
     __fish_abbr_add_extend tgrar terragrunt run-all apply -replace
     __fish_abbr_add_extend tgrat terragrunt run-all apply -target
+    __fish_abbr_add_extend tgri terragrunt run-all init
     __fish_abbr_add_extend tgrp terragrunt run-all plan
     __fish_abbr_add_extend tgrpr terragrunt run-all plan -replace
     __fish_abbr_add_extend tgrpt terragrunt run-all plan -target
