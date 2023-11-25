@@ -6,6 +6,10 @@ repos:
       - id: check-case-conflict
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
+        exclude: |
+          (?x)^(
+            src/.config/qmk/disable_thread.patch
+          )$
       - id: end-of-file-fixer
         exclude: |
           (?x)^(
@@ -117,6 +121,7 @@ repos:
         language: system
         entry: just src/.config/qmk/fmt
         files: .config/qmk/keymap/.*\.(h|c)$
+        pass_filenames: false
       - id: pkglist
         name: format pkglist
         language: system
