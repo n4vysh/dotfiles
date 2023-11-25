@@ -1,0 +1,70 @@
+name: main
+"on": push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+      env:
+        XDG_CONFIG_HOME: "/github/home/.config"
+    steps:
+      - name: Install packages
+        run: |
+          yes '' |
+            pacman -Syu --noconfirm --needed \
+              sudo \
+              fakeroot \
+              just \
+              pre-commit \
+              prettier \
+              yamllint \
+              markdownlint-cli2 \
+              shellcheck \
+              zsh \
+              fish \
+              selene \
+              stylua \
+              editorconfig-checker \
+              taplo \
+              shellharden \
+              shfmt \
+              qmk \
+              clang \
+              git \
+              stow \
+              patch
+          sudo -u nobody curl -L -o '/tmp/#1' \
+            'https://aur.archlinux.org/cgit/aur.git/snapshot/{nnn-nerd.tar.gz}'
+          sudo -u nobody tar xzvf /tmp/nnn-nerd.tar.gz -C /tmp/
+          cd /tmp/nnn-nerd/
+          sudo -u nobody makepkg
+          sudo -u nobody makepkg --packagelist | tee list
+          yes '' | pacman --noconfirm --needed -U "$(cat list)"
+          cd -
+      - uses: actions/checkout@main
+      - name: Deploy dotfiles
+        run: |
+          just prelink
+          just _stow
+      - name: Set safe directory for submodule clone
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - name: Change protocol for git clone
+        run: |
+          git config --global --remove-section url."git@github.com:"
+          git config --global \
+            url."https://github.com/".insteadOf \
+            git@github.com:
+      - name: Install fish plugins
+        shell: fish {0}
+        # yamllint disable rule:line-length
+        run: |
+          curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish |
+            source &&
+            fisher install jorgebucaran/fisher
+            fisher install jorgebucaran/fishtape
+        # yamllint enable rule:line-length
+      - name: Initialize qmk
+        run: just src/.config/qmk/init
+      - name: Run pre-commit
+        shell: fish {0}
+        run: SKIP=sway,goss,goss-privileged just test
