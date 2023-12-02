@@ -26,10 +26,20 @@ repos:
   - repo: local
     hooks:
       - id: prettier
-        name: format json, yaml, and markdown files with prettier
+        name: format json and markdown files with prettier
         language: system
-        entry: prettier
-        types_or: [json, yaml, markdown]
+        entry: prettier --write --list-different --ignore-unknown
+        types_or: [json, markdown]
+      - id: yamlfmt
+        name: format yaml files with yamlfmt
+        language: system
+        entry: yamlfmt -lint
+        types_or: [yaml]
+        exclude: |
+          (?x)^(
+            test/templates/.*|
+            misc/security-lab/charts/.*
+          )$
       - id: yamllint
         name: check yaml files with yamllint
         language: system
