@@ -20,10 +20,22 @@ dry-run-unlink: (_stow "-n" "-D")
 init: init-submodule create-dummy-file link patch setup
 
 init-submodule:
-    git submodule update --init --recursive --recommend-shallow --depth=1 firmware/
+    git submodule update \
+        --init \
+        --recursive \
+        --recommend-shallow \
+        --depth=1 \
+        --jobs=$(nproc) \
+        firmware/
 
 update-submodule: reverse
-    git submodule update --remote --recursive --recommend-shallow --depth=1 firmware/
+    git submodule update \
+        --remote \
+        --recursive \
+        --recommend-shallow \
+        --depth=1 \
+        --jobs=$(nproc) \
+        firmware/
     make -C firmware git-submodule
 
 create-dummy-file:
