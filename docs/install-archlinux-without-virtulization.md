@@ -36,14 +36,18 @@ dd \
 Run following procedures to put firmware in [Setup Mode][setup-mode-link]
 and boot the live environment.
 
+<!-- editorconfig-checker-disable -->
+
 1. Press the power button while holding down the `F3` button.
 1. Since rescue mode screen is displayed, and then select "Start BIOS setup".
 1. When the “PHOENIX SECURECORE TECHNOLOGY SETUP” screen is displayed,
-  press the `↓` key and select "Secure Boot" menu, and press the `Enter` key.
+   press the `↓` key and select "Secure Boot" menu, and press the `Enter` key.
 1. Press the `→` key, select "Clear All Secure Boot Settings", and press
-  the `Enter` key.
+   the `Enter` key.
 1. Press the `↓` key, select "Exit", and `Enter` key.
 1. Select "Start from medium" to boot the live environment.
+
+<!-- editorconfig-checker-enable -->
 
 [setup-mode-link]: https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Putting_firmware_in_%22Setup_Mode%22
 
