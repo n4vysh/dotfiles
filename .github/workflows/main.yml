@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: Install packages
         run: |
+          sed \
+            -i \
+            -e 's/^#ParallelDownloads = .*$/ParallelDownloads = 20/' \
+            /etc/pacman.conf
           yes '' |
             pacman -Syu --noconfirm --needed \
               sudo \
