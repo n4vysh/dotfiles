@@ -561,14 +561,8 @@ return {
 	},
 	{
 		"j-hui/fidget.nvim",
-		tag = "legacy",
 		event = "LspAttach",
-		opts = {
-			text = {
-				spinner = "dots",
-				done = "✓",
-			},
-		},
+		opts = {},
 		dependencies = {
 			"neovim/nvim-lspconfig",
 		},
