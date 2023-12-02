@@ -316,6 +316,7 @@ _configure_without_privileged() {
 		-e '/^#VerbosePkgLists$/s/#//' \
 		-e 's/^#ParallelDownloads = 5$/ParallelDownloads = 20/' \
 		/etc/pacman.conf
+	sudo systemctl enable --now paccache.timer
 
 	_log::info 'Add blackarch repository'
 	curl -o '/tmp/#1' 'https://blackarch.org/{strap.sh}'

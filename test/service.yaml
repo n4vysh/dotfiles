@@ -68,3 +68,6 @@ service:
   thermald.service:
     enabled: true
     running: true
+  paccache.timer:
+    enabled: true
+    running: true
