@@ -14,6 +14,12 @@ jobs:
             -i \
             -e 's/^#ParallelDownloads = .*$/ParallelDownloads = 20/' \
             /etc/pacman.conf
+          sed \
+            -i \
+            -e 's/-march=x86-64 -mtune=generic/-march=native/' \
+            -e "/^#MAKEFLAGS=\"-j2\"$/s/-j2/-j$(nproc)/" \
+            -e '/^COMPRESSZST/s/zstd -c/zstd -1 --threads=0 -c/' \
+            /etc/makepkg.conf
           yes '' |
             pacman -Syu --noconfirm --needed \
               sudo \
