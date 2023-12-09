@@ -17,6 +17,10 @@ if [[ $1 == install ]]; then
 
 	sed \
 		-e '/set -g status-right /s/^.*$/set -g status-right "#[fg=#7aa2f7,bg=#1f2335,nobold,nounderscore,noitalics]#[fg=#15161E,bg=#7aa2f7,bold] #h "/' \
+		-e 's///g' \
+		-e 's///g' \
+		-e 's///g' \
+		-e 's///g' \
 		"$dir/$name" \
 		>"$dir/tokyonight.mod.tmux"
 
