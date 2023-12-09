@@ -43,7 +43,10 @@ return {
 					map("n", "<space>vp", gs.preview_hunk, { desc = "Preview hunk" })
 
 					-- Text object
-					map({ "o", "x" }, "ih", "<cmd>Gitsigns select_hunk<CR>")
+					map({ "o", "x" }, "ih", ":<C-u>Gitsigns select_hunk<CR>", {
+						silent = true,
+						desc = "Select hunk",
+					})
 				end,
 			})
 		end,
