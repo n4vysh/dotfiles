@@ -55,6 +55,8 @@ jobs:
       - uses: actions/checkout@main
       - name: Deploy dotfiles
         run: |
+          # HACK: avoid warning error of stow on GitHub Actions
+          rm -fv src/.local/bin/nuke
           just prelink
           just _stow
       - name: Set safe directory for submodule clone
