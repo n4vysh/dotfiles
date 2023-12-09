@@ -105,6 +105,7 @@ extra/selene
 extra/shellcheck
 extra/shellharden
 extra/shfmt
+extra/silicon
 extra/skaffold
 extra/sops
 extra/starship
