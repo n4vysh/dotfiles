@@ -194,6 +194,16 @@ if status --is-interactive
     __fish_abbr_add_extend ps grc ps
     __fish_abbr_add_extend pd sudo -E pacdiff
     __fish_abbr_add_extend pl plocate
+    __fish_abbr_add_extend pp pnpm
+    __fish_abbr_add_extend ppa pnpm add
+    __fish_abbr_add_extend ppd pnpm dlx
+    __fish_abbr_add_extend ppi pnpm install
+    __fish_abbr_add_extend ppif pnpm install --frozen-lockfile
+    __fish_abbr_add_extend pps pnpm start
+    __fish_abbr_add_extend ppt pnpm test
+    __fish_abbr_add_extend pprb pnpm run build
+    __fish_abbr_add_extend pprd pnpm run dev
+    __fish_abbr_add_extend pprl pnpm run lint
     __fish_abbr_add_extend r rg
     __fish_abbr_add_extend rm rm -iv
     __fish_abbr_add_extend rs rustscan
