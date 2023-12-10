@@ -223,12 +223,11 @@ if status --is-interactive
     __fish_abbr_add_extend rm rm -iv
     __fish_abbr_add_extend rs rustscan
     __fish_abbr_add_extend rt rtx
+    __fish_abbr_add_extend rtg rtx global
     __fish_abbr_add_extend rti rtx install
     __fish_abbr_add_extend rtl rtx local
     __fish_abbr_add_extend rtlr rtx ls-remote
     __fish_abbr_add_extend rtplr rtx plugins ls-remote
-    __fish_abbr_add_extend rtu rtx use
-    __fish_abbr_add_extend rtug rtx use -g
     __fish_abbr_add_extend sc systemctl
     __fish_abbr_add_extend se sudoedit
     __fish_abbr_add_extend so sops
