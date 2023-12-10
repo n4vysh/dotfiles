@@ -383,6 +383,10 @@ return {
 								fg = "#737aa2",
 								bold = true,
 							}
+							hl.DiagnosticUnnecessary = {
+								fg = "#737aa2",
+								bold = true,
+							}
 							hl.GitSignsCurrentLineBlame = {
 								fg = "#737aa2",
 								bold = true,
