@@ -96,18 +96,24 @@ if status --is-interactive
     __fish_abbr_add_extend cm chmod
     __fish_abbr_add_extend co chown
     __fish_abbr_add_extend cp cp -irv
-    __fish_abbr_add_extend d docker
+    __fish_abbr_add_extend d grc docker
+    __fish_abbr_add_extend docker grc docker
     __fish_abbr_add_extend db devbox
     __fish_abbr_add_extend dc docker compose
     __fish_abbr_add_extend de direnv
     __fish_abbr_add_extend dea direnv allow
     __fish_abbr_add_extend dee direnv edit
+    __fish_abbr_add_extend df grc df
+    __fish_abbr_add_extend dig grc dig
     __fish_abbr_add_extend ds dust -r
     __fish_abbr_add_extend do dog
+    __fish_abbr_add_extend du grc du
     __fish_abbr_add_extend e eza -gF --icons --git --time-style long-iso -s Name -l
     __fish_abbr_add_extend ea eza -gF --icons --git --time-style long-iso -s Name -al
+    __fish_abbr_add_extend env grc env
     __fish_abbr_add_extend ev eva
     __fish_abbr_add_extend f fd -L
+    __fish_abbr_add_extend free grc free
     __fish_abbr_add_extend g go
     __fish_abbr_add_extend gb gobuster
     __fish_abbr_add_extend ghd gh dash
@@ -123,6 +129,7 @@ if status --is-interactive
     __fish_abbr_add_extend hd helm-docs
     __fish_abbr_add_extend hf helmfile
     __fish_abbr_add_extend hi hash-identifier
+    __fish_abbr_add_extend id grc id
     __fish_abbr_add_extend ifm informant
     __fish_abbr_add_extend info info --vi-keys
     __fish_abbr_add_extend ip ip -c
@@ -134,9 +141,12 @@ if status --is-interactive
     __fish_abbr_add_extend kl kube-linter
     __fish_abbr_add_extend kn kubens
     __fish_abbr_add_extend kv kubeval
-    __fish_abbr_add_extend l last
+    __fish_abbr_add_extend l grc last
+    __fish_abbr_add_extend last grc last
     __fish_abbr_add_extend lg lazygit
     __fish_abbr_add_extend ld lazydocker
+    __fish_abbr_add_extend lsblk grc lsblk
+    __fish_abbr_add_extend lsof grc lsof
     __fish_abbr_add_extend mc msfconsole -q
     __fish_abbr_add_extend md mkdir -p
     __fish_abbr_add_extend mv mv -iv
@@ -147,6 +157,7 @@ if status --is-interactive
     __fish_abbr_add_extend nv nvim
     __fish_abbr_add_extend ns ncspot
     __fish_abbr_add_extend p procs
+    __fish_abbr_add_extend ping grc ping
     __fish_abbr_add_extend pr paru
     __fish_abbr_add_extend prs paru -S
     __fish_abbr_add_extend prsi paru -Si
@@ -158,6 +169,7 @@ if status --is-interactive
     __fish_abbr_add_extend prqo paru -Qo
     __fish_abbr_add_extend prr paru -R
     __fish_abbr_add_extend prrs paru -Rs
+    __fish_abbr_add_extend ps grc ps
     __fish_abbr_add_extend pd sudo -E pacdiff
     __fish_abbr_add_extend pl plocate
     __fish_abbr_add_extend r rg
