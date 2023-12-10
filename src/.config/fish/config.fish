@@ -128,10 +128,19 @@ if status --is-interactive
     __fish_abbr_add_extend gqg ghq get
     __fish_abbr_add_extend gr grex
     __fish_abbr_add_extend gt gpg-tui --style colored
-    __fish_abbr_add_extend h helm
     __fish_abbr_add_extend hc hashcat
     __fish_abbr_add_extend hd helm-docs
-    __fish_abbr_add_extend hf helmfile
+    __fish_abbr_add_extend hl helm
+    __fish_abbr_add_extend hlh helm history
+    __fish_abbr_add_extend hll helm list
+    __fish_abbr_add_extend hls helm status
+    __fish_abbr_add_extend hlr helm rollback
+    __fish_abbr_add_extend hlf helmfile
+    __fish_abbr_add_extend hlfa helmfile apply
+    __fish_abbr_add_extend hlfd helmfile diff
+    __fish_abbr_add_extend hlfl helmfile lint
+    __fish_abbr_add_extend hlfs helmfile status
+    __fish_abbr_add_extend hlft helmfile test
     __fish_abbr_add_extend hi hash-identifier
     __fish_abbr_add_extend id grc id
     __fish_abbr_add_extend ifm informant
