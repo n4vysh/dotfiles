@@ -17,12 +17,14 @@ function fish_user_key_bindings
     fish_user_execute_key_bindings \cof n
     fish_user_execute_key_bindings \com btm
     fish_user_execute_key_bindings \co\cm ncspot
+    fish_user_execute_key_bindings \con $EDITOR \~/Documents/note.md
     fish_user_execute_key_bindings \co\cp sudo informant read
     fish_user_execute_key_bindings \cos bash -l
-    fish_user_execute_key_bindings \cot unbuffer tree \| less
-    fish_user_execute_key_bindings \co\ct rlwrap -a trans -b
+    fish_user_execute_key_bindings \cot $EDITOR \~/Documents/tasks.md
     fish_user_execute_key_bindings \cov lazygit
     fish_user_execute_key_bindings \co\cv gh dash
     fish_user_execute_key_bindings \coz zi
     fish_user_execute_key_bindings \cz fg
+
+    fish_user_execute_key_bindings \cxt unbuffer tree \| less
 end
