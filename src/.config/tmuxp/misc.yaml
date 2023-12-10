@@ -1,8 +1,0 @@
-session_name: misc
-suppress_history: true
-start_directory: $HOME
-windows:
-  - panes:
-      - $EDITOR ~/Documents/{tasks,note}.md
-  - panes:
-      - ncspot
