@@ -146,7 +146,16 @@ if status --is-interactive
     __fish_abbr_add_extend ifm informant
     __fish_abbr_add_extend info info --vi-keys
     __fish_abbr_add_extend ip ip -c
-    __fish_abbr_add_extend j just
+    __fish_abbr_add_extend js just
+    __fish_abbr_add_extend jsde just dev
+    __fish_abbr_add_extend jsdo just docs
+    __fish_abbr_add_extend jsf just fmt
+    __fish_abbr_add_extend jsgc just get-creds
+    __fish_abbr_add_extend jsl just lint
+    __fish_abbr_add_extend jssd just switch dev
+    __fish_abbr_add_extend jsss just switch stg
+    __fish_abbr_add_extend jssp just switch prd
+    __fish_abbr_add_extend jst just test
     __fish_abbr_add_extend jh john
     __fish_abbr_add_extend jnc journalctl
     __fish_abbr_add_extend k kubie
