@@ -114,11 +114,15 @@ if status --is-interactive
     __fish_abbr_add_extend ev eva
     __fish_abbr_add_extend f fd -L
     __fish_abbr_add_extend free grc free
-    __fish_abbr_add_extend g go
     __fish_abbr_add_extend gb gobuster
     __fish_abbr_add_extend ghd gh dash
     __fish_abbr_add_extend gi git
     __fish_abbr_add_extend gib gibo
+    __fish_abbr_add_extend goi go install
+    __fish_abbr_add_extend gomd go mod download
+    __fish_abbr_add_extend gomi go mod init
+    __fish_abbr_add_extend gor go run
+    __fish_abbr_add_extend got go test
     __fish_abbr_add_extend gp gping
     __fish_abbr_add_extend gq ghq
     __fish_abbr_add_extend gqg ghq get
