@@ -216,6 +216,7 @@ if status --is-interactive
     __fish_abbr_add_extend rtug rtx use -g
     __fish_abbr_add_extend sc systemctl
     __fish_abbr_add_extend se sudoedit
+    __fish_abbr_add_extend so sops
     __fish_abbr_add_extend st stern
     __fish_abbr_add_extend t rlwrap -a trans -b
     __fish_abbr_add_extend ta trash
