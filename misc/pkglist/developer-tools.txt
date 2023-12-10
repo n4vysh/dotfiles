@@ -1,5 +1,6 @@
 aur/actionlint-bin
 aur/adr-tools
+aur/calcure
 aur/chart-testing
 aur/conftest
 aur/crudini
