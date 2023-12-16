@@ -37,6 +37,7 @@ return {
 					"dockerfile-language-server",
 					"docker-compose-language-service",
 					"emmet-ls",
+					"eslint-lsp",
 					"golangci-lint-langserver",
 					"graphql-language-service-cli",
 					"helm-ls",
@@ -262,6 +263,15 @@ return {
 				})
 			end
 
+			lspconfig.eslint.setup({
+				on_attach = function(_, buf)
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = buf,
+						command = "EslintFixAll",
+					})
+				end,
+			})
+
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				pattern = { "*.go" },
 				callback = function()
@@ -405,12 +415,6 @@ return {
 					null_ls.builtins.diagnostics.yamllint,
 					null_ls.builtins.diagnostics.selene,
 					null_ls.builtins.formatting.clang_format,
-					null_ls.builtins.diagnostics.eslint.with({
-						only_local = "node_modules/.bin",
-					}),
-					null_ls.builtins.formatting.eslint.with({
-						only_local = "node_modules/.bin",
-					}),
 					null_ls.builtins.diagnostics.hadolint,
 					null_ls.builtins.formatting.yamlfmt,
 					null_ls.builtins.diagnostics.zsh,
