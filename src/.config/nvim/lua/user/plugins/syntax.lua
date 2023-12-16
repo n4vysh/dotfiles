@@ -138,10 +138,6 @@ return {
 			autotag = {
 				enable = true,
 			},
-			context_commentstring = {
-				enable = true,
-				enable_autocmd = false,
-			},
 			endwise = {
 				enable = true,
 			},
@@ -151,7 +147,13 @@ return {
 			"RRethy/nvim-treesitter-endwise",
 			"andymass/vim-matchup",
 			"windwp/nvim-ts-autotag",
-			"JoosepAlviste/nvim-ts-context-commentstring",
+			{
+				"JoosepAlviste/nvim-ts-context-commentstring",
+				main = "ts_context_commentstring",
+				ops = {
+					enable_autocmd = false,
+				},
+			},
 		},
 	},
 	{
