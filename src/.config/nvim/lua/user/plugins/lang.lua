@@ -112,170 +112,125 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 
-			vim.diagnostic.config({
-				virtual_text = false,
-			})
+			vim.api.nvim_create_autocmd("LspAttach", {
+				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+				callback = function(ev)
+					local buf = ev.buf
+					local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
-			local augroup = vim.api.nvim_create_augroup("lsp_document_formatting", {})
-			local on_attach = function(client, bufnr)
-				vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-				local bufopts = { silent = true, buffer = bufnr }
-				vim.keymap.set("n", "gh", function()
-					require("lspsaga.finder"):new({})
-				end, bufopts)
-				vim.keymap.set("n", "gd", function()
-					require("lspsaga.definition"):init(1, 1)
-				end, bufopts)
-				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
-				vim.keymap.set("n", "g<C-i>", vim.lsp.buf.implementation, bufopts)
-				vim.keymap.set(
-					"n",
-					"gl",
-					[[:lua vim.diagnostic.open_float()<cr><C-w><C-w>]],
-					{ desc = "Show diagnostics in float window", silent = true }
-				)
-				vim.keymap.set("n", "go", function()
-					vim.cmd([[normal m']])
-
-					require("lspsaga.symbol.outline"):outline()
-				end, {
-					silent = true,
-					desc = "Toggle symbols outline",
-				})
-				vim.keymap.set("n", "g<C-t>", function()
-					-- HACK:Use jump list
-					-- https://github.com/folke/trouble.nvim/issues/235
-					vim.cmd([[normal m']])
-
-					require("trouble").open()
-				end, {
-					silent = true,
-					desc = "Toggle trouble (diagnostics) panel",
-				})
-				vim.keymap.set("n", "[d", function()
-					vim.diagnostic.goto_prev({ float = false })
-				end, bufopts)
-				vim.keymap.set("n", "]d", function()
-					vim.diagnostic.goto_next({ float = false })
-				end, bufopts)
-				vim.keymap.set("n", "K", function()
-					local winid = require("ufo").peekFoldedLinesUnderCursor()
-					if not winid then
-						require("lspsaga.hover"):render_hover_doc({})
-					end
-				end, bufopts)
-				vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
-				vim.keymap.set("n", "gr", function()
-					return ":IncRename " .. vim.fn.expand("<cword>")
-				end, { expr = true })
-				vim.keymap.set({ "n", "v" }, "gA", require("code_action_menu").open_code_action_menu, bufopts)
-
-				if client.supports_method("textDocument/formatting") then
-					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						group = augroup,
-						buffer = bufnr,
-						callback = function()
-							vim.lsp.buf.format({ bufnr = bufnr })
-						end,
+					vim.diagnostic.config({
+						virtual_text = false,
 					})
-				end
 
-				if client.name == "lua_ls" or client.name == "terraformls" then
-					client.server_capabilities.documentFormattingProvider = false
-					client.server_capabilities.documentRangeFormattingProvider = false
-				end
+					vim.bo[buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-				if client.server_capabilities.documentHighlightProvider then
-					vim.api.nvim_set_hl(0, "LspReferenceRead", {
-						bg = "#45403d",
-						bold = true,
-					})
-					vim.api.nvim_set_hl(0, "LspReferenceText", {
-						bg = "#45403d",
-						bold = true,
-					})
-					vim.api.nvim_set_hl(0, "LspReferenceWrite", {
-						bg = "#45403d",
-						bold = true,
-					})
-					local auname = "lsp_document_highlight"
-					vim.api.nvim_create_augroup(auname, {})
-					vim.api.nvim_clear_autocmds({ group = auname, buffer = bufnr })
-					vim.api.nvim_create_autocmd("CursorHold", {
-						group = auname,
-						buffer = bufnr,
-						callback = function()
-							vim.lsp.buf.document_highlight()
-						end,
-					})
-					vim.api.nvim_create_autocmd("CursorMoved", {
-						group = auname,
-						buffer = bufnr,
-						callback = function()
-							vim.lsp.buf.clear_references()
-						end,
-					})
-				end
+					local opts = { silent = true, buffer = buf }
+					vim.keymap.set("n", "gh", function()
+						require("lspsaga.finder"):new({})
+					end, opts)
+					vim.keymap.set("n", "gd", function()
+						require("lspsaga.definition"):init(1, 1)
+					end, opts)
+					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+					vim.keymap.set("n", "g<C-i>", vim.lsp.buf.implementation, opts)
+					vim.keymap.set(
+						"n",
+						"gl",
+						[[:lua vim.diagnostic.open_float()<cr><C-w><C-w>]],
+						{ desc = "Show diagnostics in float window", silent = true }
+					)
+					vim.keymap.set("n", "go", function()
+						vim.cmd([[normal m']])
 
-				if client.server_capabilities.documentSymbolProvider then
-					local navic = require("nvim-navic")
-					navic.attach(client, bufnr)
-				end
+						require("lspsaga.symbol.outline"):outline()
+					end, {
+						silent = true,
+						desc = "Toggle symbols outline",
+					})
+					vim.keymap.set("n", "g<C-t>", function()
+						-- HACK:Use jump list
+						-- https://github.com/folke/trouble.nvim/issues/235
+						vim.cmd([[normal m']])
 
-				local handler = function(virtText, lnum, endLnum, width, truncate)
-					local newVirtText = {}
-					local suffix = (" 󰁂 %d "):format(endLnum - lnum)
-					local sufWidth = vim.fn.strdisplaywidth(suffix)
-					local targetWidth = width - sufWidth
-					local curWidth = 0
-					for _, chunk in ipairs(virtText) do
-						local chunkText = chunk[1]
-						local chunkWidth = vim.fn.strdisplaywidth(chunkText)
-						if targetWidth > curWidth + chunkWidth then
-							table.insert(newVirtText, chunk)
-						else
-							chunkText = truncate(chunkText, targetWidth - curWidth)
-							local hlGroup = chunk[2]
-							table.insert(newVirtText, { chunkText, hlGroup })
-							chunkWidth = vim.fn.strdisplaywidth(chunkText)
-							-- str width returned from truncate() may less than 2nd argument, need padding
-							if curWidth + chunkWidth < targetWidth then
-								suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
-							end
-							break
+						require("trouble").open()
+					end, {
+						silent = true,
+						desc = "Toggle trouble (diagnostics) panel",
+					})
+					vim.keymap.set("n", "[d", function()
+						vim.diagnostic.goto_prev({ float = false })
+					end, opts)
+					vim.keymap.set("n", "]d", function()
+						vim.diagnostic.goto_next({ float = false })
+					end, opts)
+					vim.keymap.set("n", "K", function()
+						local winid = require("ufo").peekFoldedLinesUnderCursor()
+						if not winid then
+							require("lspsaga.hover"):render_hover_doc({})
 						end
-						curWidth = curWidth + chunkWidth
+					end, opts)
+					vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+					vim.keymap.set("n", "gr", function()
+						return ":IncRename " .. vim.fn.expand("<cword>")
+					end, { expr = true })
+					vim.keymap.set({ "n", "v" }, "gA", require("code_action_menu").open_code_action_menu, opts)
+
+					if client.supports_method("textDocument/formatting") then
+						local augroup = vim.api.nvim_create_augroup("lsp_document_formatting_" .. buf, {})
+
+						vim.api.nvim_clear_autocmds({ group = augroup, buffer = buf })
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							group = augroup,
+							buffer = buf,
+							callback = function()
+								vim.lsp.buf.format({ buf = buf })
+							end,
+						})
 					end
-					table.insert(newVirtText, { suffix, "MoreMsg" })
-					return newVirtText
-				end
 
-				require("ufo").setup({
-					preview = {
-						win_config = {
-							border = { "", "─", "", "", "", "─", "", "" },
-							winhighlight = "Normal:Folded",
-							winblend = 0,
-						},
-						mappings = {
-							scrollU = "<C-u>",
-							scrollD = "<C-d>",
-						},
-					},
-					fold_virt_text_handler = handler,
-				})
+					if client.name == "lua_ls" or client.name == "terraformls" then
+						client.server_capabilities.documentFormattingProvider = false
+						client.server_capabilities.documentRangeFormattingProvider = false
+					end
 
-				require("ufo").setFoldVirtTextHandler(bufnr, handler)
+					if client.server_capabilities.documentHighlightProvider then
+						vim.api.nvim_set_hl(0, "LspReferenceRead", {
+							bg = "#45403d",
+							bold = true,
+						})
+						vim.api.nvim_set_hl(0, "LspReferenceText", {
+							bg = "#45403d",
+							bold = true,
+						})
+						vim.api.nvim_set_hl(0, "LspReferenceWrite", {
+							bg = "#45403d",
+							bold = true,
+						})
+						local augroup = "lsp_document_highlight_" .. buf
+						vim.api.nvim_create_augroup(augroup, {})
+						vim.api.nvim_clear_autocmds({ group = augroup, buffer = buf })
+						vim.api.nvim_create_autocmd("CursorHold", {
+							group = augroup,
+							buffer = buf,
+							callback = function()
+								vim.lsp.buf.document_highlight()
+							end,
+						})
+						vim.api.nvim_create_autocmd("CursorMoved", {
+							group = augroup,
+							buffer = buf,
+							callback = function()
+								vim.lsp.buf.clear_references()
+							end,
+						})
+					end
 
-				require("lsp_signature").on_attach({
-					hint_enable = false,
-					handler_opts = {
-						border = "single",
-					},
-				}, bufnr)
-			end
+					if client.server_capabilities.documentSymbolProvider then
+						local navic = require("nvim-navic")
+						navic.attach(client, buf)
+					end
+				end,
+			})
 
 			local servers = {
 				"bashls",
@@ -303,7 +258,6 @@ return {
 
 			for _, lsp in ipairs(servers) do
 				lspconfig[lsp].setup({
-					on_attach = on_attach,
 					capabilities = capabilities,
 				})
 			end
@@ -334,7 +288,6 @@ return {
 						validate = { enable = true },
 					},
 				},
-				on_attach = on_attach,
 				capabilities = capabilities,
 			})
 
@@ -350,7 +303,6 @@ return {
 						schemas = require("schemastore").yaml.schemas(),
 					},
 				},
-				on_attach = on_attach,
 				capabilities = capabilities,
 			})
 
@@ -379,12 +331,10 @@ return {
 						gofumpt = true,
 					},
 				},
-				on_attach = on_attach,
 				capabilities = capabilities,
 			})
 
 			lspconfig.lua_ls.setup({
-				on_attach = on_attach,
 				capabilities = capabilities,
 				settings = {
 					Lua = {
@@ -470,7 +420,6 @@ return {
 					-- NOTE: terraform-ls is slow
 					null_ls.builtins.formatting.terraform_fmt,
 				},
-				on_attach = on_attach,
 			})
 		end,
 		dependencies = {
@@ -487,6 +436,15 @@ return {
 	{
 		"ray-x/lsp_signature.nvim",
 		event = "LspAttach",
+		config = function()
+			local buf = vim.api.nvim_get_current_buf()
+			require("lsp_signature").on_attach({
+				hint_enable = false,
+				handler_opts = {
+					border = "single",
+				},
+			}, buf)
+		end,
 		dependencies = {
 			"neovim/nvim-lspconfig",
 		},
@@ -514,6 +472,52 @@ return {
 			vim.o.foldlevel = 99
 			vim.o.foldlevelstart = 99
 			vim.o.foldenable = true
+
+			local handler = function(virtText, lnum, endLnum, width, truncate)
+				local newVirtText = {}
+				local suffix = (" 󰁂 %d "):format(endLnum - lnum)
+				local sufWidth = vim.fn.strdisplaywidth(suffix)
+				local targetWidth = width - sufWidth
+				local curWidth = 0
+				for _, chunk in ipairs(virtText) do
+					local chunkText = chunk[1]
+					local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+					if targetWidth > curWidth + chunkWidth then
+						table.insert(newVirtText, chunk)
+					else
+						chunkText = truncate(chunkText, targetWidth - curWidth)
+						local hlGroup = chunk[2]
+						table.insert(newVirtText, { chunkText, hlGroup })
+						chunkWidth = vim.fn.strdisplaywidth(chunkText)
+						-- str width returned from truncate() may less than 2nd argument, need padding
+						if curWidth + chunkWidth < targetWidth then
+							suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
+						end
+						break
+					end
+					curWidth = curWidth + chunkWidth
+				end
+				table.insert(newVirtText, { suffix, "MoreMsg" })
+				return newVirtText
+			end
+
+			require("ufo").setup({
+				preview = {
+					win_config = {
+						border = { "", "─", "", "", "", "─", "", "" },
+						winhighlight = "Normal:Folded",
+						winblend = 0,
+					},
+					mappings = {
+						scrollU = "<C-u>",
+						scrollD = "<C-d>",
+					},
+				},
+				fold_virt_text_handler = handler,
+			})
+
+			local buf = vim.api.nvim_get_current_buf()
+			require("ufo").setFoldVirtTextHandler(buf, handler)
 		end,
 		dependencies = {
 			"neovim/nvim-lspconfig",
