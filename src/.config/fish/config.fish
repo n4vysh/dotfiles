@@ -192,6 +192,9 @@ if status --is-interactive
     __fish_abbr_add_extend nv nvim
     __fish_abbr_add_extend ns ncspot
     __fish_abbr_add_extend p procs
+    __fish_abbr_add_extend pe pet
+    __fish_abbr_add_extend pee pet edit
+    __fish_abbr_add_extend pen pet new
     __fish_abbr_add_extend ping grc ping
     __fish_abbr_add_extend pr paru
     __fish_abbr_add_extend prs paru -S
