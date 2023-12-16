@@ -52,10 +52,10 @@ return {
 				},
 			})
 			do
-				local auname = "mason"
-				vim.api.nvim_create_augroup(auname, { clear = true })
+				local augroup = "mason"
+				vim.api.nvim_create_augroup(augroup, { clear = true })
 				vim.api.nvim_create_autocmd("FileType", {
-					group = auname,
+					group = augroup,
 					pattern = "mason",
 					callback = function()
 						vim.opt_local.winblend = 0

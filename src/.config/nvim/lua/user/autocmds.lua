@@ -1,28 +1,28 @@
 do
-	local auname = "im"
-	vim.api.nvim_create_augroup(auname, { clear = true })
+	local augroup = "im"
+	vim.api.nvim_create_augroup(augroup, { clear = true })
 	vim.api.nvim_create_autocmd("InsertLeave", {
-		group = auname,
+		group = augroup,
 		pattern = "*",
 		callback = require("user.utils.im").disable,
 	})
 end
 
 do
-	local auname = "skel"
-	vim.api.nvim_create_augroup(auname, { clear = true })
+	local augroup = "skel"
+	vim.api.nvim_create_augroup(augroup, { clear = true })
 	vim.api.nvim_create_autocmd("BufNewFile", {
-		group = auname,
+		group = augroup,
 		pattern = "*.*",
 		callback = require("user.utils.skel").load,
 	})
 end
 
 do
-	local auname = "autoread"
-	vim.api.nvim_create_augroup(auname, { clear = true })
+	local augroup = "autoread"
+	vim.api.nvim_create_augroup(augroup, { clear = true })
 	vim.api.nvim_create_autocmd("FocusGained", {
-		group = auname,
+		group = augroup,
 		pattern = "*",
 		callback = function()
 			vim.cmd([[checktime]])
@@ -31,10 +31,10 @@ do
 end
 
 do
-	local auname = "buflisted"
-	vim.api.nvim_create_augroup(auname, { clear = true })
+	local augroup = "buflisted"
+	vim.api.nvim_create_augroup(augroup, { clear = true })
 	vim.api.nvim_create_autocmd("FileType", {
-		group = auname,
+		group = augroup,
 		pattern = { "qf", "man", "dap-repl" },
 		callback = function()
 			vim.opt_local.buflisted = false
@@ -43,10 +43,10 @@ do
 end
 
 do
-	local auname = "delete_directory"
-	vim.api.nvim_create_augroup(auname, { clear = true })
+	local augroup = "delete_directory"
+	vim.api.nvim_create_augroup(augroup, { clear = true })
 	vim.api.nvim_create_autocmd("BufEnter", {
-		group = auname,
+		group = augroup,
 		pattern = { "*" },
 		callback = function()
 			local v = vim.fn.expand("%")
@@ -60,10 +60,10 @@ end
 
 -- appearance
 do
-	local auname = "highlight_yank"
-	vim.api.nvim_create_augroup(auname, { clear = true })
+	local augroup = "highlight_yank"
+	vim.api.nvim_create_augroup(augroup, { clear = true })
 	vim.api.nvim_create_autocmd("TextYankPost", {
-		group = auname,
+		group = augroup,
 		pattern = "*",
 		callback = function()
 			vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })

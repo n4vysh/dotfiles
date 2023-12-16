@@ -1,8 +1,8 @@
 do
-	local auname = "projectionist_go"
-	vim.api.nvim_create_augroup(auname, { clear = true })
+	local augroup = "projectionist_go"
+	vim.api.nvim_create_augroup(augroup, { clear = true })
 	vim.api.nvim_create_autocmd("User", {
-		group = auname,
+		group = augroup,
 		pattern = { "ProjectionistDetect" },
 		callback = function()
 			vim.fn["projectionist#append"](vim.fn.getcwd(), {

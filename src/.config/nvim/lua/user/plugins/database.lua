@@ -18,10 +18,10 @@ return {
 				},
 			}
 			do
-				local auname = "dadbod_ui_no_fold"
-				vim.api.nvim_create_augroup(auname, { clear = true })
+				local augroup = "dadbod_ui_no_fold"
+				vim.api.nvim_create_augroup(augroup, { clear = true })
 				vim.api.nvim_create_autocmd("FileType", {
-					group = auname,
+					group = augroup,
 					pattern = "dbout",
 					callback = function()
 						vim.opt_local.foldenable = false
@@ -32,10 +32,10 @@ return {
 				bg = "NONE",
 			})
 			do
-				local auname = "dadbod_completion"
-				vim.api.nvim_create_augroup(auname, { clear = true })
+				local augroup = "dadbod_completion"
+				vim.api.nvim_create_augroup(augroup, { clear = true })
 				vim.api.nvim_create_autocmd("FileType", {
-					group = auname,
+					group = augroup,
 					pattern = { "sql", "mysql", "plsql" },
 					callback = function()
 						require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
