@@ -145,12 +145,12 @@ repos:
       - id: goss
         name: check dotfiles with goss
         language: system
-        entry: direnv exec . goss validate
+        entry: goss validate
         pass_filenames: false
       - id: goss-privileged
         name: check dotfiles with goss in privileged user
         language: system
-        entry: direnv exec . sudo goss -g ./goss_privileged.yaml validate
+        entry: sudo goss -g ./goss_privileged.yaml validate
         pass_filenames: false
       - id: fishtape
         name: test fish functions
