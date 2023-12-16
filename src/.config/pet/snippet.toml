@@ -219,3 +219,9 @@
   command = "sudo cpupower frequency-set -u <freq=5GHz>"
   tag = ["misc"]
   output = ""
+
+[[snippets]]
+  description = "clone and change directory"
+  command = "cd $(read url; ghq get \"$url\"; ghq list -p \"$url\")"
+  tag = ["misc"]
+  output = ""
