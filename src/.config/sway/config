@@ -271,6 +271,12 @@ exec udiskie --automount           # Mount Helper
 exec protonmail-bridge --no-window # IMAP/SMTP server
 exec mailnag                       # IMAP notification daemon
 
+# Dynamic display configuration
+exec_always {
+  pkill kanshi
+  kanshi &
+}
+
 # polkit agent
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
@@ -279,12 +285,6 @@ exec swayidle -w \
   timeout 605 'swaymsg "output * dpms off"' \
   resume 'swaymsg "output * dpms on"' \
   before-sleep "$locker --daemonize"
-
-set $laptop eDP-1
-bindswitch --reload --locked lid:on output $laptop disable
-bindswitch --reload --locked lid:off output $laptop enable
-
-exec_always clamshell
 
 for_window [class="Firefox"] inhibit_idle fullscreen # xwayland
 for_window [app_id="firefox"] inhibit_idle fullscreen # wayland
