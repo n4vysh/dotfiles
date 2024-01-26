@@ -187,9 +187,10 @@ return {
 							["<C-u>"] = false,
 							["<C-d>"] = false,
 							["<CR>"] = select_one_or_multi,
-							["<C-x><C-f>"] = actions.results_scrolling_left,
-							["<C-x><C-k>"] = actions.results_scrolling_right,
-							["<C-x><C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+							["<C-s>"] = actions.select_horizontal,
+						},
+						n = {
+							["<Esc>"] = false,
 						},
 					},
 					prompt_prefix = "▶ ",
