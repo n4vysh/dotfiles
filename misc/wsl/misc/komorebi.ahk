@@ -1,8 +1,9 @@
 #Requires AutoHotkey >=2
 #SingleInstance Force
 
+USERPROFILE := EnvGet("USERPROFILE")
+
 if ! (PID := ProcessExist("komorebi.exe")) {
-	USERPROFILE := EnvGet("USERPROFILE")
 	RunWait("komorebic.exe start -c " USERPROFILE "\komorebi.json", , "Hide")
 } else {
 	RunWait("komorebic.exe reload-configuration", , "Hide")
@@ -25,7 +26,6 @@ F13 & c::
 {
 	if GetKeyState("Shift") {
 		RunWait("taskkill /f /im komorebi.exe", , "Hide")
-		USERPROFILE := EnvGet("USERPROFILE")
 		RunWait("komorebic.exe start -c " USERPROFILE "\komorebi.json", , "Hide")
 		Reload
 	}
@@ -139,6 +139,109 @@ F13 & q::
 	if GetKeyState("Shift") {
 		Close()
 	}
+}
+
+F13 & d::
+{
+	if ! GetKeyState("Shift") {
+		Send "!{Space}"
+	}
+}
+
+IsLauncher := false
+
+#HotIf !IsLauncher
+	F13 & o::
+	{
+		global IsLauncher
+		if ! GetKeyState("Shift") {
+			IsLauncher := true
+		}
+	}
+#HotIf IsLauncher
+	b::
+	{
+		global IsLauncher
+		if ! GetKeyState("Shift") {
+			WinActivate("Program Manager")
+			RunWait("C:\Program Files\Mozilla Firefox\firefox.exe", , "Hide")
+			WinWaitActive("ahk_exe firefox.exe")
+			IsLauncher := false
+		}
+	}
+
+	f::
+	{
+		global IsLauncher
+		if ! GetKeyState("Shift") {
+			Send "#e"
+			IsLauncher := false
+		}
+	}
+
+	#UseHook
+
+	*i::
+	{
+		global IsLauncher
+		if ! GetKeyState("Shift") {
+			if GetKeyState("Ctrl", "P") {
+				; NOTE: hold down ctrl for a few seconds
+				if ! (PID := ProcessExist("ms-teams.exe")) {
+					; NOTE: pin teams to task bar before use
+					Send("#4")
+				}
+				IsLauncher := false
+			} else {
+				if ! (PID := ProcessExist("slack.exe")) {
+					; NOTE: pin slack to task bar before use
+					Send("#3")
+				}
+				IsLauncher := false
+			}
+		}
+	}
+
+	m::
+	{
+		global IsLauncher
+		if ! GetKeyState("Shift") {
+			Send "^+{ESC}"
+			IsLauncher := false
+		}
+	}
+
+	n::
+	{
+		global IsLauncher
+		if ! GetKeyState("Shift") {
+			Send "#n"
+			IsLauncher := false
+		}
+	}
+
+	q::
+	{
+		global IsLauncher
+		if ! GetKeyState("Shift") {
+			IsLauncher := false
+		}
+	}
+#HotIf
+
+F13 & Enter::
+{
+	if ! GetKeyState("Shift") {
+		if ! (PID := ProcessExist("wezterm-gui.exe")) {
+			; NOTE: pin wezterm to task bar before use
+			Send("#1")
+		}
+	}
+}
+
+^;::
+{
+	Send("#v")
 }
 
 AppsKey::LWin
