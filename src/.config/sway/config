@@ -156,8 +156,7 @@ mode "$mode_launcher" {
   bindsym i exec slack, mode "default"
   bindsym ctrl+i exec discord, mode "default"
   bindsym alt+i exec signal-desktop, mode "default"
-  bindsym n exec "$term -e iwctl", mode "default"
-  bindsym ctrl+n exec wireshark, mode "default"
+  bindsym n mode "$mode_notification", mode "default"
   bindsym m exec "$term -e btm", mode "default"
   bindsym ctrl+m exec spotify-launcher, mode "default"
   bindsym p exec 1password, mode "default"
@@ -167,6 +166,7 @@ mode "$mode_launcher" {
   bindsym r exec remmina, mode "default"
   bindsym w exec "$term -e iwctl", mode "default"
   bindsym ctrl+w exec "$term -e bluetuith", mode "default"
+  bindsym alt+w exec wireshark, mode "default"
   bindsym q mode "default"
 }
 bindsym $mod+o mode "$mode_launcher"
