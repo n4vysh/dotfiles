@@ -45,6 +45,19 @@ return {
 				tab_char = "│",
 			},
 			scope = { enabled = false },
+			exclude = {
+				filetypes = {
+					"lspinfo",
+					"checkhealth",
+					"help",
+					"man",
+					"gitcommit",
+					"TelescopePrompt",
+					"TelescopeResults",
+					"dbout",
+					"",
+				},
+			},
 		},
 	},
 	{
