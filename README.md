@@ -70,6 +70,7 @@
 - Enhance password security with [1Password][1password-link] and [Authy][authy-link]
 - End-to-end encryption (E2EE) with [Signal][signal-link] and [Proton Mail Bridge][proton-bridge-link]
 - Privacy focused web browsing
+  - Search shortcuts for [DuckDuckGo][duckduckgo-link]
   - [Strict Enhanced Tracking Protection][strict-etp-link]
   - ["Do Not Track" header][dnt-link]
   - [HTTPS-Only Mode][https-only-mode-link]
@@ -136,6 +137,7 @@
 [signal-link]: https://signal.org/
 [proton-bridge-link]: https://proton.me/mail/bridge
 [strict-etp-link]: https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
+[duckduckgo-link]: https://duckduckgo.com/
 [dnt-link]: https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature
 [https-only-mode-link]: https://support.mozilla.org/en-US/kb/https-only-prefs
 [multi-account-containers-link]: https://support.mozilla.org/en-US/kb/containers
