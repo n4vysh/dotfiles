@@ -1,6 +1,0 @@
-port:
-  # postgres
-  tcp:5432:
-    listening: true
-    ip:
-      - 127.0.0.1

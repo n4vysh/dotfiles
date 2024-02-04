@@ -644,7 +644,7 @@ _configure_without_privileged() {
 	sudo mkdir -p /var/lib/postgres/data
 	sudo chattr +C /var/lib/postgres/data
 	sudo -u postgres initdb -D /var/lib/postgres/data
-	sudo systemctl enable --now postgresql
+	sudo systemctl start postgresql
 	yes no | msfdb init
 
 	_log::info 'Configure wireshark'
