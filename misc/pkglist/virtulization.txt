@@ -1,4 +1,5 @@
 extra/dive
 extra/docker
 extra/docker-buildx
+extra/docker-compose
 extra/skopeo
