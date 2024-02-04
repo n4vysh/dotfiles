@@ -50,9 +50,6 @@ service:
   atd.service:
     enabled: true
     running: true
-  postgresql.service:
-    enabled: true
-    running: true
   nix-daemon.service:
     enabled: true
     running: true
