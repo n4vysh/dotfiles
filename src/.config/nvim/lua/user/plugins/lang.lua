@@ -247,6 +247,7 @@ return {
 				"taplo",
 				"terraformls",
 				"tflint",
+				"tilt_ls",
 				"tsserver",
 			}
 
