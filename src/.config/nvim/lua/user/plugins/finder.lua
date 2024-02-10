@@ -203,7 +203,20 @@ return {
 				}),
 				pickers = {
 					find_files = {
+						hidden = true,
 						find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+					},
+					buffers = {
+						show_all_buffers = true,
+						ignore_current_buffer = true,
+						mappings = {
+							n = {
+								["dd"] = actions.delete_buffer,
+							},
+						},
+					},
+					git_files = {
+						hidden = true,
 					},
 				},
 				extensions = {

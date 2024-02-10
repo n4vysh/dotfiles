@@ -2,22 +2,17 @@ local M = {}
 
 function M.find_files()
 	local builtin = require("telescope.builtin")
-	builtin.find_files({
-		hidden = true,
-	})
+	builtin.find_files({})
 end
 
 function M.git_files()
 	local builtin = require("telescope.builtin")
-	builtin.git_files({
-		hidden = true,
-	})
+	builtin.git_files({})
 end
 
 function M.edit_config()
 	local builtin = require("telescope.builtin")
 	builtin.git_files({
-		hidden = true,
 		use_git_root = false,
 		cwd = os.getenv("XDG_DATA_HOME") .. "/dotfiles/src/.config/nvim/",
 	})
@@ -26,7 +21,6 @@ end
 function M.edit_dotfiles()
 	local builtin = require("telescope.builtin")
 	builtin.git_files({
-		hidden = true,
 		cwd = os.getenv("XDG_DATA_HOME") .. "/dotfiles/src/",
 	})
 end
@@ -38,9 +32,7 @@ end
 
 function M.switch_buffer()
 	local builtin = require("telescope.builtin")
-	builtin.buffers({
-		show_all_buffers = true,
-	})
+	builtin.buffers({})
 end
 
 function M.search(opts)
