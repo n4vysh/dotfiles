@@ -1,5 +1,5 @@
 do
-	local augroup = "neofetch"
+	local augroup = "passwd"
 	vim.api.nvim_create_augroup(augroup, { clear = true })
 	vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		group = augroup,
