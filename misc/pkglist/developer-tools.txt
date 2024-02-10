@@ -37,8 +37,10 @@ aur/pack-cli-bin
 aur/pet-bin
 aur/redocly
 aur/rtx-bin
+aur/snyk
 aur/terraform-docs-bin
 aur/tflint-bin
+aur/tilt-bin
 aur/vercel
 aur/viddy
 core/openssh
