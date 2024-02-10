@@ -13,7 +13,7 @@ return {
 			{
 				"<space>bb",
 				function()
-					require("user.utils.finder").switch_buffer()
+					require("telescope.builtin").buffers()
 				end,
 				silent = true,
 				desc = "Switch buffer",
@@ -21,7 +21,7 @@ return {
 			{
 				"<c-p>",
 				function()
-					require("user.utils.finder").find_files()
+					require("telescope.builtin").find_files()
 				end,
 				silent = true,
 				desc = "Search for files",
@@ -45,7 +45,10 @@ return {
 			{
 				"<space>fd",
 				function()
-					require("user.utils.finder").edit_dotfiles()
+					local builtin = require("telescope.builtin")
+					builtin.git_files({
+						cwd = os.getenv("XDG_DATA_HOME") .. "/dotfiles/src/",
+					})
 				end,
 				silent = true,
 				desc = "Search for dotfiles",
@@ -53,7 +56,9 @@ return {
 			{
 				"<space>fm",
 				function()
-					require("user.utils.finder").file_browser()
+					local telescope = require("telescope")
+					telescope.load_extension("file_browser")
+					telescope.extensions.file_browser.file_browser()
 				end,
 				silent = true,
 				desc = "Toggle file manager",
@@ -61,7 +66,7 @@ return {
 			{
 				"<space>s/",
 				function()
-					require("user.utils.finder").search({})
+					require("user.utils.finder").search()
 				end,
 				silent = true,
 				desc = "Search for a string",
@@ -69,7 +74,9 @@ return {
 			{
 				"<space>ss",
 				function()
-					require("user.utils.finder").snippets()
+					local telescope = require("telescope")
+					telescope.load_extension("luasnip")
+					telescope.extensions.luasnip.luasnip()
 				end,
 				silent = true,
 				desc = "Search for snippets",
@@ -114,7 +121,7 @@ return {
 			{
 				"<space>sk",
 				function()
-					require("user.utils.finder").keymaps()
+					require("telescope.builtin").keymaps({})
 				end,
 				silent = true,
 				desc = "Search for keymaps",
@@ -123,7 +130,7 @@ return {
 			{
 				"<space>sh",
 				function()
-					require("user.utils.finder").help_tags()
+					require("telescope.builtin").help_tags()
 				end,
 				silent = true,
 				desc = "Search for help info",
@@ -141,7 +148,7 @@ return {
 			{
 				"<space>sm",
 				function()
-					require("user.utils.finder").man_pages()
+					require("telescope.builtin").man_pages()
 				end,
 				silent = true,
 				desc = "Search for manual pages",
