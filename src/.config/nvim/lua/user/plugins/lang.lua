@@ -46,6 +46,7 @@ return {
 					"taplo",
 					"terraform-ls",
 					"typescript-language-server",
+					"typos-lsp",
 					"yaml-language-server",
 					"gopls",
 					"lua-language-server",
@@ -248,6 +249,7 @@ return {
 				"tflint",
 				"tilt_ls",
 				"tsserver",
+				"typos_lsp",
 			}
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -418,7 +420,6 @@ return {
 					null_ls.builtins.diagnostics.hadolint,
 					null_ls.builtins.formatting.yamlfmt,
 					null_ls.builtins.diagnostics.zsh,
-					null_ls.builtins.diagnostics.typos,
 					null_ls.builtins.diagnostics.todo_comments,
 					null_ls.builtins.diagnostics.fish,
 					-- NOTE: terraform-ls is slow
