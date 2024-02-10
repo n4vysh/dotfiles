@@ -43,6 +43,7 @@ return {
 				"regex",
 				"rego",
 				"sql",
+				"ssh_config",
 				"terraform",
 				"toml",
 				"tsx",
