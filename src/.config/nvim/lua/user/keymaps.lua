@@ -40,6 +40,21 @@ vim.keymap.set("x", "p", "pgvy`]", {
 	desc = "Put and yank the text",
 })
 
+vim.keymap.set("i", "<C-x>a", " && ", {
+	silent = true,
+	desc = "Append and operator",
+})
+
+vim.keymap.set("i", "<C-x>o", " || ", {
+	silent = true,
+	desc = "Append or operator",
+})
+
+vim.keymap.set("i", "<C-x>c", " ?  : <ESC>hhi", {
+	silent = true,
+	desc = "Append conditional operator",
+})
+
 -- keymaps using the g
 vim.keymap.set("n", "g<C-e>", "<cmd>edit!<cr>", {
 	silent = true,
