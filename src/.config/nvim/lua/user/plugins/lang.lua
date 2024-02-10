@@ -45,7 +45,6 @@ return {
 					"marksman",
 					"taplo",
 					"terraform-ls",
-					"tflint",
 					"typescript-language-server",
 					"yaml-language-server",
 					"gopls",
