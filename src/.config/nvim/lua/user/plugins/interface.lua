@@ -194,7 +194,7 @@ return {
 			dashboard.section.header.val = {}
 			dashboard.section.buttons.val = {
 				dashboard.button("e", "  New file", ":ene<CR>"),
-				dashboard.button("f", "󰈞  Find files", ":lua require('user.utils.finder').find_files()<cr>"),
+				dashboard.button("f", "󰈞  Find files", ":lua require('telescope.builtin').find_files()<cr>"),
 				dashboard.button("s", "󰈬  Search word", ":lua require('user.utils.finder').search()<cr>"),
 				dashboard.button("t", "󰙅  Open file tree", ":NvimTreeToggle<CR>"),
 				dashboard.button("m", "  Jump to bookmarks", ":lua require('harpoon.ui').toggle_quick_menu()<cr>"),

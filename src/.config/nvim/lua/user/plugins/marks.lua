@@ -21,7 +21,9 @@ return {
 			{
 				"<space>mm",
 				function()
-					require("user.utils.finder").harpoon()
+					local telescope = require("telescope")
+					telescope.load_extension("harpoon")
+					telescope.extensions.harpoon.marks({})
 				end,
 				silent = true,
 				desc = "Search for marks with fuzzy finder",
