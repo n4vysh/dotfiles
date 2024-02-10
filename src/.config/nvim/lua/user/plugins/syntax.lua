@@ -9,6 +9,8 @@ return {
 			vim.g.matchup_matchparen_offscreen = {
 				scrolloff = 1,
 			}
+
+			vim.treesitter.language.register("python", "tiltfile")
 		end,
 		main = "nvim-treesitter.configs",
 		opts = {
@@ -37,6 +39,7 @@ return {
 				"markdown_inline",
 				"passwd",
 				"proto",
+				"python",
 				"regex",
 				"rego",
 				"sql",
