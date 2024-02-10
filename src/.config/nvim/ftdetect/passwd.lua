@@ -1,3 +1,4 @@
+-- NOTE: Set filetype for sudoedit
 do
 	local augroup = "passwd"
 	vim.api.nvim_create_augroup(augroup, { clear = true })
