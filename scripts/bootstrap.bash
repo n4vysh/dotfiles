@@ -548,7 +548,7 @@ _configure_without_privileged() {
 	_log::info 'Configure mount helper'
 	sudo gpasswd --add "$USER" storage
 
-	_log::info 'Create user directorys'
+	_log::info 'Create user directories'
 	mkdir "$HOME"/{Downloads,Public,Workspaces}
 
 	_log::info 'Configure U2F PAM'
