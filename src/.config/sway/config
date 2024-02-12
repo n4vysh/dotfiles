@@ -6,7 +6,7 @@ set $right l
 
 set $term wezterm
 
-output * bg #000000 solid_color
+output * bg ~/.local/share/sway/wallpaper.jpeg fill
 
 input * {
   xkb_options "caps:none"
