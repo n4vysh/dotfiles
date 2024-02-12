@@ -241,6 +241,9 @@ if status --is-interactive
     __fish_abbr_add_extend se sudoedit
     __fish_abbr_add_extend so sops
     __fish_abbr_add_extend st stern
+    __fish_abbr_add_extend sti stern -i
+    __fish_abbr_add_extend ste stern -e
+    __fish_abbr_add_extend stn stern --no-follow
     __fish_abbr_add_extend t rlwrap -a trans -b
     __fish_abbr_add_extend ta trash
     __fish_abbr_add_extend td tldr
