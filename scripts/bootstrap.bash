@@ -509,6 +509,13 @@ _configure_without_privileged() {
 		/etc/vconsole.conf
 	sudo systemctl enable --now udevmon.service # for interception tools
 
+	_log::info 'Configure wallpaper'
+	mkdir -p "${XDG_DATA_HOME}/sway/"
+	# https://www.pexels.com/photo/buildings-with-blue-light-747101/
+	curl \
+		'https://images.pexels.com/photos/747101/pexels-photo-747101.jpeg?dl&fit=crop&crop=entropy&w=1920&h=1280' \
+		>"${XDG_DATA_HOME}/sway/wallpaper.jpeg"
+
 	_log::info 'Configure bluetooth'
 	sudo gpasswd -a "$USER" lp
 	sudo sed \
