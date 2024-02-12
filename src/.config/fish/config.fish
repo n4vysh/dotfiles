@@ -157,6 +157,7 @@ if status --is-interactive
     __fish_abbr_add_extend jsf just fmt
     __fish_abbr_add_extend jsgc just get-creds
     __fish_abbr_add_extend jsl just lint
+    __fish_abbr_add_extend jss just switch
     __fish_abbr_add_extend jssd just switch dev
     __fish_abbr_add_extend jsss just switch stg
     __fish_abbr_add_extend jssp just switch prd
