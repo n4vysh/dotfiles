@@ -100,6 +100,13 @@ if status --is-interactive
     __fish_abbr_add_extend docker grc docker
     __fish_abbr_add_extend db devbox
     __fish_abbr_add_extend dc docker compose
+    __fish_abbr_add_extend dcb docker compose build
+    __fish_abbr_add_extend dcd docker compose down
+    __fish_abbr_add_extend dcl docker compose logs
+    __fish_abbr_add_extend dclf docker compose logs -f
+    __fish_abbr_add_extend dcr docker compose restart
+    __fish_abbr_add_extend dcu docker compose up
+    __fish_abbr_add_extend dcw docker compose watch
     __fish_abbr_add_extend de direnv
     __fish_abbr_add_extend dea direnv allow
     __fish_abbr_add_extend dee direnv edit
