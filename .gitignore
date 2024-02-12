@@ -11,6 +11,7 @@ src/.config/fish/functions/*
 src/.config/gh/hosts.yml
 src/.config/git/config.local
 src/.config/git/templates/hooks/*
+src/.config/go/telemetry/local
 src/.config/gtk-2.0/gtkfilechooser.ini
 src/.config/lazygit/state.yml
 src/.config/ncspot/userstate.cbor
