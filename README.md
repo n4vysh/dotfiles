@@ -78,7 +78,6 @@
   - [uBlock Origin][ublock-origin-link]
   - [LocalCDN][localcdn-link]
   - [ClearURLs][clearurls-link]
-  - [libredirect][libredirect-link]
 - Block incoming connections without allowed with [ufw][ufw-link]
 - Detect rootkit and package vulnerabilities with [rkhunter][rkhunter-link] and [arch-audit][arch-audit-link]
 - Support Onion over VPN with [Tor Browser][tor-browser-link] and [NordVPN][nordvpn-link]
@@ -143,7 +142,6 @@
 [multi-account-containers-link]: https://support.mozilla.org/en-US/kb/containers
 [ublock-origin-link]: https://ublockorigin.com/
 [localcdn-link]: https://www.localcdn.org/
-[libredirect-link]: https://libredirect.github.io/
 [clearurls-link]: https://github.com/ClearURLs/Addon
 [ufw-link]: https://launchpad.net/ufw
 [rkhunter-link]: https://rkhunter.sourceforge.net/
@@ -211,7 +209,6 @@ and restore settings from following files in [misc/firefox/](misc/firefox/) dire
 | [uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)               |
 | [SwitchyOmega][switchy-omega-link]  | [switchy_omega.bak](misc/firefox/switchy_omega.bak) |
 | [Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)                     |
-| [LibRedirect][libredirect-link]     | [libredirect.json](misc/firefox/libredirect.json)   |
 
 [collections-link]: https://addons.mozilla.org/en-US/firefox/collections/17575539/n4vysh/
 [switchy-omega-link]: https://github.com/FelisCatus/SwitchyOmega
