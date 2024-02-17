@@ -78,6 +78,7 @@
   - [uBlock Origin][ublock-origin-link]
   - [LocalCDN][localcdn-link]
   - [ClearURLs][clearurls-link]
+  - [CanvasBlocker][canvasblocker-link]
 - Block incoming connections without allowed with [ufw][ufw-link]
 - Detect rootkit and package vulnerabilities with [rkhunter][rkhunter-link] and [arch-audit][arch-audit-link]
 - Support Onion over VPN with [Tor Browser][tor-browser-link] and [NordVPN][nordvpn-link]
@@ -143,6 +144,7 @@
 [ublock-origin-link]: https://ublockorigin.com/
 [localcdn-link]: https://www.localcdn.org/
 [clearurls-link]: https://github.com/ClearURLs/Addon
+[canvasblocker-link]: https://github.com/kkapsner/CanvasBlocker/
 [ufw-link]: https://launchpad.net/ufw
 [rkhunter-link]: https://rkhunter.sourceforge.net/
 [arch-audit-link]: https://gitlab.com/ilpianista/arch-audit
