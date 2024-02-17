@@ -28,6 +28,6 @@ function fish_user_key_bindings
 
     fish_user_execute_key_bindings \cxt unbuffer tree \| less
 
-    bind -M insert \cx\a "commandline -i ' && '"
-    bind -M insert \cx\o "commandline -i ' || '"
+    bind -M insert \cxa "commandline -i ' && '"
+    bind -M insert \cxo "commandline -i ' || '"
 end
