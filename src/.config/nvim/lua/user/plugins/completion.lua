@@ -20,12 +20,12 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
+					{ name = "nvim_lsp", priority = 4 },
+					{ name = "luasnip", priority = 3 },
 				}, {
-					{ name = "buffer" },
+					{ name = "buffer", priority = 2 },
 				}, {
-					{ name = "path" },
+					{ name = "path", priority = 1 },
 				}),
 			})
 
