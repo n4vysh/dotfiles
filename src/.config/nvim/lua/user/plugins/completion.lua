@@ -61,9 +61,13 @@ return {
 						key = "lua",
 					})
 
+					vim.keymap.set("i", "<C-K>", function()
+						require("luasnip").expand()
+					end, { silent = true, desc = "Expand a snippet" })
+
 					vim.keymap.set("i", "<Tab>", function()
 						if require("luasnip").expand_or_jumpable() then
-							return "<Plug>luasnip-expand-or-jump"
+							return "<Plug>luasnip-jump-next"
 						else
 							return "<Tab>"
 						end
@@ -71,7 +75,7 @@ return {
 						silent = true,
 						remap = true,
 						expr = true,
-						desc = "Expand a snippet or jump to another node",
+						desc = "Jump to another node",
 					})
 
 					vim.keymap.set("i", "<S-Tab>", function()
