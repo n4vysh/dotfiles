@@ -54,6 +54,13 @@ return {
 				config = function()
 					require("luasnip.loaders.from_vscode").lazy_load()
 
+					local ls = require("luasnip")
+					ls.add_snippets("lua", {
+						ls.parser.parse_snippet({ trig = "fua", desc = "Anonymous function" }, "function()\n\t${0:-- code}\nend"),
+					}, {
+						key = "lua",
+					})
+
 					vim.keymap.set("i", "<Tab>", function()
 						if require("luasnip").expand_or_jumpable() then
 							return "<Plug>luasnip-expand-or-jump"
