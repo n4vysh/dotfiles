@@ -509,7 +509,17 @@ return {
 				return newVirtText
 			end
 
+			local providers = {
+				-- NOTE: `nil` will use default value {'lsp', 'indent'}
+				-- https://github.com/kevinhwang91/nvim-ufo/issues/6#issuecomment-1172346709
+				-- HACK: use tree-sitter-markdown instead of marksman
+				--       marksman not support folding
+				markdown = { "treesitter", "indent" },
+			}
 			require("ufo").setup({
+				provider_selector = function(_, filetype, _)
+					return providers[filetype]
+				end,
 				preview = {
 					win_config = {
 						border = { "", "─", "", "", "", "─", "", "" },
