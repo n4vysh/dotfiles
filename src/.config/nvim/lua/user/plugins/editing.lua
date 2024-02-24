@@ -40,20 +40,6 @@ return {
 		end,
 	},
 	{
-		"tommcdo/vim-exchange",
-		keys = {
-			-- HACK: change keymap to avoid conflict for leap.nvim
-			-- https://github.com/ggandor/leap.nvim/discussions/59#discussioncomment-3842315
-			{ "cx", "<Plug>(Exchange)", silent = true },
-			{ "gX", "<Plug>(Exchange)", mode = "x", silent = true },
-			{ "cxc", "<Plug>(ExchangeClear)", silent = true },
-			{ "cxx", "<Plug>(ExchangeLine)", silent = true },
-		},
-		init = function()
-			vim.g.exchange_no_mappings = 1
-		end,
-	},
-	{
 		"windwp/nvim-spectre",
 		keys = {
 			{
@@ -147,6 +133,27 @@ return {
 		"kana/vim-textobj-indent",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
+	},
+	{
+		"kana/vim-operator-replace",
+		keys = {
+			{
+				"cx",
+				"<Plug>(operator-replace)",
+				silent = true,
+				desc = "Replace text",
+				remap = true,
+			},
+			{
+				"gX",
+				"<Plug>(operator-replace)",
+				mode = "x",
+				silent = true,
+				desc = "Replace text",
+				remap = true,
+			},
+		},
+		dependencies = "kana/vim-operator-user",
 	},
 	{
 		-- NOTE: nvim-treesitter-textobjects not work multiline comments
