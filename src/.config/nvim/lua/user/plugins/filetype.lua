@@ -59,6 +59,13 @@ return {
 			})
 		end,
 	},
+	{
+		"dhruvasagar/vim-table-mode",
+		ft = { "markdown" },
+		config = function()
+			vim.cmd.TableModeToggle()
+		end,
+	},
 
 	{
 		"rafcamlet/nvim-luapad",
