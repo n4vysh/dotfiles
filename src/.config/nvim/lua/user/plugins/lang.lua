@@ -362,6 +362,9 @@ return {
 						telemetry = {
 							enable = false,
 						},
+						diagnostics = {
+							disable = { "lowercase-global" },
+						},
 					},
 				},
 			})

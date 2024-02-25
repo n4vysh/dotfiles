@@ -1,11 +1,12 @@
 return {
 	{
 		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
 		keys = {
 			{
 				"<Space>ma",
 				function()
-					require("harpoon.mark").add_file()
+					harpoon:list():append()
 				end,
 				silent = true,
 				desc = "Add file to mark per project",
@@ -13,7 +14,7 @@ return {
 			{
 				"<Space>ml",
 				function()
-					require("harpoon.ui").toggle_quick_menu()
+					harpoon.ui:toggle_quick_menu(harpoon:list())
 				end,
 				silent = true,
 				desc = "List marks of project",
@@ -21,21 +22,40 @@ return {
 			{
 				"<space>mm",
 				function()
-					local telescope = require("telescope")
-					telescope.load_extension("harpoon")
-					telescope.extensions.harpoon.marks({})
+					local conf = require("telescope.config").values
+					local function toggle_telescope(harpoon_files)
+						local file_paths = {}
+						for _, item in ipairs(harpoon_files.items) do
+							table.insert(file_paths, item.value)
+						end
+
+						require("telescope.pickers")
+							.new({}, {
+								prompt_title = "Harpoon",
+								finder = require("telescope.finders").new_table({
+									results = file_paths,
+								}),
+								previewer = conf.file_previewer({}),
+								sorter = conf.generic_sorter({}),
+							})
+							:find()
+					end
+					toggle_telescope(harpoon:list())
 				end,
 				silent = true,
 				desc = "Search for marks with fuzzy finder",
 			},
 		},
-		opts = {
-			menu = {
-				width = vim.api.nvim_win_get_width(0) - 4,
-			},
-			global_settings = {
-				mark_branch = true,
-			},
-		},
+		config = function()
+			-- NOTE: use :setup in lazy.nvim
+			-- https://github.com/ThePrimeagen/harpoon/issues/362#issuecomment-1859234905
+			-- selene: allow(unscoped_variables, unused_variable)
+			harpoon = require("harpoon"):setup({
+				settings = {
+					save_on_toggle = true,
+				},
+			})
+		end,
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 }
