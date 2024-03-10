@@ -27,6 +27,9 @@ function fish_user_key_bindings
     fish_user_execute_key_bindings \cz fg
 
     fish_user_execute_key_bindings \cxt unbuffer tree \| less
+    fish_user_execute_key_bindings \cx\ch cd \~
+    fish_user_execute_key_bindings \cx\cp cd \-
+    fish_user_execute_key_bindings \cx\cr cd '$(git rev-parse --show-toplevel)'
 
     bind -M insert \cxa "commandline -i ' && '"
     bind -M insert \cxo "commandline -i ' || '"
