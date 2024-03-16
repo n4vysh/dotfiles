@@ -5,7 +5,7 @@ if [[ -z $DISPLAY ]] && [[ $XDG_VTNR = 2 ]]; then
 	export QT_IM_MODULE=fcitx
 	export XMODIFIERS='@im=fcitx'
 
-	# for firefox and thunderbird
+	# for firefox
 	export MOZ_ENABLE_WAYLAND=1
 
 	# https://www.reddit.com/r/voidlinux/comments/mor7n5/getting_libseat_errors_when_starting_sway/

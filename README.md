@@ -68,7 +68,7 @@
 - [UEFI Secure Boot][uefi-secure-boot-link] with [unified kernel image (UKI)][uki-link]
   and [sbctl][sbctl-link]
 - Enhance password security with [1Password][1password-link] and [Authy][authy-link]
-- End-to-end encryption (E2EE) with [Signal][signal-link] and [Proton Mail Bridge][proton-bridge-link]
+- End-to-end encryption (E2EE) with [Signal][signal-link] and [Proton Mail][proton-mail-link]
 - Privacy focused web browsing
   - Search shortcuts for [DuckDuckGo][duckduckgo-link]
   - [Strict Enhanced Tracking Protection][strict-etp-link]
@@ -135,7 +135,6 @@
 [1password-link]: https://1password.com/
 [authy-link]: https://authy.com/
 [signal-link]: https://signal.org/
-[proton-bridge-link]: https://proton.me/mail/bridge
 [strict-etp-link]: https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 [duckduckgo-link]: https://duckduckgo.com/
 [dnt-link]: https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature
@@ -352,29 +351,28 @@ prefix is `C-j`
 
 ## List of applications
 
-| Category                      | Name                                                                                                 |
-| :---------------------------- | :--------------------------------------------------------------------------------------------------- |
-| Taskbar                       | [waybar][waybar-link]                                                                                |
-| Launcher                      | [bemenu][bemenu-link]                                                                                |
-| Web Browser                   | [Firefox][firefox-link]                                                                              |
-| Password Manager              | [1Password][1password-link] + [Authy][authy-link]                                                    |
-| VPN client                    | [NordVPN][nordvpn-link]                                                                              |
-| Mail client                   | [Thunderbird][thunderbird-link] + [Proton Mail Bridge][proton-bridge-link] + [Mailnag][mailnag-link] |
-| Instant messaging clients     | [Signal][signal-link]                                                                                |
-| Audio player                  | [ncspot][ncspot-link]                                                                                |
-| Media player                  | [mpv][mpv-link]                                                                                      |
-| Cloud synchronization clients | [Dropbox][dropbox-link]                                                                              |
-| Screenshot                    | [grim][grim-link] + [slurp][slurp-link]                                                              |
-| Screen record                 | [wf-recorder][wf-recorder-link] + [slurp][slurp-link]                                                |
-| Notification                  | [mako][mako-link]                                                                                    |
-| Font                          | [Fira Code][firacode-link] + [NerdFontsSymbolsOnly][nerd-font-link] + [Noto Sans][noto-sans-link]    |
-| GTK Theme                     | [Arc][arc-link]                                                                                      |
+| Category                      | Name                                                                                              |
+| :---------------------------- | :------------------------------------------------------------------------------------------------ |
+| Taskbar                       | [waybar][waybar-link]                                                                             |
+| Launcher                      | [bemenu][bemenu-link]                                                                             |
+| Web Browser                   | [Firefox][firefox-link]                                                                           |
+| Password Manager              | [1Password][1password-link] + [Authy][authy-link]                                                 |
+| VPN client                    | [NordVPN][nordvpn-link]                                                                           |
+| Mail client                   | [Proton Mail][proton-mail-link]                                                                   |
+| Instant messaging clients     | [Signal][signal-link]                                                                             |
+| Audio player                  | [ncspot][ncspot-link]                                                                             |
+| Media player                  | [mpv][mpv-link]                                                                                   |
+| Cloud synchronization clients | [Dropbox][dropbox-link]                                                                           |
+| Screenshot                    | [grim][grim-link] + [slurp][slurp-link]                                                           |
+| Screen record                 | [wf-recorder][wf-recorder-link] + [slurp][slurp-link]                                             |
+| Notification                  | [mako][mako-link]                                                                                 |
+| Font                          | [Fira Code][firacode-link] + [NerdFontsSymbolsOnly][nerd-font-link] + [Noto Sans][noto-sans-link] |
+| GTK Theme                     | [Arc][arc-link]                                                                                   |
 
 [waybar-link]: https://github.com/Alexays/Waybar
 [bemenu-link]: https://github.com/Cloudef/bemenu
 [firefox-link]: https://www.mozilla.org/en-US/firefox/new/
-[thunderbird-link]: https://www.thunderbird.net/en-US/
-[mailnag-link]: https://github.com/pulb/mailnag
+[proton-mail-link]: https://proton.me/mail/download
 [ncspot-link]: https://github.com/hrkfdn/ncspot
 [mpv-link]: https://mpv.io/
 [dropbox-link]: https://www.dropbox.com/
