@@ -29,10 +29,20 @@ return {
 			{
 				"<space>tc",
 				function()
+					require("coverage").load()
+					require("coverage").show()
+					require("coverage").summary()
+				end,
+				silent = true,
+				desc = "Show coverage summary",
+			},
+			{
+				"<space>tb",
+				function()
 					require("neotest").run.run(vim.fn.expand("%"))
 				end,
 				silent = true,
-				desc = "Run test in current file",
+				desc = "Run test in current buffer",
 			},
 			{
 				"<space>to",
@@ -55,6 +65,7 @@ return {
 			require("neotest").setup({
 				adapters = {
 					require("neotest-go")({
+						args = { "-coverprofile=coverage.out" },
 						experimental = {
 							test_table = true,
 						},
@@ -72,6 +83,15 @@ return {
 			"nvim-neotest/neotest-go",
 			"nvim-neotest/neotest-vim-test",
 			"vim-test/vim-test",
+			{
+				"andythigpen/nvim-coverage",
+				opts = {
+					auto_reload = true,
+				},
+				dependencies = {
+					"nvim-lua/plenary.nvim",
+				},
+			},
 		},
 	},
 }

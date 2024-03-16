@@ -2,6 +2,7 @@
 	editor = nvim
 	pager = delta
 	quotepath = false
+	excludesFile = ~/.config/git/.gitignore
 
 [pager]
 	diff = delta
