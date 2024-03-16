@@ -61,38 +61,32 @@ return {
 						key = "lua",
 					})
 
-					vim.keymap.set("i", "<C-K>", function()
-						require("luasnip").expand()
-					end, { silent = true, desc = "Expand a snippet" })
-
-					vim.keymap.set("i", "<Tab>", function()
-						if require("luasnip").expand_or_jumpable() then
-							return "<Plug>luasnip-jump-next"
-						else
-							return "<Tab>"
+					vim.keymap.set("i", "<C-k>", function()
+						if require("luasnip").expandable() then
+							require("luasnip").expand()
+						elseif require("luasnip").jumpable(1) then
+							require("luasnip").jump(1)
 						end
 					end, {
 						silent = true,
-						remap = true,
-						expr = true,
-						desc = "Jump to another node",
+						desc = "Expand a snippet or jump to another node",
 					})
 
-					vim.keymap.set("i", "<S-Tab>", function()
+					vim.keymap.set("i", "<C-l>", function()
 						require("luasnip").jump(-1)
 					end, {
 						silent = true,
 						desc = "Jump backward to another node",
 					})
 
-					vim.keymap.set("s", "<Tab>", function()
+					vim.keymap.set("s", "<C-k>", function()
 						require("luasnip").jump(1)
 					end, {
 						silent = true,
 						desc = "Jump forward to another node",
 					})
 
-					vim.keymap.set("s", "<S-Tab>", function()
+					vim.keymap.set("s", "<C-l>", function()
 						require("luasnip").jump(-1)
 					end, {
 						silent = true,
