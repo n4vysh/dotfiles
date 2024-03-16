@@ -1,12 +1,13 @@
 {
-  "timeStamp": 1708153403285,
-  "version": "1.55.0",
+  "timeStamp": 1710581913194,
+  "version": "1.56.0",
   "userSettings": {
-    "externalLists": "https://filters.adtidy.org/extension/ublock/filters/7_optimized.txt\nhttps://raw.githubusercontent.com/arosh/ublacklist-stackoverflow-translation/master/uBlacklist.txt",
+    "externalLists": "https://filters.adtidy.org/extension/ublock/filters/7_optimized.txt\nhttps://raw.githubusercontent.com/quenhus/uBlock-Origin-dev-filter/main/dist/duckduckgo/global.txt",
     "importedLists": [
       "https://filters.adtidy.org/extension/ublock/filters/7_optimized.txt",
-      "https://raw.githubusercontent.com/arosh/ublacklist-stackoverflow-translation/master/uBlacklist.txt"
-    ]
+      "https://raw.githubusercontent.com/quenhus/uBlock-Origin-dev-filter/main/dist/duckduckgo/global.txt"
+    ],
+    "popupPanelSections": 15
   },
   "selectedFilterLists": [
     "user-filters",
@@ -36,7 +37,7 @@
     "fanboy-thirdparty_social",
     "ublock-annoyances",
     "JPN-1",
-    "https://raw.githubusercontent.com/arosh/ublacklist-stackoverflow-translation/master/uBlacklist.txt"
+    "https://raw.githubusercontent.com/quenhus/uBlock-Origin-dev-filter/main/dist/duckduckgo/global.txt"
   ],
   "hiddenSettings": {},
   "whitelist": [
