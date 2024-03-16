@@ -146,7 +146,7 @@ file:
     group: root
     filetype: file
     # yamllint disable-line rule:line-length
-    sha512: bae0b44a89ffeca00d732b983d4b5b095841826bf12ac895a3de83d221e9d9bd21bfeb2c64d77557b92f8c904d1326d4aeb64762360b41b7345a6574a7a216e4
+    sha512: 4f267a8829e4d7b4844eb910f76c77a8f424bd301aa08f2d33c0f05532039c47ebef338a49e67fb5bf41a2f1ded9d7728645565142ff39975ae6046b5d1c51da
   /etc/interception/udevmon.yaml:
     exists: true
     mode: "0644"
@@ -154,7 +154,7 @@ file:
     group: root
     filetype: file
     # yamllint disable-line rule:line-length
-    sha512: fb7b71dde00e2668dee7484bc7cb10c9d689e56c9858514143f23a3ba84d87bb3dfc0e4bd572f3f2947288221ee83f07ffebbd3b3e92684850cd9fe5d3bc34b1
+    sha512: 75ec5436b46c778d3a3587bd83ca8b31e534de474364b68c893d7c8a9803a662014a37e185c3b21b87cde43754997fd3f67d97fbf892bedbf72d0e373ef22472
   /etc/docker/daemon.json:
     exists: true
     mode: "0644"
