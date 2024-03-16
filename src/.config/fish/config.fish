@@ -170,15 +170,20 @@ if status --is-interactive
     __fish_abbr_add_extend k kubie
     __fish_abbr_add_extend kc kubectl
     __fish_abbr_add_extend kcar kubectl api-resources
+    __fish_abbr_add_extend kcd kubectl describe
+    __fish_abbr_add_extend kcdpo kubectl describe pods
+    __fish_abbr_add_extend kcdno kubectl describe nodes
     __fish_abbr_add_extend kcg kubectl get
     __fish_abbr_add_extend kcgcj kubectl get cronjobs
     __fish_abbr_add_extend kcgcm kubectl get configmaps
     __fish_abbr_add_extend kcgd kubectl get deployments
-    __fish_abbr_add_extend kcge kubectl get events --sort-by=.metadata.creationTimestamp
+    __fish_abbr_add_extend kcgev kubectl get events --sort-by=.metadata.creationTimestamp
+    __fish_abbr_add_extend kcging kubectl get ingress
+    __fish_abbr_add_extend kcgingc kubectl get ingressclasses
     __fish_abbr_add_extend kcgj kubectl get jobs
-    __fish_abbr_add_extend kcgn kubectl get nodes
+    __fish_abbr_add_extend kcgno kubectl get nodes
     __fish_abbr_add_extend kcgns kubectl get namespaces
-    __fish_abbr_add_extend kcgp kubectl get pods
+    __fish_abbr_add_extend kcgpo kubectl get pods
     __fish_abbr_add_extend kcgs kubectl get secrets
     __fish_abbr_add_extend kcgsts kubectl get statefulsets
     __fish_abbr_add_extend kcgsa kubectl get serviceaccounts
