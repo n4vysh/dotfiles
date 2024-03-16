@@ -61,7 +61,9 @@ F13 & k::
 
 F13 & l::
 {
-	if ! GetKeyState("Shift") {
+	if GetKeyState("Ctrl", "P") {
+		DllCall("LockWorkStation")
+	} else if GetKeyState("Shift") {
 		Focus("right")
 	} else {
 		Move("right")
