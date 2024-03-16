@@ -4,8 +4,26 @@ return {
 		event = "InsertEnter",
 		config = function()
 			local cmp = require("cmp")
+			local compare = cmp.config.compare
 
 			cmp.setup({
+				preselect = cmp.PreselectMode.None,
+				sorting = {
+					comparators = {
+						compare.offset,
+						compare.exact,
+						-- compare.scopes,
+						-- NOTE: disable sorting of nvim-cmp
+						-- https://github.com/hrsh7th/nvim-cmp/issues/766#issuecomment-1024909862
+						compare.sort_text,
+						compare.score,
+						compare.recently_used,
+						compare.locality,
+						compare.kind,
+						compare.length,
+						compare.order,
+					},
+				},
 				snippet = {
 					expand = function(args)
 						require("luasnip").lsp_expand(args.body)
