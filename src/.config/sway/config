@@ -150,7 +150,7 @@ set $mode_launcher Launcher
 mode "$mode_launcher" {
   bindsym b exec firefox, mode "default"
   bindsym ctrl+b exec torbrowser-launcher, mode "default"
-  bindsym e exec thunderbird, mode "default"
+  bindsym e exec proton-mail, mode "default"
   bindsym f exec "$term -e nnn", mode "default"
   bindsym i exec slack, mode "default"
   bindsym ctrl+i exec discord, mode "default"
@@ -262,14 +262,12 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 # https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland
 exec_always import-gsettings
 
-exec brightnessctl set 1           # Brightness
-exec fcitx5                        # Input Method Framework
-exec mako                          # Notification daemon
-exec gammastep                     # Display colour temperature adjustment
-exec gnome-keyring-daemon --start  # Keyring
-exec udiskie --automount           # Mount Helper
-exec protonmail-bridge --no-window # IMAP/SMTP server
-exec mailnag                       # IMAP notification daemon
+exec brightnessctl set 1          # Brightness
+exec fcitx5                       # Input Method Framework
+exec mako                         # Notification daemon
+exec gammastep                    # Display colour temperature adjustment
+exec gnome-keyring-daemon --start # Keyring
+exec udiskie --automount          # Mount Helper
 
 # Dynamic display configuration
 exec_always {
