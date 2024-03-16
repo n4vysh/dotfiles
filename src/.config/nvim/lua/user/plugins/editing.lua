@@ -442,6 +442,10 @@ return {
 						cyclic = true,
 					}),
 					augend.constant.new({
+						elements = { "enable", "disable" },
+						cyclic = true,
+					}),
+					augend.constant.new({
 						elements = { "==", "!=" },
 						word = false,
 						cyclic = true,
