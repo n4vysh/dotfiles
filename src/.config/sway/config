@@ -145,7 +145,6 @@ mode "$mode_notification" {
   bindsym a exec makoctl dismiss --all, mode "default"
   bindsym q mode "default"
 }
-bindsym $mod+ctrl+n mode "$mode_notification"
 
 set $mode_launcher Launcher
 mode "$mode_launcher" {
@@ -156,7 +155,7 @@ mode "$mode_launcher" {
   bindsym i exec slack, mode "default"
   bindsym ctrl+i exec discord, mode "default"
   bindsym alt+i exec signal-desktop, mode "default"
-  bindsym n mode "$mode_notification", mode "default"
+  bindsym n mode "$mode_notification"
   bindsym m exec "$term -e btm", mode "default"
   bindsym ctrl+m exec spotify-launcher, mode "default"
   bindsym p exec 1password, mode "default"
