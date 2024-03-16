@@ -148,6 +148,36 @@ F13 & d::
 	}
 }
 
+F13 & i::
+{
+	if ! GetKeyState("Shift") {
+		Send "#i"
+	}
+}
+
+F13 & s::
+{
+	if GetKeyState("Shift", "P") {
+		Send "#+s"
+	} else if GetKeyState("Ctrl", "P") {
+		Send "#{PrintScreen}"
+	}
+}
+
+F13 & r::
+{
+	if GetKeyState("Ctrl", "P") {
+		Send "#!r"
+	}
+}
+
+F13 & x::
+{
+	if ! GetKeyState("Shift") {
+		Send "#x"
+	}
+}
+
 IsLauncher := false
 
 #HotIf !IsLauncher
@@ -163,9 +193,7 @@ IsLauncher := false
 	{
 		global IsLauncher
 		if ! GetKeyState("Shift") {
-			WinActivate("Program Manager")
 			RunWait("C:\Program Files\Mozilla Firefox\firefox.exe", , "Hide")
-			WinWaitActive("ahk_exe firefox.exe")
 			IsLauncher := false
 		}
 	}
@@ -174,7 +202,7 @@ IsLauncher := false
 	{
 		global IsLauncher
 		if ! GetKeyState("Shift") {
-			Send "#e"
+			RunWait("explorer.exe", , "Hide")
 			IsLauncher := false
 		}
 	}
@@ -186,7 +214,6 @@ IsLauncher := false
 		global IsLauncher
 		if ! GetKeyState("Shift") {
 			if GetKeyState("Ctrl", "P") {
-				; NOTE: hold down ctrl for a few seconds
 				if ! (PID := ProcessExist("ms-teams.exe")) {
 					; NOTE: pin teams to task bar before use
 					Send("#4")
@@ -194,8 +221,7 @@ IsLauncher := false
 				IsLauncher := false
 			} else {
 				if ! (PID := ProcessExist("slack.exe")) {
-					; NOTE: pin slack to task bar before use
-					Send("#3")
+					RunWait(USERPROFILE "\AppData\Local\slack\slack.exe")
 				}
 				IsLauncher := false
 			}
@@ -206,7 +232,7 @@ IsLauncher := false
 	{
 		global IsLauncher
 		if ! GetKeyState("Shift") {
-			Send "^+{ESC}"
+			RunWait("taskmgr.exe")
 			IsLauncher := false
 		}
 	}
@@ -229,12 +255,18 @@ IsLauncher := false
 	}
 #HotIf
 
+~RCtrl up::
+{
+	If (A_PriorKey = "RControl") {
+		Send "{Esc}"
+	}
+}
+
 F13 & Enter::
 {
 	if ! GetKeyState("Shift") {
 		if ! (PID := ProcessExist("wezterm-gui.exe")) {
-			; NOTE: pin wezterm to task bar before use
-			Send("#1")
+			RunWait(".\wezterm-gui.exe", "C:\Program Files\WezTerm")
 		}
 	}
 }

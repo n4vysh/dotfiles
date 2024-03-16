@@ -1,3 +1,0 @@
-remap_key=RIGHT_CTRL
-when_alone=ESCAPE
-with_other=CTRL
