@@ -47,22 +47,20 @@ sudo scoop install -g firacode
 
 ## Keyboard
 
-Deploy [remap.skl][sharpkeys-config-link], [dual-key-remap/config.txt][dual-key-remap-config-link],
-and [remap.ahk][ahk-config-link] to remap following keys and shortcuts
-with [SharpKeys][sharpkeys-link], [dual-key-remap][dual-key-remap-link], and [AutoHotKey][ahk-link].
+Deploy [remap.skl][sharpkeys-config-link] and [remap.ahk][ahk-config-link]
+to remap following keys and shortcuts
+with [SharpKeys][sharpkeys-link] and [AutoHotKey][ahk-link].
 
 | Physical key   | Mapped To      | Note                        |
 | :------------- | :------------- | :-------------------------- |
-| `Super (Left)` | `F13`          |
-| `Menu`         | `Super (Left)` |
+| `Super (Left)` | `F13`          |                             |
+| `Menu`         | `Super (Left)` |                             |
 | `Alt (Right)`  | `Ctrl (Right)` | `Escape` when pressed alone |
-| `Alt (Left)`   | `Alt (Left)`   | `Tab` when pressed alone    |
+| `Alt (Left)`   | `Alt (Left)`   |                             |
 
 [sharpkeys-config-link]: ../misc/wsl/misc/remap.skl
-[dual-key-remap-config-link]: ../misc/wsl/misc/dual-key-remap/config.txt
 [ahk-config-link]: ../misc/wsl/misc/remap.ahk
 [sharpkeys-link]: https://github.com/randyrants/sharpkeys
-[dual-key-remap-link]: https://github.com/ililim/dual-key-remap
 [ahk-link]: https://www.autohotkey.com/
 
 ## Font
