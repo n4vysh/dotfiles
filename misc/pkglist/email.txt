@@ -1,3 +1,4 @@
 aur/protonmail-bridge-bin
+aur/protonmail-desktop
 extra/mailnag
 extra/thunderbird
