@@ -138,7 +138,10 @@ if status --is-interactive
     __fish_abbr_add_extend hl helm
     __fish_abbr_add_extend hlh helm history
     __fish_abbr_add_extend hll helm list
-    __fish_abbr_add_extend hls helm status
+    __fish_abbr_add_extend hlla helm list -a
+    __fish_abbr_add_extend hlst helm status
+    __fish_abbr_add_extend hlse helm secrets
+    __fish_abbr_add_extend hlsed helm secrets decrypt
     __fish_abbr_add_extend hlr helm rollback
     __fish_abbr_add_extend hlf helmfile
     __fish_abbr_add_extend hlfa helmfile apply
