@@ -271,8 +271,7 @@ exec udiskie --automount          # Mount Helper
 
 # Dynamic display configuration
 exec_always {
-  pkill kanshi
-  kanshi &
+  sh -c 'pgrep -x kanshi && kanshictl reload || ( mkdir -p ~/.cache/kanshi/; kanshi >~/.cache/kanshi/log.txt 2>&1 )'
 }
 
 # polkit agent
