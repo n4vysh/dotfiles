@@ -236,7 +236,7 @@ return {
 			})
 
 			local servers = {
-				"bashls",
+				"bashls", -- NOTE: require shellcheck for linting from bashls
 				"bufls",
 				"cssls",
 				"dockerls",
@@ -375,7 +375,6 @@ return {
 					null_ls.builtins.diagnostics.actionlint,
 					null_ls.builtins.diagnostics.buf,
 					null_ls.builtins.formatting.buf,
-					null_ls.builtins.diagnostics.jsonlint,
 					null_ls.builtins.diagnostics.editorconfig_checker,
 					null_ls.builtins.formatting.rego,
 					null_ls.builtins.diagnostics.opacheck,
@@ -395,7 +394,6 @@ return {
 					null_ls.builtins.formatting.shfmt.with({
 						filetypes = { "sh", "direnv" },
 					}),
-					null_ls.builtins.diagnostics.shellcheck,
 					null_ls.builtins.formatting.prettier.with({
 						filetypes = {
 							"javascript",
