@@ -81,7 +81,9 @@ extra/jq
 extra/just
 extra/k9s
 extra/keybase
+extra/ko
 extra/kube-linter
+extra/kubeconform
 extra/kubectl
 extra/kubectx
 extra/kubie
@@ -94,6 +96,7 @@ extra/oxipng
 extra/parallel
 extra/percona-server-clients
 extra/pnpm
+extra/popeye
 extra/postgresql
 extra/pre-commit
 extra/prettier
