@@ -186,6 +186,15 @@ convert \
   ~/Downloads/archlinux-icon.png
 ```
 
+Tweak dotfiles.
+
+```bash
+cat <<EOF >>~/.config/lazygit/config.yml
+os:
+  copyToClipboardCmd: printf {{text}} | win32yank.exe -i
+EOF
+```
+
 [install-wsl-link]: https://learn.microsoft.com/en-us/windows/wsl/install
 [archwsl-setup-link]: https://wsldl-pg.github.io/ArchW-docs/How-to-Setup
 [wslu-link]: https://wslutiliti.es/wslu/
