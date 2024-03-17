@@ -5,7 +5,7 @@ file:
     owner: root
     group: root
     filetype: file
-    contains:
+    contents:
       - "/^--latest 30$/"
       - "/^--sort rate$/"
       - "/^# Print extra information$/"
@@ -23,7 +23,7 @@ file:
     owner: root
     group: root
     filetype: file
-    contains: ["/^en_US.UTF-8 UTF-8  $/"]
+    contents: ["/^en_US.UTF-8 UTF-8  $/"]
   /etc/locale.conf:
     exists: true
     mode: "0644"
@@ -47,7 +47,7 @@ file:
     group: root
     filetype: file
     # yamllint disable rule:line-length
-    contains:
+    contents:
       - "/^HOOKS=\\(systemd autodetect modconf kms keyboard sd-vconsole block sd-encrypt lvm2 filesystems\\)$/"
       - "/^COMPRESSION=cat$/"
       # yamllint enable rule:line-length
@@ -57,7 +57,7 @@ file:
     owner: root
     group: root
     filetype: file
-    contains:
+    contents:
       # yamllint disable rule:line-length
       - "/^rd.luks.name=.*=cryptlvm rd.luks.options=.*=fido2-device=auto root=/dev/volume/root quiet ro loglevel=3 rd.systemd.show_status=false rd.udev.log-priority=3 nosgx mitigations=auto,nosmt modprobe.blacklist=iTCO_wdt$/"
       # yamllint enable rule:line-length
@@ -74,7 +74,7 @@ file:
     owner: root
     group: root
     filetype: file
-    contains:
+    contents:
       - "/^Color$/"
       - "/^VerbosePkgLists$/"
       - "/^ParallelDownloads = 20$/"
@@ -84,7 +84,7 @@ file:
     owner: root
     group: root
     filetype: file
-    contains:
+    contents:
       - '-march=native'
       - '!-march=x86-64'
       - '!-mtune=generic'
