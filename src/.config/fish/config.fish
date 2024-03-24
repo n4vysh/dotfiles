@@ -189,6 +189,11 @@ if status --is-interactive
     __fish_abbr_add_extend kcgsa kubectl get serviceaccounts
     __fish_abbr_add_extend kcgsvc kubectl get services
     __fish_abbr_add_extend kcl kubectl logs
+    __fish_abbr_add_extend kclz kubectl get po \| \
+        sed 1d \| \
+        fzf +m \| \
+        awk \'{print \$1}\' \| \
+        xargs -t -I {} kubectl logs {}
     __fish_abbr_add_extend kl kube-linter
     __fish_abbr_add_extend kn kubens
     __fish_abbr_add_extend kv kubeval
