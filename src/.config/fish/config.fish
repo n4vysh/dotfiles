@@ -261,6 +261,8 @@ if status --is-interactive
     __fish_abbr_add_extend tfat terraform apply -target
     __fish_abbr_add_extend tfc terraform console
     __fish_abbr_add_extend tfin terraform init
+    __fish_abbr_add_extend tfinp terraform init \&\& terraform plan
+    __fish_abbr_add_extend tfina terraform init \&\& terraform apply
     __fish_abbr_add_extend tfim terraform import
     __fish_abbr_add_extend tfp terraform plan
     __fish_abbr_add_extend tfpr terraform plan -replace
