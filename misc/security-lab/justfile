@@ -14,7 +14,7 @@ deploy:
 
 # Switch kubernetes context
 switch:
-    kubie ctx kind-security-lab
+    kubie ctx -n default kind-security-lab
 
 # Check status of pods, nodes, and middlewares
 check:
