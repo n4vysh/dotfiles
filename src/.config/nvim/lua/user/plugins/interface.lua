@@ -11,6 +11,22 @@ return {
 	{
 		"RRethy/vim-illuminate",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		keys = {
+			{
+				"]r",
+				function()
+					require("illuminate")["goto_next_reference"]()
+				end,
+				desc = "Next reference",
+			},
+			{
+				"[r",
+				function()
+					require("illuminate")["goto_prev_reference"]()
+				end,
+				desc = "Previous reference",
+			},
+		},
 		config = function()
 			require("illuminate").configure({
 				filetypes_denylist = {
