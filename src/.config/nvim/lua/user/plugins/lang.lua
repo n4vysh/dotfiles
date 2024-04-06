@@ -252,7 +252,6 @@ return {
 				"tflint",
 				"tilt_ls",
 				"tsserver",
-				"typos_lsp",
 			}
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -267,6 +266,13 @@ return {
 					capabilities = capabilities,
 				})
 			end
+
+			lspconfig.typos_lsp.setup({
+				init_options = {
+					diagnosticSeverity = "Hint",
+				},
+				capabilities = capabilities,
+			})
 
 			lspconfig.eslint.setup({
 				on_attach = function(_, buf)
