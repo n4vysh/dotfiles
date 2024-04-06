@@ -171,6 +171,11 @@ if status --is-interactive
     __fish_abbr_add_extend kc kubectl
     __fish_abbr_add_extend kcar kubectl api-resources
     __fish_abbr_add_extend kcd kubectl describe
+    __fish_abbr_add_extend kcdz kubectl get all \| \
+        sed 1d \| \
+        fzf +m \| \
+        awk \'{print \$1}\' \| \
+        xargs -t -I {} kubectl describe {}
     __fish_abbr_add_extend kcdpo kubectl describe pods
     __fish_abbr_add_extend kcdno kubectl describe nodes
     __fish_abbr_add_extend kcg kubectl get
