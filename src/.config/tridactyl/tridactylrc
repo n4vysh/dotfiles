@@ -37,6 +37,9 @@ unbind o
 unbind t
 unbind w
 
+bind p clipboard tabopen
+unbind P
+
 set allowautofocus false
 set smoothscroll true
 set modeindicator false
