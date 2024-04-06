@@ -61,10 +61,12 @@ F13 & k::
 
 F13 & l::
 {
-	if GetKeyState("Ctrl", "P") {
-		DllCall("LockWorkStation")
-	} else if GetKeyState("Shift") {
-		Focus("right")
+	if ! GetKeyState("Shift") {
+		if GetKeyState("Ctrl", "P") {
+			DllCall("LockWorkStation")
+		} else {
+			Focus("right")
+		}
 	} else {
 		Move("right")
 	}
@@ -293,5 +295,37 @@ AppsKey::LWin
 	KeyWait "RShift"
 	if (A_TimeSinceThisHotkey < 300 and A_PriorKey = "RShift") {
 		Send ")"
+	}
+}
+
+~LAlt::
+{
+	KeyWait "LAlt"
+	if (A_TimeSinceThisHotkey < 300 and A_PriorKey = "LAlt") {
+		Send "{Tab}"
+	}
+}
+
+~+LAlt::
+{
+	KeyWait "LAlt"
+	if (A_TimeSinceThisHotkey < 300 and A_PriorKey = "LAlt") {
+		Send "+{Tab}"
+	}
+}
+
+~^LAlt::
+{
+	KeyWait "LAlt"
+	if (A_TimeSinceThisHotkey < 300 and A_PriorKey = "LAlt") {
+		Send "^{Tab}"
+	}
+}
+
+~+^LAlt::
+{
+	KeyWait "LAlt"
+	if (A_TimeSinceThisHotkey < 300 and A_PriorKey = "LAlt") {
+		Send "+^{Tab}"
 	}
 }
