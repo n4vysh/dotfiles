@@ -150,7 +150,8 @@ repos:
       - id: goss-privileged
         name: check dotfiles with goss in privileged user
         language: system
-        entry: sudo goss -g ./goss_privileged.yaml validate
+        entry: |
+          sh -c 'sudo $(mise which goss) -g ./goss_privileged.yaml validate'
         pass_filenames: false
       - id: fishtape
         name: test fish functions
