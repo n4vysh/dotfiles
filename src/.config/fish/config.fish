@@ -120,6 +120,7 @@ if status --is-interactive
     __fish_abbr_add_extend env grc env
     __fish_abbr_add_extend ev eva
     __fish_abbr_add_extend f fd -L
+    __fish_abbr_add_extend fv fd -H \| vidir -
     __fish_abbr_add_extend free grc free
     __fish_abbr_add_extend gb gobuster
     __fish_abbr_add_extend ghd gh dash
@@ -250,12 +251,12 @@ if status --is-interactive
     __fish_abbr_add_extend r rg
     __fish_abbr_add_extend rm rm -iv
     __fish_abbr_add_extend rs rustscan
-    __fish_abbr_add_extend rt rtx
-    __fish_abbr_add_extend rtg rtx global
-    __fish_abbr_add_extend rti rtx install
-    __fish_abbr_add_extend rtl rtx local
-    __fish_abbr_add_extend rtlr rtx ls-remote
-    __fish_abbr_add_extend rtplr rtx plugins ls-remote
+    __fish_abbr_add_extend mi mise
+    __fish_abbr_add_extend mig mise global
+    __fish_abbr_add_extend mii mise install
+    __fish_abbr_add_extend mil mise local
+    __fish_abbr_add_extend milr mise ls-remote
+    __fish_abbr_add_extend miplr mise plugins ls-remote
     __fish_abbr_add_extend sc systemctl
     __fish_abbr_add_extend se sudoedit
     __fish_abbr_add_extend so sops
