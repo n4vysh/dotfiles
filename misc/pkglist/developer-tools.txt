@@ -24,6 +24,7 @@ aur/kube-score-bin
 aur/kubeval-bin
 aur/lab-bin
 aur/lazydocker-bin
+aur/mise-bin
 aur/nnn-nerd
 aur/nodejs-commitizen
 aur/nodejs-cz-conventional-changelog
@@ -33,7 +34,6 @@ aur/opa
 aur/pack-cli-bin
 aur/pet-bin
 aur/redocly
-aur/rtx-bin
 aur/snyk
 aur/terraform-docs-bin
 aur/tflint-bin

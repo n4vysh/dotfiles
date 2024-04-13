@@ -1,7 +1,7 @@
 src/.kube/*
 !src/.kube/kubie.yaml
 src/.config/direnv/allow/
-src/.config/direnv/lib/use_rtx.sh
+src/.config/direnv/lib/use_mise.sh
 src/.config/fish/completions/*
 src/.config/fish/conf.d/*
 src/.config/fish/fish_variables
