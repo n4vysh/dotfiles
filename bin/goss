@@ -6,4 +6,4 @@ dir=$(
 )
 
 "$dir/test/scripts/output-vars.bash" >"$dir/goss-vars.yaml"
-command -p goss "$@"
+mise exec -- goss "$@"
