@@ -68,7 +68,8 @@
 - [UEFI Secure Boot][uefi-secure-boot-link] with [unified kernel image (UKI)][uki-link]
   and [sbctl][sbctl-link]
 - Enhance password security with [1Password][1password-link] and [Authy][authy-link]
-- End-to-end encryption (E2EE) with [Signal][signal-link] and [Proton Mail][proton-mail-link]
+- End-to-end encryption (E2EE) with [Signal][signal-link],
+  [Proton Mail][proton-mail-link], [Tresorit][tresorit-link], and [Ente][ente-link]
 - Privacy focused web browsing
   - Search shortcuts for [DuckDuckGo][duckduckgo-link]
   - [Strict Enhanced Tracking Protection][strict-etp-link]
@@ -362,7 +363,7 @@ prefix is `C-j`
 | Instant messaging clients     | [Signal][signal-link]                                                                             |
 | Audio player                  | [ncspot][ncspot-link]                                                                             |
 | Media player                  | [mpv][mpv-link]                                                                                   |
-| Cloud synchronization clients | [Dropbox][dropbox-link]                                                                           |
+| Cloud synchronization clients | [Tresorit][tresorit-link]                                                                         |
 | Screenshot                    | [grim][grim-link] + [slurp][slurp-link]                                                           |
 | Screen record                 | [wf-recorder][wf-recorder-link] + [slurp][slurp-link]                                             |
 | Notification                  | [mako][mako-link]                                                                                 |
@@ -373,9 +374,10 @@ prefix is `C-j`
 [bemenu-link]: https://github.com/Cloudef/bemenu
 [firefox-link]: https://www.mozilla.org/en-US/firefox/new/
 [proton-mail-link]: https://proton.me/mail/download
+[tresorit-link]: https://toresorit.com
+[ente-link]: https://ente.io/
 [ncspot-link]: https://github.com/hrkfdn/ncspot
 [mpv-link]: https://mpv.io/
-[dropbox-link]: https://www.dropbox.com/
 [grim-link]: https://sr.ht/~emersion/grim/
 [slurp-link]: https://github.com/emersion/slurp
 [wf-recorder-link]: https://github.com/ammen99/wf-recorder

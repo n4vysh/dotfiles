@@ -35,6 +35,17 @@ configure-firefox:
             {{ justfile_directory() }}/misc/firefox/search.json.mozlz4 \
             ~/.mozilla/firefox/{}/search.json.mozlz4
 
+install-tresorit:
+    curl -o '/tmp/#1' 'https://installer.tresorit.com/{tresorit_installer.run}'
+    chmod +x /tmp/tresorit_installer.run
+    /tmp/tresorit_installer.run
+
+configure-tresorit:
+    ~/.local/share/tresorit/tresorit-cli sync --start Documents --path ~/Documents
+    ~/.local/share/tresorit/tresorit-cli sync --start Music --path ~/Music
+    ~/.local/share/tresorit/tresorit-cli sync --start Pictures --path ~/Pictures
+    ~/.local/share/tresorit/tresorit-cli sync --start Videos --path ~/Videos
+
 test *target:
     pre-commit run -av {{ target }}
 

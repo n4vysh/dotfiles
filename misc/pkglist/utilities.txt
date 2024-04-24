@@ -1,5 +1,5 @@
-aur/dropbox
-aur/dropbox-cli
+aur/ente-cli-bin
+aur/ente-desktop-bin
 aur/firefox-tridactyl-native-bin
 aur/sysz
 aur/upd72020x-fw
