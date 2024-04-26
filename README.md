@@ -67,9 +67,9 @@
   and [systemd-boot][systemd-boot-link]
 - [UEFI Secure Boot][uefi-secure-boot-link] with [unified kernel image (UKI)][uki-link]
   and [sbctl][sbctl-link]
-- Enhance password security with [1Password][1password-link] and [Authy][authy-link]
+- Enhance password security with [1Password][1password-link] and [Ente Auth][ente-auth-link]
 - End-to-end encryption (E2EE) with [Signal][signal-link],
-  [Proton Mail][proton-mail-link], [Tresorit][tresorit-link], and [Ente][ente-link]
+  [Proton Mail][proton-mail-link], [Tresorit][tresorit-link], and [Ente Photos][ente-photos-link]
 - Privacy focused web browsing
   - Search shortcuts for [DuckDuckGo][duckduckgo-link]
   - [Strict Enhanced Tracking Protection][strict-etp-link]
@@ -134,8 +134,9 @@
 [uki-link]: https://wiki.archlinux.org/title/Unified_kernel_image
 [sbctl-link]: https://github.com/Foxboron/sbctl
 [1password-link]: https://1password.com/
-[authy-link]: https://authy.com/
+[ente-auth-link]: https://github.com/ente-io/ente/tree/main/auth#readme
 [signal-link]: https://signal.org/
+[ente-photos-link]: https://ente.io/
 [strict-etp-link]: https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 [duckduckgo-link]: https://duckduckgo.com/
 [dnt-link]: https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature
@@ -357,7 +358,7 @@ prefix is `C-j`
 | Taskbar                       | [waybar][waybar-link]                                                                             |
 | Launcher                      | [bemenu][bemenu-link]                                                                             |
 | Web Browser                   | [Firefox][firefox-link]                                                                           |
-| Password Manager              | [1Password][1password-link] + [Authy][authy-link]                                                 |
+| Password Manager              | [1Password][1password-link] + [Ente Auth][ente-auth-link]                                         |
 | VPN client                    | [NordVPN][nordvpn-link]                                                                           |
 | Mail client                   | [Proton Mail][proton-mail-link]                                                                   |
 | Instant messaging clients     | [Signal][signal-link]                                                                             |
@@ -375,7 +376,6 @@ prefix is `C-j`
 [firefox-link]: https://www.mozilla.org/en-US/firefox/new/
 [proton-mail-link]: https://proton.me/mail/download
 [tresorit-link]: https://toresorit.com
-[ente-link]: https://ente.io/
 [ncspot-link]: https://github.com/hrkfdn/ncspot
 [mpv-link]: https://mpv.io/
 [grim-link]: https://sr.ht/~emersion/grim/
