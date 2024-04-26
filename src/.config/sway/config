@@ -159,7 +159,7 @@ mode "$mode_launcher" {
   bindsym m exec "$term -e btm", mode "default"
   bindsym ctrl+m exec spotify-launcher, mode "default"
   bindsym p exec 1password, mode "default"
-  bindsym ctrl+p exec authy, mode "default"
+  bindsym ctrl+p exec ente_auth, mode "default"
   bindsym s exec sysinfo, mode "default"
   bindsym t exec burpsuite, mode "default"
   bindsym r exec remmina, mode "default"
