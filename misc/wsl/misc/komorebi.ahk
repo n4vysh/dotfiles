@@ -161,10 +161,10 @@ F13 & i::
 
 F13 & s::
 {
-	if GetKeyState("Shift", "P") {
-		Send "#+s"
-	} else if GetKeyState("Ctrl", "P") {
+	if GetKeyState("Ctrl", "P") {
 		Send "#{PrintScreen}"
+	} else {
+		Send "#+s"
 	}
 }
 
