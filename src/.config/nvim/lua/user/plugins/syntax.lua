@@ -37,6 +37,7 @@ return {
 				"lua",
 				"markdown",
 				"markdown_inline",
+				"mermaid",
 				"passwd",
 				"proto",
 				"python",
