@@ -268,6 +268,7 @@ exec mako                         # Notification daemon
 exec gammastep                    # Display colour temperature adjustment
 exec gnome-keyring-daemon --start # Keyring
 exec udiskie --automount          # Mount Helper
+exec tresorit-cli start           # Cloud Storage
 
 # Dynamic display configuration
 exec_always {
