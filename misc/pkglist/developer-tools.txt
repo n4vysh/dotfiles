@@ -24,6 +24,7 @@ aur/kube-score-bin
 aur/kubeval-bin
 aur/lab-bin
 aur/lazydocker-bin
+aur/mermaid-cli
 aur/mise-bin
 aur/nnn-nerd
 aur/nodejs-commitizen
