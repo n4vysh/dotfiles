@@ -25,6 +25,7 @@ winget install -e --id Insecure.Nmap
 winget install -e --id OpenVPNTechnologies.OpenVPN
 winget install -e --id QMK.QMKToolbox
 winget install -e --id JGraph.Draw
+winget install -e --id hrkfdn.ncspot
 ```
 
 [winget-link]: https://github.com/microsoft/winget-cli
@@ -39,7 +40,7 @@ irm get.scoop.sh | iex
 scoop install git
 scoop bucket add extras
 scoop bucket add nerd-fonts
-scoop install archwsl win32yank mpv yt-dlp sudo ncspot
+scoop install archwsl win32yank mpv yt-dlp sudo
 sudo scoop install -g firacode
 ```
 
