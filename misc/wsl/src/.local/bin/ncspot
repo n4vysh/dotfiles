@@ -1,4 +1,7 @@
 #!/bin/bash
 
-# shellcheck disable=SC2016
-powershell.exe -c '& "$env:USERPROFILE\scoop\shims\ncspot.exe"' "$@"
+# NOTE: Use cmd.exe instead of powershell to make faster
+#       cmd.exe: about 100ms
+#       powershell.exe: about 500ms
+cd /mnt/c/ || exit 1 # change directory from UNC path to Windows path to prevent error
+/mnt/c/Windows/System32/cmd.exe /c "%USERPROFILE%\AppData\Local\Microsoft\WinGet\Packages\hrkfdn.ncspot_Microsoft.Winget.Source_8wekyb3d8bbwe\ncspot.exe $*"
