@@ -211,7 +211,8 @@ return {
 				pickers = {
 					find_files = {
 						hidden = true,
-						find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+						no_ignore = true,
+						find_command = { "rg", "--files", "--hidden", "--no-ignore", "--glob", "!**/.git/*" },
 					},
 					buffers = {
 						show_all_buffers = true,
@@ -238,6 +239,7 @@ return {
 					file_browser = {
 						initial_mode = "normal",
 						hide_parent_dir = true,
+						respect_gitignore = false,
 						grouped = true,
 						mappings = {
 							n = {
