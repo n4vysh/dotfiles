@@ -350,6 +350,9 @@ return {
 				settings = {
 					gopls = {
 						gofumpt = true,
+						analyses = {
+							fillstruct = true,
+						},
 					},
 				},
 				capabilities = capabilities,
