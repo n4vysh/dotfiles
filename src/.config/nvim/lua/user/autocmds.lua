@@ -66,9 +66,6 @@ do
 		pattern = "*",
 		callback = function()
 			if vim.bo.filetype == "" then
-				vim.opt_local.tabstop = 2
-				vim.opt_local.softtabstop = -1
-				vim.opt_local.shiftwidth = 0
 				vim.opt_local.expandtab = true
 			end
 		end,
