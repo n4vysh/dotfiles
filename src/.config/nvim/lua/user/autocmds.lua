@@ -58,6 +58,23 @@ do
 	})
 end
 
+do
+	local augroup = "indent_for_empty_buffer"
+	vim.api.nvim_create_augroup(augroup, { clear = true })
+	vim.api.nvim_create_autocmd({ "BufEnter" }, {
+		group = augroup,
+		pattern = "*",
+		callback = function()
+			if vim.bo.filetype == "" then
+				vim.opt_local.tabstop = 2
+				vim.opt_local.softtabstop = -1
+				vim.opt_local.shiftwidth = 0
+				vim.opt_local.expandtab = true
+			end
+		end,
+	})
+end
+
 -- appearance
 do
 	local augroup = "highlight_yank"
