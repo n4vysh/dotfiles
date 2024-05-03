@@ -6,6 +6,9 @@ local options = {
 	wildignorecase = true,
 	wildmode = { "longest:full", "full" },
 	smartindent = true,
+	tabstop = 2,
+	softtabstop = -1,
+	shiftwidth = 0,
 	-- appearance
 	splitbelow = true,
 	splitright = true,
