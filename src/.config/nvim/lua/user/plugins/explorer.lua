@@ -23,6 +23,9 @@ return {
 						enable = false,
 					},
 				},
+				filters = {
+					git_ignored = false,
+				},
 			})
 		end,
 		dependencies = {
