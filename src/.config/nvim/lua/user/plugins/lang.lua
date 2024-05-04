@@ -177,9 +177,9 @@ return {
 					vim.keymap.set("n", "crn", function()
 						return ":IncRename " .. vim.fn.expand("<cword>")
 					end, { expr = true })
-					vim.keymap.set("n", "crr", require("code_action_menu").open_code_action_menu, opts)
-					vim.keymap.set("v", "<C-r>r", require("code_action_menu").open_code_action_menu, opts)
-					vim.keymap.set("v", "<C-r><C-r>", require("code_action_menu").open_code_action_menu, opts)
+					vim.keymap.set("n", "crr", require("actions-preview").code_actions, opts)
+					vim.keymap.set("v", "<C-r>r", require("actions-preview").code_actions, opts)
+					vim.keymap.set("v", "<C-r><C-r>", require("actions-preview").code_actions, opts)
 
 					if client.supports_method("textDocument/formatting") then
 						local augroup = vim.api.nvim_create_augroup("lsp_document_formatting_" .. buf, {})
@@ -472,11 +472,32 @@ return {
 		},
 	},
 	{
-		"weilbith/nvim-code-action-menu",
+		"aznhe21/actions-preview.nvim",
 		event = "LspAttach",
 		dependencies = {
 			"neovim/nvim-lspconfig",
 		},
+		config = function()
+			local hl = require("actions-preview.highlight")
+			require("actions-preview").setup({
+				highlight_command = {
+					hl.delta("delta"),
+				},
+				telescope = {
+					sorting_strategy = "ascending",
+					layout_strategy = "vertical",
+					layout_config = {
+						width = 0.8,
+						height = 0.9,
+						prompt_position = "top",
+						preview_cutoff = 20,
+						preview_height = function(_, _, max_lines)
+							return max_lines - 15
+						end,
+					},
+				},
+			})
+		end,
 	},
 	{
 		"smjonas/inc-rename.nvim",
