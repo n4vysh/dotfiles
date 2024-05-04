@@ -35,6 +35,7 @@ path=($path $HOME/.krew/bin(N-/))
 
 # Programming
 export GOPATH="$HOME/.local"
+export CARGO_NET_GIT_FETCH_WITH_CLI=true
 
 # Less
 export LESS='-ciMR'
