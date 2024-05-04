@@ -134,10 +134,10 @@ return {
 						require("lspsaga.definition"):init(1, 1)
 					end, opts)
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-					vim.keymap.set("n", "g<C-i>", vim.lsp.buf.implementation, opts)
+					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 					vim.keymap.set(
 						"n",
-						"gl",
+						"<C-w>d",
 						[[:lua vim.diagnostic.open_float()<cr><C-w><C-w>]],
 						{ desc = "Show diagnostics in float window", silent = true }
 					)
@@ -171,11 +171,15 @@ return {
 							require("lspsaga.hover"):render_hover_doc({})
 						end
 					end, opts)
+					vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
 					vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-					vim.keymap.set("n", "gr", function()
+					vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+					vim.keymap.set("n", "crn", function()
 						return ":IncRename " .. vim.fn.expand("<cword>")
 					end, { expr = true })
-					vim.keymap.set({ "n", "v" }, "gA", require("code_action_menu").open_code_action_menu, opts)
+					vim.keymap.set("n", "crr", require("code_action_menu").open_code_action_menu, opts)
+					vim.keymap.set("v", "<C-r>r", require("code_action_menu").open_code_action_menu, opts)
+					vim.keymap.set("v", "<C-r><C-r>", require("code_action_menu").open_code_action_menu, opts)
 
 					if client.supports_method("textDocument/formatting") then
 						local augroup = vim.api.nvim_create_augroup("lsp_document_formatting_" .. buf, {})
