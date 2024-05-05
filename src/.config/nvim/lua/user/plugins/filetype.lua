@@ -2,6 +2,23 @@
 -- filetype detection, Syntax highlighting, completions, etc.
 return {
 	{
+		"yanskun/gotests.nvim",
+		ft = "go",
+		keys = {
+			{
+				"<space>tg",
+				vim.cmd.GoTests,
+				{
+					silent = true,
+					desc = "Generate test",
+				},
+			},
+		},
+		config = function()
+			require("gotests").setup()
+		end,
+	},
+	{
 		"NoahTheDuke/vim-just",
 		ft = { "just" },
 	},
