@@ -14,6 +14,7 @@ aur/git-extras
 aur/git-open
 aur/golangci-lint-bin
 aur/google-cloud-cli
+aur/gotests
 aur/hadolint-bin
 aur/helm-diff
 aur/helm-docs
