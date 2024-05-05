@@ -623,8 +623,8 @@ _configure_without_privileged() {
 	_log::info 'Install formatter'
 	pnpm add -g sql-formatter
 
-	_log::info 'Install generator'
-	go install github.com/cweill/gotests/gotests@latest
+	_log::info 'Install test tool'
+	go install gotest.tools/gotestsum@latest
 
 	_log::info 'Install packages for editor'
 	go install github.com/rhysd/vim-startuptime@latest
