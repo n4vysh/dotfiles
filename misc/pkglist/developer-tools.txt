@@ -5,7 +5,6 @@ aur/conftest
 aur/crudini
 aur/devbox-bin
 aur/docker-credential-pass-bin
-aur/dprint-bin
 aur/drawio-desktop-bin
 aur/dyff-bin
 aur/ghq-bin
