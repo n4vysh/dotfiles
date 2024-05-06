@@ -104,7 +104,8 @@ if status --is-interactive
     __fish_abbr_add_extend dcd docker compose down
     __fish_abbr_add_extend dcl docker compose logs
     __fish_abbr_add_extend dclf docker compose logs -f
-    __fish_abbr_add_extend dcr docker compose restart
+    __fish_abbr_add_extend dcre docker compose restart
+    __fish_abbr_add_extend dcru docker compose run
     __fish_abbr_add_extend dcu docker compose up
     __fish_abbr_add_extend dcw docker compose watch
     __fish_abbr_add_extend de direnv
