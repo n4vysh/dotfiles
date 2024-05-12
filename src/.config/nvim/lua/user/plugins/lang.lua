@@ -132,33 +132,27 @@ return {
 					end, vim.tbl_extend("force", opts, { desc = "Goto preview of references and implementation" }))
 					vim.keymap.set("n", "gd", function()
 						require("lspsaga.definition"):init(1, 1)
-					end, opts)
+					end, vim.tbl_extend("force", opts, { desc = "Goto preview of definition" }))
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 					vim.keymap.set(
 						"n",
 						"<C-w>d",
 						[[:lua vim.diagnostic.open_float()<cr><C-w><C-w>]],
-						{ desc = "Show diagnostics in float window", silent = true }
+						vim.tbl_extend("force", opts, { desc = "Show diagnostics in float window" })
 					)
 					vim.keymap.set("n", "go", function()
 						vim.cmd([[normal m']])
 
 						require("lspsaga.symbol.outline"):outline()
-					end, {
-						silent = true,
-						desc = "Toggle symbols outline",
-					})
+					end, vim.tbl_extend("force", opts, { desc = "Toggle symbols outline" }))
 					vim.keymap.set("n", "g<C-t>", function()
 						-- HACK:Use jump list
 						-- https://github.com/folke/trouble.nvim/issues/235
 						vim.cmd([[normal m']])
 
 						require("trouble").open()
-					end, {
-						silent = true,
-						desc = "Toggle trouble (diagnostics) panel",
-					})
+					end, vim.tbl_extend("force", opts, { desc = "Toggle trouble (diagnostics) panel" }))
 					vim.keymap.set("n", "[d", function()
 						vim.diagnostic.goto_prev({ float = false })
 					end, opts)
