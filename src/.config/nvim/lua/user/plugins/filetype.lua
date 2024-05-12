@@ -2,6 +2,9 @@
 -- filetype detection, Syntax highlighting, completions, etc.
 return {
 	{
+		"tridactyl/vim-tridactyl",
+	},
+	{
 		"yanskun/gotests.nvim",
 		ft = "go",
 		keys = {
