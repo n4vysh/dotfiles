@@ -40,6 +40,9 @@ unbind w
 bind p clipboard tabopen
 unbind P
 
+" keybinds like helix
+bind ge scrollto 100
+
 set allowautofocus false
 set smoothscroll true
 set modeindicator false
