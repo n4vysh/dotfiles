@@ -27,14 +27,6 @@ local options = {
 	pumheight = 10,
 	showbreak = "↪ ",
 	list = true,
-	listchars = {
-		tab = "▸ ",
-		trail = "˽",
-		eol = "¬",
-		extends = "»",
-		precedes = "«",
-		nbsp = "·",
-	},
 	fillchars = {
 		diff = "╱",
 		horiz = "━",
@@ -54,6 +46,11 @@ for k, v in pairs(options) do
 end
 
 vim.opt.shortmess:append({ Ic = true })
+vim.opt.listchars:append({
+	eol = "¬",
+	extends = "❯",
+	precedes = "❮",
+})
 
 if vim.env.DISPLAY ~= "" then
 	vim.opt.clipboard = "unnamedplus"
