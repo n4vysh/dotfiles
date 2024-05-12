@@ -79,6 +79,32 @@ vim.keymap.set("v", "g?", [[<ESC>?\%V]], {
 	desc = "Search backward in the range",
 })
 
+-- keymaps using the g like helix
+vim.keymap.set({ "n", "v", "o" }, "ge", "G", {
+	silent = true,
+	desc = "Goto last line",
+})
+
+vim.keymap.set({ "n", "v", "o" }, "gh", "0", {
+	silent = true,
+	desc = "Goto line start",
+})
+
+vim.keymap.set({ "n", "v", "o" }, "gl", "g_", {
+	silent = true,
+	desc = "Goto line end",
+})
+
+vim.keymap.set({ "n", "v", "o" }, "gs", "^", {
+	silent = true,
+	desc = "Goto first non-blank in line",
+})
+
+vim.keymap.set({ "n", "v", "o" }, "mm", "%", {
+	silent = true,
+	desc = "Goto matching bracket",
+})
+
 -- keymaps like VS Code
 vim.keymap.set("n", "<C-h>", ":%s///g<left><left><left>", {
 	desc = "Set command for substitute",
