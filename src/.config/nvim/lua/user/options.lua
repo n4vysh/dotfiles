@@ -4,7 +4,6 @@ local options = {
 	ignorecase = true,
 	smartcase = true,
 	wildignorecase = true,
-	wildmode = { "longest:full", "full" },
 	smartindent = true,
 	tabstop = 2,
 	softtabstop = -1,
@@ -45,6 +44,7 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
+vim.opt.wildmode:prepend({ "longest:full" })
 vim.opt.shortmess:append({ Ic = true })
 vim.opt.listchars:append({
 	eol = "¬",
