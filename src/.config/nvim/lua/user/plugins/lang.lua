@@ -127,9 +127,9 @@ return {
 					vim.bo[buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
 					local opts = { silent = true, buffer = buf }
-					vim.keymap.set("n", "gh", function()
+					vim.keymap.set("n", "gp", function()
 						require("lspsaga.finder"):new({})
-					end, opts)
+					end, vim.tbl_extend("force", opts, { desc = "Goto preview of references and implementation" }))
 					vim.keymap.set("n", "gd", function()
 						require("lspsaga.definition"):init(1, 1)
 					end, opts)
