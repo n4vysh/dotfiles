@@ -79,6 +79,7 @@ vim.keymap.set("v", "g?", [[<ESC>?\%V]], {
 	desc = "Search backward in the range",
 })
 
+-- keymaps like VS Code
 vim.keymap.set("n", "<C-h>", ":%s///g<left><left><left>", {
 	desc = "Set command for substitute",
 })
