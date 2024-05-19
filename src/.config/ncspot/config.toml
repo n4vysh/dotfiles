@@ -3,14 +3,17 @@ hide_display_names = true
 
 [keybindings]
 "Ctrl+q" = "focus queue"
-"Ctrl+w" = "focus search"
-"Ctrl+e" = "focus library"
-"Ctrl+i" = "focus cover"
-"Ctrl+p" = "playpause"
+"Ctrl+s" = "focus search"
+"Ctrl+l" = "focus library"
 "Ctrl+h" = "back"
 "Ctrl+r" = "reload"
 "Ctrl+n" = "noop"
 "Ctrl+a" = "noop"
+"q" = "quit"
+"p" = "playpause"
+"P" = "move playing"
+"r" = "reconnect"
+"S" = "save queue"
 # https://github.com/hrkfdn/ncspot/issues/230#issuecomment-683444176
 "G" = "move bottom"
 "g" = "move top"
