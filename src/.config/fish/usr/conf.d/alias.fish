@@ -9,3 +9,12 @@ if command -q "$cmd"
 else
     printf '%s: Not found %s command\n' "$file" "$cmd" >&2
 end
+
+# NOTE: use command completion and grc command
+for cmd in docker df dig du env free id last lsblk lsof nmap ping ps
+    if command -q "$cmd"
+        alias "$cmd"="grc $cmd"
+    else
+        printf '%s: Not found %s command\n' "$file" "$cmd" >&2
+    end
+end
