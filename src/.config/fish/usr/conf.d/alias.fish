@@ -11,7 +11,10 @@ else
 end
 
 # NOTE: use command completion and grc command
-for cmd in docker df dig du env free id last lsblk lsof nmap ping ps
+set -l cmds \
+    docker df dig du env free go id kubectl last lsblk lsof \
+    nmap ping ps traceroute uptime whois
+for cmd in $cmds
     if command -q "$cmd"
         alias "$cmd"="grc $cmd"
     else
