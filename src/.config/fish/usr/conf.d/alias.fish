@@ -4,7 +4,7 @@ set -l file (
 
 set -l cmd eza
 if command -q "$cmd"
-    # use eza in __fish_list_current_token function
+    # NOTE: use eza in __fish_list_current_token function
     alias ls="$cmd -gF --icons --git --time-style long-iso"
 else
     printf '%s: Not found %s command\n' "$file" "$cmd" >&2
