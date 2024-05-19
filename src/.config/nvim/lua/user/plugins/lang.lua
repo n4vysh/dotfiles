@@ -2,23 +2,11 @@ return {
 	{
 		"williamboman/mason.nvim",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		cmd = { "Mason" },
 		keys = {
 			{
 				"<Space>pp",
-				function()
-					vim.ui.select({ "plugins", "external tool" }, {
-						prompt = "package manager information",
-					}, function(choice)
-						if choice == nil then
-							do
-							end
-						elseif choice == "plugins" then
-							require("lazy").home()
-						else
-							vim.cmd.Mason()
-						end
-					end)
-				end,
+				require("user.utils.ui").select_plugin_or_package_manager,
 				{
 					silent = true,
 					desc = "Show package manager information",
