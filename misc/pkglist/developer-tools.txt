@@ -115,6 +115,7 @@ extra/shfmt
 extra/silicon
 extra/skaffold
 extra/sops
+extra/sqlfluff
 extra/starship
 extra/stern
 extra/stow
