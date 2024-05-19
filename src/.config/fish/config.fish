@@ -310,6 +310,7 @@ if status --is-interactive
     __fish_abbr_add_extend tgo terragrunt output
     __fish_abbr_add_extend tgoj terragrunt output -json
     __fish_abbr_add_extend ti tokei --hidden
+    __fish_abbr_add_extend tl tldr
     __fish_abbr_add_extend tm tmux
     __fish_abbr_add_extend tmp tmuxp
     __fish_abbr_add_extend u unbuffer
