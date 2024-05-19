@@ -3,7 +3,8 @@ if status --is-interactive
       string replace $XDG_CONFIG_HOME '$XDG_CONFIG_HOME' (status filename)
     )
 
-    if command -q mise
+    set -l cmd mise
+    if command -q "$cmd"
         set -l completion $XDG_CONFIG_HOME/fish/completions/mise.fish
         if not test -e "$completion"
             mise completion fish >$XDG_CONFIG_HOME/fish/completions/mise.fish
@@ -20,7 +21,7 @@ if status --is-interactive
             mise direnv activate >$lib
         end
     else
-        printf '%s: Not found mise command\n' "$file" >&2
+        printf '%s: Not found %s command\n' "$file" "$cmd" >&2
     end
 end
 
@@ -29,12 +30,13 @@ if status --is-interactive
       string replace $XDG_CONFIG_HOME '$XDG_CONFIG_HOME' (status filename)
     )
 
-    if command -q direnv
+    set -l cmd direnv
+    if command -q "$cmd"
         # NOTE: setup shell hook after mise activate to correct PATH order
         direnv hook fish |
             source
     else
-        printf '%s: Not found direnv command\n' "$file" >&2
+        printf '%s: Not found %s command\n' "$file" "$cmd" >&2
     end
 end
 
@@ -43,13 +45,14 @@ if status --is-interactive
       string replace $XDG_CONFIG_HOME '$XDG_CONFIG_HOME' (status filename)
     )
 
-    if command -q zoxide
+    set -l cmd zoxide
+    if command -q "$cmd"
         if not functions -q z
             zoxide init fish |
                 source
         end
     else
-        printf '%s: Not found zoxide command\n' "$file" >&2
+        printf '%s: Not found %s command\n' "$file" "$cmd" >&2
     end
 end
 
@@ -58,12 +61,13 @@ if status --is-interactive
       string replace $XDG_CONFIG_HOME '$XDG_CONFIG_HOME' (status filename)
     )
 
-    if command -q s
+    set -l cmd s
+    if command -q "$cmd"
         set -l completion $XDG_CONFIG_HOME/fish/completions/s.fish
         if not test -e "$completion"
-            s --completion fish >$XDG_CONFIG_HOME/fish/completions/s.fish
+            s --completion fish >"$completion"
         end
     else
-        printf '%s: Not found s command\n' "$file" >&2
+        printf '%s: Not found %s command\n' "$file" "$cmd" >&2
     end
 end
