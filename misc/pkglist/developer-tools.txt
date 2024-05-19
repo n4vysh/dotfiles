@@ -36,6 +36,7 @@ aur/pack-cli-bin
 aur/pet-bin
 aur/redocly
 aur/snyk
+aur/spectral-cli
 aur/terraform-docs-bin
 aur/tflint-bin
 aur/tilt-bin
