@@ -230,28 +230,37 @@ return {
 		"tpope/vim-repeat",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	},
+
 	{
 		"kylechui/nvim-surround",
 		keys = {
-			{ "<C-g>s", mode = "i" },
-			{ "<C-g>S", mode = "i" },
-			{ "ys" },
-			{ "yss" },
-			{ "yS" },
-			{ "ySS" },
-			{ "gs", mode = "x" },
-			{ "gS", mode = "x" },
-			{ "ds" },
-			{ "cs" },
-			{ "cS" },
+			{ "<C-g>z", mode = "i" },
+			{ "<C-g>Z", mode = "i" },
+			{ "yz" },
+			{ "yzz" },
+			{ "yZ" },
+			{ "yZZ" },
+			{ "gz", mode = "x" },
+			{ "gZ", mode = "x" },
+			{ "dz" },
+			{ "cz" },
+			{ "cZ" },
 		},
 		config = function()
-			-- HACK: change keymap to avoid conflict for leap.nvim
+			-- HACK: change keymap to avoid conflict for leap.nvim and helix like keymaps
 			-- https://github.com/ggandor/leap.nvim/discussions/59#discussioncomment-3842315
 			require("nvim-surround").setup({
 				keymaps = {
-					visual = "gs",
-					visual_line = "gS",
+					insert = "<C-g>z",
+					insert_line = "<C-g>Z",
+					normal = "yz",
+					normal_line = "yzz",
+					normal_cur = "yZ",
+					normal_cur_line = "yZZ",
+					visual = "gz",
+					visual_line = "gZ",
+					delete = "dz",
+					change = "cz",
 				},
 			})
 		end,
