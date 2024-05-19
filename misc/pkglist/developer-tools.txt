@@ -18,6 +18,7 @@ aur/hadolint-bin
 aur/helm-diff
 aur/helm-docs
 aur/infracost
+aur/jqp-bin
 aur/kind-bin
 aur/krew-bin
 aur/kube-score-bin
