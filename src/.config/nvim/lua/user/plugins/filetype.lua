@@ -17,9 +17,7 @@ return {
 				},
 			},
 		},
-		config = function()
-			require("gotests").setup()
-		end,
+		opts = {},
 	},
 	{
 		"NoahTheDuke/vim-just",

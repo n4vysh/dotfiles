@@ -112,13 +112,11 @@ return {
 	{
 		"ethanholz/nvim-lastplace",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		config = function()
-			require("nvim-lastplace").setup({
-				lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-				lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
-				lastplace_open_folds = true,
-			})
-		end,
+		opts = {
+			lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+			lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
+			lastplace_open_folds = true,
+		},
 	},
 	{
 		"luukvbaal/statuscol.nvim",

@@ -14,20 +14,18 @@ return {
 				end,
 			},
 		},
-		config = function()
-			require("nvim-tree").setup({
-				hijack_cursor = true,
-				hijack_netrw = false,
-				view = {
-					float = {
-						enable = false,
-					},
+		opts = {
+			hijack_cursor = true,
+			hijack_netrw = false,
+			view = {
+				float = {
+					enable = false,
 				},
-				filters = {
-					git_ignored = false,
-				},
-			})
-		end,
+			},
+			filters = {
+				git_ignored = false,
+			},
+		},
 		dependencies = {
 			"stevearc/dressing.nvim",
 		},
