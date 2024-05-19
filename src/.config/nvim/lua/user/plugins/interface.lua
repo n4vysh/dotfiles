@@ -217,6 +217,11 @@ return {
 				dashboard.button("h", "  History", ":lua require('user.utils.finder').recent_files()<cr>"),
 				dashboard.button("l", "  Open last session", ":SessionManager load_last_session<cr>"),
 				dashboard.button("c", "  Configuration", ":lua require('user.utils.finder').edit_config()<cr>"),
+				dashboard.button(
+					"p",
+					"  Plugin / Package manager",
+					":lua require('user.utils.ui').select_plugin_or_package_manager()<cr>"
+				),
 				dashboard.button("q", "󰅚  Quit NVIM", ":qa<CR>"),
 			}
 			alpha.setup(dashboard.config)
@@ -233,6 +238,8 @@ return {
 				end,
 				dependencies = {
 					"nvim-lua/plenary.nvim",
+					-- NOTE: use user.utils.ui module
+					"stevearc/dressing.nvim",
 				},
 			},
 		},
