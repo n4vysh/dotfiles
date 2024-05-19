@@ -317,6 +317,6 @@ if status --is-interactive
     __fish_abbr_add_extend wlp wl-paste
     __fish_abbr_add_extend wlc wl-copy
     __fish_abbr_add_extend ws wiki-search
-    __fish_abbr_add_extend x xh -F
+    __fish_abbr_add_extend x xh
     __fish_abbr_add_extend xs xsv
 end
