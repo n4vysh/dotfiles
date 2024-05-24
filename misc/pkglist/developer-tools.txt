@@ -1,4 +1,5 @@
 aur/adr-tools
+aur/aicommits
 aur/calcure
 aur/chart-testing
 aur/conftest
