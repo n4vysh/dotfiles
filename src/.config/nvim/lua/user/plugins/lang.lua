@@ -142,12 +142,6 @@ return {
 
 						require("trouble").open()
 					end, vim.tbl_extend("force", opts, { desc = "Toggle trouble (diagnostics) panel" }))
-					vim.keymap.set("n", "[d", function()
-						vim.diagnostic.goto_prev({ float = false })
-					end, opts)
-					vim.keymap.set("n", "]d", function()
-						vim.diagnostic.goto_next({ float = false })
-					end, opts)
 					vim.keymap.set("n", "K", function()
 						local winid = require("ufo").peekFoldedLinesUnderCursor()
 						if not winid then
