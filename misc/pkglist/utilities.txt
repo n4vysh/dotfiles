@@ -1,5 +1,6 @@
 aur/ente-cli-bin
 aur/ente-desktop-bin
+aur/espanso-wayland-git
 aur/firefox-tridactyl-native-bin
 aur/sysz
 aur/upd72020x-fw
