@@ -207,11 +207,12 @@ just configure-firefox
 Install addons refer to the [collections][collections-link]
 and restore settings from following files in [misc/firefox/](misc/firefox/) directory.
 
-| Addon name                          | File name                                           |
-| :---------------------------------- | :-------------------------------------------------- |
-| [uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)               |
-| [SwitchyOmega][switchy-omega-link]  | [switchy_omega.bak](misc/firefox/switchy_omega.bak) |
-| [Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)                     |
+| Addon name                          | File name                                               |
+| :---------------------------------- | :------------------------------------------------------ |
+| [uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)                   |
+| [SwitchyOmega][switchy-omega-link]  | [switchy_omega.bak](misc/firefox/switchy_omega.bak)     |
+| [Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)                         |
+| [CanvasBlocker][canvasblocker-link] | [canvas-blocker.json](misc/firefox/canvas-blocker.json) |
 
 [collections-link]: https://addons.mozilla.org/en-US/firefox/collections/17575539/n4vysh/
 [switchy-omega-link]: https://github.com/FelisCatus/SwitchyOmega
