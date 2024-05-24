@@ -179,7 +179,7 @@ Set wallpaper and account icon for Windows.
 ```bash
 sudo pacman -S archlinux-wallpaper
 cp /usr/share/backgrounds/archlinux/split.png ~/Downloads/wallpaper.png
-paru -S archlinux-artwork
+yay -S archlinux-artwork
 convert \
   -density 1200 \
   -background black \
