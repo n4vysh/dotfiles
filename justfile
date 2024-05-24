@@ -17,7 +17,7 @@ dry-run-link: (_stow "-n")
 dry-run-unlink: (_stow "-n" "-D")
 
 install:
-    cat misc/pkglist/* | paru -S --needed -
+    cat misc/pkglist/* | yay -S --needed -
 
 install-git-hooks:
     pre-commit install --install-hooks

@@ -212,17 +212,6 @@ if status --is-interactive
     __fish_abbr_add_extend pe pet
     __fish_abbr_add_extend pee pet edit
     __fish_abbr_add_extend pen pet new
-    __fish_abbr_add_extend pr paru
-    __fish_abbr_add_extend prs paru -S
-    __fish_abbr_add_extend prsi paru -Si
-    __fish_abbr_add_extend prss paru -Ss
-    __fish_abbr_add_extend prsc paru -Sc
-    __fish_abbr_add_extend prscc paru -Scc
-    __fish_abbr_add_extend prsyu paru -Syu
-    __fish_abbr_add_extend prql paru -Ql
-    __fish_abbr_add_extend prqo paru -Qo
-    __fish_abbr_add_extend prr paru -R
-    __fish_abbr_add_extend prrs paru -Rs
     __fish_abbr_add_extend pd sudo -E pacdiff
     __fish_abbr_add_extend pl plocate
     __fish_abbr_add_extend pp pnpm
@@ -307,4 +296,15 @@ if status --is-interactive
     __fish_abbr_add_extend ws wiki-search
     __fish_abbr_add_extend x xh
     __fish_abbr_add_extend xs xsv
+    __fish_abbr_add_extend y yay
+    __fish_abbr_add_extend ys yay -S
+    __fish_abbr_add_extend ysi yay -Si
+    __fish_abbr_add_extend yss yay -Ss
+    __fish_abbr_add_extend ysc yay -Sc
+    __fish_abbr_add_extend yscc yay -Scc
+    __fish_abbr_add_extend ysyu yay -Syu
+    __fish_abbr_add_extend yql yay -Ql
+    __fish_abbr_add_extend yqo yay -Qo
+    __fish_abbr_add_extend yr yay -R
+    __fish_abbr_add_extend yrs yay -Rs
 end

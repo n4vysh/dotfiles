@@ -355,9 +355,9 @@ _configure_without_privileged() {
 
 	_log::info 'Install AUR helper'
 	curl -L -o '/tmp/#1' \
-		'https://aur.archlinux.org/cgit/aur.git/snapshot/{paru-bin.tar.gz}'
-	tar xzvf /tmp/paru-bin.tar.gz -C /tmp/
-	cd /tmp/paru-bin/
+		'https://aur.archlinux.org/cgit/aur.git/snapshot/{yay-bin.tar.gz}'
+	tar xzvf /tmp/yay-bin.tar.gz -C /tmp/
+	cd /tmp/yay-bin/
 	makepkg -si --noconfirm
 	cd -
 
@@ -369,9 +369,9 @@ _configure_without_privileged() {
 	# HACK: enter password before running AUR helper to skip selection of package group with yes command
 	sudo true
 	# HACK: mark news item as read to avoid interruption a pacman transaction
-	paru -S --noconfirm --needed --disable-download-timeout --skipreview informant
+	yay -S --noconfirm --needed --disable-download-timeout informant
 	sudo informant read --all
-	bash -c "yes '' | paru -S --noconfirm --needed --disable-download-timeout --skipreview $(
+	bash -c "yes '' | yay -S --noconfirm --needed --disable-download-timeout $(
 		find /tmp/dotfiles/misc/pkglist/ \
 			-type f \
 			-print0 |
