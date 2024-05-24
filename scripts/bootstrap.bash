@@ -650,6 +650,9 @@ _configure_without_privileged() {
 	_log::info 'Configure profile-sync-daemon'
 	systemctl --user enable --now psd.service
 
+	_log::info 'Configure text expander'
+	systemctl --user enable espanso
+
 	_log::info 'Configure metasploit'
 	sudo mkdir -p /var/lib/postgres/data
 	sudo chattr +C /var/lib/postgres/data
