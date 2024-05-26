@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/usr/share/nnn/plugins/nuke "$@"
+exec /usr/share/nnn/plugins/nuke "$@"
