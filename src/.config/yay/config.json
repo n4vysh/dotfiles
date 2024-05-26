@@ -1,3 +1,4 @@
 {
-  "bottomup": false
+  "bottomup": false,
+  "combinedupgrade": false
 }
