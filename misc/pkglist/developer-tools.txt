@@ -35,7 +35,6 @@ aur/nodejs-cz-conventional-changelog
 aur/nodejs-jsonlint
 aur/nodejs-nestjs-cli
 aur/opa
-aur/pack-cli-bin
 aur/pet-bin
 aur/redocly
 aur/snyk
