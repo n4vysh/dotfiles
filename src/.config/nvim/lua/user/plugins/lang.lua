@@ -329,6 +329,7 @@ return {
 			})
 
 			lspconfig.gopls.setup({
+				cmd_env = { GOFUMPT_SPLIT_LONG_LINES = "on" },
 				settings = {
 					gopls = {
 						gofumpt = true,
