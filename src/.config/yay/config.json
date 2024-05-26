@@ -1,4 +1,5 @@
 {
+  "batchinstall": true,
   "bottomup": false,
   "combinedupgrade": false
 }
