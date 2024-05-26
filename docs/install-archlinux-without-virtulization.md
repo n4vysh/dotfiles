@@ -19,12 +19,13 @@ gpg \
 
 ```bash
 ls -l /dev/disk/by-id/usb-*
+# NOTE: check USB drive is not mounted
 lsblk
 # /dev/disk/by-id/usb-My_flash_drive
 read -rp 'drive path: ' usb_path
-dd \
+sudo dd \
   bs=4M \
-  if=~/Downloads/archlinux-*.*.*-x86_64.iso \
+  if="$(find ~/Downloads/archlinux-*.*.*-x86_64.iso)" \
   of="$usb_path" \
   conv=fsync \
   oflag=direct \
