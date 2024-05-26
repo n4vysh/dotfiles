@@ -20,6 +20,7 @@ aur/helm-diff
 aur/helm-docs
 aur/infracost
 aur/jqp-bin
+aur/keybase-bin
 aur/kind-bin
 aur/krew-bin
 aur/kube-score-bin
@@ -84,7 +85,6 @@ extra/jpegoptim
 extra/jq
 extra/just
 extra/k9s
-extra/keybase
 extra/ko
 extra/kube-linter
 extra/kubeconform
