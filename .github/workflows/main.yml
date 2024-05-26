@@ -43,7 +43,8 @@ jobs:
               clang \
               git \
               stow \
-              patch
+              patch \
+              pkg-config
           sudo -u nobody curl -L -o '/tmp/#1' \
             'https://aur.archlinux.org/cgit/aur.git/snapshot/{nnn-nerd.tar.gz}'
           sudo -u nobody tar xzvf /tmp/nnn-nerd.tar.gz -C /tmp/
