@@ -1,3 +1,3 @@
 #!/bin/bash
 
-QT_QPA_PLATFORM=xcb /usr/bin/zoom "$@"
+QT_QPA_PLATFORM=xcb exec /usr/bin/zoom "$@"
