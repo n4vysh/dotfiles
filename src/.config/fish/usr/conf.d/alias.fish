@@ -21,3 +21,10 @@ for cmd in $cmds
         printf '%s: Not found %s command\n' "$file" "$cmd" >&2
     end
 end
+
+set -l cmd elia
+if command -q "$cmd"
+    alias "$cmd"=elia-wrapper
+else
+    printf '%s: Not found %s command\n' "$file" "$cmd" >&2
+end
