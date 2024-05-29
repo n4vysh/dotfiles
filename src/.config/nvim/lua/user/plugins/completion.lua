@@ -88,46 +88,55 @@ return {
 				"L3MON4D3/LuaSnip",
 				version = "v2.*",
 				build = "make install_jsregexp",
+				keys = {
+					{
+						"<C-k>",
+						function()
+							if require("luasnip").expandable() then
+								require("luasnip").expand()
+							elseif require("luasnip").jumpable(1) then
+								require("luasnip").jump(1)
+							end
+						end,
+						mode = "i",
+						silent = true,
+						desc = "Expand a snippet or jump to another node",
+					},
+					{
+						"<C-l>",
+						function()
+							require("luasnip").jump(-1)
+						end,
+						mode = "i",
+						silent = true,
+						desc = "Jump backward to another node",
+					},
+					{
+						"<C-k>",
+						function()
+							require("luasnip").jump(1)
+						end,
+						mode = "s",
+						silent = true,
+						desc = "Jump forward to another node",
+					},
+					{
+						"<C-l>",
+						function()
+							require("luasnip").jump(-1)
+						end,
+						mode = "s",
+						silent = true,
+						desc = "Jump backward to another node",
+					},
+				},
 				config = function()
 					require("luasnip.loaders.from_vscode").lazy_load()
-
 					local ls = require("luasnip")
 					ls.add_snippets("lua", {
 						ls.parser.parse_snippet({ trig = "fua", desc = "Anonymous function" }, "function()\n\t${0:-- code}\nend"),
 					}, {
 						key = "lua",
-					})
-
-					vim.keymap.set("i", "<C-k>", function()
-						if require("luasnip").expandable() then
-							require("luasnip").expand()
-						elseif require("luasnip").jumpable(1) then
-							require("luasnip").jump(1)
-						end
-					end, {
-						silent = true,
-						desc = "Expand a snippet or jump to another node",
-					})
-
-					vim.keymap.set("i", "<C-l>", function()
-						require("luasnip").jump(-1)
-					end, {
-						silent = true,
-						desc = "Jump backward to another node",
-					})
-
-					vim.keymap.set("s", "<C-k>", function()
-						require("luasnip").jump(1)
-					end, {
-						silent = true,
-						desc = "Jump forward to another node",
-					})
-
-					vim.keymap.set("s", "<C-l>", function()
-						require("luasnip").jump(-1)
-					end, {
-						silent = true,
-						desc = "Jump backward to another node",
 					})
 				end,
 				dependencies = {
