@@ -124,12 +124,10 @@ return {
 					end, vim.tbl_extend("force", opts, { desc = "Goto preview of definition" }))
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-					vim.keymap.set(
-						"n",
-						"<C-w>d",
-						[[:lua vim.diagnostic.open_float()<cr><C-w><C-w>]],
-						vim.tbl_extend("force", opts, { desc = "Show diagnostics in float window" })
-					)
+					vim.keymap.set("n", "<C-w>d", function()
+						vim.diagnostic.open_float()
+						vim.api.nvim_input("<C-w><C-w>")
+					end, vim.tbl_extend("force", opts, { desc = "Show diagnostics in float window" }))
 					vim.keymap.set("n", "go", function()
 						vim.cmd([[normal m']])
 
