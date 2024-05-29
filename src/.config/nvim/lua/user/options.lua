@@ -47,9 +47,11 @@ end
 vim.opt.wildmode:prepend({ "longest:full" })
 vim.opt.shortmess:append({ Ic = true })
 vim.opt.listchars:append({
+	trail = "˽",
 	eol = "¬",
-	extends = "❯",
-	precedes = "❮",
+	extends = "»",
+	precedes = "«",
+	nbsp = "⍽",
 })
 
 if vim.env.DISPLAY ~= "" then
