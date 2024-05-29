@@ -105,6 +105,7 @@ extra/pre-commit
 extra/prettier
 extra/progress
 extra/python-pip
+extra/python-pipx
 extra/qmk
 extra/ripgrep
 extra/sad

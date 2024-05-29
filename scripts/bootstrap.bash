@@ -623,6 +623,9 @@ _configure_without_privileged() {
 	_log::info 'Install formatter'
 	pnpm add -g sql-formatter
 
+	_log::info 'Install TUI for LLM'
+	pipx install elia-chat
+
 	_log::info 'Install test tool'
 	go install gotest.tools/gotestsum@latest
 
