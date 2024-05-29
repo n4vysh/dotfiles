@@ -63,6 +63,10 @@ return {
 		},
 		config = function()
 			require("neotest").setup({
+				icons = {
+					expanded = "┐",
+					final_child_prefix = "└",
+				},
 				adapters = {
 					require("neotest-go")({
 						args = { "-coverprofile=coverage.out" },
