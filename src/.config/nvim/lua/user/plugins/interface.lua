@@ -27,6 +27,20 @@ return {
 		end,
 	},
 	{
+		"mbbill/undotree",
+		keys = {
+			{
+				"g<C-u>",
+				vim.cmd.UndotreeToggle,
+				desc = "Toggle undo tree",
+			},
+		},
+		init = function()
+			vim.g.undotree_DiffAutoOpen = 0
+			vim.g.undotree_SetFocusWhenToggle = 1
+		end,
+	},
+	{
 		"stevearc/dressing.nvim",
 		lazy = true,
 		opts = {
