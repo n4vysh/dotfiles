@@ -306,9 +306,6 @@ return {
 	{
 		"NvChad/nvim-colorizer.lua",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		init = function()
-			vim.opt.termguicolors = true
-		end,
 		opts = {},
 	},
 	{
@@ -496,7 +493,6 @@ return {
 						end,
 					})
 
-					vim.opt.termguicolors = true
 					vim.cmd.colorscheme("tokyonight")
 				end,
 			},
@@ -505,75 +501,74 @@ return {
 	{
 		"akinsho/nvim-bufferline.lua",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		config = function()
-			require("bufferline").setup({
-				options = {
-					show_buffer_close_icons = false,
-					show_close_icon = false,
-					separator_style = { "", "" },
-					show_tab_indicators = false,
-					offsets = {
-						{
-							filetype = "NvimTree",
-							text = "File Tree",
-							text_align = "center",
-						},
-						{
-							filetype = "undotree",
-							text = "Undo Tree",
-							text_align = "center",
-						},
-						{
-							filetype = "dbui",
-							text = "DB",
-							text_align = "center",
-						},
-						{
-							filetype = "Outline",
-							text = "Outline",
-							text_align = "center",
-						},
-						{
-							filetype = "packer",
-							text = "Package",
-							text_align = "center",
-						},
-						{
-							filetype = "DiffviewFiles",
-							text = "Diff",
-							text_align = "center",
-						},
-					},
-				},
-			})
-
-			vim.keymap.set("n", "]b", function()
-				require("bufferline").cycle(1)
-			end, {
+		keys = {
+			{
+				"]b",
+				function()
+					require("bufferline").cycle(1)
+				end,
 				silent = true,
 				desc = "Go to next buffer",
-			})
-
-			vim.keymap.set("n", "[b", function()
-				require("bufferline").cycle(-1)
-			end, {
+			},
+			{
+				"[b",
+				function()
+					require("bufferline").cycle(-1)
+				end,
 				silent = true,
 				desc = "Go to previous buffer",
-			})
-
-			vim.keymap.set("n", ">b", function()
-				require("bufferline").move(1)
-			end, {
+			},
+			{
+				">b",
+				function()
+					require("bufferline").move(1)
+				end,
 				silent = true,
 				desc = "Move the current buffer forwards",
-			})
-
-			vim.keymap.set("n", "<b", function()
-				require("bufferline").move(-1)
-			end, {
+			},
+			{
+				"<b",
+				function()
+					require("bufferline").move(-1)
+				end,
 				silent = true,
 				desc = "Move the current buffer backwards",
-			})
-		end,
+			},
+		},
+		opts = {
+			options = {
+				show_buffer_close_icons = false,
+				show_close_icon = false,
+				separator_style = { "", "" },
+				show_tab_indicators = false,
+				offsets = {
+					{
+						filetype = "NvimTree",
+						text = "File Tree",
+						text_align = "center",
+					},
+					{
+						filetype = "undotree",
+						text = "Undo Tree",
+						text_align = "center",
+					},
+					{
+						filetype = "dbui",
+						text = "DB",
+						text_align = "center",
+					},
+					{
+						filetype = "sagaoutline",
+						text = "Outline",
+						text_align = "center",
+					},
+					{
+						filetype = "DiffviewFiles",
+						text = "Diff",
+						text_align = "center",
+					},
+				},
+			},
+		},
 	},
 }

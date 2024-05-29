@@ -70,12 +70,14 @@ return {
 		build = function()
 			vim.fn["mkdp#util#install"](0)
 		end,
-		config = function()
-			vim.keymap.set("n", "g<C-p>", vim.fn["mkdp#util#toggle_preview"], {
+		keys = {
+			{
+				"g<C-p>",
+				vim.fn["mkdp#util#toggle_preview"],
 				silent = true,
 				desc = "Preview markdown on browser",
-			})
-		end,
+			},
+		},
 	},
 	{
 		"dhruvasagar/vim-table-mode",

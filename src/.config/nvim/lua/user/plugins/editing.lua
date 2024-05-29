@@ -246,24 +246,22 @@ return {
 			{ "cz" },
 			{ "cZ" },
 		},
-		config = function()
-			-- HACK: change keymap to avoid conflict for leap.nvim and helix like keymaps
-			-- https://github.com/ggandor/leap.nvim/discussions/59#discussioncomment-3842315
-			require("nvim-surround").setup({
-				keymaps = {
-					insert = "<C-g>z",
-					insert_line = "<C-g>Z",
-					normal = "yz",
-					normal_line = "yzz",
-					normal_cur = "yZ",
-					normal_cur_line = "yZZ",
-					visual = "gz",
-					visual_line = "gZ",
-					delete = "dz",
-					change = "cz",
-				},
-			})
-		end,
+		-- HACK: change keymap to avoid conflict for leap.nvim and helix like keymaps
+		-- https://github.com/ggandor/leap.nvim/discussions/59#discussioncomment-3842315
+		opts = {
+			keymaps = {
+				insert = "<C-g>z",
+				insert_line = "<C-g>Z",
+				normal = "yz",
+				normal_line = "yzz",
+				normal_cur = "yZ",
+				normal_cur_line = "yZZ",
+				visual = "gz",
+				visual_line = "gZ",
+				delete = "dz",
+				change = "cz",
+			},
+		},
 	},
 	{
 		"wellle/targets.vim",
@@ -521,14 +519,12 @@ return {
 			{ "<space>c<C-d>", ":%Vglobal//d<left><left>", desc = "Set command to delete with vglobal" },
 			{ "<space>c<C-d>", mode = "v", ":Vglobal//d<left><left>", desc = "Set command to delete with vglobal" },
 		},
-		config = function()
-			require("live-command").setup({
-				commands = {
-					Global = { cmd = "global" },
-					Vglobal = { cmd = "vglobal" },
-					Sort = { cmd = "sort" },
-				},
-			})
-		end,
+		opts = {
+			commands = {
+				Global = { cmd = "global" },
+				Vglobal = { cmd = "vglobal" },
+				Sort = { cmd = "sort" },
+			},
+		},
 	},
 }
