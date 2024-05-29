@@ -481,6 +481,12 @@ return {
 								fg = "#737aa2",
 								bold = true,
 							}
+							hl.NeotestIndent = {
+								fg = c.comment,
+							}
+							hl.NeotestExpandMarker = {
+								fg = c.comment,
+							}
 							hl.WinSeparator = {
 								bg = "NONE",
 								fg = "#569CD6",

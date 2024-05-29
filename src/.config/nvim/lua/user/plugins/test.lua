@@ -55,7 +55,15 @@ return {
 			{
 				"<space>ts",
 				function()
+					-- https://github.com/nvim-neotest/neotest/discussions/197
 					require("neotest").summary.toggle()
+					vim.defer_fn(function()
+						---@diagnostic disable-next-line: param-type-mismatch
+						local win = vim.fn.bufwinid("Neotest Summary")
+						if win > -1 then
+							vim.api.nvim_set_current_win(win)
+						end
+					end, 101)
 				end,
 				silent = true,
 				desc = "Toggle test summary",
@@ -66,6 +74,18 @@ return {
 				icons = {
 					expanded = "┐",
 					final_child_prefix = "└",
+					running_animated = {
+						"⠋",
+						"⠙",
+						"⠹",
+						"⠸",
+						"⠼",
+						"⠴",
+						"⠦",
+						"⠧",
+						"⠇",
+						"⠏",
+					},
 				},
 				adapters = {
 					require("neotest-go")({
