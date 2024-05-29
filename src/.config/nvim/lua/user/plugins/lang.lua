@@ -125,8 +125,10 @@ return {
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 					vim.keymap.set("n", "<C-w>d", function()
-						vim.diagnostic.open_float()
-						vim.api.nvim_input("<C-w><C-w>")
+						local _, float_win = vim.diagnostic.open_float()
+						if float_win then
+							vim.api.nvim_set_current_win(float_win)
+						end
 					end, vim.tbl_extend("force", opts, { desc = "Show diagnostics in float window" }))
 					vim.keymap.set("n", "go", function()
 						vim.cmd([[normal m']])
