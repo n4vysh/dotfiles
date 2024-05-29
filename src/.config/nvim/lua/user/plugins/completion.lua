@@ -10,7 +10,6 @@ return {
 				preselect = cmp.PreselectMode.None,
 				sorting = {
 					comparators = {
-						require("copilot_cmp.comparators").prioritize,
 						compare.offset,
 						compare.exact,
 						-- compare.scopes,
@@ -39,14 +38,12 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
 				}),
 				sources = cmp.config.sources({
-					{ name = "nvim_lsp", priority = 5 },
-					{ name = "luasnip", priority = 4 },
+					{ name = "nvim_lsp", priority = 4 },
+					{ name = "luasnip", priority = 3 },
 				}, {
-					{ name = "buffer", priority = 3 },
+					{ name = "buffer", priority = 2 },
 				}, {
-					{ name = "path", priority = 2 },
-				}, {
-					{ name = "copilot", priority = 1 },
+					{ name = "path", priority = 1 },
 				}),
 			})
 
@@ -64,26 +61,10 @@ return {
 			})
 		end,
 		dependencies = {
-			{ "zbirenbaum/copilot-cmp" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
-			{
-				"onsails/lspkind.nvim",
-				config = function()
-					local lspkind = require("lspkind")
-					lspkind.init({
-						symbol_map = {
-							Copilot = "",
-						},
-					})
-
-					vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
-				end,
-				dependencies = {
-					{ "zbirenbaum/copilot-cmp" },
-				},
-			},
+			{ "onsails/lspkind.nvim" },
 			{
 				"L3MON4D3/LuaSnip",
 				version = "v2.*",
