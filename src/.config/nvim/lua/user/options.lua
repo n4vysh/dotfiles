@@ -13,7 +13,6 @@ local options = {
 	splitright = true,
 	splitkeep = "topline",
 	laststatus = 3,
-	termguicolors = true,
 	cursorline = true,
 	number = true,
 	showmatch = true,
