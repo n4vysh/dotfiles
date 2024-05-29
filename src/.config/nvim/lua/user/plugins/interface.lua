@@ -1,5 +1,32 @@
 return {
 	{
+		"ntpeters/vim-better-whitespace",
+		init = function()
+			do
+				local augroup = "vim_better_whitespace"
+				vim.api.nvim_create_augroup(augroup, { clear = true })
+				vim.api.nvim_create_autocmd("InsertEnter", {
+					group = augroup,
+					pattern = "*",
+					callback = function()
+						if vim.bo.filetype ~= "help" then
+							vim.cmd.DisableWhitespace()
+						end
+					end,
+				})
+				vim.api.nvim_create_autocmd("InsertLeave", {
+					group = augroup,
+					pattern = "*",
+					callback = function()
+						if vim.bo.filetype ~= "help" then
+							vim.cmd.EnableWhitespace()
+						end
+					end,
+				})
+			end
+		end,
+	},
+	{
 		"stevearc/dressing.nvim",
 		lazy = true,
 		opts = {
@@ -398,6 +425,9 @@ return {
 						hide_inactive_statusline = true,
 						sidebars = { "qf", "help", "terminal", "packer" },
 						on_highlights = function(hl, c)
+							hl.ExtraWhitespace = {
+								bg = c.error,
+							}
 							hl.TelescopeBorder = {
 								fg = c.blue0,
 							}
