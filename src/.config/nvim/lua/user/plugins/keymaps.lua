@@ -98,7 +98,7 @@ return {
 			local wk = require("which-key")
 			wk.register({
 				["<space>"] = {
-					a = { name = "+alternate" },
+					a = { name = "+ai/alternate" },
 					b = { name = "+buffer" },
 					c = { name = "+command" },
 					d = { name = "+debug" },
