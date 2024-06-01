@@ -312,9 +312,11 @@ return {
 		end,
 	},
 	{
-		"NvChad/nvim-colorizer.lua",
+		"brenoprata10/nvim-highlight-colors",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		opts = {},
+		opts = {
+			enable_tailwind = true,
+		},
 	},
 	{
 		"uga-rosa/ccc.nvim",
