@@ -136,11 +136,7 @@ return {
 						require("lspsaga.symbol.outline"):outline()
 					end, vim.tbl_extend("force", opts, { desc = "Toggle symbols outline" }))
 					vim.keymap.set("n", "g<C-t>", function()
-						-- HACK:Use jump list
-						-- https://github.com/folke/trouble.nvim/issues/235
-						vim.cmd([[normal m']])
-
-						require("trouble").open()
+						require("trouble").open({ mode = "diagnostics", focus = true })
 					end, vim.tbl_extend("force", opts, { desc = "Toggle trouble (diagnostics) panel" }))
 					vim.keymap.set("n", "K", function()
 						local winid = require("ufo").peekFoldedLinesUnderCursor()
