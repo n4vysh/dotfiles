@@ -6,10 +6,6 @@ return {
 			vim.cmd.TSUpdate()
 		end,
 		init = function()
-			vim.g.matchup_matchparen_offscreen = {
-				scrolloff = 1,
-			}
-
 			vim.treesitter.language.register("python", "tiltfile")
 		end,
 		main = "nvim-treesitter.configs",
@@ -157,7 +153,54 @@ return {
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"RRethy/nvim-treesitter-endwise",
-			"andymass/vim-matchup",
+			{
+				"andymass/vim-matchup",
+				init = function()
+					vim.g.matchup_surround_enabled = 1
+
+					vim.g.matchup_matchparen_offscreen = {
+						scrolloff = 1,
+					}
+				end,
+				config = function()
+					vim.keymap.set({ "n", "x", "o" }, "m", "<plug>(matchup-%)", {
+						silent = true,
+						desc = "Goto forward to matching word",
+					})
+					vim.keymap.set({ "n", "x", "o" }, "gm", "<plug>(matchup-g%)", {
+						silent = true,
+						desc = "Goto backword to matching word",
+					})
+					vim.keymap.set({ "n", "x", "o" }, "zm", "<plug>(matchup-z%)", {
+						silent = true,
+						desc = "Goto inside of matching word",
+					})
+					vim.keymap.set({ "n", "x", "o" }, "]w", "<plug>(matchup-]%)", {
+						silent = true,
+						desc = "Goto previous outer open word",
+					})
+					vim.keymap.set({ "n", "x", "o" }, "[w", "<plug>(matchup-[%)", {
+						silent = true,
+						desc = "Goto next surrounding close word",
+					})
+					vim.keymap.set({ "x", "o" }, "im", "<plug>(matchup-i%)", {
+						silent = true,
+						desc = "Inside of matching word",
+					})
+					vim.keymap.set({ "x", "o" }, "am", "<plug>(matchup-a%)", {
+						silent = true,
+						desc = "Around of matching word",
+					})
+					vim.keymap.set({ "n" }, "dzm", "<plug>(matchup-ds%)", {
+						silent = true,
+						desc = "Delete surrounding matching words",
+					})
+					vim.keymap.set({ "n" }, "czm", "<plug>(matchup-cs%)", {
+						silent = true,
+						desc = "Change surrounding matching words",
+					})
+				end,
+			},
 			"windwp/nvim-ts-autotag",
 			{
 				"JoosepAlviste/nvim-ts-context-commentstring",
