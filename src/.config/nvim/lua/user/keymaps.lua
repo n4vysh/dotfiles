@@ -100,11 +100,6 @@ vim.keymap.set({ "n", "v", "o" }, "gs", "^", {
 	desc = "Goto first non-blank in line",
 })
 
-vim.keymap.set({ "n", "v", "o" }, "mm", "%", {
-	silent = true,
-	desc = "Goto matching bracket",
-})
-
 -- keymaps like VS Code
 vim.keymap.set("n", "<C-h>", ":%s///g<left><left><left>", {
 	desc = "Set command for substitute",
