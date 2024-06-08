@@ -519,6 +519,7 @@ return {
 			{ "<space>c<C-d>", ":%Vglobal//d<left><left>", desc = "Set command to delete with vglobal" },
 			{ "<space>c<C-d>", mode = "v", ":Vglobal//d<left><left>", desc = "Set command to delete with vglobal" },
 		},
+		main = "live-command",
 		opts = {
 			commands = {
 				Global = { cmd = "global" },
