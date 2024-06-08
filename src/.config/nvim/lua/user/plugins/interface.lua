@@ -583,6 +583,11 @@ return {
 						text = "Diff",
 						text_align = "center",
 					},
+					{
+						filetype = "neotest-summary",
+						text = "Test",
+						text_align = "center",
+					},
 				},
 			},
 		},
