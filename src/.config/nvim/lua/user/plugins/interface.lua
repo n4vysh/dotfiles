@@ -5,11 +5,11 @@ return {
 			do
 				local augroup = "vim_better_whitespace"
 				vim.api.nvim_create_augroup(augroup, { clear = true })
-				vim.api.nvim_create_autocmd("InsertEnter", {
+				vim.api.nvim_create_autocmd({ "BufReadPost", "BufAdd", "BufNewFile" }, {
 					group = augroup,
 					pattern = "*",
 					callback = function()
-						if vim.bo.filetype ~= "help" then
+						if vim.bo.filetype ~= "help" and vim.bo.filetype ~= "dbout" then
 							vim.cmd.DisableWhitespace()
 						end
 					end,
@@ -18,7 +18,7 @@ return {
 					group = augroup,
 					pattern = "*",
 					callback = function()
-						if vim.bo.filetype ~= "help" then
+						if vim.bo.filetype ~= "help" and vim.bo.filetype ~= "dbout" then
 							vim.cmd.EnableWhitespace()
 						end
 					end,
