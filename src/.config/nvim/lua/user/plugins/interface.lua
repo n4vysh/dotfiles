@@ -2,23 +2,39 @@ return {
 	{
 		"ntpeters/vim-better-whitespace",
 		init = function()
+			vim.g.better_whitespace_filetypes_blacklist = {
+				"dbout",
+				"diff",
+				"git",
+				"gitcommit",
+				"qf",
+				"help",
+				"markdown",
+			}
+
 			do
 				local augroup = "vim_better_whitespace"
 				vim.api.nvim_create_augroup(augroup, { clear = true })
-				vim.api.nvim_create_autocmd({ "BufReadPost", "BufAdd", "BufNewFile" }, {
+				vim.api.nvim_create_autocmd("InsertEnter", {
 					group = augroup,
 					pattern = "*",
 					callback = function()
-						if vim.bo.filetype ~= "help" and vim.bo.filetype ~= "dbout" then
-							vim.cmd.DisableWhitespace()
-						end
+						vim.cmd.DisableWhitespace()
 					end,
 				})
 				vim.api.nvim_create_autocmd("InsertLeave", {
 					group = augroup,
 					pattern = "*",
 					callback = function()
-						if vim.bo.filetype ~= "help" and vim.bo.filetype ~= "dbout" then
+						if
+							vim.bo.filetype ~= "dbout"
+							and vim.bo.filetype ~= "diff"
+							and vim.bo.filetype ~= "git"
+							and vim.bo.filetype ~= "gitcommit"
+							and vim.bo.filetype ~= "qf"
+							and vim.bo.filetype ~= "help"
+							and vim.bo.filetype ~= "markdown"
+						then
 							vim.cmd.EnableWhitespace()
 						end
 					end,
