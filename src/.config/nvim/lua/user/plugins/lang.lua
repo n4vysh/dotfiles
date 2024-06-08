@@ -116,43 +116,149 @@ return {
 					vim.bo[buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
 					local opts = { silent = true, buffer = buf }
-					vim.keymap.set("n", "gp", function()
-						require("lspsaga.finder"):new({})
-					end, vim.tbl_extend("force", opts, { desc = "Goto preview of references and implementation" }))
-					vim.keymap.set("n", "gd", function()
-						require("lspsaga.definition"):init(1, 1)
-					end, vim.tbl_extend("force", opts, { desc = "Goto preview of definition" }))
-					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-					vim.keymap.set("n", "<C-w>d", function()
-						local _, float_win = vim.diagnostic.open_float()
-						if float_win then
-							vim.api.nvim_set_current_win(float_win)
-						end
-					end, vim.tbl_extend("force", opts, { desc = "Show diagnostics in float window" }))
-					vim.keymap.set("n", "go", function()
-						vim.cmd([[normal m']])
+					vim.keymap.set(
+						"n",
+						"gp",
+						function()
+							require("lspsaga.finder"):new({})
+						end,
+						vim.tbl_extend("force", opts, {
+							desc = "Goto preview of references and implementation",
+						})
+					)
+					vim.keymap.set(
+						"n",
+						"gd",
+						function()
+							require("lspsaga.definition"):init(1, 1)
+						end,
+						vim.tbl_extend("force", opts, {
+							desc = "Goto preview of definition",
+						})
+					)
+					vim.keymap.set(
+						"n",
+						"gD",
+						vim.lsp.buf.declaration,
+						vim.tbl_extend("force", opts, {
+							desc = "Goto preview of declaration",
+						})
+					)
+					vim.keymap.set(
+						"n",
+						"gi",
+						vim.lsp.buf.implementation,
+						vim.tbl_extend("force", opts, {
+							desc = "Goto preview of implementation",
+						})
+					)
+					vim.keymap.set(
+						"n",
+						"<C-w>d",
+						function()
+							local _, win = vim.diagnostic.open_float()
+							if win then
+								vim.api.nvim_set_current_win(win)
+							end
+						end,
+						vim.tbl_extend("force", opts, {
+							desc = "Show diagnostics in float window",
+						})
+					)
+					vim.keymap.set(
+						"n",
+						"go",
+						function()
+							vim.cmd([[normal m']])
 
-						require("lspsaga.symbol.outline"):outline()
-					end, vim.tbl_extend("force", opts, { desc = "Toggle symbols outline" }))
-					vim.keymap.set("n", "g<C-t>", function()
-						require("trouble").open({ mode = "diagnostics", focus = true })
-					end, vim.tbl_extend("force", opts, { desc = "Toggle trouble (diagnostics) panel" }))
-					vim.keymap.set("n", "K", function()
-						local winid = require("ufo").peekFoldedLinesUnderCursor()
-						if not winid then
-							require("lspsaga.hover"):render_hover_doc({})
-						end
-					end, opts)
-					vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
-					vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-					vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-					vim.keymap.set("n", "crn", function()
-						return ":IncRename " .. vim.fn.expand("<cword>")
-					end, { expr = true })
-					vim.keymap.set("n", "crr", require("actions-preview").code_actions, opts)
-					vim.keymap.set("v", "<C-r>r", require("actions-preview").code_actions, opts)
-					vim.keymap.set("v", "<C-r><C-r>", require("actions-preview").code_actions, opts)
+							require("lspsaga.symbol.outline"):outline()
+						end,
+						vim.tbl_extend("force", opts, {
+							desc = "Toggle symbols outline",
+						})
+					)
+					vim.keymap.set(
+						"n",
+						"g<C-t>",
+						function()
+							require("trouble").open({ mode = "diagnostics", focus = true })
+						end,
+						vim.tbl_extend("force", opts, {
+							desc = "Toggle trouble (diagnostics) panel",
+						})
+					)
+					vim.keymap.set(
+						"n",
+						"K",
+						function()
+							local winid = require("ufo").peekFoldedLinesUnderCursor()
+							if not winid then
+								require("lspsaga.hover"):render_hover_doc({})
+							end
+						end,
+						vim.tbl_extend("force", opts, {
+							desc = [[Show LSP "hover" feature]],
+						})
+					)
+					vim.keymap.set(
+						"i",
+						"<C-s>",
+						vim.lsp.buf.signature_help,
+						vim.tbl_extend("force", opts, {
+							desc = "Show LSP signature help",
+						})
+					)
+					vim.keymap.set(
+						"n",
+						"<C-k>",
+						vim.lsp.buf.signature_help,
+						vim.tbl_extend("force", opts, {
+							desc = "Show LSP signature help",
+						})
+					)
+					vim.keymap.set(
+						"n",
+						"gr",
+						vim.lsp.buf.references,
+						vim.tbl_extend("force", opts, {
+							desc = "Goto references",
+						})
+					)
+					vim.keymap.set(
+						"n",
+						"crn",
+						function()
+							return ":IncRename " .. vim.fn.expand("<cword>")
+						end,
+						vim.tbl_extend("force", opts, {
+							desc = "Rename with LSP",
+							expr = true,
+						})
+					)
+					vim.keymap.set(
+						"n",
+						"crr",
+						require("actions-preview").code_actions,
+						vim.tbl_extend("force", opts, {
+							desc = "Run code action",
+						})
+					)
+					vim.keymap.set(
+						"v",
+						"<C-r>r",
+						require("actions-preview").code_actions,
+						vim.tbl_extend("force", opts, {
+							desc = "Run code action",
+						})
+					)
+					vim.keymap.set(
+						"v",
+						"<C-r><C-r>",
+						require("actions-preview").code_actions,
+						vim.tbl_extend("force", opts, {
+							desc = "Run code action",
+						})
+					)
 
 					if client.supports_method("textDocument/formatting") then
 						local augroup = vim.api.nvim_create_augroup("lsp_document_formatting_" .. buf, {})
