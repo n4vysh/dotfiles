@@ -89,7 +89,7 @@ return {
 				},
 				adapters = {
 					require("neotest-go")({
-						args = { "-coverprofile=coverage.out" },
+						args = { "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out" },
 						experimental = {
 							test_table = true,
 						},
@@ -130,6 +130,11 @@ return {
 				"andythigpen/nvim-coverage",
 				opts = {
 					auto_reload = true,
+					lang = {
+						go = {
+							coverage_file = vim.fn.getcwd() .. "/coverage.out",
+						},
+					},
 				},
 				dependencies = {
 					"nvim-lua/plenary.nvim",
