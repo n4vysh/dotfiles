@@ -193,7 +193,7 @@ return {
 					)
 					vim.keymap.set(
 						"n",
-						"gr",
+						"grr",
 						vim.lsp.buf.references,
 						vim.tbl_extend("force", opts, {
 							desc = "Goto references",
@@ -201,7 +201,7 @@ return {
 					)
 					vim.keymap.set(
 						"n",
-						"crn",
+						"grn",
 						function()
 							return ":IncRename " .. vim.fn.expand("<cword>")
 						end,
@@ -211,24 +211,8 @@ return {
 						})
 					)
 					vim.keymap.set(
-						"n",
-						"crr",
-						require("actions-preview").code_actions,
-						vim.tbl_extend("force", opts, {
-							desc = "Run code action",
-						})
-					)
-					vim.keymap.set(
-						"v",
-						"<C-r>r",
-						require("actions-preview").code_actions,
-						vim.tbl_extend("force", opts, {
-							desc = "Run code action",
-						})
-					)
-					vim.keymap.set(
-						"v",
-						"<C-r><C-r>",
+						{ "n", "x" },
+						"gra",
 						require("actions-preview").code_actions,
 						vim.tbl_extend("force", opts, {
 							desc = "Run code action",
