@@ -19,6 +19,7 @@ extra/dust
 extra/etckeeper
 extra/eva
 extra/expect
+extra/fastfetch
 extra/firefox
 extra/gpg-tui
 extra/gptfdisk
@@ -29,7 +30,6 @@ extra/irqbalance
 extra/libreoffice-fresh
 extra/libsixel
 extra/moreutils
-extra/neofetch
 extra/p7zip
 extra/pbzip2
 extra/pigz
