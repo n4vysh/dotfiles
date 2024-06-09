@@ -522,6 +522,8 @@ return {
 					null_ls.builtins.diagnostics.fish,
 					-- NOTE: terraform-ls is slow
 					null_ls.builtins.formatting.terraform_fmt,
+					null_ls.builtins.code_actions.gomodifytags,
+					null_ls.builtins.code_actions.impl,
 				},
 			})
 		end,

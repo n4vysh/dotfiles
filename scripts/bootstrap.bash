@@ -629,6 +629,10 @@ _configure_without_privileged() {
 	_log::info 'Install test tool'
 	go install gotest.tools/gotestsum@latest
 
+	_log::info 'Install code generator'
+	go install github.com/josharian/impl@latest
+	go install github.com/fatih/gomodifytags@latest
+
 	_log::info 'Install packages for editor'
 	go install github.com/rhysd/vim-startuptime@latest
 
