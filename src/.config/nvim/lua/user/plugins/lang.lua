@@ -439,7 +439,27 @@ return {
 			lspconfig.tilt_ls.setup({
 				capabilities = capabilities,
 			})
-
+		end,
+		dependencies = {
+			{
+				"williamboman/mason-lspconfig.nvim",
+				dependencies = {
+					{ "williamboman/mason.nvim" },
+				},
+			},
+			{ "b0o/SchemaStore.nvim" },
+			{
+				"folke/neodev.nvim",
+				-- FIXME: set old commit hash before c6be05a temporary to load workspace
+				-- https://github.com/folke/neodev.nvim/commit/c6be05aab078827e51aabdc64cc9fba7c06d27b7
+				commit = "3941036e3da9b0dc09244036d20c590b6d752175",
+				opts = {},
+			},
+		},
+	},
+	{
+		"nvimtools/none-ls.nvim",
+		config = function()
 			local null_ls = require("null-ls")
 			null_ls.setup({
 				sources = {
@@ -505,27 +525,7 @@ return {
 				},
 			})
 		end,
-		dependencies = {
-			{ "stevearc/dressing.nvim" },
-			{
-				"williamboman/mason-lspconfig.nvim",
-				dependencies = {
-					{ "williamboman/mason.nvim" },
-				},
-			},
-			{
-				"nvimtools/none-ls.nvim",
-				dependencies = { "nvim-lua/plenary.nvim" },
-			},
-			{ "b0o/SchemaStore.nvim" },
-			{
-				"folke/neodev.nvim",
-				-- FIXME: set old commit hash before c6be05a temporary to load workspace
-				-- https://github.com/folke/neodev.nvim/commit/c6be05aab078827e51aabdc64cc9fba7c06d27b7
-				commit = "3941036e3da9b0dc09244036d20c590b6d752175",
-				opts = {},
-			},
-		},
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
 		"ray-x/lsp_signature.nvim",
