@@ -17,31 +17,7 @@ return {
 			require("mason").setup({
 				PATH = "append",
 			})
-			require("mason-tool-installer").setup({
-				ensure_installed = {
-					"bash-language-server",
-					"buf-language-server",
-					"css-lsp",
-					"dockerfile-language-server",
-					"docker-compose-language-service",
-					"emmet-ls",
-					"eslint-lsp",
-					"golangci-lint-langserver",
-					"graphql-language-service-cli",
-					"helm-ls",
-					"json-lsp",
-					"marksman",
-					"spectral-language-server",
-					"tailwindcss-language-server",
-					"taplo",
-					"terraform-ls",
-					"typescript-language-server",
-					"typos-lsp",
-					"yaml-language-server",
-					"gopls",
-					"lua-language-server",
-				},
-			})
+
 			do
 				local augroup = "mason"
 				vim.api.nvim_create_augroup(augroup, { clear = true })
@@ -55,7 +31,6 @@ return {
 			end
 		end,
 		dependencies = {
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"stevearc/dressing.nvim",
 		},
 	},
@@ -318,26 +293,6 @@ return {
 				end,
 			})
 
-			local servers = {
-				"bashls", -- NOTE: require shellcheck for linting from bashls
-				"bufls",
-				"cssls",
-				"dockerls",
-				"docker_compose_language_service",
-				"emmet_ls",
-				"golangci_lint_ls",
-				"graphql",
-				"helm_ls",
-				"marksman",
-				"spectral",
-				"tailwindcss",
-				"taplo",
-				"terraformls",
-				"tflint",
-				"tilt_ls",
-				"tsserver",
-			}
-
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 			capabilities.textDocument.foldingRange = {
@@ -345,103 +300,144 @@ return {
 				lineFoldingOnly = true,
 			}
 
-			for _, lsp in ipairs(servers) do
-				lspconfig[lsp].setup({
-					capabilities = capabilities,
-				})
-			end
-
-			lspconfig.typos_lsp.setup({
-				init_options = {
-					diagnosticSeverity = "Hint",
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"bashls", -- NOTE: require shellcheck for linting from bashls
+					"bufls",
+					"cssls",
+					"docker_compose_language_service",
+					"dockerls",
+					"emmet_ls",
+					"eslint",
+					"golangci_lint_ls",
+					"gopls",
+					"graphql",
+					"helm_ls",
+					"jsonls",
+					"lua_ls",
+					"marksman",
+					"spectral",
+					"tailwindcss",
+					"taplo",
+					"terraformls",
+					"tflint",
+					"tsserver",
+					"typos_lsp",
+					"yamlls",
 				},
-				capabilities = capabilities,
-			})
+				automatic_installation = true,
+				handlers = {
+					function(server)
+						lspconfig[server].setup({
+							capabilities = capabilities,
+						})
+					end,
+					["gopls"] = function()
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							pattern = { "*.go" },
+							callback = function()
+								local params = vim.lsp.util.make_range_params(nil, vim.lsp.util._get_offset_encoding())
+								params.context = { only = { "source.organizeImports" } }
 
-			lspconfig.eslint.setup({
-				on_attach = function(_, buf)
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						buffer = buf,
-						command = "EslintFixAll",
-					})
-				end,
-			})
+								local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
+								for _, res in pairs(result or {}) do
+									for _, r in pairs(res.result or {}) do
+										if r.edit then
+											vim.lsp.util.apply_workspace_edit(r.edit, vim.lsp.util._get_offset_encoding())
+										else
+											vim.lsp.buf.execute_command(r.command)
+										end
+									end
+								end
+							end,
+						})
 
-			lspconfig.jsonls.setup({
-				settings = {
-					json = {
-						schemas = require("schemastore").json.schemas(),
-						validate = { enable = true },
-					},
+						lspconfig.gopls.setup({
+							cmd_env = { GOFUMPT_SPLIT_LONG_LINES = "on" },
+							settings = {
+								gopls = {
+									gofumpt = true,
+									analyses = {
+										fillstruct = true,
+									},
+									vulncheck = "Imports",
+								},
+							},
+							capabilities = capabilities,
+						})
+					end,
+					["lua_ls"] = function()
+						lspconfig.lua_ls.setup({
+							capabilities = capabilities,
+							settings = {
+								Lua = {
+									completion = {
+										callSnippet = "Replace",
+									},
+									workspace = {
+										checkThirdParty = false,
+									},
+									telemetry = {
+										enable = false,
+									},
+									diagnostics = {
+										disable = { "lowercase-global" },
+									},
+								},
+							},
+						})
+					end,
+					["typos_lsp"] = function()
+						lspconfig.typos_lsp.setup({
+							init_options = {
+								diagnosticSeverity = "Hint",
+							},
+							capabilities = capabilities,
+						})
+					end,
+					["eslint"] = function()
+						lspconfig.eslint.setup({
+							on_attach = function(_, buf)
+								vim.api.nvim_create_autocmd("BufWritePre", {
+									buffer = buf,
+									command = "EslintFixAll",
+								})
+							end,
+						})
+					end,
+					["jsonls"] = function()
+						lspconfig.jsonls.setup({
+							settings = {
+								json = {
+									schemas = require("schemastore").json.schemas(),
+									validate = { enable = true },
+								},
+							},
+							capabilities = capabilities,
+						})
+					end,
+					["yamlls"] = function()
+						lspconfig.yamlls.setup({
+							settings = {
+								yaml = {
+									schemaStore = {
+										-- NOTE: disable built-in schemaStore support and use SchemaStore.nvim
+										enable = false,
+										-- NOTE: Avoid TypeError: Cannot read properties of undefined (reading 'length')
+										url = "",
+									},
+									schemas = require("schemastore").yaml.schemas(),
+								},
+							},
+							capabilities = capabilities,
+						})
+					end,
 				},
-				capabilities = capabilities,
 			})
 
-			lspconfig.yamlls.setup({
-				settings = {
-					yaml = {
-						schemaStore = {
-							-- NOTE: disable built-in schemaStore support and use SchemaStore.nvim
-							enable = false,
-							-- NOTE: Avoid TypeError: Cannot read properties of undefined (reading 'length')
-							url = "",
-						},
-						schemas = require("schemastore").yaml.schemas(),
-					},
-				},
+			-- NOTE: tilt_ls not support by mason
+			lspconfig.tilt_ls.setup({
 				capabilities = capabilities,
-			})
-
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				pattern = { "*.go" },
-				callback = function()
-					local params = vim.lsp.util.make_range_params(nil, vim.lsp.util._get_offset_encoding())
-					params.context = { only = { "source.organizeImports" } }
-
-					local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
-					for _, res in pairs(result or {}) do
-						for _, r in pairs(res.result or {}) do
-							if r.edit then
-								vim.lsp.util.apply_workspace_edit(r.edit, vim.lsp.util._get_offset_encoding())
-							else
-								vim.lsp.buf.execute_command(r.command)
-							end
-						end
-					end
-				end,
-			})
-
-			lspconfig.gopls.setup({
-				cmd_env = { GOFUMPT_SPLIT_LONG_LINES = "on" },
-				settings = {
-					gopls = {
-						gofumpt = true,
-						analyses = {
-							fillstruct = true,
-						},
-					},
-				},
-				capabilities = capabilities,
-			})
-
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-				settings = {
-					Lua = {
-						completion = {
-							callSnippet = "Replace",
-						},
-						workspace = {
-							checkThirdParty = false,
-						},
-						telemetry = {
-							enable = false,
-						},
-						diagnostics = {
-							disable = { "lowercase-global" },
-						},
-					},
-				},
 			})
 
 			local null_ls = require("null-ls")
@@ -511,7 +507,12 @@ return {
 		end,
 		dependencies = {
 			{ "stevearc/dressing.nvim" },
-			{ "williamboman/mason.nvim" },
+			{
+				"williamboman/mason-lspconfig.nvim",
+				dependencies = {
+					{ "williamboman/mason.nvim" },
+				},
+			},
 			{
 				"nvimtools/none-ls.nvim",
 				dependencies = { "nvim-lua/plenary.nvim" },
