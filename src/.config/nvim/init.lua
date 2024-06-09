@@ -72,6 +72,18 @@ lazy.setup("user.plugins", {
 	},
 })
 
+do
+	local augroup = "lazy"
+	vim.api.nvim_create_augroup(augroup, { clear = true })
+	vim.api.nvim_create_autocmd("FileType", {
+		group = augroup,
+		pattern = "lazy",
+		callback = function()
+			vim.opt_local.winblend = 0
+		end,
+	})
+end
+
 require("user.options")
 require("user.autocmds")
 require("user.keymaps")
