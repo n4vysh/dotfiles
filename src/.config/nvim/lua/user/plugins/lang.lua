@@ -113,6 +113,16 @@ return {
 					)
 					vim.keymap.set(
 						"n",
+						"gy",
+						function()
+							require("lspsaga.definition"):init(2, 1)
+						end,
+						vim.tbl_extend("force", opts, {
+							desc = "Goto preview of t[y]pe definition",
+						})
+					)
+					vim.keymap.set(
+						"n",
 						"gD",
 						vim.lsp.buf.declaration,
 						vim.tbl_extend("force", opts, {
