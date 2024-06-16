@@ -467,6 +467,9 @@ return {
 						lspconfig.yamlls.setup({
 							settings = {
 								yaml = {
+									customTags = {
+										"!reference sequence",
+									},
 									schemaStore = {
 										-- NOTE: disable built-in schemaStore support and use SchemaStore.nvim
 										enable = false,
