@@ -201,6 +201,8 @@ return {
 							desc = "Show LSP signature help",
 						})
 					)
+					-- NOTE: LSP refactoring keymaps (gr)
+					-- https://github.com/neovim/neovim/pull/28650
 					vim.keymap.set(
 						"n",
 						"grr",
@@ -226,6 +228,17 @@ return {
 						require("actions-preview").code_actions,
 						vim.tbl_extend("force", opts, {
 							desc = "Run code action",
+						})
+					)
+					vim.keymap.set(
+						"n",
+						"grh",
+						function()
+							local is_enable = not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+							vim.lsp.inlay_hint.enable(is_enable, { bufnr = 0 })
+						end,
+						vim.tbl_extend("force", opts, {
+							desc = "Toggle inlay hint",
 						})
 					)
 
@@ -315,7 +328,6 @@ return {
 					"taplo",
 					"terraformls",
 					"tflint",
-					"tsserver",
 					"typos_lsp",
 					"yamlls",
 				},
@@ -324,6 +336,34 @@ return {
 					function(server)
 						lspconfig[server].setup({
 							capabilities = capabilities,
+						})
+					end,
+					["tsserver"] = function()
+						lspconfig.tsserver.setup({
+							settings = {
+								typescript = {
+									inlayHints = {
+										includeInlayParameterNameHints = "literal",
+										includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+										includeInlayFunctionParameterTypeHints = true,
+										includeInlayVariableTypeHints = true,
+										includeInlayPropertyDeclarationTypeHints = true,
+										includeInlayFunctionLikeReturnTypeHints = true,
+										includeInlayEnumMemberValueHints = true,
+									},
+								},
+								javascript = {
+									inlayHints = {
+										includeInlayParameterNameHints = "all",
+										includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+										includeInlayFunctionParameterTypeHints = true,
+										includeInlayVariableTypeHints = true,
+										includeInlayPropertyDeclarationTypeHints = true,
+										includeInlayFunctionLikeReturnTypeHints = true,
+										includeInlayEnumMemberValueHints = true,
+									},
+								},
+							},
 						})
 					end,
 					["gopls"] = function()
@@ -350,6 +390,15 @@ return {
 							cmd_env = { GOFUMPT_SPLIT_LONG_LINES = "on" },
 							settings = {
 								gopls = {
+									hints = {
+										assignVariableTypes = true,
+										compositeLiteralFields = true,
+										compositeLiteralTypes = true,
+										constantValues = true,
+										functionTypeParameters = true,
+										parameterNames = true,
+										rangeVariableTypes = true,
+									},
 									gofumpt = true,
 									analyses = {
 										fillstruct = true,
@@ -365,6 +414,10 @@ return {
 							capabilities = capabilities,
 							settings = {
 								Lua = {
+									hint = {
+										enable = true,
+										setType = true,
+									},
 									completion = {
 										callSnippet = "Replace",
 									},
