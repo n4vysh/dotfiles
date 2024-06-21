@@ -194,6 +194,7 @@ if status --is-interactive
         fzf +m \| \
         awk \'{print \$1}\' \| \
         xargs -t -I {} kubectl logs {}
+    __fish_abbr_add_extend kcv kubectl version
     __fish_abbr_add_extend kl kube-linter
     __fish_abbr_add_extend kn kubens
     __fish_abbr_add_extend kv kubeval
