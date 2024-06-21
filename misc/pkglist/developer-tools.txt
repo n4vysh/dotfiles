@@ -8,6 +8,7 @@ aur/devbox-bin
 aur/docker-credential-pass-bin
 aur/drawio-desktop-bin
 aur/dyff-bin
+aur/eks-node-viewer-bin
 aur/freeze-bin
 aur/ghq-bin
 aur/gibo
