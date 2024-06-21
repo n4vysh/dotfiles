@@ -52,3 +52,4 @@ seturl ^https://.*\.tryhackme\.tech superignore true
 seturl ^https://vnc\.htb-cloud\.com superignore true
 seturl ^https://.*\.datadoghq\.com superignore true
 seturl ^https://.*\.console\.aws\.amazon\.com superignore true
+seturl ^https://miro\.com superignore true
