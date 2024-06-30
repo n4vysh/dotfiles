@@ -105,7 +105,15 @@ return {
 					l = { name = "+lang" },
 					m = { name = "+mark" },
 					p = { name = "+package" },
-					r = { name = "+refactor" },
+					r = {
+						name = "+refactor",
+						e = {
+							name = "+extract",
+						},
+						i = {
+							name = "+inline",
+						},
+					},
 					s = { name = "+search" },
 					t = { name = "+test" },
 					v = { name = "+version" },
