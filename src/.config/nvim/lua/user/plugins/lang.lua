@@ -464,6 +464,34 @@ return {
 						})
 					end,
 					["yamlls"] = function()
+						local schemas = require("schemastore").yaml.schemas({})
+
+						schemas = vim.tbl_extend("error", schemas, {
+							kubernetes = {
+								"configmap*.yaml",
+								"limitrange*.yaml",
+								"namespace*.yaml",
+								"pvc*.yaml",
+								"pv*.yaml",
+								"secret*.yaml",
+								"serviceaccount*.yaml",
+								"service*.yaml",
+								"daemonset*.yaml",
+								"deployment*.yaml",
+								"statefulset*.yaml",
+								"hpa*.yaml",
+								"cronjob*.yaml",
+								"job*.yaml",
+								"ingress*.yaml",
+								"networkpolicy*.yaml",
+								"poddisruptionbudget*.yaml",
+								"clusterrolebinding*.yaml",
+								"clusterrole*.yaml",
+								"rolebinding*.yaml",
+								"role*.yaml",
+							},
+						})
+
 						lspconfig.yamlls.setup({
 							settings = {
 								yaml = {
@@ -476,7 +504,7 @@ return {
 										-- NOTE: Avoid TypeError: Cannot read properties of undefined (reading 'length')
 										url = "",
 									},
-									schemas = require("schemastore").yaml.schemas(),
+									schemas = schemas,
 								},
 							},
 							capabilities = capabilities,
