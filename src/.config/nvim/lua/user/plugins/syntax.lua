@@ -27,6 +27,7 @@ return {
 				"gosum",
 				"graphql",
 				"hcl",
+				"helm",
 				"ini",
 				"javascript",
 				"json",
