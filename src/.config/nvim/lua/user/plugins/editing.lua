@@ -279,74 +279,17 @@ return {
 	{
 		"ThePrimeagen/refactoring.nvim",
 		keys = {
+			-- NOTE: normal and visual mode
 			{
-				"<space>re",
-				function()
-					require("refactoring").refactor("Extract Function")
-				end,
-				mode = "v",
-				silent = true,
-				desc = "Extract function",
-			},
-			{
-				"<space>rf",
-				function()
-					require("refactoring").refactor("Extract Function To File")
-				end,
-				mode = "v",
-				silent = true,
-				desc = "Extract function to file",
-			},
-			{
-				"<space>rv",
-				function()
-					require("refactoring").refactor("Extract Variable")
-				end,
-				mode = "v",
-				silent = true,
-				desc = "Extract variable",
-			},
-			{
-				"<space>ri",
+				"<space>riv",
 				function()
 					require("refactoring").refactor("Inline Variable")
 				end,
-				mode = "v",
-				silent = true,
-				desc = "Inline variable",
-			},
-			{
-				"<space>rb",
-				function()
-					require("refactoring").refactor("Extract Block")
-				end,
-				silent = true,
-				desc = "Extract block",
-			},
-			{
-				"<space>rbf",
-				function()
-					require("refactoring").refactor("Extract Block To File")
-				end,
-				silent = true,
-				desc = "Extract block to file",
-			},
-			{
-				"<space>ri",
-				function()
-					require("refactoring").refactor("Inline Variable")
-				end,
+				mode = { "n", "x" },
 				noremap = true,
 				silent = true,
 				expr = false,
 				desc = "Inline variable",
-			},
-			{
-				"<space>rp",
-				function()
-					require("refactoring").debug.printf({ below = false })
-				end,
-				desc = "Add debug printf",
 			},
 			{
 				"<space>rv",
@@ -356,12 +299,77 @@ return {
 				mode = { "n", "x" },
 				desc = "Add debug print_var",
 			},
+			-- NOTE: normal mode only
+			{
+				"<space>ree",
+				function()
+					require("refactoring").refactor("Extract Block")
+				end,
+				mode = "n",
+				silent = true,
+				desc = "Extract block",
+			},
+			{
+				"<space>ref",
+				function()
+					require("refactoring").refactor("Extract Block To File")
+				end,
+				mode = "n",
+				silent = true,
+				desc = "Extract block to file",
+			},
+			{
+				"<space>rii",
+				function()
+					require("refactoring").refactor("Inline Function")
+				end,
+				mode = { "n" },
+				silent = true,
+				desc = "Inline function",
+			},
+			{
+				"<space>rp",
+				function()
+					require("refactoring").debug.printf({ below = false })
+				end,
+				mode = { "n" },
+				desc = "Add debug printf",
+			},
 			{
 				"<space>rc",
 				function()
 					require("refactoring").debug.cleanup({})
 				end,
+				mode = { "n" },
 				desc = "Cleanup debug print",
+			},
+			-- NOTE: visual mode only
+			{
+				"<space>ree",
+				function()
+					require("refactoring").refactor("Extract Function")
+				end,
+				mode = "x",
+				silent = true,
+				desc = "Extract function",
+			},
+			{
+				"<space>ref",
+				function()
+					require("refactoring").refactor("Extract Function To File")
+				end,
+				mode = "x",
+				silent = true,
+				desc = "Extract function to file",
+			},
+			{
+				"<space>rev",
+				function()
+					require("refactoring").refactor("Extract Variable")
+				end,
+				mode = "x",
+				silent = true,
+				desc = "Extract variable",
 			},
 		},
 		opts = {},
