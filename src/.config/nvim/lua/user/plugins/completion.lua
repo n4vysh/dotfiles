@@ -133,10 +133,30 @@ return {
 				config = function()
 					require("luasnip.loaders.from_vscode").lazy_load()
 					local ls = require("luasnip")
+					local s, sn = ls.snippet, ls.snippet_node
+					local i, d = ls.insert_node, ls.dynamic_node
+
 					ls.add_snippets("lua", {
 						ls.parser.parse_snippet({ trig = "fua", desc = "Anonymous function" }, "function()\n\t${0:-- code}\nend"),
 					}, {
 						key = "lua",
+					})
+
+					local function uuid()
+						local id, _ = vim.fn.system("uuidgen"):gsub("\n", "")
+						return id
+					end
+
+					ls.add_snippets("global", {
+						s({
+							trig = "uuid",
+							name = "UUID",
+							dscr = "Generate a unique UUID",
+						}, {
+							d(1, function()
+								return sn(nil, i(1, uuid()))
+							end),
+						}),
 					})
 				end,
 				dependencies = {
