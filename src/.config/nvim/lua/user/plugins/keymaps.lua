@@ -115,7 +115,12 @@ return {
 						},
 					},
 					s = { name = "+search" },
-					t = { name = "+test" },
+					t = {
+						name = "+test",
+						c = {
+							name = "+coverage",
+						},
+					},
 					v = { name = "+version" },
 					y = { name = "+yank" },
 				},
