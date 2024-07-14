@@ -72,59 +72,61 @@ return {
 	},
 	{
 		"folke/which-key.nvim",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		keys = {
-			{ "<C-_>", "<cmd>WhichKey \\<space><cr>", desc = "Show custom keymaps" },
-			{ "g<C-_>", "<cmd>WhichKey<cr>", desc = "Show all custom keymaps" },
+			{
+				"<C-_>",
+				function()
+					require("which-key").show({ keys = "<space>" })
+				end,
+				desc = "Show custom keymaps",
+			},
+			{
+				"g<C-_>",
+				function()
+					require("which-key").show()
+				end,
+				desc = "Show all custom keymaps",
+			},
 		},
-		config = function()
-			require("which-key").setup({
-				plugins = {
-					marks = false,
-					registers = false,
-					presets = {
-						operators = false,
-						motions = false,
-						text_objects = false,
-						windows = false,
-						nav = false,
-						z = false,
-						g = false,
-					},
+		opts = {
+			preset = "modern",
+			plugins = {
+				marks = false,
+				registers = false,
+				presets = {
+					operators = false,
+					motions = false,
+					text_objects = false,
+					windows = false,
+					nav = false,
+					z = false,
+					g = false,
 				},
-				triggers = "manual",
-			})
-			local wk = require("which-key")
-			wk.register({
-				["<space>"] = {
-					a = { name = "+ai/alternate" },
-					b = { name = "+buffer" },
-					c = { name = "+command" },
-					d = { name = "+debug" },
-					e = { name = "+edit" },
-					f = { name = "+file" },
-					l = { name = "+lang" },
-					m = { name = "+mark" },
-					p = { name = "+package" },
-					r = {
-						name = "+refactor",
-						e = {
-							name = "+extract",
-						},
-						i = {
-							name = "+inline",
-						},
-					},
-					s = { name = "+search" },
-					t = {
-						name = "+test",
-						c = {
-							name = "+coverage",
-						},
-					},
-					v = { name = "+version" },
-					y = { name = "+yank" },
-				},
-			})
-		end,
+			},
+			triggers = false,
+			icons = {
+				rules = false,
+			},
+			spec = {
+				{ "<space>a", group = "ai/alternate" },
+				{ "<space>b", group = "buffer" },
+				{ "<space>c", group = "command" },
+				{ "<space>d", group = "debug" },
+				{ "<space>e", group = "edit" },
+				{ "<space>f", group = "file" },
+				{ "<space>l", group = "lang" },
+				{ "<space>m", group = "mark" },
+				{ "<space>p", group = "package" },
+				{ "<space>r", group = "refactor" },
+				{ "<space>re", group = "extract" },
+				{ "<space>ri", group = "inline" },
+				{ "<space>s", group = "search" },
+				{ "<space>t", group = "test" },
+				{ "<space>tc", group = "coverage" },
+				{ "<space>v", group = "version" },
+				{ "<space>y", group = "yank" },
+			},
+		},
 	},
 }
