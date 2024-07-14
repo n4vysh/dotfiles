@@ -27,14 +27,28 @@ return {
 				desc = "Run test",
 			},
 			{
-				"<space>tc",
+				"<space>tcl",
 				function()
-					require("coverage").load()
-					require("coverage").show()
+					require("coverage").load(true)
+				end,
+				silent = true,
+				desc = "Load coverage and show signs",
+			},
+			{
+				"<space>tcs",
+				function()
 					require("coverage").summary()
 				end,
 				silent = true,
 				desc = "Show coverage summary",
+			},
+			{
+				"<space>tch",
+				function()
+					require("coverage").hide()
+				end,
+				silent = true,
+				desc = "Hide coverage signs",
 			},
 			{
 				"<space>tb",
