@@ -566,6 +566,12 @@ return {
 				silent = true,
 				desc = "Move the current buffer backwards",
 			},
+			{
+				"<space>bo",
+				"<cmd>BufferLineCloseOthers<cr>",
+				silent = true,
+				desc = "Make the current buffer the only one on the screen",
+			},
 		},
 		opts = {
 			options = {
