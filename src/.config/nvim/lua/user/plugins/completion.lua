@@ -53,13 +53,20 @@ return {
 			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
-			local lspkind = require("lspkind")
 			cmp.setup({
 				formatting = {
-					format = lspkind.cmp_format({
-						mode = "symbol",
-						maxwidth = 50,
-					}),
+					format = function(entry, item)
+						local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+						item = require("lspkind").cmp_format({
+							mode = "symbol",
+							maxwidth = 50,
+						})(entry, item)
+						if color_item.abbr_hl_group then
+							item.kind_hl_group = color_item.abbr_hl_group
+							item.kind = color_item.abbr
+						end
+						return item
+					end,
 				},
 			})
 		end,
