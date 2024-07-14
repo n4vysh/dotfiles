@@ -91,6 +91,15 @@ return {
 		},
 		opts = {
 			preset = "modern",
+			modes = {
+				-- HACK: disable mode except normal to avoid auto trigger
+				i = false,
+				x = false,
+				s = false,
+				o = false,
+				t = false,
+				c = false,
+			},
 			plugins = {
 				marks = false,
 				registers = false,
