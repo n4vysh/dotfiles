@@ -213,12 +213,12 @@ return {
 		"danymat/neogen",
 		keys = {
 			{
-				"gca",
+				"gcg",
 				function()
 					require("neogen").generate({})
 				end,
 				silent = true,
-				desc = "Generate annotation",
+				desc = "Generate comment",
 			},
 		},
 		opts = {
