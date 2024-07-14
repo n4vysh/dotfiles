@@ -12,6 +12,7 @@ return {
 						vim.cmd.NvimTreeFindFile()
 					end
 				end,
+				desc = "Toggle file tree",
 			},
 		},
 		opts = {

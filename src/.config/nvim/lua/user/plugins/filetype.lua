@@ -11,10 +11,8 @@ return {
 			{
 				"<space>tg",
 				vim.cmd.GoTests,
-				{
-					silent = true,
-					desc = "Generate test",
-				},
+				silent = true,
+				desc = "Generate test",
 			},
 		},
 		opts = {},
@@ -30,10 +28,8 @@ return {
 			{
 				"<space>ee",
 				vim.cmd.EditEnvrc,
-				{
-					silent = true,
-					desc = "Edit .envrc",
-				},
+				silent = true,
+				desc = "Edit .envrc",
 			},
 		},
 	},
