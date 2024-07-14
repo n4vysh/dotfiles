@@ -7,10 +7,8 @@ return {
 			{
 				"<Space>pp",
 				require("user.utils.ui").select_plugin_or_package_manager,
-				{
-					silent = true,
-					desc = "Show package manager information",
-				},
+				silent = true,
+				desc = "Show package manager information",
 			},
 		},
 		config = function()
@@ -54,7 +52,7 @@ return {
 						end
 					end)
 				end,
-				{ desc = "Show lang server information" },
+				desc = "Show lang server information",
 			},
 			{
 				"<space>ll",
@@ -72,7 +70,7 @@ return {
 						end
 					end)
 				end,
-				{ desc = "Show lang server log" },
+				desc = "Show lang server log",
 			},
 		},
 		config = function()
