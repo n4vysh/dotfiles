@@ -224,6 +224,7 @@ if status --is-interactive
     __fish_abbr_add_extend ppt pnpm test
     __fish_abbr_add_extend ppr pnpm run
     __fish_abbr_add_extend pprb pnpm run build
+    __fish_abbr_add_extend pprf pnpm run fmt
     __fish_abbr_add_extend pprd pnpm run dev
     __fish_abbr_add_extend pprl pnpm run lint
     __fish_abbr_add_extend r rg
