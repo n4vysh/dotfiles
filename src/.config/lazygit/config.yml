@@ -3,6 +3,7 @@ gui:
   nerdFontsVersion: 3
   showCommandLog: false
   showBottomLine: false
+  showDivergenceFromBaseBranch: arrowAndNumber
 git:
   parseEmoji: true
   paging:
