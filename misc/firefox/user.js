@@ -29,3 +29,4 @@ user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 user_pref("extensions.webextensions.restrictedDomains", "");
 user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.donottrackheader.enabled", true);
+user_pref("dom.private-attribution.submission.enabled", false);
