@@ -1,4 +1,3 @@
-aur/wev
 aur/xdg-ninja
 extra/bemenu
 extra/bemenu-wayland
@@ -15,6 +14,7 @@ extra/sway
 extra/swayidle
 extra/swaylock
 extra/waybar
+extra/wev
 extra/wf-recorder
 extra/wl-clipboard
 extra/wtype

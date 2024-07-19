@@ -1,5 +1,5 @@
-aur/downgrade
-aur/informant
+chaotic-aur/downgrade
+chaotic-aur/informant
 core/zstd
 extra/ccache
 extra/pkgfile

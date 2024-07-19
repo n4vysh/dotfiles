@@ -1,5 +1,5 @@
-aur/aic94xx-firmware
-aur/ast-firmware
-aur/wd719x-firmware
+chaotic-aur/aic94xx-firmware
+chaotic-aur/ast-firmware
+chaotic-aur/wd719x-firmware
 core/linux-firmware-qlogic
 extra/sof-firmware
