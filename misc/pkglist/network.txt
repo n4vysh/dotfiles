@@ -1,5 +1,5 @@
 aur/bluetuith-bin
-aur/nordvpn-bin
+chaotic-aur/nordvpn-bin
 core/inetutils
 core/nfs-utils
 core/traceroute

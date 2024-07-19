@@ -318,6 +318,25 @@ _configure_without_privileged() {
 		/etc/pacman.conf
 	sudo systemctl enable --now paccache.timer
 
+	_log::info 'Add chaotic-aur repository'
+	sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+	sudo pacman-key --lsign-key 3056513887B78AEB
+	sudo pacman \
+		-U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' \
+		--noconfirm
+	sudo pacman \
+		-U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' \
+		--noconfirm
+	if ! sudo grep -q "\[chaotic-aur\]" /etc/pacman.conf; then
+		sudo tee -a /etc/pacman.conf >/dev/null <<-EOF
+
+			[chaotic-aur]
+			Include = /etc/pacman.d/chaotic-mirrorlist
+		EOF
+	else
+		_log::warn 'chaotic-aur repository already exists -- skipping'
+	fi
+
 	_log::info 'Add blackarch repository'
 	curl -o '/tmp/#1' 'https://blackarch.org/{strap.sh}'
 	echo 5ea40d49ecd14c2e024deecf90605426db97ea0c /tmp/strap.sh | sha1sum -c
