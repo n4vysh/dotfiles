@@ -732,6 +732,17 @@ return {
 		event = "LspAttach",
 		opts = {
 			request_timeout = 5000,
+			definition = {
+				keys = {
+					edit = "<C-c>o",
+					vsplit = "<C-c>v",
+					split = "<C-c>s",
+					tabe = "<C-c>t",
+					tabnew = "<C-c>n",
+					quit = "q",
+					close = "<C-c>k",
+				},
+			},
 			lightbulb = {
 				virtual_text = false,
 			},
