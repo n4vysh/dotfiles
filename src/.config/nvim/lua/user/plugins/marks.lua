@@ -6,7 +6,7 @@ return {
 			{
 				"<Space>ma",
 				function()
-					harpoon:list():append()
+					harpoon:list():add()
 				end,
 				silent = true,
 				desc = "Add file to mark per project",
