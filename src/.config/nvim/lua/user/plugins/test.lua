@@ -85,6 +85,9 @@ return {
 		},
 		config = function()
 			require("neotest").setup({
+				discovery = {
+					enabled = false,
+				},
 				icons = {
 					expanded = "┐",
 					final_child_prefix = "└",
