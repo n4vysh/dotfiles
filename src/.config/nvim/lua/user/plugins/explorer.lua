@@ -30,6 +30,21 @@ return {
 				indent_markers = {
 					enable = true,
 				},
+				icons = {
+					git_placement = "right_align",
+					modified_placement = "right_align",
+					diagnostics_placement = "right_align",
+					bookmarks_placement = "right_align",
+					padding = " ",
+					show = {
+						file = true,
+						folder = true,
+						diagnostics = true,
+						bookmarks = true,
+						git = true,
+						modified = true,
+					},
+				},
 			},
 		},
 		dependencies = {
