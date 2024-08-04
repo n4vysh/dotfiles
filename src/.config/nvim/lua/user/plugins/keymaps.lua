@@ -91,15 +91,6 @@ return {
 		},
 		opts = {
 			preset = "modern",
-			modes = {
-				-- HACK: disable mode except normal to avoid auto trigger
-				i = false,
-				x = false,
-				s = false,
-				o = false,
-				t = false,
-				c = false,
-			},
 			plugins = {
 				marks = false,
 				registers = false,
@@ -113,7 +104,10 @@ return {
 					g = false,
 				},
 			},
-			triggers = false,
+			triggers = {
+				{ "<C-_>", mode = { "n" } },
+				{ "g<C-_>", mode = { "n" } },
+			},
 			icons = {
 				rules = false,
 			},
