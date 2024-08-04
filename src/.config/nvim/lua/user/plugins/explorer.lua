@@ -26,6 +26,11 @@ return {
 			filters = {
 				git_ignored = false,
 			},
+			renderer = {
+				indent_markers = {
+					enable = true,
+				},
+			},
 		},
 		dependencies = {
 			"stevearc/dressing.nvim",
