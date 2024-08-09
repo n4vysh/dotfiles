@@ -25,6 +25,7 @@ unbind F
 bind gf hint -b
 
 unbind <C-f>
+unbind <C-b>
 
 bind --mode=normal i mode ignore
 bind --mode=ignore <Esc> mode normal
