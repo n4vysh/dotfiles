@@ -43,6 +43,18 @@ do
 end
 
 do
+	local augroup = "nowrap"
+	vim.api.nvim_create_augroup(augroup, { clear = true })
+	vim.api.nvim_create_autocmd("FileType", {
+		group = augroup,
+		pattern = { "neotest-summary" },
+		callback = function()
+			vim.opt_local.wrap = false
+		end,
+	})
+end
+
+do
 	local augroup = "delete_directory"
 	vim.api.nvim_create_augroup(augroup, { clear = true })
 	vim.api.nvim_create_autocmd("BufEnter", {
