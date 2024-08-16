@@ -80,59 +80,187 @@ return {
 					enable = true,
 					set_jumps = true,
 					goto_next_start = {
-						["]m"] = { query = "@function.outer", desc = "Next function start" },
-						["]]"] = { query = "@class.outer", desc = "Next class start" },
-						["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope start" },
-						["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold start" },
-						["]k"] = { query = "@block.outer", desc = "Next block start" },
-						["]a"] = { query = "@parameter.inner", desc = "Next parameter start" },
-						["]o"] = { query = "@loop.outer", desc = "Next loop start" },
-						["]v"] = { query = "@assignment.outer", desc = "Next variable start" },
-						["]?"] = { query = "@conditional.outer", desc = "Next conditional start" },
+						["]m"] = {
+							query = "@function.outer",
+							desc = "Next function start",
+						},
+						["]]"] = {
+							query = "@class.outer",
+							desc = "Next class start",
+						},
+						["]s"] = {
+							query = "@scope",
+							query_group = "locals",
+							desc = "Next scope start",
+						},
+						["]z"] = {
+							query = "@fold",
+							query_group = "folds",
+							desc = "Next fold start",
+						},
+						["]k"] = {
+							query = "@block.outer",
+							desc = "Next block start",
+						},
+						["]a"] = {
+							query = "@parameter.inner",
+							desc = "Next parameter start",
+						},
+						["]o"] = {
+							query = "@loop.outer",
+							desc = "Next loop start",
+						},
+						["]v"] = {
+							query = "@assignment.outer",
+							desc = "Next variable start",
+						},
+						["]?"] = {
+							query = "@conditional.outer",
+							desc = "Next conditional start",
+						},
 					},
 					goto_next_end = {
-						["]M"] = { query = "@function.outer", desc = "Next function end" },
-						["]["] = { query = "@class.outer", desc = "Next class end" },
-						["]S"] = { query = "@scope", query_group = "locals", desc = "Next scope end" },
-						["]Z"] = { query = "@fold", query_group = "folds", desc = "Next fold end" },
-						["]K"] = { query = "@block.outer", desc = "Next block end" },
-						["]A"] = { query = "@parameter.inner", desc = "Next parameter end" },
-						["]O"] = { query = "@loop.outer", desc = "Next loop end" },
-						["]V"] = { query = "@assignment.outer", desc = "Next variable end" },
+						["]M"] = {
+							query = "@function.outer",
+							desc = "Next function end",
+						},
+						["]["] = {
+							query = "@class.outer",
+							desc = "Next class end",
+						},
+						["]S"] = {
+							query = "@scope",
+							query_group = "locals",
+							desc = "Next scope end",
+						},
+						["]Z"] = {
+							query = "@fold",
+							query_group = "folds",
+							desc = "Next fold end",
+						},
+						["]K"] = {
+							query = "@block.outer",
+							desc = "Next block end",
+						},
+						["]A"] = {
+							query = "@parameter.inner",
+							desc = "Next parameter end",
+						},
+						["]O"] = {
+							query = "@loop.outer",
+							desc = "Next loop end",
+						},
+						["]V"] = {
+							query = "@assignment.outer",
+							desc = "Next variable end",
+						},
 					},
 					goto_previous_start = {
-						["[m"] = { query = "@function.outer", desc = "Previous function start" },
-						["[["] = { query = "@class.outer", desc = "Previous class start" },
-						["[s"] = { query = "@scope", query_group = "locals", desc = "Previous scope" },
-						["[z"] = { query = "@fold", query_group = "folds", desc = "Previous fold" },
-						["[k"] = { query = "@block.outer", desc = "Previous block start" },
-						["[a"] = { query = "@parameter.inner", desc = "Previous parameter start" },
-						["[o"] = { query = "@loop.outer", desc = "Previous loop start" },
-						["[v"] = { query = "@assignment.outer", desc = "Previous variable start" },
-						["[?"] = { query = "@conditional.outer", desc = "Previous conditional start" },
+						["[m"] = {
+							query = "@function.outer",
+							desc = "Previous function start",
+						},
+						["[["] = {
+							query = "@class.outer",
+							desc = "Previous class start",
+						},
+						["[s"] = {
+							query = "@scope",
+							query_group = "locals",
+							desc = "Previous scope",
+						},
+						["[z"] = {
+							query = "@fold",
+							query_group = "folds",
+							desc = "Previous fold",
+						},
+						["[k"] = {
+							query = "@block.outer",
+							desc = "Previous block start",
+						},
+						["[a"] = {
+							query = "@parameter.inner",
+							desc = "Previous parameter start",
+						},
+						["[o"] = {
+							query = "@loop.outer",
+							desc = "Previous loop start",
+						},
+						["[v"] = {
+							query = "@assignment.outer",
+							desc = "Previous variable start",
+						},
+						["[?"] = {
+							query = "@conditional.outer",
+							desc = "Previous conditional start",
+						},
 					},
 					goto_previous_end = {
-						["[M"] = { query = "@function.outer", desc = "Previous function end" },
-						["[]"] = { query = "@class.outer", desc = "Previous class end" },
-						["[S"] = { query = "@scope", query_group = "locals", desc = "Previous scope end" },
-						["[Z"] = { query = "@fold", query_group = "folds", desc = "Previous fold end" },
-						["[K"] = { query = "@block.outer", desc = "Previous block end" },
-						["[A"] = { query = "@parameter.inner", desc = "Previous parameter end" },
-						["[O"] = { query = "@loop.outer", desc = "Previous loop end" },
-						["[V"] = { query = "@assignment.outer", desc = "Previous variable end" },
+						["[M"] = {
+							query = "@function.outer",
+							desc = "Previous function end",
+						},
+						["[]"] = {
+							query = "@class.outer",
+							desc = "Previous class end",
+						},
+						["[S"] = {
+							query = "@scope",
+							query_group = "locals",
+							desc = "Previous scope end",
+						},
+						["[Z"] = {
+							query = "@fold",
+							query_group = "folds",
+							desc = "Previous fold end",
+						},
+						["[K"] = {
+							query = "@block.outer",
+							desc = "Previous block end",
+						},
+						["[A"] = {
+							query = "@parameter.inner",
+							desc = "Previous parameter end",
+						},
+						["[O"] = {
+							query = "@loop.outer",
+							desc = "Previous loop end",
+						},
+						["[V"] = {
+							query = "@assignment.outer",
+							desc = "Previous variable end",
+						},
 					},
 				},
 				swap = {
 					enable = true,
 					swap_next = {
-						[">k"] = { query = "@block.outer", desc = "Swap next block" },
-						[">f"] = { query = "@function.outer", desc = "Swap next function" },
-						[">a"] = { query = "@parameter.inner", desc = "Swap next argument" },
+						[">k"] = {
+							query = "@block.outer",
+							desc = "Swap next block",
+						},
+						[">f"] = {
+							query = "@function.outer",
+							desc = "Swap next function",
+						},
+						[">a"] = {
+							query = "@parameter.inner",
+							desc = "Swap next argument",
+						},
 					},
 					swap_previous = {
-						["<k"] = { query = "@block.outer", desc = "Swap previous block" },
-						["<f"] = { query = "@function.outer", desc = "Swap previous function" },
-						["<a"] = { query = "@parameter.inner", desc = "Swap previous argument" },
+						["<k"] = {
+							query = "@block.outer",
+							desc = "Swap previous block",
+						},
+						["<f"] = {
+							query = "@function.outer",
+							desc = "Swap previous function",
+						},
+						["<a"] = {
+							query = "@parameter.inner",
+							desc = "Swap previous argument",
+						},
 					},
 				},
 			},
@@ -165,26 +293,51 @@ return {
 					}
 				end,
 				config = function()
-					vim.keymap.set({ "n", "x", "o" }, "m", "<plug>(matchup-%)", {
-						silent = true,
-						desc = "Goto forward to matching word",
-					})
-					vim.keymap.set({ "n", "x", "o" }, "gm", "<plug>(matchup-g%)", {
-						silent = true,
-						desc = "Goto backword to matching word",
-					})
-					vim.keymap.set({ "n", "x", "o" }, "zm", "<plug>(matchup-z%)", {
-						silent = true,
-						desc = "Goto inside of matching word",
-					})
-					vim.keymap.set({ "n", "x", "o" }, "]w", "<plug>(matchup-]%)", {
-						silent = true,
-						desc = "Goto previous outer open word",
-					})
-					vim.keymap.set({ "n", "x", "o" }, "[w", "<plug>(matchup-[%)", {
-						silent = true,
-						desc = "Goto next surrounding close word",
-					})
+					vim.keymap.set(
+						{ "n", "x", "o" },
+						"m",
+						"<plug>(matchup-%)",
+						{
+							silent = true,
+							desc = "Goto forward to matching word",
+						}
+					)
+					vim.keymap.set(
+						{ "n", "x", "o" },
+						"gm",
+						"<plug>(matchup-g%)",
+						{
+							silent = true,
+							desc = "Goto backword to matching word",
+						}
+					)
+					vim.keymap.set(
+						{ "n", "x", "o" },
+						"zm",
+						"<plug>(matchup-z%)",
+						{
+							silent = true,
+							desc = "Goto inside of matching word",
+						}
+					)
+					vim.keymap.set(
+						{ "n", "x", "o" },
+						"]w",
+						"<plug>(matchup-]%)",
+						{
+							silent = true,
+							desc = "Goto previous outer open word",
+						}
+					)
+					vim.keymap.set(
+						{ "n", "x", "o" },
+						"[w",
+						"<plug>(matchup-[%)",
+						{
+							silent = true,
+							desc = "Goto next surrounding close word",
+						}
+					)
 					vim.keymap.set({ "x", "o" }, "im", "<plug>(matchup-i%)", {
 						silent = true,
 						desc = "Inside of matching word",

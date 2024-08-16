@@ -5,12 +5,30 @@ local i = ls.insert_node
 local c = ls.choice_node
 
 return {
-	s({ trig = "h1", name = "Header 1", desc = "Add header level 1" }, { t("# "), i(0) }),
-	s({ trig = "h2", name = "Header 2", desc = "Add header level 2" }, { t("## "), i(0) }),
-	s({ trig = "h3", name = "Header 3", desc = "Add header level 3" }, { t("### "), i(0) }),
-	s({ trig = "h4", name = "Header 4", desc = "Add header level 4" }, { t("#### "), i(0) }),
-	s({ trig = "h5", name = "Header 5", desc = "Add header level 5" }, { t("##### "), i(0) }),
-	s({ trig = "h6", name = "Header 6", desc = "Add header level 6" }, { t("###### "), i(0) }),
+	s(
+		{ trig = "h1", name = "Header 1", desc = "Add header level 1" },
+		{ t("# "), i(0) }
+	),
+	s(
+		{ trig = "h2", name = "Header 2", desc = "Add header level 2" },
+		{ t("## "), i(0) }
+	),
+	s(
+		{ trig = "h3", name = "Header 3", desc = "Add header level 3" },
+		{ t("### "), i(0) }
+	),
+	s(
+		{ trig = "h4", name = "Header 4", desc = "Add header level 4" },
+		{ t("#### "), i(0) }
+	),
+	s(
+		{ trig = "h5", name = "Header 5", desc = "Add header level 5" },
+		{ t("##### "), i(0) }
+	),
+	s(
+		{ trig = "h6", name = "Header 6", desc = "Add header level 6" },
+		{ t("###### "), i(0) }
+	),
 	s({ trig = "l", name = "Links", desc = "Add links" }, {
 		t("["),
 		i(1, "text"),
@@ -19,7 +37,10 @@ return {
 		t(") "),
 		i(0),
 	}),
-	s({ trig = "u", name = "URLS", desc = "Add urls" }, { t("<"), i(1), t("> "), i(0) }),
+	s(
+		{ trig = "u", name = "URLS", desc = "Add urls" },
+		{ t("<"), i(1), t("> "), i(0) }
+	),
 	s(
 		{ trig = "i", name = "Images", desc = "Add images" },
 		{ t("!["), i(1, "alt text"), t("]("), i(2, "path"), t(") "), i(0) }
@@ -29,14 +50,23 @@ return {
 		name = "Insert strikethrough",
 		desc = "Insert strikethrough",
 	}, { t("~~"), i(1), t("~~ "), i(0) }),
-	s({ trig = "b", name = "Insert bold text", desc = "Insert bold text" }, { t("**"), i(1), t("** "), i(0) }),
+	s(
+		{ trig = "b", name = "Insert bold text", desc = "Insert bold text" },
+		{ t("**"), i(1), t("** "), i(0) }
+	),
 	s({
 		trig = "it",
 		name = "Insert italic text",
 		desc = "Insert italic text",
 	}, { t("*"), i(1), t("* "), i(0) }),
-	s({ trig = "q", name = "Insert quoted text", desc = "Insert quoted text" }, { t("> "), i(1) }),
-	s({ trig = "c", name = "Insert code", desc = "Insert code" }, { t("`"), i(1), t("` "), i(0) }),
+	s(
+		{ trig = "q", name = "Insert quoted text", desc = "Insert quoted text" },
+		{ t("> "), i(1) }
+	),
+	s(
+		{ trig = "c", name = "Insert code", desc = "Insert code" },
+		{ t("`"), i(1), t("` "), i(0) }
+	),
 	s({
 		trig = "cb",
 		name = "Insert code block",
@@ -74,9 +104,24 @@ return {
 		t({ "", "" }),
 		i(0),
 	}),
-	s({ trig = "n", name = "Insert Note", desc = "Insert Note" }, { t("> [!NOTE]", "> ") }),
-	s({ trig = "t", name = "Insert Tip", desc = "Insert Tip" }, { t("> [!TIP]", "> ") }),
-	s({ trig = "imp", name = "Insert Important", desc = "Insert Important" }, { t("> [!IMPORTANT]", "> ") }),
-	s({ trig = "w", name = "Insert Warning", desc = "Insert Warning" }, { t("> [!WARNING]", "> ") }),
-	s({ trig = "ca", name = "Insert Caution", desc = "Insert Caution" }, { t("> [!CAUTION]", "> ") }),
+	s(
+		{ trig = "n", name = "Insert Note", desc = "Insert Note" },
+		{ t("> [!NOTE]", "> ") }
+	),
+	s(
+		{ trig = "t", name = "Insert Tip", desc = "Insert Tip" },
+		{ t("> [!TIP]", "> ") }
+	),
+	s(
+		{ trig = "imp", name = "Insert Important", desc = "Insert Important" },
+		{ t("> [!IMPORTANT]", "> ") }
+	),
+	s(
+		{ trig = "w", name = "Insert Warning", desc = "Insert Warning" },
+		{ t("> [!WARNING]", "> ") }
+	),
+	s(
+		{ trig = "ca", name = "Insert Caution", desc = "Insert Caution" },
+		{ t("> [!CAUTION]", "> ") }
+	),
 }

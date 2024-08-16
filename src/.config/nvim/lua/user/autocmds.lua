@@ -63,7 +63,12 @@ do
 		callback = function()
 			local v = vim.fn.expand("%")
 			if vim.fn.isdirectory(v) ~= 0 then
-				vim.api.nvim_echo({ { "Delete directory from buffer list: " .. v .. "\n", "WarningMsg" } }, true, {})
+				vim.api.nvim_echo({
+					{
+						"Delete directory from buffer list: " .. v .. "\n",
+						"WarningMsg",
+					},
+				}, true, {})
 				vim.cmd.bw(v)
 			end
 		end,

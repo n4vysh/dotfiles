@@ -156,11 +156,26 @@ return {
 	{
 		"moll/vim-bbye",
 		keys = {
-			{ "gq", "<cmd>Bdelete<cr>", silent = true, desc = "Delete current buffer" },
+			{
+				"gq",
+				"<cmd>Bdelete<cr>",
+				silent = true,
+				desc = "Delete current buffer",
+			},
 
-			{ "gQ", "<cmd>bufdo Bdelete<cr>", silent = true, desc = "Delete all buffer" },
+			{
+				"gQ",
+				"<cmd>bufdo Bdelete<cr>",
+				silent = true,
+				desc = "Delete all buffer",
+			},
 
-			{ "g<C-q>", "<cmd>Bdelete!<cr>", silent = true, desc = "Delete current buffer without save" },
+			{
+				"g<C-q>",
+				"<cmd>Bdelete!<cr>",
+				silent = true,
+				desc = "Delete current buffer without save",
+			},
 		},
 	},
 	{
@@ -179,7 +194,12 @@ return {
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		opts = {
 			lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-			lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
+			lastplace_ignore_filetype = {
+				"gitcommit",
+				"gitrebase",
+				"svn",
+				"hgcommit",
+			},
 			lastplace_open_folds = true,
 		},
 	},
@@ -273,13 +293,41 @@ return {
 			dashboard.section.header.val = {}
 			dashboard.section.buttons.val = {
 				dashboard.button("e", "  New file", ":ene<CR>"),
-				dashboard.button("f", "󰈞  Find files", ":lua require('telescope.builtin').find_files()<cr>"),
-				dashboard.button("s", "󰈬  Search word", ":lua require('user.utils.finder').search()<cr>"),
-				dashboard.button("t", "󰙅  Open file tree", ":NvimTreeToggle<CR>"),
-				dashboard.button("m", "  Jump to bookmarks", ":lua require('harpoon.ui').toggle_quick_menu()<cr>"),
-				dashboard.button("h", "  History", ":lua require('user.utils.finder').recent_files()<cr>"),
-				dashboard.button("l", "  Open last session", ":SessionManager load_last_session<cr>"),
-				dashboard.button("c", "  Configuration", ":lua require('user.utils.finder').edit_config()<cr>"),
+				dashboard.button(
+					"f",
+					"󰈞  Find files",
+					":lua require('telescope.builtin').find_files()<cr>"
+				),
+				dashboard.button(
+					"s",
+					"󰈬  Search word",
+					":lua require('user.utils.finder').search()<cr>"
+				),
+				dashboard.button(
+					"t",
+					"󰙅  Open file tree",
+					":NvimTreeToggle<CR>"
+				),
+				dashboard.button(
+					"m",
+					"  Jump to bookmarks",
+					":lua require('harpoon.ui').toggle_quick_menu()<cr>"
+				),
+				dashboard.button(
+					"h",
+					"  History",
+					":lua require('user.utils.finder').recent_files()<cr>"
+				),
+				dashboard.button(
+					"l",
+					"  Open last session",
+					":SessionManager load_last_session<cr>"
+				),
+				dashboard.button(
+					"c",
+					"  Configuration",
+					":lua require('user.utils.finder').edit_config()<cr>"
+				),
 				dashboard.button(
 					"p",
 					"  Plugin / Package manager",
@@ -319,9 +367,20 @@ return {
 	{
 		"echuraev/translate-shell.vim",
 		keys = {
-			{ "<C-t>", ":Trans<CR>", silent = true, desc = "Translate word under cursor" },
+			{
+				"<C-t>",
+				":Trans<CR>",
+				silent = true,
+				desc = "Translate word under cursor",
+			},
 
-			{ "<C-t>", ":Trans -b<CR>", silent = true, mode = "v", desc = "Translate text in visual selection" },
+			{
+				"<C-t>",
+				":Trans -b<CR>",
+				silent = true,
+				mode = "v",
+				desc = "Translate text in visual selection",
+			},
 		},
 		init = function()
 			vim.g.trans_join_lines = 1
@@ -373,15 +432,19 @@ return {
 				wilder.popupmenu_renderer(wilder.popupmenu_border_theme({
 					highlighter = wilder.lua_fzy_highlighter(),
 					highlights = {
-						accent = wilder.make_hl(
-							"WilderAccent",
-							"Pmenu",
-							{ { a = 1 }, { a = 1 }, { foreground = "#7aa2f7", bold = true } }
-						),
+						accent = wilder.make_hl("WilderAccent", "Pmenu", {
+							{ a = 1 },
+							{ a = 1 },
+							{ foreground = "#7aa2f7", bold = true },
+						}),
 						selected_accent = wilder.make_hl(
 							"WilderAccent",
 							"Pmenu",
-							{ { a = 1 }, { a = 1 }, { foreground = "#7aa2f7", bold = true } }
+							{
+								{ a = 1 },
+								{ a = 1 },
+								{ foreground = "#7aa2f7", bold = true },
+							}
 						),
 					},
 					left = {
@@ -396,11 +459,19 @@ return {
 				}))
 			)
 
-			vim.cmd([[cmap <expr> <C-y> wilder#can_accept_completion() ? wilder#accept_completion() : "\<C-y>"]])
+			vim.cmd(
+				[[cmap <expr> <C-y> wilder#can_accept_completion() ? wilder#accept_completion() : "\<C-y>"]]
+			)
 
-			vim.cmd([[cmap <expr> <C-i> wilder#in_context() ? wilder#next() : "\<Tab>"]])
-			vim.cmd([[cmap <expr> <C-n> wilder#in_context() ? wilder#next() : "\<Tab>"]])
-			vim.cmd([[cmap <expr> <C-p> wilder#in_context() ? wilder#previous() : "\<S-Tab>"]])
+			vim.cmd(
+				[[cmap <expr> <C-i> wilder#in_context() ? wilder#next() : "\<Tab>"]]
+			)
+			vim.cmd(
+				[[cmap <expr> <C-n> wilder#in_context() ? wilder#next() : "\<Tab>"]]
+			)
+			vim.cmd(
+				[[cmap <expr> <C-p> wilder#in_context() ? wilder#previous() : "\<S-Tab>"]]
+			)
 		end,
 		dependencies = {
 			{ "romgrk/fzy-lua-native" },
@@ -449,7 +520,13 @@ return {
 					lualine_y = {},
 					lualine_z = {},
 				},
-				extensions = { "man", "nvim-tree", "quickfix", "symbols-outline", "toggleterm" },
+				extensions = {
+					"man",
+					"nvim-tree",
+					"quickfix",
+					"symbols-outline",
+					"toggleterm",
+				},
 			})
 		end,
 		dependencies = {

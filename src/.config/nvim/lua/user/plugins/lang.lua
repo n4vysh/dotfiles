@@ -39,36 +39,44 @@ return {
 			{
 				"<space>li",
 				function()
-					vim.ui.select({ "normal lang server", "null lang server" }, {
-						prompt = "lang server information",
-					}, function(choice)
-						if choice == nil then
-							do
+					vim.ui.select(
+						{ "normal lang server", "null lang server" },
+						{
+							prompt = "lang server information",
+						},
+						function(choice)
+							if choice == nil then
+								do
+								end
+							elseif choice == "normal lang server" then
+								vim.cmd.LspInfo()
+							else
+								vim.cmd.NullLsInfo()
 							end
-						elseif choice == "normal lang server" then
-							vim.cmd.LspInfo()
-						else
-							vim.cmd.NullLsInfo()
 						end
-					end)
+					)
 				end,
 				desc = "Show lang server information",
 			},
 			{
 				"<space>ll",
 				function()
-					vim.ui.select({ "normal lang server", "null lang server" }, {
-						prompt = "lang server log",
-					}, function(choice)
-						if choice == nil then
-							do
+					vim.ui.select(
+						{ "normal lang server", "null lang server" },
+						{
+							prompt = "lang server log",
+						},
+						function(choice)
+							if choice == nil then
+								do
+								end
+							elseif choice == "normal lang server" then
+								vim.cmd.LspLog()
+							else
+								vim.cmd.NullLsLog()
 							end
-						elseif choice == "normal lang server" then
-							vim.cmd.LspLog()
-						else
-							vim.cmd.NullLsLog()
 						end
-					end)
+					)
 				end,
 				desc = "Show lang server log",
 			},
@@ -164,7 +172,10 @@ return {
 						"n",
 						"g<C-t>",
 						function()
-							require("trouble").open({ mode = "diagnostics", focus = true })
+							require("trouble").open({
+								mode = "diagnostics",
+								focus = true,
+							})
 						end,
 						vim.tbl_extend("force", opts, {
 							desc = "Toggle trouble (diagnostics) panel",
@@ -174,7 +185,8 @@ return {
 						"n",
 						"K",
 						function()
-							local winid = require("ufo").peekFoldedLinesUnderCursor()
+							local winid =
+								require("ufo").peekFoldedLinesUnderCursor()
 							if not winid then
 								require("lspsaga.hover"):render_hover_doc({})
 							end
@@ -232,7 +244,8 @@ return {
 						"n",
 						"grh",
 						function()
-							local is_enable = not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+							local is_enable =
+								not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
 							vim.lsp.inlay_hint.enable(is_enable, { bufnr = 0 })
 						end,
 						vim.tbl_extend("force", opts, {
@@ -241,9 +254,15 @@ return {
 					)
 
 					if client.supports_method("textDocument/formatting") then
-						local augroup = vim.api.nvim_create_augroup("lsp_document_formatting_" .. buf, {})
+						local augroup = vim.api.nvim_create_augroup(
+							"lsp_document_formatting_" .. buf,
+							{}
+						)
 
-						vim.api.nvim_clear_autocmds({ group = augroup, buffer = buf })
+						vim.api.nvim_clear_autocmds({
+							group = augroup,
+							buffer = buf,
+						})
 						vim.api.nvim_create_autocmd("BufWritePre", {
 							group = augroup,
 							buffer = buf,
@@ -253,10 +272,15 @@ return {
 						})
 					end
 
-					if client.name == "lua_ls" or client.name == "terraformls" then
+					if
+						client.name == "lua_ls"
+						or client.name == "terraformls"
+					then
 						client.server_capabilities.signatureHelpProvider = false
-						client.server_capabilities.documentFormattingProvider = false
-						client.server_capabilities.documentRangeFormattingProvider = false
+						client.server_capabilities.documentFormattingProvider =
+							false
+						client.server_capabilities.documentRangeFormattingProvider =
+							false
 					end
 
 					if client.server_capabilities.documentHighlightProvider then
@@ -274,7 +298,10 @@ return {
 						})
 						local augroup = "lsp_document_highlight_" .. buf
 						vim.api.nvim_create_augroup(augroup, {})
-						vim.api.nvim_clear_autocmds({ group = augroup, buffer = buf })
+						vim.api.nvim_clear_autocmds({
+							group = augroup,
+							buffer = buf,
+						})
 						vim.api.nvim_create_autocmd("CursorHold", {
 							group = augroup,
 							buffer = buf,
@@ -299,7 +326,8 @@ return {
 			})
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+			capabilities =
+				require("cmp_nvim_lsp").default_capabilities(capabilities)
 			capabilities.textDocument.foldingRange = {
 				dynamicRegistration = false,
 				lineFoldingOnly = true,
@@ -368,16 +396,30 @@ return {
 						vim.api.nvim_create_autocmd("BufWritePre", {
 							pattern = { "*.go" },
 							callback = function()
-								local params = vim.lsp.util.make_range_params(nil, vim.lsp.util._get_offset_encoding())
-								params.context = { only = { "source.organizeImports" } }
+								local params = vim.lsp.util.make_range_params(
+									nil,
+									vim.lsp.util._get_offset_encoding()
+								)
+								params.context =
+									{ only = { "source.organizeImports" } }
 
-								local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
+								local result = vim.lsp.buf_request_sync(
+									0,
+									"textDocument/codeAction",
+									params,
+									3000
+								)
 								for _, res in pairs(result or {}) do
 									for _, r in pairs(res.result or {}) do
 										if r.edit then
-											vim.lsp.util.apply_workspace_edit(r.edit, vim.lsp.util._get_offset_encoding())
+											vim.lsp.util.apply_workspace_edit(
+												r.edit,
+												vim.lsp.util._get_offset_encoding()
+											)
 										else
-											vim.lsp.buf.execute_command(r.command)
+											vim.lsp.buf.execute_command(
+												r.command
+											)
 										end
 									end
 								end
@@ -546,13 +588,24 @@ return {
 					null_ls.builtins.formatting.rego,
 					null_ls.builtins.diagnostics.opacheck,
 					null_ls.builtins.diagnostics.semgrep.with({
-						args = { "-q", "--json", "--config", "auto", "$FILENAME" },
+						args = {
+							"-q",
+							"--json",
+							"--config",
+							"auto",
+							"$FILENAME",
+						},
 					}),
 					null_ls.builtins.diagnostics.sqlfluff.with({
 						extra_args = { "--dialect", "postgres" },
 					}),
 					null_ls.builtins.formatting.sql_formatter.with({
-						args = { "-c", vim.fn.expand("~/.config/sql-formatter/config.json") },
+						args = {
+							"-c",
+							vim.fn.expand(
+								"~/.config/sql-formatter/config.json"
+							),
+						},
 						filetypes = { "sql", "mysql" },
 					}),
 					null_ls.builtins.formatting.just,
@@ -684,7 +737,10 @@ return {
 						chunkWidth = vim.fn.strdisplaywidth(chunkText)
 						-- str width returned from truncate() may less than 2nd argument, need padding
 						if curWidth + chunkWidth < targetWidth then
-							suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
+							suffix = suffix
+								.. (" "):rep(
+									targetWidth - curWidth - chunkWidth
+								)
 						end
 						break
 					end

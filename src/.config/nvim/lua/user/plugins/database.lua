@@ -4,7 +4,12 @@ return {
 		-- NOTE: call from shell
 		cmd = { "DBUI" },
 		keys = {
-			{ "g<C-d>", ":DBUI<CR>", silent = true, desc = "Toggle UI for database" },
+			{
+				"g<C-d>",
+				":DBUI<CR>",
+				silent = true,
+				desc = "Toggle UI for database",
+			},
 		},
 		init = function()
 			vim.g.db_ui_use_nerd_fonts = 1
@@ -38,7 +43,9 @@ return {
 					group = augroup,
 					pattern = { "sql", "mysql", "plsql" },
 					callback = function()
-						require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
+						require("cmp").setup.buffer({
+							sources = { { name = "vim-dadbod-completion" } },
+						})
 					end,
 				})
 			end
