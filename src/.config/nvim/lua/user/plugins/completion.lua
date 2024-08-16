@@ -138,7 +138,12 @@ return {
 					},
 				},
 				config = function()
-					require("luasnip.loaders.from_vscode").lazy_load()
+					require("luasnip.loaders.from_vscode").lazy_load({
+						exclude = { "markdown" },
+					})
+					require("luasnip.loaders.from_lua").lazy_load({
+						paths = { vim.fn.stdpath("config") .. "/snippets" },
+					})
 					local ls = require("luasnip")
 					local s, sn = ls.snippet, ls.snippet_node
 					local i, d = ls.insert_node, ls.dynamic_node
