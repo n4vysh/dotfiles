@@ -35,8 +35,12 @@ return {
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
-					["<C-y>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
-					["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace }),
+					["<C-y>"] = cmp.mapping.confirm({
+						behavior = cmp.ConfirmBehavior.Replace,
+					}),
+					["<CR>"] = cmp.mapping.confirm({
+						behavior = cmp.ConfirmBehavior.Replace,
+					}),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp", priority = 5 },
@@ -56,7 +60,11 @@ return {
 			cmp.setup({
 				formatting = {
 					format = function(entry, item)
-						local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+						local color_item =
+							require("nvim-highlight-colors").format(
+								entry,
+								{ kind = item.kind }
+							)
 						item = require("lspkind").cmp_format({
 							mode = "symbol",
 							maxwidth = 50,
@@ -85,7 +93,11 @@ return {
 						},
 					})
 
-					vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+					vim.api.nvim_set_hl(
+						0,
+						"CmpItemKindCopilot",
+						{ fg = "#6CC644" }
+					)
 				end,
 				dependencies = {
 					{ "zbirenbaum/copilot-cmp" },
@@ -149,7 +161,10 @@ return {
 					local i, d = ls.insert_node, ls.dynamic_node
 
 					ls.add_snippets("lua", {
-						ls.parser.parse_snippet({ trig = "fua", desc = "Anonymous function" }, "function()\n\t${0:-- code}\nend"),
+						ls.parser.parse_snippet(
+							{ trig = "fua", desc = "Anonymous function" },
+							"function()\n\t${0:-- code}\nend"
+						),
 					}, {
 						key = "lua",
 					})

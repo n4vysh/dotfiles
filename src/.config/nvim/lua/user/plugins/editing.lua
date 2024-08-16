@@ -12,7 +12,9 @@ return {
 		},
 		config = function()
 			require("Comment").setup({
-				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+				pre_hook = require(
+					"ts_context_commentstring.integrations.comment_nvim"
+				).create_pre_hook(),
 			})
 		end,
 		dependencies = {
@@ -86,7 +88,12 @@ return {
 	{
 		"junegunn/vim-easy-align",
 		keys = {
-			{ "ga", "<Plug>(EasyAlign)", mode = { "x", "n" }, desc = "Align text" },
+			{
+				"ga",
+				"<Plug>(EasyAlign)",
+				mode = { "x", "n" },
+				desc = "Align text",
+			},
 		},
 	},
 	{
@@ -106,7 +113,9 @@ return {
 
 			-- NOTE: Use clipboard
 			-- https://github.com/mg979/vim-visual-multi/issues/116#issuecomment-639322793
-			vim.cmd([[autocmd User visual_multi_mappings nmap <buffer> p "+<Plug>(VM-p-Paste)]])
+			vim.cmd(
+				[[autocmd User visual_multi_mappings nmap <buffer> p "+<Plug>(VM-p-Paste)]]
+			)
 		end,
 	},
 	{
@@ -186,22 +195,42 @@ return {
 			vim.cmd([[silent! xunmap <buffer> iF]])
 			-- remap for vim-textobj-markdown
 			-- https://github.com/coachshea/vim-textobj-markdown/blob/master/README.md#conflicts-with-other-plugins
-			vim.keymap.set({ "o", "x" }, "af", "<plug>(textobj-markdown-chunk-a)", {
-				silent = true,
-				desc = "around the current fence",
-			})
-			vim.keymap.set({ "o", "x" }, "if", "<plug>(textobj-markdown-chunk-i)", {
-				silent = true,
-				desc = "inside the current fence",
-			})
-			vim.keymap.set({ "o", "x" }, "aF", "<plug>(textobj-markdown-Bchunk-a)", {
-				silent = true,
-				desc = "around the backward fence",
-			})
-			vim.keymap.set({ "o", "x" }, "iF", "<plug>(textobj-markdown-Bchunk-i)", {
-				silent = true,
-				desc = "inside the backward fence",
-			})
+			vim.keymap.set(
+				{ "o", "x" },
+				"af",
+				"<plug>(textobj-markdown-chunk-a)",
+				{
+					silent = true,
+					desc = "around the current fence",
+				}
+			)
+			vim.keymap.set(
+				{ "o", "x" },
+				"if",
+				"<plug>(textobj-markdown-chunk-i)",
+				{
+					silent = true,
+					desc = "inside the current fence",
+				}
+			)
+			vim.keymap.set(
+				{ "o", "x" },
+				"aF",
+				"<plug>(textobj-markdown-Bchunk-a)",
+				{
+					silent = true,
+					desc = "around the backward fence",
+				}
+			)
+			vim.keymap.set(
+				{ "o", "x" },
+				"iF",
+				"<plug>(textobj-markdown-Bchunk-i)",
+				{
+					silent = true,
+					desc = "inside the backward fence",
+				}
+			)
 		end,
 	},
 	{
@@ -524,11 +553,34 @@ return {
 		"smjonas/live-command.nvim",
 		keys = {
 			{ "<space>c<C-s>", ":%Sort ", desc = "Set command for sort" },
-			{ "<space>c<C-s>", mode = "v", ":Sort ", desc = "Set command for sort" },
-			{ "<space>cd", ":%Global//d<left><left>", desc = "Set command to delete with global" },
-			{ "<space>cd", mode = "v", ":Global//d<left><left>", desc = "Set command to delete with global" },
-			{ "<space>c<C-d>", ":%Vglobal//d<left><left>", desc = "Set command to delete with vglobal" },
-			{ "<space>c<C-d>", mode = "v", ":Vglobal//d<left><left>", desc = "Set command to delete with vglobal" },
+			{
+				"<space>c<C-s>",
+				mode = "v",
+				":Sort ",
+				desc = "Set command for sort",
+			},
+			{
+				"<space>cd",
+				":%Global//d<left><left>",
+				desc = "Set command to delete with global",
+			},
+			{
+				"<space>cd",
+				mode = "v",
+				":Global//d<left><left>",
+				desc = "Set command to delete with global",
+			},
+			{
+				"<space>c<C-d>",
+				":%Vglobal//d<left><left>",
+				desc = "Set command to delete with vglobal",
+			},
+			{
+				"<space>c<C-d>",
+				mode = "v",
+				":Vglobal//d<left><left>",
+				desc = "Set command to delete with vglobal",
+			},
 		},
 		main = "live-command",
 		opts = {

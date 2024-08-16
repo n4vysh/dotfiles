@@ -106,7 +106,11 @@ return {
 				},
 				adapters = {
 					require("neotest-go")({
-						args = { "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out" },
+						args = {
+							"-coverprofile="
+								.. vim.fn.getcwd()
+								.. "/coverage.out",
+						},
 						experimental = {
 							test_table = true,
 						},

@@ -158,11 +158,13 @@ return {
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")
 			local lga_actions = require("telescope-live-grep-args.actions")
-			local fb_actions = require("telescope").extensions.file_browser.actions
+			local fb_actions =
+				require("telescope").extensions.file_browser.actions
 
 			local telescope_config = require("telescope.config")
 
-			local vimgrep_arguments = { unpack(telescope_config.values.vimgrep_arguments) }
+			local vimgrep_arguments =
+				{ unpack(telescope_config.values.vimgrep_arguments) }
 
 			table.insert(vimgrep_arguments, "--hidden")
 			table.insert(vimgrep_arguments, "--glob")
@@ -171,7 +173,10 @@ return {
 			-- NOTE: Use custom action to select multiple files
 			-- https://github.com/nvim-telescope/telescope.nvim/issues/1048#issuecomment-1679797700
 			local select_one_or_multi = function(prompt_bufnr)
-				local picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+				local picker =
+					require("telescope.actions.state").get_current_picker(
+						prompt_bufnr
+					)
 				local multi = picker:get_multi_selection()
 				if not vim.tbl_isempty(multi) then
 					require("telescope.actions").close(prompt_bufnr)
@@ -202,17 +207,60 @@ return {
 					},
 					prompt_prefix = "▶ ",
 					borderchars = {
-						{ "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-						prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
-						results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-						preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+						{
+							"─",
+							"│",
+							"─",
+							"│",
+							"┌",
+							"┐",
+							"┘",
+							"└",
+						},
+						prompt = {
+							"─",
+							"│",
+							" ",
+							"│",
+							"┌",
+							"┐",
+							"│",
+							"│",
+						},
+						results = {
+							"─",
+							"│",
+							"─",
+							"│",
+							"├",
+							"┤",
+							"┘",
+							"└",
+						},
+						preview = {
+							"─",
+							"│",
+							"─",
+							"│",
+							"┌",
+							"┐",
+							"┘",
+							"└",
+						},
 					},
 				}),
 				pickers = {
 					find_files = {
 						hidden = true,
 						no_ignore = true,
-						find_command = { "rg", "--files", "--hidden", "--no-ignore", "--glob", "!**/.git/*" },
+						find_command = {
+							"rg",
+							"--files",
+							"--hidden",
+							"--no-ignore",
+							"--glob",
+							"!**/.git/*",
+						},
 					},
 					buffers = {
 						show_all_buffers = true,

@@ -39,7 +39,12 @@ return {
 				end, { expr = true })
 
 				map("n", "<space>vr", gs.reset_hunk, { desc = "Reset hunk" })
-				map("n", "<space>vp", gs.preview_hunk, { desc = "Preview hunk" })
+				map(
+					"n",
+					"<space>vp",
+					gs.preview_hunk,
+					{ desc = "Preview hunk" }
+				)
 
 				-- Text object
 				map({ "o", "x" }, "ih", ":<C-u>Gitsigns select_hunk<CR>", {
@@ -60,10 +65,9 @@ return {
 			{
 				"<space>vo",
 				function()
-					require("gitlinker").get_buf_range_url(
-						"n",
-						{ action_callback = require("gitlinker.actions").open_in_browser }
-					)
+					require("gitlinker").get_buf_range_url("n", {
+						action_callback = require("gitlinker.actions").open_in_browser,
+					})
 				end,
 				silent = true,
 				desc = "Open link in browser",
@@ -71,10 +75,9 @@ return {
 			{
 				"<space>vo",
 				function()
-					require("gitlinker").get_buf_range_url(
-						"v",
-						{ action_callback = require("gitlinker.actions").open_in_browser }
-					)
+					require("gitlinker").get_buf_range_url("v", {
+						action_callback = require("gitlinker.actions").open_in_browser,
+					})
 				end,
 				mode = "v",
 				silent = true,
@@ -109,7 +112,12 @@ return {
 	{
 		"sindrets/diffview.nvim",
 		keys = {
-			{ "<Space>vd", ":DiffviewOpen<cr><c-w>l", silent = true, desc = "Open diff view" },
+			{
+				"<Space>vd",
+				":DiffviewOpen<cr><c-w>l",
+				silent = true,
+				desc = "Open diff view",
+			},
 			{
 				"<Space>vh",
 				":DiffviewFileHistory %<cr>",
