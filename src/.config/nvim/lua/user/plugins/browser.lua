@@ -16,7 +16,7 @@ return {
 		keys = {
 			{
 				"<space>su",
-				"<cmd>UrlView buffer bufnr=0<cr>",
+				"<cmd>UrlView buffer<cr>",
 				silent = true,
 				desc = "Search for URLs",
 			},
