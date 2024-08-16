@@ -5,6 +5,16 @@ vim.keymap.set("i", "<Esc>", "<left><right><Esc>", {
 	desc = nil,
 })
 
+vim.keymap.set({ "i" }, "<C-r><C-r>", "<C-r>+", {
+	silent = true,
+	desc = nil,
+})
+
+vim.keymap.set({ "s" }, "<C-r><C-r>", "<C-g>p", {
+	silent = true,
+	desc = nil,
+})
+
 vim.keymap.set({ "v" }, "v", "V", {
 	silent = true,
 	desc = nil,
