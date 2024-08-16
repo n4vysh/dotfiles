@@ -5,6 +5,11 @@ vim.keymap.set("i", "<Esc>", "<left><right><Esc>", {
 	desc = nil,
 })
 
+vim.keymap.set({ "v" }, "v", "V", {
+	silent = true,
+	desc = nil,
+})
+
 vim.keymap.set("n", "<C-s>", "<cmd>write<CR>", {
 	silent = true,
 	desc = "Save the current file",
