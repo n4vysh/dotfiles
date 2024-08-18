@@ -7,7 +7,7 @@ matches:
       - name: date
         type: date
         params:
-          format: "%m/%d"
+          format: "%Y/%m/%d"
   - trigger: ";lorem "
     replace: >-
       Lorem ipsum dolor sit amet, consectetur adipisici elit,
