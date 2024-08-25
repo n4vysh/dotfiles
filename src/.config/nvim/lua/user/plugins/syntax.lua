@@ -369,19 +369,21 @@ return {
 					})
 				end,
 			},
-			{
-				"JoosepAlviste/nvim-ts-context-commentstring",
-				main = "ts_context_commentstring",
-				ops = {
-					enable_autocmd = false,
-				},
-			},
 		},
 	},
 	{
 		"windwp/nvim-ts-autotag",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		opts = {},
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		main = "ts_context_commentstring",
+		ops = {
+			enable_autocmd = false,
+		},
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 	{
