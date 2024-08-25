@@ -49,16 +49,16 @@ return {
 		trig = "s",
 		name = "Insert strikethrough",
 		desc = "Insert strikethrough",
-	}, { t("~~"), i(1), t("~~ "), i(0) }),
+	}, { t("~~"), i(1), t("~~"), i(0) }),
 	s(
 		{ trig = "b", name = "Insert bold text", desc = "Insert bold text" },
-		{ t("**"), i(1), t("** "), i(0) }
+		{ t("**"), i(1), t("**"), i(0) }
 	),
 	s({
 		trig = "it",
 		name = "Insert italic text",
 		desc = "Insert italic text",
-	}, { t("*"), i(1), t("* "), i(0) }),
+	}, { t("*"), i(1), t("*"), i(0) }),
 	s(
 		{ trig = "q", name = "Insert quoted text", desc = "Insert quoted text" },
 		{ t("> "), i(1) }
