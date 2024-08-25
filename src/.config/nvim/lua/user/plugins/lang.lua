@@ -356,6 +356,7 @@ return {
 					"tflint",
 					"typos_lsp",
 					"yamlls",
+					"vtsls",
 				},
 				automatic_installation = true,
 				handlers = {
@@ -364,32 +365,48 @@ return {
 							capabilities = capabilities,
 						})
 					end,
-					["tsserver"] = function()
-						lspconfig.tsserver.setup({
+					["vtsls"] = function()
+						lspconfig.vtsls.setup({
 							settings = {
 								typescript = {
+									updateImportsOnFileMove = "always",
 									inlayHints = {
-										includeInlayParameterNameHints = "literal",
-										includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-										includeInlayFunctionParameterTypeHints = true,
-										includeInlayVariableTypeHints = true,
-										includeInlayPropertyDeclarationTypeHints = true,
-										includeInlayFunctionLikeReturnTypeHints = true,
-										includeInlayEnumMemberValueHints = true,
+										parameterNames = {
+											enabled = "literals",
+										},
+										parameterTypes = { enabled = true },
+										variableTypes = { enabled = true },
+										propertyDeclarationTypes = {
+											enabled = true,
+										},
+										functionLikeReturnTypes = {
+											enabled = true,
+										},
+										enumMemberValues = { enabled = true },
 									},
 								},
 								javascript = {
+									updateImportsOnFileMove = "always",
 									inlayHints = {
-										includeInlayParameterNameHints = "all",
-										includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-										includeInlayFunctionParameterTypeHints = true,
-										includeInlayVariableTypeHints = true,
-										includeInlayPropertyDeclarationTypeHints = true,
-										includeInlayFunctionLikeReturnTypeHints = true,
-										includeInlayEnumMemberValueHints = true,
+										parameterNames = {
+											enabled = "literals",
+										},
+										parameterTypes = { enabled = true },
+										variableTypes = { enabled = true },
+										propertyDeclarationTypes = {
+											enabled = true,
+										},
+										functionLikeReturnTypes = {
+											enabled = true,
+										},
+										enumMemberValues = { enabled = true },
 									},
 								},
+								vtsls = {
+									enableMoveToFileCodeAction = true,
+								},
 							},
+							capabilities = capabilities,
 						})
 					end,
 					["gopls"] = function()
