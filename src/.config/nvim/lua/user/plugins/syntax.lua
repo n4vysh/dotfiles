@@ -289,9 +289,6 @@ return {
 			matchup = {
 				enable = true,
 			},
-			autotag = {
-				enable = true,
-			},
 			endwise = {
 				enable = true,
 			},
@@ -372,7 +369,6 @@ return {
 					})
 				end,
 			},
-			"windwp/nvim-ts-autotag",
 			{
 				"JoosepAlviste/nvim-ts-context-commentstring",
 				main = "ts_context_commentstring",
@@ -381,6 +377,12 @@ return {
 				},
 			},
 		},
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		opts = {},
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 	{
 		"m-demare/hlargs.nvim",
