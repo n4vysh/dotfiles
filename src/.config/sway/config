@@ -183,6 +183,9 @@ mode "$mode_screenshot" {
   bindsym w exec grim "$file", mode "default"
   bindsym c exec grim -g "$(swaygeo)" "$file", mode "default"
   bindsym p exec grim -g "$(slurp)" "$file", mode "default"
+  bindsym ctrl+w exec sh -c 'grim - | swappy -f -', mode "default"
+  bindsym ctrl+c exec sh -c 'grim -g "$(swaygeo)" - | swappy -f -', mode "default"
+  bindsym ctrl+p exec sh -c 'grim -g "$(slurp)" - | swappy -f -', mode "default"
   bindsym q mode "default"
 }
 bindsym $mod+ctrl+s mode "$mode_screenshot"

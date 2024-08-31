@@ -10,6 +10,7 @@ extra/kanshi
 extra/ly
 extra/mako
 extra/slurp
+extra/swappy
 extra/sway
 extra/swayidle
 extra/swaylock
