@@ -7,6 +7,7 @@
     "custom/check-rootkit",
     "custom/pkg-audit",
     "custom/im-info",
+    "custom/recorder",
     "custom/vpn",
     "bluetooth",
     "pulseaudio",
@@ -36,6 +37,13 @@
     "exec": "~/.config/waybar/lib/im-info.bash",
     "interval": 1,
     "tooltip": false
+  },
+  "custom/recorder": {
+    "format": "<span font='11'>  </span>",
+    "return-type": "json",
+    "interval": 1,
+    "exec": "echo '{\"class\": \"recording\"}'",
+    "exec-if": "pgrep wf-recorder"
   },
   "custom/vpn": {
     "format": "<span font='11'> {icon} </span>",
