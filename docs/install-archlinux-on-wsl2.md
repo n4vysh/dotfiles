@@ -27,6 +27,8 @@ winget install -e --id QMK.QMKToolbox
 winget install -e --id JGraph.Draw
 winget install -e --id hrkfdn.ncspot
 winget install -e --id Espanso.Espanso
+winget install -e --id NickeManarin.ScreenToGif
+winget install -e --id Gyan.FFmpeg
 ```
 
 [winget-link]: https://github.com/microsoft/winget-cli

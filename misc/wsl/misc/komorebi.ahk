@@ -171,7 +171,7 @@ F13 & s::
 F13 & r::
 {
 	if GetKeyState("Ctrl", "P") {
-		Send "#!r"
+		RunWait("C:\Program Files\ScreenToGif\ScreenToGif.exe -o screen-recorder -c", , "Hide")
 	}
 }
 
