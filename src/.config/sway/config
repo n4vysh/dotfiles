@@ -178,24 +178,25 @@ mode "$mode_brightness" {
 bindsym $mod+ctrl+b mode "$mode_brightness"
 
 set $file ${HOME}/Pictures/screenshots/$(date +'%Y%m%d_%H%M%S').png
-set $mode_screenshot Screenshot: (w) whole screen (c) current window (a) a part of the screen
+set $mode_screenshot Screenshot: (w) whole screen (c) current window (p) a part of the screen
 mode "$mode_screenshot" {
   bindsym w exec grim "$file", mode "default"
   bindsym c exec grim -g "$(swaygeo)" "$file", mode "default"
-  bindsym a exec grim -g "$(slurp)" "$file", mode "default"
+  bindsym p exec grim -g "$(slurp)" "$file", mode "default"
   bindsym q mode "default"
 }
-bindsym $mod+shift+s mode "$mode_screenshot"
+bindsym $mod+ctrl+s mode "$mode_screenshot"
 
-set $file ${HOME}/Videos/screencasts/$(date +'%Y%m%d_%H%M%S').mp4
-set $mode_screencast Screencast: (w) whole screen (a) a part of the screen
-mode "$mode_screencast" {
+set $file ${HOME}/Videos/screenrecords/$(date +'%Y%m%d_%H%M%S').mp4
+set $mode_screenrecord Screenrecord: (w) whole screen (p) a part of the screen
+mode "$mode_screenrecord" {
   bindsym w exec wf-recorder -f "$file", mode "default"
-  bindsym a exec wf-recorder -g "$(slurp)" -f "$file", mode "default"
+  bindsym p exec wf-recorder -g "$(slurp)" -f "$file", mode "default"
   bindsym q mode "default"
 }
-bindsym $mod+ctrl+s mode "$mode_screencast"
-bindsym $mod+ctrl+shift+s exec "killall -SIGINT wf-recorder; notify-send screencast 'Stop wf-recorder'"
+bindsym $mod+ctrl+r mode "$mode_screenrecord"
+# record cancel
+bindsym $mod+ctrl+c exec "killall -SIGINT wf-recorder; notify-send screenrecord 'Stop wf-recorder'"
 
 set $mode_audio Audio: (i) increase (d) decrease (m) mute/unmute
 mode "$mode_audio" {
