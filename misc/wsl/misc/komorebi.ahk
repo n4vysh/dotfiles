@@ -26,8 +26,12 @@ F13 & c::
 {
 	if GetKeyState("Shift") {
 		RunWait("taskkill /f /im komorebi.exe", , "Hide")
+		USERPROFILE := EnvGet("USERPROFILE")
 		RunWait("komorebic.exe start -c " USERPROFILE "\komorebi.json", , "Hide")
 		Reload
+	} else if GetKeyState("Ctrl", "P") {
+		; for ScreenToGif
+		Send "{F8}"
 	}
 }
 
@@ -159,21 +163,55 @@ F13 & i::
 	}
 }
 
-F13 & s::
-{
-	if GetKeyState("Ctrl", "P") {
-		Send "#{PrintScreen}"
-	} else {
-		Send "#+s"
-	}
-}
+IsScreenShot := false
 
-F13 & r::
-{
-	if GetKeyState("Ctrl", "P") {
-		RunWait("C:\Program Files\ScreenToGif\ScreenToGif.exe -o screen-recorder -c", , "Hide")
+#HotIf !IsScreenShot
+	F13 & s::
+	{
+		global IsScreenShot
+		if GetKeyState("Ctrl", "P") {
+			IsScreenShot := true
+		}
 	}
-}
+#HotIf IsScreenShot
+	w::
+	{
+		global IsScreenShot
+		if ! GetKeyState("Shift") {
+			Send "#{PrintScreen}"
+			IsScreenShot := false
+		}
+	}
+	a::
+	{
+		global IsScreenShot
+		if ! GetKeyState("Shift") {
+			Send "#+s"
+			IsScreenShot := false
+		}
+	}
+#HotIf
+
+IsScreenRecord := false
+
+#HotIf !IsScreenRecord
+	F13 & r::
+	{
+		global IsScreenRecord
+		if GetKeyState("Ctrl", "P") {
+			IsScreenRecord := true
+		}
+	}
+#HotIf IsScreenRecord
+	w::
+	{
+		global IsScreenRecord
+		if ! GetKeyState("Shift") {
+			RunWait("C:\Program Files\ScreenToGif\ScreenToGif.exe -o screen-recorder -c", , "Hide")
+			IsScreenRecord := false
+		}
+	}
+#HotIf
 
 F13 & x::
 {
