@@ -501,12 +501,16 @@ return {
 					end,
 					["eslint"] = function()
 						lspconfig.eslint.setup({
+							settings = {
+								format = false,
+							},
 							on_attach = function(_, buf)
 								vim.api.nvim_create_autocmd("BufWritePre", {
 									buffer = buf,
 									command = "EslintFixAll",
 								})
 							end,
+							capabilities = capabilities,
 						})
 					end,
 					["jsonls"] = function()
