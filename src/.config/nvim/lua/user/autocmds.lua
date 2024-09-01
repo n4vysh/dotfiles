@@ -43,6 +43,18 @@ do
 end
 
 do
+	local augroup = "wrap"
+	vim.api.nvim_create_augroup(augroup, { clear = true })
+	vim.api.nvim_create_autocmd("FileType", {
+		group = augroup,
+		pattern = { "AvanteInput" },
+		callback = function()
+			vim.opt_local.wrap = true
+		end,
+	})
+end
+
+do
 	local augroup = "nowrap"
 	vim.api.nvim_create_augroup(augroup, { clear = true })
 	vim.api.nvim_create_autocmd("FileType", {
