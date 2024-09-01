@@ -1,5 +1,22 @@
 return {
 	{
+		"rcarriga/nvim-notify",
+		config = function()
+			local notify = require("notify")
+			vim.notify = notify
+			-- selene: allow(incorrect_standard_library_use)
+			print = function(...)
+				local print_safe_args = {}
+				local _ = { ... }
+				for i = 1, #_ do
+					table.insert(print_safe_args, tostring(_[i]))
+				end
+				notify(table.concat(print_safe_args, " "), "info")
+			end
+			notify.setup()
+		end,
+	},
+	{
 		"ntpeters/vim-better-whitespace",
 		init = function()
 			vim.g.better_whitespace_filetypes_blacklist = {
