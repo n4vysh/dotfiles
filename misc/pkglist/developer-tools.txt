@@ -85,6 +85,7 @@ extra/hub
 extra/jpegoptim
 extra/jq
 extra/just
+extra/jwt-cli
 extra/k9s
 extra/ko
 extra/kube-linter
