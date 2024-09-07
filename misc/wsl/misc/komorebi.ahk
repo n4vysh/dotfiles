@@ -182,7 +182,7 @@ IsScreenShot := false
 			IsScreenShot := false
 		}
 	}
-	a::
+	p::
 	{
 		global IsScreenShot
 		if ! GetKeyState("Shift") {
