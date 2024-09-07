@@ -13,7 +13,9 @@ return {
 				end
 				notify(table.concat(print_safe_args, " "), "info")
 			end
-			notify.setup()
+			notify.setup({
+				render = "wrapped-compact",
+			})
 		end,
 	},
 	{
