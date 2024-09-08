@@ -1,6 +1,16 @@
 return {
 	{
 		"rcarriga/nvim-notify",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		keys = {
+			{
+				"<space>nn",
+				function()
+					require("telescope").extensions.notify.notify()
+				end,
+				desc = "View notification history",
+			},
+		},
 		config = function()
 			local notify = require("notify")
 			vim.notify = notify
@@ -17,6 +27,9 @@ return {
 				render = "wrapped-compact",
 			})
 		end,
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+		},
 	},
 	{
 		"ntpeters/vim-better-whitespace",

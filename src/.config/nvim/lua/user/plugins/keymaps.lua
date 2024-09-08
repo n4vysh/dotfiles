@@ -120,6 +120,7 @@ return {
 				{ "<space>f", group = "file" },
 				{ "<space>l", group = "lang" },
 				{ "<space>m", group = "mark" },
+				{ "<space>n", group = "notify" },
 				{ "<space>p", group = "package" },
 				{ "<space>r", group = "refactor" },
 				{ "<space>re", group = "extract" },
