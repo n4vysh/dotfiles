@@ -19,6 +19,9 @@ return {
 			hijack_cursor = true,
 			hijack_netrw = false,
 			view = {
+				width = {
+					max = -1,
+				},
 				float = {
 					enable = false,
 				},
