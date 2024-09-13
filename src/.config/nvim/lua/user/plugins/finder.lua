@@ -204,6 +204,7 @@ return {
 						},
 						n = {
 							["<Esc>"] = false,
+							["ge"] = actions.move_to_bottom,
 						},
 					},
 					prompt_prefix = "▶ ",
