@@ -502,7 +502,7 @@ _configure_without_privileged() {
 		-i \
 		-e '/^#governor=/s/ondemand/performance/' \
 		-e '/^#governor=/s/#//' \
-		-e '/^#max_freq=/s/#//' \
+		-e '/^#max_freq=/s/#max_freq="[0-9]*GHz"/max_freq="2GHz"/' \
 		/etc/default/cpupower
 	sudo systemctl enable --now cpupower
 
