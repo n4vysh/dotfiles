@@ -72,7 +72,7 @@ return {
 	},
 	{
 		"folke/which-key.nvim",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		event = { "VimEnter" },
 		keys = {
 			{
 				"<C-_>",
