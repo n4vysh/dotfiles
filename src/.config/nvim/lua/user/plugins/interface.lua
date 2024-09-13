@@ -1,7 +1,7 @@
 return {
 	{
 		"rcarriga/nvim-notify",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		lazy = false,
 		keys = {
 			{
 				"<space>nn",
