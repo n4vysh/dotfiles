@@ -33,6 +33,7 @@ return {
 	},
 	{
 		"ntpeters/vim-better-whitespace",
+		cmd = { "EnableWhitespace", "DisableWhitespace" },
 		init = function()
 			vim.g.better_whitespace_filetypes_blacklist = {
 				"dbout",
