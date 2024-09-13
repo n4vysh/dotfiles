@@ -256,7 +256,7 @@ return {
 	},
 	{
 		"anuvyklack/hydra.nvim",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		event = { "VimEnter" },
 		config = function()
 			local hydra = require("hydra")
 			local splits = require("smart-splits")
