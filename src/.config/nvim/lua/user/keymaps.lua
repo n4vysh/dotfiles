@@ -15,6 +15,16 @@ vim.keymap.set({ "s" }, "<C-r><C-r>", "<C-g>p", {
 	desc = nil,
 })
 
+vim.keymap.set({ "o", "x" }, "i<space>", "iW", {
+	silent = true,
+	desc = nil,
+})
+
+vim.keymap.set({ "o", "x" }, "a<space>", "aW", {
+	silent = true,
+	desc = nil,
+})
+
 vim.keymap.set({ "v" }, "v", "V", {
 	silent = true,
 	desc = nil,
