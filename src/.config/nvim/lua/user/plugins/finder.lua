@@ -296,6 +296,8 @@ return {
 								["h"] = fb_actions.goto_parent_dir,
 								["l"] = actions.select_default,
 								["."] = fb_actions.toggle_hidden,
+								["~"] = fb_actions.goto_home_dir,
+								["g"] = false,
 							},
 						},
 					},
