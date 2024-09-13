@@ -66,22 +66,38 @@ do
 	})
 end
 
+-- NOTE: remove directory buffer when buffer added
 do
 	local augroup = "delete_directory"
 	vim.api.nvim_create_augroup(augroup, { clear = true })
-	vim.api.nvim_create_autocmd("BufEnter", {
+	vim.api.nvim_create_autocmd("BufAdd", {
 		group = augroup,
 		pattern = { "*" },
-		callback = function()
-			local v = vim.fn.expand("%")
+		callback = function(args)
+			local bufnr = args.buf
+			local v = vim.api.nvim_buf_get_name(bufnr)
 			if vim.fn.isdirectory(v) ~= 0 then
-				vim.api.nvim_echo({
-					{
-						"Delete directory from buffer list: " .. v .. "\n",
-						"WarningMsg",
-					},
-				}, true, {})
-				vim.cmd.bw(v)
+				if bufnr ~= -1 then
+					local success, result = pcall(function()
+						vim.api.nvim_buf_delete(bufnr, { force = true })
+					end)
+					if success then
+						vim.notify(
+							"Deleted directory from buffer list: "
+								.. vim.fn.fnamemodify(v, ":.")
+								.. "\n",
+							vim.log.levels.WARN
+						)
+					else
+						vim.notify(
+							"Failed to delete buffer for: "
+								.. v
+								.. ". Error: "
+								.. tostring(result),
+							vim.log.levels.ERROR
+						)
+					end
+				end
 			end
 		end,
 	})
