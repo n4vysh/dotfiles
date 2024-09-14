@@ -1,0 +1,24 @@
+MCU_LDSCRIPT = voyager
+
+CUSTOM_MATRIX = lite
+PROGRAM_CMD = $(call EXEC_DFU)
+DFU_ARGS = -d 3297:0791 -a 0 -s 0x08002000:leave
+DFU_SUFFIX_ARGS = -v 3297 -p 0791
+
+VPATH += drivers/gpio
+SRC += matrix.c mcp23018.c
+I2C_DRIVER_REQUIRED = yes
+
+# Disable default build options
+BOOTMAGIC_ENABLE = no
+CONSOLE_ENABLE = no
+COMMAND_ENABLE = no
+NKRO_ENABLE = no
+AUDIO_ENABLE = no
+SWAP_HANDS_ENABLE = no
+RGB_MATRIX_ENABLE = no
+DYNAMIC_MACRO_ENABLE = no
+
+# Enable build options
+TAP_DANCE_ENABLE = yes
+COMBO_ENABLE = yes

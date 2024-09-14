@@ -1,5 +1,5 @@
 root_dir := justfile_directory()
-keyboard := "moonlander"
+keyboard := "zsa/voyager"
 keymap := "custom"
 origin_dir := root_dir + "/firmware/keyboards/" + keyboard + "/keymaps/" + keymap
 
@@ -7,7 +7,7 @@ flash:
     qmk flash
 
 _stow *opts:
-    stow {{ opts }} -v -d {{ root_dir }}/keymap/ -t {{ origin_dir }} .
+    stow {{ opts }} -v -d {{ root_dir }}/keyboards/{{ keyboard }}/keymap -t {{ origin_dir }} .
 
 link: _stow
 
@@ -17,7 +17,7 @@ dry-run-link: (_stow "-n")
 
 dry-run-unlink: (_stow "-n" "-D")
 
-init: init-submodule create-dummy-file link patch setup
+init: init-submodule create-dummy-file link setup
 
 init-submodule:
     git submodule update \
@@ -28,7 +28,7 @@ init-submodule:
         --jobs=$(nproc) \
         firmware/
 
-update-submodule: reverse
+update-submodule:
     git submodule update \
         --remote \
         --recursive \
@@ -42,13 +42,23 @@ create-dummy-file:
     mkdir -p {{ origin_dir }}
     touch {{ origin_dir }}/readme.md # resolve lint error
 
-patch:
-    patch -p 1 -d {{ root_dir }}/firmware/ < {{ root_dir }}/disable_thread.patch
+# NOTE: not work DFU_ARGS and DFU_SUFFIX_ARGS in rules.mk
+update-udev-rules:
+    #!/bin/bash
 
-reverse:
-    patch -p 1 -d {{ root_dir }}/firmware/ < {{ root_dir }}/disable_thread.patch -R
+    if ! grep -q '# ZSA Voyager' /etc/udev/rules.d/50-qmk.rules; then
+        cat <<EOF | sudo tee -a /etc/udev/rules.d/50-qmk.rules >/dev/null
+
+    # ZSA Voyager
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="3297", ATTRS{idProduct}=="0791", TAG+="uaccess"
+    EOF
+        sudo udevadm control --reload-rules
+        sudo udevadm trigger
+    fi
 
 setup:
+    sudo cp {{ root_dir }}/firmware/util/udev/50-qmk.rules /etc/udev/rules.d/
+    just update-udev-rules
     qmk setup
 
 compile:
@@ -67,4 +77,4 @@ clean:
     qmk clean
 
 fmt:
-    qmk format-c {{ root_dir }}/keymap/{config.h,keymap.c}
+    qmk format-c {{ root_dir }}/keyboards/{{ keyboard }}/keymap/{config.h,keymap.c}
