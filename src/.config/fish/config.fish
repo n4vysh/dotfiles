@@ -138,13 +138,16 @@ if status --is-interactive
     __fish_abbr_add_extend hlst helm status
     __fish_abbr_add_extend hlse helm secrets
     __fish_abbr_add_extend hlsed helm secrets decrypt
+    __fish_abbr_add_extend hltpl helm template
+    __fish_abbr_add_extend hlts helm test
     __fish_abbr_add_extend hlr helm rollback
     __fish_abbr_add_extend hlf helmfile
     __fish_abbr_add_extend hlfa helmfile apply
     __fish_abbr_add_extend hlfd helmfile diff
     __fish_abbr_add_extend hlfl helmfile lint
     __fish_abbr_add_extend hlfs helmfile status
-    __fish_abbr_add_extend hlft helmfile test
+    __fish_abbr_add_extend hlftpl helmfile template
+    __fish_abbr_add_extend hlfts helmfile test
     __fish_abbr_add_extend hi hash-identifier
     __fish_abbr_add_extend ifm informant
     __fish_abbr_add_extend info info --vi-keys
