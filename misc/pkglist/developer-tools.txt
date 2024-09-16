@@ -137,6 +137,7 @@ extra/tmuxp
 extra/tree
 extra/tree-sitter-cli
 extra/trivy
+extra/ts-node
 extra/typos
 extra/vhs
 extra/vint
