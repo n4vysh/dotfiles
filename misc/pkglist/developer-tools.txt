@@ -43,6 +43,7 @@ chaotic-aur/google-cloud-cli
 chaotic-aur/lazydocker
 chaotic-aur/mise
 chaotic-aur/nnn-nerd
+chaotic-aur/simplenote-electron-bin
 chaotic-aur/tflint
 chaotic-aur/viddy
 core/openssh
