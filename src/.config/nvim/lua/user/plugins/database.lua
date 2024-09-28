@@ -33,7 +33,7 @@ return {
 				vim.api.nvim_create_augroup(augroup, { clear = true })
 				vim.api.nvim_create_autocmd("FileType", {
 					group = augroup,
-					pattern = "dbout",
+					pattern = { "dbout", "sql" },
 					callback = function()
 						vim.opt_local.foldenable = false
 					end,
