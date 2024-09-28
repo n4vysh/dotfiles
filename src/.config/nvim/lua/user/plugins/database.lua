@@ -2,7 +2,12 @@ return {
 	{
 		"kristijanhusak/vim-dadbod-ui",
 		-- NOTE: call from shell
-		cmd = { "DBUI" },
+		cmd = {
+			"DBUI",
+			"DBUIToggle",
+			"DBUIAddConnection",
+			"DBUIFindBuffer",
+		},
 		keys = {
 			{
 				"g<C-d>",
@@ -52,10 +57,14 @@ return {
 			end
 		end,
 		dependencies = {
-			{ "tpope/vim-dadbod" },
+			{ "tpope/vim-dadbod", lazy = true },
 			{ "tpope/vim-dotenv" },
-			{ "kristijanhusak/vim-dadbod-completion" },
 			{ "rcarriga/nvim-notify" },
+			{
+				"kristijanhusak/vim-dadbod-completion",
+				ft = { "sql", "mysql", "plsql" },
+				lazy = true,
+			},
 		},
 	},
 }
