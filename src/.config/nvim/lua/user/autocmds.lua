@@ -66,6 +66,21 @@ do
 	})
 end
 
+do
+	local augroup = "gopass"
+	vim.api.nvim_create_augroup(augroup, { clear = true })
+	vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+		group = augroup,
+		pattern = { "/dev/shm/gopass*" },
+		callback = function()
+			vim.opt_local.swapfile = false
+			vim.opt_local.backup = false
+			vim.opt_local.undofile = false
+			vim.opt_local.shada = ""
+		end,
+	})
+end
+
 -- NOTE: remove directory buffer when buffer added
 do
 	local augroup = "delete_directory"
