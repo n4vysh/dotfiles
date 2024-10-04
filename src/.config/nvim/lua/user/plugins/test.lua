@@ -3,6 +3,22 @@ return {
 		"nvim-neotest/neotest",
 		keys = {
 			{
+				"[t",
+				function()
+					require("neotest").jump.prev()
+				end,
+				silent = true,
+				desc = "Jump previous test",
+			},
+			{
+				"]t",
+				function()
+					require("neotest").jump.next()
+				end,
+				silent = true,
+				desc = "Jump next test",
+			},
+			{
 				"[f",
 				function()
 					require("neotest").jump.prev({ status = "failed" })

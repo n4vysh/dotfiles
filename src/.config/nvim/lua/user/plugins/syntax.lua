@@ -402,14 +402,14 @@ return {
 		dependencies = "nvim-lua/plenary.nvim",
 		keys = {
 			{
-				"]t",
+				"]<C-t>",
 				function()
 					require("todo-comments").jump_next()
 				end,
 				{ desc = "Jump next todo comment" },
 			},
 			{
-				"[t",
+				"[<C-t>",
 				function()
 					require("todo-comments").jump_prev()
 				end,
