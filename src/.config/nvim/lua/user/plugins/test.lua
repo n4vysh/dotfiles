@@ -117,6 +117,9 @@ return {
 		},
 		config = function()
 			require("neotest").setup({
+				quickfix = {
+					enabled = true,
+				},
 				output = {
 					open_on_run = false,
 				},
