@@ -5,6 +5,17 @@ vim.keymap.set("i", "<Esc>", "<left><right><Esc>", {
 	desc = nil,
 })
 
+vim.keymap.set(
+	"n",
+	"<C-l>",
+	-- NOTE: lua function is not work
+	[[:<C-u>nohlsearch|diffupdate|normal! <C-l><CR>:<C-u>silent! Fidget suppress<CR>:<C-u>silent! lua require("notify").dismiss()<CR>]],
+	{
+		silent = true,
+		desc = "Redraws the screen and toggle some interface",
+	}
+)
+
 vim.keymap.set({ "i" }, "<C-r><C-r>", "<C-r>+", {
 	silent = true,
 	desc = nil,
