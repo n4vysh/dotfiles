@@ -35,6 +35,17 @@ return {
 				desc = "Jump next failed",
 			},
 			{
+				"<space>td",
+				function()
+					require("neotest").run.run({
+						suite = false,
+						strategy = "dap",
+					})
+				end,
+				silent = true,
+				desc = "Debug test",
+			},
+			{
 				"<space>tt",
 				function()
 					require("neotest").run.run()
@@ -77,7 +88,12 @@ return {
 			{
 				"<space>to",
 				function()
-					require("neotest").output.open()
+					require("neotest").output.open({
+						open_win = function()
+							vim.cmd("split")
+						end,
+						enter = true,
+					})
 				end,
 				silent = true,
 				desc = "Open test output",
@@ -101,6 +117,9 @@ return {
 		},
 		config = function()
 			require("neotest").setup({
+				output = {
+					open_on_run = false,
+				},
 				discovery = {
 					enabled = false,
 				},
@@ -121,14 +140,14 @@ return {
 					},
 				},
 				adapters = {
-					require("neotest-go")({
-						args = {
+					require("neotest-golang")({
+						go_test_args = {
+							"-v",
+							"-race",
+							"-count=1",
 							"-coverprofile="
 								.. vim.fn.getcwd()
 								.. "/coverage.out",
-						},
-						experimental = {
-							test_table = true,
 						},
 					}),
 					require("neotest-vim-test")({
@@ -160,7 +179,13 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-treesitter/nvim-treesitter",
 			"antoinemadec/FixCursorHold.nvim",
-			"nvim-neotest/neotest-go",
+			{
+				"fredrikaverpil/neotest-golang",
+				version = "*",
+				dependencies = {
+					"leoluz/nvim-dap-go",
+				},
+			},
 			"nvim-neotest/neotest-vim-test",
 			"vim-test/vim-test",
 			{
