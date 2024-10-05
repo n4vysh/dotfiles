@@ -434,17 +434,19 @@ return {
 		},
 	},
 	{
-		"uga-rosa/ccc.nvim",
+		"nvchad/minty",
 		keys = {
 			{
 				"gC",
 				function()
-					require("ccc.ui"):open(false)
+					require("minty.huefy").open({ border = true })
 				end,
 				desc = "Open color picker",
 			},
 		},
-		opts = {},
+		dependencies = {
+			{ "nvchad/volt", lazy = true },
+		},
 	},
 	{
 		"gelguy/wilder.nvim",
