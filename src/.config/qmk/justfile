@@ -46,6 +46,10 @@ create-dummy-file:
 update-udev-rules:
     #!/bin/bash
 
+    if [[ $CI == true ]]; then
+        exit 0
+    fi
+
     if ! grep -q '# ZSA Voyager' /etc/udev/rules.d/50-qmk.rules; then
         cat <<EOF | sudo tee -a /etc/udev/rules.d/50-qmk.rules >/dev/null
 
