@@ -32,6 +32,11 @@ configure-firefox:
     [[ -f ~/.mozilla/firefox/profiles.ini ]] && \
         crudini --get ~/.mozilla/firefox/profiles.ini Profile0 Path | \
         xargs -I {} ln -fsv \
+            {{ justfile_directory() }}/misc/firefox/chrome \
+            ~/.mozilla/firefox/{}/chrome
+    [[ -f ~/.mozilla/firefox/profiles.ini ]] && \
+        crudini --get ~/.mozilla/firefox/profiles.ini Profile0 Path | \
+        xargs -I {} ln -fsv \
             {{ justfile_directory() }}/misc/firefox/search.json.mozlz4 \
             ~/.mozilla/firefox/{}/search.json.mozlz4
 
