@@ -30,3 +30,4 @@ user_pref("extensions.webextensions.restrictedDomains", "");
 user_pref("browser.contentblocking.category", "strict");
 user_pref("privacy.donottrackheader.enabled", true);
 user_pref("dom.private-attribution.submission.enabled", false);
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
