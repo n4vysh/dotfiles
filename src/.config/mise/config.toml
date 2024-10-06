@@ -5,3 +5,4 @@ legacy_version_file = false
 [tools]
 goss = "latest"
 usage = "latest"
+gotestsum = "latest"
