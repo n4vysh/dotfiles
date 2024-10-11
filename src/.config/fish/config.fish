@@ -145,7 +145,8 @@ if status --is-interactive
     __fish_abbr_add_extend hlfa helmfile apply
     __fish_abbr_add_extend hlfd helmfile diff
     __fish_abbr_add_extend hlfl helmfile lint
-    __fish_abbr_add_extend hlfs helmfile status
+    __fish_abbr_add_extend hlfst helmfile status
+    __fish_abbr_add_extend hlfsy helmfile sync
     __fish_abbr_add_extend hlftpl helmfile template
     __fish_abbr_add_extend hlfts helmfile test
     __fish_abbr_add_extend hi hash-identifier
