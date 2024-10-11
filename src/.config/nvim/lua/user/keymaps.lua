@@ -9,7 +9,7 @@ vim.keymap.set(
 	"n",
 	"<C-l>",
 	-- NOTE: lua function is not work
-	[[:<C-u>nohlsearch|diffupdate|normal! <C-l><CR>:<C-u>silent! Fidget suppress<CR>:<C-u>silent! lua require("notify").dismiss()<CR>]],
+	[[<cmd>nohlsearch|diffupdate|normal! <C-l><CR><cmd>silent! Fidget suppress<CR><cmd>silent! lua require("notify").dismiss()<CR>]],
 	{
 		silent = true,
 		desc = "Redraws the screen and toggle some interface",
