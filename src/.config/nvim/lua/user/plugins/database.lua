@@ -55,6 +55,27 @@ return {
 					end,
 				})
 			end
+			do
+				local augroup = "dadbod_ui_mappings"
+				vim.api.nvim_create_augroup(augroup, { clear = true })
+				vim.api.nvim_create_autocmd("FileType", {
+					group = augroup,
+					pattern = { "dbui" },
+					callback = function()
+						vim.keymap.set(
+							"n",
+							"e",
+							"<Plug>(DBUI_SelectLine)<cmd>DBUIToggle<cr>",
+							{
+								silent = true,
+								desc = "Open and close",
+								buffer = true,
+								remap = true,
+							}
+						)
+					end,
+				})
+			end
 		end,
 		dependencies = {
 			{ "tpope/vim-dadbod", lazy = true },
