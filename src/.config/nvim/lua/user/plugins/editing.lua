@@ -129,7 +129,7 @@ return {
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
-		"mattn/vim-textobj-url",
+		"LeonB/vim-textobj-url",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
