@@ -207,7 +207,7 @@ IsScreenRecord := false
 	{
 		global IsScreenRecord
 		if ! GetKeyState("Shift") {
-			RunWait("C:\Program Files\ScreenToGif\ScreenToGif.exe -o screen-recorder -c", , "Hide")
+			Run("C:\Program Files\ScreenToGif\ScreenToGif.exe -o screen-recorder -c")
 			IsScreenRecord := false
 		}
 	}
@@ -235,7 +235,7 @@ IsLauncher := false
 	{
 		global IsLauncher
 		if ! GetKeyState("Shift") {
-			RunWait("C:\Program Files\Mozilla Firefox\firefox.exe", , "Hide")
+			Run("C:\Program Files\Mozilla Firefox\firefox.exe")
 			IsLauncher := false
 		}
 	}
@@ -244,7 +244,7 @@ IsLauncher := false
 	{
 		global IsLauncher
 		if ! GetKeyState("Shift") {
-			RunWait("explorer.exe", , "Hide")
+			Run("explorer.exe")
 			IsLauncher := false
 		}
 	}
@@ -263,7 +263,7 @@ IsLauncher := false
 				IsLauncher := false
 			} else {
 				if ! (PID := ProcessExist("slack.exe")) {
-					RunWait(USERPROFILE "\AppData\Local\slack\slack.exe")
+					Run(USERPROFILE "\AppData\Local\slack\slack.exe")
 				}
 				IsLauncher := false
 			}
@@ -308,7 +308,7 @@ F13 & Enter::
 {
 	if ! GetKeyState("Shift") {
 		if ! (PID := ProcessExist("wezterm-gui.exe")) {
-			RunWait(".\wezterm-gui.exe", "C:\Program Files\WezTerm")
+			Run(".\wezterm-gui.exe", "C:\Program Files\WezTerm")
 		}
 	}
 }
