@@ -1,0 +1,13 @@
+matches:
+  - trigger: ";a "
+    replace: "ありがとうございます"
+  - trigger: ";ti "
+    replace: "対応いただけると幸いです"
+  - trigger: ";ri "
+    replace: "reviewいただけると幸いです"
+  - trigger: ";ma "
+    replace: "問題なさそうだったため、approveしました"
+  - trigger: ";mm "
+    replace: "問題なさそうだったため、mergeしました"
+  - trigger: ";h "
+    replace: "引き続きよろしくお願いいたします"
