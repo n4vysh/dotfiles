@@ -147,6 +147,7 @@ extra/watchexec
 extra/wezterm
 extra/xh
 extra/xsv
+extra/yaegi
 extra/yamlfmt
 extra/yamllint
 extra/zoxide
