@@ -493,6 +493,16 @@ return {
 						cyclic = true,
 					}),
 					augend.constant.new({
+						-- NOTE: uppercase of augend.constant.alias.bool
+						elements = { "TRUE", "FALSE" },
+						cyclic = true,
+					}),
+					augend.constant.new({
+						elements = { "asc", "desc" },
+						preserve_case = true,
+						cyclic = true,
+					}),
+					augend.constant.new({
 						elements = { "==", "!=" },
 						word = false,
 						cyclic = true,
@@ -532,6 +542,16 @@ return {
 					}),
 					augend.constant.new({
 						elements = { "up", "down" },
+						cyclic = true,
+					}),
+					augend.constant.new({
+						-- NOTE: uppercase of augend.constant.alias.bool
+						elements = { "TRUE", "FALSE" },
+						cyclic = true,
+					}),
+					augend.constant.new({
+						elements = { "asc", "desc" },
+						preserve_case = true,
 						cyclic = true,
 					}),
 					augend.constant.new({
