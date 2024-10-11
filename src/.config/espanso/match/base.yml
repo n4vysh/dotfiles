@@ -8,6 +8,13 @@ matches:
         type: date
         params:
           format: "%Y/%m/%d"
+  - trigger: ";t "
+    replace: "{{time}}"
+    vars:
+      - name: time
+        type: date
+        params:
+          format: "%H:%M"
   - trigger: ";lorem "
     replace: >-
       Lorem ipsum dolor sit amet, consectetur adipisici elit,
