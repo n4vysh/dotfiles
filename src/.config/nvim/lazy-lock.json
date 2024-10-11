@@ -138,7 +138,7 @@
   "vim-textobj-indent": { "branch": "master", "commit": "deb76867c302f933c8f21753806cbf2d8461b548" },
   "vim-textobj-indented-paragraph": { "branch": "master", "commit": "376f478ab5cb45bcb434eedbd7c513ad145a99b4" },
   "vim-textobj-markdown": { "branch": "master", "commit": "9cba182b2c30afc982ace0deb1200cc394799799" },
-  "vim-textobj-url": { "branch": "master", "commit": "782d5b990caaa4519d5b4f39ca9ec48bd2e4bfc5" },
+  "vim-textobj-url": { "branch": "master", "commit": "f66aad52e5a53127a551286ec8680f718d8fd0b5" },
   "vim-textobj-user": { "branch": "master", "commit": "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
   "vim-tridactyl": { "branch": "master", "commit": "fdd069bde3a34c786abed4601b6d59a065590ad9" },
   "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" },
