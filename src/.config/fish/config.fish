@@ -240,6 +240,7 @@ if status --is-interactive
     __fish_abbr_add_extend mil mise local
     __fish_abbr_add_extend milr mise ls-remote
     __fish_abbr_add_extend miplr mise plugins ls-remote
+    __fish_abbr_add_extend miu mise use
     __fish_abbr_add_extend sc systemctl
     __fish_abbr_add_extend se sudoedit
     __fish_abbr_add_extend so sops
