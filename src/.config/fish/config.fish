@@ -132,6 +132,8 @@ if status --is-interactive
     __fish_abbr_add_extend hc hashcat
     __fish_abbr_add_extend hd helm-docs
     __fish_abbr_add_extend hl helm
+    __fish_abbr_add_extend hlc helm create
+    __fish_abbr_add_extend hldu helm dependency update
     __fish_abbr_add_extend hlh helm history
     __fish_abbr_add_extend hll helm list
     __fish_abbr_add_extend hlla helm list -a
@@ -154,8 +156,10 @@ if status --is-interactive
     __fish_abbr_add_extend info info --vi-keys
     __fish_abbr_add_extend ip ip -c
     __fish_abbr_add_extend js just
+    __fish_abbr_add_extend jsc just check
     __fish_abbr_add_extend jsde just dev
     __fish_abbr_add_extend jsdo just docs
+    __fish_abbr_add_extend jsdp just deploy
     __fish_abbr_add_extend jsf just fmt
     __fish_abbr_add_extend jsgc just get-creds
     __fish_abbr_add_extend jsi just init
@@ -165,6 +169,7 @@ if status --is-interactive
     __fish_abbr_add_extend jsss just switch stg
     __fish_abbr_add_extend jssp just switch prd
     __fish_abbr_add_extend jst just test
+    __fish_abbr_add_extend jstpl just tpl
     __fish_abbr_add_extend jh john
     __fish_abbr_add_extend jnc journalctl
     __fish_abbr_add_extend k kubie
