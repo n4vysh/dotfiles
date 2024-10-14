@@ -71,4 +71,16 @@ vim.filetype.add({
 		-- https://github.com/neovim/nvim-lspconfig/issues/2685
 		tfvars = "hcl",
 	},
+	pattern = {
+		[".*/%.config/git/config%..*"] = "gitconfig",
+		[".*/%.config/swappy/config"] = "ini",
+		[".*/%.config/waybar/config"] = "json",
+		[".*/%.config/yamllint/config"] = "yaml",
+		-- for sudoedit
+		["/var/tmp/passwd%..*"] = "passwd",
+		["/var/tmp/shadow%..*"] = "passwd",
+		-- for compose-language-service
+		[".*/compose%.ya?ml"] = "yaml.docker-compose",
+		[".*/docker%-compose%.ya?ml"] = "yaml.docker-compose",
+	},
 })
