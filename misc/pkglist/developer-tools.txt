@@ -32,6 +32,7 @@ aur/nodejs-jsonlint
 aur/nodejs-nestjs-cli
 aur/opa
 aur/pet-bin
+aur/pluto-bin
 aur/redocly
 aur/snyk
 aur/spectral-cli
