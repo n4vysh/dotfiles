@@ -12,7 +12,7 @@ end
 
 # NOTE: use command completion and grc command
 set -l cmds \
-    docker df dig du env free go id kubectl last lsblk lsof \
+    docker df dig du env free go id last lsblk lsof \
     nmap ping ps traceroute uptime whois
 for cmd in $cmds
     if command -q "$cmd"
