@@ -21,7 +21,6 @@ aur/infracost
 aur/jqp-bin
 aur/keybase-bin
 aur/kind-bin
-aur/krew-bin
 aur/kube-score-bin
 aur/kubeval-bin
 aur/lab-bin
@@ -90,6 +89,7 @@ extra/just
 extra/jwt-cli
 extra/k9s
 extra/ko
+extra/krew
 extra/kube-linter
 extra/kubeconform
 extra/kubectl
