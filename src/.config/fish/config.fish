@@ -207,6 +207,7 @@ if status --is-interactive
     __fish_abbr_add_extend kcn kubectl neat
     __fish_abbr_add_extend kcnb kubectl neat \| bat -l yaml
     __fish_abbr_add_extend kcrc kubectl resource-capacity
+    __fish_abbr_add_extend kct kubectl tree
     __fish_abbr_add_extend kcv kubectl version
     __fish_abbr_add_extend kl kube-linter
     __fish_abbr_add_extend kn kubens
