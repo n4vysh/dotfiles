@@ -4,5 +4,9 @@ legacy_version_file = false
 
 [tools]
 goss = "latest"
-usage = "latest"
 gotestsum = "latest"
+kyverno = "latest"
+usage = "latest"
+
+[plugins]
+kyverno = "https://github.com/crainte/asdf-kyverno.git"
