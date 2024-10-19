@@ -14,7 +14,7 @@ Install some packages with winget.
 ```pwsh
 winget install -e --id wez.wezterm
 winget install -e --id Mozilla.Firefox
-winget install -e --id LGUG2Z.komorebi
+winget install -e --id LGUG2Z.komorebi --version 0.1.23
 winget install -e --id OliverSchwendener.ueli
 winget install -e --id RandyRants.SharpKeys
 winget install -e --id Lexikos.AutoHotkey
