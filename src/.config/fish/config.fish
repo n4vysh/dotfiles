@@ -198,6 +198,11 @@ if status --is-interactive
     __fish_abbr_add_extend kcgsts kubectl get statefulsets
     __fish_abbr_add_extend kcgsa kubectl get serviceaccounts
     __fish_abbr_add_extend kcgsvc kubectl get services
+    __fish_abbr_add_extend kck kubectl krew
+    __fish_abbr_add_extend kckl kubectl krew list
+    __fish_abbr_add_extend kcki kubectl krew install
+    __fish_abbr_add_extend kcks kubectl krew search
+    __fish_abbr_add_extend kcku kubectl krew uninstall
     __fish_abbr_add_extend kcl kubectl logs
     __fish_abbr_add_extend kclz kubectl get po \| \
         sed 1d \| \
