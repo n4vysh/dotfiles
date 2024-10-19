@@ -23,6 +23,7 @@ aur/keybase-bin
 aur/kind-bin
 aur/kube-score-bin
 aur/kubecolor
+aur/kubescape-bin
 aur/kubeval-bin
 aur/lab-bin
 aur/mermaid-cli
