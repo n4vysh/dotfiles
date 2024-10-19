@@ -144,6 +144,7 @@ return {
 				},
 				adapters = {
 					require("neotest-golang")({
+						runner = "gotestsum",
 						go_test_args = {
 							"-v",
 							"-race",
