@@ -432,11 +432,10 @@ _configure_without_privileged() {
 	fi
 
 	_log::info 'Deploy config files'
-	sudo mkdir -p /etc/interception/dual-function-keys/ /etc/docker/
+	sudo mkdir -p /etc/keyd/ /etc/docker/
 	dir="$XDG_DATA_HOME/dotfiles"
 	xargs -I {} sudo cp -v "$dir/misc/{}" /{} <<-EOF
-		etc/interception/dual-function-keys/xcape.yaml
-		etc/interception/udevmon.yaml
+		etc/keyd/default.conf
 		etc/docker/daemon.json
 		etc/polkit-1/rules.d/50-udisks.rules
 		etc/systemd/zram-generator.conf
@@ -526,7 +525,7 @@ _configure_without_privileged() {
 	sudo sed -i \
 		-e "s|^KEYMAP=$keymap$|KEYMAP=$keymap-custom|" \
 		/etc/vconsole.conf
-	sudo systemctl enable --now udevmon.service # for interception tools
+	sudo systemctl enable --now keyd
 
 	_log::info 'Configure wallpaper'
 	mkdir -p "${XDG_DATA_HOME}/sway/"
