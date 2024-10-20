@@ -126,8 +126,24 @@ export OMPI_MCA_opal_warn_on_missing_libcuda=0
 # Nix
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
-# GUI Java Application
-export _JAVA_AWT_WM_NONREPARENTING=1
+# GUI
+if [[ -z $DISPLAY ]] && [[ $XDG_VTNR = 2 ]]; then
+	export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+	export GTK_IM_MODULE=fcitx
+	export QT_IM_MODULE=fcitx
+	export XMODIFIERS='@im=fcitx'
+
+	# for firefox
+	export MOZ_ENABLE_WAYLAND=1
+
+	# for java applications
+	export _JAVA_AWT_WM_NONREPARENTING=1
+
+	# HACK: ignore fcitx5 diagnose notification
+	# https://github.com/fcitx/fcitx5/blob/ebe3f3176331229c42850d61bbc5c78aaadddf8d/src/modules/wayland/waylandmodule.cpp#L502-L504
+	# https://github.com/swaywm/sway/wiki#xdg_current_desktop-environment-variable-is-not-being-set
+	export XDG_CURRENT_DESKTOP=sway
+fi
 
 # local
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
