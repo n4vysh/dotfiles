@@ -390,7 +390,7 @@ AppsKey::LWin
 ~LShift::
 {
 	KeyWait "LShift"
-	if (A_TimeSinceThisHotkey < 300 and A_PriorKey = "LShift") {
+	if (A_TimeSinceThisHotkey < 200 and A_PriorKey = "LShift") {
 		Send "("
 	}
 }
@@ -398,7 +398,7 @@ AppsKey::LWin
 ~RShift::
 {
 	KeyWait "RShift"
-	if (A_TimeSinceThisHotkey < 300 and A_PriorKey = "RShift") {
+	if (A_TimeSinceThisHotkey < 200 and A_PriorKey = "RShift") {
 		Send ")"
 	}
 }
@@ -406,7 +406,7 @@ AppsKey::LWin
 ~LAlt::
 {
 	KeyWait "LAlt"
-	if (A_TimeSinceThisHotkey < 300 and A_PriorKey = "LAlt") {
+	if (A_TimeSinceThisHotkey < 200 and A_PriorKey = "LAlt") {
 		Send "{Tab}"
 	}
 }
@@ -414,7 +414,7 @@ AppsKey::LWin
 ~+LAlt::
 {
 	KeyWait "LAlt"
-	if (A_TimeSinceThisHotkey < 300 and A_PriorKey = "LAlt") {
+	if (A_TimeSinceThisHotkey < 200 and A_PriorKey = "LAlt") {
 		Send "+{Tab}"
 	}
 }
@@ -422,7 +422,7 @@ AppsKey::LWin
 ~^LAlt::
 {
 	KeyWait "LAlt"
-	if (A_TimeSinceThisHotkey < 300 and A_PriorKey = "LAlt") {
+	if (A_TimeSinceThisHotkey < 200 and A_PriorKey = "LAlt") {
 		Send "^{Tab}"
 	}
 }
@@ -430,7 +430,7 @@ AppsKey::LWin
 ~+^LAlt::
 {
 	KeyWait "LAlt"
-	if (A_TimeSinceThisHotkey < 300 and A_PriorKey = "LAlt") {
+	if (A_TimeSinceThisHotkey < 200 and A_PriorKey = "LAlt") {
 		Send "+^{Tab}"
 	}
 }
