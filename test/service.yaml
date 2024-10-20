@@ -26,9 +26,6 @@ service:
   fstrim.timer:
     enabled: true
     running: true
-  udevmon.service:
-    enabled: true
-    running: true
   bluetooth.service:
     enabled: true
     running: true
@@ -66,5 +63,8 @@ service:
     enabled: true
     running: true
   paccache.timer:
+    enabled: true
+    running: true
+  keyd.service:
     enabled: true
     running: true

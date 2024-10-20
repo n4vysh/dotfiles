@@ -4,9 +4,8 @@ extra/bemenu-wayland
 extra/brightnessctl
 extra/gammastep
 extra/grim
-extra/interception-dual-function-keys
-extra/interception-tools
 extra/kanshi
+extra/keyd
 extra/ly
 extra/mako
 extra/slurp

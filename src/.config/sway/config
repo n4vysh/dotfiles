@@ -139,6 +139,26 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+set $mode_audio Audio: (i) increase (d) decrease (m) mute/unmute
+mode "$mode_audio" {
+  bindsym i exec pamixer --increase 1 && \
+    pw-play /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+  bindsym d exec pamixer --decrease 1 && \
+    pw-play /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+  bindsym m exec pamixer --toggle-mute && \
+    pamixer --get-mute && \
+    notify-send pamixer 'Set mute' || \
+    notify-send pamixer 'Set unmute'
+  bindsym q mode "default"
+}
+
+set $mode_brightness Brightness: (a) add (s) subtract
+mode "$mode_brightness" {
+  bindsym a exec brightnessctl set 1%+
+  bindsym s exec brightnessctl set 1%-
+  bindsym q mode "default"
+}
+
 set $mode_notification Notification: (d) dismiss the last notification (a) dismiss all notifications
 mode "$mode_notification" {
   bindsym d exec makoctl dismiss
@@ -148,8 +168,10 @@ mode "$mode_notification" {
 
 set $mode_launcher Launcher
 mode "$mode_launcher" {
+  bindsym a mode "$mode_audio"
   bindsym b exec firefox, mode "default"
-  bindsym ctrl+b exec torbrowser-launcher, mode "default"
+  bindsym ctrl+b mode "$mode_brightness"
+  bindsym alt+b exec torbrowser-launcher, mode "default"
   bindsym e exec proton-mail, mode "default"
   bindsym f exec "$term -e nnn", mode "default"
   bindsym i exec slack, mode "default"
@@ -168,14 +190,6 @@ mode "$mode_launcher" {
   bindsym q mode "default"
 }
 bindsym $mod+o mode "$mode_launcher"
-
-set $mode_brightness Brightness: (a) add (s) subtract
-mode "$mode_brightness" {
-  bindsym a exec brightnessctl set 1%+
-  bindsym s exec brightnessctl set 1%-
-  bindsym q mode "default"
-}
-bindsym $mod+ctrl+b mode "$mode_brightness"
 
 set $file ${HOME}/Pictures/screenshots/$(date +'%Y%m%d_%H%M%S').png
 set $mode_screenshot Screenshot: (w) whole screen (c) current window (p) a part of the screen
@@ -200,20 +214,6 @@ mode "$mode_screenrecord" {
 bindsym $mod+ctrl+r mode "$mode_screenrecord"
 # record cancel
 bindsym $mod+ctrl+c exec "killall -SIGINT wf-recorder; notify-send screenrecord 'Stop wf-recorder'"
-
-set $mode_audio Audio: (i) increase (d) decrease (m) mute/unmute
-mode "$mode_audio" {
-  bindsym i exec pamixer --increase 1 && \
-    pw-play /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
-  bindsym d exec pamixer --decrease 1 && \
-    pw-play /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
-  bindsym m exec pamixer --toggle-mute && \
-    pamixer --get-mute && \
-    notify-send pamixer 'Set mute' || \
-    notify-send pamixer 'Set unmute'
-  bindsym q mode "default"
-}
-bindsym $mod+ctrl+a mode "$mode_audio"
 
 set \
   $locker \
