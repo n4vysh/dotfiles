@@ -2,6 +2,23 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		cmd = {
+			"TSInstall",
+			"TSInstallSync",
+			"TSInstallInfo",
+			"TSUpdate",
+			"TSUpdateSync",
+			"TSUninstall",
+			"TSBufEnable",
+			"TSBufDisable",
+			"TSBufToggle",
+			"TSEnable",
+			"TSDisable",
+			"TSToggle",
+			"TSModuleInfo",
+			"TSEditQuery",
+			"TSEditQueryUserAfter",
+		},
 		build = function()
 			vim.cmd.TSUpdate()
 		end,
