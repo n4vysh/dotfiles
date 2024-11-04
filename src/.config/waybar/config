@@ -1,52 +1,62 @@
 {
   "modules-left": [
-    "sway/workspaces",
-    "sway/mode"
+    "hyprland/submap",
+    "hyprland/workspaces"
   ],
+  "hyprland/submap": {
+    "format": "   {} ",
+    "always-on": true,
+    "default-submap": "󰣇",
+    "tooltip": false
+  },
   "modules-right": [
     "custom/check-rootkit",
     "custom/pkg-audit",
     "custom/im-info",
+    "custom/mount-helper",
     "custom/recorder",
     "custom/vpn",
     "bluetooth",
     "pulseaudio",
     "network",
     "battery",
+    "custom/notification",
     "clock"
   ],
-  "sway/workspaces": {
-    "disable-scroll": true,
-    "disable-click": true,
-    "disable-markup": true
+  "custom/mount-helper": {
+    "format": "{} ",
+    "exec": "~/.config/waybar/lib/mount-helper.bash",
+    "interval": 1,
+    "tooltip": false
   },
   "custom/check-rootkit": {
-    "format": "<span font='11'> {} </span>",
+    "format": " {} ",
     "exec": "~/.config/waybar/lib/check-rootkit.bash",
     "interval": 60,
     "tooltip": false
   },
   "custom/pkg-audit": {
-    "format": "<span font='11'> {} </span>",
+    "format": " {} ",
     "exec": "~/.config/waybar/lib/pkg-audit.bash",
     "interval": 86400,
     "tooltip": false
   },
   "custom/im-info": {
-    "format": "<span font='12'> {} </span>",
+    "format": " {} ",
     "exec": "~/.config/waybar/lib/im-info.bash",
     "interval": 1,
+    "on-click": "fcitx5-configtool",
     "tooltip": false
   },
   "custom/recorder": {
-    "format": "<span font='11'>  </span>",
+    "format": "   ",
     "return-type": "json",
     "interval": 1,
     "exec": "echo '{\"class\": \"recording\"}'",
     "exec-if": "pgrep wf-recorder"
   },
   "custom/vpn": {
-    "format": "<span font='11'> {icon} </span>",
+    "format": " {icon} ",
     "format-icons": {
       "connected": "󰌆",
       "disconnected": "󰌊"
@@ -54,16 +64,20 @@
     "return-type": "json",
     "exec": "~/.config/waybar/lib/vpn.bash",
     "interval": 1,
+    "on-click": "wezterm -e sh -c 'nordvpn status; read -n 1'",
     "tooltip": false
   },
   "bluetooth": {
-    "format": "<span font='11'> 󰂯 </span>",
-    "format-off": "<span font='11'> 󰂲 </span>",
+    "format": " 󰂯",
+    "format-off": " 󰂲",
+    "on-click": "wezterm -e bluetuith",
     "tooltip": false
   },
   "pulseaudio": {
-    "format": "<span font='11'>{icon}</span>",
-    "format-muted": "<span font='11'>󰝟</span>",
+    "format": "{format_source}{icon}",
+    "format-muted": "{format_source}󰝟",
+    "format-source": "   ",
+    "format-source-muted": "",
     "format-icons": {
       "headphone": "",
       "default": [
@@ -71,6 +85,7 @@
         ""
       ]
     },
+    "on-click": "wezterm -e pulsemixer",
     "tooltip": false
   },
   "network": {
@@ -86,6 +101,7 @@
         ""
       ]
     },
+    "on-click": "wezterm -e impala",
     "tooltip": false
   },
   "battery": {
@@ -102,10 +118,32 @@
       "warning": 25,
       "critical": 10
     },
+    "on-click": "wezterm -e btm --default_widget_type battery --expanded",
     "tooltip": false
   },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "  {icon} ",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "󰂛",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
   "clock": {
-    "format": "{:%a, %d. %b  %H:%M}",
+    "format": "{:%a, %b %d  %H:%M}",
+    "on-click": "wezterm -e calcure",
     "tooltip": false
   }
 }

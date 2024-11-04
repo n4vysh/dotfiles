@@ -70,11 +70,11 @@ repos:
         language: system
         entry: fish --no-exec
         types: [fish]
-      - id: sway
-        name: check config of sway with sway --validate option
+      - id: hyprland
+        name: check config of hyprland with hyprland configerrors option
         language: system
-        entry: sway --validate
-        files: .config/sway/config$
+        entry: hyprctl configerrors | tee /dev/stderr | grep -q . && false
+        files: .config/hypr/hyprland.conf$
         pass_filenames: false
       - id: selene
         name: check lua files with selene
