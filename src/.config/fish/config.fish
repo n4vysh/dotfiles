@@ -246,6 +246,8 @@ if status --is-interactive
     __fish_abbr_add_extend pprf pnpm run fmt
     __fish_abbr_add_extend pprd pnpm run dev
     __fish_abbr_add_extend pprl pnpm run lint
+    __fish_abbr_add_extend pprp pnpm run prepare
+    __fish_abbr_add_extend pprs pnpm run storybook
     __fish_abbr_add_extend r rg
     __fish_abbr_add_extend rm rm -iv
     __fish_abbr_add_extend rs rustscan
