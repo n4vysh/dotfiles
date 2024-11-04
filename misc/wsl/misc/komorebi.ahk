@@ -45,11 +45,7 @@ F13 & h::
 			Focus("left")
 		}
 	} else {
-		if GetKeyState("Ctrl", "P") {
-			Send("{backspace}")
-		} else {
-			Move("left")
-		}
+		Move("left")
 	}
 }
 
@@ -95,7 +91,11 @@ F13 & space::
 F13 & f::
 {
 	if GetKeyState("Ctrl", "P") {
-		Send("{right}")
+		if GetKeyState("Shift") {
+			Send("+{right}")
+		} else {
+			Send("{right}")
+		}
 	} else {
 		ToggleMaximize()
 	}
@@ -104,21 +104,33 @@ F13 & f::
 F13 & b::
 {
 	if GetKeyState("Ctrl", "P") {
-		Send("{left}")
+		if GetKeyState("Shift") {
+			Send("+{left}")
+		} else {
+			Send("{left}")
+		}
 	}
 }
 
 F13 & a::
 {
 	if GetKeyState("Ctrl", "P") {
-		Send("{home}")
+		if GetKeyState("Shift") {
+			Send("+{home}")
+		} else {
+			Send("{home}")
+		}
 	}
 }
 
 F13 & e::
 {
 	if GetKeyState("Ctrl", "P") {
-		Send("{end}")
+		if GetKeyState("Shift") {
+			Send("+{end}")
+		} else {
+			Send("{end}")
+		}
 	}
 }
 
@@ -169,7 +181,7 @@ F13 & p::
 		}
 	} else {
 		if GetKeyState("Ctrl", "P") {
-			Send("{up}")
+			Send("+{up}")
 		} else {
 			CycleSendToWorkspace("previous")
 		}
@@ -186,7 +198,7 @@ F13 & n::
 		}
 	} else {
 		if GetKeyState("Ctrl", "P") {
-			Send("{down}")
+			Send("+{down}")
 		} else {
 			CycleSendToWorkspace("next")
 		}
@@ -208,10 +220,6 @@ F13 & d::
 			Send("{delete}")
 		} else {
 			Send "!{Space}"
-		}
-	} else {
-		if GetKeyState("Ctrl", "P") {
-			Send("{delete}")
 		}
 	}
 }
