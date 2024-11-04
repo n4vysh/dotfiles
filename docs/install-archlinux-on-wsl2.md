@@ -29,6 +29,7 @@ winget install -e --id hrkfdn.ncspot
 winget install -e --id Espanso.Espanso
 winget install -e --id NickeManarin.ScreenToGif
 winget install -e --id Gyan.FFmpeg
+winget install -e --id Neovide.Neovide
 ```
 
 [winget-link]: https://github.com/microsoft/winget-cli
@@ -83,7 +84,11 @@ and install its.
 wsl --install
 ```
 
-[Install ArchWSL][archwsl-setup-link].
+[Install ArchWSL][archwsl-setup-link] and set default distribution.
+
+```pwsh
+wsl --set-default Arch
+```
 
 Install [wslu][wslu-link].
 
@@ -150,6 +155,11 @@ mkdir "$dir/ncspot/"
 cp -iv \
   "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/ncspot/config.toml" \
   "$dir/ncspot/"
+dir="/mnt/c/Users/$appdata/Roaming"
+mkdir "$dir/neovide/"
+cp -iv \
+  "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/neovide/config.toml" \
+  "$dir/neovide/"
 ```
 
 Deploy dotfiles to WSL user directory.
@@ -196,6 +206,9 @@ Tweak dotfiles.
 cat <<EOF >>~/.config/lazygit/config.yml
 os:
   copyToClipboardCmd: printf {{text}} | win32yank.exe -i
+EOF
+cat <<EOF >>~/.config/nvim/lua/user/local.lua
+vim.o.guifont = "Fira Code,Symbols Nerd Font Mono,Noto Sans JP"
 EOF
 ```
 

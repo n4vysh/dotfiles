@@ -39,6 +39,26 @@ local options = {
 	updatetime = 500,
 }
 
+if vim.g.neovide then
+	-- NOTE: status bar grayed out when enable transparency
+	--        https://github.com/neovide/neovide/issues/2275
+	--
+	-- vim.g.neovide_transparency = 0.6
+	-- vim.g.transparency = 0.6
+
+	vim.g.neovide_cursor_vfx_mode = "sonicboom"
+	vim.g.neovide_padding_top = 13
+	vim.g.neovide_padding_bottom = 13
+	vim.g.neovide_padding_right = 15
+	vim.g.neovide_padding_left = 15
+
+	options = vim.tbl_extend("force", options, {
+		-- NOTE: powerline symbols misaligned when set guifont
+		-- https://github.com/neovide/neovide/issues/2491
+		-- guifont = "Fira Code,Symbols Nerd Font Mono,Noto Sans Mono CJK JP,Noto Sans Symbols,Noto Sans Math",
+	})
+end
+
 for k, v in pairs(options) do
 	vim.opt[k] = v
 end

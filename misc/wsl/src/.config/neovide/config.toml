@@ -1,0 +1,3 @@
+fork = true
+neovim-bin = "/usr/sbin/nvim"
+wsl = true
