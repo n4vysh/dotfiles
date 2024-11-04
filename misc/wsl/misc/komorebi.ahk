@@ -216,6 +216,13 @@ F13 & d::
 	}
 }
 
+F13 & w::
+{
+	if GetKeyState("Ctrl", "P") {
+		Send("^{backspace}")
+	}
+}
+
 F13 & m::
 {
 	if GetKeyState("Ctrl", "P") {
