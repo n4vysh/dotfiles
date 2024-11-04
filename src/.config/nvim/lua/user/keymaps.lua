@@ -91,6 +91,27 @@ vim.keymap.set("i", "<C-x>c", " ?  : <ESC>hhi", {
 	desc = "Append conditional operator",
 })
 
+if vim.g.neovide then
+	vim.keymap.set({ "n", "v" }, "<C-=>", function()
+		vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1
+	end, {
+		silent = true,
+		desc = "Increase font size",
+	})
+	vim.keymap.set({ "n", "v" }, "<C-->", function()
+		vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1
+	end, {
+		silent = true,
+		desc = "Decrease font size",
+	})
+	vim.keymap.set({ "n", "v" }, "<C-0>", function()
+		vim.g.neovide_scale_factor = 1
+	end, {
+		silent = true,
+		desc = "Reset font size",
+	})
+end
+
 -- keymaps using the g
 vim.keymap.set("n", "g<C-e>", "<cmd>edit!<cr>", {
 	silent = true,

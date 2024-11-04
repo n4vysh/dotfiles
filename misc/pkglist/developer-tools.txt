@@ -101,6 +101,7 @@ extra/kubie
 extra/lazygit
 extra/libwebp
 extra/markdownlint-cli2
+extra/neovide
 extra/nix
 extra/npm
 extra/oxipng
