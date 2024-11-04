@@ -71,3 +71,22 @@ if status --is-interactive
         printf '%s: Not found %s command\n' "$file" "$cmd" >&2
     end
 end
+
+if status --is-interactive
+    set -l file (
+      string replace $XDG_CONFIG_HOME '$XDG_CONFIG_HOME' (status filename)
+    )
+
+    set -l cmd aws_completer
+    if command -q "$cmd"
+        complete -c aws -f -a '(
+            begin
+                set -lx COMP_SHELL fish
+                set -lx COMP_LINE (commandline)
+                aws_completer
+            end
+        )'
+    else
+        printf '%s: Not found %s command\n' "$file" "$cmd" >&2
+    end
+end
