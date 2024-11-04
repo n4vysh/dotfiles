@@ -10,7 +10,6 @@ return {
 		"Symbols NFM",
 		"Noto Sans JP",
 	}),
-	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	color_scheme = "tokyonight",
 	enable_tab_bar = false,
 	window_background_opacity = 0.9,
