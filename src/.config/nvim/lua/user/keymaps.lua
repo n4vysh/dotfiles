@@ -147,7 +147,12 @@ vim.keymap.set({ "n", "v", "o" }, "gh", "0", {
 	desc = "Goto line start",
 })
 
-vim.keymap.set({ "n", "v", "o" }, "gl", "g_", {
+vim.keymap.set({ "n", "o" }, "gl", "$", {
+	silent = true,
+	desc = "Goto line end",
+})
+
+vim.keymap.set({ "v" }, "gl", "$h", {
 	silent = true,
 	desc = "Goto line end",
 })
