@@ -8,6 +8,7 @@ extra/bluez
 extra/bluez-utils
 extra/dog
 extra/gping
+extra/impala
 extra/nmap
 extra/openvpn
 extra/rustscan

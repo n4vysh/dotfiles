@@ -49,6 +49,7 @@ chaotic-aur/nnn-nerd
 chaotic-aur/standardnotes-bin
 chaotic-aur/tflint
 chaotic-aur/viddy
+chaotic-aur/wezterm-git
 core/openssh
 extra/actionlint
 extra/asciidoctor
@@ -107,6 +108,7 @@ extra/npm
 extra/oxipng
 extra/parallel
 extra/percona-server-clients
+extra/pngquant
 extra/pnpm
 extra/popeye
 extra/postgresql
@@ -151,7 +153,6 @@ extra/vhs
 extra/vint
 extra/vivid
 extra/watchexec
-extra/wezterm
 extra/xh
 extra/xsv
 extra/yaegi
