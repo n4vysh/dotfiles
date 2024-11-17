@@ -1,6 +1,4 @@
 matches:
-  - trigger: ";c "
-    replace: "✅️"
   - trigger: ";d "
     replace: "{{date}}"
     vars:
