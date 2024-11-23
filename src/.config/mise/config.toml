@@ -8,5 +8,5 @@ gotestsum = "latest"
 kyverno = "latest"
 usage = "latest"
 
-[plugins]
-kyverno = "https://github.com/crainte/asdf-kyverno.git"
+[alias]
+kyverno = "asdf:crainte/asdf-kyverno"
