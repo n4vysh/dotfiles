@@ -1,3 +1,8 @@
+vim.keymap.set("i", "<C-v>", "<C-r>+", {
+	silent = true,
+	desc = "Paste from clipboard",
+})
+
 -- NOTE: avoid remove trailing space when going into normal mode
 -- https://github.com/neovim/neovim/issues/21525
 vim.keymap.set("i", "<Esc>", "<left><right><Esc>", {
