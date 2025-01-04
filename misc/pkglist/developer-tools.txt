@@ -115,6 +115,8 @@ extra/prettier
 extra/progress
 extra/python-pip
 extra/python-pipx
+extra/qemu-user-static
+extra/qemu-user-static-binfmt
 extra/qmk
 extra/ripgrep
 extra/sad
