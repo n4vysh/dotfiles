@@ -1,0 +1,13 @@
+@theme "custom"
+
+configuration {
+  icon-theme:                 "Papirus-Dark";
+  modi:                       "drun,run,filebrowser,window";
+  show-icons:                 true;
+  display-drun:               "";
+  display-run:                "";
+  display-filebrowser:        "";
+  display-window:             "";
+  drun-display-format:        "{name}";
+  window-format:              "{w} · {c} · {t}";
+}

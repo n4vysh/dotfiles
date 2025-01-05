@@ -162,7 +162,7 @@ file:
     group: root
     filetype: file
     # yamllint disable-line rule:line-length
-    sha512: 9d8a9281c0b7727dde7d33fc40b17f812ef834748a8566c73b074c765943d4bd7c039fd2373026789e7ef7ab4108db8e45fe5c1674c329a546b2fd66ab6a2682
+    sha512: 71ad75c66a111ac272633d21e73d3d3932a0902f2b135033abcf83d29f92bbae943663336c48a114f190fdb912b679ba364969d0bf33b2ea6b644c98335ed221
   /etc/systemd/zram-generator.conf:
     exists: true
     mode: "0644"

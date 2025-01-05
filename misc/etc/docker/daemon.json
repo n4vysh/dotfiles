@@ -1,3 +1,6 @@
 {
-  "data-root": "/home/docker"
+  "data-root": "/home/docker",
+  "features": {
+    "containerd-snapshotter": true
+  }
 }

@@ -1,6 +1,6 @@
 * {
   color: rgba(217, 216, 216, 1);
-  background: rgba(35, 31, 32, 0);
+  background: rgba(0, 0, 0, 0);
   border: none;
   border-radius: 0;
   font-family: Sans;
@@ -21,9 +21,11 @@
 
 #workspaces button.visible {
   color: rgba(217, 216, 216, 1);
+  border-top: 3px solid rgba(217, 216, 216, 0);
+  border-bottom: 3px solid rgba(217, 216, 216, 0);
 }
 
-#workspaces button.focused {
+#workspaces button.active {
   border-top: 3px solid rgba(217, 216, 216, 1);
   border-bottom: 3px solid rgba(217, 216, 216, 0);
 }

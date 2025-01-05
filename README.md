@@ -12,7 +12,7 @@
 
 - Distro: [Arch Linux][archlinux-link]
 - Display Manager: [ly][ly-link]
-- Window Manager: [Sway][sway-link]
+- Window Manager: [Hyprland][hyprland-link]
 - Shell: [Zsh][zsh-link] + [fish][fish-link]
 - Editor: [Neovim][neovim-link]
 - File Manager: [nnn][nnn-link]
@@ -23,7 +23,7 @@
 
 [archlinux-link]: https://archlinux.org/
 [ly-link]: https://github.com/fairyglade/ly
-[sway-link]: https://swaywm.org/
+[hyprland-link]: https://hyprland.org/
 [zsh-link]: https://www.zsh.org/
 [fish-link]: https://fishshell.com/
 [neovim-link]: https://neovim.io/
@@ -234,7 +234,7 @@ Run `just test` to lint and format the source code with
 | [commitlint][commitlint-link]                                                         | commit messages            |
 | zsh --no-exec                                                                         | zsh files                  |
 | fish --no-exec + fish_indent + [fishtape][fishtape-link]                              | fish files                 |
-| sway --validate                                                                       | sway config file           |
+| hyprctl configerrors                                                                  | hyprland config file       |
 | [selene][selene-link] + [stylua][stylua-link]                                         | lua files                  |
 | [editorconfig-checker][ec-link]                                                       | all files                  |
 | [goss][goss-link]                                                                     | etc files                  |
@@ -357,7 +357,7 @@ prefix is `C-j`
 | Category                      | Name                                                                                              |
 | :---------------------------- | :------------------------------------------------------------------------------------------------ |
 | Taskbar                       | [waybar][waybar-link]                                                                             |
-| Launcher                      | [bemenu][bemenu-link]                                                                             |
+| Launcher                      | [rofi-wayland][rofi-wayland-link]                                                                 |
 | Web Browser                   | [Firefox][firefox-link]                                                                           |
 | Password Manager              | [1Password][1password-link] + [Ente Auth][ente-auth-link]                                         |
 | VPN client                    | [NordVPN][nordvpn-link]                                                                           |
@@ -366,29 +366,41 @@ prefix is `C-j`
 | Audio player                  | [ncspot][ncspot-link]                                                                             |
 | Media player                  | [mpv][mpv-link]                                                                                   |
 | Cloud synchronization clients | [Tresorit][tresorit-link]                                                                         |
-| Screenshot                    | [grim][grim-link] + [slurp][slurp-link]                                                           |
+| Screenshot                    | [grimblast][grimblast-link]                                                                       |
 | Screen record                 | [wf-recorder][wf-recorder-link] + [slurp][slurp-link]                                             |
-| Notification                  | [mako][mako-link]                                                                                 |
+| Notification                  | [swaync][swaync-link]                                                                             |
 | Font                          | [Fira Code][firacode-link] + [NerdFontsSymbolsOnly][nerd-font-link] + [Noto Sans][noto-sans-link] |
 | GTK Theme                     | [Arc][arc-link]                                                                                   |
+| Overlay bar                   | [wob][wob-link]                                                                                   |
+| System information tool       | [fastfetch][fastfetch-link]                                                                       |
 
 [waybar-link]: https://github.com/Alexays/Waybar
-[bemenu-link]: https://github.com/Cloudef/bemenu
+[rofi-wayland-link]: https://github.com/lbonn/rofi
 [firefox-link]: https://www.mozilla.org/en-US/firefox/new/
 [proton-mail-link]: https://proton.me/mail/download
 [tresorit-link]: https://toresorit.com
 [ncspot-link]: https://github.com/hrkfdn/ncspot
 [mpv-link]: https://mpv.io/
-[grim-link]: https://sr.ht/~emersion/grim/
+[grimblast-link]: https://github.com/hyprwm/contrib/tree/main/grimblast
 [slurp-link]: https://github.com/emersion/slurp
 [wf-recorder-link]: https://github.com/ammen99/wf-recorder
-[mako-link]: https://github.com/emersion/mako
+[swaync-link]: https://github.com/ErikReider/SwayNotificationCenter
 [firacode-link]: https://github.com/tonsky/FiraCode
 [nerd-font-link]: https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/NerdFontsSymbolsOnly
 [noto-sans-link]: https://fonts.google.com/noto/specimen/Noto+Sans
 [arc-link]: https://github.com/jnsh/arc-theme
+[wob-link]: https://github.com/francma/wob
+[fastfetch-link]: https://github.com/fastfetch-cli/fastfetch
 
 ## Screenshots
+
+### rofi-wayland
+
+![rofi-wayland](./misc/screenshots/rofi-wayland.png)
+
+### wlogout
+
+![wlogout](./misc/screenshots/wlogout.png)
 
 ### waybar
 
