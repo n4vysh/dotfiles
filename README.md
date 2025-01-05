@@ -402,6 +402,10 @@ prefix is `C-j`
 
 ![wlogout](./misc/screenshots/wlogout.png)
 
+### swaync
+
+![swaync](./misc/screenshots/swaync.png)
+
 ### waybar
 
 ![waybar](./misc/screenshots/waybar.png)
