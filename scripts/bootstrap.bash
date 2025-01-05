@@ -472,9 +472,12 @@ _configure_without_privileged() {
 	_log::info 'Configure display manager'
 	sudo systemctl enable ly.service
 
-	_log::info 'Configure screen locker'
-	mkdir -p "$XDG_DATA_HOME/sway/"
-	convert "$dir/misc/lockscreen.svg" "$XDG_DATA_HOME/sway/lockscreen.png"
+	_log::info 'Configure window manager'
+	hyprpm update --no-shallow
+	hyprpm add https://github.com/outfoxxed/hy3
+	hyprpm add https://github.com/hyprwm/hyprland-plugins
+	hyprpm enable hy3
+	hyprpm enable hyprbars
 
 	# OOM-killer
 	_log::info 'Configure OOM-killer'
@@ -528,11 +531,11 @@ _configure_without_privileged() {
 	sudo systemctl enable --now keyd
 
 	_log::info 'Configure wallpaper'
-	mkdir -p "${XDG_DATA_HOME}/sway/"
+	mkdir -p "${XDG_DATA_HOME}/hypr/"
 	# https://www.pexels.com/photo/buildings-with-blue-light-747101/
 	curl \
 		'https://images.pexels.com/photos/747101/pexels-photo-747101.jpeg?dl&fit=crop&crop=entropy&w=1920&h=1280' \
-		>"${XDG_DATA_HOME}/sway/wallpaper.jpeg"
+		>"${XDG_DATA_HOME}/hypr/wallpaper.jpeg"
 
 	_log::info 'Configure bluetooth'
 	sudo gpasswd -a "$USER" lp
@@ -593,13 +596,13 @@ _configure_without_privileged() {
 	else
 		_log::warn "U2F PAM already set in /etc/pam.d/polkit-1 -- skipping"
 	fi
-	if ! sudo grep -q "pam_u2f.so" /etc/pam.d/swaylock; then
+	if ! sudo grep -q "pam_u2f.so" /etc/pam.d/hyprlock; then
 		sudo sed \
 			-i \
-			-e '/^auth include login$/i auth		sufficient		pam_u2f.so		cue		origin=pam:\/\/localhost		appid=pam:\/\/localhost' \
-			/etc/pam.d/swaylock
+			-e '/^auth        include     login$/i auth		sufficient		pam_u2f.so		cue		origin=pam:\/\/localhost		appid=pam:\/\/localhost' \
+			/etc/pam.d/hyprlock
 	else
-		_log::warn "U2F PAM already set in /etc/pam.d/swaylock -- skipping"
+		_log::warn "U2F PAM already set in /etc/pam.d/hyprlock -- skipping"
 	fi
 
 	_log::info 'Configure GNOME keyring'
@@ -620,15 +623,15 @@ _configure_without_privileged() {
 		}' /etc/pam.d/passwd
 
 	_log::info 'Setup nix'
-	if ! sudo grep -q "max-jobs = auto" /etc/nix/nix.conf; then
-		sudo tee -a /etc/nix/nix.conf <<<"max-jobs = auto" >/dev/null
-	else
-		_log::warn 'nix max-jobs already updated -- skipping'
-	fi
 	sudo gpasswd -a "$USER" nix-users
 	sudo systemctl enable --now nix-daemon.service
 	nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 	nix-channel --update
+	# initialize home-manager
+	# NOTE: do not use --switch option with init command as home.nix already exists
+	nix run home-manager/master -- init
+	# install home-manager binary
+	nix run home-manager/master -- switch
 
 	_log::info 'Install kubectl packages'
 	bash -c "yes | kubectl krew install $(

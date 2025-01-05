@@ -152,6 +152,7 @@ if status --is-interactive
     __fish_abbr_add_extend hlftpl helmfile template
     __fish_abbr_add_extend hlfts helmfile test
     __fish_abbr_add_extend hi hash-identifier
+    __fish_abbr_add_extend hp hyprpm
     __fish_abbr_add_extend ifm informant
     __fish_abbr_add_extend info info --vi-keys
     __fish_abbr_add_extend ip ip -c
@@ -258,6 +259,7 @@ if status --is-interactive
     __fish_abbr_add_extend milr mise ls-remote
     __fish_abbr_add_extend milt mise latest
     __fish_abbr_add_extend miplr mise plugins ls-remote
+    __fish_abbr_add_extend mit mise trust
     __fish_abbr_add_extend miu mise use
     __fish_abbr_add_extend miup mise use --pin
     __fish_abbr_add_extend sc systemctl

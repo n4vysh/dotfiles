@@ -7,6 +7,3 @@ goss = "latest"
 gotestsum = "latest"
 kyverno = "latest"
 usage = "latest"
-
-[alias]
-kyverno = "asdf:crainte/asdf-kyverno"

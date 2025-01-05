@@ -1,0 +1,10 @@
+[Unit]
+Description=Reload kanshi
+
+[Service]
+Type=oneshot
+ExecStart=kanshictl reload
+ExecStart=notify-send "Reloaded kanshi"
+
+[Install]
+WantedBy=multi-user.target

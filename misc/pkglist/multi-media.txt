@@ -8,6 +8,7 @@ extra/pipewire-alsa
 extra/pipewire-jack
 extra/pipewire-pulse
 extra/playerctl
+extra/pulsemixer
 extra/sound-theme-freedesktop
 extra/spotify-launcher
 extra/tesseract-data-eng

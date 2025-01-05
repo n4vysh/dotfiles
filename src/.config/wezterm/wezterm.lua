@@ -18,10 +18,7 @@ return {
 	enable_tab_bar = false,
 	window_background_opacity = 0.8,
 	use_ime = true,
-	-- sway does not support text-input-v3
-	-- https://wezfurlong.org/wezterm/config/lua/config/use_ime.html
-	-- https://github.com/swaywm/sway/pull/7226
-	enable_wayland = false,
+	enable_wayland = true,
 	check_for_updates = false,
 	window_close_confirmation = "NeverPrompt",
 }

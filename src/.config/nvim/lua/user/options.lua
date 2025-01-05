@@ -92,6 +92,8 @@ vim.filetype.add({
 		tfvars = "hcl",
 	},
 	pattern = {
+		[".*/.*%.rasi"] = "rasi",
+		[".*/%.config/hypr/.*%.conf"] = "hyprlang",
 		[".*/%.config/git/config%..*"] = "gitconfig",
 		[".*/%.config/swappy/config"] = "ini",
 		[".*/%.config/waybar/config"] = "json",
