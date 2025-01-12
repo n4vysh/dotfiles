@@ -204,35 +204,34 @@ _install() {
 	_log::info 'Configure hostname'
 	cp -fv /tmp/dotfiles/misc/etc/hostname /mnt/etc/
 
-	_log::info 'Configure initramfs'
-	# NOTE: 1. use systemd hook and remove fsck hook to hide fsck message
-	#       2. systemd support for emergency target, rescue target, and debug shell,
-	#       so remove busybox recovery shell of base hook
-	#       3. add lvm2, sd-vconsole, and sd-encrypt hook to use LVM on LUKS
-	#
-	#       https://wiki.archlinux.org/title/Fsck#Mechanism
-	#       https://wiki.archlinux.org/title/silent_boot#fsck
-	#       https://wiki.archlinux.org/title/mkinitcpio#Common_hooks
-	#       https://wiki.archlinux.org/title/dm-crypt/Encrypting_an_entire_system#Configuring_mkinitcpio_2
-	arch-chroot /mnt sed \
+	_log::info 'Configure Bootsplash'
+	cp -rfv /mnt/usr/share/plymouth/themes/{spinner,custom}
+	sed \
+		-e 's/#1793d1/#ffffff/g' \
+		-e '/<path d="m235/,/<path d="m239/d' \
+		/usr/share/pixmaps/archlinux-logo.svg |
+		arch-chroot /mnt magick -size 80x80 -background 'rgb(0,0,0)' - \
+			/mnt/usr/share/plymouth/themes/custom/watermark.png
+	mv /mnt/usr/share/plymouth/themes/custom/{spinner,custom}.plymouth
+	sed \
 		-i \
-		-E \
-		-e '/^HOOKS/s/base udev/systemd/' \
-		-e '/^HOOKS/s/keymap consolefont/sd-vconsole/' \
-		-e '/^HOOKS/s/(block) (filesystems)/\1 sd-encrypt lvm2 \2/' \
-		-e '/^HOOKS/s/(filesystems) fsck/\1/' \
-		/etc/mkinitcpio.conf
-	if ! grep -q "COMPRESSION='cat'" /mnt/etc/mkinitcpio.conf; then
-		echo "COMPRESSION='cat'" >>/mnt/etc/mkinitcpio.conf
-	else
-		_log::warn 'mkinitcpio compression already updated -- skipping'
-	fi
-	arch-chroot /mnt cp -v \
-		/usr/lib/systemd/system/systemd-fsck{@,-root}.service /etc/systemd/system
-	arch-chroot /mnt mkinitcpio -p linux-zen
+		-e '/^Name=/s/Spinner/Custom/' \
+		-e '/^Description/d' \
+		-e '/^Name\[.*\]/d' \
+		-e '/^ImageDir/s/spinner/custom/' \
+		-e '/^WatermarkVerticalAlignment/s/.96/.5/' \
+		/mnt/usr/share/plymouth/themes/custom/custom.plymouth
+	mkdir -p \
+		/mnt/etc/systemd/system/plymouth-quit.service.d/
+	xargs -I {} cp "$dir/misc/{}" /mnt/{} <<-EOF
+		etc/plymouth/plymouth.conf
+		etc/systemd/system/plymouth-quit.service.d/retain-splash.conf
+		etc/sysctl.d/20-quiet-printk.conf
+	EOF
+	cat <<-EOF | sudo tee /mnt/etc/issue >/dev/null
+		\S{PRETTY_NAME} \r (\l) $(setterm -cursor on -blink off) $(echo -e '\033[?16;0;224c')
 
-	_log::info 'Set the root password'
-	arch-chroot /mnt passwd
+	EOF
 
 	# NOTE: support for enrolling multiple FIDO2 tokens is currently limited
 	# https://man.archlinux.org/man/systemd-cryptenroll.1.en
@@ -254,6 +253,50 @@ _install() {
 		/mnt/etc/kernel/cmdline
 
 	_configure_secure_boot
+
+	_log::info 'Configure initramfs'
+	# NOTE: 1. use systemd hook and remove fsck hook to hide fsck message
+	#       2. use plymouth hook to show boot splash
+	#       3. add microcode hook after autodetect hook for release stability and security updates
+	#       4. systemd support for emergency target, rescue target, and debug shell,
+	#       so remove busybox recovery shell of base hook
+	#       5. add lvm2, sd-vconsole, and sd-encrypt hook to use LVM on LUKS
+	#
+	#       https://wiki.archlinux.org/title/Fsck#Mechanism
+	#       https://wiki.archlinux.org/title/silent_boot#fsck
+	#       https://wiki.archlinux.org/title/Plymouth#mkinitcpio
+	#       https://wiki.archlinux.org/title/mkinitcpio#Common_hooks
+	#       https://wiki.archlinux.org/title/dm-crypt/Encrypting_an_entire_system#Configuring_mkinitcpio_2
+	arch-chroot /mnt sed \
+		-i \
+		-E \
+		-e '/^HOOKS/s/base udev/systemd plymouth/' \
+		-e '/^HOOKS/s/autodetect modconf/autodetect microcode modconf/' \
+		-e '/^HOOKS/s/keymap consolefont/sd-vconsole/' \
+		-e '/^HOOKS/s/(block) (filesystems)/\1 sd-encrypt lvm2 \2/' \
+		-e '/^HOOKS/s/(filesystems) fsck/\1/' \
+		/etc/mkinitcpio.conf
+	if ! grep -q "COMPRESSION='cat'" /mnt/etc/mkinitcpio.conf; then
+		echo "COMPRESSION='cat'" >>/mnt/etc/mkinitcpio.conf
+	else
+		_log::warn 'mkinitcpio compression already updated -- skipping'
+	fi
+	arch-chroot /mnt sed \
+		-i \
+		-e '/^.*_image=/s/^/#/' \
+		-e '/^#.*_uki=/s/^#//' \
+		-e 's|/efi/EFI|/boot/EFI|g' \
+		/etc/mkinitcpio.d/linux-zen.preset
+	arch-chroot /mnt cp -v \
+		/usr/lib/systemd/system/systemd-fsck{@,-root}.service /etc/systemd/system
+	arch-chroot /mnt mkinitcpio -P
+
+	arch-chroot /mnt sbctl env ESP_PATH=/boot/efi verify
+	arch-chroot /mnt sbctl list-files
+	arch-chroot /mnt sbctl env ESP_PATH=/boot/efi list-bundles
+
+	_log::info 'Set the root password'
+	arch-chroot /mnt passwd
 
 	_log::info 'Configure network'
 	arch-chroot /mnt systemctl enable \
@@ -470,6 +513,10 @@ _configure_without_privileged() {
 
 	# Graphical User Interface
 	_log::info 'Configure display manager'
+	sudo sed \
+		-i \
+		-e '/^wayland_cmd/s|wsetup.sh|wsetup.sh >/dev/null|' \
+		/etc/ly/config.ini
 	sudo systemctl enable ly.service
 
 	_log::info 'Configure window manager'
@@ -890,19 +937,7 @@ _configure_secure_boot() {
 	arch-chroot /mnt sbctl enroll-keys --yes-this-might-brick-my-machine
 	arch-chroot /mnt sbctl status
 	arch-chroot /mnt sbctl sign -s /boot/EFI/BOOT/BOOTX64.EFI
-	# arch-chroot /mnt sbctl sign -s /boot/EFI/arch/fwupdx64.efi
 	arch-chroot /mnt sbctl sign -s /boot/EFI/systemd/systemd-bootx64.efi
-	# arch-chroot /mnt sbctl sign -s /usr/lib/fwupd/efi/fwupdx64.efi -o /usr/lib/fwupd/efi/fwupdx64.efi.signed
-	arch-chroot /mnt sbctl env ESP_PATH=/boot/efi verify
-	arch-chroot /mnt sbctl list-files
-	arch-chroot /mnt sbctl bundle \
-		-s \
-		-i /boot/intel-ucode.img \
-		-k /boot/vmlinuz-linux-zen \
-		-f /boot/initramfs-linux-zen.img \
-		/boot/EFI/Linux/linux-zen.efi
-	arch-chroot /mnt sbctl sign /boot/EFI/Linux/linux-zen.efi
-	arch-chroot /mnt sbctl env ESP_PATH=/boot/efi list-bundles
 }
 
 #######################################
