@@ -24,7 +24,6 @@ extra/firefox
 extra/gpg-tui
 extra/gptfdisk
 extra/hyperfine
-extra/imagemagick
 extra/intel-compute-runtime
 extra/irqbalance
 extra/libreoffice-fresh

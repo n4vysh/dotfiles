@@ -48,8 +48,20 @@ file:
     filetype: file
     # yamllint disable rule:line-length
     contents:
-      - "/^HOOKS=\\(systemd autodetect modconf kms keyboard sd-vconsole block sd-encrypt lvm2 filesystems\\)$/"
+      - "/^HOOKS=\\(systemd plymouth autodetect microcode modconf kms keyboard sd-vconsole block sd-encrypt lvm2 filesystems\\)$/"
       - "/^COMPRESSION=cat$/"
+      # yamllint enable rule:line-length
+  /etc/mkinitcpio.d/linux-zen.preset:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable rule:line-length
+    contents:
+      - "/^.*_uki=.*$/"
+      - "/^#.*_image=.*$/"
+      - "boot/EFI"
       # yamllint enable rule:line-length
   /etc/kernel/cmdline:
     exists: true
@@ -59,7 +71,53 @@ file:
     filetype: file
     contents:
       # yamllint disable rule:line-length
-      - "/^rd.luks.name=.*=cryptlvm rd.luks.options=.*=fido2-device=auto root=/dev/volume/root quiet ro loglevel=3 rd.systemd.show_status=false rd.udev.log-priority=3 nosgx mitigations=auto,nosmt modprobe.blacklist=iTCO_wdt$/"
+      - "/^rd.luks.name=.*=cryptlvm rd.luks.options=.*=fido2-device=auto root=/dev/volume/root quiet loglevel=0 systemd.show_status=false rd.udev.log_level=1 vt.global_cursor_default=0 fbcon=nodefer splash ro nosgx mitigations=auto,nosmt modprobe.blacklist=iTCO_wdt$/"
+      # yamllint enable rule:line-length
+  /etc/plymouth/plymouthd.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 0121c50c8ccaa42d3ff1ce6809bda099b0b260bc2c85aeb6a2f7a99c22c95f5fc924154e311a7db12dc65f1495054c93dcf9c54ae338d6c38d95b2523f9a9628
+  /etc/systemd/system/plymouth-quit.service.d/retain-splash.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: be5e631dc590a45b488aee58a6a8028864b406ce5f773ec3b0cb346b8d568b08b8d55e5314c990255b89448b12b6fe98d99acbab7b27f984432f78c10bdea83d
+  /etc/sysctl.d/20-quiet-printk.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: ff77e7ffd5f014fea86db7602309396b1f821ae2b587644d0338e077d58398931070c5fcbfd5600f456e39f8b2d8579f1561e4a5a9d6a8fe7c3dab7583fe77a6
+  /usr/share/plymouth/themes/custom/custom.plymouth:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    contents:
+      # yamllint disable rule:line-length
+      - "/^Name=Custom$/"
+      - "/^ImageDir=/usr/share/plymouth/themes//custom$/"
+      - "/^WatermarkVerticalAlignment=.5$/"
+      # yamllint enable rule:line-length
+  /etc/ly/config.ini:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    contents:
+      # yamllint disable rule:line-length
+      - "/^wayland_cmd = /etc/ly/wsetup.sh >/dev/null$/"
       # yamllint enable rule:line-length
   /etc/resolv.conf:
     exists: true

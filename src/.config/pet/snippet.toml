@@ -180,7 +180,7 @@
 
 [[snippets]]
   description = "regenerate and sign initramfs"
-  command = "sudo mkinitcpio -p linux-zen && sudo sbctl generate-bundles && sudo sbctl sign /boot/EFI/Linux/linux-zen.efi && sudo sbctl verify"
+  command = "sudo mkinitcpio -P"
   tag = ["misc"]
   output = ""
 
