@@ -253,14 +253,6 @@ file:
     filetype: file
     # yamllint disable-line rule:line-length
     sha512: 9fc9db894e25b2c6eb14d3bb268823449c80b0f469b1a511d8adfe9fbad23f070759fc33fa9280463d3569710b0122036c2bf58b836258778f7b7de2c42c6e89
-  /etc/systemd/system/systemd-networkd-wait-online.service.d/wait-for-only-one-interface.conf:
-    exists: true
-    mode: "0644"
-    owner: root
-    group: root
-    filetype: file
-    # yamllint disable-line rule:line-length
-    sha512: 820fb42af2e5b15c730680ef16a1ec148cfcee2ac858c0b84cff5c24ca1eb91544269dab0a3e93b480435034009f2e02b3406410c825a0cdd153951330572368
   /etc/systemd/system/display-manager.service.d/color.conf:
     exists: true
     mode: "0644"

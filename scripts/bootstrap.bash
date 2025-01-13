@@ -163,7 +163,6 @@ _install() {
 		/mnt/etc/systemd/resolved.conf.d/ \
 		/mnt/etc/systemd/system/systemd-fsck-root.service.d/ \
 		/mnt/etc/systemd/system/systemd-fsck@.service.d/ \
-		/mnt/etc/systemd/system/systemd-networkd-wait-online.service.d/ \
 		/mnt/etc/systemd/system/display-manager.service.d/
 	xargs -I {} cp -v "$dir/misc/{}" /mnt/{} <<-EOF
 		etc/iwd/main.conf
@@ -172,7 +171,6 @@ _install() {
 		etc/systemd/resolved.conf.d/dns_servers.conf
 		etc/systemd/system/systemd-fsck-root.service.d/io.conf
 		etc/systemd/system/systemd-fsck@.service.d/io.conf
-		etc/systemd/system/systemd-networkd-wait-online.service.d/wait-for-only-one-interface.conf
 		etc/systemd/system/display-manager.service.d/color.conf
 		etc/systemd/system/rkhunter.service
 		etc/systemd/system/rkhunter.timer
@@ -289,6 +287,8 @@ _install() {
 		systemd-resolved.service \
 		iwd.service \
 		reflector.timer
+	arch-chroot /mnt systemctl mask \
+		systemd-networkd-wait-online.service
 
 	_log::info 'Configure the regulatory domain'
 	arch-chroot /mnt sed \
