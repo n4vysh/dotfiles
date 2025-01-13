@@ -82,7 +82,7 @@ file:
     group: root
     filetype: file
     # yamllint disable-line rule:line-length
-    sha512: f0af0b1f1c325dce445b2e74a6750fe0a4758ac0d29e7118e867889d7e82137081fb2135d1a1e9d58afe1384ad499a4344a92bf400bb9a9d9eb6e0edbdaadeb1
+    sha512: ff77e7ffd5f014fea86db7602309396b1f821ae2b587644d0338e077d58398931070c5fcbfd5600f456e39f8b2d8579f1561e4a5a9d6a8fe7c3dab7583fe77a6
   /etc/ly/config.ini:
     exists: true
     mode: "0644"
