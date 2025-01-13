@@ -1,1 +1,1 @@
-rd.luks.name={UUID}=cryptlvm rd.luks.options={UUID}=fido2-device=auto root=/dev/volume/root quiet loglevel=0 systemd.show_status=false rd.udev.log_level=1 vt.global_cursor_default=0 fbcon=nodefer splash ro nosgx mitigations=auto,nosmt modprobe.blacklist=iTCO_wdt
+rd.luks.name={UUID}=cryptlvm rd.luks.options={UUID}=fido2-device=auto root=/dev/volume/root quiet loglevel=0 systemd.show_status=false rd.udev.log_level=1 vt.global_cursor_default=0 fbcon=nodefer ro nosgx mitigations=auto,nosmt modprobe.blacklist=iTCO_wdt

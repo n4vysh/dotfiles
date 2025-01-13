@@ -13,7 +13,6 @@ extra/libfido2
 extra/linux-zen
 extra/neovim
 extra/pacman-contrib
-extra/plymouth
 extra/reflector
 extra/sbctl
 extra/tmux
