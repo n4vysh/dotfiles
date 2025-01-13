@@ -205,27 +205,13 @@ _install() {
 	cp -fv /tmp/dotfiles/misc/etc/hostname /mnt/etc/
 
 	_log::info 'Configure Bootsplash'
-	cp -rfv /mnt/usr/share/plymouth/themes/{spinner,custom}
 	sed \
 		-e 's/#1793d1/#ffffff/g' \
 		-e '/<path d="m235/,/<path d="m239/d' \
 		/usr/share/pixmaps/archlinux-logo.svg |
 		arch-chroot /mnt magick -size 80x80 -background 'rgb(0,0,0)' - \
-			/mnt/usr/share/plymouth/themes/custom/watermark.png
-	mv /mnt/usr/share/plymouth/themes/custom/{spinner,custom}.plymouth
-	sed \
-		-i \
-		-e '/^Name=/s/Spinner/Custom/' \
-		-e '/^Description/d' \
-		-e '/^Name\[.*\]/d' \
-		-e '/^ImageDir/s/spinner/custom/' \
-		-e '/^WatermarkVerticalAlignment/s/.96/.5/' \
-		/mnt/usr/share/plymouth/themes/custom/custom.plymouth
-	mkdir -p \
-		/mnt/etc/systemd/system/plymouth-quit.service.d/
+			/usr/share/systemd/bootctl/splash-arch-custom.bmp
 	xargs -I {} cp "$dir/misc/{}" /mnt/{} <<-EOF
-		etc/plymouth/plymouth.conf
-		etc/systemd/system/plymouth-quit.service.d/retain-splash.conf
 		etc/sysctl.d/20-quiet-printk.conf
 	EOF
 	cat <<-EOF | sudo tee /mnt/etc/issue >/dev/null
@@ -256,21 +242,19 @@ _install() {
 
 	_log::info 'Configure initramfs'
 	# NOTE: 1. use systemd hook and remove fsck hook to hide fsck message
-	#       2. use plymouth hook to show boot splash
-	#       3. add microcode hook after autodetect hook for release stability and security updates
-	#       4. systemd support for emergency target, rescue target, and debug shell,
+	#       2. add microcode hook after autodetect hook for release stability and security updates
+	#       3. systemd support for emergency target, rescue target, and debug shell,
 	#       so remove busybox recovery shell of base hook
-	#       5. add lvm2, sd-vconsole, and sd-encrypt hook to use LVM on LUKS
+	#       4. add lvm2, sd-vconsole, and sd-encrypt hook to use LVM on LUKS
 	#
 	#       https://wiki.archlinux.org/title/Fsck#Mechanism
 	#       https://wiki.archlinux.org/title/silent_boot#fsck
-	#       https://wiki.archlinux.org/title/Plymouth#mkinitcpio
 	#       https://wiki.archlinux.org/title/mkinitcpio#Common_hooks
 	#       https://wiki.archlinux.org/title/dm-crypt/Encrypting_an_entire_system#Configuring_mkinitcpio_2
 	arch-chroot /mnt sed \
 		-i \
 		-E \
-		-e '/^HOOKS/s/base udev/systemd plymouth/' \
+		-e '/^HOOKS/s/base udev/systemd/' \
 		-e '/^HOOKS/s/autodetect modconf/autodetect microcode modconf/' \
 		-e '/^HOOKS/s/keymap consolefont/sd-vconsole/' \
 		-e '/^HOOKS/s/(block) (filesystems)/\1 sd-encrypt lvm2 \2/' \
@@ -286,6 +270,8 @@ _install() {
 		-e '/^.*_image=/s/^/#/' \
 		-e '/^#.*_uki=/s/^#//' \
 		-e 's|/efi/EFI|/boot/EFI|g' \
+		-e '/^#default_options=/s/^#//' \
+		-e 's/splash-arch.bmp/splash-arch-custom.bmp/g' \
 		/etc/mkinitcpio.d/linux-zen.preset
 	arch-chroot /mnt cp -v \
 		/usr/lib/systemd/system/systemd-fsck{@,-root}.service /etc/systemd/system
@@ -293,7 +279,6 @@ _install() {
 
 	arch-chroot /mnt sbctl env ESP_PATH=/boot/efi verify
 	arch-chroot /mnt sbctl list-files
-	arch-chroot /mnt sbctl env ESP_PATH=/boot/efi list-bundles
 
 	_log::info 'Set the root password'
 	arch-chroot /mnt passwd
