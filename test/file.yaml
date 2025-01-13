@@ -82,7 +82,7 @@ file:
     group: root
     filetype: file
     # yamllint disable-line rule:line-length
-    sha512: ff77e7ffd5f014fea86db7602309396b1f821ae2b587644d0338e077d58398931070c5fcbfd5600f456e39f8b2d8579f1561e4a5a9d6a8fe7c3dab7583fe77a6
+    sha512: f0af0b1f1c325dce445b2e74a6750fe0a4758ac0d29e7118e867889d7e82137081fb2135d1a1e9d58afe1384ad499a4344a92bf400bb9a9d9eb6e0edbdaadeb1
   /etc/ly/config.ini:
     exists: true
     mode: "0644"
@@ -148,7 +148,7 @@ file:
     group: root
     filetype: file
     # yamllint disable-line rule:line-length
-    sha512: 336aaa7f2c51a72867a1254b63a38a9ece7cc73d85f107d2534d8e2dfedbf8a9625f5e131302830ff3aa1303bc87dd79cfdf9acfc0e505de3afca21e071be6f6
+    sha512: 4f10f91dc1e43ab3f3ed9acbb8eaa7a02cd2dcb9439c364207a34cc95feef9fd36eafc7d4182086fa90fbf370a2cf93db8bff6aca376b50ca973fcafb8218458
   /etc/systemd/resolved.conf.d/dns_servers.conf:
     exists: true
     mode: "0644"
