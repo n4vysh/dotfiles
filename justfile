@@ -60,3 +60,15 @@ test-in-container:
 
 build:
     docker build -t n4vysh/dotfiles --progress=plain .
+
+capture:
+    sudo fbgrab -c 2 misc/screenshots/login_screen.png
+
+create:
+    magick \
+        -size 1920x1080 \
+        xc:black \
+        /usr/share/systemd/bootctl/splash-arch-custom.bmp \
+        -gravity center \
+        -composite \
+        misc/screenshots/bootsplash.png
