@@ -140,7 +140,7 @@ file:
     group: root
     filetype: file
     # yamllint disable-line rule:line-length
-    sha512: d0f9efb15f098b6fab7f5c0ab2f9d3e22edcdb3956301660295b606e33794f8743bb7c8f9f20ccec37d7f899d4ed6be908e152546b85bb9e85377d5983ef4a15
+    sha512: f0af0b1f1c325dce445b2e74a6750fe0a4758ac0d29e7118e867889d7e82137081fb2135d1a1e9d58afe1384ad499a4344a92bf400bb9a9d9eb6e0edbdaadeb1
   /etc/systemd/network/25-wireless.network:
     exists: true
     mode: "0644"
