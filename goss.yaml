@@ -3,7 +3,6 @@ gossfile:
   test/service.yaml: {}
   test/templates/command.yaml: {}
   test/group.yaml: {}
-  test/interface.yaml: {}
   test/mount.yaml: {}
   test/file.yaml: {}
   test/templates/file.yaml: {}
