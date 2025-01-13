@@ -500,7 +500,9 @@ _configure_without_privileged() {
 	_log::info 'Configure display manager'
 	sudo sed \
 		-i \
-		-e '/^wayland_cmd/s|wsetup.sh|wsetup.sh >/dev/null|' \
+		-e '/^clock =/s/null/%a, %b %d %H:%M/' \
+		-e '/^hide_key_hints =/s/false/true/' \
+		-e '/^wayland_cmd/s|wsetup.sh$|wsetup.sh >/dev/null|' \
 		/etc/ly/config.ini
 	sudo systemctl enable ly.service
 
