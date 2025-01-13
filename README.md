@@ -2,13 +2,19 @@
 
 ![overview][overview-link]
 
-| No window                   | Lockscreen                     |
-| :-------------------------- | :----------------------------- |
-| ![no window][nowindow-link] | ![lockscreen][lockscreen-link] |
+| Bootsplash                          | Login screen                       |
+| :---------------------------------- | :--------------------------------- |
+| ![bootsplash-link][bootsplash-link] | ![login-screen][login-screen-link] |
+
+| No window                   | Lock screen                      |
+| :-------------------------- | :------------------------------- |
+| ![no window][nowindow-link] | ![lock-screen][lock-screen-link] |
 
 [overview-link]: ./misc/screenshots/overview.png
+[bootsplash-link]: ./misc/screenshots/bootsplash.png
+[login-screen-link]: ./misc/screenshots/login_screen.png
 [nowindow-link]: ./misc/screenshots/no_window.png
-[lockscreen-link]: ./misc/screenshots/lockscreen.png
+[lock-screen-link]: ./misc/screenshots/lock_screen.png
 
 - Distro: [Arch Linux][archlinux-link]
 - Display Manager: [ly][ly-link]
