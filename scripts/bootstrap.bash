@@ -588,7 +588,8 @@ _configure_without_privileged() {
 	sudo gpasswd -a "$USER" lock
 
 	_log::info 'Configure virtualization'
-	sudo systemctl enable --now docker
+	# NOTE: make faster startup time to use docker.socket instead of docker.service
+	sudo systemctl enable docker.socket
 	sudo gpasswd -a "$USER" docker
 	dir=$HOME/.docker/
 	[[ ! -d $dir ]] && mkdir "$dir"

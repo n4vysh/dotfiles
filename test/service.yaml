@@ -35,9 +35,8 @@ service:
       or:
         - true
         - false
-  docker.service:
+  docker.socket:
     enabled: true
-    running: true
   systemd-timesyncd.service:
     enabled: true
     running: true
