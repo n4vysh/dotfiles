@@ -3,9 +3,12 @@ Name=enp*
 
 [Network]
 DHCP=yes
-DNS=1.1.1.1#cloudflare-dns.com 2606:4700:4700::1111#cloudflare-dns.com 9.9.9.9#dns.quad9.net 8.8.8.8#dns.google 2620:fe::9#dns.quad9.net 2001:4860:4860::8888#dns.google
-DNSSEC=true
-DNSOverTLS=true
+# NOTE: avoid `Temporary failure in name resolution` for nordvpnd
+# NordVPN DNS server = 103.86.96.100, 103.86.99.100
+DNS=103.86.96.100 103.86.99.100 1.1.1.1#cloudflare-dns.com 2606:4700:4700::1111#cloudflare-dns.com 9.9.9.9#dns.quad9.net 8.8.8.8#dns.google 2620:fe::9#dns.quad9.net 2001:4860:4860::8888#dns.google
+# NOTE: NordVPN DNS server not support DNSSEC and DoT
+DNSSEC=allow-downgrade
+DNSOverTLS=false
 
 [DHCPv4]
 UseDNS=false
