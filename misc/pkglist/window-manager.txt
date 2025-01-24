@@ -1,4 +1,3 @@
-aur/hyprsunset
 aur/xdg-ninja
 chaotic-aur/wlogout
 extra/brightnessctl
@@ -10,6 +9,7 @@ extra/hyprland
 extra/hyprlock
 extra/hyprpaper
 extra/hyprpicker
+extra/hyprsunset
 extra/kanshi
 extra/keyd
 extra/ly
