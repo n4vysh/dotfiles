@@ -3,7 +3,6 @@ aur/ente-desktop-bin
 aur/espanso-wayland-git
 aur/firefox-tridactyl-native-bin
 aur/sysz
-chaotic-aur/upd72020x-fw
 core/dosfstools
 core/man-db
 core/man-pages
