@@ -508,8 +508,8 @@ _configure_without_privileged() {
 
 	_log::info 'Configure window manager'
 	hyprpm update --no-shallow
-	hyprpm add https://github.com/outfoxxed/hy3
-	hyprpm add https://github.com/hyprwm/hyprland-plugins
+	yes | hyprpm add https://github.com/outfoxxed/hy3
+	yes | hyprpm add https://github.com/hyprwm/hyprland-plugins
 	hyprpm enable hy3
 	hyprpm enable hyprbars
 
