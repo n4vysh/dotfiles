@@ -226,3 +226,9 @@
   Output = ""
   Tag = ["misc"]
   command = "cd $(read url; ghq get \"$url\"; ghq list -p \"$url\")"
+
+[[Snippets]]
+  Description = "Get log of hyprland session"
+  Output = ""
+  Tag = ["misc"]
+  command = "cat $XDG_RUNTIME_DIR/hypr/$(command ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 1)/hyprland.log"
