@@ -32,7 +32,7 @@ aur/nodejs-cz-conventional-changelog
 aur/nodejs-jsonlint
 aur/nodejs-nestjs-cli
 aur/opa
-aur/pet-bin
+aur/pet-git
 aur/pluto-bin
 aur/redocly
 aur/snyk
