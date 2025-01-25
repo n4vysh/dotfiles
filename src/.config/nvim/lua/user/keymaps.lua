@@ -41,11 +41,6 @@ vim.keymap.set({ "o", "x" }, "a<space>", "aW", {
 	desc = nil,
 })
 
-vim.keymap.set({ "v" }, "v", "V", {
-	silent = true,
-	desc = nil,
-})
-
 vim.keymap.set("n", "<C-s>", "<cmd>write<CR>", {
 	silent = true,
 	desc = "Save the current file",
@@ -141,7 +136,7 @@ vim.keymap.set("v", "g?", [[<ESC>?\%V]], {
 	desc = "Search backward in the range",
 })
 
--- keymaps using the g like helix
+-- keymaps like helix
 vim.keymap.set({ "n", "v", "o" }, "ge", "G", {
 	silent = true,
 	desc = "Goto last line",
@@ -165,6 +160,11 @@ vim.keymap.set({ "v" }, "gl", "$h", {
 vim.keymap.set({ "n", "v", "o" }, "gs", "^", {
 	silent = true,
 	desc = "Goto first non-blank in line",
+})
+
+vim.keymap.set({ "v" }, "x", "V", {
+	silent = true,
+	desc = nil,
 })
 
 -- keymaps like VS Code
