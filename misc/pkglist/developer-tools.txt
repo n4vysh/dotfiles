@@ -24,7 +24,6 @@ aur/kube-score-bin
 aur/kubecolor
 aur/kubescape-bin
 aur/kubeval-bin
-aur/lab-bin
 aur/lefthook-bin
 aur/mermaid-cli
 aur/nodejs-commitizen
