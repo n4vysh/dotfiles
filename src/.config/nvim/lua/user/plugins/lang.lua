@@ -333,7 +333,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"bashls", -- NOTE: require shellcheck for linting from bashls
-					"bufls",
+					"buf_ls",
 					"cssls",
 					"docker_compose_language_service",
 					"dockerls",
