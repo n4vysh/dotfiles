@@ -272,10 +272,7 @@ return {
 						})
 					end
 
-					if
-						client.name == "lua_ls"
-						or client.name == "terraformls"
-					then
+					if client.name == "lua_ls" then
 						client.server_capabilities.signatureHelpProvider = false
 						client.server_capabilities.documentFormattingProvider =
 							false
