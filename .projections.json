@@ -1,11 +1,11 @@
 {
-  "README.md": { "type": "doc" },
-  "docs/*.md": { "type": "doc" },
-  "justfile": { "type": "runner" },
-  "src/.config/fish/usr/functions/*.fish": {
-    "alternate": "src/.config/fish/tests/functions/{}.fish"
+  "README.md": {
+    "type": "doc"
   },
-  "src/.config/fish/tests/functions/*.fish": {
-    "alternate": "src/.config/fish/usr/functions/{}.fish"
+  "docs/*.md": {
+    "type": "doc"
+  },
+  "justfile": {
+    "type": "runner"
   }
 }

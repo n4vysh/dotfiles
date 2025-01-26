@@ -15,4 +15,6 @@ extra/neovim
 extra/pacman-contrib
 extra/reflector
 extra/sbctl
+extra/sheldon
 extra/tmux
+extra/zsh

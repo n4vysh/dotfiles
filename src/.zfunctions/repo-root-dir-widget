@@ -1,0 +1,2 @@
+BUFFER='cd "$(git rev-parse --show-toplevel)"'
+zle accept-line

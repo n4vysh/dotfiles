@@ -629,7 +629,6 @@ return {
 						filetypes = { "sql", "mysql" },
 					}),
 					null_ls.builtins.formatting.just,
-					null_ls.builtins.formatting.fish_indent,
 					null_ls.builtins.diagnostics.markdownlint_cli2,
 					null_ls.builtins.formatting.shellharden.with({
 						filetypes = { "sh", "direnv" },
@@ -668,7 +667,6 @@ return {
 					null_ls.builtins.formatting.yamlfmt,
 					null_ls.builtins.diagnostics.zsh,
 					null_ls.builtins.diagnostics.todo_comments,
-					null_ls.builtins.diagnostics.fish,
 					null_ls.builtins.diagnostics.statix,
 					null_ls.builtins.diagnostics.deadnix,
 					-- NOTE: terraform-ls is slow

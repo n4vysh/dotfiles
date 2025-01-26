@@ -19,7 +19,7 @@
 - Distro: [Arch Linux][archlinux-link]
 - Display Manager: [ly][ly-link]
 - Window Manager: [Hyprland][hyprland-link]
-- Shell: [Zsh][zsh-link] + [fish][fish-link]
+- Shell: [Zsh][zsh-link]
 - Editor: [Neovim][neovim-link]
 - File Manager: [nnn][nnn-link]
 - Terminal Multiplexer: [Tmux][tmux-link]
@@ -31,7 +31,6 @@
 [ly-link]: https://github.com/fairyglade/ly
 [hyprland-link]: https://hyprland.org/
 [zsh-link]: https://www.zsh.org/
-[fish-link]: https://fishshell.com/
 [neovim-link]: https://neovim.io/
 [wezterm-link]: https://wezfurlong.org/wezterm/
 [tmux-link]: https://github.com/tmux/tmux
@@ -89,7 +88,7 @@
 - Block incoming connections without allowed with [ufw][ufw-link]
 - Detect rootkit and package vulnerabilities with [rkhunter][rkhunter-link] and [arch-audit][arch-audit-link]
 - Support Onion over VPN with [Tor Browser][tor-browser-link] and [NordVPN][nordvpn-link]
-- Command abbreviation and snippets for pentesting with [fish][fish-link] and [pet][pet-link]
+- Command abbreviation and snippets for pentesting with [zsh][zsh-link] and [pet][pet-link]
 - Available a large amount of cyber security tools with [BlackArch repository][blackarch-link]
 - Ergonomic keybinds with
   [XKB][xkb-link], [Interception Tools][interception-tools-link], and [QMK][qmk-link]
@@ -239,7 +238,6 @@ Run `just test` to lint and format the source code with
 | [shfmt][shfmt-link] + [shellharden][shellharden-link] + [shellcheck][shellcheck-link] | shell scripts              |
 | [commitlint][commitlint-link]                                                         | commit messages            |
 | zsh --no-exec                                                                         | zsh files                  |
-| fish --no-exec + fish_indent + [fishtape][fishtape-link]                              | fish files                 |
 | hyprctl configerrors                                                                  | hyprland config file       |
 | [selene][selene-link] + [stylua][stylua-link]                                         | lua files                  |
 | [editorconfig-checker][ec-link]                                                       | all files                  |
@@ -255,7 +253,6 @@ Run `just test` to lint and format the source code with
 [shellharden-link]: https://github.com/anordal/shellharden
 [shellcheck-link]: https://www.shellcheck.net/
 [commitlint-link]: https://commitlint.js.org/#/
-[fishtape-link]: https://github.com/jorgebucaran/fishtape
 [selene-link]: https://github.com/Kampfkarren/selene
 [stylua-link]: https://github.com/JohnnyMorganz/StyLua
 [ec-link]: https://github.com/editorconfig-checker/editorconfig-checker
@@ -419,10 +416,6 @@ prefix is `C-j`
 If rkhunter or arch-audit found some problem, show following.
 
 ![waybar security check](./misc/screenshots/waybar_security_check.png)
-
-### [starship](https://github.com/starship/starship)
-
-![starship](./misc/screenshots/starship.png)
 
 ### nvim
 
