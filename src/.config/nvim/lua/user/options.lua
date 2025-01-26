@@ -8,6 +8,7 @@ local options = {
 	tabstop = 2,
 	softtabstop = -1,
 	shiftwidth = 0,
+	expandtab = true,
 	-- appearance
 	splitbelow = true,
 	splitright = true,
