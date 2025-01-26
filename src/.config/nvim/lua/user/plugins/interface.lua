@@ -31,7 +31,8 @@ return {
 				notify(table.concat(print_safe_args, " "), "info")
 			end
 			notify.setup({
-				render = "wrapped-compact",
+				render = "wrapped-default",
+				max_width = "40",
 			})
 		end,
 		dependencies = {
