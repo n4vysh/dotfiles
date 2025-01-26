@@ -245,6 +245,43 @@ F13 & i::
 	}
 }
 
+IsPowerMenu := false
+
+#HotIf !IsPowerMenu
+	F13 & e::
+	{
+		global IsPowerMenu
+		if GetKeyState("Shift") {
+			IsPowerMenu := true
+		}
+	}
+#HotIf IsPowerMenu
+	e::
+	{
+		global IsPowerMenu
+		if ! GetKeyState("Shift") {
+			Shutdown 0
+			IsPowerMenu := false
+		}
+	}
+	s::
+	{
+		global IsPowerMenu
+		if ! GetKeyState("Shift") {
+			Shutdown 9
+			IsPowerMenu := false
+		}
+	}
+	r::
+	{
+		global IsPowerMenu
+		if ! GetKeyState("Shift") {
+			Shutdown 2
+			IsPowerMenu := false
+		}
+	}
+#HotIf
+
 IsScreenShot := false
 
 #HotIf !IsScreenShot
@@ -294,13 +331,6 @@ IsScreenRecord := false
 		}
 	}
 #HotIf
-
-F13 & x::
-{
-	if ! GetKeyState("Shift") {
-		Send "#x"
-	}
-}
 
 IsLauncher := false
 
