@@ -1,0 +1,2 @@
+BUFFER='bluetuith'
+zle accept-line

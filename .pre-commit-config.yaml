@@ -65,11 +65,6 @@ repos:
         language: system
         entry: zsh --no-exec
         types: [zsh]
-      - id: fish-no-exec
-        name: check fish files with --no-exec option of fish
-        language: system
-        entry: fish --no-exec
-        types: [fish]
       - id: hyprland
         name: check config of hyprland with hyprland configerrors option
         language: system
@@ -111,11 +106,6 @@ repos:
         entry: just --fmt --unstable
         files: justfile$
         pass_filenames: false
-      - id: fish_indent
-        name: format fish files with fish_indent
-        language: system
-        entry: fish_indent -w
-        types: [fish]
       - id: stylua
         name: format lua files with stylua
         language: system
@@ -152,13 +142,6 @@ repos:
         language: system
         entry: |
           sh -c 'sudo $(mise which goss) -g ./goss_privileged.yaml validate'
-        pass_filenames: false
-      - id: fishtape
-        name: test fish functions
-        language: system
-        entry: fishtape
-        args: [src/.config/fish/tests/functions/*]
-        files: .config/fish/{usr,tests}/functions/.*\.fish$
         pass_filenames: false
       - id: commitlint
         name: check commit message with commitlint

@@ -67,7 +67,6 @@ extra/editorconfig-checker
 extra/eslint
 extra/eza
 extra/fd
-extra/fish
 extra/fluxcd
 extra/fx
 extra/fzf
@@ -130,7 +129,6 @@ extra/silicon
 extra/skaffold
 extra/sops
 extra/sqlfluff
-extra/starship
 extra/stern
 extra/stow
 extra/stylelint
@@ -158,4 +156,3 @@ extra/yaegi
 extra/yamlfmt
 extra/yamllint
 extra/zoxide
-extra/zsh

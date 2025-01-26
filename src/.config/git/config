@@ -55,7 +55,7 @@
 	root = ~/Workspaces/
 
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+	pushInsteadOf = https://github.com/
 
 [diff "sopsdiffer"]
 	# NOTE: disable .sops.yaml for git diff

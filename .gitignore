@@ -5,10 +5,6 @@ src/.msf4/*
 !src/.msf4/config
 src/.config/direnv/allow/
 src/.config/direnv/lib/use_mise.sh
-src/.config/fish/completions/*
-src/.config/fish/conf.d/*
-src/.config/fish/fish_variables
-src/.config/fish/functions/*
 src/.config/gh/hosts.yml
 src/.config/git/config.local
 src/.config/git/templates/hooks/*
@@ -31,3 +27,4 @@ goss-vars.yaml
 src/.config/calcure/events.csv
 src/.config/calcure/info.log
 src/.config/calcure/tasks.csv
+*.zwc
