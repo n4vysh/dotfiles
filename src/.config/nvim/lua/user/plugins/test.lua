@@ -46,6 +46,14 @@ return {
 				desc = "Debug test",
 			},
 			{
+				"<space>tl",
+				function()
+					require("neotest").run.run_last()
+				end,
+				silent = true,
+				desc = "Run last test",
+			},
+			{
 				"<space>tt",
 				function()
 					require("neotest").run.run()
