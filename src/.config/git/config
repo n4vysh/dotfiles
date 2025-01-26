@@ -58,7 +58,9 @@
 	insteadOf = https://github.com/
 
 [diff "sopsdiffer"]
-	textconv = sops -d
+	# NOTE: disable .sops.yaml for git diff
+	# https://github.com/getsops/sops/issues/959#issuecomment-967164568
+	textconv = sops -d --config /dev/null
 
 [include]
 	path = ~/.config/git/config.local
