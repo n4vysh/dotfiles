@@ -1,5 +1,4 @@
 aur/adr-tools
-aur/aicommits
 aur/amazon-ecr-credential-helper
 aur/calcure
 aur/chart-testing
