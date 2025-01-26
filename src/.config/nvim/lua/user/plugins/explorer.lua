@@ -26,6 +26,9 @@ return {
 					enable = false,
 				},
 			},
+			sort = {
+				sorter = "case_sensitive",
+			},
 			filters = {
 				git_ignored = false,
 			},
