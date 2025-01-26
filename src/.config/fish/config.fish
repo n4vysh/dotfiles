@@ -106,6 +106,7 @@ if status --is-interactive
     __fish_abbr_add_extend dcre docker compose restart
     __fish_abbr_add_extend dcru docker compose run
     __fish_abbr_add_extend dcu docker compose up
+    __fish_abbr_add_extend dcud docker compose up -d
     __fish_abbr_add_extend dcw docker compose watch
     __fish_abbr_add_extend de direnv
     __fish_abbr_add_extend dea direnv allow
