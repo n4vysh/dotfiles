@@ -21,6 +21,16 @@ vim.keymap.set(
 	}
 )
 
+vim.keymap.set("n", "<C-i>", "<C-i>zz", {
+	silent = true,
+	desc = nil,
+})
+
+vim.keymap.set("n", "<C-o>", "<C-o>zz", {
+	silent = true,
+	desc = nil,
+})
+
 vim.keymap.set({ "i" }, "<C-r><C-r>", "<C-r>+", {
 	silent = true,
 	desc = nil,
