@@ -99,6 +99,8 @@ vim.filetype.add({
 		[".*/%.config/swappy/config"] = "ini",
 		[".*/%.config/waybar/config"] = "json",
 		[".*/%.config/yamllint/config"] = "yaml",
+		[".*/helmfile.d/.*%.ya?ml"] = "helm",
+		[".*/helmfile.d/.*/.*%.ya?ml"] = "helm",
 		-- for sudoedit
 		["/var/tmp/passwd%..*"] = "passwd",
 		["/var/tmp/shadow%..*"] = "passwd",
