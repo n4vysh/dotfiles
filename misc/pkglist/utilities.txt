@@ -1,4 +1,3 @@
-aur/ente-cli-bin
 aur/ente-desktop-bin
 aur/espanso-wayland-git
 aur/firefox-tridactyl-native-bin
