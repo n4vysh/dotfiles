@@ -62,5 +62,8 @@
 	# https://github.com/getsops/sops/issues/959#issuecomment-967164568
 	textconv = sops -d --config /dev/null
 
+[advice]
+	detachedHead = false
+
 [include]
 	path = ~/.config/git/config.local
