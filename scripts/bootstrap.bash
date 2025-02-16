@@ -371,7 +371,8 @@ _configure_without_privileged() {
 	chmod +x /tmp/strap.sh
 	sudo /tmp/strap.sh
 
-	sudo cp /etc/pacman.d/blackarch-mirrorlist{,.bak}
+	test -f /etc/pacman.d/blackarch-mirrorlist.bak ||
+		sudo cp /etc/pacman.d/blackarch-mirrorlist{,.bak}
 	sudo sed -i -e 's/^#Server/Server/' /etc/pacman.d/blackarch-mirrorlist.bak
 	rankmirrors -n 5 -p -r blackarch /etc/pacman.d/blackarch-mirrorlist.bak |
 		sudo tee /etc/pacman.d/blackarch-mirrorlist >/dev/null
