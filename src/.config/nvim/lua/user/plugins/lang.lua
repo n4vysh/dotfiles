@@ -612,15 +612,6 @@ return {
 					null_ls.builtins.diagnostics.editorconfig_checker,
 					null_ls.builtins.formatting.rego,
 					null_ls.builtins.diagnostics.opacheck,
-					null_ls.builtins.diagnostics.semgrep.with({
-						args = {
-							"-q",
-							"--json",
-							"--config",
-							"auto",
-							"$FILENAME",
-						},
-					}),
 					null_ls.builtins.diagnostics.sqlfluff.with({
 						extra_args = { "--dialect", "postgres" },
 					}),
