@@ -61,22 +61,6 @@ if status --is-interactive
       string replace $XDG_CONFIG_HOME '$XDG_CONFIG_HOME' (status filename)
     )
 
-    set -l cmd s
-    if command -q "$cmd"
-        set -l completion $XDG_CONFIG_HOME/fish/completions/s.fish
-        if not test -e "$completion"
-            s --completion fish >"$completion"
-        end
-    else
-        printf '%s: Not found %s command\n' "$file" "$cmd" >&2
-    end
-end
-
-if status --is-interactive
-    set -l file (
-      string replace $XDG_CONFIG_HOME '$XDG_CONFIG_HOME' (status filename)
-    )
-
     set -l cmd aws_completer
     if command -q "$cmd"
         complete -c aws -f -a '(
