@@ -278,7 +278,7 @@ return {
 			{ "cz" },
 			{ "cZ" },
 		},
-		-- HACK: change keymap to avoid conflict for leap.nvim and helix like keymaps
+		-- HACK: change keymap to avoid conflict for leap.nvim and helix-like keymaps
 		-- https://github.com/ggandor/leap.nvim/discussions/59#discussioncomment-3842315
 		opts = {
 			keymaps = {
