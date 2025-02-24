@@ -41,7 +41,7 @@ unbind w
 bind p clipboard tabopen
 unbind P
 
-" keybinds like helix
+" helix-like keybinds
 bind ge scrollto 100
 
 set allowautofocus false
