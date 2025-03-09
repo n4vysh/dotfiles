@@ -272,7 +272,11 @@ return {
 						})
 					end
 
-					if client.name == "lua_ls" then
+					-- NOTE: use terraformls in tfvars and tftest
+					if
+						client.name == "lua_ls"
+						or client.name == "terraformls"
+					then
 						client.server_capabilities.signatureHelpProvider = false
 						client.server_capabilities.documentFormattingProvider =
 							false
