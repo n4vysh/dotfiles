@@ -246,13 +246,6 @@ F13 & m::
 	}
 }
 
-F13 & i::
-{
-	if ! GetKeyState("Shift") {
-		Send "#i"
-	}
-}
-
 IsPowerMenu := false
 
 F13 & e::
