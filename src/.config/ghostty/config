@@ -1,0 +1,18 @@
+command = tmuxs
+font-family = Fira Code
+font-family = Symbols Nerd Font Mono
+font-family = Noto Sans Mono CJK JP
+font-family = Noto Sans Symbols
+font-family = Noto Sans Math
+font-size = 13
+window-padding-x = 5
+theme = tokyonight_night
+background-opacity = 0.8
+mouse-hide-while-typing = true
+confirm-close-surface = false
+resize-overlay = never
+app-notifications = no-clipboard-copy
+# NOTE: use carriage return when ctrl+m
+# https://github.com/ghostty-org/ghostty/discussions/3586
+# https://github.com/ghostty-org/ghostty/discussions/3151#discussioncomment-11678064
+keybind = ctrl+m=text:\r

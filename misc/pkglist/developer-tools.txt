@@ -47,7 +47,6 @@ chaotic-aur/nnn-nerd
 chaotic-aur/standardnotes-bin
 chaotic-aur/tflint
 chaotic-aur/viddy
-chaotic-aur/wezterm-git
 core/openssh
 extra/actionlint
 extra/asciidoctor
@@ -70,6 +69,7 @@ extra/fd
 extra/fluxcd
 extra/fx
 extra/fzf
+extra/ghostty
 extra/ghq
 extra/git-absorb
 extra/git-crypt

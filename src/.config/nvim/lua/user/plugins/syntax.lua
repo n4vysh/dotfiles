@@ -391,6 +391,10 @@ return {
 		},
 	},
 	{
+		"bezhermoso/tree-sitter-ghostty",
+		build = "make nvim_install",
+	},
+	{
 		"windwp/nvim-ts-autotag",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		opts = {},
