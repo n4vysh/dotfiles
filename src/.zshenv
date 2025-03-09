@@ -209,5 +209,8 @@ if [[ -f ~/.kube/config ]]; then
 	export KUBECONFIG="$file"
 fi
 
+# timg
+export TIMG_PIXELATION=kitty
+
 # local
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
