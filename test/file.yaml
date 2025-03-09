@@ -261,3 +261,11 @@ file:
     filetype: file
     # yamllint disable-line rule:line-length
     sha512: 4c1c045dcb1c835d3c0b72d76340b466db950102673170df4ae65eaa59c13273a2772f7cbc4d1e45eca4f107768bedf4eb995d327b65e8299fef9bec0bac5393
+  /etc/keyd/default.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 2bf26db10e8ddbc4d88ddfa5c7499438d45d77268a6a30d622c593fd22e0aa27dbe709dcff42faa9926393e350ba70e816b6c8244d4dd49a04785009e47f48d1

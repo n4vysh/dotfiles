@@ -1,0 +1,2 @@
+BUFFER='sudo informant read'
+zle accept-line

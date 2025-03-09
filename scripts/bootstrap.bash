@@ -371,7 +371,8 @@ _configure_without_privileged() {
 	chmod +x /tmp/strap.sh
 	sudo /tmp/strap.sh
 
-	sudo cp /etc/pacman.d/blackarch-mirrorlist{,.bak}
+	test -f /etc/pacman.d/blackarch-mirrorlist.bak ||
+		sudo cp /etc/pacman.d/blackarch-mirrorlist{,.bak}
 	sudo sed -i -e 's/^#Server/Server/' /etc/pacman.d/blackarch-mirrorlist.bak
 	rankmirrors -n 5 -p -r blackarch /etc/pacman.d/blackarch-mirrorlist.bak |
 		sudo tee /etc/pacman.d/blackarch-mirrorlist >/dev/null
@@ -740,7 +741,6 @@ _configure_without_privileged() {
 		/usr/bin/egrep
 		/usr/bin/fgrep
 		/usr/bin/ldd
-		/usr/sbin/s
 	)
 	for list in "${lists[@]}"; do
 		if ! sudo grep "SCRIPTWHITELIST=$list" /etc/rkhunter.conf; then
@@ -757,11 +757,6 @@ _configure_without_privileged() {
 		-e '/^ALLOW_SSH_ROOT_USER/s/no/unset/' \
 		/etc/rkhunter.conf
 
-	if ! sudo grep "RTKT_FILE_WHITELIST=/usr/sbin/s" /etc/rkhunter.conf; then
-		sudo tee -a /etc/rkhunter.conf <<<"RTKT_FILE_WHITELIST=/usr/sbin/s" >/dev/null
-	else
-		_log::warn "rkhunter RTKT_FILE_WHITELIST=/usr/sbin/s already set -- skipping"
-	fi
 	if ! sudo grep "ALLOWDEVFILE=/dev/shm/PostgreSQL.*" /etc/rkhunter.conf; then
 		sudo tee -a /etc/rkhunter.conf <<<"ALLOWDEVFILE=/dev/shm/PostgreSQL.*" >/dev/null
 	else

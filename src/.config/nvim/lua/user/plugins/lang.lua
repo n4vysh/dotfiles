@@ -272,7 +272,11 @@ return {
 						})
 					end
 
-					if client.name == "lua_ls" then
+					-- NOTE: use terraformls in tfvars and tftest
+					if
+						client.name == "lua_ls"
+						or client.name == "terraformls"
+					then
 						client.server_capabilities.signatureHelpProvider = false
 						client.server_capabilities.documentFormattingProvider =
 							false
@@ -612,15 +616,6 @@ return {
 					null_ls.builtins.diagnostics.editorconfig_checker,
 					null_ls.builtins.formatting.rego,
 					null_ls.builtins.diagnostics.opacheck,
-					null_ls.builtins.diagnostics.semgrep.with({
-						args = {
-							"-q",
-							"--json",
-							"--config",
-							"auto",
-							"$FILENAME",
-						},
-					}),
 					null_ls.builtins.diagnostics.sqlfluff.with({
 						extra_args = { "--dialect", "postgres" },
 					}),
@@ -634,7 +629,6 @@ return {
 						filetypes = { "sql", "mysql" },
 					}),
 					null_ls.builtins.formatting.just,
-					null_ls.builtins.formatting.fish_indent,
 					null_ls.builtins.diagnostics.markdownlint_cli2,
 					null_ls.builtins.formatting.shellharden.with({
 						filetypes = { "sh", "direnv" },
@@ -673,7 +667,6 @@ return {
 					null_ls.builtins.formatting.yamlfmt,
 					null_ls.builtins.diagnostics.zsh,
 					null_ls.builtins.diagnostics.todo_comments,
-					null_ls.builtins.diagnostics.fish,
 					null_ls.builtins.diagnostics.statix,
 					null_ls.builtins.diagnostics.deadnix,
 					-- NOTE: terraform-ls is slow

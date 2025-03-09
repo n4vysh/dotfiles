@@ -1,0 +1,9 @@
+if [[ -z $BUFFER ]]; then
+	BUFFER=$(fc -ln -1)
+fi
+
+BUFFER=${BUFFER#"sudo "}
+
+BUFFER="sudo ${BUFFER}"
+CURSOR=$#BUFFER
+zle reset-prompt

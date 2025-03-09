@@ -231,6 +231,14 @@ F13 & w::
 	}
 }
 
+F13 & u::
+{
+	if GetKeyState("Ctrl", "P") {
+		Send("+{home}")
+		Send("{backspace}")
+	}
+}
+
 F13 & m::
 {
 	if GetKeyState("Ctrl", "P") {
@@ -238,23 +246,36 @@ F13 & m::
 	}
 }
 
-F13 & i::
+IsPowerMenu := false
+
+F13 & e::
 {
-	if ! GetKeyState("Shift") {
-		Send "#i"
+	if GetKeyState("Ctrl", "P") {
+		if GetKeyState("Shift") {
+			Send("+{end}")
+		} else {
+			Send("{end}")
+		}
 	}
 }
 
-IsPowerMenu := false
-
 #HotIf !IsPowerMenu
-	F13 & e::
-	{
+F13 & e::
+{
+	if GetKeyState("Ctrl", "P") {
+		if GetKeyState("Shift") {
+			Send("+{end}")
+		} else {
+			Send("{end}")
+		}
+	} else if GetKeyState("Shift") {
 		global IsPowerMenu
 		if GetKeyState("Shift") {
 			IsPowerMenu := true
 		}
 	}
+}
+
 #HotIf IsPowerMenu
 	e::
 	{

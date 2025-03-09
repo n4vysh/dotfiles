@@ -1,0 +1,2 @@
+BUFFER='k9s'
+zle accept-line

@@ -94,6 +94,7 @@ vim.filetype.add({
 	},
 	pattern = {
 		[".*/.*%.rasi"] = "rasi",
+		[".*/%.zfunctions/.*"] = "zsh",
 		[".*/%.config/hypr/.*%.conf"] = "hyprlang",
 		[".*/%.config/git/config%..*"] = "gitconfig",
 		[".*/%.config/swappy/config"] = "ini",

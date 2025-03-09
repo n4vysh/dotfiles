@@ -1,0 +1,2 @@
+BUFFER='btm'
+zle accept-line

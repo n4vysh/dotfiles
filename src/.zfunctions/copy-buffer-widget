@@ -1,0 +1,8 @@
+if type wl-copy >/dev/null 2>&1 ; then
+	echo -n "$BUFFER" | wl-copy
+else
+	echo "copy-buffer: wl-copy not found"
+	exit 1
+fi
+
+zle -M "Copied to clipboard: $BUFFER"

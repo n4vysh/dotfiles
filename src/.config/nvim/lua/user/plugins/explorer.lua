@@ -107,6 +107,10 @@ return {
 				end
 
 				vim.keymap.set("n", "e", edit_and_close, opts("Edit"))
+
+				-- NOTE: use leap.nvim
+				vim.keymap.del("n", "s", opts("Run System"))
+				vim.keymap.del("n", "S", opts("Search"))
 			end,
 		},
 		dependencies = {

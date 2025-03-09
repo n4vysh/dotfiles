@@ -48,7 +48,6 @@ jobs:
               markdownlint-cli2 \
               shellcheck \
               zsh \
-              fish \
               selene \
               stylua \
               editorconfig-checker \
@@ -76,17 +75,7 @@ jobs:
           git config --global \
             url."https://github.com/".insteadOf \
             git@github.com:
-      - name: Install fish plugins
-        shell: fish {0}
-        # yamllint disable rule:line-length
-        run: |
-          curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish |
-            source &&
-            fisher install jorgebucaran/fisher
-            fisher install jorgebucaran/fishtape
-        # yamllint enable rule:line-length
       - name: Initialize qmk
         run: just src/.config/qmk/init
       - name: Run pre-commit
-        shell: fish {0}
         run: SKIP=hyprland,goss,goss-privileged just test
