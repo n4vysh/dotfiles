@@ -146,6 +146,7 @@ extra/tree-sitter-cli
 extra/trivy
 extra/ts-node
 extra/typos
+extra/usage
 extra/vhs
 extra/vint
 extra/vivid

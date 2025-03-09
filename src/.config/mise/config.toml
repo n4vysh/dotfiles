@@ -6,4 +6,3 @@ idiomatic_version_file = false
 goss = "latest"
 gotestsum = "latest"
 kyverno = "latest"
-usage = "latest"
