@@ -43,7 +43,6 @@ chaotic-aur/crudini
 chaotic-aur/drawio-desktop
 chaotic-aur/google-cloud-cli
 chaotic-aur/lazydocker
-chaotic-aur/mise
 chaotic-aur/nnn-nerd
 chaotic-aur/standardnotes-bin
 chaotic-aur/tflint
@@ -101,6 +100,7 @@ extra/kubie
 extra/lazygit
 extra/libwebp
 extra/markdownlint-cli2
+extra/mise
 extra/neovide
 extra/nix
 extra/npm
