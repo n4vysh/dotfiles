@@ -64,13 +64,13 @@
     "return-type": "json",
     "exec": "~/.config/waybar/lib/vpn.bash",
     "interval": 1,
-    "on-click": "wezterm -e sh -c 'nordvpn status; read -n 1'",
+    "on-click": "ghostty -e 'nordvpn status; read -n 1'",
     "tooltip": false
   },
   "bluetooth": {
     "format": " 󰂯",
     "format-off": " 󰂲",
-    "on-click": "wezterm -e bluetuith",
+    "on-click": "ghostty -e bluetuith",
     "tooltip": false
   },
   "pulseaudio": {
@@ -85,7 +85,7 @@
         ""
       ]
     },
-    "on-click": "wezterm -e pulsemixer",
+    "on-click": "ghostty -e pulsemixer",
     "tooltip": false
   },
   "network": {
@@ -101,7 +101,7 @@
         ""
       ]
     },
-    "on-click": "wezterm -e impala",
+    "on-click": "ghostty -e impala",
     "tooltip": false
   },
   "battery": {
@@ -118,7 +118,7 @@
       "warning": 25,
       "critical": 10
     },
-    "on-click": "wezterm -e btm --default_widget_type battery --expanded",
+    "on-click": "ghostty -e btm --default_widget_type battery --expanded",
     "tooltip": false
   },
   "custom/notification": {
@@ -143,7 +143,7 @@
   },
   "clock": {
     "format": "{:%a, %b %d  %H:%M}",
-    "on-click": "wezterm -e calcure",
+    "on-click": "ghostty -e calcure",
     "tooltip": false
   }
 }

@@ -23,7 +23,7 @@
 - Editor: [Neovim][neovim-link]
 - File Manager: [nnn][nnn-link]
 - Terminal Multiplexer: [Tmux][tmux-link]
-- Terminal Emulator: [Wezterm][wezterm-link]
+- Terminal Emulator: [Ghostty][ghostty-link]
 
 [package list](./misc/pkglist/)
 
@@ -32,7 +32,7 @@
 [hyprland-link]: https://hyprland.org/
 [zsh-link]: https://www.zsh.org/
 [neovim-link]: https://neovim.io/
-[wezterm-link]: https://wezfurlong.org/wezterm/
+[ghostty-link]: https://ghostty.org/
 [tmux-link]: https://github.com/tmux/tmux
 [nnn-link]: https://github.com/jarun/nnn
 
