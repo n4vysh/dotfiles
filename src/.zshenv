@@ -121,5 +121,14 @@ export OMPI_MCA_opal_warn_on_missing_libcuda=0
 # Nix
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
+# kubectx
+# NOTE: set kubeconfig per shell session
+# https://github.com/ahmetb/kubectx/issues/12#issuecomment-557852519
+if [[ -f ~/.kube/config ]]; then
+	file="$(mktemp -t "kubectx.XXXXXX")"
+	cat ~/.kube/config >|"$file"
+	export KUBECONFIG="$file"
+fi
+
 # local
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
