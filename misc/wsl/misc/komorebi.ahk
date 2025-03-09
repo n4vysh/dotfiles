@@ -255,14 +255,34 @@ F13 & i::
 
 IsPowerMenu := false
 
+F13 & e::
+{
+	if GetKeyState("Ctrl", "P") {
+		if GetKeyState("Shift") {
+			Send("+{end}")
+		} else {
+			Send("{end}")
+		}
+	}
+}
+
 #HotIf !IsPowerMenu
-	F13 & e::
-	{
+F13 & e::
+{
+	if GetKeyState("Ctrl", "P") {
+		if GetKeyState("Shift") {
+			Send("+{end}")
+		} else {
+			Send("{end}")
+		}
+	} else if GetKeyState("Shift") {
 		global IsPowerMenu
 		if GetKeyState("Shift") {
 			IsPowerMenu := true
 		}
 	}
+}
+
 #HotIf IsPowerMenu
 	e::
 	{
