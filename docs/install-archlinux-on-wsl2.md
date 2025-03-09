@@ -202,7 +202,7 @@ convert \
 
 Tweak dotfiles.
 
-```bash
+```zsh
 cat <<EOF >>~/.config/lazygit/config.yml
 os:
   copyToClipboardCmd: printf {{text}} | win32yank.exe -i
@@ -210,6 +210,10 @@ EOF
 cat <<EOF >>~/.config/nvim/lua/user/local.lua
 vim.o.guifont = "Fira Code,Symbols Nerd Font Mono,Noto Sans JP"
 EOF
+
+abbr add scoop=scoop.exe
+abbr add winget=winget.exe
+abbr add wsl=wsl.exe
 ```
 
 [install-wsl-link]: https://learn.microsoft.com/en-us/windows/wsl/install

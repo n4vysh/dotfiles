@@ -151,7 +151,7 @@ vim.keymap.set("v", "g?", [[<ESC>?\%V]], {
 	desc = "Search backward in the range",
 })
 
--- keymaps using the g like helix
+-- helix-like keymaps
 vim.keymap.set({ "n", "v", "o" }, "ge", "G", {
 	silent = true,
 	desc = "Goto last line",
@@ -177,7 +177,7 @@ vim.keymap.set({ "n", "v", "o" }, "gs", "^", {
 	desc = "Goto first non-blank in line",
 })
 
--- keymaps like VS Code
+-- VSCode-like keymaps
 vim.keymap.set("n", "<C-h>", ":%s///g<left><left><left>", {
 	desc = "Set command for substitute",
 })
@@ -186,7 +186,7 @@ vim.keymap.set("v", "<C-h>", ":s///g<left><left><left>", {
 	desc = "Set command for substitute",
 })
 
--- keymaps using the space bar like Spacemacs
+-- Spacemacs-like keymaps
 -- +yank
 vim.keymap.set("n", "<space>yn", function()
 	require("user.utils.yank").exec("file name", vim.fn.expand("%:t"))
