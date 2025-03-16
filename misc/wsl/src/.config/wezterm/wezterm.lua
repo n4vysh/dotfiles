@@ -13,7 +13,7 @@ return {
 	color_scheme = "tokyonight",
 	enable_tab_bar = false,
 	window_background_opacity = 0.9,
-	default_prog = { "/Windows/System32/wsl.exe", "~", "-d", "Arch", "tmuxs" },
+	default_domain = "WSL:Arch",
 	canonicalize_pasted_newlines = "LineFeed",
 	adjust_window_size_when_changing_font_size = false,
 	allow_win32_input_mode = false,
