@@ -1,7 +1,5 @@
 src/.kube/*
 !src/.kube/kubie.yaml
-src/.config/direnv/allow/
-src/.config/direnv/lib/use_mise.sh
 src/.config/git/config.local
 src/.config/git/templates/hooks/*
 src/.config/gtk-2.0/gtkfilechooser.ini
