@@ -1,12 +1,12 @@
-echo -e '\e[5 q' # beam cursor
-
 if [[ -z $TMUX ]]; then
 	if tmux has-session 2>/dev/null; then
-		exec tmux attach-session -d
+		tmux attach-session -d
 	else
-		exec tmux new-session
+		tmux new-session
 	fi
 fi
+
+echo -e '\e[5 q' # beam cursor
 
 # powerlevel10k instant prompt
 # NOTE: console I/O must go above this block
