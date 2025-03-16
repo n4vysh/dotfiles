@@ -1,7 +1,7 @@
 #!/bin/bash
 
 name=tokyonight.tmux
-dir="$XDG_DATA_HOME/tmux/plugins/tmux-tokyonight"
+dir="$HOME/.tmux/plugins/tmux-tokyonight"
 
 if [[ $1 == install ]]; then
 	tmux display "Installing $name"
