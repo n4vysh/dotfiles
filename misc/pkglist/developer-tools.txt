@@ -12,6 +12,7 @@ aur/gibo
 aur/git-extras
 aur/git-open
 aur/golangci-lint-bin
+aur/goss-bin
 aur/gotests
 aur/hadolint-bin
 aur/helm-diff
@@ -61,7 +62,6 @@ extra/clang
 extra/cmctl
 extra/csvkit
 extra/delve
-extra/direnv
 extra/editorconfig-checker
 extra/eslint
 extra/eza

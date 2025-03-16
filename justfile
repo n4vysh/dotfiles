@@ -1,6 +1,8 @@
 link: prelink _stow postlink
 
 prelink:
+    mise trust
+    mise activate >/dev/null # HACK: load env after `mise trust`
     mkdir -p ~/.config/ ~/.local/bin/ ~/.local/src/
 
 _stow *opt:

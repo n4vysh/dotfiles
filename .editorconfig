@@ -23,9 +23,6 @@ indent_style = tab
 [{**/,}.gitmodules]
 indent_style = tab
 
-[{**/,}.envrc]
-indent_style = tab
-
 [**/.local/bin/*]
 indent_style = unset
 

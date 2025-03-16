@@ -3,6 +3,5 @@ jobs = 20
 idiomatic_version_file = false
 
 [tools]
-goss = "latest"
 gotestsum = "latest"
 kyverno = "latest"
