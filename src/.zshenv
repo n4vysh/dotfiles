@@ -99,8 +99,6 @@ zstyle ':completion:*:corrections' format "%F{${yellow}}%B❯ %d (typo: %e)%b%f"
 zstyle ':completion:*:descriptions' format "%F{${yellow}}%B❯ %d%b%f"
 zstyle ':completion:*:messages' format "%F{${purple}}%B❯ %d%b%f"
 zstyle ':completion:*:warnings' format "%F{${red}}%B no matches found%b%f"
-# tmux
-export TMUX_PLUGIN_MANAGER_PATH="${XDG_DATA_HOME}/tmux/plugins"
 
 # path
 typeset -U path PATH
