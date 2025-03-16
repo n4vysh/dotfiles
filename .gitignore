@@ -19,6 +19,7 @@ src/.config/systemd/user/*.target.wants/
 src/.config/systemd/user/containerd.service
 src/.config/systemd/user/buildkit.service
 src/.config/systemd/user/default-buildkit.service
+src/.config/tmux/plugins
 src/.config/tmux/tmux.conf.local
 !.gitkeep
 goss-vars.yaml
