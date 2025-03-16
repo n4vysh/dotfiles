@@ -26,6 +26,9 @@ indent_style = tab
 [**/.local/bin/*]
 indent_style = unset
 
+[**/*.sh]
+indent_style = tab
+
 [**/*.bash]
 indent_style = tab
 
