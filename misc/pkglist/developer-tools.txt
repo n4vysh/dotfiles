@@ -37,6 +37,7 @@ aur/pluto-bin
 aur/redocly
 aur/snyk
 aur/spectral-cli
+aur/sql-formatter
 aur/terraform-docs-bin
 aur/tilt-bin
 aur/vercel

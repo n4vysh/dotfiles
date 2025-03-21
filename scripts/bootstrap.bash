@@ -677,9 +677,6 @@ _configure_without_privileged() {
 	_log::info 'Install gh extensions'
 	gh extension install dlvhdr/gh-dash
 
-	_log::info 'Install formatter'
-	pnpm add -g sql-formatter
-
 	_log::info 'Install TUI for LLM'
 	pipx install elia-chat
 
