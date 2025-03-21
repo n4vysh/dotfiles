@@ -58,7 +58,8 @@ jobs:
               clang \
               git \
               stow \
-              nnn-nerd
+              nnn-nerd \
+              mise
         # yamllint enable rule:line-length
       - uses: actions/checkout@main
       - name: Deploy dotfiles
