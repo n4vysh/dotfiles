@@ -5,3 +5,4 @@ idiomatic_version_file = false
 [tools]
 gotestsum = "latest"
 kyverno = "latest"
+"pipx:elia-chat" = { version = "1.10.0", uvx_args = "--python 3.11" }
