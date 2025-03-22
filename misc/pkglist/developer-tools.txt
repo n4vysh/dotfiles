@@ -90,6 +90,7 @@ extra/jq
 extra/just
 extra/jwt-cli
 extra/k9s
+extra/kitty
 extra/ko
 extra/krew
 extra/kube-linter

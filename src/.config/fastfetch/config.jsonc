@@ -12,7 +12,7 @@
     },
   },
   "logo": {
-    "type": "sixel",
+    "type": "kitty-icat",
     "source": "~/Pictures/icon.svg",
     "height": 8,
     "width": 16,
