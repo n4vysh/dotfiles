@@ -1,9 +1,1 @@
-vim.g.openbrowser_browser_commands = {
-	{
-		name = os.getenv("BROWSER"),
-		args = {
-			"{browser}",
-			"{uri}",
-		},
-	},
-}
+vim.o.guifont = "Fira Code,Symbols Nerd Font Mono,Noto Sans JP"

@@ -1,4 +1,3 @@
 [wsl2]
-guiApplications=false
 swap=0
 networkingMode=mirrored
