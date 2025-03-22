@@ -8,6 +8,10 @@ fi
 
 echo -e '\e[5 q' # beam cursor
 
+# NOTE: output trusted status of mise before instant prompt
+# https://github.com/romkatv/powerlevel10k/tree/master?tab=readme-ov-file#how-do-i-initialize-direnv-when-using-instant-prompt
+(( ${+commands[mise]} )) && emulate zsh -c "$(mise hook-env -s zsh)"
+
 # powerlevel10k instant prompt
 # NOTE: console I/O must go above this block
 if [[ -r "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
