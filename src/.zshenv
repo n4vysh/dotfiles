@@ -21,7 +21,7 @@ if [[ -n $DISPLAY ]]; then
 	export SSH_AUTH_SOCK
 fi
 if type tty gpg-connect-agent >/dev/null 2>&1; then
-	export GPG_TTY=$TTY
+	export GPG_TTY="$TTY"
 	gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
 
