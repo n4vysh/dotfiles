@@ -1,9 +1,5 @@
-if [[ -z $TMUX ]]; then
-	if tmux has-session 2>/dev/null; then
-		tmux attach-session -d
-	else
-		tmux new-session
-	fi
+if [[ -z ${TMUX+X}${ZSH_SCRIPT+X}${ZSH_EXECUTION_STRING+X} ]]; then
+	tmux new-session -AD
 fi
 
 echo -e '\e[5 q' # beam cursor
