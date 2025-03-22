@@ -630,6 +630,12 @@ return {
 					}),
 					null_ls.builtins.formatting.just,
 					null_ls.builtins.diagnostics.markdownlint_cli2,
+					null_ls.builtins.formatting.shellharden.with({
+						filetypes = { "sh", "direnv" },
+					}),
+					null_ls.builtins.formatting.shfmt.with({
+						filetypes = { "sh", "direnv" },
+					}),
 					null_ls.builtins.formatting.prettier.with({
 						filetypes = {
 							"javascript",
