@@ -1,3 +1,4 @@
+extra/uwsm
 aur/xdg-ninja
 chaotic-aur/wlogout
 extra/brightnessctl
