@@ -677,9 +677,6 @@ _configure_without_privileged() {
 	_log::info 'Install gh extensions'
 	gh extension install dlvhdr/gh-dash
 
-	_log::info 'Install TUI for LLM'
-	pipx install elia-chat
-
 	_log::info 'Install test tool'
 	go install gotest.tools/gotestsum@latest
 
