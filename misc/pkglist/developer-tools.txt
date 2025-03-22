@@ -7,6 +7,7 @@ aur/devbox-bin
 aur/docker-credential-pass-bin
 aur/dyff-bin
 aur/eks-node-viewer-bin
+aur/fabric-ai-bin
 aur/freeze-bin
 aur/gibo
 aur/git-extras

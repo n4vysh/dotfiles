@@ -1,3 +1,4 @@
+alias fabric="fabric-ai"
 alias ip="ip -c"
 alias cp="cp -iv"
 alias mv="mv -iv"
