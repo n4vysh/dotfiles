@@ -150,6 +150,7 @@ extra/trivy
 extra/ts-node
 extra/typos
 extra/usage
+extra/uv
 extra/vhs
 extra/vint
 extra/vivid
