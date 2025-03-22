@@ -6,3 +6,4 @@ idiomatic_version_file = false
 gotestsum = "latest"
 kyverno = "latest"
 "pipx:elia-chat" = { version = "1.10.0", uvx_args = "--python 3.11" }
+"pipx:posting" = { version = "2.5.4", uvx_args = "--python 3.12 --prerelease=allow" }
