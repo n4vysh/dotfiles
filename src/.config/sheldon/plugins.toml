@@ -15,7 +15,7 @@ tag = "v0.11.0"
 
 [plugins.zsh-abbr]
 github = "olets/zsh-abbr"
-# NOTE: v6.2.1 is not work
+# NOTE: v6.2.0 and v6.2.1 is not work
 tag = "v6.1.0"
 
 [plugins.zsh-fast-syntax-highlighting]
