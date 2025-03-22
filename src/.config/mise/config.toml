@@ -1,6 +1,7 @@
 [settings]
 jobs = 20
 idiomatic_version_file = false
+experimental = true
 
 [tools]
 gotestsum = "latest"
@@ -8,3 +9,7 @@ kyverno = "latest"
 "pipx:elia-chat" = { version = "1.10.0", uvx_args = "--python 3.11" }
 "pipx:posting" = { version = "2.5.4", uvx_args = "--python 3.12 --prerelease=allow" }
 "pipx:harlequin" = { version = "2.1.1", uvx_args = "--python 3.13" }
+"go:gotest.tools/gotestsum" = "latest"
+"go:github.com/josharian/impl" = "latest"
+"go:github.com/fatih/gomodifytags" = "latest"
+"go:github.com/rhysd/vim-startuptime" = "latest"

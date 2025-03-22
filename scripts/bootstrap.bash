@@ -677,16 +677,6 @@ _configure_without_privileged() {
 	_log::info 'Install gh extensions'
 	gh extension install dlvhdr/gh-dash
 
-	_log::info 'Install test tool'
-	go install gotest.tools/gotestsum@latest
-
-	_log::info 'Install code generator'
-	go install github.com/josharian/impl@latest
-	go install github.com/fatih/gomodifytags@latest
-
-	_log::info 'Install packages for editor'
-	go install github.com/rhysd/vim-startuptime@latest
-
 	_log::info 'Configure VPN'
 	sudo systemctl enable --now nordvpnd
 	sudo gpasswd -a "$USER" nordvpn
