@@ -63,6 +63,7 @@ extra/clang
 extra/cmctl
 extra/csvkit
 extra/delve
+extra/direnv
 extra/editorconfig-checker
 extra/eslint
 extra/eza
