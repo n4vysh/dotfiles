@@ -44,7 +44,7 @@ irm get.scoop.sh | iex
 scoop install git
 scoop bucket add extras
 scoop bucket add nerd-fonts
-scoop install archwsl win32yank mpv yt-dlp sudo
+scoop install archwsl
 sudo scoop install -g firacode
 ```
 
@@ -90,22 +90,9 @@ wsl --install
 wsl --set-default Arch
 ```
 
-Install [wslu][wslu-link].
+[Disable swap and use mirrored mode][wslconfig-link].
 
-```bash
-pacman-key -r A2861ABFD897DD37
-pacman-key --lsign-key A2861ABFD897DD37
-cat <<EOF >>/etc/pacman.conf
-
-[wslutilities]
-Server = https://pkg.wslutiliti.es/arch/
-EOF
-pacman -Sy && pacman -S wslu
-```
-
-[Disable WSLg][wslconfig-link] to make faster startup time.
-
-```bash
+```sh
 user=$(powershell.exe '$env:UserName' | sed -e 's/\r//g')
 cp "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/.wslconfig" >"/mnt/c/Users/$user/.wslconfig"
 ```
@@ -114,57 +101,55 @@ cp "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/.wslconfig" >"/mnt/c/Users/$user/.wslc
 and [disable launching Windows processes][interop-doc-link]
 to [make faster auto-completion][path-issue-link].
 
-```bash
+```sh
 cp "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/etc/wsl.conf" >/etc/wsl.conf
 ```
 
 Deploy wrapper scripts to [prevent invalid argument error][argument-issue-link].
 
-```bash
+```sh
 (
   dir="$XDG_DATA_HOME/dotfiles/misc/wsl/src"
   cd "$dir"
-  fd . .local/bin/ |
+  find .local/bin/ -type f |
     xargs -I {} ln -sv "$dir/{}" "$HOME/{}"
 )
 ```
 
 Deploy dotfiles to Windows user directory.
 
-```bash
-user=$(powershell.exe '$env:UserName' | sed -e 's/\r//g')
-dir="/mnt/c/Users/$user"
-cp -iv \
-  "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/komorebi.json" \
-  "$dir/komorebi.json"
-cp -iv \
-  "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/komorebi.json" \
-  "$dir/komorebi.ahk"
-dir="/mnt/c/Users/$user/.config"
-mkdir "$dir/wezterm/"
-cp -iv \
-  "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/wezterm/wezterm.lua" \
-  "$dir/wezterm/"
-mkdir "$dir/mpv/"
-cp -iv \
-  "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/mpv/mpv.conf" \
-  "$dir/mpv/"
-appdata=$(powershell.exe '$env:AppData' | sed -e 's/\r//g')
-dir="/mnt/c/Users/$appdata"
-mkdir "$dir/ncspot/"
-cp -iv \
-  "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/ncspot/config.toml" \
-  "$dir/ncspot/"
-dir="/mnt/c/Users/$appdata/Roaming"
-mkdir "$dir/neovide/"
-cp -iv \
-  "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/neovide/config.toml" \
-  "$dir/neovide/"
+```sh
+(
+  user=$(powershell.exe '$env:UserName' | sed -e 's/\r//g')
+  dir="/mnt/c/Users/$user"
+  cp -iv \
+    "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/komorebi.json" \
+    "$dir/komorebi.json"
+  cp -iv \
+    "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/komorebi.json" \
+    "$dir/komorebi.ahk"
+  dir="/mnt/c/Users/$user/.config"
+  mkdir "$dir/wezterm/"
+  cp -iv \
+    "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/wezterm/wezterm.lua" \
+    "$dir/wezterm/"
+  appdata=$(powershell.exe '$env:AppData' | sed -e 's/\r//g')
+  dir="/mnt/c/Users/$appdata"
+  mkdir "$dir/ncspot/"
+  cp -iv \
+    "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/ncspot/config.toml" \
+    "$dir/ncspot/"
+  dir="/mnt/c/Users/$appdata/Roaming"
+  mkdir "$dir/neovide/"
+  cp -iv \
+    "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/neovide/config.toml" \
+    "$dir/neovide/"
+)
 ```
 
 Deploy dotfiles to WSL user directory.
 
-```bash
+```sh
 (
   dir="$XDG_DATA_HOME/dotfiles/misc/wsl/src"
   cd "$dir"
@@ -172,16 +157,32 @@ Deploy dotfiles to WSL user directory.
     --hidden . \
     -E .local/bin/ \
     -E .config/wezterm/ \
-    -E .config/mpv/ \
     -E .config/ncspot/ \
     -t f |
     xargs -I {} ln -sv "$dir/{}" "$HOME/{}"
 )
 ```
 
+[Fix symlink for wslg][wslg-issue-link]
+
+```sh
+cat <<"EOF" >/etc/tmpfiles.d/wslg.conf
+# Type Path                          Mode UID  GID  Age Argument
+L+     /tmp/.X11-unix/X0              -    -    -    -   /mnt/wslg/.X11-unix/X0
+EOF
+dir="$XDG_DATA_HOME/dotfiles/misc/wsl/src"
+mkdir -p "${HOME}/.config/systemd/user"
+cp -v \
+  "$dir/.config/systemd/user/wsl-wayland-symlink.service" \
+  ~/.config/systemd/user/wsl-wayland-symlink.service
+systemctl --user daemon-reload
+systemctl --user enable wsl-wayland-symlink.service
+systemctl --user start wsl-wayland-symlink.service
+```
+
 Deploy etc files.
 
-```bash
+```sh
 sudo cp -iv \
   misc/wsl/misc/etc/systemd/system/systemd-timesyncd.service.d/override.conf \
   /etc/systemd/system/systemd-timesyncd.service.d/
@@ -189,7 +190,7 @@ sudo cp -iv \
 
 Set wallpaper and account icon for Windows.
 
-```bash
+```sh
 sudo pacman -S archlinux-wallpaper
 cp /usr/share/backgrounds/archlinux/split.png ~/Downloads/wallpaper.png
 yay -S archlinux-artwork
@@ -202,15 +203,7 @@ convert \
 
 Tweak dotfiles.
 
-```zsh
-cat <<EOF >>~/.config/lazygit/config.yml
-os:
-  copyToClipboardCmd: printf {{text}} | win32yank.exe -i
-EOF
-cat <<EOF >>~/.config/nvim/lua/user/local.lua
-vim.o.guifont = "Fira Code,Symbols Nerd Font Mono,Noto Sans JP"
-EOF
-
+```sh
 abbr add scoop=scoop.exe
 abbr add winget=winget.exe
 abbr add wsl=wsl.exe
@@ -218,10 +211,10 @@ abbr add wsl=wsl.exe
 
 [install-wsl-link]: https://learn.microsoft.com/en-us/windows/wsl/install
 [archwsl-setup-link]: https://wsldl-pg.github.io/ArchW-docs/How-to-Setup
-[wslu-link]: https://wslutiliti.es/wslu/
 [wslconfig-link]: https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-setting-for-wslconfig
 [genie-link]: https://github.com/arkane-systems/genie
 [systemd-doc-link]: https://learn.microsoft.com/en-us/windows/wsl/wsl-config#systemd-support
 [interop-doc-link]: https://learn.microsoft.com/en-us/windows/wsl/wsl-config#interop-settings
 [path-issue-link]: https://github.com/microsoft/WSL/issues/4234#issuecomment-505609403
 [argument-issue-link]: https://github.com/microsoft/WSL/issues/6170#issuecomment-882501566
+[wslg-issue-link]: https://github.com/microsoft/wslg/issues/1032#issuecomment-2310369848
