@@ -232,3 +232,9 @@
   Output = ""
   Tag = ["misc"]
   command = "cat $XDG_RUNTIME_DIR/hypr/$(command ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 1)/hyprland.log"
+
+[[Snippets]]
+Description = "show most used commands"
+Output = ""
+Tag = []
+command = "history 1 | awk '{print $2}' | sort | uniq -c | sort -rn | head -n 20"
