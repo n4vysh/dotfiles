@@ -57,7 +57,7 @@
   Description = "show system info"
   Output = ""
   Tag = ["enum"]
-  command = "sh -c '( set -x; uname -a; cat /etc/os-release )'"
+  command = "( set -x; uname -a; cat /etc/os-release )"
 
 [[Snippets]]
   Description = "show crontab"
@@ -81,19 +81,19 @@
   Description = "allow incoming traffic"
   Output = ""
   Tag = ["firewall"]
-  command = "sh -c '( set -x; sudo ufw allow from <ip:> proto tcp to any port <port=8888,9999> && sudo ufw status verbose )'"
+  command = "( set -x; sudo ufw allow from <ip:> proto tcp to any port <port=8888,9999> && sudo ufw status verbose )"
 
 [[Snippets]]
   Description = "delete incoming traffic rule"
   Output = ""
   Tag = ["firewall"]
-  command = "sh -c '( set -x; sudo ufw delete allow from <ip:> proto tcp to any port <port=8888,9999> && sudo ufw status verbose )'"
+  command = "( set -x; sudo ufw delete allow from <ip:> proto tcp to any port <port=8888,9999> && sudo ufw status verbose )"
 
 [[Snippets]]
   Description = "reset and restart ufw"
   Output = ""
   Tag = ["firewall"]
-  command = "sh -c '( set -x; sudo ufw --force reset && sudo ufw enable && sudo ufw status verbose )'"
+  command = "( set -x; sudo ufw --force reset && sudo ufw enable && sudo ufw status verbose )"
 
 [[Snippets]]
   Description = "fast port scan"
@@ -159,7 +159,7 @@
   Description = "edit hosts file"
   Output = ""
   Tag = ["misc"]
-  command = "sh -c '[ -z \"$EDITOR\" ] && export EDITOR=$(type vim >/dev/null 2>&1 && echo vim || echo vi); [ $(id -u) = 0 ] && $EDITOR /etc/hosts || sudoedit /etc/hosts'"
+  command = "[ -z \"$EDITOR\" ] && export EDITOR=$(type vim >/dev/null 2>&1 && echo vim || echo vi); [ $(id -u) = 0 ] && $EDITOR /etc/hosts || sudoedit /etc/hosts"
 
 [[Snippets]]
   Description = "generate random string"
@@ -195,7 +195,7 @@
   Description = "show system startup time"
   Output = ""
   Tag = ["misc"]
-  command = "sh -c '(set -x; systemd-analyze; systemd-analyze critical-chain)'"
+  command = "(set -x; systemd-analyze; systemd-analyze critical-chain)"
 
 [[Snippets]]
   Description = "show nvim startup time"
@@ -225,7 +225,7 @@
   Description = "clone and change directory"
   Output = ""
   Tag = ["misc"]
-  command = "cd $(read url; ghq get \"$url\"; ghq list -p \"$url\")"
+  command = "read 'url?url: '; ghq get \"$url\"; cd $(ghq list -p \"$_\")"
 
 [[Snippets]]
   Description = "Get log of hyprland session"
