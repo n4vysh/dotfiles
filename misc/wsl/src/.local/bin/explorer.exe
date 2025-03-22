@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# NOTE: Use powershell.exe to avoid exit code 1
+# https://github.com/microsoft/WSL/issues/6565
+
+exec powershell.exe -c '& "C:\Windows\explorer.exe"' "$@"
