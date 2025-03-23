@@ -21,7 +21,7 @@
 - Window Manager: [Hyprland][hyprland-link]
 - Shell: [Zsh][zsh-link]
 - Editor: [Neovim][neovim-link]
-- File Manager: [nnn][nnn-link]
+- File Manager: [yazi][yazi-link]
 - Terminal Multiplexer: [Tmux][tmux-link]
 - Terminal Emulator: [Ghostty][ghostty-link]
 
@@ -34,7 +34,7 @@
 [neovim-link]: https://neovim.io/
 [ghostty-link]: https://ghostty.org/
 [tmux-link]: https://github.com/tmux/tmux
-[nnn-link]: https://github.com/jarun/nnn
+[yazi-link]: https://yazi-rs.github.io/
 
 ## Features
 
@@ -321,28 +321,17 @@ prefix is `C-j`
 | Normal | `<C-/>`      | Show custom keymaps                |
 | Normal | `g<C-/>`     | Show all custom keymaps            |
 
-### nnn
+### yazi
 
-| Keys      | Description                            |
-| :-------- | :------------------------------------- |
-| `;` + `c` | Change directory with fuzzy finder     |
-| `;` + `C` | Show statistics about code             |
-| `;` + `d` | Diff for selection items               |
-| `;` + `e` | Open editor                            |
-| `;` + `f` | Open file with fuzzy finder            |
-| `;` + `l` | Show git log for selection item        |
-| `;` + `n` | Create multiple files/dirs at once     |
-| `;` + `p` | Show file with pager                   |
-| `;` + `P` | Preview file/dir contents              |
-| `;` + `r` | Change git root directory              |
-| `;` + `R` | Batch rename selection or files in dir |
-| `;` + `s` | Start shell                            |
-| `;` + `t` | Show files in a tree-like format       |
-| `;` + `T` | Restore trashed files                  |
-| `;` + `u` | Show disk usage                        |
-| `;` + `v` | Open git client                        |
-| `;` + `y` | Yank file name                         |
-| `;` + `z` | Navigate to dir/path                   |
+| Keys      | Description                     |
+| :-------- | :------------------------------ |
+| `g` + `r` | Goto git root directory         |
+| `,` + `d` | Diff for selection items        |
+| `,` + `e` | Open editor                     |
+| `,` + `l` | Show git log for selection item |
+| `,` + `T` | Restore trashed files           |
+| `,` + `u` | Show disk usage                 |
+| `,` + `v` | Open git client                 |
 
 ### lazygit
 
@@ -461,9 +450,9 @@ If rkhunter or arch-audit found some problem, show following.
 
 ![nvim dadbod ui](./misc/screenshots/nvim_dadbod_ui.png)
 
-### n³
+### yazi
 
-![nnn](./misc/screenshots/nnn.png)
+![yazi](./misc/screenshots/yazi.png)
 
 ### [lazygit](https://github.com/jesseduffield/lazygit)
 
