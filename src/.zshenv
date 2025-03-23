@@ -144,40 +144,6 @@ export FZF_CTRL_R_OPTS="
 	--preview-window 'wrap,down,5'
 "
 
-# nnn
-export LC_COLLATE=C
-export NNN_OPTS=aAcdeUx
-export NNN_NO_AUTOSELECT=1
-export NNN_TRASH=1
-export NNN_PLUG=$(
-	cat <<-'EOS' | tr -d '\n'
-		d:!nnn-diff*;
-		e:-!$EDITOR*;
-		f:-!$PAGER $nnn*;
-		h:!nnn-home*;
-		l:!lazygit --filter $PWD/$nnn*;
-		n:bulknew;
-		p:preview-tui;
-		r:gitroot;
-		s:!$SHELL -l*;
-		t:!trash-restore*;
-		u:-!dust -rP | less*;
-		v:!lazygit*;
-		y:!echo -n "$nnn" | wl-copy*;
-		z:autojump
-	EOS
-)
-export GUI=1
-export NNN_OPENER=nuke
-export NNN_ARCHIVE=$(
-	cat <<-'EOS' | tr -d '\n'
-		\.(
-			7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|
-			rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip
-		)$
-	EOS
-)
-
 # Terraform
 export TF_CLI_ARGS_plan="-parallelism=30"
 export TF_CLI_ARGS_apply="-parallelism=30"

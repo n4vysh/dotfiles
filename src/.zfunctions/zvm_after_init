@@ -21,8 +21,8 @@ zvm_bindkey viins '^od' dbui-widget
 zvm_define_widget nvim-widget
 zvm_bindkey viins '^oe' nvim-widget
 
-zvm_define_widget n-widget
-zvm_bindkey viins '^of' n-widget
+zvm_define_widget y-widget
+zvm_bindkey viins '^of' y-widget
 
 zvm_define_widget k9s-widget
 zvm_bindkey viins '^ok' k9s-widget
