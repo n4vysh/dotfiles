@@ -95,7 +95,7 @@ return {
 				)
 				vim.keymap.set(
 					"n",
-					"yn",
+					"yy",
 					api.fs.copy.filename,
 					opts("Copy Name")
 				)

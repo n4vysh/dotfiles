@@ -188,7 +188,7 @@ vim.keymap.set("v", "<C-h>", ":s///g<left><left><left>", {
 
 -- Spacemacs-like keymaps
 -- +yank
-vim.keymap.set("n", "<space>yn", function()
+vim.keymap.set("n", "<space>yy", function()
 	require("user.utils.yank").exec("file name", vim.fn.expand("%:t"))
 end, {
 	silent = true,
