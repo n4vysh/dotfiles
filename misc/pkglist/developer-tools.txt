@@ -46,7 +46,6 @@ chaotic-aur/crudini
 chaotic-aur/drawio-desktop
 chaotic-aur/google-cloud-cli
 chaotic-aur/lazydocker
-chaotic-aur/nnn-nerd
 chaotic-aur/standardnotes-bin
 chaotic-aur/tflint
 chaotic-aur/viddy
@@ -161,4 +160,5 @@ extra/xsv
 extra/yaegi
 extra/yamlfmt
 extra/yamllint
+extra/yazi
 extra/zoxide

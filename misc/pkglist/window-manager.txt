@@ -1,4 +1,3 @@
-extra/uwsm
 aur/xdg-ninja
 chaotic-aur/wlogout
 extra/brightnessctl
@@ -24,6 +23,7 @@ extra/rofimoji
 extra/slurp
 extra/swappy
 extra/swaync
+extra/uwsm
 extra/waybar
 extra/wev
 extra/wf-recorder
