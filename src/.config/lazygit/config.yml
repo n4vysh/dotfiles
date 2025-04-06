@@ -24,7 +24,7 @@ customCommands:
     loadingText: "Opening CI page..."
     subprocess: false
   - key: "f"
-    command: "nnn"
+    command: "yazi"
     context: "status"
     description: "Open file manager"
     subprocess: true
@@ -51,7 +51,7 @@ customCommands:
     description: "Commit changes with git cz --no-verify"
     subprocess: true
   - key: "<c-f>"
-    command: "nnn {{.SelectedFile.Name}}"
+    command: "yazi {{.SelectedFile.Name}}"
     context: "files"
     description: "Open file manager"
     subprocess: true
