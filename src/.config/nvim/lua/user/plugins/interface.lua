@@ -49,6 +49,7 @@ return {
 				"qf",
 				"help",
 				"markdown",
+				"dashboard",
 			}
 
 			do
@@ -73,6 +74,7 @@ return {
 							and vim.bo.filetype ~= "qf"
 							and vim.bo.filetype ~= "help"
 							and vim.bo.filetype ~= "markdown"
+							and vim.bo.filetype ~= "dashboard"
 						then
 							vim.cmd.EnableWhitespace()
 						end
@@ -140,7 +142,7 @@ return {
 					"gitcommit",
 					"TelescopePrompt",
 					"TelescopeResults",
-					"alpha",
+					"dashboard",
 					"lazy",
 				},
 			})
@@ -326,77 +328,6 @@ return {
 		},
 	},
 	{
-		"goolord/alpha-nvim",
-		event = { "VimEnter" },
-		config = function()
-			local alpha = require("alpha")
-			local dashboard = require("alpha.themes.dashboard")
-			dashboard.section.header.val = {}
-			dashboard.section.buttons.val = {
-				dashboard.button("e", "  New file", ":ene<CR>"),
-				dashboard.button(
-					"f",
-					"󰈞  Find files",
-					":lua require('telescope.builtin').find_files()<cr>"
-				),
-				dashboard.button(
-					"s",
-					"󰈬  Search word",
-					":lua require('user.utils.finder').search()<cr>"
-				),
-				dashboard.button(
-					"t",
-					"󰙅  Open file tree",
-					":NvimTreeToggle<CR>"
-				),
-				dashboard.button(
-					"m",
-					"  Jump to bookmarks",
-					":lua require('harpoon.ui').toggle_quick_menu()<cr>"
-				),
-				dashboard.button(
-					"h",
-					"  History",
-					":lua require('user.utils.finder').recent_files()<cr>"
-				),
-				dashboard.button(
-					"l",
-					"  Open last session",
-					":SessionManager load_last_session<cr>"
-				),
-				dashboard.button(
-					"c",
-					"  Configuration",
-					":lua require('user.utils.finder').edit_config()<cr>"
-				),
-				dashboard.button(
-					"p",
-					"  Plugin / Package manager",
-					":lua require('user.utils.ui').select_plugin_or_package_manager()<cr>"
-				),
-				dashboard.button("q", "󰅚  Quit NVIM", ":qa<CR>"),
-			}
-			alpha.setup(dashboard.config)
-		end,
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-			{
-				"Shatur/neovim-session-manager",
-				cmd = { "SessionManager" },
-				config = function()
-					require("session_manager").setup({
-						autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
-					})
-				end,
-				dependencies = {
-					"nvim-lua/plenary.nvim",
-					-- NOTE: use user.utils.ui module
-					"stevearc/dressing.nvim",
-				},
-			},
-		},
-	},
-	{
 		"kevinhwang91/nvim-bqf",
 		ft = { "qf" },
 	},
@@ -537,6 +468,107 @@ return {
 		---@type snacks.Config
 		opts = {
 			scroll = {},
+			dashboard = {
+				preset = {
+					keys = {
+						{
+							icon = " ",
+							key = "e",
+							desc = "New file",
+							action = ":ene",
+						},
+						{
+							icon = " ",
+							key = "f",
+							desc = "Find files",
+							action = ":lua Snacks.dashboard.pick('files')",
+						},
+						{
+							icon = "󰈬 ",
+							key = "s",
+							desc = "Search word",
+							action = ":lua require('user.utils.finder').search()",
+						},
+						{
+							icon = "󰙅 ",
+							key = "t",
+							desc = "Open file tree",
+							action = ":NvimTreeToggle",
+						},
+						{
+							icon = " ",
+							key = "m",
+							desc = "Jump to bookmarks",
+							action = function()
+								local harpoon = require("harpoon"):setup({
+									settings = {
+										save_on_toggle = true,
+									},
+								})
+								harpoon.ui:toggle_quick_menu(harpoon:list())
+							end,
+						},
+						{
+							icon = " ",
+							key = "h",
+							desc = "History",
+							action = ":lua require('user.utils.finder').recent_files()",
+						},
+						{
+							icon = " ",
+							key = "l",
+							desc = "Open last session",
+							section = "session",
+						},
+						{
+							icon = " ",
+							key = "c",
+							desc = "Configuration",
+							action = ":lua require('user.utils.finder').edit_config()",
+						},
+						{
+							icon = " ",
+							key = "p",
+							desc = "Plugin / Package manager",
+							action = ":lua require('user.utils.ui').select_plugin_or_package_manager()",
+						},
+						{
+							icon = " ",
+							key = "q",
+							desc = "Quit",
+							action = ":qa",
+						},
+					},
+				},
+				sections = {
+					{ section = "keys", gap = 1, padding = 1 },
+				},
+			},
+			styles = {
+				dashboard = {
+					bo = {
+						filetype = "dashboard",
+					},
+				},
+			},
+		},
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"ThePrimeagen/harpoon",
+			{
+				"Shatur/neovim-session-manager",
+				cmd = { "SessionManager" },
+				config = function()
+					require("session_manager").setup({
+						autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
+					})
+				end,
+				dependencies = {
+					"nvim-lua/plenary.nvim",
+					-- NOTE: use user.utils.ui module
+					"stevearc/dressing.nvim",
+				},
+			},
 		},
 	},
 	{
