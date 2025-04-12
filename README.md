@@ -410,7 +410,7 @@ If rkhunter or arch-audit found some problem, show following.
 
 - [tokyonight.nvim][tokyonight-link]
 - [bufferline.nvim][bufferline-link]
-- [nvim-navic][navic-link]
+- [dropbar.nvim][dropbar-link]
 - [nvim-lspconfig][lspconfig-link]
 - [nvim-treesitter][treesitter-link]
 - [statuscol.nvim][statuscol-link]
@@ -418,7 +418,7 @@ If rkhunter or arch-audit found some problem, show following.
 
 [tokyonight-link]: https://github.com/folke/tokyonight.nvim
 [bufferline-link]: https://github.com/akinsho/bufferline.nvim
-[navic-link]: https://github.com/SmiteshP/nvim-navic
+[dropbar-link]: https://github.com/Bekaboo/dropbar.nvim
 [lspconfig-link]: https://github.com/neovim/nvim-lspconfig
 [treesitter-link]: https://github.com/nvim-treesitter/nvim-treesitter
 [statuscol-link]: https://github.com/luukvbaal/statuscol.nvim
