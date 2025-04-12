@@ -306,11 +306,6 @@ return {
 							end,
 						})
 					end
-
-					if client.server_capabilities.documentSymbolProvider then
-						local navic = require("nvim-navic")
-						navic.attach(client, buf)
-					end
 				end,
 			})
 
@@ -850,20 +845,68 @@ return {
 		},
 	},
 	{
-		"SmiteshP/nvim-navic",
-		event = "LspAttach",
+		"Bekaboo/dropbar.nvim",
+		-- NOTE: dropbar.nvim lazy load automatically
+		lazy = false,
 		init = function()
 			vim.o.winbar = " "
 		end,
 		config = function()
-			local navic = require("nvim-navic")
-			navic.setup({
-				highlight = true,
+			require("dropbar").setup({
+				bar = {
+					enable = function(buf, win, _)
+						if
+							not vim.api.nvim_buf_is_valid(buf)
+							or not vim.api.nvim_win_is_valid(win)
+							or vim.fn.win_gettype(win) ~= ""
+							-- NOTE: enable winbar always
+							-- or vim.wo[win].winbar ~= ""
+							or vim.bo[buf].ft == "help"
+						then
+							return false
+						end
+
+						local stat =
+							vim.uv.fs_stat(vim.api.nvim_buf_get_name(buf))
+						if stat and stat.size > 1024 * 1024 then
+							return false
+						end
+
+						return vim.bo[buf].ft == "markdown"
+							or pcall(vim.treesitter.get_parser, buf)
+							or not vim.tbl_isempty(vim.lsp.get_clients({
+								bufnr = buf,
+								method = "textDocument/documentSymbol",
+							}))
+					end,
+				},
 			})
-			vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+
+			local dropbar_api = require("dropbar.api")
+			vim.keymap.set(
+				"n",
+				"gr;",
+				dropbar_api.pick,
+				{ desc = "Pick symbols in winbar" }
+			)
+			vim.keymap.set(
+				"n",
+				"[;",
+				dropbar_api.goto_context_start,
+				{ desc = "Go to start of current context" }
+			)
+			vim.keymap.set(
+				"n",
+				"];",
+				dropbar_api.select_next_context,
+				{ desc = "Select next context" }
+			)
 		end,
 		dependencies = {
-			"neovim/nvim-lspconfig",
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "make",
+			},
 		},
 	},
 }
