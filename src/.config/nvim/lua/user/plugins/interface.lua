@@ -4,13 +4,6 @@ return {
 		lazy = false,
 		keys = {
 			{
-				"<space>nn",
-				function()
-					require("telescope").extensions.notify.notify()
-				end,
-				desc = "View notification history",
-			},
-			{
 				"<space>nd",
 				function()
 					require("notify").dismiss()
@@ -33,6 +26,11 @@ return {
 			notify.setup({
 				render = "wrapped-default",
 				max_width = "40",
+				on_open = function(win)
+					local config = vim.api.nvim_win_get_config(win)
+					config.border = "single"
+					vim.api.nvim_win_set_config(win, config)
+				end,
 			})
 		end,
 		dependencies = {
@@ -273,6 +271,7 @@ return {
 				name = "Window resize",
 				mode = "n",
 				body = "gw",
+				hint = "Window resize: _h_, _l_: ←/→ _j_, _k_: ↓/↑, _<Esc>_: exit",
 				config = {
 					invoke_on_body = true,
 				},
@@ -310,6 +309,7 @@ return {
 				name = "Side scroll",
 				mode = "n",
 				body = "gz",
+				hint = "Side scroll: _h_, _l_: ←/→ _H_, _L_: half screen ←/→, _<Esc>_: exit",
 				config = {
 					invoke_on_body = true,
 				},
@@ -455,7 +455,7 @@ return {
 		config = function()
 			local wilder = require("wilder")
 			wilder.setup({
-				modes = { ":", "/", "?" },
+				modes = { "/", "?" },
 			})
 			wilder.set_option("use_python_remote_plugin", 0)
 			wilder.set_option("enable_cmdline_enter", 0)
@@ -565,7 +565,11 @@ return {
 					},
 					lualine_x = { "encoding", "bo:fileformat", "bo:filetype" },
 					lualine_y = {},
-					lualine_z = { "progress", "location" },
+					lualine_z = {
+						"searchcount",
+						"progress",
+						"location",
+					},
 				},
 				inactive_sections = {
 					lualine_a = {},
@@ -765,5 +769,51 @@ return {
 				target_pane = "{last}",
 			}
 		end,
+	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		keys = {
+			{
+				"<space>nn",
+				"<cmd>Noice pick<cr>",
+				silent = true,
+				desc = "View notification history",
+			},
+		},
+		opts = {
+			messages = {
+				view_search = false,
+			},
+			lsp = {
+				progress = {
+					enabled = false,
+				},
+				override = {
+					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+					["vim.lsp.util.stylize_markdown"] = true,
+					["cmp.entry.get_documentation"] = true,
+				},
+			},
+			presets = {
+				bottom_search = true,
+				command_palette = true,
+				long_message_to_split = true,
+				inc_rename = true,
+			},
+			views = {
+				cmdline_popup = {
+					border = {
+						style = "single",
+					},
+				},
+			},
+		},
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+			"hrsh7th/nvim-cmp",
+			"smjonas/inc-rename.nvim",
+		},
 	},
 }
