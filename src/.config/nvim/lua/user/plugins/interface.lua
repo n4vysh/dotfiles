@@ -600,6 +600,10 @@ return {
 					lualine_x = { "encoding", "bo:fileformat", "bo:filetype" },
 					lualine_y = {},
 					lualine_z = {
+						{
+							require("noice").api.status.mode.get,
+							cond = require("noice").api.status.mode.has,
+						},
 						"searchcount",
 						"progress",
 						"location",
