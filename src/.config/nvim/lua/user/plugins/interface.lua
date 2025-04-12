@@ -533,9 +533,11 @@ return {
 		},
 	},
 	{
-		"karb94/neoscroll.nvim",
-		event = { "VimEnter" },
-		opts = {},
+		"folke/snacks.nvim",
+		---@type snacks.Config
+		opts = {
+			scroll = {},
+		},
 	},
 	{
 		"nvim-lualine/lualine.nvim",
