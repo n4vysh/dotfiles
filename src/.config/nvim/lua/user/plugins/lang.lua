@@ -80,6 +80,9 @@ return {
 
 					vim.diagnostic.config({
 						virtual_text = false,
+						float = {
+							border = "single",
+						},
 					})
 
 					vim.bo[buf].omnifunc = "v:lua.vim.lsp.omnifunc"
