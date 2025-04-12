@@ -10,6 +10,12 @@ return {
 				silent = true,
 			},
 		},
+		init = function()
+			vim.g.openbrowser_search_engines = {
+				duckduckgo = "https://duckduckgo.com/?q={query}&kl=us-en&kp=1&k1=-1",
+			}
+			vim.g.openbrowser_default_search = "duckduckgo"
+		end,
 	},
 	{
 		"axieax/urlview.nvim",
