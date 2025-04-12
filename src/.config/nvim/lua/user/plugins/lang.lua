@@ -15,18 +15,6 @@ return {
 			require("mason").setup({
 				PATH = "append",
 			})
-
-			do
-				local augroup = "mason"
-				vim.api.nvim_create_augroup(augroup, { clear = true })
-				vim.api.nvim_create_autocmd("FileType", {
-					group = augroup,
-					pattern = "mason",
-					callback = function()
-						vim.opt_local.winblend = 0
-					end,
-				})
-			end
 		end,
 		dependencies = {
 			"stevearc/dressing.nvim",
@@ -786,7 +774,6 @@ return {
 					win_config = {
 						border = { "", "─", "", "", "", "─", "", "" },
 						winhighlight = "Normal:Folded",
-						winblend = 0,
 					},
 					mappings = {
 						scrollU = "<C-u>",

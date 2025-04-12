@@ -192,7 +192,6 @@ return {
 
 			telescope.setup({
 				defaults = require("telescope.themes").get_dropdown({
-					winblend = 0,
 					vimgrep_arguments = vimgrep_arguments,
 					mappings = {
 						i = {
