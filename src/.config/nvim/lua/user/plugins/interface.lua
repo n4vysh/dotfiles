@@ -273,7 +273,7 @@ return {
 				name = "Window resize",
 				mode = "n",
 				body = "gw",
-				hint = "Window resize: _h_, _l_: ←/→ _j_, _k_: ↓/↑, _<Esc>_: exit",
+				hint = " Window resize: _h_, _l_: ←/→ _j_, _k_: ↓/↑, _<Esc>_: exit ",
 				config = {
 					invoke_on_body = true,
 				},
@@ -311,7 +311,7 @@ return {
 				name = "Side scroll",
 				mode = "n",
 				body = "gz",
-				hint = "Side scroll: _h_, _l_: ←/→, _H_, _L_: half screen ←/→, _<Esc>_: exit",
+				hint = " Side scroll: _h_, _l_: ←/→, _H_, _L_: half screen ←/→, _<Esc>_: exit ",
 				config = {
 					invoke_on_body = true,
 				},
