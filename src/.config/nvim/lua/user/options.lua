@@ -66,6 +66,7 @@ end
 vim.opt.wildmode:prepend({ "longest:full" })
 vim.opt.shortmess:append({ IcasW = true })
 vim.opt.listchars:append({
+	tab = "▏·",
 	trail = "˽",
 	eol = "¬",
 	extends = "»",

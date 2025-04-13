@@ -157,32 +157,6 @@ return {
 		opts = {},
 	},
 	{
-		"lukas-reineke/indent-blankline.nvim",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		main = "ibl",
-		opts = {
-			indent = {
-				char = "│",
-				tab_char = "•",
-			},
-			scope = { enabled = false },
-			exclude = {
-				filetypes = {
-					"lspinfo",
-					"checkhealth",
-					"help",
-					"man",
-					"gitcommit",
-					"undotree",
-					"TelescopePrompt",
-					"TelescopeResults",
-					"dbout",
-					"",
-				},
-			},
-		},
-	},
-	{
 		"romainl/vim-cool",
 		event = { "CursorMoved", "InsertEnter" },
 	},
@@ -468,6 +442,7 @@ return {
 		---@type snacks.Config
 		opts = {
 			scroll = {},
+			indent = {},
 			dashboard = {
 				preset = {
 					keys = {
