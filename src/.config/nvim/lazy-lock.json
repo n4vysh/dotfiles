@@ -28,7 +28,7 @@
   "gotests.nvim": { "branch": "main", "commit": "1edbeb91364ab743b11be3ac4f63e498c9821fd7" },
   "harpoon": { "branch": "harpoon2", "commit": "ed1f853847ffd04b2b61c314865665e1dadf22c7" },
   "hlargs.nvim": { "branch": "main", "commit": "063fa2ba05f5eee5a1ab3da76ecb19770b7725cf" },
-  "hydra.nvim": { "branch": "master", "commit": "3ced42c0b6a6c85583ff0f221635a7f4c1ab0dd0" },
+  "hydra.nvim": { "branch": "main", "commit": "f3d4822060376cb253d4cc0d5af2c272c28de2a7" },
   "img-clip.nvim": { "branch": "main", "commit": "08a02e14c8c0d42fa7a92c30a98fd04d6993b35d" },
   "inc-rename.nvim": { "branch": "main", "commit": "87ebe7bee0b83d3b6e4f1494c74abed21b318175" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
