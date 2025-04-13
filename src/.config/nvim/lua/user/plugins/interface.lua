@@ -263,7 +263,7 @@ return {
 		end,
 	},
 	{
-		"anuvyklack/hydra.nvim",
+		"nvimtools/hydra.nvim",
 		event = { "VimEnter" },
 		config = function()
 			local hydra = require("hydra")
@@ -311,7 +311,7 @@ return {
 				name = "Side scroll",
 				mode = "n",
 				body = "gz",
-				hint = "Side scroll: _h_, _l_: ←/→ _H_, _L_: half screen ←/→, _<Esc>_: exit",
+				hint = "Side scroll: _h_, _l_: ←/→, _H_, _L_: half screen ←/→, _<Esc>_: exit",
 				config = {
 					invoke_on_body = true,
 				},
