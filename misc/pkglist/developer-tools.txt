@@ -42,6 +42,7 @@ aur/sql-formatter
 aur/terraform-docs-bin
 aur/tilt-bin
 aur/vercel
+chaotic-aur/bun-bin
 chaotic-aur/crudini
 chaotic-aur/drawio-desktop
 chaotic-aur/google-cloud-cli
