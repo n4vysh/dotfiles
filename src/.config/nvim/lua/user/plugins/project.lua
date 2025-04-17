@@ -5,17 +5,17 @@ return {
 		-- https://github.com/tpope/vim-projectionist/issues/130
 		lazy = false,
 		config = function()
-			vim.keymap.set("n", "<Space>aa", ":A<cr>", {
+			vim.keymap.set("n", "<Space>ea", ":A<cr>", {
 				silent = true,
 				desc = "Edit the alternate file",
 			})
 
-			vim.keymap.set("n", "<Space>as", ":AS<cr>", {
+			vim.keymap.set("n", "<Space>es", ":AS<cr>", {
 				silent = true,
 				desc = "Edit the alternate file in a split",
 			})
 
-			vim.keymap.set("n", "<Space>av", ":AV<cr>", {
+			vim.keymap.set("n", "<Space>ev", ":AV<cr>", {
 				silent = true,
 				desc = "Edit the alternate file in a vertical split",
 			})

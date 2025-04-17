@@ -25,29 +25,36 @@ return {
 	},
 	{
 		"yetone/avante.nvim",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		event = "VeryLazy",
+		version = false,
 		keys = {
 			{
-				"<space>ai",
-				function()
-					require("avante.api").ask()
-				end,
+				"<space>aa",
+				"<cmd>AvanteAsk<cr>",
 				desc = "Show sidebar for AI",
 				mode = { "n", "v" },
 			},
 			{
-				"<space>ar",
-				function()
-					require("avante.api").refresh()
-				end,
-				desc = "Refresh sidebar for AI",
+				"<space>an",
+				"<cmd>AvanteChatNew<cr>",
+				desc = "Start new chat session for AI",
+				mode = { "n", "v" },
+			},
+			{
+				"<space>ac",
+				"<cmd>AvanteClear<cr>",
+				desc = "Clear the chat history for AI",
+				mode = { "n", "v" },
+			},
+			{
+				"<space>ah",
+				"<cmd>AvanteHistory<cr>",
+				desc = "Opens chat sessions for AI",
 				mode = { "n", "v" },
 			},
 			{
 				"<space>ae",
-				function()
-					require("avante.api").edit()
-				end,
+				"<cmd>AvanteEdit<cr>",
 				desc = "Edit selected blocks for AI",
 				mode = { "v" },
 			},
@@ -55,11 +62,14 @@ return {
 		opts = {
 			hints = { enabled = false },
 		},
-		build = ":AvanteBuild",
+		build = "make",
 		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
 			"stevearc/dressing.nvim",
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
+			"nvim-telescope/telescope.nvim",
+			"hrsh7th/nvim-cmp",
 			"nvim-tree/nvim-web-devicons",
 			{
 				"HakonHarnes/img-clip.nvim",
