@@ -3,6 +3,9 @@ jobs = 20
 idiomatic_version_file = false
 experimental = true
 
+[settings.npm]
+bun = true
+
 [tools]
 gotestsum = "latest"
 kyverno = "latest"
@@ -13,3 +16,4 @@ kyverno = "latest"
 "go:github.com/josharian/impl" = "latest"
 "go:github.com/fatih/gomodifytags" = "latest"
 "go:github.com/rhysd/vim-startuptime" = "latest"
+"npm:mcp-hub" = "3.0.3"
