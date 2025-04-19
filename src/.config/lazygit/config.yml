@@ -4,6 +4,7 @@ gui:
   showCommandLog: false
   showBottomLine: false
   showDivergenceFromBaseBranch: arrowAndNumber
+  border: single
 git:
   parseEmoji: true
   paging:
