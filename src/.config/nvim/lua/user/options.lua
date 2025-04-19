@@ -104,6 +104,7 @@ vim.filetype.add({
 		[".*/%.config/git/config%..*"] = "gitconfig",
 		[".*/%.config/swappy/config"] = "ini",
 		[".*/%.config/waybar/config"] = "json",
+		[".*/%.czrc"] = "json",
 		[".*/%.config/yamllint/config"] = "yaml",
 		[".*/helmfile.d/.*%.ya?ml"] = "helm",
 		[".*/helmfile.d/.*/.*%.ya?ml"] = "helm",

@@ -1,3 +1,5 @@
 {
-  "path": "cz-conventional-changelog"
+  "$schema": "https://cdn.jsdelivr.net/gh/Zhengqbbb/cz-git@1.11.1/docs/public/schema/cz-git.json",
+  "useEmoji": true,
+  "useAI": true
 }
