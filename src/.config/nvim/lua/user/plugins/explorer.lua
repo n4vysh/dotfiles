@@ -117,4 +117,27 @@ return {
 			"stevearc/dressing.nvim",
 		},
 	},
+	---@type LazySpec
+	{
+		"mikavilpas/yazi.nvim",
+		event = "VeryLazy",
+		keys = {
+			{
+				"<space>fm",
+				mode = { "n", "v" },
+				"<cmd>Yazi<cr>",
+				desc = "Open yazi at the current file",
+			},
+		},
+		---@type YaziConfig | {}
+		opts = {
+			yazi_floating_window_border = "single",
+			keymaps = {
+				show_help = "<C-_>",
+			},
+		},
+		dependencies = {
+			"folke/snacks.nvim",
+		},
+	},
 }
