@@ -5,6 +5,18 @@ gui:
   showBottomLine: false
   showDivergenceFromBaseBranch: arrowAndNumber
   border: single
+  spinner:
+    frames:
+      - '⠋'
+      - '⠙'
+      - '⠹'
+      - '⠸'
+      - '⠼'
+      - '⠴'
+      - '⠦'
+      - '⠧'
+      - '⠇'
+      - '⠏'
 git:
   parseEmoji: true
   paging:
