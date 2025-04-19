@@ -60,6 +60,8 @@ jobs:
               stow \
               mise
         # yamllint enable rule:line-length
+      - name: Initialize packages with mise
+        run: mise install && eval "$(mise env)"
       - uses: actions/checkout@main
       - name: Deploy dotfiles
         run: |

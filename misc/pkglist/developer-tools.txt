@@ -28,8 +28,6 @@ aur/kubescape-bin
 aur/kubeval-bin
 aur/lefthook-bin
 aur/mermaid-cli
-aur/nodejs-commitizen
-aur/nodejs-cz-conventional-changelog
 aur/nodejs-jsonlint
 aur/nodejs-nestjs-cli
 aur/opa

@@ -42,7 +42,7 @@ customCommands:
     loadingText: "Opening repository page..."
     subprocess: false
   - key: "c"
-    command: "git cz"
+    command: "git czg"
     context: "files"
     description: "Commit changes with git cz"
     subprocess: true

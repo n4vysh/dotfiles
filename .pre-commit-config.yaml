@@ -145,10 +145,7 @@ repos:
         pass_filenames: false
       - id: commitlint
         name: check commit message with commitlint
-        language: node
+        language: system
         minimum_pre_commit_version: 0.7.0
-        additional_dependencies:
-          - "@commitlint/cli@17.7.1"
-          - "@commitlint/config-conventional@17.7.0"
         stages: [commit-msg]
         entry: commitlint --edit
