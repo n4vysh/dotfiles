@@ -19,6 +19,6 @@ rev = "9a09505"
 hash = "2f1053f89d1a301a648ab181d0948e38"
 
 [[flavor.deps]]
-use = "BennyOe/tokyo-night"
-rev = "695dac6"
-hash = "a8f426ea0d9cb843b081d62ab01364c8"
+use = "yazi-rs/flavors:catppuccin-frappe"
+rev = "68326b4"
+hash = "7780fbbc8965da5a31a76a0dcd4d1216"
