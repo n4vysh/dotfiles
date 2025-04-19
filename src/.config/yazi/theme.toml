@@ -1,6 +1,6 @@
 [flavor]
-use = "tokyo-night"
-dark = "tokyo-night"
+use = "catppuccin-frappe"
+dark = "catppuccin-frappe"
 
 [status]
 sep_left = { open = "", close = "" }
