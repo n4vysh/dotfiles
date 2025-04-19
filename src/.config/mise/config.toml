@@ -9,7 +9,6 @@ bun = true
 [tools]
 gotestsum = "latest"
 kyverno = "latest"
-"pipx:elia-chat" = { version = "1.10.0", uvx_args = "--python 3.11" }
 "pipx:posting" = { version = "2.5.4", uvx_args = "--python 3.12 --prerelease=allow" }
 "pipx:harlequin" = { version = "2.1.1", uvx_args = "--python 3.13" }
 "go:gotest.tools/gotestsum" = "latest"
