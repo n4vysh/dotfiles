@@ -671,7 +671,6 @@ return {
 					"man",
 					"nvim-tree",
 					"quickfix",
-					"symbols-outline",
 					"toggleterm",
 				},
 			})
