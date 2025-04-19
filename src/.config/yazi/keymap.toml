@@ -16,10 +16,17 @@ prepend_keymap = [
   # Spotting
   { on = "i", run = "spot", desc = "Spot hovered file" },
 
+  # Operation
+  { on = "Z", run = "noop" },
+
   # Help
   { on = "<A-h>", run = "help", desc = "Open help" },
 
   # Plugins
+  { on = [
+    ",",
+    "z",
+  ], run = "plugin zoxide", desc = "Jump to a directory via zoxide" },
   { on = [
     ",",
     "t",
