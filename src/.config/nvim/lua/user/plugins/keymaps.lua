@@ -112,7 +112,7 @@ return {
 				rules = false,
 			},
 			spec = {
-				{ "<space>a", group = "ai/alternate" },
+				{ "<space>a", group = "ai" },
 				{ "<space>b", group = "buffer" },
 				{ "<space>c", group = "command" },
 				{ "<space>d", group = "debug" },
