@@ -553,6 +553,25 @@ return {
 		"nvim-lualine/lualine.nvim",
 		event = { "VimEnter" },
 		config = function()
+			-- NOTE: count selected line only
+			--       builtin selectioncount component gives the wrong size
+			-- https://github.com/nvim-lualine/lualine.nvim/issues/1012
+			-- https://github.com/nvim-lualine/lualine.nvim/blob/86fe39534b7da729a1ac56c0466e76f2c663dc42/lua/lualine/components/selectioncount.lua
+			local function linecount()
+				local mode = vim.fn.mode(true)
+				local line_start = vim.fn.line("v")
+				local line_end = vim.fn.line(".")
+				if
+					mode:match("")
+					or mode:match("V")
+					or line_start ~= line_end
+				then
+					return math.abs(line_start - line_end) + 1
+				else
+					return ""
+				end
+			end
+
 			require("lualine").setup({
 				options = {
 					theme = "tokyonight",
@@ -575,7 +594,59 @@ return {
 						{ "branch", icon = "" },
 						{ "diagnostics", sources = { "nvim_diagnostic" } },
 					},
-					lualine_x = { "encoding", "bo:fileformat", "bo:filetype" },
+					lualine_x = {
+						{
+							"copilot",
+							symbols = {
+								status = {
+									icons = {
+										unknown = " ",
+									},
+									hl = {
+										enabled = require(
+											"copilot-lualine.colors"
+										).get_hl_value(
+											0,
+											"DiagnosticSignInfo",
+											"fg"
+										),
+										sleep = require(
+											"copilot-lualine.colors"
+										).get_hl_value(
+											0,
+											"Comment",
+											"fg"
+										),
+										disabled = require(
+											"copilot-lualine.colors"
+										).get_hl_value(
+											0,
+											"Comment",
+											"fg"
+										),
+										warning = require(
+											"copilot-lualine.colors"
+										).get_hl_value(
+											0,
+											"DiagnosticSignWarn",
+											"fg"
+										),
+										unknown = require(
+											"copilot-lualine.colors"
+										).get_hl_value(
+											0,
+											"Comment",
+											"fg"
+										),
+									},
+								},
+							},
+							show_colors = true,
+						},
+						"encoding",
+						"bo:fileformat",
+						"bo:filetype",
+					},
 					lualine_y = {},
 					lualine_z = {
 						{
@@ -583,6 +654,7 @@ return {
 							cond = require("noice").api.status.mode.has,
 						},
 						"searchcount",
+						linecount,
 						"progress",
 						"location",
 					},
@@ -605,6 +677,7 @@ return {
 			})
 		end,
 		dependencies = {
+			{ "AndreM222/copilot-lualine" },
 			{
 				"folke/tokyonight.nvim",
 				config = function()
