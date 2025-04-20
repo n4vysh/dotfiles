@@ -64,6 +64,17 @@ return {
 			file_selector = {
 				provider = "telescope",
 			},
+			windows = {
+				sidebar_header = {
+					rounded = false,
+				},
+				edit = {
+					border = "single",
+				},
+				ask = {
+					border = "single",
+				},
+			},
 			system_prompt = function()
 				local hub = require("mcphub").get_hub_instance()
 				return hub:get_active_servers_prompt()
