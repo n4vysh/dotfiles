@@ -1,16 +1,18 @@
 local M = {}
 
-function M.select_plugin_or_package_manager()
-	vim.ui.select({ "plugin manager", "package manager" }, {
-		prompt = "Select plugin / package manager",
+function M.open_package_manager()
+	vim.ui.select({ "Plugins", "Tools", "MCP servers" }, {
+		prompt = "Select Plugins / Tools / MCP servers",
 	}, function(choice)
-		if choice == nil then
+		if choice == "Plugins" then
+			require("lazy").home()
+		elseif choice == "Tools" then
+			vim.cmd.Mason()
+		elseif choice == "MCP servers" then
+			vim.cmd.MCPHub()
+		else
 			do
 			end
-		elseif choice == "plugin manager" then
-			require("lazy").home()
-		else
-			vim.cmd.Mason()
 		end
 	end)
 end

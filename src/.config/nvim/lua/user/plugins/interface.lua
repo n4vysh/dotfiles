@@ -506,8 +506,8 @@ return {
 						{
 							icon = " ",
 							key = "p",
-							desc = "Plugin / Package manager",
-							action = ":lua require('user.utils.ui').select_plugin_or_package_manager()",
+							desc = "Package manager",
+							action = ":lua require('user.utils.ui').open_package_manager()",
 						},
 						{
 							icon = " ",
