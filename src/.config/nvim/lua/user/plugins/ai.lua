@@ -58,33 +58,60 @@ return {
 				desc = "Edit selected blocks for AI",
 				mode = { "v" },
 			},
-		},
-		opts = {
-			hints = { enabled = false },
-			file_selector = {
-				provider = "telescope",
+			{
+				"<space>as",
+				"<cmd>AvanteStop<cr>",
+				desc = "Stop current requests for AI",
+				mode = { "n" },
 			},
-			windows = {
-				sidebar_header = {
-					rounded = false,
-				},
-				edit = {
-					border = "single",
-				},
-				ask = {
-					border = "single",
-				},
-			},
-			system_prompt = function()
-				local hub = require("mcphub").get_hub_instance()
-				return hub:get_active_servers_prompt()
-			end,
-			custom_tools = function()
-				return {
-					require("mcphub.extensions.avante").mcp_tool(),
-				}
-			end,
 		},
+		config = function()
+			require("avante").setup({
+				hints = { enabled = false },
+				file_selector = {
+					provider = "telescope",
+				},
+				windows = {
+					sidebar_header = {
+						rounded = false,
+					},
+					edit = {
+						border = "single",
+					},
+					ask = {
+						border = "single",
+					},
+				},
+				system_prompt = function()
+					local hub = require("mcphub").get_hub_instance()
+					return hub:get_active_servers_prompt()
+				end,
+				custom_tools = function()
+					return {
+						require("mcphub.extensions.avante").mcp_tool(),
+					}
+				end,
+				disabled_tools = {
+					"list_files",
+					"search_files",
+					"read_file",
+					"create_file",
+					"rename_file",
+					"delete_file",
+					"create_dir",
+					"rename_dir",
+					"delete_dir",
+					"bash",
+				},
+				behaviour = {
+					enable_claude_text_editor_tool_mode = true,
+				},
+			})
+
+			require("avante.config").override({
+				system_prompt = "Respond in japanese",
+			})
+		end,
 		build = "make",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
