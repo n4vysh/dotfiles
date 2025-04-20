@@ -6,9 +6,9 @@ return {
 		keys = {
 			{
 				"<Space>pp",
-				require("user.utils.ui").select_plugin_or_package_manager,
+				require("user.utils.ui").open_package_manager,
 				silent = true,
-				desc = "Show package manager information",
+				desc = "Open package manager",
 			},
 		},
 		config = function()
