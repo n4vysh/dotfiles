@@ -42,34 +42,28 @@ return {
 		end,
 	},
 	{
-		"windwp/nvim-spectre",
+		"MagicDuck/grug-far.nvim",
 		keys = {
 			{
 				"<space>rr",
 				function()
-					require("spectre").open()
+					require("grug-far").open()
 				end,
 				desc = "Search and replace",
 			},
 			{
 				"<space>rr",
-				-- https://github.com/nvim-pack/nvim-spectre/issues/79
-				":lua require('spectre').open_visual()<CR>",
+				function()
+					require("grug-far").with_visual_selection()
+				end,
 				desc = "Search and replace current word",
 				mode = "v",
 			},
 		},
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
 		opts = {
-			live_update = true,
-			mapping = {
-				["quit"] = {
-					map = "q",
-					cmd = "<cmd>quit<CR>",
-					desc = "quit spectre",
-				},
+			keymaps = {
+				close = { n = "q" },
+				help = { n = "<C-_>" },
 			},
 		},
 	},
