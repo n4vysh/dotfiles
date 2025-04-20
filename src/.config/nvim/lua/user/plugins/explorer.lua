@@ -18,6 +18,9 @@ return {
 		opts = {
 			hijack_cursor = true,
 			hijack_netrw = false,
+			notify = {
+				absolute_path = false,
+			},
 			view = {
 				width = {
 					max = -1,
