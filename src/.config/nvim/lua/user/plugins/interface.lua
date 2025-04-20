@@ -679,6 +679,9 @@ return {
 			{ "AndreM222/copilot-lualine" },
 			{
 				"folke/tokyonight.nvim",
+				-- NOTE: load colorscheme before all the other start plugins
+				lazy = false,
+				priority = 1000,
 				config = function()
 					require("tokyonight").setup({
 						style = "night",
