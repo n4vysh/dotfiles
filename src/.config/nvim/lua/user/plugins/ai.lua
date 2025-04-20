@@ -61,6 +61,9 @@ return {
 		},
 		opts = {
 			hints = { enabled = false },
+			file_selector = {
+				provider = "telescope",
+			},
 			system_prompt = function()
 				local hub = require("mcphub").get_hub_instance()
 				return hub:get_active_servers_prompt()
