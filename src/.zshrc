@@ -1,5 +1,5 @@
 if [[ -z ${TMUX+X}${ZSH_SCRIPT+X}${ZSH_EXECUTION_STRING+X} ]]; then
-	tmux new-session -AD
+	tmuxp load -y main tasks note misc
 fi
 
 echo -e '\e[5 q' # beam cursor
