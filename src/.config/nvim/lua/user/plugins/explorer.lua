@@ -54,6 +54,16 @@ return {
 						modified = true,
 					},
 				},
+				root_folder_label = function(path)
+					path = path:gsub(os.getenv("HOME"), "~", 1)
+					return path:gsub("([a-zA-Z])[a-z0-9]+", "%1")
+						.. (path:match("[a-zA-Z]([a-z0-9]*)$") or "")
+				end,
+				group_empty = function(path)
+					path = path:gsub(os.getenv("HOME"), "~", 1)
+					return path:gsub("([a-zA-Z])[a-z0-9]+", "%1")
+						.. (path:match("[a-zA-Z]([a-z0-9]*)$") or "")
+				end,
 			},
 			on_attach = function(bufnr)
 				local api = require("nvim-tree.api")
