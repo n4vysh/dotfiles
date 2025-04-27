@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/sbin/wl-paste "$@" | tr -d '\r'
