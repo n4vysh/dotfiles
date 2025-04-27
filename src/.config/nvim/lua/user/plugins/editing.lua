@@ -61,6 +61,7 @@ return {
 			},
 		},
 		opts = {
+			resultsSeparatorLineChar = "━",
 			keymaps = {
 				close = { n = "q" },
 				help = { n = "<C-_>" },
