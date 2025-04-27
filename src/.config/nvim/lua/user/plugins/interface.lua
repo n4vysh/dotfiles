@@ -149,14 +149,6 @@ return {
 		end,
 	},
 	{
-		"winston0410/range-highlight.nvim",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		dependencies = {
-			"winston0410/cmd-parser.nvim",
-		},
-		opts = {},
-	},
-	{
 		"romainl/vim-cool",
 		event = { "CursorMoved", "InsertEnter" },
 	},
