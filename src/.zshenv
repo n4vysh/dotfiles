@@ -105,6 +105,9 @@ zstyle ':completion:*:warnings' format "%F{${red}}%B no matches found%b%f"
 typeset -U path PATH
 path=($HOME/.local/bin(N-/) $path)
 path=($HOME/.nix-profile/bin(N-/) $path)
+# NOTE: add shims to PATH before mise activate for GUI applications
+# https://mise.jdx.dev/dev-tools/shims.html
+path=($XDG_DATA_HOME/mise/shims(N-/) $path)
 path=($path $PNPM_HOME(N-/))
 path=($path $HOME/.krew/bin(N-/))
 
