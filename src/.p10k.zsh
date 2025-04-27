@@ -32,6 +32,9 @@
 	typeset -g POWERLEVEL9K_MODE=nerdfont-v3
 	typeset -g POWERLEVEL9K_ICON_PADDING=none
 
+	# NOTE: enable OSC 133
+	typeset -g POWERLEVEL9K_TERM_SHELL_INTEGRATION=true
+
 	# Basic style options
 	# - transparent background
 	# - no surrounding whitespace
