@@ -11,9 +11,22 @@ return {
 				desc = "Dismiss notifications",
 			},
 		},
-		config = function()
+		opts = {
+			render = "wrapped-default",
+			max_width = "40",
+			on_open = function(win)
+				local config = vim.api.nvim_win_get_config(win)
+				config.border = "single"
+				vim.api.nvim_win_set_config(win, config)
+			end,
+		},
+		config = function(_, opts)
 			local notify = require("notify")
+
+			notify.setup(opts)
+
 			vim.notify = notify
+
 			-- selene: allow(incorrect_standard_library_use)
 			print = function(...)
 				local print_safe_args = {}
@@ -23,15 +36,6 @@ return {
 				end
 				notify(table.concat(print_safe_args, " "), "info")
 			end
-			notify.setup({
-				render = "wrapped-default",
-				max_width = "40",
-				on_open = function(win)
-					local config = vim.api.nvim_win_get_config(win)
-					config.border = "single"
-					vim.api.nvim_win_set_config(win, config)
-				end,
-			})
 		end,
 		dependencies = {
 			"nvim-telescope/telescope.nvim",
@@ -132,20 +136,21 @@ return {
 				desc = "Previous reference",
 			},
 		},
-		config = function()
-			require("illuminate").configure({
-				filetypes_denylist = {
-					"lspinfo",
-					"checkhealth",
-					"help",
-					"man",
-					"gitcommit",
-					"TelescopePrompt",
-					"TelescopeResults",
-					"dashboard",
-					"lazy",
-				},
-			})
+		opts = {
+			filetypes_denylist = {
+				"lspinfo",
+				"checkhealth",
+				"help",
+				"man",
+				"gitcommit",
+				"TelescopePrompt",
+				"TelescopeResults",
+				"dashboard",
+				"lazy",
+			},
+		},
+		config = function(_, opts)
+			require("illuminate").configure(opts)
 		end,
 	},
 	{
@@ -213,9 +218,9 @@ return {
 	{
 		"luukvbaal/statuscol.nvim",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		config = function()
+		opts = function()
 			local builtin = require("statuscol.builtin")
-			require("statuscol").setup({
+			return {
 				segments = {
 					{ text = { "%C" }, click = "v:lua.ScFa" },
 					{ text = { "%s" }, click = "v:lua.ScSa" },
@@ -225,7 +230,7 @@ return {
 						click = "v:lua.ScLa",
 					},
 				},
-			})
+			}
 		end,
 	},
 	{
@@ -349,11 +354,14 @@ return {
 	{
 		"gelguy/wilder.nvim",
 		event = "CmdlineEnter",
-		config = function()
+		opts = {
+			modes = { "/", "?" },
+		},
+		config = function(_, opts)
 			local wilder = require("wilder")
-			wilder.setup({
-				modes = { "/", "?" },
-			})
+
+			wilder.setup(opts)
+
 			wilder.set_option("use_python_remote_plugin", 0)
 			wilder.set_option("enable_cmdline_enter", 0)
 
@@ -528,10 +536,10 @@ return {
 			{
 				"Shatur/neovim-session-manager",
 				cmd = { "SessionManager" },
-				config = function()
-					require("session_manager").setup({
+				opts = function()
+					return {
 						autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
-					})
+					}
 				end,
 				dependencies = {
 					"nvim-lua/plenary.nvim",
@@ -544,7 +552,7 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		event = { "VimEnter" },
-		config = function()
+		opts = function()
 			-- NOTE: count selected line only
 			--       builtin selectioncount component gives the wrong size
 			-- https://github.com/nvim-lualine/lualine.nvim/issues/1012
@@ -564,7 +572,7 @@ return {
 				end
 			end
 
-			require("lualine").setup({
+			return {
 				options = {
 					theme = "tokyonight",
 					section_separators = { left = "", right = "" },
@@ -665,7 +673,7 @@ return {
 					"quickfix",
 					"toggleterm",
 				},
-			})
+			}
 		end,
 		dependencies = {
 			{ "AndreM222/copilot-lualine" },
@@ -674,75 +682,76 @@ return {
 				-- NOTE: load colorscheme before all the other start plugins
 				lazy = false,
 				priority = 1000,
-				config = function()
-					require("tokyonight").setup({
-						style = "night",
-						transparent = true,
-						hide_inactive_statusline = true,
-						sidebars = { "qf", "help", "terminal", "packer" },
-						on_highlights = function(hl, c)
-							hl.ExtraWhitespace = {
-								bg = c.error,
-							}
-							hl.TelescopeBorder = {
-								fg = c.blue0,
-							}
-							hl.TelescopePromptBorder = {
-								fg = c.blue0,
-							}
-							hl.TelescopePromptTitle = {
-								fg = c.blue0,
-							}
-							hl.TelescopePreviewTitle = {
-								fg = c.blue0,
-							}
-							hl.TelescopeResultsTitle = {
-								fg = c.blue0,
-							}
-							hl.Comment = {
-								fg = "#737aa2",
-								bold = true,
-							}
-							hl.DiagnosticUnnecessary = {
-								fg = "#737aa2",
-								bold = true,
-							}
-							hl.GitSignsCurrentLineBlame = {
-								fg = "#737aa2",
-								bold = true,
-							}
-							hl.LineNr = {
-								fg = "#606687",
-							}
-							hl.CursorLineNr = {
-								fg = "#737aa2",
-								bold = true,
-							}
-							hl.NeotestIndent = {
-								fg = c.comment,
-							}
-							hl.NeotestExpandMarker = {
-								fg = c.comment,
-							}
-							hl.WinSeparator = {
-								bg = "NONE",
-								fg = "#569CD6",
-							}
-							hl.CmpItemKindText = {
-								bg = "NONE",
-								fg = "#9CDCFE",
-							}
-							hl.DiffAdd = {
-								bg = "#005f00",
-							}
-							hl.DiffDelete = {
-								bg = "#5f0000",
-							}
-							hl.DiffChange = {
-								bg = "#008700",
-							}
-						end,
-					})
+				opts = {
+					style = "night",
+					transparent = true,
+					hide_inactive_statusline = true,
+					sidebars = { "qf", "help", "terminal", "packer" },
+					on_highlights = function(hl, c)
+						hl.ExtraWhitespace = {
+							bg = c.error,
+						}
+						hl.TelescopeBorder = {
+							fg = c.blue0,
+						}
+						hl.TelescopePromptBorder = {
+							fg = c.blue0,
+						}
+						hl.TelescopePromptTitle = {
+							fg = c.blue0,
+						}
+						hl.TelescopePreviewTitle = {
+							fg = c.blue0,
+						}
+						hl.TelescopeResultsTitle = {
+							fg = c.blue0,
+						}
+						hl.Comment = {
+							fg = "#737aa2",
+							bold = true,
+						}
+						hl.DiagnosticUnnecessary = {
+							fg = "#737aa2",
+							bold = true,
+						}
+						hl.GitSignsCurrentLineBlame = {
+							fg = "#737aa2",
+							bold = true,
+						}
+						hl.LineNr = {
+							fg = "#606687",
+						}
+						hl.CursorLineNr = {
+							fg = "#737aa2",
+							bold = true,
+						}
+						hl.NeotestIndent = {
+							fg = c.comment,
+						}
+						hl.NeotestExpandMarker = {
+							fg = c.comment,
+						}
+						hl.WinSeparator = {
+							bg = "NONE",
+							fg = "#569CD6",
+						}
+						hl.CmpItemKindText = {
+							bg = "NONE",
+							fg = "#9CDCFE",
+						}
+						hl.DiffAdd = {
+							bg = "#005f00",
+						}
+						hl.DiffDelete = {
+							bg = "#5f0000",
+						}
+						hl.DiffChange = {
+							bg = "#008700",
+						}
+					end,
+				},
+				config = function(_, opts)
+					require("tokyonight").setup(opts)
 
 					vim.cmd.colorscheme("tokyonight")
 				end,
@@ -872,6 +881,9 @@ return {
 			},
 			lsp = {
 				progress = {
+					enabled = false,
+				},
+				signature = {
 					enabled = false,
 				},
 				override = {

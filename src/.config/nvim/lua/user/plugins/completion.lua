@@ -2,11 +2,11 @@ return {
 	{
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
-		config = function()
+		opts = function()
 			local cmp = require("cmp")
 			local compare = cmp.config.compare
 
-			cmp.setup({
+			return {
 				preselect = cmp.PreselectMode.None,
 				sorting = {
 					comparators = {
@@ -52,12 +52,6 @@ return {
 				}, {
 					{ name = "copilot", priority = 1 },
 				}),
-			})
-
-			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
-			cmp.setup({
 				formatting = {
 					format = function(entry, item)
 						local color_item =
@@ -76,7 +70,15 @@ return {
 						return item
 					end,
 				},
-			})
+			}
+		end,
+		config = function(_, opts)
+			local cmp = require("cmp")
+
+			cmp.setup(opts)
+
+			local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+			cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),
@@ -100,13 +102,15 @@ return {
 			{ "hrsh7th/cmp-cmdline" },
 			{
 				"onsails/lspkind.nvim",
-				config = function()
+				opts = {
+					symbol_map = {
+						Copilot = "",
+					},
+				},
+				config = function(_, opts)
 					local lspkind = require("lspkind")
-					lspkind.init({
-						symbol_map = {
-							Copilot = "",
-						},
-					})
+
+					lspkind.init(opts)
 
 					vim.api.nvim_set_hl(
 						0,

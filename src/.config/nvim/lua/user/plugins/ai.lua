@@ -16,9 +16,7 @@ return {
 	},
 	{
 		"zbirenbaum/copilot-cmp",
-		config = function()
-			require("copilot_cmp").setup()
-		end,
+		opts = {},
 		dependencies = {
 			{ "zbirenbaum/copilot.lua" },
 		},
@@ -65,48 +63,49 @@ return {
 				mode = { "n" },
 			},
 		},
-		config = function()
-			require("avante").setup({
-				hints = { enabled = false },
-				file_selector = {
-					provider = "telescope",
+		opts = {
+			hints = { enabled = false },
+			file_selector = {
+				provider = "telescope",
+			},
+			windows = {
+				sidebar_header = {
+					rounded = false,
 				},
-				windows = {
-					sidebar_header = {
-						rounded = false,
-					},
-					edit = {
-						border = "single",
-					},
-					ask = {
-						border = "single",
-					},
+				edit = {
+					border = "single",
 				},
-				system_prompt = function()
-					local hub = require("mcphub").get_hub_instance()
-					return hub:get_active_servers_prompt()
-				end,
-				custom_tools = function()
-					return {
-						require("mcphub.extensions.avante").mcp_tool(),
-					}
-				end,
-				disabled_tools = {
-					"list_files",
-					"search_files",
-					"read_file",
-					"create_file",
-					"rename_file",
-					"delete_file",
-					"create_dir",
-					"rename_dir",
-					"delete_dir",
-					"bash",
+				ask = {
+					border = "single",
 				},
-				behaviour = {
-					enable_claude_text_editor_tool_mode = true,
-				},
-			})
+			},
+			system_prompt = function()
+				local hub = require("mcphub").get_hub_instance()
+				return hub:get_active_servers_prompt()
+			end,
+			custom_tools = function()
+				return {
+					require("mcphub.extensions.avante").mcp_tool(),
+				}
+			end,
+			disabled_tools = {
+				"list_files",
+				"search_files",
+				"read_file",
+				"create_file",
+				"rename_file",
+				"delete_file",
+				"create_dir",
+				"rename_dir",
+				"delete_dir",
+				"bash",
+			},
+			behaviour = {
+				enable_claude_text_editor_tool_mode = true,
+			},
+		},
+		config = function(_, opts)
+			require("avante").setup(opts)
 
 			require("avante.config").override({
 				system_prompt = "Respond in japanese",

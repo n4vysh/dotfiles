@@ -10,12 +10,12 @@ return {
 			{ "gcO" },
 			{ "gcA" },
 		},
-		config = function()
-			require("Comment").setup({
+		opts = function()
+			return {
 				pre_hook = require(
 					"ts_context_commentstring.integrations.comment_nvim"
 				).create_pre_hook(),
-			})
+			}
 		end,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
@@ -451,9 +451,10 @@ return {
 				desc = "Decrement",
 			},
 		},
-		config = function()
+		opts = function()
 			local augend = require("dial.augend")
-			require("dial.config").augends:register_group({
+
+			return {
 				default = {
 					augend.integer.alias.decimal,
 					augend.constant.alias.bool,
@@ -561,7 +562,10 @@ return {
 					}),
 					augend.misc.alias.markdown_header,
 				},
-			})
+			}
+		end,
+		config = function(_, opts)
+			require("dial.config").augends:register_group(opts)
 		end,
 	},
 	{

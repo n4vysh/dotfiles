@@ -46,15 +46,16 @@ return {
 				desc = "Search for marks with fuzzy finder",
 			},
 		},
-		config = function()
+		opts = {
+			settings = {
+				save_on_toggle = true,
+			},
+		},
+		config = function(_, opts)
 			-- NOTE: use :setup in lazy.nvim
 			-- https://github.com/ThePrimeagen/harpoon/issues/362#issuecomment-1859234905
 			-- selene: allow(unscoped_variables, unused_variable)
-			harpoon = require("harpoon"):setup({
-				settings = {
-					save_on_toggle = true,
-				},
-			})
+			harpoon = require("harpoon"):setup(opts)
 		end,
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},

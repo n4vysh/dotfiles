@@ -11,11 +11,9 @@ return {
 				desc = "Open package manager",
 			},
 		},
-		config = function()
-			require("mason").setup({
-				PATH = "append",
-			})
-		end,
+		opts = {
+			PATH = "append",
+		},
 		dependencies = {
 			"stevearc/dressing.nvim",
 		},
@@ -592,9 +590,10 @@ return {
 	},
 	{
 		"nvimtools/none-ls.nvim",
-		config = function()
+		opts = function()
 			local null_ls = require("null-ls")
-			null_ls.setup({
+
+			return {
 				sources = {
 					null_ls.builtins.diagnostics.actionlint,
 					null_ls.builtins.diagnostics.buf,
@@ -661,21 +660,22 @@ return {
 					null_ls.builtins.code_actions.impl,
 					null_ls.builtins.code_actions.statix,
 				},
-			})
+			}
 		end,
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
 		"ray-x/lsp_signature.nvim",
 		event = "LspAttach",
-		config = function()
+		opts = {
+			hint_enable = false,
+			handler_opts = {
+				border = "single",
+			},
+		},
+		config = function(_, opts)
 			local buf = vim.api.nvim_get_current_buf()
-			require("lsp_signature").on_attach({
-				hint_enable = false,
-				handler_opts = {
-					border = "single",
-				},
-			}, buf)
+			require("lsp_signature").on_attach(opts, buf)
 		end,
 		dependencies = {
 			"neovim/nvim-lspconfig",
@@ -687,9 +687,9 @@ return {
 		dependencies = {
 			"neovim/nvim-lspconfig",
 		},
-		config = function()
+		opts = function()
 			local hl = require("actions-preview.highlight")
-			require("actions-preview").setup({
+			return {
 				highlight_command = {
 					hl.delta("delta"),
 				},
@@ -706,7 +706,7 @@ return {
 						end,
 					},
 				},
-			})
+			}
 		end,
 	},
 	{
@@ -854,57 +854,57 @@ return {
 		init = function()
 			vim.o.winbar = " "
 		end,
-		config = function()
-			require("dropbar").setup({
-				bar = {
-					enable = function(buf, win, _)
-						if
-							not vim.api.nvim_buf_is_valid(buf)
-							or not vim.api.nvim_win_is_valid(win)
-							or vim.fn.win_gettype(win) ~= ""
-							-- NOTE: enable winbar always
-							-- or vim.wo[win].winbar ~= ""
-							or vim.bo[buf].ft == "help"
-						then
-							return false
-						end
-
-						local stat =
-							vim.uv.fs_stat(vim.api.nvim_buf_get_name(buf))
-						if stat and stat.size > 1024 * 1024 then
-							return false
-						end
-
-						return vim.bo[buf].ft == "markdown"
-							or pcall(vim.treesitter.get_parser, buf)
-							or not vim.tbl_isempty(vim.lsp.get_clients({
-								bufnr = buf,
-								method = "textDocument/documentSymbol",
-							}))
-					end,
-				},
-			})
-
-			local dropbar_api = require("dropbar.api")
-			vim.keymap.set(
-				"n",
+		keys = {
+			{
 				"gr;",
-				dropbar_api.pick,
-				{ desc = "Pick symbols in winbar" }
-			)
-			vim.keymap.set(
-				"n",
+				function()
+					require("dropbar.api").pick()
+				end,
+				desc = "Pick symbols in winbar",
+			},
+			{
 				"[;",
-				dropbar_api.goto_context_start,
-				{ desc = "Go to start of current context" }
-			)
-			vim.keymap.set(
-				"n",
+				function()
+					require("dropbar.api").goto_context_start()
+				end,
+				desc = "Go to start of current context",
+			},
+			{
 				"];",
-				dropbar_api.select_next_context,
-				{ desc = "Select next context" }
-			)
-		end,
+				function()
+					require("dropbar.api").select_next_context()
+				end,
+				desc = "Select next context",
+			},
+		},
+		opts = {
+			bar = {
+				enable = function(buf, win, _)
+					if
+						not vim.api.nvim_buf_is_valid(buf)
+						or not vim.api.nvim_win_is_valid(win)
+						or vim.fn.win_gettype(win) ~= ""
+						-- NOTE: enable winbar always
+						-- or vim.wo[win].winbar ~= ""
+						or vim.bo[buf].ft == "help"
+					then
+						return false
+					end
+
+					local stat = vim.uv.fs_stat(vim.api.nvim_buf_get_name(buf))
+					if stat and stat.size > 1024 * 1024 then
+						return false
+					end
+
+					return vim.bo[buf].ft == "markdown"
+						or pcall(vim.treesitter.get_parser, buf)
+						or not vim.tbl_isempty(vim.lsp.get_clients({
+							bufnr = buf,
+							method = "textDocument/documentSymbol",
+						}))
+				end,
+			},
+		},
 		dependencies = {
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",

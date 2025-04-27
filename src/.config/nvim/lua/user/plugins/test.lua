@@ -123,8 +123,8 @@ return {
 				desc = "Toggle test summary",
 			},
 		},
-		config = function()
-			require("neotest").setup({
+		opts = function()
+			return {
 				quickfix = {
 					enabled = true,
 				},
@@ -166,7 +166,10 @@ return {
 						allow_file_types = { "bash" },
 					}),
 				},
-			})
+			}
+		end,
+		config = function(_, opts)
+			require("neotest").setup(opts)
 
 			do
 				local augroup = "neotest_close_mappings"
@@ -175,11 +178,11 @@ return {
 					vim.api.nvim_create_autocmd("FileType", {
 						group = augroup,
 						pattern = "neotest-" .. ft,
-						callback = function(opts)
+						callback = function(o)
 							vim.keymap.set("n", "q", function()
 								pcall(vim.api.nvim_win_close, 0, true)
 							end, {
-								buffer = opts.buf,
+								buffer = o.buf,
 							})
 						end,
 					})
