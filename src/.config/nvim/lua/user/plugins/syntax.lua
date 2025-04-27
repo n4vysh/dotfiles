@@ -315,83 +315,101 @@ return {
 		dependencies = {
 			{
 				"nvim-treesitter/nvim-treesitter-context",
-				config = function()
-					require("treesitter-context").setup()
-				end,
+				opts = {},
 			},
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"RRethy/nvim-treesitter-endwise",
 			{
 				"andymass/vim-matchup",
+				keys = {
+					{
+						mode = { "n", "x", "o" },
+						"m",
+						"<plug>(matchup-%)",
+						{
+							silent = true,
+							desc = "Goto forward to matching word",
+						},
+					},
+					{
+						mode = { "n", "x", "o" },
+						"gm",
+						"<plug>(matchup-g%)",
+						{
+							silent = true,
+							desc = "Goto backword to matching word",
+						},
+					},
+					{
+						mode = { "n", "x", "o" },
+						"zm",
+						"<plug>(matchup-z%)",
+						{
+							silent = true,
+							desc = "Goto inside of matching word",
+						},
+					},
+					{
+						mode = { "n", "x", "o" },
+						"]w",
+						"<plug>(matchup-]%)",
+						{
+							silent = true,
+							desc = "Goto previous outer open word",
+						},
+					},
+					{
+						mode = { "n", "x", "o" },
+						"[w",
+						"<plug>(matchup-[%)",
+						{
+							silent = true,
+							desc = "Goto next surrounding close word",
+						},
+					},
+					{
+						mode = { "x", "o" },
+						"im",
+						"<plug>(matchup-i%)",
+						{
+							silent = true,
+							desc = "Inside of matching word",
+						},
+					},
+					{
+						mode = { "x", "o" },
+						"am",
+						"<plug>(matchup-a%)",
+						{
+							silent = true,
+							desc = "Around of matching word",
+						},
+					},
+					{
+						mode = { "n" },
+						"dzm",
+						"<plug>(matchup-ds%)",
+						{
+							silent = true,
+							desc = "Delete surrounding matching words",
+						},
+					},
+					{
+						mode = { "n" },
+						"czm",
+						"<plug>(matchup-cs%)",
+						{
+							silent = true,
+							desc = "Change surrounding matching words",
+						},
+					},
+				},
 				init = function()
 					vim.g.matchup_surround_enabled = 1
 
 					vim.g.matchup_matchparen_offscreen = {
 						scrolloff = 1,
 					}
-				end,
-				config = function()
-					vim.keymap.set(
-						{ "n", "x", "o" },
-						"m",
-						"<plug>(matchup-%)",
-						{
-							silent = true,
-							desc = "Goto forward to matching word",
-						}
-					)
-					vim.keymap.set(
-						{ "n", "x", "o" },
-						"gm",
-						"<plug>(matchup-g%)",
-						{
-							silent = true,
-							desc = "Goto backword to matching word",
-						}
-					)
-					vim.keymap.set(
-						{ "n", "x", "o" },
-						"zm",
-						"<plug>(matchup-z%)",
-						{
-							silent = true,
-							desc = "Goto inside of matching word",
-						}
-					)
-					vim.keymap.set(
-						{ "n", "x", "o" },
-						"]w",
-						"<plug>(matchup-]%)",
-						{
-							silent = true,
-							desc = "Goto previous outer open word",
-						}
-					)
-					vim.keymap.set(
-						{ "n", "x", "o" },
-						"[w",
-						"<plug>(matchup-[%)",
-						{
-							silent = true,
-							desc = "Goto next surrounding close word",
-						}
-					)
-					vim.keymap.set({ "x", "o" }, "im", "<plug>(matchup-i%)", {
-						silent = true,
-						desc = "Inside of matching word",
-					})
-					vim.keymap.set({ "x", "o" }, "am", "<plug>(matchup-a%)", {
-						silent = true,
-						desc = "Around of matching word",
-					})
-					vim.keymap.set({ "n" }, "dzm", "<plug>(matchup-ds%)", {
-						silent = true,
-						desc = "Delete surrounding matching words",
-					})
-					vim.keymap.set({ "n" }, "czm", "<plug>(matchup-cs%)", {
-						silent = true,
-						desc = "Change surrounding matching words",
-					})
 				end,
 			},
 		},
@@ -450,10 +468,11 @@ return {
 	{
 		"HiPhish/rainbow-delimiters.nvim",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		config = function()
+		main = "rainbow-delimiters.setup",
+		opts = function()
 			local rainbow_delimiters = require("rainbow-delimiters")
 
-			require("rainbow-delimiters.setup").setup({
+			return {
 				strategy = {
 					[""] = rainbow_delimiters.strategy["global"],
 					vim = rainbow_delimiters.strategy["local"],
@@ -471,7 +490,7 @@ return {
 					"RainbowDelimiterViolet",
 					"RainbowDelimiterCyan",
 				},
-			})
+			}
 		end,
 		dependencies = "nvim-treesitter/nvim-treesitter",
 	},

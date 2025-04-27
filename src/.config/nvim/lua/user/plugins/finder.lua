@@ -144,8 +144,7 @@ return {
 				desc = "Search for manual pages",
 			},
 		},
-		config = function()
-			local telescope = require("telescope")
+		opts = function()
 			local actions = require("telescope.actions")
 			local lga_actions = require("telescope-live-grep-args.actions")
 
@@ -178,7 +177,7 @@ return {
 				end
 			end
 
-			telescope.setup({
+			return {
 				defaults = require("telescope.themes").get_dropdown({
 					vimgrep_arguments = vimgrep_arguments,
 					mappings = {
@@ -274,7 +273,12 @@ return {
 						},
 					},
 				},
-			})
+			}
+		end,
+		config = function(_, opts)
+			local telescope = require("telescope")
+
+			telescope.setup(opts)
 			telescope.load_extension("fzf")
 		end,
 		dependencies = {
