@@ -1,6 +1,7 @@
 aur/ente-desktop-bin
 aur/espanso-wayland-git
 aur/firefox-tridactyl-native-bin
+aur/selectdefaultapplication-fork-git
 aur/sysz
 aur/timg
 core/dosfstools
