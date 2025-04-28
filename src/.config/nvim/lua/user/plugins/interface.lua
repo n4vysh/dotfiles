@@ -759,6 +759,15 @@ return {
 		},
 	},
 	{
+		"petertriho/nvim-scrollbar",
+		opts = {
+			set_highlights = false,
+			handlers = {
+				cursor = false,
+			},
+		},
+	},
+	{
 		"akinsho/nvim-bufferline.lua",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		keys = {
