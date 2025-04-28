@@ -922,6 +922,43 @@ return {
 					},
 				},
 			},
+			routes = {
+				{
+					opts = { skip = true },
+					filter = {
+						event = "msg_show",
+						find = "--No lines in buffer--",
+					},
+				},
+				{
+					opts = { skip = true },
+					filter = {
+						event = "msg_show",
+						find = " lines yanked",
+					},
+				},
+				{
+					opts = { skip = true },
+					filter = {
+						event = "msg_show",
+						find = " more lines",
+					},
+				},
+				{
+					opts = { skip = true },
+					filter = {
+						event = "msg_show",
+						find = " lines >ed",
+					},
+				},
+				{
+					opts = { skip = true },
+					filter = {
+						event = "msg_show",
+						find = " lines <ed",
+					},
+				},
+			},
 		},
 		dependencies = {
 			"MunifTanjim/nui.nvim",
