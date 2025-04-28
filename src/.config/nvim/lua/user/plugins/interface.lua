@@ -941,6 +941,13 @@ return {
 					opts = { skip = true },
 					filter = {
 						event = "msg_show",
+						find = " fewer lines",
+					},
+				},
+				{
+					opts = { skip = true },
+					filter = {
+						event = "msg_show",
 						find = " more lines",
 					},
 				},
