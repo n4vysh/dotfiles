@@ -73,22 +73,6 @@ return {
 	{
 		"folke/which-key.nvim",
 		event = { "VimEnter" },
-		keys = {
-			{
-				"<C-_>",
-				function()
-					require("which-key").show({ keys = "<space>" })
-				end,
-				desc = "Show custom keymaps",
-			},
-			{
-				"g<C-_>",
-				function()
-					require("which-key").show()
-				end,
-				desc = "Show all custom keymaps",
-			},
-		},
 		opts = {
 			preset = "helix",
 			plugins = {
@@ -105,8 +89,7 @@ return {
 				},
 			},
 			triggers = {
-				{ "<C-_>", mode = { "n" } },
-				{ "g<C-_>", mode = { "n" } },
+				{ " ", mode = { "n", "x" } },
 			},
 			icons = {
 				rules = false,
