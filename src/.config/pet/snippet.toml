@@ -238,3 +238,9 @@
   Output = ""
   Tag = ["misc"]
   command = "history 1 | awk '{print $2}' | sort | uniq -c | sort -rn | head -n 20"
+
+[[Snippets]]
+  Description = "list unrequired dependencies"
+  Output = ""
+  Tag = ["misc"]
+  command = "pacman -Qtd"
