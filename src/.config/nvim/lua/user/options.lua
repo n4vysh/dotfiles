@@ -76,6 +76,18 @@ vim.opt.listchars:append({
 
 if vim.env.WAYLAND_DISPLAY ~= "" then
 	vim.opt.clipboard = "unnamedplus"
+
+	vim.g.clipboard = {
+		name = "OSC 52 and wl-paste",
+		copy = {
+			["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+			["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+		},
+		paste = {
+			["+"] = { "wl-paste", "--no-newline" },
+			["*"] = { "wl-paste", "--no-newline", "--primary" },
+		},
+	}
 end
 
 vim.diagnostic.config({
