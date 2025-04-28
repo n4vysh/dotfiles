@@ -77,7 +77,7 @@ return {
 			preset = "helix",
 			plugins = {
 				marks = false,
-				registers = false,
+				registers = true,
 				presets = {
 					operators = false,
 					motions = false,
