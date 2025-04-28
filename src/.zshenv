@@ -16,7 +16,7 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 if type vivid >/dev/null 2>&1; then
 	export LS_COLORS="$(vivid generate tokyonight-night)"
 fi
-if [[ -n $DISPLAY ]]; then
+if [[ -n $WAYLAND_DISPLAY ]]; then
 	eval $(gnome-keyring-daemon --start 2>/dev/null)
 	export SSH_AUTH_SOCK
 fi
