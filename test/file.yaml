@@ -221,14 +221,6 @@ file:
     filetype: file
     # yamllint disable-line rule:line-length
     sha512: 77b514c3a594f9e29345e94b3393729e11aeeda35892d9a7077701685439161a05c19275bd3f0f4b0f0bfe6da86d5a3c827f97925904b69eb40fb5365a73c15c
-  /etc/pacman.d/hooks/rkhunter-status.hook:
-    exists: true
-    mode: "0644"
-    owner: root
-    group: root
-    filetype: file
-    # yamllint disable-line rule:line-length
-    sha512: 611a71396905a525dd9b75b3985f72591cb475ac3388a5113f02862bc4cf0ffa8ae0a179dc10783e0ba9e2bcee4a94daf9472532f8fba545a919212f3dbe033a
   /etc/pacman.d/hooks/rkhunter-propupd.hook:
     exists: true
     mode: "0644"
