@@ -74,7 +74,7 @@ vim.opt.listchars:append({
 	nbsp = "⍽",
 })
 
-if vim.env.DISPLAY ~= "" then
+if vim.env.WAYLAND_DISPLAY ~= "" then
 	vim.opt.clipboard = "unnamedplus"
 end
 

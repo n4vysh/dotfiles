@@ -1,6 +1,6 @@
 local function disable()
 	if
-		os.getenv("DISPLAY") ~= nil
+		os.getenv("WAYLAND_DISPLAY") ~= nil
 		and vim.fn.executable("fcitx5-remote") == 1
 	then
 		if io.popen("pgrep fcitx") ~= nil then
