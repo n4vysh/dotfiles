@@ -416,9 +416,6 @@ _configure_without_privileged() {
 	_log::info 'Install AUR packages'
 	# HACK: enter password before running AUR helper to skip selection of package group with yes command
 	sudo true
-	# HACK: mark news item as read to avoid interruption a pacman transaction
-	yay -S --noconfirm --needed --disable-download-timeout informant
-	sudo informant read --all
 	bash -c "yes '' | yay -S --noconfirm --needed --disable-download-timeout $(
 		find /tmp/dotfiles/misc/pkglist/ \
 			-type f \
@@ -777,7 +774,7 @@ _configure_without_privileged() {
 	else
 		_log::warn "rkhunter ALLOWIPCUSER=$USER already set -- skipping"
 	fi
-	sudo cp -fv "$dir"/misc/etc/pacman.d/hooks/rkhunter-* /etc/pacman.d/hooks/
+	sudo cp -fv "$dir"/misc/etc/pacman.d/hooks/rkhunter-propupd.hook /etc/pacman.d/hooks/
 	# NOTE: use /dev/null to ignore grep warning
 	sudo rkhunter --update 2>/dev/null
 	sudo rkhunter --config-check 2>/dev/null
