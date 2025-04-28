@@ -91,7 +91,7 @@
 - Command abbreviation and snippets for pentesting with [zsh][zsh-link] and [pet][pet-link]
 - Available a large amount of cyber security tools with [BlackArch repository][blackarch-link]
 - Support for OSC
-  - OSC 8 - hyperlinks (tmux + eza + ls + delta)
+  - OSC 8 - hyperlinks (tmux + eza + rg + fd + delta + ls)
   - OSC 52 - clipboard integration for copy only (tmux + neovim)
   - OSC 133 - shell integration (tmux + powerlevel10k)
 - Ergonomic keybinds with
