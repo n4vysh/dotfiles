@@ -90,7 +90,7 @@ return {
 			},
 		},
 		opts = {
-			preset = "modern",
+			preset = "helix",
 			plugins = {
 				marks = false,
 				registers = false,
