@@ -740,13 +740,16 @@ return {
 							fg = "#9CDCFE",
 						}
 						hl.DiffAdd = {
-							bg = "#005f00",
+							bg = "#1d3450",
 						}
 						hl.DiffDelete = {
 							bg = "#5f0000",
 						}
 						hl.DiffChange = {
 							bg = "#008700",
+						}
+						hl.DiffText = {
+							bg = "#1d3b40",
 						}
 					end,
 				},
