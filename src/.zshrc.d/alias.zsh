@@ -8,3 +8,5 @@ alias eza='eza -gF --icons --git --time-style long-iso -s Name --hyperlink'
 alias fd='fd --hyperlink'
 alias rg='rg --hyperlink-format default'
 alias kubectl=kubecolor
+
+source /etc/grc.zsh
