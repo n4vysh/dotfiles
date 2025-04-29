@@ -1,6 +1,9 @@
 autoload -Uz compinit && compinit
+
 compdef _gnu_generic fzf
 compdef kubecolor=kubectl
+source /usr/bin/aws_zsh_completer.sh
+
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'

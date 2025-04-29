@@ -18,5 +18,10 @@ fi
 # initialize sheldon
 eval "$(sheldon source)"
 
+# load config files
+for file in ~/.zshrc.d/*.zsh; do
+	source "$file"
+done
+
 # powerlevel10k options
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

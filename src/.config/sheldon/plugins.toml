@@ -41,32 +41,3 @@ rev = "449a7c3"
 [plugins.zsh-auto-notify]
 github = "MichaelAquilina/zsh-auto-notify"
 rev = "27c07dd"
-
-[plugins.option]
-local = "~/.zshrc.d"
-use = ["option.zsh"]
-
-[plugins.alias]
-local = "~/.zshrc.d"
-use = ["alias.zsh"]
-
-[plugins.command]
-local = "~/.zshrc.d"
-use = ["command.zsh"]
-
-[plugins.completion]
-local = "~/.zshrc.d"
-use = ["completion.zsh"]
-
-[plugins.compile]
-local = "~/.zshrc.d"
-use = ["compile.zsh"]
-
-[plugins.grc]
-inline = "source /etc/grc.zsh"
-
-[plugins.aws]
-inline = "source /usr/bin/aws_zsh_completer.sh"
-
-[plugins.pkgfile]
-inline = "source /usr/share/doc/pkgfile/command-not-found.zsh"
