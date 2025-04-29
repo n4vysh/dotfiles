@@ -41,6 +41,7 @@ extra/profile-sync-daemon
 extra/progress
 extra/pueue
 extra/pv
+extra/pwgen
 extra/remmina
 extra/rlwrap
 extra/sequoia-sq

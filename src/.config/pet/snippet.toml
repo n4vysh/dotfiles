@@ -250,3 +250,9 @@
   Output = ""
   Tag = ["misc"]
   command = "eval \"$(aws configure export-credentials --profile bedrock --format env)\" &&\n  echo export BEDROCK_KEYS=\"$AWS_ACCESS_KEY_ID,$AWS_SECRET_ACCESS_KEY,us-east-1,$AWS_SESSION_TOKEN\" >>~/.zshenv.local &&\n  exec \"$SHELL\" -l"
+
+[[Snippets]]
+  Description = "generate random password"
+  Output = ""
+  Tag = ["misc"]
+  command = "pwgen -c -n -y -B -1 20 1"
