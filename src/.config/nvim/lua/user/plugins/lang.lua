@@ -16,6 +16,11 @@ return {
 		},
 		dependencies = {
 			"stevearc/dressing.nvim",
+			{
+				"zapling/mason-lock.nvim",
+				cmd = { "MasonLock", "MasonLockRestore" },
+				opts = {},
+			},
 		},
 	},
 	{
