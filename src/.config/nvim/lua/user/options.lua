@@ -74,9 +74,9 @@ vim.opt.listchars:append({
 	nbsp = "⍽",
 })
 
-if vim.env.WAYLAND_DISPLAY ~= "" then
-	vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus"
 
+if vim.env.WAYLAND_DISPLAY ~= nil then
 	vim.g.clipboard = {
 		name = "OSC 52 and wl-paste",
 		copy = {
@@ -86,6 +86,25 @@ if vim.env.WAYLAND_DISPLAY ~= "" then
 		paste = {
 			["+"] = { "wl-paste", "--no-newline" },
 			["*"] = { "wl-paste", "--no-newline", "--primary" },
+		},
+	}
+else
+	local function paste()
+		return {
+			vim.fn.split(vim.fn.getreg(""), "\n"),
+			vim.fn.getregtype(""),
+		}
+	end
+
+	vim.g.clipboard = {
+		name = "OSC 52 copy only",
+		copy = {
+			["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+			["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+		},
+		paste = {
+			["+"] = paste,
+			["*"] = paste,
 		},
 	}
 end
