@@ -63,47 +63,56 @@ return {
 				mode = { "n" },
 			},
 		},
-		opts = {
-			hints = { enabled = false },
-			file_selector = {
-				provider = "telescope",
-			},
-			windows = {
-				sidebar_header = {
-					rounded = false,
+		opts = function()
+			local provider = "claude"
+
+			if vim.fn.exists("$BEDROCK_KEYS") == 1 then
+				provider = "bedrock-claude-3.7-sonnet"
+			end
+
+			return {
+				provider = provider,
+				hints = { enabled = false },
+				file_selector = {
+					provider = "telescope",
 				},
-				edit = {
-					border = "single",
+				windows = {
+					sidebar_header = {
+						rounded = false,
+					},
+					edit = {
+						border = "single",
+					},
+					ask = {
+						border = "single",
+					},
 				},
-				ask = {
-					border = "single",
+				system_prompt = function()
+					local hub = require("mcphub").get_hub_instance()
+					return hub:get_active_servers_prompt()
+				end,
+				custom_tools = function()
+					return {
+						require("mcphub.extensions.avante").mcp_tool(),
+					}
+				end,
+				disabled_tools = {
+					"list_files",
+					"search_files",
+					"read_file",
+					"create_file",
+					"rename_file",
+					"delete_file",
+					"create_dir",
+					"rename_dir",
+					"delete_dir",
+					"bash",
 				},
-			},
-			system_prompt = function()
-				local hub = require("mcphub").get_hub_instance()
-				return hub:get_active_servers_prompt()
-			end,
-			custom_tools = function()
-				return {
-					require("mcphub.extensions.avante").mcp_tool(),
-				}
-			end,
-			disabled_tools = {
-				"list_files",
-				"search_files",
-				"read_file",
-				"create_file",
-				"rename_file",
-				"delete_file",
-				"create_dir",
-				"rename_dir",
-				"delete_dir",
-				"bash",
-			},
-			behaviour = {
-				enable_claude_text_editor_tool_mode = true,
-			},
-		},
+				behaviour = {
+					enable_claude_text_editor_tool_mode = true,
+				},
+			}
+		end,
 		config = function(_, opts)
 			require("avante").setup(opts)
 
@@ -136,8 +145,23 @@ return {
 			},
 			{
 				"MeanderingProgrammer/render-markdown.nvim",
+				init = function()
+					-- HACK: set empty string into breakat to disable linebreak
+					--       linebreak does not work in japanese, but render-markdown.nvim enable linebreak always
+					vim.opt.breakat = ""
+				end,
 				opts = {
 					file_types = { "Avante" },
+					render_modes = true,
+					heading = {
+						width = "block",
+						icons = {},
+					},
+					code = {
+						width = "block",
+						min_width = 45,
+						border = "thick",
+					},
 				},
 				ft = { "Avante" },
 			},
