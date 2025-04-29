@@ -5,6 +5,12 @@ windows:
   - panes:
       - ncspot
   - panes:
+      # NOTE: required $ANTHROPIC_API_KEY and LITELLM_MASTER_KEY
+      #       ```sh
+      #       gopass insert envs/litellm/ANTHROPIC_API_KEY
+      #       echo "sk-$(pwgen -c -n -y -B -1 20 1)"
+      #       gopass insert envs/litellm/LITELLM_MASTER_KEY
+      #       ```
       - |
-        gopass env envs/anthropic/ANTHROPIC_API_KEY \
+        gopass env envs/litellm \
           litellm --drop_params --model claude-3-7-sonnet-20250219
