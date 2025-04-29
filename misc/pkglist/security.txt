@@ -20,6 +20,7 @@ blackarch/maigret
 blackarch/metasploit
 blackarch/neo4j-community
 blackarch/nikto
+blackarch/nuclei
 blackarch/payloadsallthethings
 blackarch/peass
 blackarch/peepdf
