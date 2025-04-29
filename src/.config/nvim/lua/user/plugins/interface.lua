@@ -444,7 +444,14 @@ return {
 		---@type snacks.Config
 		opts = {
 			scroll = {},
-			indent = {},
+			indent = {
+				filter = function(buf)
+					return vim.g.snacks_indent ~= false
+						and vim.b[buf].snacks_indent ~= false
+						and vim.bo[buf].buftype == ""
+						and vim.bo[buf].filetype ~= "dbout"
+				end,
+			},
 			dashboard = {
 				preset = {
 					keys = {
