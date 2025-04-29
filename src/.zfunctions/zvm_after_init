@@ -5,6 +5,27 @@ bindkey -r '^s'
 
 source <(fzf --zsh)
 
+# NOTE: clipboard integration
+# https://github.com/jeffreytse/zsh-vi-mode/issues/19
+if [[ -n WAYLAND_DISPLAY ]]; then
+	for f in \
+		zvm_backward_kill_region \
+		zvm_yank \
+		zvm_replace_selection \
+		zvm_change_surround_text_object \
+		zvm_vi_delete \
+		zvm_vi_change \
+		zvm_vi_change_eol; do
+		eval "$(echo "_$f() {"; declare -f $f | tail -n +2)"
+		eval "$f() { _$f; echo -en \$CUTBUFFER | wl-copy -n }"
+	done
+
+	for f in zvm_vi_put_after zvm_vi_put_before; do
+		eval "$(echo "_$f() {"; declare -f $f | tail -n +2)"
+		eval "$f() { CUTBUFFER=\$(wl-paste); _$f; zvm_highlight clear }"
+	done
+fi
+
 zvm_bindkey vicmd 'gl' vi-end-of-line
 zvm_bindkey vicmd 'gh' vi-digit-or-beginning-of-line
 zvm_bindkey vicmd 'ge' vi-fetch-history
@@ -59,9 +80,6 @@ zvm_bindkey viins '^x^r' repo-root-dir-widget
 
 zvm_define_widget reload-widget
 zvm_bindkey viins '^x^s' reload-widget
-
-zvm_define_widget copy-buffer-widget
-zvm_bindkey viins '^y' copy-buffer-widget
 
 # fish-like keybinds
 zmodload zsh/complist
