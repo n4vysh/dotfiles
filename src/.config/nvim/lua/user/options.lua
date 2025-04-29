@@ -34,7 +34,15 @@ local options = {
 		vertleft = "┫",
 		vertright = "┣",
 		verthoriz = "╋",
+		fold = " ",
+		foldopen = "",
+		foldsep = " ",
+		foldclose = "",
 	},
+	foldcolumn = "1",
+	foldlevel = 99,
+	foldlevelstart = 99,
+	foldenable = true,
 	-- https://github.com/ray-x/lsp_signature.nvim/issues/255
 	updatetime = 500,
 }

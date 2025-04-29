@@ -222,13 +222,13 @@ return {
 			local builtin = require("statuscol.builtin")
 			return {
 				segments = {
-					{ text = { "%C" }, click = "v:lua.ScFa" },
 					{ text = { "%s" }, click = "v:lua.ScSa" },
 					{
 						text = { builtin.lnumfunc, " " },
 						condition = { true, builtin.not_empty },
 						click = "v:lua.ScLa",
 					},
+					{ text = { builtin.foldfunc, " " }, click = "v:lua.ScFa" },
 				},
 			}
 		end,
@@ -705,6 +705,10 @@ return {
 						}
 						hl.TelescopeResultsTitle = {
 							fg = c.blue0,
+						}
+						hl.FoldColumn = {
+							fg = "#737aa2",
+							bold = true,
 						}
 						hl.Comment = {
 							fg = "#737aa2",
