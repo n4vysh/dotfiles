@@ -82,7 +82,6 @@ return {
 			vim.cmd("silent TableModeToggle")
 		end,
 	},
-
 	{
 		"rafcamlet/nvim-luapad",
 		cmd = "Luapad",
