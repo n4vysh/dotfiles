@@ -95,7 +95,7 @@
   - OSC 52 - clipboard integration for copy only (tmux + neovim)
   - OSC 133 - shell integration (tmux + powerlevel10k)
 - Ergonomic keybinds with
-  [XKB][xkb-link], [Interception Tools][interception-tools-link], and [QMK][qmk-link]
+  [XKB][xkb-link], [keyd][keyd-link], and [QMK][qmk-link]
   - Thumb cluster
   - Dual function keys
     - xcape
@@ -163,7 +163,7 @@
 [pet-link]: https://github.com/knqyf263/pet
 [blackarch-link]: https://blackarch.org
 [xkb-link]: https://www.x.org/wiki/XKB/
-[interception-tools-link]: https://gitlab.com/interception/linux/tools
+[keyd-link]: https://github.com/rvaiya/keyd
 [qmk-link]: https://qmk.fm/
 [docker-link]: https://www.docker.com/
 [goss-link]: https://github.com/goss-org/goss
@@ -263,7 +263,7 @@ Run `just test` to lint and format the source code with
 
 ## Custom keybinds
 
-### XKB + Interception Tools
+### XKB + keyd
 
 | Physical key  | Mapped To      | Note                        |
 | :------------ | :------------- | :-------------------------- |

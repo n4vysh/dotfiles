@@ -213,22 +213,6 @@ file:
     filetype: file
     # yamllint disable-line rule:line-length
     sha512: 8195883dcf29ebd9c121654404277741f426a69f90a3468ee4ca99cabf74b81ec21fbf4bc3798ab8530bbd56754033b17675050d7e985aff014f76e2c916c263
-  /etc/interception/dual-function-keys/xcape.yaml:
-    exists: true
-    mode: "0644"
-    owner: root
-    group: root
-    filetype: file
-    # yamllint disable-line rule:line-length
-    sha512: bae0b44a89ffeca00d732b983d4b5b095841826bf12ac895a3de83d221e9d9bd21bfeb2c64d77557b92f8c904d1326d4aeb64762360b41b7345a6574a7a216e4
-  /etc/interception/udevmon.yaml:
-    exists: true
-    mode: "0644"
-    owner: root
-    group: root
-    filetype: file
-    # yamllint disable-line rule:line-length
-    sha512: 75ec5436b46c778d3a3587bd83ca8b31e534de474364b68c893d7c8a9803a662014a37e185c3b21b87cde43754997fd3f67d97fbf892bedbf72d0e373ef22472
   /etc/docker/daemon.json:
     exists: true
     mode: "0644"
