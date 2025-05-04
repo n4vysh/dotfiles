@@ -15,7 +15,6 @@ kyverno = "latest"
 "go:github.com/josharian/impl" = "latest"
 "go:github.com/fatih/gomodifytags" = "latest"
 "go:github.com/rhysd/vim-startuptime" = "latest"
-"npm:mcp-hub" = "3.1.6"
 "pipx:litellm" = { version = "1.66.3", extras = "proxy" }
 "npm:czg" = "1.11.1"
 "npm:gitmoji-cli" = "9.6.0"
