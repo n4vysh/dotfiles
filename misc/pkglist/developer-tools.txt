@@ -21,9 +21,9 @@ aur/infracost
 aur/jqp-bin
 aur/keybase-bin
 aur/kind-bin
-aur/kube-score-bin
 aur/kubecolor
 aur/kubescape-bin
+aur/kube-score-bin
 aur/kubeval-bin
 aur/lefthook-bin
 aur/mermaid-cli
@@ -77,8 +77,8 @@ extra/git-delta
 extra/github-cli
 extra/glab
 extra/glow
-extra/go-yq
 extra/gofumpt
+extra/go-yq
 extra/grc
 extra/grex
 extra/helm
@@ -92,10 +92,10 @@ extra/k9s
 extra/kitty
 extra/ko
 extra/krew
-extra/kube-linter
 extra/kubeconform
 extra/kubectl
 extra/kubectx
+extra/kube-linter
 extra/kubie
 extra/lazygit
 extra/libwebp
