@@ -112,19 +112,6 @@ file:
       - "/^Color$/"
       - "/^VerbosePkgLists$/"
       - "/^ParallelDownloads = 20$/"
-  /etc/makepkg.conf:
-    exists: true
-    mode: "0644"
-    owner: root
-    group: root
-    filetype: file
-    contents:
-      - '-march=native'
-      - '!-march=x86-64'
-      - '!-mtune=generic'
-      - '/^MAKEFLAGS="-j.*"/'
-      - 'zstd -1 --threads=0'
-      - 'color ccache check'
   /etc/iwd/main.conf:
     exists: true
     mode: "0644"
@@ -213,6 +200,14 @@ file:
     filetype: file
     # yamllint disable-line rule:line-length
     sha512: 8195883dcf29ebd9c121654404277741f426a69f90a3468ee4ca99cabf74b81ec21fbf4bc3798ab8530bbd56754033b17675050d7e985aff014f76e2c916c263
+  /etc/makepkg.conf.d/makepkg.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 1d7f3b69c8611634f50dda06b19d998400b9f031600b7f80d0d8fc77f60f9639cee0907c4f02a36b44dc087e0893dd89ecd9fa12ac2c83d636d16e2ed760262f
   /etc/docker/daemon.json:
     exists: true
     mode: "0644"
