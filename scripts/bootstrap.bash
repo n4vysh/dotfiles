@@ -169,6 +169,10 @@ _install() {
 		etc/systemd/network/20-wired.network
 		etc/systemd/network/25-wireless.network
 		etc/systemd/resolved.conf.d/dns_servers.conf
+		etc/systemd/journald.conf.d/system_max_use.conf
+		etc/systemd/logind.conf.d/handle_power_key.conf
+		etc/systemd/logind.conf.d/handle_lid_switch.conf
+		etc/systemd/system.conf.d/default_timeout_stop_sec.conf
 		etc/systemd/system/systemd-fsck-root.service.d/io.conf
 		etc/systemd/system/systemd-fsck@.service.d/io.conf
 		etc/systemd/system/display-manager.service.d/color.conf
@@ -466,6 +470,7 @@ _configure_without_privileged() {
 		etc/docker/daemon.json
 		etc/polkit-1/rules.d/50-udisks.rules
 		etc/systemd/zram-generator.conf
+		etc/systemd/timesyncd.conf.d/ntp.conf
 		etc/udev/rules.d/99-lowbat.rules
 		etc/ssh/sshd_config.d/permit_root_login.conf
 	EOF
@@ -474,26 +479,9 @@ _configure_without_privileged() {
 	sudo homectl update --shell="$(which zsh)" "$USER"
 
 	_log::info 'Configure clock synchronization'
-	sudo sed \
-		-i \
-		-e "s/^#NTP=/NTP=$(echo {0..3}.jp.pool.ntp.org)/" \
-		-e '/^#FallbackNTP/s/#//' \
-		/etc/systemd/timesyncd.conf
 	sudo systemctl enable --now systemd-timesyncd
 	sudo timedatectl set-ntp true
 	sudo timedatectl status
-
-	# System administration
-	_log::info 'Configure service management'
-	sudo sed \
-		-i \
-		-e '/^#DefaultTimeoutStopSec/s/90s/5s/' \
-		-e '/^#DefaultTimeoutStopSec/s/#//' \
-		/etc/systemd/system.conf
-	sudo sed \
-		-i \
-		-e 's/^#SystemMaxUse=/SystemMaxUse=5M/' \
-		/etc/systemd/journald.conf
 
 	# Graphical User Interface
 	_log::info 'Configure display manager'
@@ -521,17 +509,6 @@ _configure_without_privileged() {
 	sudo systemctl enable --now fstrim.timer
 
 	# Power management
-	_log::info 'Configure ACPI events'
-	sudo sed \
-		-i \
-		-e '/^#HandlePowerKey=/s/poweroff/suspend/' \
-		-e '/^#HandlePowerKey=/s/#//' \
-		-e '/^#HandleLidSwitch=/s/suspend/ignore/' \
-		-e '/^#HandleLidSwitch=/s/#//' \
-		/etc/systemd/logind.conf
-
-	sudo systemctl restart systemd-logind
-
 	_log::info 'Configure CPU frequency scaling'
 	sudo sed \
 		-i \

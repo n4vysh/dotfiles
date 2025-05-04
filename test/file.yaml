@@ -149,6 +149,46 @@ file:
     filetype: file
     # yamllint disable-line rule:line-length
     sha512: 4f10f91dc1e43ab3f3ed9acbb8eaa7a02cd2dcb9439c364207a34cc95feef9fd36eafc7d4182086fa90fbf370a2cf93db8bff6aca376b50ca973fcafb8218458
+  /etc/systemd/journald.conf.d/system_max_use.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: dd8e2492f855b9e92a973e7cf6761e7ae56bed1b212ad293ad02d66fc5e16a1c1338558766b1a1b50a5e3f1a5ffbe84e4a715399e1e54ce55be50138f25185b1
+  /etc/systemd/logind.conf.d/handle_power_key.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 27a25a31cf91898a2ace56e8e10dc2af31de77962db2e578830ed7d4804dce065546cbf12fdcdbb15b1eca62ff2e7bbdfbeb283dbb8e3ea26a3e1b075eed7fca
+  /etc/systemd/logind.conf.d/handle_lid_switch.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 84e2c94948fa5454b1271fc377d7e3fb5d7e032cfde769f2559906911afdbba9d115a06d89d2ddfee3472d32a08ac985db28a9440582e3658f6d7983d17924cb
+  /etc/systemd/system.conf.d/default_timeout_stop_sec.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: a35aa162ac074bf129070f315e5e2c6bc19b8006fd3ca58fa0ac53ea370aa4dc697f3abb858b1b5dca9efc054e0ed0c7cd4b66679900df7b04ae6ed8dedd1984
+  /etc/systemd/timesyncd.conf.d/ntp.conf:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 7f8f0a034fd14d752c6528c77945814e81d85234df31f75a4692d63ccc5442fdfcc937de9dcfc34b93d30637ddf93df8b2b446363a0dfddfa51da0aceb7be2da
   /etc/systemd/resolved.conf.d/dns_servers.conf:
     exists: true
     mode: "0644"
