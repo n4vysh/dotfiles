@@ -167,12 +167,14 @@ return {
 			},
 			{
 				"ravitemer/mcphub.nvim",
-				dependencies = {
-					"nvim-lua/plenary.nvim",
-				},
+				build = "bundled_build.lua",
 				cmd = "MCPHub",
 				opts = {
 					auto_approve = false,
+					use_bundled_binary = true,
+				},
+				dependencies = {
+					"nvim-lua/plenary.nvim",
 				},
 			},
 		},
