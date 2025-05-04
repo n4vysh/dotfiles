@@ -161,6 +161,9 @@ _install() {
 	mkdir -p \
 		/mnt/etc/iwd/ \
 		/mnt/etc/systemd/resolved.conf.d/ \
+		/mnt/etc/systemd/journald.conf.d/ \
+		/mnt/etc/systemd/logind.conf.d/ \
+		/mnt/etc/systemd/system.conf.d/ \
 		/mnt/etc/systemd/system/systemd-fsck-root.service.d/ \
 		/mnt/etc/systemd/system/systemd-fsck@.service.d/ \
 		/mnt/etc/systemd/system/display-manager.service.d/
