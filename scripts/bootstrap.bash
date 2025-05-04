@@ -178,6 +178,7 @@ _install() {
 		etc/systemd/system/display-manager.service.d/color.conf
 		etc/systemd/system/rkhunter.service
 		etc/systemd/system/rkhunter.timer
+		etc/makepkg.conf.d/makepkg.conf
 		etc/modprobe.d/disable-overlay-redirect-dir.conf
 	EOF
 
