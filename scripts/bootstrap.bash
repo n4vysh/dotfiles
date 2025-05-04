@@ -393,6 +393,7 @@ _configure_without_privileged() {
 		-i \
 		-e 's/-march=x86-64 -mtune=generic/-march=native/' \
 		-e "/^#MAKEFLAGS=\"-j2\"$/s/-j2/-j$(nproc)/" \
+		-e "s/^#MAKEFLAGS/MAKEFLAGS/" \
 		-e '/^COMPRESSZST/s/zstd -c/zstd -1 --threads=0 -c/' \
 		-e '/^BUILDENV/s/!ccache/ccache/' \
 		/etc/makepkg.conf
