@@ -1,31 +1,80 @@
 {
-  "nativeMCPServers": [],
+  "nativeMCPServers": {
+    "neovim": {
+      "disabled": true
+    }
+  },
   "mcpServers": {
-    "git": {
-      "disabled": true,
+    "time": {
+      "disabled": false,
       "disabled_tools": [],
-      "command": "uvx",
-      "args": ["mcp-server-git@2025.1.14"]
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "mcp/time:latest"]
     },
     "fetch": {
-      "disabled": true,
+      "disabled": false,
       "disabled_tools": [],
       "command": "uvx",
       "args": ["mcp-server-fetch@2025.4.7"]
     },
-    "playwright": {
-      "disabled": true,
-      "disabled_tools": [],
-      "command": "npx",
-      "args": ["@playwright/mcp@0.0.20"]
+    "git": {
+      "disabled": false,
+      "disabled_tools": ["git_checkout", "git_create_branch", "git_reset"],
+      "command": "uvx",
+      "args": ["mcp-server-git@2025.1.14"]
     },
     "brave-search": {
-      "disabled": true,
-      "disabled_tools": [],
-      "command": "npx",
+      "disabled": false,
+      "disabled_tools": ["brave_local_search"],
+      "command": "bunx",
       "args": ["-y", "@modelcontextprotocol/server-brave-search@0.6.2"],
       "env": {
         "BRAVE_API_KEY": null
+      }
+    },
+    "aws-documentation": {
+      "disabled": false,
+      "disabled_tools": [],
+      "command": "uvx",
+      "args": ["awslabs.aws-documentation-mcp-server@0.1.2"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "terraform": {
+      "disabled": false,
+      "disabled_tools": [
+        "ExecuteTerraformCommand",
+        "RunCheckovScan",
+        "SearchAwsccProviderDocs",
+        "SearchSpecificAwsIaModules",
+        "SearchUserProvidedModule"
+      ],
+      "command": "uvx",
+      "args": ["awslabs.terraform-mcp-server@0.0.10"],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "playwright": {
+      "disabled": true,
+      "disabled_tools": [],
+      "command": "bunx",
+      "args": ["@playwright/mcp@0.0.20"]
+    },
+    "grafana": {
+      "disabled": true,
+      "disabled_tools": [],
+      "command": "mise",
+      "args": [
+        "x",
+        "go:github.com/grafana/mcp-grafana/cmd/mcp-grafana@0.2.6",
+        "--",
+        "mcp-grafana"
+      ],
+      "env": {
+        "GRAFANA_URL": null,
+        "GRAFANA_API_KEY": null
       }
     },
     "github": {
@@ -42,6 +91,15 @@
       ],
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": null
+      }
+    },
+    "postgres": {
+      "disabled": true,
+      "disabled_tools": [],
+      "command": "bunx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres@0.6.2", "$PG_URL"],
+      "env": {
+        "PG_URL": null
       }
     }
   }

@@ -64,7 +64,8 @@ return {
 			},
 		},
 		opts = function()
-			local provider = "claude"
+			-- NOTE: use copilot as default provider to avoid Claude's API rate limits and costs
+			local provider = "copilot"
 
 			if vim.fn.exists("$BEDROCK_KEYS") == 1 then
 				provider = "bedrock-claude-3.7-sonnet"
@@ -72,8 +73,15 @@ return {
 
 			return {
 				provider = provider,
+				-- WARNING: always use `claude` provider
+				--          `copilot` provider is expensive and dangerous
+				--          https://github.com/yetone/avante.nvim/issues/1048
+				auto_suggestions_provider = "claude",
+				copilot = {
+					model = "claude-3.7-sonnet",
+				},
 				hints = { enabled = false },
-				file_selector = {
+				selector = {
 					provider = "telescope",
 				},
 				windows = {
@@ -91,7 +99,8 @@ return {
 					local hub = require("mcphub").get_hub_instance()
 					return [[
 						- Respond in japanese.
-						- When making a commit, please create a message in English using conventional commit format and gitmoji.
+						- When making code comments, create it in english.
+						- When making a commit, create a message in english using conventional commit format and gitmoji.
 
 					]] .. hub:get_active_servers_prompt()
 				end,
@@ -101,28 +110,6 @@ return {
 					}
 				end,
 				disabled_tools = {
-					-- native neovim mcp server
-					"rename_file",
-					"delete_file",
-					"create_dir",
-					"rename_dir",
-					"delete_dir",
-					"bash",
-					"replace_in_file",
-					"dispatch_agent",
-					"glob",
-					"run_python",
-					"ls",
-					"grep",
-					"read_file_toplevel_symbols",
-					"read_definitions",
-
-					-- BUG: can not disable following tools in current version
-					-- https://github.com/yetone/avante.nvim/issues/1981#issuecomment-2849272152
-					"str_replace_editor",
-					"add_file_to_context",
-					"remove_file_from_context",
-
 					-- brave search mcp server
 					"web_search",
 
@@ -135,6 +122,10 @@ return {
 				},
 				behaviour = {
 					enable_claude_text_editor_tool_mode = true,
+					-- WARNING: auto suggestions is experimental stage
+					--          `copilot` provider is expensive and dangerous
+					--          https://github.com/yetone/avante.nvim/issues/1048
+					auto_suggestions = false,
 				},
 			}
 		end,
@@ -150,6 +141,7 @@ return {
 			"nvim-telescope/telescope.nvim",
 			"hrsh7th/nvim-cmp",
 			"nvim-tree/nvim-web-devicons",
+			"zbirenbaum/copilot.lua",
 			{
 				"HakonHarnes/img-clip.nvim",
 				event = "VeryLazy",
@@ -166,6 +158,9 @@ return {
 			},
 			{
 				"MeanderingProgrammer/render-markdown.nvim",
+				-- NOTE: render-markdown.nvim lazy load automatically
+				-- https://github.com/yetone/avante.nvim/issues/1450
+				lazy = false,
 				init = function()
 					-- HACK: set empty string into breakat to disable linebreak
 					--       linebreak does not work in japanese, but render-markdown.nvim enable linebreak always
@@ -181,10 +176,9 @@ return {
 					code = {
 						width = "block",
 						min_width = 45,
-						border = "thick",
+						border = "thin",
 					},
 				},
-				ft = { "Avante" },
 			},
 			{
 				"ravitemer/mcphub.nvim",
