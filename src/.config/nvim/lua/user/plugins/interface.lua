@@ -54,6 +54,7 @@ return {
 				"help",
 				"markdown",
 				"dashboard",
+				"Avante",
 			}
 
 			do
@@ -79,6 +80,7 @@ return {
 							and vim.bo.filetype ~= "help"
 							and vim.bo.filetype ~= "markdown"
 							and vim.bo.filetype ~= "dashboard"
+							and vim.bo.filetype ~= "Avante"
 						then
 							vim.cmd.EnableWhitespace()
 						end
