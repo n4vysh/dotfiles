@@ -1,8 +1,48 @@
 {
+  "nativeMCPServers": [],
   "mcpServers": {
-    "github.com/modelcontextprotocol/servers/tree/main/src/git": {
+    "git": {
+      "disabled": true,
+      "disabled_tools": [],
       "command": "uvx",
-      "args": ["mcp-server-git"]
+      "args": ["mcp-server-git@2025.1.14"]
+    },
+    "fetch": {
+      "disabled": true,
+      "disabled_tools": [],
+      "command": "uvx",
+      "args": ["mcp-server-fetch@2025.4.7"]
+    },
+    "playwright": {
+      "disabled": true,
+      "disabled_tools": [],
+      "command": "npx",
+      "args": ["@playwright/mcp@0.0.20"]
+    },
+    "brave-search": {
+      "disabled": true,
+      "disabled_tools": [],
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search@0.6.2"],
+      "env": {
+        "BRAVE_API_KEY": null
+      }
+    },
+    "github": {
+      "disabled": true,
+      "disabled_tools": [],
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server:0.2.1"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": null
+      }
     }
   }
 }

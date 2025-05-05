@@ -89,7 +89,11 @@ return {
 				},
 				system_prompt = function()
 					local hub = require("mcphub").get_hub_instance()
-					return hub:get_active_servers_prompt()
+					return [[
+						- Respond in japanese.
+						- When making a commit, please create a message in English using conventional commit format and gitmoji.
+
+					]] .. hub:get_active_servers_prompt()
 				end,
 				custom_tools = function()
 					return {
@@ -97,16 +101,37 @@ return {
 					}
 				end,
 				disabled_tools = {
-					"list_files",
-					"search_files",
-					"read_file",
-					"create_file",
+					-- native neovim mcp server
 					"rename_file",
 					"delete_file",
 					"create_dir",
 					"rename_dir",
 					"delete_dir",
 					"bash",
+					"replace_in_file",
+					"dispatch_agent",
+					"glob",
+					"run_python",
+					"ls",
+					"grep",
+					"read_file_toplevel_symbols",
+					"read_definitions",
+
+					-- BUG: can not disable following tools in current version
+					-- https://github.com/yetone/avante.nvim/issues/1981#issuecomment-2849272152
+					"str_replace_editor",
+					"add_file_to_context",
+					"remove_file_from_context",
+
+					-- brave search mcp server
+					"web_search",
+
+					-- fetch mcp server
+					"fetch",
+
+					-- git mcp server
+					"git_diff",
+					"git_commit",
 				},
 				behaviour = {
 					enable_claude_text_editor_tool_mode = true,
@@ -115,10 +140,6 @@ return {
 		end,
 		config = function(_, opts)
 			require("avante").setup(opts)
-
-			require("avante.config").override({
-				system_prompt = "Respond in japanese",
-			})
 		end,
 		build = "make",
 		dependencies = {
@@ -172,6 +193,16 @@ return {
 				opts = {
 					auto_approve = false,
 					use_bundled_binary = true,
+					extensions = {
+						avante = {
+							make_slash_commands = true,
+						},
+					},
+					ui = {
+						window = {
+							border = "single",
+						},
+					},
 				},
 				dependencies = {
 					"nvim-lua/plenary.nvim",
