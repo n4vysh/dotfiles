@@ -573,6 +573,9 @@ return {
 					component_separators = { left = "", right = "" },
 					icons_enabled = true,
 					globalstatus = true,
+					disabled_filetypes = {
+						statusline = { "dashboard" },
+					},
 				},
 				sections = {
 					lualine_a = {
