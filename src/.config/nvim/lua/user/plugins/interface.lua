@@ -541,6 +541,11 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		init = function()
+			-- HACK: use non-breaking space to remove statusline before load lualine
+			--       https://github.com/neovim/neovim/issues/5626
+			vim.opt.statusline = " "
+		end,
 		opts = function()
 			-- NOTE: count selected line only
 			--       builtin selectioncount component gives the wrong size
