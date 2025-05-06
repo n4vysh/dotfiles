@@ -3,6 +3,7 @@
 return {
 	{
 		"tridactyl/vim-tridactyl",
+		ft = "tridactyl",
 	},
 	{
 		"yanskun/gotests.nvim",

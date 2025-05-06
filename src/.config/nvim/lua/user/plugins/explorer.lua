@@ -126,9 +126,6 @@ return {
 				vim.keymap.del("n", "S", opts("Search"))
 			end,
 		},
-		dependencies = {
-			"stevearc/dressing.nvim",
-		},
 	},
 	---@type LazySpec
 	{

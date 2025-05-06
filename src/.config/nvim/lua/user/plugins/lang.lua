@@ -5,17 +5,19 @@ return {
 		cmd = { "Mason" },
 		keys = {
 			{
-				"<Space>pp",
-				require("user.utils.ui").open_package_manager,
+				"<Space>pt",
+				vim.cmd.Mason,
 				silent = true,
-				desc = "Open package manager",
+				desc = "Open UI for tools",
 			},
 		},
 		opts = {
 			PATH = "append",
+			ui = {
+				border = "single",
+			},
 		},
 		dependencies = {
-			"stevearc/dressing.nvim",
 			{
 				"zapling/mason-lock.nvim",
 				cmd = { "MasonLock", "MasonLockRestore" },
@@ -595,6 +597,7 @@ return {
 	},
 	{
 		"nvimtools/none-ls.nvim",
+		events = { "VeryLazy" },
 		opts = function()
 			local null_ls = require("null-ls")
 
