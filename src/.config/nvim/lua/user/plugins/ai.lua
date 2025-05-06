@@ -72,6 +72,22 @@ return {
 				provider = "bedrock-claude-3.7-sonnet"
 			end
 
+			-- NOTE: prevent new `[No Name]` buffer
+			do
+				local augroup = "avante_close_keymap"
+				vim.api.nvim_create_augroup(augroup, { clear = true })
+				vim.api.nvim_create_autocmd("FileType", {
+					group = augroup,
+					pattern = "Avante",
+					callback = function()
+						vim.keymap.set("n", "q", "<cmd>quit<CR>", {
+							silent = true,
+							buffer = true,
+						})
+					end,
+				})
+			end
+
 			return {
 				provider = provider,
 				-- WARNING: always use `claude` provider
