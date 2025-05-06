@@ -16,6 +16,7 @@ return {
 	},
 	{
 		"zbirenbaum/copilot-cmp",
+		event = "InsertEnter",
 		opts = {},
 		dependencies = {
 			{ "zbirenbaum/copilot.lua" },
@@ -184,6 +185,14 @@ return {
 				"ravitemer/mcphub.nvim",
 				build = "bundled_build.lua",
 				cmd = "MCPHub",
+				keys = {
+					{
+						"<Space>pm",
+						vim.cmd.MCPHub,
+						silent = true,
+						desc = "Open UI for MCP servers",
+					},
+				},
 				opts = {
 					auto_approve = false,
 					use_bundled_binary = true,

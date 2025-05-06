@@ -42,6 +42,26 @@ do
 	})
 end
 
+-- NOTE: Lua adaptation of vim-cool
+-- https://www.reddit.com/r/neovim/comments/1ct2w2h/comment/l4bgvn1/
+do
+	local augroup = "auto_nohlsearch"
+	vim.api.nvim_create_augroup(augroup, { clear = true })
+	vim.api.nvim_create_autocmd("CursorMoved", {
+		group = augroup,
+		callback = function()
+			if
+				vim.v.hlsearch == 1
+				and vim.fn.searchcount().exact_match == 0
+			then
+				vim.schedule(function()
+					vim.cmd.nohlsearch()
+				end)
+			end
+		end,
+	})
+end
+
 do
 	local augroup = "wrap"
 	vim.api.nvim_create_augroup(augroup, { clear = true })

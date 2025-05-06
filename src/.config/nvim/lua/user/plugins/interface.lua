@@ -1,7 +1,6 @@
 return {
 	{
 		"rcarriga/nvim-notify",
-		lazy = false,
 		keys = {
 			{
 				"<space>nd",
@@ -67,24 +66,43 @@ return {
 						vim.cmd.DisableWhitespace()
 					end,
 				})
-				vim.api.nvim_create_autocmd("InsertLeave", {
+				vim.api.nvim_create_autocmd(
+					{ "BufReadPost", "BufAdd", "BufNewFile", "InsertLeave" },
+					{
+						group = augroup,
+						pattern = "*",
+						callback = function()
+							if
+								vim.bo.filetype ~= "dbout"
+								and vim.bo.filetype ~= "diff"
+								and vim.bo.filetype ~= "git"
+								and vim.bo.filetype ~= "gitcommit"
+								and vim.bo.filetype ~= "qf"
+								and vim.bo.filetype ~= "help"
+								and vim.bo.filetype ~= "markdown"
+								and vim.bo.filetype ~= "dashboard"
+								and vim.bo.filetype ~= "Avante"
+							then
+								vim.cmd.EnableWhitespace()
+							end
+						end,
+					}
+				)
+			end
+
+			-- NOTE: highlight unicode space always
+			do
+				local augroup = "highlight_extra_whitespace"
+				vim.api.nvim_create_augroup(augroup, { clear = true })
+				vim.api.nvim_create_autocmd("VimEnter", {
 					group = augroup,
-					pattern = "*",
 					callback = function()
-						if
-							vim.bo.filetype ~= "dbout"
-							and vim.bo.filetype ~= "diff"
-							and vim.bo.filetype ~= "git"
-							and vim.bo.filetype ~= "gitcommit"
-							and vim.bo.filetype ~= "qf"
-							and vim.bo.filetype ~= "help"
-							and vim.bo.filetype ~= "markdown"
-							and vim.bo.filetype ~= "dashboard"
-							and vim.bo.filetype ~= "Avante"
-						then
-							vim.cmd.EnableWhitespace()
-						end
+						vim.fn.matchadd(
+							"ExtraWhitespace",
+							"[\\u00A0\\u2000-\\u200B\\u3000]"
+						)
 					end,
+					once = true,
 				})
 			end
 		end,
@@ -113,11 +131,7 @@ return {
 	{
 		"stevearc/dressing.nvim",
 		lazy = true,
-		opts = {
-			select = {
-				backend = { "builtin" },
-			},
-		},
+		opts = {},
 	},
 	{
 		"RRethy/vim-illuminate",
@@ -154,10 +168,6 @@ return {
 		config = function(_, opts)
 			require("illuminate").configure(opts)
 		end,
-	},
-	{
-		"romainl/vim-cool",
-		event = { "CursorMoved", "InsertEnter" },
 	},
 	{
 		"wsdjeg/vim-fetch",
@@ -237,7 +247,7 @@ return {
 	},
 	{
 		"nvimtools/hydra.nvim",
-		event = { "VimEnter" },
+		event = { "VeryLazy" },
 		config = function()
 			local hydra = require("hydra")
 			local splits = require("smart-splits")
@@ -429,7 +439,7 @@ return {
 	},
 	{
 		"sphamba/smear-cursor.nvim",
-		event = { "VimEnter" },
+		event = { "VeryLazy" },
 		opts = {
 			stiffness = 0.8,
 			trailing_stiffness = 0.6,
@@ -443,6 +453,11 @@ return {
 		"folke/snacks.nvim",
 		priority = 1000,
 		lazy = false,
+		init = function()
+			-- NOTE: remove word and line count on the bottom
+			-- https://github.com/nvimdev/dashboard-nvim/issues/131#issuecomment-2558716560
+			vim.opt.ruler = false
+		end,
 		---@type snacks.Config
 		opts = {
 			scroll = {},
@@ -476,25 +491,6 @@ return {
 							action = ":lua require('user.utils.finder').search()",
 						},
 						{
-							icon = "󰙅 ",
-							key = "t",
-							desc = "Open file tree",
-							action = ":NvimTreeToggle",
-						},
-						{
-							icon = " ",
-							key = "m",
-							desc = "Jump to bookmarks",
-							action = function()
-								local harpoon = require("harpoon"):setup({
-									settings = {
-										save_on_toggle = true,
-									},
-								})
-								harpoon.ui:toggle_quick_menu(harpoon:list())
-							end,
-						},
-						{
 							icon = " ",
 							key = "h",
 							desc = "History",
@@ -511,12 +507,6 @@ return {
 							key = "c",
 							desc = "Configuration",
 							action = ":lua require('user.utils.finder').edit_config()",
-						},
-						{
-							icon = " ",
-							key = "p",
-							desc = "Package manager",
-							action = ":lua require('user.utils.ui').open_package_manager()",
 						},
 						{
 							icon = " ",
@@ -541,26 +531,16 @@ return {
 		},
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
-			"ThePrimeagen/harpoon",
 			{
-				"Shatur/neovim-session-manager",
-				cmd = { "SessionManager" },
-				opts = function()
-					return {
-						autoload_mode = require("session_manager.config").AutoloadMode.Disabled,
-					}
-				end,
-				dependencies = {
-					"nvim-lua/plenary.nvim",
-					-- NOTE: use user.utils.ui module
-					"stevearc/dressing.nvim",
-				},
+				"folke/persistence.nvim",
+				event = "BufReadPre",
+				opts = {},
 			},
 		},
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		event = { "VimEnter" },
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		opts = function()
 			-- NOTE: count selected line only
 			--       builtin selectioncount component gives the wrong size
@@ -775,17 +755,8 @@ return {
 		},
 	},
 	{
-		"petertriho/nvim-scrollbar",
-		opts = {
-			set_highlights = false,
-			handlers = {
-				cursor = false,
-			},
-		},
-	},
-	{
 		"akinsho/nvim-bufferline.lua",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		event = { "BufReadPre", "BufAdd", "BufNewFile" },
 		keys = {
 			{
 				"]b",
@@ -976,6 +947,14 @@ return {
 					filter = {
 						event = "msg_show",
 						find = " lines <ed",
+					},
+				},
+				-- for vim-asterisk
+				{
+					opts = { skip = true },
+					filter = {
+						event = "msg_show",
+						find = "\\<.*\\>",
 					},
 				},
 			},

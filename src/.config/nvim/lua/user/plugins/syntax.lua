@@ -1,7 +1,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		event = { "BufReadPre" },
 		cmd = {
 			"TSInstall",
 			"TSInstallSync",
@@ -417,6 +417,8 @@ return {
 	{
 		"bezhermoso/tree-sitter-ghostty",
 		build = "make nvim_install",
+		ft = "ghostty",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 	{
 		"windwp/nvim-ts-autotag",

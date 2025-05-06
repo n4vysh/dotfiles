@@ -30,31 +30,10 @@ vim.g.mapleader = "\\"
 
 local lazy = require("lazy")
 
-local kv = {
-	sync = {
-		lhs = "s",
-		desc = "Remove and update plugins",
-	},
-	install = {
-		lhs = "i",
-		desc = "Install missing plugins",
-	},
-	update = {
-		lhs = "u",
-		desc = "Update plugins",
-	},
-	restore = {
-		lhs = "r",
-		desc = "Restore plugins",
-	},
-}
-
-for k, v in pairs(kv) do
-	vim.keymap.set("n", "<Space>p" .. v.lhs, lazy[k], {
-		silent = true,
-		desc = v.desc,
-	})
-end
+vim.keymap.set("n", "<Space>pp", vim.cmd.Lazy, {
+	silent = true,
+	desc = "Open UI for plugins",
+})
 
 lazy.setup({
 	spec = {
@@ -81,5 +60,8 @@ lazy.setup({
 	},
 	change_detection = {
 		notify = false,
+	},
+	ui = {
+		border = "single",
 	},
 })

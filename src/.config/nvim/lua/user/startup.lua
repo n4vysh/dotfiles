@@ -6,6 +6,9 @@ for _, v in ipairs(vim.fn.argv()) do
 			local success, result = pcall(function()
 				vim.api.nvim_buf_delete(bufnr, { force = true })
 			end)
+
+			-- NOTE: load nvim-notify
+			vim.notify = require("notify")
 			if success then
 				vim.notify(
 					"Deleted directory from buffer list: "
