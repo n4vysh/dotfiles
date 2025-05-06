@@ -602,6 +602,7 @@ return {
 			local null_ls = require("null-ls")
 
 			return {
+				border = "single",
 				sources = {
 					null_ls.builtins.diagnostics.actionlint,
 					null_ls.builtins.diagnostics.buf,
