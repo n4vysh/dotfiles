@@ -6,7 +6,14 @@ return {
 		keys = {
 			{
 				"<Space>pt",
-				vim.cmd.Mason,
+				function()
+					-- NOTE: create new `[No Name]` buffer when dashboard
+					if vim.bo.filetype == "dashboard" then
+						vim.cmd.enew()
+					end
+
+					vim.cmd.Mason()
+				end,
 				silent = true,
 				desc = "Open UI for tools",
 			},

@@ -204,7 +204,14 @@ return {
 				keys = {
 					{
 						"<Space>pm",
-						vim.cmd.MCPHub,
+						function()
+							-- NOTE: create new `[No Name]` buffer when dashboard
+							if vim.bo.filetype == "dashboard" then
+								vim.cmd.enew()
+							end
+
+							vim.cmd.MCPHub()
+						end,
 						silent = true,
 						desc = "Open UI for MCP servers",
 					},

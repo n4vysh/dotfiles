@@ -14,6 +14,11 @@ return {
 			{
 				"<Space>ml",
 				function()
+					-- NOTE: create new `[No Name]` buffer when dashboard
+					if vim.bo.filetype == "dashboard" then
+						vim.cmd.enew()
+					end
+
 					harpoon.ui:toggle_quick_menu(harpoon:list())
 				end,
 				silent = true,
