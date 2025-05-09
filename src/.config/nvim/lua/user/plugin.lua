@@ -30,7 +30,14 @@ vim.g.mapleader = "\\"
 
 local lazy = require("lazy")
 
-vim.keymap.set("n", "<Space>pp", vim.cmd.Lazy, {
+vim.keymap.set("n", "<Space>pp", function()
+	-- NOTE: create new `[No Name]` buffer when dashboard
+	if vim.bo.filetype == "dashboard" then
+		vim.cmd.enew()
+	end
+
+	vim.cmd.Lazy()
+end, {
 	silent = true,
 	desc = "Open UI for plugins",
 })
