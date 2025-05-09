@@ -19,10 +19,6 @@ return {
 		opts = {},
 	},
 	{
-		"NoahTheDuke/vim-just",
-		ft = { "just" },
-	},
-	{
 		"direnv/direnv.vim",
 		ft = { "direnv" },
 		keys = {
@@ -41,14 +37,6 @@ return {
 	{
 		"MTDL9/vim-log-highlighting",
 		ft = { "log" },
-	},
-	{
-		"google/vim-jsonnet",
-		ft = { "jsonnet" },
-	},
-	{
-		"jamespeapen/swayconfig.vim",
-		ft = { "swayconfig" },
 	},
 	{
 		"chrisbra/csv.vim",
