@@ -21,7 +21,6 @@ local options = {
 	showcmd = false,
 	showmode = false,
 	signcolumn = "yes",
-	pumblend = 30,
 	pumheight = 10,
 	showbreak = "↪ ",
 	list = true,
