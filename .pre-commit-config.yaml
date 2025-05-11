@@ -122,11 +122,6 @@ repos:
         entry: just src/.config/qmk/fmt
         files: .config/qmk/keymap/.*\.(h|c)$
         pass_filenames: false
-      - id: pkglist
-        name: format pkglist
-        language: system
-        entry: sh -c "printf '%s\n' $@ | xargs -I {} -t sort -uo {} {}"
-        files: misc/pkglist/.*
       - id: visudo
         name: check sudoers
         language: system
