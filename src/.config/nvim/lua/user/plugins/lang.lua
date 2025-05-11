@@ -466,31 +466,6 @@ return {
 							capabilities = capabilities,
 						})
 					end,
-					["lua_ls"] = function()
-						lspconfig.lua_ls.setup({
-							capabilities = capabilities,
-							settings = {
-								Lua = {
-									hint = {
-										enable = true,
-										setType = true,
-									},
-									completion = {
-										callSnippet = "Replace",
-									},
-									workspace = {
-										checkThirdParty = false,
-									},
-									telemetry = {
-										enable = false,
-									},
-									diagnostics = {
-										disable = { "lowercase-global" },
-									},
-								},
-							},
-						})
-					end,
 					["typos_lsp"] = function()
 						lspconfig.typos_lsp.setup({
 							init_options = {
@@ -594,11 +569,16 @@ return {
 			},
 			{ "b0o/SchemaStore.nvim" },
 			{
-				"folke/neodev.nvim",
-				-- FIXME: set old commit hash before c6be05a temporary to load workspace
-				-- https://github.com/folke/neodev.nvim/commit/c6be05aab078827e51aabdc64cc9fba7c06d27b7
-				commit = "3941036e3da9b0dc09244036d20c590b6d752175",
-				opts = {},
+				"folke/lazydev.nvim",
+				ft = "lua",
+				opts = {
+					library = {
+						vim.fn.stdpath("config") .. "/lua",
+						"${3rd}/luv/library",
+						"${3rd}/busted/library",
+						"${3rd}/luassert/library",
+					},
+				},
 			},
 		},
 	},

@@ -59,6 +59,11 @@ return {
 					{ name = "path", priority = 2 },
 				}, {
 					{ name = "copilot", priority = 1 },
+				}, {
+					{
+						name = "lazydev",
+						group_index = 0,
+					},
 				}),
 				formatting = {
 					format = function(entry, item)
