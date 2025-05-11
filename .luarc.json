@@ -1,11 +1,21 @@
 {
-  "diagnostics": {
-    "globals": ["vim"]
-  },
   "format": {
     "enable": false
   },
+  "hint": {
+    "enable": true,
+    "setType": true
+  },
+  "completion": {
+    "callSnippet": "Replace"
+  },
   "workspace": {
-    "ignoreDir": ["*", "!src/.config/nvim/"]
+    "checkThirdParty": false
+  },
+  "telemetry": {
+    "enable": false
+  },
+  "diagnostics": {
+    "disable": ["lowercase-global"]
   }
 }
