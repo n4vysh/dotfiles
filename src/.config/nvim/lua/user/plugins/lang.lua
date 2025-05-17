@@ -530,7 +530,7 @@ return {
 					"cssls",
 					"docker_compose_language_service",
 					"dockerls",
-					"emmet_ls",
+					"emmet_language_server",
 					"eslint",
 					"golangci_lint_ls",
 					"gopls",
