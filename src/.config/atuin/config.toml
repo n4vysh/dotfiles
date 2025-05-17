@@ -1,0 +1,23 @@
+style = "full"
+inline_height = 20
+invert = true
+max_preview_height = 4
+show_help = false
+show_tabs = false
+enter_accept = false
+
+[keys]
+scroll_exits = false
+exit_past_line_start = false
+accept_past_line_end = false
+# HACK: disable prefix key
+prefix = '['
+
+[sync]
+records = true
+
+[preview]
+strategy = "fixed"
+
+[theme]
+name = "custom"

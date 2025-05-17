@@ -18,3 +18,14 @@ keybind = ctrl+m=text:\r
 # NOTE: use tab when ctrl+i
 keybind = ctrl+i=text:\t
 font-feature = -dlig
+# NOTE: remove default keybind for goto_tab
+# https://github.com/ghostty-org/ghostty/issues/967#issuecomment-1832557605
+keybind = alt+one=unbind
+keybind = alt+two=unbind
+keybind = alt+three=unbind
+keybind = alt+four=unbind
+keybind = alt+five=unbind
+keybind = alt+six=unbind
+keybind = alt+seven=unbind
+keybind = alt+eight=unbind
+keybind = alt+nine=unbind

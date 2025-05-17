@@ -4,6 +4,13 @@ bindkey '^n' history-substring-search-down
 bindkey -r '^s'
 
 source <(fzf --zsh)
+bindkey -r '^r'
+
+export ATUIN_NOBIND="true"
+eval "$(atuin init zsh --disable-up-arrow)"
+
+zvm_define_widget atuin-search-viins-wrapper
+zvm_bindkey viins '^r' atuin-search-viins-wrapper
 
 # NOTE: clipboard integration
 # https://github.com/jeffreytse/zsh-vi-mode/issues/19

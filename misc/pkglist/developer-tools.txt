@@ -52,6 +52,7 @@ extra/actionlint
 extra/asciidoctor
 extra/asciinema
 extra/atool
+extra/atuin
 extra/avrdude
 extra/aws-cli-v2
 extra/aws-vault
