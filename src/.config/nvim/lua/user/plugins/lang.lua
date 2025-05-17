@@ -553,6 +553,7 @@ return {
 					"lua_ls",
 					"marksman",
 					"spectral",
+					"systemd_ls",
 					"tailwindcss",
 					"taplo",
 					"terraformls",
