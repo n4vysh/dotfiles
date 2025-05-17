@@ -560,6 +560,7 @@ return {
 					"tflint",
 					"typos_lsp",
 					"yamlls",
+					"vale_ls",
 					"vtsls",
 				},
 				automatic_enable = true,
