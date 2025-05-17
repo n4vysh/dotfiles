@@ -549,6 +549,7 @@ return {
 					"helm_ls",
 					"hyprls",
 					"jsonls",
+					"just",
 					"lua_ls",
 					"marksman",
 					"spectral",
