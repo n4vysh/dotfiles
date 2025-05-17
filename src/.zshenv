@@ -47,6 +47,10 @@ local purple='#9d7cd8'
 local cyan='#7dcfff'
 local pink='#bb9af7'
 
+### history
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="fg=${green},bold"
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="fg=${red},bold"
+
 ### syntax
 typeset -gA FAST_HIGHLIGHT_STYLES
 FAST_HIGHLIGHT_STYLES[default]="fg=${foreground}"
