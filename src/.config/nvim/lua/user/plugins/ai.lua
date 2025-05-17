@@ -68,9 +68,8 @@ return {
 			-- NOTE: use copilot as default provider to avoid Claude's API rate limits and costs
 			local provider = "copilot"
 
-			if vim.fn.exists("$BEDROCK_KEYS") == 1 then
-				provider = "bedrock-claude-3.7-sonnet"
-			end
+			-- NOTE: comment in to use bedrock
+			-- provider = "bedrock"
 
 			-- NOTE: prevent new `[No Name]` buffer
 			do
@@ -96,6 +95,11 @@ return {
 				auto_suggestions_provider = "claude",
 				copilot = {
 					model = "claude-3.7-sonnet",
+				},
+				bedrock = {
+					model = "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+					aws_profile = "bedrock",
+					aws_region = "us-east-1",
 				},
 				hints = { enabled = false },
 				selector = {
