@@ -82,8 +82,6 @@ return {
 			},
 		},
 		config = function()
-			local lspconfig = require("lspconfig")
-
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 				callback = function(ev)
@@ -332,6 +330,206 @@ return {
 				lineFoldingOnly = true,
 			}
 
+			vim.lsp.config("*", {
+				capabilities = capabilities,
+			})
+
+			vim.lsp.config("lua_ls", {
+				settings = {
+					Lua = {
+						hint = {
+							enable = true,
+							setType = true,
+						},
+						completion = {
+							callSnippet = "Replace",
+						},
+						workspace = {
+							checkThirdParty = false,
+						},
+						telemetry = {
+							enable = false,
+						},
+						diagnostics = {
+							disable = { "lowercase-global" },
+						},
+					},
+				},
+			})
+
+			vim.lsp.config("vtsls", {
+				settings = {
+					typescript = {
+						updateImportsOnFileMove = "always",
+						inlayHints = {
+							parameterNames = {
+								enabled = "literals",
+							},
+							parameterTypes = { enabled = true },
+							variableTypes = { enabled = true },
+							propertyDeclarationTypes = {
+								enabled = true,
+							},
+							functionLikeReturnTypes = {
+								enabled = true,
+							},
+							enumMemberValues = { enabled = true },
+						},
+					},
+					javascript = {
+						updateImportsOnFileMove = "always",
+						inlayHints = {
+							parameterNames = {
+								enabled = "literals",
+							},
+							parameterTypes = { enabled = true },
+							variableTypes = { enabled = true },
+							propertyDeclarationTypes = {
+								enabled = true,
+							},
+							functionLikeReturnTypes = {
+								enabled = true,
+							},
+							enumMemberValues = { enabled = true },
+						},
+					},
+					vtsls = {
+						enableMoveToFileCodeAction = true,
+					},
+				},
+			})
+
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = { "*.go" },
+				callback = function()
+					local params = vim.lsp.util.make_range_params(
+						nil,
+						vim.lsp.util._get_offset_encoding()
+					)
+					params.context = { only = { "source.organizeImports" } }
+
+					local result = vim.lsp.buf_request_sync(
+						0,
+						"textDocument/codeAction",
+						params,
+						3000
+					)
+					for _, res in pairs(result or {}) do
+						for _, r in pairs(res.result or {}) do
+							if r.edit then
+								vim.lsp.util.apply_workspace_edit(
+									r.edit,
+									vim.lsp.util._get_offset_encoding()
+								)
+							else
+								vim.lsp.buf.execute_command(r.command)
+							end
+						end
+					end
+				end,
+			})
+
+			vim.lsp.config("gopls", {
+				cmd_env = { GOFUMPT_SPLIT_LONG_LINES = "on" },
+				settings = {
+					gopls = {
+						hints = {
+							assignVariableTypes = true,
+							compositeLiteralFields = true,
+							compositeLiteralTypes = true,
+							constantValues = true,
+							functionTypeParameters = true,
+							parameterNames = true,
+							rangeVariableTypes = true,
+						},
+						gofumpt = true,
+						analyses = {
+							fillstruct = true,
+						},
+						vulncheck = "Imports",
+					},
+				},
+			})
+
+			vim.lsp.config("typos_lsp", {
+				init_options = {
+					diagnosticSeverity = "Hint",
+				},
+			})
+
+			-- NOTE: user’s on_attach function override the default on_attach of eslint
+			--       https://github.com/neovim/nvim-lspconfig/issues/3837
+			local base_on_attach = vim.lsp.config.eslint.on_attach
+			vim.lsp.config("eslint", {
+				settings = {
+					format = false,
+				},
+				on_attach = function(client, bufnr)
+					if base_on_attach then
+						base_on_attach(client, bufnr)
+					end
+
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = bufnr,
+						command = "LspEslintFixAll",
+					})
+				end,
+			})
+
+			vim.lsp.config("jsonls", {
+				settings = {
+					json = {
+						schemas = require("schemastore").json.schemas(),
+						validate = { enable = true },
+					},
+				},
+			})
+
+			local schemas = require("schemastore").yaml.schemas({})
+
+			schemas = vim.tbl_extend("error", schemas, {
+				kubernetes = {
+					"configmap*.yaml",
+					"limitrange*.yaml",
+					"namespace*.yaml",
+					"pvc*.yaml",
+					"pv*.yaml",
+					"secret*.yaml",
+					"serviceaccount*.yaml",
+					"service*.yaml",
+					"daemonset*.yaml",
+					"deployment*.yaml",
+					"statefulset*.yaml",
+					"hpa*.yaml",
+					"cronjob*.yaml",
+					"job*.yaml",
+					"ingress*.yaml",
+					"networkpolicy*.yaml",
+					"poddisruptionbudget*.yaml",
+					"clusterrolebinding*.yaml",
+					"clusterrole*.yaml",
+					"rolebinding*.yaml",
+					"role*.yaml",
+				},
+			})
+
+			vim.lsp.config("yamlls", {
+				settings = {
+					yaml = {
+						customTags = {
+							"!reference sequence",
+						},
+						schemaStore = {
+							-- NOTE: disable built-in schemaStore support and use SchemaStore.nvim
+							enable = false,
+							-- NOTE: Avoid TypeError: Cannot read properties of undefined (reading 'length')
+							url = "",
+						},
+						schemas = schemas,
+					},
+				},
+			})
+
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"bashls", -- NOTE: require shellcheck for linting from bashls
@@ -358,207 +556,15 @@ return {
 					"yamlls",
 					"vtsls",
 				},
-				automatic_installation = true,
-				handlers = {
-					function(server)
-						lspconfig[server].setup({
-							capabilities = capabilities,
-						})
-					end,
-					["vtsls"] = function()
-						lspconfig.vtsls.setup({
-							settings = {
-								typescript = {
-									updateImportsOnFileMove = "always",
-									inlayHints = {
-										parameterNames = {
-											enabled = "literals",
-										},
-										parameterTypes = { enabled = true },
-										variableTypes = { enabled = true },
-										propertyDeclarationTypes = {
-											enabled = true,
-										},
-										functionLikeReturnTypes = {
-											enabled = true,
-										},
-										enumMemberValues = { enabled = true },
-									},
-								},
-								javascript = {
-									updateImportsOnFileMove = "always",
-									inlayHints = {
-										parameterNames = {
-											enabled = "literals",
-										},
-										parameterTypes = { enabled = true },
-										variableTypes = { enabled = true },
-										propertyDeclarationTypes = {
-											enabled = true,
-										},
-										functionLikeReturnTypes = {
-											enabled = true,
-										},
-										enumMemberValues = { enabled = true },
-									},
-								},
-								vtsls = {
-									enableMoveToFileCodeAction = true,
-								},
-							},
-							capabilities = capabilities,
-						})
-					end,
-					["gopls"] = function()
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							pattern = { "*.go" },
-							callback = function()
-								local params = vim.lsp.util.make_range_params(
-									nil,
-									vim.lsp.util._get_offset_encoding()
-								)
-								params.context =
-									{ only = { "source.organizeImports" } }
-
-								local result = vim.lsp.buf_request_sync(
-									0,
-									"textDocument/codeAction",
-									params,
-									3000
-								)
-								for _, res in pairs(result or {}) do
-									for _, r in pairs(res.result or {}) do
-										if r.edit then
-											vim.lsp.util.apply_workspace_edit(
-												r.edit,
-												vim.lsp.util._get_offset_encoding()
-											)
-										else
-											vim.lsp.buf.execute_command(
-												r.command
-											)
-										end
-									end
-								end
-							end,
-						})
-
-						lspconfig.gopls.setup({
-							cmd_env = { GOFUMPT_SPLIT_LONG_LINES = "on" },
-							settings = {
-								gopls = {
-									hints = {
-										assignVariableTypes = true,
-										compositeLiteralFields = true,
-										compositeLiteralTypes = true,
-										constantValues = true,
-										functionTypeParameters = true,
-										parameterNames = true,
-										rangeVariableTypes = true,
-									},
-									gofumpt = true,
-									analyses = {
-										fillstruct = true,
-									},
-									vulncheck = "Imports",
-								},
-							},
-							capabilities = capabilities,
-						})
-					end,
-					["typos_lsp"] = function()
-						lspconfig.typos_lsp.setup({
-							init_options = {
-								diagnosticSeverity = "Hint",
-							},
-							capabilities = capabilities,
-						})
-					end,
-					["eslint"] = function()
-						lspconfig.eslint.setup({
-							settings = {
-								format = false,
-							},
-							on_attach = function(_, buf)
-								vim.api.nvim_create_autocmd("BufWritePre", {
-									buffer = buf,
-									command = "EslintFixAll",
-								})
-							end,
-							capabilities = capabilities,
-						})
-					end,
-					["jsonls"] = function()
-						lspconfig.jsonls.setup({
-							settings = {
-								json = {
-									schemas = require("schemastore").json.schemas(),
-									validate = { enable = true },
-								},
-							},
-							capabilities = capabilities,
-						})
-					end,
-					["yamlls"] = function()
-						local schemas = require("schemastore").yaml.schemas({})
-
-						schemas = vim.tbl_extend("error", schemas, {
-							kubernetes = {
-								"configmap*.yaml",
-								"limitrange*.yaml",
-								"namespace*.yaml",
-								"pvc*.yaml",
-								"pv*.yaml",
-								"secret*.yaml",
-								"serviceaccount*.yaml",
-								"service*.yaml",
-								"daemonset*.yaml",
-								"deployment*.yaml",
-								"statefulset*.yaml",
-								"hpa*.yaml",
-								"cronjob*.yaml",
-								"job*.yaml",
-								"ingress*.yaml",
-								"networkpolicy*.yaml",
-								"poddisruptionbudget*.yaml",
-								"clusterrolebinding*.yaml",
-								"clusterrole*.yaml",
-								"rolebinding*.yaml",
-								"role*.yaml",
-							},
-						})
-
-						lspconfig.yamlls.setup({
-							settings = {
-								yaml = {
-									customTags = {
-										"!reference sequence",
-									},
-									schemaStore = {
-										-- NOTE: disable built-in schemaStore support and use SchemaStore.nvim
-										enable = false,
-										-- NOTE: Avoid TypeError: Cannot read properties of undefined (reading 'length')
-										url = "",
-									},
-									schemas = schemas,
-								},
-							},
-							capabilities = capabilities,
-						})
-					end,
-				},
+				automatic_enable = true,
 			})
 
 			-- NOTE: tilt_ls not support by mason-lspconfig
-			lspconfig.tilt_ls.setup({
-				capabilities = capabilities,
-			})
+			vim.lsp.enable("tilt_ls")
 
 			-- NOTE: nixd not support by mason-lspconfig
 			-- https://github.com/williamboman/mason-lspconfig.nvim/issues/390
-			lspconfig.nixd.setup({
-				capabilities = capabilities,
-			})
+			vim.lsp.enable("nixd")
 		end,
 		dependencies = {
 			{
