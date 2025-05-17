@@ -67,7 +67,7 @@ return {
 					end,
 				})
 				vim.api.nvim_create_autocmd(
-					{ "BufReadPost", "BufAdd", "BufNewFile", "InsertLeave" },
+					{ "BufAdd", "BufNewFile", "InsertLeave" },
 					{
 						group = augroup,
 						pattern = "*",
