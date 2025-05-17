@@ -1,0 +1,2 @@
+zle atuin-search-viins
+zle reset-prompt # HACK: enable zsh-syntax-highlighting
