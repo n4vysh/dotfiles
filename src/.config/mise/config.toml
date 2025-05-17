@@ -17,3 +17,4 @@ kyverno = "latest"
 "pipx:litellm" = { version = "1.66.3", extras = "proxy" }
 "npm:czg" = "1.11.1"
 "npm:gitmoji-cli" = "9.6.0"
+"ubi:YiNNx/cmd-wrapped" = "0.4"
