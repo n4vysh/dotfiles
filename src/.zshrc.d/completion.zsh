@@ -7,7 +7,7 @@ source /usr/bin/aws_zsh_completer.sh
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
-zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list
+zstyle ':completion:*' completer _complete _match _prefix _approximate _list
 zstyle ':completion:*' list-separator '  '
 zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*:options' description 'yes'

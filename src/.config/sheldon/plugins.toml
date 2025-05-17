@@ -41,3 +41,7 @@ rev = "449a7c3"
 [plugins.zsh-auto-notify]
 github = "MichaelAquilina/zsh-auto-notify"
 rev = "27c07dd"
+
+[plugins.zsh-autocomplete]
+github = "marlonrichert/zsh-autocomplete"
+rev = "77a4f9c"
