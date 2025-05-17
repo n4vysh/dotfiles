@@ -17,25 +17,10 @@ windows:
 #   - panes:
 #       # for bedrock
 #       # ```sh
-#       # gopass insert envs/openwebui/OPENAI_API_KEY
+#       # gopass insert envs/litellm/LITELLM_MASTER_KEY
 #       # ```
 #       - |
 #         gopass env envs/litellm \
 #           aws-vault exec bedrock -- \
 #             litellm \
 #               --model bedrock/us.anthropic.claude-3-7-sonnet-20250219-v1:0
-#   - panes:
-#       # for bedrock
-#       - |
-#         gopass env envs/openwebui \
-#           docker run \
-#             --rm \
-#             --network=host \
-#             -e PORT=5000 \
-#             -e WEBUI_AUTH=False \
-#             -e ENABLE_OLLAMA_API=false \
-#             -e OPENAI_API_BASE_URL=http://127.0.0.1:4000/v1 \
-#             -e OPENAI_API_KEY \
-#             -v open-webui:/app/backend/data \
-#             --name open-webui \
-#             ghcr.io/open-webui/open-webui:main
