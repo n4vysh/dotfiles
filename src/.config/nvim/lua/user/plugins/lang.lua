@@ -523,6 +523,16 @@ return {
 				},
 			})
 
+			vim.lsp.config("harper_ls", {
+				settings = {
+					["harper-ls"] = {
+						linters = {
+							SentenceCapitalization = false,
+						},
+					},
+				},
+			})
+
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"bashls", -- NOTE: require shellcheck for linting from bashls
@@ -535,6 +545,7 @@ return {
 					"golangci_lint_ls",
 					"gopls",
 					"graphql",
+					"harper_ls",
 					"helm_ls",
 					"hyprls",
 					"jsonls",
