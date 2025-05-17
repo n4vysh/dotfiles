@@ -24,13 +24,6 @@ return {
 				border = "single",
 			},
 		},
-		dependencies = {
-			{
-				"zapling/mason-lock.nvim",
-				cmd = { "MasonLock", "MasonLockRestore" },
-				opts = {},
-			},
-		},
 	},
 	{
 		"neovim/nvim-lspconfig",
