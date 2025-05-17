@@ -1,6 +1,5 @@
 [settings]
 jobs = 20
-idiomatic_version_file = false
 experimental = true
 
 [settings.npm]
