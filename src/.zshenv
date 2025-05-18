@@ -30,6 +30,9 @@ export HISTFILE=~/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
 export WORDCHARS="${WORDCHARS/\//}"
+export ABBR_GET_AVAILABLE_ABBREVIATION=1
+export ABBR_LOG_AVAILABLE_ABBREVIATION=1
+export ABBR_LOG_AVAILABLE_ABBREVIATION_AFTER=1
 zle_highlight=('paste:none')
 
 fpath=(~/.zfunctions $fpath)
