@@ -41,7 +41,7 @@
         "FASTMCP_LOG_LEVEL": "ERROR"
       }
     },
-    "terraform": {
+    "awslabs.terraform-mcp-server": {
       "disabled": false,
       "disabled_tools": [
         "ExecuteTerraformCommand",
@@ -55,6 +55,12 @@
       "env": {
         "FASTMCP_LOG_LEVEL": "ERROR"
       }
+    },
+    "terraform": {
+      "disabled": false,
+      "disabled_tools": [],
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "hashicorp/terraform-mcp-server:0.1.0"]
     },
     "playwright": {
       "disabled": true,
