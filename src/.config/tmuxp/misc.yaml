@@ -13,7 +13,7 @@ windows:
       #       ```
       - |
         gopass env envs/litellm \
-          litellm --drop_params --model claude-3-7-sonnet-20250219
+          litellm --drop_params --model claude-opus-4-20250514
 #   - panes:
 #       # for bedrock
 #       # ```sh
