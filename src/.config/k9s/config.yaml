@@ -1,0 +1,9 @@
+k9s:
+  refreshRate: 1
+  ui:
+    enableMouse: true
+    splashless: true
+    defaultsToFullScreen: true
+  logger:
+    textWrap: true
+  skipLatestRevCheck: true
