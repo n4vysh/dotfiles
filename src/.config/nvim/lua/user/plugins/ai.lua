@@ -94,7 +94,7 @@ return {
 				--          https://github.com/yetone/avante.nvim/issues/1048
 				auto_suggestions_provider = "claude",
 				copilot = {
-					model = "claude-3.7-sonnet",
+					model = "claude-sonnet-4",
 				},
 				bedrock = {
 					model = "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
