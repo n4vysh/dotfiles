@@ -1,12 +1,11 @@
 name := "security-lab"
-kubeconfig := env_var('HOME') + "/.kube/configs/" + name + ".yaml"
 
 # Create kubernetes cluster
 init:
     kind create cluster \
         --name {{ name }} \
-        --config kind.yaml \
-        --kubeconfig {{ kubeconfig }}
+        --config kind.yaml
+    kubectx -u
 
 # Deploy artifacts
 deploy:
@@ -14,7 +13,7 @@ deploy:
 
 # Switch kubernetes context
 switch:
-    kubie ctx -n default kind-security-lab
+    kubectx kind-security-lab
 
 # Check status of pods, nodes, and middlewares
 check:
