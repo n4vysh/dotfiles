@@ -154,10 +154,6 @@ export FZF_DEFAULT_OPTS="
 	--color hl:27,bg+:21,hl+:75
 	--color info:69,prompt:75,spinner:69,pointer:69,marker:69,scrollbar:75
 "
-export FZF_CTRL_R_OPTS="
-	--preview 'echo {2..} | bat --color=always -pl zsh'
-	--preview-window 'wrap,down,5'
-"
 
 # Terraform
 export TF_CLI_ARGS_plan="-parallelism=30"
