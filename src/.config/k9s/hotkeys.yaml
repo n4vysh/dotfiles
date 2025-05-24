@@ -3,3 +3,14 @@ hotKeys:
     shortCut: q
     description: Quit
     command: quit
+    override: true
+  Ctrl-N:
+    shortCut: Ctrl-N
+    description: View namespace
+    command: namespace
+    override: true
+  Ctrl-X:
+    shortCut: Ctrl-X
+    description: View context
+    command: context
+    override: true
