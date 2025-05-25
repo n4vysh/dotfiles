@@ -1,3 +1,0 @@
-#!/bin/bash
-
-/mnt/c/Program\ Files/komorebi/bin/komorebic.exe "$@"

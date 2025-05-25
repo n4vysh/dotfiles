@@ -3,32 +3,12 @@
 
 USERPROFILE := EnvGet("USERPROFILE")
 
-if ! (PID := ProcessExist("komorebi.exe")) {
-	RunWait("komorebic.exe start -c " USERPROFILE "\komorebi.json", , "Hide")
-} else {
-	RunWait("komorebic.exe reload-configuration", , "Hide")
-}
-
-Loop {
-	ExitCode := RunWait("komorebic.exe state", , "Hide")
-	if ExitCode = 0 {
-		break
-	} else {
-		Sleep 1000
-	}
-}
-
-; Load library
-#Include komorebic.lib.ahk
-
 ; Reload configuration
 F13 & c::
 {
 	if GetKeyState("Shift") {
-		RunWait("taskkill /f /im komorebi.exe", , "Hide")
-		USERPROFILE := EnvGet("USERPROFILE")
-		RunWait("komorebic.exe start -c " USERPROFILE "\komorebi.json", , "Hide")
-		Reload
+		RunWait("glazewm.exe command wm-reload-config", , "Hide")
+		RunWait("glazewm.exe command wm-redraw", , "Hide")
 	} else if GetKeyState("Ctrl", "P") {
 		; for ScreenToGif
 		Send "{F8}"
@@ -42,28 +22,28 @@ F13 & h::
 		if GetKeyState("Ctrl", "P") {
 			Send("{backspace}")
 		} else {
-			Focus("left")
+			RunWait("glazewm.exe command focus --direction left", , "Hide")
 		}
 	} else {
-		Move("left")
+		RunWait("glazewm.exe command move --direction left", , "Hide")
 	}
 }
 
 F13 & j::
 {
 	if ! GetKeyState("Shift") {
-		Focus("down")
+		RunWait("glazewm.exe command focus --direction down", , "Hide")
 	} else {
-		Move("down")
+		RunWait("glazewm.exe command move --direction down", , "Hide")
 	}
 }
 
 F13 & k::
 {
 	if ! GetKeyState("Shift") {
-		Focus("up")
+		RunWait("glazewm.exe command focus --direction up", , "Hide")
 	} else {
-		Move("up")
+		RunWait("glazewm.exe command move --direction up", , "Hide")
 	}
 }
 
@@ -73,10 +53,10 @@ F13 & l::
 		if GetKeyState("Ctrl", "P") {
 			DllCall("LockWorkStation")
 		} else {
-			Focus("right")
+			RunWait("glazewm.exe command focus --direction right", , "Hide")
 		}
 	} else {
-		Move("right")
+		RunWait("glazewm.exe command move --direction right", , "Hide")
 	}
 }
 
@@ -84,7 +64,7 @@ F13 & l::
 F13 & space::
 {
 	if GetKeyState("Shift") {
-		ToggleFloat()
+		RunWait("glazewm.exe command toggle-floating --centered", , "Hide")
 	}
 }
 
@@ -97,7 +77,7 @@ F13 & f::
 			Send("{right}")
 		}
 	} else {
-		ToggleMaximize()
+		RunWait("glazewm.exe command toggle-fullscreen", , "Hide")
 	}
 }
 
@@ -123,126 +103,11 @@ F13 & a::
 	}
 }
 
-F13 & e::
-{
-	if GetKeyState("Ctrl", "P") {
-		if GetKeyState("Shift") {
-			Send("+{end}")
-		} else {
-			Send("{end}")
-		}
-	}
-}
-
-; Workspaces
-F13 & 1::
-{
-	if ! GetKeyState("Shift") {
-		FocusWorkspace(0)
-	} else {
-		SendToWorkspace(0)
-	}
-}
-
-F13 & 2::
-{
-	if ! GetKeyState("Shift") {
-		FocusWorkspace(1)
-	} else {
-		SendToWorkspace(1)
-	}
-}
-
-F13 & 3::
-{
-	if ! GetKeyState("Shift") {
-		FocusWorkspace(2)
-	} else {
-		SendToWorkspace(2)
-	}
-}
-
-F13 & 4::
-{
-	if ! GetKeyState("Shift") {
-		FocusWorkspace(3)
-	} else {
-		SendToWorkspace(3)
-	}
-}
-
-F13 & p::
-{
-	if ! GetKeyState("Shift") {
-		if GetKeyState("Ctrl", "P") {
-			Send("{up}")
-		} else {
-			CycleWorkspace("previous")
-		}
-	} else {
-		if GetKeyState("Ctrl", "P") {
-			Send("+{up}")
-		} else {
-			CycleSendToWorkspace("previous")
-		}
-	}
-}
-
-F13 & n::
-{
-	if ! GetKeyState("Shift") {
-		if GetKeyState("Ctrl", "P") {
-			Send("{down}")
-		} else {
-			CycleWorkspace("next")
-		}
-	} else {
-		if GetKeyState("Ctrl", "P") {
-			Send("+{down}")
-		} else {
-			CycleSendToWorkspace("next")
-		}
-	}
-}
-
-; Misc
-F13 & q::
-{
-	if GetKeyState("Shift") {
-		Close()
-	}
-}
-
-F13 & d::
-{
-	if ! GetKeyState("Shift") {
-		if GetKeyState("Ctrl", "P") {
-			Send("{delete}")
-		} else {
-			Send "!{Space}"
-		}
-	}
-}
-
-F13 & w::
-{
-	if GetKeyState("Ctrl", "P") {
-		Send("^{backspace}")
-	}
-}
-
 F13 & u::
 {
 	if GetKeyState("Ctrl", "P") {
 		Send("+{home}")
 		Send("{backspace}")
-	}
-}
-
-F13 & m::
-{
-	if GetKeyState("Ctrl", "P") {
-		Send("enter")
 	}
 }
 
@@ -302,6 +167,155 @@ F13 & e::
 		}
 	}
 #HotIf
+
+; Workspaces
+F13 & 1::
+{
+	if ! GetKeyState("Shift") {
+		RunWait("glazewm.exe command focus --workspace 1", , "Hide")
+	} else {
+		RunWait("glazewm.exe command move --workspace 1", , "Hide")
+	}
+}
+
+F13 & 2::
+{
+	if ! GetKeyState("Shift") {
+		RunWait("glazewm.exe command focus --workspace 2", , "Hide")
+	} else {
+		RunWait("glazewm.exe command move --workspace 2", , "Hide")
+	}
+}
+
+F13 & 3::
+{
+	if ! GetKeyState("Shift") {
+		RunWait("glazewm.exe command focus --workspace 3", , "Hide")
+	} else {
+		RunWait("glazewm.exe command move --workspace 3", , "Hide")
+	}
+}
+
+F13 & 4::
+{
+	if ! GetKeyState("Shift") {
+		RunWait("glazewm.exe command focus --workspace 4", , "Hide")
+	} else {
+		RunWait("glazewm.exe command move --workspace 4", , "Hide")
+	}
+}
+
+F13 & 5::
+{
+	if ! GetKeyState("Shift") {
+		RunWait("glazewm.exe command focus --workspace 5", , "Hide")
+	} else {
+		RunWait("glazewm.exe command move --workspace 5", , "Hide")
+	}
+}
+
+F13 & 6::
+{
+	if ! GetKeyState("Shift") {
+		RunWait("glazewm.exe command focus --workspace 6", , "Hide")
+	} else {
+		RunWait("glazewm.exe command move --workspace 6", , "Hide")
+	}
+}
+
+F13 & 7::
+{
+	if ! GetKeyState("Shift") {
+		RunWait("glazewm.exe command focus --workspace 7", , "Hide")
+	} else {
+		RunWait("glazewm.exe command move --workspace 7", , "Hide")
+	}
+}
+
+F13 & 8::
+{
+	if ! GetKeyState("Shift") {
+		RunWait("glazewm.exe command focus --workspace 8", , "Hide")
+	} else {
+		RunWait("glazewm.exe command move --workspace 8", , "Hide")
+	}
+}
+
+F13 & 9::
+{
+	if ! GetKeyState("Shift") {
+		RunWait("glazewm.exe command focus --workspace 9", , "Hide")
+	} else {
+		RunWait("glazewm.exe command move --workspace 9", , "Hide")
+	}
+}
+
+F13 & p::
+{
+	if ! GetKeyState("Shift") {
+		if GetKeyState("Ctrl", "P") {
+			Send("{up}")
+		} else {
+			RunWait("glazewm.exe command focus --prev-active-workspace", , "Hide")
+		}
+	} else {
+		if GetKeyState("Ctrl", "P") {
+			Send("+{up}")
+		} else {
+			RunWait("glazewm.exe command move --prev-active-workspace", , "Hide")
+		}
+	}
+}
+
+F13 & n::
+{
+	if ! GetKeyState("Shift") {
+		if GetKeyState("Ctrl", "P") {
+			Send("{down}")
+		} else {
+			RunWait("glazewm.exe command focus --next-active-workspace", , "Hide")
+		}
+	} else {
+		if GetKeyState("Ctrl", "P") {
+			Send("+{down}")
+		} else {
+			RunWait("glazewm.exe command move --next-active-workspace", , "Hide")
+		}
+	}
+}
+
+; Misc
+F13 & q::
+{
+	if GetKeyState("Shift") {
+		RunWait("glazewm.exe command close", , "Hide")
+	}
+}
+
+F13 & d::
+{
+	if ! GetKeyState("Shift") {
+		if GetKeyState("Ctrl", "P") {
+			Send("{delete}")
+		} else {
+			Send "!{Space}"
+		}
+	}
+}
+
+F13 & w::
+{
+	if GetKeyState("Ctrl", "P") {
+		Send("^{backspace}")
+	}
+}
+
+F13 & m::
+{
+		if GetKeyState("Ctrl", "P") {
+			Send("{enter}")
+		}
+}
 
 IsScreenShot := false
 
@@ -407,7 +421,7 @@ IsLauncher := false
 	{
 		global IsLauncher
 		if ! GetKeyState("Shift") {
-			RunWait("taskmgr.exe")
+			Run("taskmgr.exe")
 			IsLauncher := false
 		}
 	}
@@ -446,29 +460,16 @@ F13 & Enter::
 	}
 }
 
+; clipboard manager
 F13 & `;::
 {
 	Send("#v")
 }
 
-AppsKey::LWin
+; super key
+Pause::LWin
 
-~LShift::
-{
-	KeyWait "LShift"
-	if (A_TimeSinceThisHotkey < 200 and A_PriorKey = "LShift") {
-		Send "("
-	}
-}
-
-~RShift::
-{
-	KeyWait "RShift"
-	if (A_TimeSinceThisHotkey < 200 and A_PriorKey = "RShift") {
-		Send ")"
-	}
-}
-
+; thumb cluster
 ~LAlt::
 {
 	KeyWait "LAlt"
@@ -498,5 +499,28 @@ AppsKey::LWin
 	KeyWait "LAlt"
 	if (A_TimeSinceThisHotkey < 200 and A_PriorKey = "LAlt") {
 		Send "+^{Tab}"
+	}
+}
+
+; disable tab
+Tab::Return
++Tab::Return
+^Tab::Return
++^Tab::Return
+
+; space cadet shift
+~LShift::
+{
+	KeyWait "LShift"
+	if (A_TimeSinceThisHotkey < 200 and A_PriorKey = "LShift") {
+		Send "("
+	}
+}
+
+~RShift::
+{
+	KeyWait "RShift"
+	if (A_TimeSinceThisHotkey < 200 and A_PriorKey = "RShift") {
+		Send ")"
 	}
 }
