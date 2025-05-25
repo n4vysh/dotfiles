@@ -12,24 +12,24 @@ Probably work following setup.
 Install some packages with winget.
 
 ```pwsh
-winget install -e --id wez.wezterm
-winget install -e --id Mozilla.Firefox
-winget install -e --id LGUG2Z.komorebi --version 0.1.23
-winget install -e --id OliverSchwendener.ueli
-winget install -e --id RandyRants.SharpKeys
-winget install -e --id Lexikos.AutoHotkey
-winget install -e --id SlackTechnologies.Slack
-winget install -e --id PortSwigger.BurpSuite.Community
-winget install -e --id WiresharkFoundation.Wireshark
-winget install -e --id Insecure.Nmap
-winget install -e --id OpenVPNTechnologies.OpenVPN
-winget install -e --id QMK.QMKToolbox
-winget install -e --id JGraph.Draw
-winget install -e --id hrkfdn.ncspot
-winget install -e --id Espanso.Espanso
-winget install -e --id NickeManarin.ScreenToGif
-winget install -e --id Gyan.FFmpeg
-winget install -e --id Neovide.Neovide
+winget install -e --id wez.wezterm --version 20240203-110809-5046fc22
+winget install -e --id Mozilla.Firefox --version 138.0.4
+winget install -e --id glzr-io.glazewm --version 3.8.1
+winget install -e --id OliverSchwendener.ueli --version 9.24.0
+winget install -e --id RandyRants.SharpKeys --version 3.9.4000
+winget install -e --id Lexikos.AutoHotkey --version 2.0.19
+winget install -e --id SlackTechnologies.Slack --version 4.44.60
+winget install -e --id PortSwigger.BurpSuite.Community --version 2025.4.4
+winget install -e --id WiresharkFoundation.Wireshark --version 4.4.6
+winget install -e --id Insecure.Nmap --version 7.8
+winget install -e --id OpenVPNTechnologies.OpenVPN --version 2.6.1401
+winget install -e --id QMK.QMKToolbox --version 0.3.3
+winget install -e --id JGraph.Draw --version 27.0.5
+winget install -e --id hrkfdn.ncspot --version 1.2.2
+winget install -e --id Espanso.Espanso --version 2.2.3
+winget install -e --id NickeManarin.ScreenToGif --version 2.41.2
+winget install -e --id Gyan.FFmpeg --version 7.1.1
+winget install -e --id Neovide.Neovide --version 0.15.0
 ```
 
 [winget-link]: https://github.com/microsoft/winget-cli
@@ -41,11 +41,11 @@ Install scoop command and some packages.
 ```pwsh
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 irm get.scoop.sh | iex
-scoop install git
+scoop install git@2.49.0
 scoop bucket add extras
 scoop bucket add nerd-fonts
-scoop install archwsl
-sudo scoop install -g firacode
+scoop install archwsl@25.3.19.0
+sudo scoop install -g firacode@6.2
 ```
 
 [scoop-link]: https://scoop.sh/
@@ -123,11 +123,8 @@ Deploy dotfiles to Windows user directory.
   user=$(powershell.exe '$env:UserName' | sed -e 's/\r//g')
   dir="/mnt/c/Users/$user"
   cp -iv \
-    "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/komorebi.json" \
-    "$dir/komorebi.json"
-  cp -iv \
-    "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/komorebi.json" \
-    "$dir/komorebi.ahk"
+    "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.glzr" \
+    "$dir/.glzr"
   dir="/mnt/c/Users/$user/.config"
   mkdir "$dir/wezterm/"
   cp -iv \
@@ -156,6 +153,7 @@ Deploy dotfiles to WSL user directory.
   fd \
     --hidden . \
     -E .local/bin/ \
+    -E .glzr/ \
     -E .config/wezterm/ \
     -E .config/ncspot/ \
     -t f |
