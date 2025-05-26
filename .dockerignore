@@ -1,5 +1,5 @@
 src/.kube/*
-!src/.kube/kubie.yaml
+!src/.kube/color.yaml
 src/.config/git/config.local
 src/.config/git/templates/hooks/*
 src/.config/gtk-2.0/gtkfilechooser.ini

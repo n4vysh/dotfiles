@@ -1,5 +1,4 @@
 src/.kube/*
-!src/.kube/kubie.yaml
 !src/.kube/color.yaml
 src/.msf4/*
 !src/.msf4/config

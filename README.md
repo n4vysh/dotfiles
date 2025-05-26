@@ -490,7 +490,7 @@ If rkhunter or arch-audit found some problem, show following.
 ### Cybersecurity training lab
 
 Create local Kubernetes cluster with [kind][kind-link].
-Change kubernetes context with [Kubie][kubie-link].
+Change kubernetes context with [kubectx][kubectx-link].
 Deploy [Helm][helm-link] charts with [skaffold][skaffold-link].
 
 ![pentest lab 1](./misc/screenshots/pentest_lab_1.png)
@@ -512,7 +512,7 @@ Available following linux distributions and vulnerable web applications.
   - [Damn Vulnerable GraphQL Application][dvga-link]
 
 [kind-link]: https://kind.sigs.k8s.io
-[kubie-link]: https://github.com/sbstp/kubie
+[kubectx-link]: https://github.com/ahmetb/kubectx
 [helm-link]: https://helm.sh/
 [skaffold-link]: https://skaffold.dev/
 [k9s-link]: https://k9scli.io/
