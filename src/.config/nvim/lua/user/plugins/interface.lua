@@ -986,12 +986,6 @@ return {
 		lazy = true,
 		keys = {
 			{
-				"<C-m>",
-				function()
-					require("menu").open("default")
-				end,
-			},
-			{
 				"<RightMouse>",
 				function()
 					require("menu.utils").delete_old_menus()
