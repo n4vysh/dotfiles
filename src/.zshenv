@@ -9,7 +9,6 @@ export PAGER=less
 export EDITOR=nvim
 export BROWSER=firefox
 export DIFFPROG='nvim -d'
-export DO_NOT_TRACK=1
 export QT_STYLE_OVERRIDE=Adwaita-Dark
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"

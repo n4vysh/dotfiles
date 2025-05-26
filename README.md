@@ -78,7 +78,6 @@
 - Privacy focused web browsing
   - Search shortcuts for [DuckDuckGo][duckduckgo-link]
   - [Strict Enhanced Tracking Protection][strict-etp-link]
-  - ["Do Not Track" header][dnt-link]
   - [HTTPS-Only Mode][https-only-mode-link]
   - [Multi-Account Containers][multi-account-containers-link]
   - [uBlock Origin][ublock-origin-link]
@@ -148,7 +147,6 @@
 [ente-photos-link]: https://ente.io/
 [strict-etp-link]: https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 [duckduckgo-link]: https://duckduckgo.com/
-[dnt-link]: https://support.mozilla.org/en-US/kb/how-do-i-turn-do-not-track-feature
 [https-only-mode-link]: https://support.mozilla.org/en-US/kb/https-only-prefs
 [multi-account-containers-link]: https://support.mozilla.org/en-US/kb/containers
 [ublock-origin-link]: https://ublockorigin.com/
