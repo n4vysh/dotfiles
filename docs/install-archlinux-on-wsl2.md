@@ -30,6 +30,7 @@ winget install -e --id Espanso.Espanso --version 2.2.3
 winget install -e --id NickeManarin.ScreenToGif --version 2.41.2
 winget install -e --id Gyan.FFmpeg --version 7.1.1
 winget install -e --id Neovide.Neovide --version 0.15.0
+winget install -e --id GnuPG.Gpg4win --version 4.4.1
 ```
 
 [winget-link]: https://github.com/microsoft/winget-cli
