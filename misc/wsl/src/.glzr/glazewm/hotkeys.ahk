@@ -61,6 +61,13 @@ F13 & l::
 }
 
 ; Manipulate windows
+F13 & -::
+{
+	if GetKeyState("Shift") {
+		RunWait("glazewm.exe command toggle-minimized", , "Hide")
+	}
+}
+
 F13 & space::
 {
 	if GetKeyState("Shift") {

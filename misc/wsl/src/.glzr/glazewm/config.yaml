@@ -47,8 +47,8 @@ window_behavior:
   initial_state: 'tiling'
   state_defaults:
     floating:
-      centered: true
-      shown_on_top: false
+      centered: false
+      shown_on_top: true
     fullscreen:
       maximized: false
       shown_on_top: true
@@ -78,3 +78,5 @@ window_rules:
         window_class: {regex: 'HwndWrapper'}
       - window_process: {equals: 'pinentry'}
       - window_process: {equals: 'ueli'}
+      - window_title: {equals: 'Microsoft Teams Notification'}
+      - window_title: {equals: 'Microsoft Teams Call'}
