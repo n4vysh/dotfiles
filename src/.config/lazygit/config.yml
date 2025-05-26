@@ -28,6 +28,7 @@ git:
   # https://github.com/dandavison/delta/issues/141
   branchLogCmd: "git log --abbrev-commit --pretty=medium {{branchName}} --"
   allBranchesLogCmd: "git log --all --abbrev-commit --pretty=medium"
+  overrideGpg: true
 disableStartupPopups: false
 customCommands:
   - key: "c"
