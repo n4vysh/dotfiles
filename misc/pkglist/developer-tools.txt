@@ -97,7 +97,6 @@ extra/kubeconform
 extra/kubectl
 extra/kubectx
 extra/kube-linter
-extra/kubie
 extra/lazygit
 extra/libwebp
 extra/markdownlint-cli2
