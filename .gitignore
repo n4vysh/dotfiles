@@ -26,3 +26,5 @@ src/.config/calcure/tasks.csv
 *.zwc
 src/.config/yazi/flavors/
 src/.config/yazi/plugins/
+src/.gnupg/*
+!src/.gnupg/gpg-agent.conf

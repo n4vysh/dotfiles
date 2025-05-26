@@ -575,9 +575,6 @@ _configure_without_privileged() {
 		sponge "$file"
 
 	# Utilities
-	_log::info 'Configure password manager'
-	sudo ln -sf /usr/bin/pinentry-curses /usr/bin/pinentry
-
 	_log::info 'Configure mount helper'
 	sudo gpasswd --add "$USER" storage
 
