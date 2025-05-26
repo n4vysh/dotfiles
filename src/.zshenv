@@ -9,7 +9,6 @@ export PAGER=less
 export EDITOR=nvim
 export BROWSER=firefox
 export DIFFPROG='nvim -d'
-export QT_STYLE_OVERRIDE=Adwaita-Dark
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 if type vivid >/dev/null 2>&1; then
