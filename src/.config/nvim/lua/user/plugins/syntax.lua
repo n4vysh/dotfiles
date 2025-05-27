@@ -301,6 +301,13 @@ return {
 			},
 			highlight = {
 				enable = true,
+				disable = {
+					-- NOTE: markdown parser is slow
+					--       only highlighting is disabled
+					--       other treesitter features (context, textobjects, etc.) remain enabled
+					-- https://github.com/nvim-treesitter/nvim-treesitter/issues/2916
+					"markdown",
+				},
 			},
 			indent = {
 				enable = true,
