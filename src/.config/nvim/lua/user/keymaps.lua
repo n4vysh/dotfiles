@@ -21,6 +21,16 @@ vim.keymap.set(
 	}
 )
 
+vim.keymap.set("n", "<Tab>", "<C-w>w", {
+	silent = true,
+	desc = "move cursor to the window below/right",
+})
+
+vim.keymap.set("n", "<S-Tab>", "<C-w>W", {
+	silent = true,
+	desc = "move cursor to the window above/left",
+})
+
 vim.keymap.set("n", "<C-i>", "<C-i>zz", {
 	silent = true,
 	desc = nil,
