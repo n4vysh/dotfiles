@@ -26,44 +26,81 @@ return {
 		"yetone/avante.nvim",
 		event = "VeryLazy",
 		version = false,
-		keys = {
-			{
-				"<space>aa",
-				"<cmd>AvanteAsk<cr>",
-				desc = "Show sidebar for AI",
-				mode = { "n", "v" },
-			},
-			{
-				"<space>an",
-				"<cmd>AvanteChatNew<cr>",
-				desc = "Start new chat session for AI",
-				mode = { "n", "v" },
-			},
-			{
-				"<space>ac",
-				"<cmd>AvanteClear<cr>",
-				desc = "Clear the chat history for AI",
-				mode = { "n", "v" },
-			},
-			{
-				"<space>ah",
-				"<cmd>AvanteHistory<cr>",
-				desc = "Opens chat sessions for AI",
-				mode = { "n", "v" },
-			},
-			{
-				"<space>ae",
-				"<cmd>AvanteEdit<cr>",
-				desc = "Edit selected blocks for AI",
-				mode = { "v" },
-			},
-			{
-				"<space>as",
-				"<cmd>AvanteStop<cr>",
-				desc = "Stop current requests for AI",
-				mode = { "n" },
-			},
-		},
+		keys = function(_, keys)
+			---@type avante.Config
+			local opts = require("lazy.core.plugin").values(
+				require("lazy.core.config").spec.plugins["avante.nvim"],
+				"opts",
+				false
+			)
+
+			local mappings = {
+				{
+					opts.mappings.ask,
+					function()
+						require("avante.api").ask()
+					end,
+					desc = "Show sidebar for AI",
+					mode = { "n" },
+				},
+				{
+					opts.mappings.ask,
+					function()
+						require("avante.api").ask()
+						-- HACK: change mode from visual line to insert
+						vim.api.nvim_feedkeys("<esc>", "n", true)
+					end,
+					desc = "Show sidebar for AI",
+					mode = { "v" },
+				},
+				{
+					opts.mappings.new_chat,
+					function()
+						require("avante.api").ask({ new_chat = true })
+					end,
+					desc = "Start new chat session for AI",
+					mode = { "n" },
+				},
+				{
+					opts.mappings.new_chat,
+					function()
+						require("avante.api").ask({ new_chat = true })
+						-- HACK: change mode from visual line to insert
+						vim.api.nvim_feedkeys("<esc>", "n", true)
+					end,
+					desc = "Start new chat session for AI",
+					mode = { "v" },
+				},
+				{
+					opts.mappings.select_history,
+					function()
+						require("avante.api").select_history()
+					end,
+					desc = "Opens chat sessions for AI",
+					mode = { "n" },
+				},
+				{
+					opts.mappings.edit,
+					function()
+						require("avante.api").edit()
+					end,
+					desc = "Edit selected blocks for AI",
+					mode = { "v" },
+				},
+				{
+					opts.mappings.stop,
+					function()
+						require("avante.api").stop()
+					end,
+					desc = "Stop current requests for AI",
+					mode = { "n" },
+				},
+			}
+			mappings = vim.tbl_filter(function(m)
+				return m[1] and #m[1] > 0
+			end, mappings)
+			return vim.list_extend(mappings, keys)
+		end,
 		opts = function()
 			-- NOTE: use copilot as default provider to avoid Claude's API rate limits and costs
 			local provider = "copilot"
@@ -147,6 +184,13 @@ return {
 					--          `copilot` provider is expensive and dangerous
 					--          https://github.com/yetone/avante.nvim/issues/1048
 					auto_suggestions = false,
+				},
+				mappings = {
+					ask = "<space>aa",
+					new_chat = "<space>an",
+					select_history = "<space>ah",
+					edit = "<space>ae",
+					stop = "<space>as",
 				},
 			}
 		end,
