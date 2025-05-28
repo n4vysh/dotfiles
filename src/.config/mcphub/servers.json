@@ -9,7 +9,14 @@
       "disabled": false,
       "disabled_tools": [],
       "command": "docker",
-      "args": ["run", "-i", "--rm", "mcp/time:latest"]
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--name",
+        "time-mcp-server",
+        "mcp/time:latest"
+      ]
     },
     "fetch": {
       "disabled": false,
@@ -41,7 +48,7 @@
         "FASTMCP_LOG_LEVEL": "ERROR"
       }
     },
-    "awslabs.terraform-mcp-server": {
+    "awslabs.terraform": {
       "disabled": false,
       "disabled_tools": [
         "ExecuteTerraformCommand",
@@ -60,7 +67,14 @@
       "disabled": false,
       "disabled_tools": [],
       "command": "docker",
-      "args": ["run", "-i", "--rm", "hashicorp/terraform-mcp-server:0.1.0"]
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--name",
+        "terraform-mcp-server",
+        "hashicorp/terraform-mcp-server:0.1.0"
+      ]
     },
     "playwright": {
       "disabled": true,
