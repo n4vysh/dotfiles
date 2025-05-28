@@ -134,7 +134,10 @@ return {
 					model = "claude-sonnet-4",
 				},
 				bedrock = {
-					model = "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+					model = "us.anthropic.claude-sonnet-4-20250514-v1:0",
+					-- NOTE: use the same max_tokens value as litellm's default
+					-- https://github.com/BerriAI/litellm/blob/05e0a6d8d5a52e5cacebebe8e9ba37b3a9c800ef/litellm/constants.py
+					max_tokens = 16384,
 					aws_profile = "bedrock",
 					aws_region = "us-east-1",
 				},
