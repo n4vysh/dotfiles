@@ -31,3 +31,5 @@ user_pref("browser.contentblocking.category", "strict");
 user_pref("dom.private-attribution.submission.enabled", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.translations.automaticallyPopup", false);
+// use TWP addon instead of firefox translations
+user_pref("browser.translations.enable", false);
