@@ -37,39 +37,36 @@ customCommands:
     context: "status"
     description: "Open CI page"
     loadingText: "Opening CI page..."
-    subprocess: false
   - key: "f"
     command: "yazi"
     context: "status"
     description: "Open file manager"
-    subprocess: true
+    output: terminal
   - key: "i"
     command: "git open --issue"
     context: "status"
     description: "Open issue page"
     loadingText: "Opening issue page..."
-    subprocess: false
   - key: "o"
     command: "git open"
     context: "status"
     description: "Open repository page"
     loadingText: "Opening repository page..."
-    subprocess: false
   - key: "c"
     command: "git czg"
     context: "files"
     description: "Commit changes with git cz"
-    subprocess: true
+    output: terminal
   - key: "w"
     command: "git cz --no-verify"
     context: "files"
     description: "Commit changes with git cz --no-verify"
-    subprocess: true
+    output: terminal
   - key: "<c-f>"
     command: "yazi {{.SelectedFile.Name}}"
     context: "files"
     description: "Open file manager"
-    subprocess: true
+    output: terminal
   - key: "D"
     # yamllint disable-line rule:line-length
     command: "git delete-merged-branches"
@@ -94,10 +91,10 @@ customCommands:
     context: "commits"
     description: "Create fixup commit automatically"
     loadingText: "automatic fixup"
-    showOutput: true
+    output: popup
   # https://github.com/jesseduffield/lazygit/issues/1807
   - key: "<c-t>"
     command: "git revert --continue"
     context: "commits"
     description: "Continue the revert operation in progress"
-    subprocess: true
+    output: terminal
