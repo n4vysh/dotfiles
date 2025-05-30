@@ -27,8 +27,9 @@ git:
   # https://github.com/jesseduffield/lazygit/blob/v0.28.2/docs/Config.md#default
   # https://github.com/dandavison/delta/issues/141
   branchLogCmd: "git log --abbrev-commit --pretty=medium {{branchName}} --"
-  allBranchesLogCmd: "git log --all --abbrev-commit --pretty=medium"
   overrideGpg: true
+  allBranchesLogCmds:
+    - git log --all --abbrev-commit --pretty=medium
 disableStartupPopups: false
 customCommands:
   - key: "c"
