@@ -1,5 +1,6 @@
-# NOTE: fuzzy mode is not intuitive
-#       skim mode is likely to be deprecated
+# NOTE: use fulltext mode to improve prioritization
+#       fuzzy mode is not intuitive
+#       skim mode is slow and likely to be deprecated
 #       https://github.com/atuinsh/atuin/issues/675
 #       https://github.com/atuinsh/atuin/issues/1010
 search_mode = "fulltext"
