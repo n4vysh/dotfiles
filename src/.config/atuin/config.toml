@@ -1,3 +1,8 @@
+# NOTE: fuzzy mode is not intuitive
+#       skim mode is likely to be deprecated
+#       https://github.com/atuinsh/atuin/issues/675
+#       https://github.com/atuinsh/atuin/issues/1010
+search_mode = "fulltext"
 style = "full"
 inline_height = 20
 invert = true
