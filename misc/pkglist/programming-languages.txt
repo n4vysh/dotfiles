@@ -1,2 +1,0 @@
-extra/go
-extra/go-tools
