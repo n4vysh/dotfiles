@@ -27,3 +27,4 @@ src/.config/yazi/flavors/
 src/.config/yazi/plugins/
 src/.gnupg/*
 !src/.gnupg/gpg-agent.conf
+src/.config/systemd/user/tray.target
