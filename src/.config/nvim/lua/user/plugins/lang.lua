@@ -569,10 +569,6 @@ return {
 
 			-- NOTE: tilt_ls not support by mason-lspconfig
 			vim.lsp.enable("tilt_ls")
-
-			-- NOTE: nixd not support by mason-lspconfig
-			-- https://github.com/williamboman/mason-lspconfig.nvim/issues/390
-			vim.lsp.enable("nixd")
 		end,
 		dependencies = {
 			{
@@ -662,13 +658,10 @@ return {
 					null_ls.builtins.formatting.yamlfmt,
 					null_ls.builtins.diagnostics.zsh,
 					null_ls.builtins.diagnostics.todo_comments,
-					null_ls.builtins.diagnostics.statix,
-					null_ls.builtins.diagnostics.deadnix,
 					-- NOTE: terraform-ls is slow
 					null_ls.builtins.formatting.terraform_fmt,
 					null_ls.builtins.code_actions.gomodifytags,
 					null_ls.builtins.code_actions.impl,
-					null_ls.builtins.code_actions.statix,
 				},
 			}
 		end,
