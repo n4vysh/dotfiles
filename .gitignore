@@ -28,3 +28,13 @@ src/.config/yazi/plugins/
 src/.gnupg/*
 !src/.gnupg/gpg-agent.conf
 src/.config/systemd/user/tray.target
+src/.mozilla/*
+!src/.mozilla/firefox
+src/.mozilla/firefox/*
+!src/.mozilla/firefox/installs.ini
+!src/.mozilla/firefox/profiles.ini
+!src/.mozilla/firefox/*.default-release
+src/.mozilla/firefox/*.default-release/*
+!src/.mozilla/firefox/*.default-release/user.js
+!src/.mozilla/firefox/*.default-release/chrome/
+!src/.mozilla/firefox/*.default-release/search.json.mozlz4
