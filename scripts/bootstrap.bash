@@ -661,9 +661,6 @@ _configure_without_privileged() {
 	sudo etckeeper commit "Initial commit"
 	sudo systemctl enable --now etckeeper.timer
 
-	_log::info 'Configure profile-sync-daemon'
-	systemctl --user enable --now psd.service
-
 	_log::info 'Configure text expander'
 	systemctl --user enable espanso
 

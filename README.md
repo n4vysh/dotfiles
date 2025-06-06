@@ -46,8 +46,7 @@
   [irqbalance][irqbalance-link],
   [cpupower][cpupower-link],
   [tlp][tlp-link],
-  [thermald][thermald-link],
-  and [profile-sync-daemon][profile-sync-daemon-link]
+  and [thermald][thermald-link]
 - Parallelized [init process][init-link] with
   [systemd][systemd-link],
   [systemd-network][systemd-network-link],
@@ -112,7 +111,6 @@
 [cpupower-link]: https://github.com/torvalds/linux/tree/master/tools/power/cpupower
 [tlp-link]: https://linrunner.de/tlp/index.html
 [thermald-link]: https://github.com/intel/thermal_daemon
-[profile-sync-daemon-link]: https://github.com/graysky2/profile-sync-daemon
 [uncompressed-initramfs-link]: https://bbs.archlinux.org/viewtopic.php?id=148172
 [init-link]: https://wiki.archlinux.org/title/Init
 [systemd-link]: https://systemd.io/
@@ -206,10 +204,6 @@ just install-git-hooks
 ```
 
 ### Configure Firefox
-
-```bash
-just configure-firefox
-```
 
 Install addons refer to the [collections][collections-link]
 and restore settings from following files in [misc/firefox/](misc/firefox/) directory.
