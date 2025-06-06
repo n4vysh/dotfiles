@@ -629,11 +629,6 @@ _configure_without_privileged() {
 	sudo systemctl enable --now nix-daemon.service
 	nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 	nix-channel --update
-	# initialize home-manager
-	# NOTE: do not use --switch option with init command as home.nix already exists
-	nix run home-manager/master -- init
-	# install home-manager binary
-	nix run home-manager/master -- switch
 
 	_log::info 'Install kubectl packages'
 	bash -c "yes | kubectl krew install $(

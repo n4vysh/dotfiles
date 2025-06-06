@@ -9,7 +9,6 @@ _stow *opt:
     stow {{ opt }} -v -d src/ -t ~/ .
 
 postlink:
-    home-manager switch
     cp src/.config/git/{scripts/pre-commit.bash,templates/hooks/pre-commit}
     systemctl --user enable tmux
     systemctl --user enable --now gcr-ssh-agent.socket
