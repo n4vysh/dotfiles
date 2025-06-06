@@ -752,6 +752,9 @@ _configure_without_privileged() {
 			tail -1
 	)"
 
+	_log::info 'Configure fontconfig'
+	sudo sh -c 'cd /etc/fonts/conf.d; ln -s /usr/share/fontconfig/conf.avail/10-nerd-font-symbols.conf'
+
 	# NOTE: git clone fails when forcing ssh protocol
 	#       in ~/.config/git/config before creating ssh key
 	_log::info 'Deploy dotfiles'
