@@ -130,16 +130,20 @@ return {
 				--          `copilot` provider is expensive and dangerous
 				--          https://github.com/yetone/avante.nvim/issues/1048
 				auto_suggestions_provider = "claude",
-				copilot = {
-					model = "claude-sonnet-4",
-				},
-				bedrock = {
-					model = "us.anthropic.claude-sonnet-4-20250514-v1:0",
-					-- NOTE: use the same max_tokens value as litellm's default
-					-- https://github.com/BerriAI/litellm/blob/05e0a6d8d5a52e5cacebebe8e9ba37b3a9c800ef/litellm/constants.py
-					max_tokens = 16384,
-					aws_profile = "bedrock",
-					aws_region = "us-east-1",
+				providers = {
+					copilot = {
+						model = "claude-sonnet-4",
+					},
+					bedrock = {
+						model = "us.anthropic.claude-sonnet-4-20250514-v1:0",
+						aws_profile = "bedrock",
+						aws_region = "us-east-1",
+						-- NOTE: use the same max_tokens value as litellm's default
+						-- https://github.com/BerriAI/litellm/blob/05e0a6d8d5a52e5cacebebe8e9ba37b3a9c800ef/litellm/constants.py
+						extra_request_body = {
+							max_tokens = 16384,
+						},
+					},
 				},
 				hints = { enabled = false },
 				selector = {
