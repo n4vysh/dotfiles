@@ -39,12 +39,6 @@ configure-tresorit:
 test *target:
     pre-commit run -av {{ target }}
 
-test-in-container:
-    test/scripts/dgoss.bash
-
-build:
-    docker build -t n4vysh/dotfiles --progress=plain .
-
 capture:
     sudo fbgrab -c 2 misc/screenshots/login_screen.png
 
