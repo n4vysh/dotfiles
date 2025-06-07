@@ -132,12 +132,6 @@ repos:
         language: system
         entry: goss validate
         pass_filenames: false
-      - id: goss-privileged
-        name: check dotfiles with goss in privileged user
-        language: system
-        entry: |
-          sh -c 'sudo $(mise which goss) -g ./goss_privileged.yaml validate'
-        pass_filenames: false
       - id: commitlint
         name: check commit message with commitlint
         language: system

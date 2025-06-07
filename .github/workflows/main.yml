@@ -57,4 +57,4 @@ jobs:
       - name: Initialize qmk
         run: just src/.config/qmk/init
       - name: Run pre-commit
-        run: SKIP=hyprland,goss,goss-privileged just test
+        run: SKIP=hyprland,goss just test
