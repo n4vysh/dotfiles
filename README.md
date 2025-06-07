@@ -99,8 +99,6 @@
     - xcape
     - Space Cadet shift
   - Mouse keys (Keyboards Powered by QMK)
-- Test bootstrap script with
-  [Docker][docker-link] and [goss][goss-link]
 - [Cybersecurity training lab](#cybersecurity-training-lab) with [Kubernetes][kubernetes-link]
 
 [rolling-release-link]: https://en.wikipedia.org/wiki/Rolling_release
@@ -161,7 +159,6 @@
 [xkb-link]: https://www.x.org/wiki/XKB/
 [keyd-link]: https://github.com/rvaiya/keyd
 [qmk-link]: https://qmk.fm/
-[docker-link]: https://www.docker.com/
 [goss-link]: https://github.com/goss-org/goss
 [kubernetes-link]: https://kubernetes.io/
 
