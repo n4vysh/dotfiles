@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $1 == --fido2-device=list ]] || [[ $1 == --fido2-device=auto ]]; then
+if [[ $1 == --tpm2-device=list ]] || [[ $1 == --tpm2-device=auto ]]; then
   true
 else
   /usr/bin/systemd-cryptenroll "$@"

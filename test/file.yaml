@@ -73,7 +73,7 @@ file:
     filetype: file
     contents:
       # yamllint disable rule:line-length
-      - "/^rd.luks.name=.*=cryptlvm rd.luks.options=.*=fido2-device=auto root=/dev/volume/root quiet loglevel=0 systemd.show_status=false rd.udev.log_level=1 vt.global_cursor_default=0 fbcon=nodefer ro nosgx mitigations=auto,nosmt modprobe.blacklist=iTCO_wdt$/"
+      - "/^rd.luks.name=.*=cryptlvm rd.luks.options=.*=tpm2-device=auto root=/dev/volume/root quiet loglevel=0 systemd.show_status=false rd.udev.log_level=1 vt.global_cursor_default=0 fbcon=nodefer ro nosgx mitigations=auto,nosmt modprobe.blacklist=iTCO_wdt$/"
       # yamllint enable rule:line-length
   /etc/sysctl.d/20-quiet-printk.conf:
     exists: true

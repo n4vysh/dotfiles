@@ -225,14 +225,10 @@ _install() {
 
 	EOF
 
-	# NOTE: support for enrolling multiple FIDO2 tokens is currently limited
-	# https://man.archlinux.org/man/systemd-cryptenroll.1.en
-	_log::info 'Register keys in a LUKS slot'
-	_log::info 'Waiting for security key device'
-	_log::info 'connect device and press enter key'
-	read -r
-	systemd-cryptenroll --fido2-device=list
-	systemd-cryptenroll --fido2-device=auto "/dev/${PARTITIONS[1]}"
+	_log::info 'Register tpm device in a LUKS slot'
+	systemd-cryptenroll --tpm2-device=list
+	systemd-cryptenroll --tpm2-device=auto "/dev/${PARTITIONS[1]}"
+	systemd-cryptenroll /dev/nvme0n1p2
 
 	_log::info 'Configure Boot loader'
 	arch-chroot /mnt bootctl install

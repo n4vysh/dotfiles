@@ -62,7 +62,7 @@
   [LVM][lvm-link],
   [LUKS][luks-link],
   [systemd-cryptenroll][systemd-cryptenroll-link]
-  and [FIDO2][fido2-link]
+  and [TPM2][tpm-link]
 - Passwordless sudo with [PAM U2F module][pam-u2f-module-link]
 - User-related information encryption with [systemd-homed][systemd-homed-link]
 - [Improving Boot process][boot-process-link] with
@@ -130,7 +130,7 @@
 [lvm-link]: https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)
 [luks-link]: https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup
 [systemd-cryptenroll-link]: https://www.freedesktop.org/software/systemd/man/systemd-cryptenroll.html
-[fido2-link]: https://fidoalliance.org/fido2
+[tpm-link]: https://en.wikipedia.org/wiki/Trusted_Platform_Module
 [pam-u2f-module-link]: https://developers.yubico.com/pam-u2f/
 [systemd-homed-link]: https://systemd.io/HOME_DIRECTORY/
 [boot-process-link]: https://wiki.archlinux.org/title/Improving_performance/Boot_process
