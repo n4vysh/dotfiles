@@ -1,5 +1,5 @@
 aur/ente-desktop-bin
-aur/espanso-wayland-git
+aur/espanso-wayland
 aur/firefox-tridactyl-native-bin
 aur/selectdefaultapplication-fork-git
 aur/sysz
