@@ -453,7 +453,7 @@ _configure_without_privileged() {
 	fi
 
 	_log::info 'Deploy config files'
-	sudo mkdir -p /etc/keyd/ /etc/docker/
+	sudo mkdir -p /etc/keyd/ /etc/docker/ /etc/keybase/
 	dir="$XDG_DATA_HOME/dotfiles"
 	xargs -I {} sudo cp -v "$dir/misc/{}" /{} <<-EOF
 		etc/keyd/default.conf
@@ -463,6 +463,7 @@ _configure_without_privileged() {
 		etc/systemd/timesyncd.conf.d/ntp.conf
 		etc/udev/rules.d/99-lowbat.rules
 		etc/ssh/sshd_config.d/permit_root_login.conf
+		etc/keybase/config.json
 	EOF
 
 	_log::info 'Change default shell'
@@ -750,6 +751,9 @@ _configure_without_privileged() {
 
 	_log::info 'Configure fontconfig'
 	sudo sh -c 'cd /etc/fonts/conf.d; ln -s /usr/share/fontconfig/conf.avail/10-nerd-font-symbols.conf'
+
+	_log::info 'Disable root redirector of keybase'
+	sudo chmod a-s /usr/bin/keybase-redirector
 
 	# NOTE: git clone fails when forcing ssh protocol
 	#       in ~/.config/git/config before creating ssh key
