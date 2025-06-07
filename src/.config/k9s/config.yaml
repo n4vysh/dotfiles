@@ -1,5 +1,6 @@
 k9s:
   refreshRate: 1
+  defaultView: pods
   ui:
     enableMouse: true
     splashless: true
