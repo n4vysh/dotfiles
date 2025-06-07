@@ -33,8 +33,8 @@ export ABBR_LOG_AVAILABLE_ABBREVIATION=1
 export ABBR_LOG_AVAILABLE_ABBREVIATION_AFTER=1
 zle_highlight=('paste:none')
 
-fpath=(~/.zfunctions $fpath)
-autoload -Uz ~/.zfunctions/*(.:t)
+fpath=(~/.zshrc.d/functions $fpath)
+autoload -Uz ~/.zshrc.d/functions/*(.:t)
 
 ## color
 local foreground='#c0caf5'

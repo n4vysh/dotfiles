@@ -19,7 +19,7 @@ fi
 eval "$(sheldon source)"
 
 # load config files
-for file in ~/.zshrc.d/*.zsh; do
+for file in ~/.zshrc.d/conf.d/*.zsh; do
 	source "$file"
 done
 

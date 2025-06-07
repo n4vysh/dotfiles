@@ -32,7 +32,7 @@ indent_style = tab
 [**/*.bash]
 indent_style = tab
 
-[**/{.zshenv,.zshrc,*.zsh,.zfunctions/**}]
+[**/{.zshenv,.zshrc,*.zsh,.zshrc.d/functions/**}]
 indent_style = tab
 
 [**/*.tmux]
