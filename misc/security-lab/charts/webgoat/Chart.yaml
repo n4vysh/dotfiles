@@ -1,8 +1,0 @@
-apiVersion: v2
-name: webgoat
-description: A deliberately insecure application
-type: application
-version: v2023.4
-appVersion: "0.1.0"
-maintainers:
-  - name: n4vysh

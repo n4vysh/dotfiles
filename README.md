@@ -99,7 +99,6 @@
     - xcape
     - Space Cadet shift
   - Mouse keys (Keyboards Powered by QMK)
-- [Cybersecurity training lab](#cybersecurity-training-lab) with [Kubernetes][kubernetes-link]
 
 [rolling-release-link]: https://en.wikipedia.org/wiki/Rolling_release
 [zen-kernel-link]: https://github.com/zen-kernel/zen-kernel
@@ -160,7 +159,6 @@
 [keyd-link]: https://github.com/rvaiya/keyd
 [qmk-link]: https://qmk.fm/
 [goss-link]: https://github.com/goss-org/goss
-[kubernetes-link]: https://kubernetes.io/
 
 ## Requirements
 
@@ -475,42 +473,6 @@ If rkhunter or arch-audit found some problem, show following.
 ### pet
 
 ![pet](./misc/screenshots/pet.png)
-
-### Cybersecurity training lab
-
-Create local Kubernetes cluster with [kind][kind-link].
-Change kubernetes context with [kubectx][kubectx-link].
-Deploy [Helm][helm-link] charts with [skaffold][skaffold-link].
-
-![pentest lab 1](./misc/screenshots/pentest_lab_1.png)
-
-Check kubernetes resources and port forward with [k9s][k9s-link].
-
-![pentest lab 2](./misc/screenshots/pentest_lab_2.png)
-
-Available following linux distributions and vulnerable web applications.
-
-- linux distributions
-  - [Kali Linux][kalilinux-link]
-  - [ParrotOS][parrotos-link]
-  - [BlackArch][blackarch-link]
-  - [REMnux][remnux-link]
-- vulnerable web applications
-  - [OWASP Juice Shop][juice-shop-link]
-  - [OWASP WebGoat][webgoat-link]
-  - [Damn Vulnerable GraphQL Application][dvga-link]
-
-[kind-link]: https://kind.sigs.k8s.io
-[kubectx-link]: https://github.com/ahmetb/kubectx
-[helm-link]: https://helm.sh/
-[skaffold-link]: https://skaffold.dev/
-[k9s-link]: https://k9scli.io/
-[kalilinux-link]: https://www.kali.org/
-[parrotos-link]: https://www.parrotsec.org/
-[remnux-link]: https://remnux.org/
-[juice-shop-link]: https://owasp.org/www-project-juice-shop/#
-[webgoat-link]: https://owasp.org/www-project-webgoat/
-[dvga-link]: https://github.com/dolevf/Damn-Vulnerable-GraphQL-Application
 
 ## Tips
 
