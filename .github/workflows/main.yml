@@ -9,7 +9,6 @@ jobs:
         XDG_CONFIG_HOME: "/github/home/.config"
     steps:
       - name: Install packages
-        # yamllint disable rule:line-length
         run: |
           sed \
             -i \
@@ -21,54 +20,32 @@ jobs:
             -e "/^#MAKEFLAGS=\"-j2\"$/s/-j2/-j$(nproc)/" \
             -e '/^COMPRESSZST/s/zstd -c/zstd -1 --threads=0 -c/' \
             /etc/makepkg.conf
-          # add chaotic-aur
-          pacman-key --init
-          pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-          pacman-key --lsign-key 3056513887B78AEB
-          pacman \
-            -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' \
-            --noconfirm
-          pacman \
-            -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' \
-            --noconfirm
-          tee -a /etc/pacman.conf >/dev/null <<-EOF
-
-            [chaotic-aur]
-            Include = /etc/pacman.d/chaotic-mirrorlist
-          EOF
-          # install packages
-          yes '' |
-            pacman -Syu --noconfirm --needed \
-              sudo \
-              just \
-              pre-commit \
-              prettier \
-              yamlfmt \
-              yamllint \
-              markdownlint-cli2 \
-              shellcheck \
-              zsh \
-              selene \
-              stylua \
-              editorconfig-checker \
-              taplo \
-              shellharden \
-              shfmt \
-              qmk \
-              clang \
-              git \
-              stow \
-              mise
-        # yamllint enable rule:line-length
+          pacman -Syu --noconfirm \
+            sudo \
+            just \
+            pre-commit \
+            prettier \
+            yamlfmt \
+            yamllint \
+            markdownlint-cli2 \
+            shellcheck \
+            zsh \
+            selene \
+            stylua \
+            editorconfig-checker \
+            taplo \
+            shellharden \
+            shfmt \
+            qmk \
+            clang \
+            git \
+            stow \
+            mise
       - name: Initialize packages with mise
         run: mise install && eval "$(mise env)"
       - uses: actions/checkout@main
       - name: Deploy dotfiles
-        run: |
-          # HACK: avoid warning error of stow on GitHub Actions
-          rm -fv src/.local/bin/nuke
-          just prelink
-          just _stow
+        run: just link
       - name: Set safe directory for submodule clone
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Change protocol for git clone

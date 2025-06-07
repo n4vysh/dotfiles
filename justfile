@@ -1,22 +1,17 @@
-link: prelink _stow postlink
+link:
+    stow .
+
+unlink:
+    stow -D .
 
 prelink:
     mise trust
     mise activate >/dev/null # HACK: load env after `mise trust`
 
-_stow *opt:
-    stow {{ opt }} .
-
 postlink:
     cp src/.config/git/{scripts/pre-commit.bash,templates/hooks/pre-commit}
     systemctl --user enable tmux
     systemctl --user enable --now gcr-ssh-agent.socket
-
-unlink: (_stow "-D")
-
-dry-run-link: (_stow "-n")
-
-dry-run-unlink: (_stow "-n" "-D")
 
 install:
     cat misc/pkglist/* | yay -S --needed -
