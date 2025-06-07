@@ -44,4 +44,6 @@ rev = "27c07dd"
 
 [plugins.zsh-autocomplete]
 github = "marlonrichert/zsh-autocomplete"
-rev = "77a4f9c"
+# NOTE: use `adfade3` to avoid freeze
+#       https://github.com/marlonrichert/zsh-autocomplete/issues/736#issuecomment-2232428532
+rev = "adfade3"
