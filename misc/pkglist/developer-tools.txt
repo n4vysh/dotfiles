@@ -1,3 +1,4 @@
+aur/bazecor
 aur/calcure
 aur/devbox-bin
 aur/docker-credential-pass-bin
