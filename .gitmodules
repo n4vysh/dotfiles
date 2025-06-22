@@ -1,8 +1,3 @@
-[submodule "src/.config/qmk/firmware"]
-	path = src/.config/qmk/firmware
-	url = git@github.com:qmk/qmk_firmware.git
-	shallow = true
-	ignore = dirty
 [submodule "src/.local/src/cliphist"]
 	path = src/.local/src/cliphist
 	url = https://github.com/sentriz/cliphist

@@ -6,10 +6,6 @@ repos:
       - id: check-case-conflict
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
-        exclude: |
-          (?x)^(
-            src/.config/qmk/disable_thread.patch
-          )$
       - id: end-of-file-fixer
         exclude: |
           (?x)^(
@@ -116,12 +112,6 @@ repos:
         language: system
         entry: taplo lint
         types: [toml]
-      - id: clang-format
-        name: format c files with clang-format
-        language: system
-        entry: just src/.config/qmk/fmt
-        files: .config/qmk/keymap/.*\.(h|c)$
-        pass_filenames: false
       - id: visudo
         name: check sudoers
         language: system
