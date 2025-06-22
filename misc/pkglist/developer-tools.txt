@@ -125,8 +125,8 @@ extra/vhs
 extra/vint
 extra/vivid
 extra/watchexec
+extra/xan
 extra/xh
-extra/xsv
 extra/yaegi
 extra/yamlfmt
 extra/yamllint
