@@ -92,13 +92,11 @@
   - OSC 8 - hyperlinks (tmux + eza + rg + fd + delta + ls)
   - OSC 52 - clipboard integration for copy only (tmux + neovim)
   - OSC 133 - shell integration (tmux + powerlevel10k)
-- Ergonomic keybinds with
-  [XKB][xkb-link], [keyd][keyd-link], and [QMK][qmk-link]
+- Ergonomic keybinds with [XKB][xkb-link] and [keyd][keyd-link]
   - Thumb cluster
   - Dual function keys
     - xcape
     - Space Cadet shift
-  - Mouse keys (Keyboards Powered by QMK)
 
 [rolling-release-link]: https://en.wikipedia.org/wiki/Rolling_release
 [zen-kernel-link]: https://github.com/zen-kernel/zen-kernel
@@ -157,7 +155,6 @@
 [blackarch-link]: https://blackarch.org
 [xkb-link]: https://www.x.org/wiki/XKB/
 [keyd-link]: https://github.com/rvaiya/keyd
-[qmk-link]: https://qmk.fm/
 [goss-link]: https://github.com/goss-org/goss
 
 ## Requirements
@@ -165,20 +162,9 @@
 - [VAIO SX14 | ALL BLACK EDITION - June 2023 model (VJS1468)][vaio-sx14-link]
 - USB drive
 - [YubiKey 4][yubikey-link]
-- [ZSA Moonlander Mark I][moonlander-link]
-  - [Blank, sculpted keycaps (DCS) of Ergodox EZ][keycaps-link]
-  - Gateron Silent Clear switch
-  - [The Platform of Moonlander][platform-link]
-- [Kensington SlimBlade Pro Trackball][wireless-trackball-link]
-  - [Grey ball of Kensington Expert Mouse Wired Trackball][wired-trackball-link]
 
 [vaio-sx14-link]: https://store.vaio.com/shop/pages/allblack_sx1214-6g.aspx
 [yubikey-link]: https://support.yubico.com/hc/en-us/articles/360013714599-YubiKey-4
-[moonlander-link]: https://www.zsa.io/moonlander/
-[keycaps-link]: https://ergodox-ez.com/our-keycaps
-[platform-link]: https://www.zsa.io/moonlander/platform/
-[wireless-trackball-link]: https://www.kensington.com/p/products/electronic-control-solutions/trackball-products/slimblade-pro-trackball/
-[wired-trackball-link]: https://www.kensington.com/p/products/electronic-control-solutions/trackball-products/expert-mouse-wired-trackball/
 
 ## Usage
 
@@ -256,10 +242,6 @@ Run `just test` to lint and format the source code with
 | :------------ | :------------- | :-------------------------- |
 | `Alt (Right)` | `Ctrl (Right)` | `Escape` when pressed alone |
 | `Alt (Left)`  | `Alt (Left)`   |                             |
-
-### QMK
-
-See [./src/.config/qmk/keymap/keymap.c](./src/.config/qmk/keymap/keymap.c)
 
 ### Tmux
 

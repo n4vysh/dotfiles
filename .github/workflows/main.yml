@@ -36,7 +36,6 @@ jobs:
             taplo \
             shellharden \
             shfmt \
-            qmk \
             clang \
             git \
             stow \
@@ -54,7 +53,5 @@ jobs:
           git config --global \
             url."https://github.com/".insteadOf \
             git@github.com:
-      - name: Initialize qmk
-        run: just src/.config/qmk/init
       - name: Run pre-commit
         run: SKIP=hyprland,goss just test
