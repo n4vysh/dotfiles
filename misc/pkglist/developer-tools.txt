@@ -28,6 +28,7 @@ extra/avrdude
 extra/aws-cli-v2
 extra/aws-vault
 extra/bat
+extra/bats
 extra/buf
 extra/clang
 extra/cmctl
