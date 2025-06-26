@@ -449,6 +449,7 @@ return {
 			legacy_computing_symbols_support = true,
 		},
 	},
+	{ "karb94/neoscroll.nvim", opts = {} },
 	{
 		"folke/snacks.nvim",
 		priority = 1000,
@@ -463,7 +464,6 @@ return {
 		end,
 		---@type snacks.Config
 		opts = {
-			scroll = {},
 			indent = {
 				filter = function(buf)
 					return vim.g.snacks_indent ~= false
