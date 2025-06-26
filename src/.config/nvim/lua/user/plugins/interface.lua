@@ -963,6 +963,13 @@ return {
 						find = " lines <ed",
 					},
 				},
+				{
+					opts = { skip = true },
+					filter = {
+						event = "msg_show",
+						find = "Hunk .* of .*",
+					},
+				},
 				-- for vim-asterisk
 				{
 					opts = { skip = true },
