@@ -80,3 +80,14 @@ window_rules:
       - window_process: {equals: 'ueli'}
       - window_title: {equals: 'Microsoft Teams Notification'}
       - window_title: {equals: 'Microsoft Teams Call'}
+      - window_title: {regex: 'Meeting compact view .*'}
+      - window_process: {equals: 'POWERPNT'}
+        window_class: {equals: 'PodiumParent'}
+      - window_process: {regex: 'ScreenToGif'}
+        window_title: {regex: 'Pre-starting...'}
+      - window_process: {regex: 'ScreenToGif'}
+        window_title: {regex: 'Discard recording'}
+      - window_process: {regex: 'ScreenToGif'}
+        window_title: {regex: 'Press F8 to stop the recording'}
+      - window_process: {regex: 'ScreenToGif'}
+        window_title: {regex: 'Exiting the Editor'}
