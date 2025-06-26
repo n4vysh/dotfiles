@@ -9,6 +9,7 @@ F13 & c::
 	if GetKeyState("Shift") {
 		RunWait("glazewm.exe command wm-reload-config", , "Hide")
 		RunWait("glazewm.exe command wm-redraw", , "Hide")
+		Reload
 	} else if GetKeyState("Ctrl", "P") {
 		; for ScreenToGif
 		Send "{F8}"
