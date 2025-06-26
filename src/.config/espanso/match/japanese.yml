@@ -29,3 +29,5 @@ matches:
     replace: "再度確認お願いします"
   - trigger: ";h "
     replace: "引き続きよろしくお願いいたします"
+  - trigger: ";kd "
+    replace: "共有です"
