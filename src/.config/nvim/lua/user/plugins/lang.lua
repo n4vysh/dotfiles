@@ -804,7 +804,8 @@ return {
 				},
 			},
 			lightbulb = {
-				virtual_text = false,
+				-- NOTE: prioritize diagnostic signs over lightbulb signs
+				sign_priority = 1,
 			},
 			outline = {
 				close_after_jump = true,
@@ -814,7 +815,7 @@ return {
 			},
 			ui = {
 				border = "single",
-				code_action = "",
+				code_action = "󱐌",
 			},
 		},
 		dependencies = {
