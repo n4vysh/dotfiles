@@ -11,6 +11,7 @@ repos:
           (?x)^(
             src/.config/nvim/lazy-lock.json|
             misc/firefox/ublock.txt|
+            misc/firefox/libredirect.json|
             misc/firefox/switchy_omega.bak|
             misc/firefox/twp.txt
           )$

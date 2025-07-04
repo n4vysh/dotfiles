@@ -50,6 +50,9 @@ insert_final_newline = false
 [misc/firefox/ublock.txt]
 insert_final_newline = false
 
+[misc/firefox/libredirect.json]
+insert_final_newline = false
+
 [misc/firefox/switchy_omega.bak]
 insert_final_newline = false
 
