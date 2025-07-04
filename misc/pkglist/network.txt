@@ -16,5 +16,6 @@ extra/smbclient
 extra/termshark
 extra/ufw
 extra/whois
+extra/wireguard-tools
 extra/wireshark-cli
 extra/wireshark-qt
