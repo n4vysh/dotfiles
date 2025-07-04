@@ -117,6 +117,7 @@ else
 end
 
 vim.diagnostic.config({
+	severity_sort = true,
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = " ",
