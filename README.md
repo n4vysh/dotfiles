@@ -80,6 +80,7 @@
   - [HTTPS-Only Mode][https-only-mode-link]
   - [Multi-Account Containers][multi-account-containers-link]
   - [uBlock Origin][ublock-origin-link]
+  - [LibRedirect][libredirect-link]
   - [LocalCDN][localcdn-link]
   - [ClearURLs][clearurls-link]
   - [CanvasBlocker][canvasblocker-link]
@@ -143,6 +144,7 @@
 [https-only-mode-link]: https://support.mozilla.org/en-US/kb/https-only-prefs
 [multi-account-containers-link]: https://support.mozilla.org/en-US/kb/containers
 [ublock-origin-link]: https://ublockorigin.com/
+[libredirect-link]: https://libredirect.github.io/
 [localcdn-link]: https://www.localcdn.org/
 [clearurls-link]: https://github.com/ClearURLs/Addon
 [canvasblocker-link]: https://github.com/kkapsner/CanvasBlocker/
@@ -189,12 +191,13 @@ just install-git-hooks
 Install addons refer to the [collections][collections-link]
 and restore settings from following files in [misc/firefox/](misc/firefox/) directory.
 
-| Addon name                          | File name                                               |
-| :---------------------------------- | :------------------------------------------------------ |
-| [uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)                   |
-| [SwitchyOmega][switchy-omega-link]  | [switchy_omega.bak](misc/firefox/switchy_omega.bak)     |
-| [Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)                         |
-| [CanvasBlocker][canvasblocker-link] | [canvas-blocker.json](misc/firefox/canvas-blocker.json) |
+| Addon name                          | File name                                                |
+| :---------------------------------- | :------------------------------------------------------- |
+| [uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)                    |
+| [LibRedirect][libredirect-link]     | [libredirect.json](misc/firefox/canvas-libredirect.json) |
+| [SwitchyOmega][switchy-omega-link]  | [switchy_omega.bak](misc/firefox/switchy_omega.bak)      |
+| [Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)                          |
+| [CanvasBlocker][canvasblocker-link] | [canvas-blocker.json](misc/firefox/canvas-blocker.json)  |
 
 [collections-link]: https://addons.mozilla.org/en-US/firefox/collections/17575539/n4vysh/
 [switchy-omega-link]: https://github.com/FelisCatus/SwitchyOmega
