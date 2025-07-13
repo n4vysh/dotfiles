@@ -450,6 +450,8 @@ return {
 				},
 			})
 
+			vim.lsp.config("biome", {})
+
 			-- NOTE: user’s on_attach function override the default on_attach of eslint
 			--       https://github.com/neovim/nvim-lspconfig/issues/3837
 			local base_on_attach = vim.lsp.config.eslint.on_attach
@@ -537,6 +539,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"bashls", -- NOTE: require shellcheck for linting from bashls
+					"biome",
 					"buf_ls",
 					"cssls",
 					"docker_compose_language_service",
