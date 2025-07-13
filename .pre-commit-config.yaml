@@ -10,6 +10,8 @@ repos:
         exclude: |
           (?x)^(
             src/.config/nvim/lazy-lock.json|
+            src/.mozilla/firefox/installs.ini|
+            src/.mozilla/firefox/profiles.ini|
             misc/firefox/ublock.txt|
             misc/firefox/libredirect.json|
             misc/firefox/switchy_omega.bak|
