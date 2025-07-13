@@ -93,7 +93,6 @@ file:
       # yamllint disable rule:line-length
       - "/^clock = %a, %b %d %H:%M$/"
       - "/^hide_key_hints = true$/"
-      - "/^wayland_cmd = /etc/ly/wsetup.sh >/dev/null$/"
       # yamllint enable rule:line-length
   /etc/resolv.conf:
     exists: true
