@@ -250,3 +250,15 @@
   Output = ""
   Tag = ["misc"]
   command = "pwgen -c -n -y -B -1 20 1"
+
+[[Snippets]]
+  Description = "Test sql injection"
+  Output = ""
+  Tag = []
+  command = "sqlmap -u '<url>' --dbs --batch --level=2 --technique=BEUSQ"
+
+[[Snippets]]
+  Description = "Scan website with zap"
+  Output = ""
+  Tag = []
+  command = "docker run -t zaproxy/zap-stable zap-baseline.py -t <url>"
