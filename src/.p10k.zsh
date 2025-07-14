@@ -297,7 +297,7 @@
 	typeset -g POWERLEVEL9K_AWS_CONTENT_EXPANSION='${P9K_AWS_PROFILE//\%/%%}'
 
 	# misc
-	typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
+	typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
 	typeset -g POWERLEVEL9K_INSTANT_PROMPT=verbose
 
 	# NOTE: hot reload is slow down prompt by 1-2 milliseconds
