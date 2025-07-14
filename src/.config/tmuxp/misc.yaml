@@ -42,3 +42,14 @@ windows:
 #           -v open-webui:/app/backend/data \
 #           --name open-webui \
 #           ghcr.io/open-webui/open-webui:main
+#       - |
+#         uvx mcpo@0.0.14 --port 8000 -- \
+#           env FASTMCP_LOG_LEVEL=ERROR \
+#           uvx awslabs.aws-documentation-mcp-server@0.1.2
+#       - |
+#         uvx mcpo@0.0.14 --port 8001 -- \
+#           docker run \
+#             -i \
+#             --rm \
+#             --name mcpo-terraform-mcp-server \
+#             hashicorp/terraform-mcp-server:0.1.0
