@@ -24,6 +24,7 @@ snyk = "1.1260.0"
 "npm:sql-formatter" = "15.6.2"
 "npm:@mermaid-js/mermaid-cli" = "11.4.2"
 "npm:@anthropic-ai/claude-code" = "1.0.51"
+"aqua:simonwhitaker/gibo" = "3.0.14"
 
 # frontend
 ## typescript
