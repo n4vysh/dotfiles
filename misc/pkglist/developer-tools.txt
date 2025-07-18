@@ -1,12 +1,6 @@
 aur/bazecor
 aur/devbox-bin
-aur/docker-credential-pass-bin
-aur/eks-node-viewer-bin
-aur/freeze-bin
-aur/git-open
-aur/gotests
 aur/keybase-bin
-aur/kubescape-bin
 aur/pet-git
 chaotic-aur/bun-bin
 chaotic-aur/drawio-desktop
