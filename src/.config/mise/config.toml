@@ -25,6 +25,9 @@ snyk = "1.1260.0"
 "npm:@mermaid-js/mermaid-cli" = "11.4.2"
 "npm:@anthropic-ai/claude-code" = "1.0.51"
 "aqua:simonwhitaker/gibo" = "3.0.14"
+"npm:git-open" = "3.1.0"
+"aqua:b3nj5m1n/xdg-ninja" = "0.2.0.2"
+"aqua:charmbracelet/freeze" = "0.2.2"
 
 # frontend
 ## typescript
@@ -36,11 +39,13 @@ gotestsum = "1.12.2"
 "go:github.com/josharian/impl" = "1.4.0"
 "go:github.com/fatih/gomodifytags" = "1.17.0"
 golangci-lint = "2.1.6"
+"go:github.com/cweill/gotests/..." = "1.6.0"
 
 # infra
 ## container
 hadolint = "2.12.0"
 tilt = "0.34.5"
+"ubi:docker/docker-credential-helpers" = { version = "0.9.3", exe = "docker-credential-pass" }
 ## terraform
 terraform-docs = "0.20.0"
 ## kubernetes
@@ -50,6 +55,8 @@ kube-score = "1.20.0"
 kubeval = "0.16.1"
 kyverno = "1.14.1"
 pluto = "5.21.7"
+"aqua:awslabs/eks-node-viewer" = "0.7.4"
+"aqua:kubescape/kubescape" = "3.0.35"
 ## helm
 helm-ct = "3.12.0"
 helm-diff = "3.12.1"
