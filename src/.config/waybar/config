@@ -143,7 +143,17 @@
   },
   "clock": {
     "format": "{:%a, %b %d  %H:%M}",
-    "on-click": "ghostty -e calcure",
-    "tooltip": false
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "format": {
+        "months": "<span color='#c8d3f5'><b>{}</b></span>",
+        "days": "<span color='#c8d3f5'><b>{}</b></span>",
+        "weekdays": "<span color='#c8d3f5'><b>{}</b></span>",
+        "today": "<span color='#c8d3f5' bgcolor='#3e68d7'><b>{}</b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode"
+    }
   }
 }

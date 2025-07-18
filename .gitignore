@@ -19,9 +19,6 @@ src/.config/tmux/plugins
 src/.config/tmux/tmux.conf.local
 !.gitkeep
 goss-vars.yaml
-src/.config/calcure/events.csv
-src/.config/calcure/info.log
-src/.config/calcure/tasks.csv
 *.zwc
 src/.config/yazi/flavors/
 src/.config/yazi/plugins/
