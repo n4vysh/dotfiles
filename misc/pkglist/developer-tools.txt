@@ -1,7 +1,6 @@
 aur/bazecor
 aur/devbox-bin
 aur/keybase-bin
-aur/pet-git
 chaotic-aur/bun-bin
 chaotic-aur/drawio-desktop
 chaotic-aur/git-extras
