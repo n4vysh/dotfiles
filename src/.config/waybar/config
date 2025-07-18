@@ -9,6 +9,13 @@
     "default-submap": "󰣇",
     "tooltip": false
   },
+  "hyprland/workspaces": {
+    "format": "<span size='larger'>{icon}</span>",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
   "modules-right": [
     "custom/check-rootkit",
     "custom/pkg-audit",
