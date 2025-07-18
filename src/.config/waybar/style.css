@@ -21,13 +21,6 @@
 
 #workspaces button.visible {
   color: rgba(217, 216, 216, 1);
-  border-top: 3px solid rgba(217, 216, 216, 0);
-  border-bottom: 3px solid rgba(217, 216, 216, 0);
-}
-
-#workspaces button.active {
-  border-top: 3px solid rgba(217, 216, 216, 1);
-  border-bottom: 3px solid rgba(217, 216, 216, 0);
 }
 
 #mode,
