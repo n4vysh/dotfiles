@@ -213,6 +213,10 @@
   /* Styling only for Grouped Notifications */
 }
 
+.notification-group:focus {
+  background: @noti-bg;
+}
+
 .notification-group.low {
   /* Low Priority Group */
 }
