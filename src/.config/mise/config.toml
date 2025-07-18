@@ -28,6 +28,7 @@ snyk = "1.1260.0"
 "npm:git-open" = "3.1.0"
 "aqua:b3nj5m1n/xdg-ninja" = "0.2.0.2"
 "aqua:charmbracelet/freeze" = "0.2.2"
+"aqua:knqyf263/pet" = "1.0.1"
 
 # frontend
 ## typescript
