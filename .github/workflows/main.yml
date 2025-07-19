@@ -45,7 +45,7 @@ jobs:
       - uses: actions/checkout@main
       - name: Deploy dotfiles
         run: |
-          yadm clone -b src https://github.com/n4vysh/dotfiles
+          yadm clone -b standard https://github.com/n4vysh/dotfiles
           yadm list -a
       - name: Set safe directory for submodule clone
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
