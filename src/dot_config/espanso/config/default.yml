@@ -1,0 +1,4 @@
+# HACK: Disable notification when startup
+# https://github.com/espanso/espanso/issues/1002
+# https://github.com/espanso/espanso/issues/1116
+show_notifications: false

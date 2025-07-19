@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch kanshi for changes
+
+[Path]
+PathModified=%h/.config/kanshi/config
+
+[Install]
+WantedBy=multi-user.target

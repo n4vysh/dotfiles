@@ -16,6 +16,7 @@
     "enable": false
   },
   "diagnostics": {
-    "disable": ["lowercase-global"]
+    "disable": ["lowercase-global"],
+    "globals": ["Status", "Linemode"]
   }
 }

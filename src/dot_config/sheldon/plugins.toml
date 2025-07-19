@@ -1,0 +1,49 @@
+shell = "zsh"
+
+[plugins]
+[plugins.powerlevel10k]
+github = "romkatv/powerlevel10k"
+rev = "8fa10f4"
+
+[plugins.zsh-no-ps2]
+github = "romkatv/zsh-no-ps2"
+tag = "v1.0.0"
+
+[plugins.zsh-vi-mode]
+github = "jeffreytse/zsh-vi-mode"
+tag = "v0.11.0"
+
+[plugins.zsh-abbr]
+github = "olets/zsh-abbr"
+# NOTE: v6.2.0 and v6.2.1 is not work
+tag = "v6.1.0"
+
+[plugins.zsh-fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+rev = "cf318e0"
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+tag = "v0.7.1"
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+rev = "0adf2f0"
+
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+rev = "87ce96b"
+
+[plugins.zsh-autopair]
+github = "hlissner/zsh-autopair"
+rev = "449a7c3"
+
+[plugins.zsh-auto-notify]
+github = "MichaelAquilina/zsh-auto-notify"
+rev = "27c07dd"
+
+[plugins.zsh-autocomplete]
+github = "marlonrichert/zsh-autocomplete"
+# NOTE: use `adfade3` to avoid freeze
+#       https://github.com/marlonrichert/zsh-autocomplete/issues/736#issuecomment-2232428532
+rev = "adfade3"

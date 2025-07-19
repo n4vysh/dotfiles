@@ -5,6 +5,7 @@ core/linux-firmware
 core/lvm2
 core/tpm2-tss
 core/wireless-regdb
+extra/chezmoi
 extra/fwupd
 extra/gnu-netcat
 extra/imagemagick
@@ -17,5 +18,4 @@ extra/reflector
 extra/sbctl
 extra/sheldon
 extra/tmux
-extra/yadm
 extra/zsh

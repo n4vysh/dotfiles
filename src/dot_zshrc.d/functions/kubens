@@ -1,0 +1,36 @@
+if [ $# = 0 ]; then
+	# HACK: avoid `error: you did not choose any of the options`
+	#       kubens fails to get current context when change $KUBECONFIG
+	#       kubens uses $FZF_DEFAULT_COMMAND internally, but not pass $KUBECONFIG
+	#       this is probably bug of kubens
+	#
+	#       bad:
+	#       FZF_DEFAULT_COMMAND="$SELF_CMD"
+	#
+	#       correct:
+	#       FZF_DEFAULT_COMMAND="KUBECONFIG=$KUBECONFIG $SELF_CMD"
+	list_namespaces="$(
+		kubectl get namespaces \
+			-o=jsonpath='{range .items[*].metadata.name}{@}{"\n"}{end}' \
+			2>/dev/null
+	)"
+
+	if [[ -z "$list_namespaces" ]]; then
+		echo >&2 "error: could not list namespaces (is the cluster accessible?)"
+		return 1
+	fi
+
+	choice="$(
+		echo "$list_namespaces" |
+		fzf --ansi --no-preview || true
+	)"
+
+	if [[ -z "${choice}" ]]; then
+		echo 2>&1 "error: you did not choose any of the options"
+		return 1
+	else
+		kubens "${choice}"
+	fi
+else
+	command kubens "$@"
+fi

@@ -1,0 +1,39 @@
+use_nerdfont = true
+hide_display_names = true
+
+[keybindings]
+"Ctrl+q" = "focus queue"
+"Ctrl+s" = "focus search"
+"Ctrl+l" = "focus library"
+"Ctrl+h" = "back"
+"Ctrl+r" = "reload"
+"Ctrl+n" = "noop"
+"Ctrl+a" = "noop"
+"q" = "quit"
+"p" = "playpause"
+"P" = "move playing"
+"r" = "reconnect"
+"S" = "save queue"
+# https://github.com/hrkfdn/ncspot/issues/230#issuecomment-683444176
+"G" = "move bottom"
+"g" = "move top"
+"Ctrl+f" = "move pagedown 1.0"
+"Ctrl+b" = "move pageup 1.0"
+
+[theme]
+background = "#181818"
+primary = "#c0caf5"
+secondary = "#a9b1d6"
+title = "#1abc9c"
+playing = "#1abc9c"
+playing_selected = "#1abc9c"
+playing_bg = "#181818"
+highlight = "#41a6b5"
+highlight_bg = "#000000"
+error = "#FFE4E4"
+error_bg = "#f7768e"
+statusbar = "#24283b"
+statusbar_progress = "#1abc9c"
+statusbar_bg = "#1abc9c"
+cmdline = "#1abc9c"
+cmdline_bg = "#444444"

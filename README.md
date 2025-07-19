@@ -17,7 +17,7 @@
 [lock-screen-link]: ./misc/screenshots/lock_screen.png
 
 - Distro: [Arch Linux][archlinux-link]
-- Dotfiles Manager: [yadm][yadm-link]
+- Dotfiles Manager: [chezmoi][chezmoi-link]
 - Display Manager: [ly][ly-link]
 - Window Manager: [Hyprland][hyprland-link]
 - Shell: [Zsh][zsh-link]
@@ -29,7 +29,7 @@
 [package list](./misc/pkglist/)
 
 [archlinux-link]: https://archlinux.org/
-[yadm-link]: https://github.com/yadm-dev/yadm
+[chezmoi-link]: https://www.chezmoi.io/
 [ly-link]: https://github.com/fairyglade/ly
 [hyprland-link]: https://hyprland.org/
 [zsh-link]: https://www.zsh.org/
@@ -179,7 +179,7 @@
 ### Deploy dotfiles
 
 ```bash
-yadm clone -b standard https://github.com/n4vysh/dotfiles
+chezmoi n4vysh init
 ```
 
 ### Install git hooks
