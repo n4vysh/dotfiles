@@ -1,0 +1,7 @@
+[sqlfluff]
+exclude_rules = LT09
+
+[sqlfluff:indentation]
+tab_space_size = 2
+
+; vim: set ft=ini:

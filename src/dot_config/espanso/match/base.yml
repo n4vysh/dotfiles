@@ -1,0 +1,34 @@
+matches:
+  - trigger: ";d "
+    replace: "{{date}}"
+    vars:
+      - name: date
+        type: date
+        params:
+          format: "%Y/%m/%d"
+  - trigger: ";t "
+    replace: "{{time}}"
+    vars:
+      - name: time
+        type: date
+        params:
+          format: "%H:%M"
+  - trigger: ";lorem "
+    replace: >-
+      Lorem ipsum dolor sit amet, consectetur adipisici elit,
+      sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+      Curabitur blandit tempus ardua ridiculus sed magna.
+      Inmensae subtilitatis, obscuris et malesuada fames.
+      Paullum deliquit, ponderibus modulisque suis ratio utitur.
+      Pellentesque habitant morbi tristique senectus et netus.
+      A communi observantia non est recedendum.
+      Unam incolunt Belgae, aliam Aquitani, tertiam.
+      Magna pars studiorum, prodita quaerimus.
+      Gallia est omnis divisa in partes tres, quarum.
+      Phasellus laoreet lorem vel dolor tempus vehicula.
+      Cras mattis iudicium purus sit amet fermentum.
+      Nec dubitamus multa iter quae et nos invenerat.
+      Quo usque tandem abutere, Catilina, patientia nostra?
+      Curabitur est gravida et libero vitae dictum.
+      Quisque ut dolor gravida, placerat libero vel, euismod.
+      Ullamco laboris nisi ut aliquid ex ea commodi consequat.

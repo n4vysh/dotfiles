@@ -38,15 +38,15 @@ jobs:
             shfmt \
             clang \
             git \
-            yadm \
+            chezmoi \
             mise
       - name: Initialize packages with mise
         run: mise install && eval "$(mise env)"
       - uses: actions/checkout@main
       - name: Deploy dotfiles
         run: |
-          yadm clone -b standard https://github.com/n4vysh/dotfiles
-          yadm list -a
+          chezmoi init --branch feature/use-chezmoi n4vysh
+          chezmoi apply
       - name: Set safe directory for submodule clone
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Change protocol for git clone

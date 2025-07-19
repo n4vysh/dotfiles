@@ -1,0 +1,166 @@
+{
+  "modules-left": [
+    "hyprland/submap",
+    "hyprland/workspaces"
+  ],
+  "hyprland/submap": {
+    "format": "   {} ",
+    "always-on": true,
+    "default-submap": "󰣇",
+    "tooltip": false
+  },
+  "hyprland/workspaces": {
+    "format": "<span size='larger'>{icon}</span>",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+  "modules-right": [
+    "custom/check-rootkit",
+    "custom/pkg-audit",
+    "custom/im-info",
+    "custom/mount-helper",
+    "custom/recorder",
+    "custom/vpn",
+    "bluetooth",
+    "pulseaudio",
+    "network",
+    "battery",
+    "custom/notification",
+    "clock"
+  ],
+  "custom/mount-helper": {
+    "format": "{} ",
+    "exec": "~/.config/waybar/lib/mount-helper.bash",
+    "interval": 1,
+    "tooltip": false
+  },
+  "custom/check-rootkit": {
+    "format": " {} ",
+    "exec": "~/.config/waybar/lib/check-rootkit.bash",
+    "interval": 60,
+    "tooltip": false
+  },
+  "custom/pkg-audit": {
+    "format": " {} ",
+    "exec": "~/.config/waybar/lib/pkg-audit.bash",
+    "interval": 86400,
+    "tooltip": false
+  },
+  "custom/im-info": {
+    "format": " {} ",
+    "exec": "~/.config/waybar/lib/im-info.bash",
+    "interval": 1,
+    "on-click": "fcitx5-configtool",
+    "tooltip": false
+  },
+  "custom/recorder": {
+    "format": "   ",
+    "return-type": "json",
+    "interval": 1,
+    "exec": "echo '{\"class\": \"recording\"}'",
+    "exec-if": "pgrep wf-recorder"
+  },
+  "custom/vpn": {
+    "format": " {icon} ",
+    "format-icons": {
+      "connected": "󰌆",
+      "disconnected": "󰌊"
+    },
+    "return-type": "json",
+    "exec": "~/.config/waybar/lib/vpn.bash",
+    "interval": 1,
+    "on-click": "ghostty -e 'nordvpn status; read -n 1'",
+    "tooltip": false
+  },
+  "bluetooth": {
+    "format": " 󰂯",
+    "format-off": " 󰂲",
+    "on-click": "ghostty -e bluetuith",
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{format_source}{icon}",
+    "format-muted": "{format_source}󰝟",
+    "format-source": "   ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "on-click": "ghostty -e pulsemixer",
+    "tooltip": false
+  },
+  "network": {
+    "format": "{icon}",
+    "format-icons": {
+      "wifi": [
+        ""
+      ],
+      "ethernet": [
+        ""
+      ],
+      "disconnected": [
+        ""
+      ]
+    },
+    "on-click": "ghostty -e impala",
+    "tooltip": false
+  },
+  "battery": {
+    "format": "{icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "format-charging": "",
+    "states": {
+      "warning": 25,
+      "critical": 10
+    },
+    "on-click": "ghostty -e btm --default_widget_type battery --expanded",
+    "tooltip": false
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "  {icon} ",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "󰂛",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "clock": {
+    "format": "{:%a, %b %d  %H:%M}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "format": {
+        "months": "<span color='#c8d3f5'><b>{}</b></span>",
+        "days": "<span color='#c8d3f5'><b>{}</b></span>",
+        "weekdays": "<span color='#c8d3f5'><b>{}</b></span>",
+        "today": "<span color='#c8d3f5' bgcolor='#3e68d7'><b>{}</b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode"
+    }
+  }
+}

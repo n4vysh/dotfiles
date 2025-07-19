@@ -1,8 +1,7 @@
-# neovim
-[vim]
-any = true
+[selene]
+base = "lua51"
+name = "yazi"
 
-# yazi
 [Status]
 any = true
 

@@ -1,0 +1,29 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "63f9650"
+hash = "d5d4f3527592da5fbe77fd6f51815f80"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "63f9650"
+hash = "c0b6cd7dc830b96e77e5c8a71eec7926"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "63f9650"
+hash = "d0ad0c1946b46a30c8489735fe8de41c"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:piper"
+rev = "63f9650"
+hash = "2bdc137505b8d9a0cc867a57d0e99b01"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:types"
+rev = "5d726c0"
+hash = "1e047e1b13b5e3fc6ab1f5d0d04a14e2"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-frappe"
+rev = "d04a298"
+hash = "d659c6fde5148fb5c066518d7fdecddc"

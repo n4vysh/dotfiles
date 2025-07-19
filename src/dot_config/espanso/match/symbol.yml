@@ -1,0 +1,7 @@
+matches:
+  - trigger: ";c "
+    replace: "✅"
+  - trigger: ";w "
+    replace: "⚠️"
+  - trigger: ";q "
+    replace: "❓"

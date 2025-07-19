@@ -1,5 +1,5 @@
 link:
-    yadm clone -b standard https://github.com/n4vysh/dotfiles
+    chezmoi init n4vysh
 
 prelink:
     mise trust

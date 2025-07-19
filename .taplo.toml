@@ -1,1 +1,1 @@
-exclude = ["src/.config/pet/snippet.toml"]
+exclude = ["src/dot_config/pet/config.toml", "src/dot_config/pet/snippet.toml"]
