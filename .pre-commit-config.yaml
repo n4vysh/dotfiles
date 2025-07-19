@@ -12,6 +12,7 @@ repos:
             src/.config/nvim/lazy-lock.json|
             src/.mozilla/firefox/installs.ini|
             src/.mozilla/firefox/profiles.ini|
+            misc/firefox/canvas-blocker.json|
             misc/firefox/ublock.txt|
             misc/firefox/libredirect.json|
             misc/firefox/zero_omega.bak|
