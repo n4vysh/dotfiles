@@ -17,6 +17,7 @@
 [lock-screen-link]: ./misc/screenshots/lock_screen.png
 
 - Distro: [Arch Linux][archlinux-link]
+- Dotfiles Manager: [yadm][yadm-link]
 - Display Manager: [ly][ly-link]
 - Window Manager: [Hyprland][hyprland-link]
 - Shell: [Zsh][zsh-link]
@@ -28,6 +29,7 @@
 [package list](./misc/pkglist/)
 
 [archlinux-link]: https://archlinux.org/
+[yadm-link]: https://github.com/yadm-dev/yadm
 [ly-link]: https://github.com/fairyglade/ly
 [hyprland-link]: https://hyprland.org/
 [zsh-link]: https://www.zsh.org/
@@ -177,7 +179,7 @@
 ### Deploy dotfiles
 
 ```bash
-just
+yadm clone -b src https://github.com/n4vysh/dotfiles
 ```
 
 ### Install git hooks

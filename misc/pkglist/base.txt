@@ -17,4 +17,5 @@ extra/reflector
 extra/sbctl
 extra/sheldon
 extra/tmux
+extra/yadm
 extra/zsh
