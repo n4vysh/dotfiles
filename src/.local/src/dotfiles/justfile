@@ -1,6 +1,0 @@
-link:
-    find -type f -name '*.bash' -printf "%f\n" | \
-        xargs -I {} sh -c ' \
-            cd ../../bin && \
-            ln -sf ../src/dotfiles/"{}" "$(basename "{}" .bash)" \
-        '

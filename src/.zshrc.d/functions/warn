@@ -1,5 +1,0 @@
-n=214
-color="\033[1;38;5;${n}m"
-reset="\033[0m"
-
-printf "${color}WARN${reset} %s\n" "$1" >&2

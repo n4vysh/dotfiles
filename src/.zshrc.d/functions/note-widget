@@ -1,2 +1,0 @@
-BUFFER='$EDITOR ~/Documents/note.md'
-zle accept-line

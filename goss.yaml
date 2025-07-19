@@ -1,8 +1,6 @@
 gossfile:
   test/templates/package.yaml: {}
   test/service.yaml: {}
-  test/templates/command.yaml: {}
   test/group.yaml: {}
   test/mount.yaml: {}
   test/file.yaml: {}
-  test/templates/file.yaml: {}

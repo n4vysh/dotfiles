@@ -1,2 +1,0 @@
-BUFFER='$EDITOR ~/Documents/tasks.md'
-zle accept-line

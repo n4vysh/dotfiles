@@ -1,8 +1,0 @@
-[theme]
-name = "custom"
-
-[colors]
-AlertInfo = "#636da6"
-AlertError = "#c8d3f5"
-Annotation = "#86e1fc"
-Guidance = "#82aaff"

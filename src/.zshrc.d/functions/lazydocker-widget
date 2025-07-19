@@ -1,2 +1,0 @@
-BUFFER='lazydocker'
-zle accept-line

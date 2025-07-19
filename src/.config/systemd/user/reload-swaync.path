@@ -1,8 +1,0 @@
-[Unit]
-Description=Watch swaync for changes
-
-[Path]
-PathModified=%h/.config/swaync/
-
-[Install]
-WantedBy=multi-user.target
