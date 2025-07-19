@@ -179,7 +179,7 @@
 ### Deploy dotfiles
 
 ```bash
-yadm clone -b src https://github.com/n4vysh/dotfiles
+yadm clone -b standard https://github.com/n4vysh/dotfiles
 ```
 
 ### Install git hooks
