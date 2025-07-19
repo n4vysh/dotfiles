@@ -1,0 +1,2 @@
+BUFFER='nvim'
+zle accept-line

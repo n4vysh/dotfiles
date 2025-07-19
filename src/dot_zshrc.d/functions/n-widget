@@ -1,0 +1,2 @@
+BUFFER='n'
+zle accept-line

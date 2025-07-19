@@ -1,0 +1,10 @@
+if [[ -z $BUFFER ]]; then
+	BUFFER=$(fc -ln -1)
+fi
+
+BUFFER=${BUFFER#"unbuffer "}
+BUFFER=${BUFFER%" | less"}
+
+BUFFER="unbuffer ${BUFFER} | less"
+CURSOR=$#BUFFER
+zle reset-prompt

@@ -1,0 +1,43 @@
+return {
+	{
+		"tpope/vim-projectionist",
+		-- NOTE: vim-projectionist lazy load automatically
+		-- https://github.com/tpope/vim-projectionist/issues/130
+		lazy = false,
+		keys = {
+			{
+				"<Space>ea",
+				":A<cr>",
+				silent = true,
+				desc = "Edit the alternate file",
+			},
+			{
+				"<Space>es",
+				":AS<cr>",
+				silent = true,
+				desc = "Edit the alternate file in a split",
+			},
+
+			{
+				"<Space>ev",
+				":AV<cr>",
+				silent = true,
+				desc = "Edit the alternate file in a vertical split",
+			},
+
+			{
+				"<Space>ed",
+				":Edoc<cr>",
+				silent = true,
+				desc = "Edit the doc file",
+			},
+
+			{
+				"<Space>er",
+				":Erunner<cr>",
+				silent = true,
+				desc = "Edit the runner file",
+			},
+		},
+	},
+}
