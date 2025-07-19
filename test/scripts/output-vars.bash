@@ -30,20 +30,3 @@ cat <(
 	sed 's|.*/||g' |
 	sort |
 	yq '{"packages":split(" ")}'
-find src/.local/bin/ -mindepth 1 -printf '%f\n' |
-	yq '{"commands":split(" ")}'
-{
-	find src/ -mindepth 1 -maxdepth 1 -not -name '.local' -not -name '.config' -printf '%p\n'
-} |
-	sed 's|^src/||g' |
-	yq '{"files":split(" ")}'
-{
-	find src/.config -mindepth 1 -maxdepth 1 -printf '%p\n'
-} |
-	sed 's|^src/||g' |
-	yq '{"xdg_config_files":split(" ")}'
-{
-	find src/.local/{bin,src} -mindepth 1 -maxdepth 1 -printf '%p\n'
-} |
-	sed 's|^src/||g' |
-	yq '{"xdg_local_files":split(" ")}'

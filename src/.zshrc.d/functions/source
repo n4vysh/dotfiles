@@ -1,7 +1,0 @@
-file="$1"
-if [[ $file =~ ^$HOME ]]; then
-	if [[ $file -nt $file.zwc ]] || [[ ! -e $file.zwc ]]; then
-		zcompile "$file"
-	fi
-fi
-builtin source "$file"

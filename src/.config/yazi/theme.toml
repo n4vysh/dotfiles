@@ -1,7 +1,0 @@
-[flavor]
-use = "catppuccin-frappe"
-dark = "catppuccin-frappe"
-
-[status]
-sep_left = { open = "", close = "" }
-sep_right = { open = "", close = "" }

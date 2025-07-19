@@ -1,8 +1,0 @@
-[submodule "src/.local/src/cliphist"]
-	path = src/.local/src/cliphist
-	url = https://github.com/sentriz/cliphist
-	shallow = true
-[submodule "src/.local/src/hyprwm-contrib"]
-	path = src/.local/src/hyprwm-contrib
-	url = https://github.com/hyprwm/contrib
-	shallow = true

@@ -1,8 +1,5 @@
 link:
-    stow .
-
-unlink:
-    stow -D .
+    yadm clone -b src https://github.com/n4vysh/dotfiles
 
 prelink:
     mise trust

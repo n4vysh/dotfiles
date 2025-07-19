@@ -95,7 +95,6 @@ extra/skaffold
 extra/sops
 extra/sqlfluff
 extra/stern
-extra/stow
 extra/stylelint
 extra/stylelint-config-standard
 extra/stylua
