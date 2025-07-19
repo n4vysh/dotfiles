@@ -25,11 +25,13 @@ user_pref("findbar.highlightAll", true);
 user_pref("services.sync.engine.passwords", false);
 user_pref("signon.rememberSignons", false);
 user_pref("browser.tabs.firefox-view", false);
-user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
-user_pref("extensions.webextensions.restrictedDomains", "");
+
+
 user_pref("browser.contentblocking.category", "strict");
 user_pref("dom.private-attribution.submission.enabled", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.translations.automaticallyPopup", false);
 // use TWP addon instead of firefox translations
 user_pref("browser.translations.enable", false);
+
+user_pref("tridactyl.unfixedamo_removed", true);
