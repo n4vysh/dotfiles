@@ -195,12 +195,12 @@ and restore settings from following files in [misc/firefox/](misc/firefox/) dire
 | :---------------------------------- | :------------------------------------------------------- |
 | [uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)                    |
 | [LibRedirect][libredirect-link]     | [libredirect.json](misc/firefox/canvas-libredirect.json) |
-| [SwitchyOmega][switchy-omega-link]  | [switchy_omega.bak](misc/firefox/switchy_omega.bak)      |
+| [ZeroOmega][zero-omega-link]        | [zero_omega.bak](misc/firefox/zero_omega.bak)            |
 | [Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)                          |
 | [CanvasBlocker][canvasblocker-link] | [canvas-blocker.json](misc/firefox/canvas-blocker.json)  |
 
 [collections-link]: https://addons.mozilla.org/en-US/firefox/collections/17575539/n4vysh/
-[switchy-omega-link]: https://github.com/FelisCatus/SwitchyOmega
+[zero-omega-link]: https://github.com/zero-peak/ZeroOmega
 [twp-link]: https://github.com/FilipePS/Traduzir-paginas-web
 
 ### Test

@@ -14,7 +14,7 @@ repos:
             src/.mozilla/firefox/profiles.ini|
             misc/firefox/ublock.txt|
             misc/firefox/libredirect.json|
-            misc/firefox/switchy_omega.bak|
+            misc/firefox/zero_omega.bak|
             misc/firefox/twp.txt
           )$
       - id: check-added-large-files

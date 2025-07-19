@@ -53,7 +53,7 @@ insert_final_newline = false
 [misc/firefox/libredirect.json]
 insert_final_newline = false
 
-[misc/firefox/switchy_omega.bak]
+[misc/firefox/zero_omega.bak]
 insert_final_newline = false
 
 [src/.mozilla/firefox/*.default-release/search.json.mozlz4]
