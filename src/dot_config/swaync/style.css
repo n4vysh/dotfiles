@@ -73,7 +73,13 @@
 }
 
 .notification-row .notification-background .notification .notification-action>button {
+  color: var(--text-color);
+  border: 1px solid var(--noti-border-color);
   border-radius: 0px;
+}
+
+.notification-row .notification-background .notification .notification-action>button:hover {
+  background: var(--noti-btn-bg-hover);
 }
 
 .notification-group:focus {
