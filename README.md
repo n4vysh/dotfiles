@@ -445,9 +445,9 @@ If rkhunter or arch-audit found some problem, show following.
 
 ![ncspot](./misc/screenshots/ncspot.png)
 
-### [btm](https://github.com/ClementTsang/bottom)
+### [btop](https://github.com/aristocratos/btop)
 
-![btm](./misc/screenshots/btm.png)
+![btop](./misc/screenshots/btop.png)
 
 ### [bluetuith](https://github.com/darkhz/bluetuith)
 

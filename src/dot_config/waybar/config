@@ -125,7 +125,7 @@
       "warning": 25,
       "critical": 10
     },
-    "on-click": "ghostty -e btm --default_widget_type battery --expanded",
+    "on-click": "ghostty -e 'acpi -i; read -n 1'",
     "tooltip": false
   },
   "custom/notification": {

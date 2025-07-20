@@ -1,2 +1,2 @@
-BUFFER='btm'
+BUFFER='btop'
 zle accept-line
