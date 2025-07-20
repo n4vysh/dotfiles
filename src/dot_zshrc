@@ -25,3 +25,6 @@ done
 
 # powerlevel10k options
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# HACK: modeline for GitHub
+# -*- mode: zsh; -*-
