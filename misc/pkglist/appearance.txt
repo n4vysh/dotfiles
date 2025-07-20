@@ -2,7 +2,6 @@ aur/ttf-ubraille
 chaotic-aur/adwaita-qt5-git
 chaotic-aur/adwaita-qt6-git
 extra/arc-gtk-theme
-extra/gtk2
 extra/gtk3
 extra/gtk4
 extra/noto-fonts
