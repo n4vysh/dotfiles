@@ -1,5 +1,4 @@
 aur/ttf-ubraille
-chaotic-aur/adwaita-qt5-git
 chaotic-aur/adwaita-qt6-git
 extra/arc-gtk-theme
 extra/gtk3
