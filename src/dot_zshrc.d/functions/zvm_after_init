@@ -58,8 +58,8 @@ zvm_bindkey viins '^of' y-widget
 zvm_define_widget k9s-widget
 zvm_bindkey viins '^ok' k9s-widget
 
-zvm_define_widget btm-widget
-zvm_bindkey viins '^om' btm-widget
+zvm_define_widget btop-widget
+zvm_bindkey viins '^om' btop-widget
 
 zvm_define_widget ncspot-widget
 zvm_bindkey viins '^o^m' ncspot-widget
