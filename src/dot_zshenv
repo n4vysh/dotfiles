@@ -188,3 +188,6 @@ export TIMG_PIXELATION=kitty
 
 # local
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
+
+# HACK: modeline for GitHub
+# -*- mode: zsh; -*-
