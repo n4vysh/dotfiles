@@ -1,5 +1,5 @@
 link:
-    chezmoi init n4vysh
+    chezmoi init n4vysh && chezmoi apply
 
 prelink:
     mise trust
