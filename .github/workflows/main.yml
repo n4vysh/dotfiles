@@ -45,8 +45,7 @@ jobs:
       - uses: actions/checkout@main
       - name: Deploy dotfiles
         run: |
-          chezmoi init --branch feature/use-chezmoi n4vysh
-          chezmoi apply
+          chezmoi init --branch "${{ github.ref_name }}" n4vysh && chezmoi apply
       - name: Set safe directory for submodule clone
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Change protocol for git clone

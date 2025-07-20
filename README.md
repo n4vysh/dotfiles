@@ -179,7 +179,7 @@
 ### Deploy dotfiles
 
 ```bash
-chezmoi n4vysh init
+chezmoi init n4vysh && chezmoi apply
 ```
 
 ### Install git hooks
