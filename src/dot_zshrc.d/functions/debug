@@ -1,5 +1,0 @@
-n=245
-color="\033[1;38;5;${n}m"
-reset="\033[0m"
-
-printf "${color}DEBUG${reset} %s\n" "$1"
