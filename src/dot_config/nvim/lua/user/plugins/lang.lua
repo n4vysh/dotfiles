@@ -257,37 +257,6 @@ return {
 						})
 					)
 
-					if client.supports_method("textDocument/formatting") then
-						local augroup = vim.api.nvim_create_augroup(
-							"lsp_document_formatting_" .. buf,
-							{}
-						)
-
-						vim.api.nvim_clear_autocmds({
-							group = augroup,
-							buffer = buf,
-						})
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = augroup,
-							buffer = buf,
-							callback = function()
-								vim.lsp.buf.format({ buf = buf })
-							end,
-						})
-					end
-
-					-- NOTE: use terraformls in tfvars and tftest
-					if
-						client.name == "lua_ls"
-						or client.name == "terraformls"
-					then
-						client.server_capabilities.signatureHelpProvider = false
-						client.server_capabilities.documentFormattingProvider =
-							false
-						client.server_capabilities.documentRangeFormattingProvider =
-							false
-					end
-
 					if client.server_capabilities.documentHighlightProvider then
 						vim.api.nvim_set_hl(0, "LspReferenceRead", {
 							bg = "#45403d",
@@ -400,36 +369,6 @@ return {
 						enableMoveToFileCodeAction = true,
 					},
 				},
-			})
-
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				pattern = { "*.go" },
-				callback = function()
-					local params = vim.lsp.util.make_range_params(
-						nil,
-						vim.lsp.util._get_offset_encoding()
-					)
-					params.context = { only = { "source.organizeImports" } }
-
-					local result = vim.lsp.buf_request_sync(
-						0,
-						"textDocument/codeAction",
-						params,
-						3000
-					)
-					for _, res in pairs(result or {}) do
-						for _, r in pairs(res.result or {}) do
-							if r.edit then
-								vim.lsp.util.apply_workspace_edit(
-									r.edit,
-									vim.lsp.util._get_offset_encoding()
-								)
-							else
-								vim.lsp.buf.execute_command(r.command)
-							end
-						end
-					end
-				end,
 			})
 
 			vim.lsp.config("gopls", {
@@ -617,43 +556,12 @@ return {
 				sources = {
 					null_ls.builtins.diagnostics.actionlint,
 					null_ls.builtins.diagnostics.buf,
-					null_ls.builtins.formatting.buf,
 					null_ls.builtins.diagnostics.editorconfig_checker,
-					null_ls.builtins.formatting.rego,
 					null_ls.builtins.diagnostics.opacheck,
 					null_ls.builtins.diagnostics.sqlfluff.with({
 						extra_args = { "--dialect", "postgres" },
 					}),
-					null_ls.builtins.formatting.sql_formatter.with({
-						args = {
-							"-c",
-							vim.fn.expand(
-								"~/.config/sql-formatter/config.json"
-							),
-						},
-						filetypes = { "sql", "mysql" },
-					}),
-					null_ls.builtins.formatting.just,
 					null_ls.builtins.diagnostics.markdownlint_cli2,
-					null_ls.builtins.formatting.shellharden.with({
-						filetypes = { "sh", "direnv" },
-					}),
-					null_ls.builtins.formatting.shfmt.with({
-						filetypes = { "sh", "direnv" },
-					}),
-					null_ls.builtins.formatting.prettier.with({
-						filetypes = {
-							"javascript",
-							"javascriptreact",
-							"typescript",
-							"typescriptreact",
-							"json",
-							"jsonc",
-							"markdown",
-							"markdown.mdx",
-							"graphql",
-						},
-					}),
 					null_ls.builtins.diagnostics.stylelint.with({
 						args = {
 							"--formatter",
@@ -664,22 +572,92 @@ return {
 							vim.fn.expand("~/.stylelintrc.yaml"),
 						},
 					}),
-					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.diagnostics.yamllint,
 					null_ls.builtins.diagnostics.selene,
-					null_ls.builtins.formatting.clang_format,
 					null_ls.builtins.diagnostics.hadolint,
-					null_ls.builtins.formatting.yamlfmt,
 					null_ls.builtins.diagnostics.zsh,
 					null_ls.builtins.diagnostics.todo_comments,
-					-- NOTE: terraform-ls is slow
-					null_ls.builtins.formatting.terraform_fmt,
 					null_ls.builtins.code_actions.gomodifytags,
 					null_ls.builtins.code_actions.impl,
 				},
 			}
 		end,
 		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	{
+		"stevearc/conform.nvim",
+		opts = {
+			formatters = {
+				sql_formatter = {
+					prepend_args = {
+						"-c",
+						vim.fn.expand("~/.config/sql-formatter/config.json"),
+					},
+				},
+			},
+			formatters_by_ft = {
+				hcl = { "hcl" },
+				go = { "goimports", "golangci-lint", "gofumpt" },
+				lua = { "stylua" },
+				proto = { "buf" },
+				rego = { "opa_fmt" },
+				sql = { "sql_formatter" },
+				mysql = { "sql_formatter" },
+				just = { "just" },
+				sh = { "shellharden", "shellcheck", "shfmt" },
+				direnv = { "shellharden", "shfmt" },
+				javascript = {
+					"biome-organize-imports",
+					"biome-check",
+					"biome",
+					"prettier",
+				},
+				javascriptreact = {
+					"biome-organize-imports",
+					"biome-check",
+					"biome",
+					"prettier",
+				},
+				typescript = {
+					"biome-organize-imports",
+					"biome-check",
+					"biome",
+					"prettier",
+				},
+				typescriptreact = {
+					"biome-organize-imports",
+					"biome-check",
+					"biome",
+					"prettier",
+				},
+				json = {
+					"biome-check",
+					"biome",
+					"prettier",
+				},
+				jsonc = {
+					"biome-check",
+					"biome",
+					"prettier",
+				},
+				markdown = { "prettier" },
+				["markdown.mdx"] = { "prettier" },
+				graphql = {
+					"biome-check",
+					"biome",
+					"prettier",
+				},
+				yaml = { "yamlfmt" },
+				toml = { "taplo" },
+				terraform = { "terraform_fmt" },
+				tf = { "terraform_fmt" },
+				["terraform-vars"] = { "terraform_fmt" },
+			},
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_format = "fallback",
+			},
+		},
 	},
 	{
 		"ray-x/lsp_signature.nvim",

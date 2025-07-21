@@ -21,7 +21,6 @@ extra/aws-vault
 extra/bat
 extra/bats
 extra/buf
-extra/clang
 extra/cmctl
 extra/csvkit
 extra/delve

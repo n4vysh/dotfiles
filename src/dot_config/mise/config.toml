@@ -32,6 +32,7 @@ snyk = "1.1260.0"
 "ubi:https://raw.githubusercontent.com/hyprwm/contrib/481175e17e155f19a3b31416530b6edf725e7034/grimblast/grimblast" = { version = "481175e", rename_exe = "grimblast" }
 "ubi:https://raw.githubusercontent.com/hyprwm/contrib/481175e17e155f19a3b31416530b6edf725e7034/scratchpad/scratchpad" = { version = "481175e", rename_exe = "scratchpad" }
 "ubi:https://raw.githubusercontent.com/sentriz/cliphist/refs/tags/v0.6.1/contrib/cliphist-rofi-img" = { version = "0.6.1", rename_exe = "cliphist-rofi-img" }
+"go:github.com/hashicorp/hcl/v2/cmd/hclfmt" = "v2.24.0"
 
 # frontend
 ## typescript
