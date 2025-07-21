@@ -141,7 +141,17 @@ return {
 						"n",
 						"<C-w>d",
 						function()
-							local _, win = vim.diagnostic.open_float()
+							local _, win = vim.diagnostic.open_float({
+								format = function(diagnostic)
+									local source = diagnostic.source
+										or "unknown"
+									return string.format(
+										"%s [%s]",
+										diagnostic.message,
+										source
+									)
+								end,
+							})
 							if win then
 								vim.api.nvim_set_current_win(win)
 							end
