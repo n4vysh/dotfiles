@@ -9,7 +9,7 @@ bun = true
 "pipx:posting" = { version = "2.5.4", uvx_args = "--python 3.12 --prerelease=allow" }
 "pipx:harlequin" = { version = "2.1.1", uvx_args = "--python 3.13" }
 "go:github.com/rhysd/vim-startuptime" = "1.3.2"
-"pipx:litellm" = { version = "1.71.1", extras = "proxy" }
+"pipx:litellm" = { version = "1.74.7", extras = "proxy" }
 "npm:czg" = "1.11.1"
 "npm:gitmoji-cli" = "9.6.0"
 "ubi:YiNNx/cmd-wrapped" = "0.4"

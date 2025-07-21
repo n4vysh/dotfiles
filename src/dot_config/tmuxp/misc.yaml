@@ -23,7 +23,7 @@ windows:
 #       - |
 #         gopass env envs/litellm \
 #           aws-vault exec bedrock -- \
-#             litellm \
+#             env LITELLM_MODIFY_PARAMS=true litellm \
 #               --model bedrock/converse/us.anthropic.claude-sonnet-4-20250514-v1:0
 # yamllint enable rule:line-length
 #   - panes:

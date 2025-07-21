@@ -105,8 +105,8 @@ return {
 			-- NOTE: use copilot as default provider to avoid Claude's API rate limits and costs
 			local provider = "copilot"
 
-			-- NOTE: comment in to use bedrock
-			-- provider = "bedrock"
+			-- NOTE: comment in to use bedrock with litellm
+			-- provider = "openai"
 
 			-- NOTE: prevent new `[No Name]` buffer
 			do
@@ -134,10 +134,9 @@ return {
 					copilot = {
 						model = "claude-sonnet-4",
 					},
-					bedrock = {
+					openai = {
+						endpoint = "http://127.0.0.1:4000/v1",
 						model = "us.anthropic.claude-sonnet-4-20250514-v1:0",
-						aws_profile = "bedrock",
-						aws_region = "us-east-1",
 						-- NOTE: use the same max_tokens value as litellm's default
 						-- https://github.com/BerriAI/litellm/blob/05e0a6d8d5a52e5cacebebe8e9ba37b3a9c800ef/litellm/constants.py
 						extra_request_body = {
