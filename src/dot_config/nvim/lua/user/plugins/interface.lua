@@ -458,9 +458,6 @@ return {
 			-- NOTE: remove word and line count on the bottom
 			-- https://github.com/nvimdev/dashboard-nvim/issues/131#issuecomment-2558716560
 			vim.opt.ruler = false
-
-			-- HACK: fix cursor position in dashboard
-			vim.api.nvim_feedkeys("j", "n", true)
 		end,
 		---@type snacks.Config
 		opts = {
