@@ -20,7 +20,7 @@ accept_past_line_end = false
 prefix = '['
 
 [sync]
-records = true
+records = false
 
 [preview]
 strategy = "fixed"
