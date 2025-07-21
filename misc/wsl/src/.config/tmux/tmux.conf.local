@@ -1,2 +1,2 @@
 # send keys instead of playerctl
-bind-key -T open-mode C-p send-keys -t misc:2.0 'P'
+bind-key -T open-mode C-p send-keys -t misc:1.0 'p'
