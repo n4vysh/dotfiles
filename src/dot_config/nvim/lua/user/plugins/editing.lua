@@ -98,10 +98,11 @@ return {
 			vim.g.VM_theme = "neon"
 			vim.g.VM_silent_exit = 1
 			vim.g.VM_set_statusline = 0
-			-- disable backspace mapping for autopairs
+			-- disable backspace and <C-w> mapping for autopairs
 			-- https://github.com/mg979/vim-visual-multi/issues/172#issuecomment-1092293500
 			vim.g.VM_maps = {
 				["I BS"] = "",
+				["I CtrlW"] = "",
 				["Add Cursor Down"] = "<M-j>",
 				["Add Cursor Up"] = "<M-k>",
 			}
