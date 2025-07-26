@@ -119,6 +119,14 @@ file:
     filetype: file
     # yamllint disable-line rule:line-length
     sha512: 4f952c7d2ef4eb95b02513f14d82680c9f8ecc450a67cf2d57ce4337b1e71f9c8fd706ea491a589faefaf9e792bf6b727fc48da59eabf0ecdbbba761b80e0733
+  /etc/systemd/system/openvpn-reconnect.service:
+    exists: true
+    mode: "0644"
+    owner: root
+    group: root
+    filetype: file
+    # yamllint disable-line rule:line-length
+    sha512: 229160e3d07caa148494961e0ae06fde7bc96e8f5ce8052a4a35ae53400dc4b640a8ba457fa04335087c029157e3ab1fc689dd1b3c5a0dd1c1a1b0211773c37c
   /etc/systemd/network/20-wired.network:
     exists: true
     mode: "0644"

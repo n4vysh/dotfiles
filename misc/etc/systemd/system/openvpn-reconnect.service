@@ -1,0 +1,9 @@
+[Unit]
+Description=Restart OpenVPN after suspend
+# https://wiki.archlinux.org/title/OpenVPN#Client_daemon_not_reconnecting_after_suspend
+
+[Service]
+ExecStart=/usr/bin/pkill --signal SIGHUP --exact openvpn
+
+[Install]
+WantedBy=sleep.target
