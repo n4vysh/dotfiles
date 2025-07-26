@@ -461,6 +461,7 @@ _configure_without_privileged() {
 		etc/polkit-1/rules.d/50-udisks.rules
 		etc/systemd/zram-generator.conf
 		etc/systemd/timesyncd.conf.d/ntp.conf
+		etc/systemd/system/openvpn-reconnect.service
 		etc/udev/rules.d/99-lowbat.rules
 		etc/ssh/sshd_config.d/permit_root_login.conf
 		etc/keybase/config.json
@@ -633,6 +634,9 @@ _configure_without_privileged() {
 
 	_log::info 'Install gh extensions'
 	gh extension install dlvhdr/gh-dash
+
+	_log::info 'Configure VPN'
+	sudo systemctl enable --now openvpn-reconnect.service
 
 	_log::info 'Configure scheduling utility'
 	sudo systemctl enable --now atd
