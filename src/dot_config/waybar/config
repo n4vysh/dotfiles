@@ -25,7 +25,8 @@
     "custom/vpn",
     "bluetooth",
     "pulseaudio",
-    "network",
+    "network#wired",
+    "network#wireless",
     "battery",
     "custom/notification",
     "clock"
@@ -71,7 +72,7 @@
     "return-type": "json",
     "exec": "~/.config/waybar/lib/vpn.bash",
     "interval": 1,
-    "on-click": "ghostty -e 'nordvpn status; read -n 1'",
+    "on-click": "ghostty -e 'systemctl status openvpn-client@nordvpn'",
     "tooltip": false
   },
   "bluetooth": {
@@ -95,17 +96,23 @@
     "on-click": "ghostty -e pulsemixer",
     "tooltip": false
   },
-  "network": {
+  "network#wired": {
+    "interface": "enp*",
+    "format": "{icon}",
+    "format-icons": {
+      "ethernet": [
+        ""
+      ]
+    },
+    "on-click": "ghostty -e impala",
+    "tooltip": false
+  },
+  "network#wireless": {
+    "interface": "wlan*",
     "format": "{icon}",
     "format-icons": {
       "wifi": [
         ""
-      ],
-      "ethernet": [
-        ""
-      ],
-      "disconnected": [
-        ""
       ]
     },
     "on-click": "ghostty -e impala",

@@ -73,7 +73,7 @@ file:
     filetype: file
     contents:
       # yamllint disable rule:line-length
-      - "/^rd.luks.name=.*=cryptlvm rd.luks.options=.*=tpm2-device=auto root=/dev/volume/root quiet loglevel=0 systemd.show_status=false rd.udev.log_level=1 vt.global_cursor_default=0 fbcon=nodefer ro nosgx mitigations=auto,nosmt modprobe.blacklist=iTCO_wdt$/"
+      - "/^rd.luks.name=.*=cryptlvm rd.luks.options=.*=tpm2-device=auto root=/dev/volume/root quiet loglevel=0 systemd.show_status=false rd.udev.log_level=1 vt.global_cursor_default=0 fbcon=nodefer ro nosgx mitigations=auto,nosmt modprobe.blacklist=iTCO_wdt ipv6.disable=1$/"
       # yamllint enable rule:line-length
   /etc/sysctl.d/20-quiet-printk.conf:
     exists: true
@@ -126,7 +126,7 @@ file:
     group: root
     filetype: file
     # yamllint disable-line rule:line-length
-    sha512: f0af0b1f1c325dce445b2e74a6750fe0a4758ac0d29e7118e867889d7e82137081fb2135d1a1e9d58afe1384ad499a4344a92bf400bb9a9d9eb6e0edbdaadeb1
+    sha512: c7f93320206f87ce702c4684e671fae53066a0e20e94ff365d0684a2946a4ab16b4af6f740e32917d8313dd2f285194912c3b38173ef0e343bc1d7e351503c09
   /etc/systemd/network/25-wireless.network:
     exists: true
     mode: "0644"
@@ -134,7 +134,7 @@ file:
     group: root
     filetype: file
     # yamllint disable-line rule:line-length
-    sha512: 4f10f91dc1e43ab3f3ed9acbb8eaa7a02cd2dcb9439c364207a34cc95feef9fd36eafc7d4182086fa90fbf370a2cf93db8bff6aca376b50ca973fcafb8218458
+    sha512: 1f2d4549db3be2fea7e019bda383c55a2175e2f4649db25cf2bcc402addc6ebc1918a44905e7eae50956576fad5d902c9835f007d527b0d213c86df5256c9614
   /etc/systemd/journald.conf.d/system_max_use.conf:
     exists: true
     mode: "0644"

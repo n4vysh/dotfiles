@@ -634,10 +634,6 @@ _configure_without_privileged() {
 	_log::info 'Install gh extensions'
 	gh extension install dlvhdr/gh-dash
 
-	_log::info 'Configure VPN'
-	sudo systemctl enable --now nordvpnd
-	sudo gpasswd -a "$USER" nordvpn
-
 	_log::info 'Configure scheduling utility'
 	sudo systemctl enable --now atd
 
