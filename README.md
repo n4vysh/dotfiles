@@ -88,7 +88,8 @@
   - [CanvasBlocker][canvasblocker-link]
 - Block incoming connections without allowed with [ufw][ufw-link]
 - Detect rootkit and package vulnerabilities with [rkhunter][rkhunter-link] and [arch-audit][arch-audit-link]
-- Support Onion over VPN with [Tor Browser][tor-browser-link] and [NordVPN][nordvpn-link]
+- Support Onion over VPN with [Tor Browser][tor-browser-link] and [OpenVPN][openvpn-link]
+- Prevent DNS leak and IPv6 leak
 - Command abbreviation and snippets for pentesting with [zsh][zsh-link] and [pet][pet-link]
 - Available a large amount of cyber security tools with [BlackArch repository][blackarch-link]
 - Support for OSC
@@ -154,6 +155,7 @@
 [rkhunter-link]: https://rkhunter.sourceforge.net/
 [arch-audit-link]: https://gitlab.com/ilpianista/arch-audit
 [tor-browser-link]: https://www.torproject.org/download/
+[openvpn-link]: https://openvpn.net/client/
 [nordvpn-link]: https://nordvpn.com/
 [pet-link]: https://github.com/knqyf263/pet
 [blackarch-link]: https://blackarch.org
@@ -330,7 +332,7 @@ prefix is `C-j`
 | Launcher                      | [rofi-wayland][rofi-wayland-link]                                                                 |
 | Web Browser                   | [Firefox][firefox-link]                                                                           |
 | Password Manager              | [1Password][1password-link] + [Ente Auth][ente-auth-link]                                         |
-| VPN client                    | [NordVPN][nordvpn-link]                                                                           |
+| VPN client                    | [OpenVPN][openvpn-link] + [NordVPN][nordvpn-link]                                                 |
 | Mail client                   | [Proton Mail][proton-mail-link]                                                                   |
 | Instant messaging clients     | [Signal][signal-link]                                                                             |
 | Audio player                  | [ncspot][ncspot-link]                                                                             |

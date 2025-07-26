@@ -40,9 +40,6 @@ service:
   systemd-timesyncd.service:
     enabled: true
     running: true
-  nordvpnd.service:
-    enabled: true
-    running: true
   atd.service:
     enabled: true
     running: true

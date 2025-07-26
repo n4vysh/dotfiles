@@ -3,11 +3,11 @@ Name=enp*
 
 [Network]
 DHCP=yes
-# NOTE: avoid `Temporary failure in name resolution` for nordvpnd
-# NordVPN DNS server = 103.86.96.100, 103.86.99.100
-DNS=103.86.96.100 103.86.99.100 1.1.1.1#cloudflare-dns.com 2606:4700:4700::1111#cloudflare-dns.com 9.9.9.9#dns.quad9.net 8.8.8.8#dns.google 2620:fe::9#dns.quad9.net 2001:4860:4860::8888#dns.google
+# WARN: Do not add ipv6 address to avoid ipv6 leak
+DNS=103.86.96.100 103.86.99.100 # NordVPN DNS servers
 # NOTE: NordVPN DNS server not support DNSSEC and DoT
-DNSSEC=allow-downgrade
+#       https://github.com/NordSecurity/nordvpn-linux/issues/778#issuecomment-2747512235
+DNSSEC=false
 DNSOverTLS=false
 
 [DHCPv4]

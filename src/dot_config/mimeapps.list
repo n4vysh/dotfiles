@@ -39,9 +39,6 @@ x-scheme-handler/standardnotes=standard-notes.desktop
 # tresorit
 x-scheme-handler/tresorit=tresorit.desktop
 
-# nordvpn
-x-scheme-handler/nordvpn=nordvpn.desktop
-
 # keybase
 x-scheme-handler/keybase=keybase.desktop
 application/x-saltpack=keybase.desktop
