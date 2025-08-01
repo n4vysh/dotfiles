@@ -129,11 +129,6 @@ return {
 		end,
 	},
 	{
-		"stevearc/dressing.nvim",
-		lazy = true,
-		opts = {},
-	},
-	{
 		"RRethy/vim-illuminate",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		keys = {

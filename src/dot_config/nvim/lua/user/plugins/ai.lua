@@ -188,6 +188,13 @@ return {
 					edit = "<space>ae",
 					stop = "<space>as",
 				},
+				input = {
+					provider = "snacks",
+					provider_opts = {
+						title = "Avante Input",
+						icon = " ",
+					},
+				},
 			}
 		end,
 		config = function(_, opts)
@@ -195,14 +202,14 @@ return {
 		end,
 		build = "make",
 		dependencies = {
-			"nvim-treesitter/nvim-treesitter",
-			"stevearc/dressing.nvim",
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
 			"nvim-telescope/telescope.nvim",
 			"hrsh7th/nvim-cmp",
+			"folke/snacks.nvim",
 			"nvim-tree/nvim-web-devicons",
 			"zbirenbaum/copilot.lua",
+			"nvim-treesitter/nvim-treesitter",
 			{
 				"HakonHarnes/img-clip.nvim",
 				event = "VeryLazy",
