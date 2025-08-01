@@ -40,6 +40,9 @@ zvm_bindkey vicmd 'gl' vi-end-of-line
 zvm_bindkey vicmd 'gh' vi-digit-or-beginning-of-line
 zvm_bindkey vicmd 'ge' vi-fetch-history
 
+zvm_define_widget opencode-widget
+zvm_bindkey viins '^oa' opencode-widget
+
 zvm_define_widget bluetuith-widget
 zvm_bindkey viins '^ob' bluetuith-widget
 
