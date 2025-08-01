@@ -52,8 +52,6 @@ return {
 					opts.mappings.ask,
 					function()
 						require("avante.api").ask()
-						-- HACK: change mode from visual line to insert
-						vim.api.nvim_feedkeys("<esc>", "n", true)
 					end,
 					desc = "Show sidebar for AI",
 					mode = { "v" },
@@ -75,8 +73,6 @@ return {
 					opts.mappings.new_chat,
 					function()
 						require("avante.api").ask({ new_chat = true })
-						-- HACK: change mode from visual line to insert
-						vim.api.nvim_feedkeys("<esc>", "n", true)
 					end,
 					desc = "Start new chat session for AI",
 					mode = { "v" },
