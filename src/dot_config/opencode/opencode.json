@@ -1,0 +1,51 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "tokyonight",
+  "share": "disabled",
+  "permission": {
+    "edit": "ask",
+    "bash": "ask"
+  },
+  "keybinds": {
+    "input_submit": "ctrl+s",
+    "input_newline": "enter"
+  },
+  "mcp": {
+    "aws-knowledge-server": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://knowledge-mcp.global.api.aws"
+    },
+    "awslabs-terraform-server": {
+      "enabled": true,
+      "type": "local",
+      "command": ["uvx", "awslabs.terraform-mcp-server@1.0.3"],
+      "environment": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "hashicorp-terraform-server": {
+      "enabled": true,
+      "type": "local",
+      "command": [
+        "docker",
+        "run",
+        "-i",
+        "--rm",
+        "--name",
+        "terraform-mcp-server",
+        "hashicorp/terraform-mcp-server:0.2.1"
+      ]
+    },
+    "playwright": {
+      "enabled": true,
+      "type": "local",
+      "command": ["bunx", "@playwright/mcp@0.0.32"]
+    },
+    "context7-server": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}

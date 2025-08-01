@@ -9,7 +9,6 @@ bun = true
 "pipx:posting" = { version = "2.5.4", uvx_args = "--python 3.12 --prerelease=allow" }
 "pipx:harlequin" = { version = "2.1.1", uvx_args = "--python 3.13" }
 "go:github.com/rhysd/vim-startuptime" = "1.3.2"
-"pipx:litellm" = { version = "1.74.7", extras = "proxy" }
 "npm:czg" = "1.11.1"
 "npm:gitmoji-cli" = "9.6.0"
 "ubi:YiNNx/cmd-wrapped" = "0.4"
@@ -23,7 +22,6 @@ snyk = "1.1260.0"
 "npm:@redocly/cli" = "1.34.3"
 "npm:sql-formatter" = "15.6.2"
 "npm:@mermaid-js/mermaid-cli" = "11.4.2"
-"npm:@anthropic-ai/claude-code" = "1.0.51"
 "aqua:simonwhitaker/gibo" = "3.0.14"
 "npm:git-open" = "3.1.0"
 "aqua:b3nj5m1n/xdg-ninja" = "0.2.0.2"
@@ -33,6 +31,10 @@ snyk = "1.1260.0"
 "ubi:https://raw.githubusercontent.com/hyprwm/contrib/481175e17e155f19a3b31416530b6edf725e7034/scratchpad/scratchpad" = { version = "481175e", rename_exe = "scratchpad" }
 "ubi:https://raw.githubusercontent.com/sentriz/cliphist/refs/tags/v0.6.1/contrib/cliphist-rofi-img" = { version = "0.6.1", rename_exe = "cliphist-rofi-img" }
 "go:github.com/hashicorp/hcl/v2/cmd/hclfmt" = "v2.24.0"
+
+# AI
+"pipx:litellm" = { version = "1.74.7", extras = "proxy" }
+"npm:opencode-ai" = "0.3.111"
 
 # frontend
 ## typescript
