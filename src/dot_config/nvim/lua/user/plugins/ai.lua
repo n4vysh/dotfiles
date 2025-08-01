@@ -38,6 +38,11 @@ return {
 				{
 					opts.mappings.ask,
 					function()
+						-- NOTE: create new `[No Name]` buffer when dashboard
+						if vim.bo.filetype == "dashboard" then
+							vim.cmd.enew()
+						end
+
 						require("avante.api").ask()
 					end,
 					desc = "Show sidebar for AI",
@@ -56,6 +61,11 @@ return {
 				{
 					opts.mappings.new_chat,
 					function()
+						-- NOTE: create new `[No Name]` buffer when dashboard
+						if vim.bo.filetype == "dashboard" then
+							vim.cmd.enew()
+						end
+
 						require("avante.api").ask({ new_chat = true })
 					end,
 					desc = "Start new chat session for AI",
@@ -107,22 +117,6 @@ return {
 
 			-- NOTE: comment in to use bedrock with litellm
 			-- provider = "openai"
-
-			-- NOTE: prevent new `[No Name]` buffer
-			do
-				local augroup = "avante_close_keymap"
-				vim.api.nvim_create_augroup(augroup, { clear = true })
-				vim.api.nvim_create_autocmd("FileType", {
-					group = augroup,
-					pattern = "Avante",
-					callback = function()
-						vim.keymap.set("n", "q", "<cmd>quit<CR>", {
-							silent = true,
-							buffer = true,
-						})
-					end,
-				})
-			end
 
 			return {
 				provider = provider,
