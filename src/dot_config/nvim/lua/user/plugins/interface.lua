@@ -587,54 +587,6 @@ return {
 						{ "diagnostics", sources = { "nvim_diagnostic" } },
 					},
 					lualine_x = {
-						{
-							"copilot",
-							symbols = {
-								status = {
-									icons = {
-										unknown = " ",
-									},
-									hl = {
-										enabled = require(
-											"copilot-lualine.colors"
-										).get_hl_value(
-											0,
-											"DiagnosticSignInfo",
-											"fg"
-										),
-										sleep = require(
-											"copilot-lualine.colors"
-										).get_hl_value(
-											0,
-											"Comment",
-											"fg"
-										),
-										disabled = require(
-											"copilot-lualine.colors"
-										).get_hl_value(
-											0,
-											"Comment",
-											"fg"
-										),
-										warning = require(
-											"copilot-lualine.colors"
-										).get_hl_value(
-											0,
-											"DiagnosticSignWarn",
-											"fg"
-										),
-										unknown = require(
-											"copilot-lualine.colors"
-										).get_hl_value(
-											0,
-											"Comment",
-											"fg"
-										),
-									},
-								},
-							},
-							show_colors = true,
-						},
 						"encoding",
 						"bo:fileformat",
 						"bo:filetype",
@@ -668,7 +620,6 @@ return {
 			}
 		end,
 		dependencies = {
-			{ "AndreM222/copilot-lualine" },
 			{
 				"folke/tokyonight.nvim",
 				-- NOTE: load colorscheme before all the other start plugins
