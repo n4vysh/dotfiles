@@ -37,10 +37,10 @@
         "hashicorp/terraform-mcp-server:0.2.1"
       ]
     },
-    "playwright": {
+    "playwright-server": {
       "enabled": true,
       "type": "local",
-      "command": ["bunx", "@playwright/mcp@0.0.32"]
+      "command": ["bunx", "@playwright/mcp@0.0.32", "--headless"]
     },
     "context7-server": {
       "enabled": true,
