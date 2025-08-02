@@ -33,7 +33,7 @@
         "-i",
         "--rm",
         "--name",
-        "terraform-mcp-server",
+        "opencode-terraform-mcp-server",
         "hashicorp/terraform-mcp-server:0.2.1"
       ]
     },
