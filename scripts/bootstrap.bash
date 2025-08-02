@@ -754,6 +754,9 @@ _configure_without_privileged() {
 	_log::info 'Disable root redirector of keybase'
 	sudo chmod a-s /usr/bin/keybase-redirector
 
+	_log::info 'Install apps with flatpak'
+	flatpak install -y flathub io.ente.auth
+
 	# NOTE: git clone fails when forcing ssh protocol
 	#       in ~/.config/git/config before creating ssh key
 	_log::info 'Deploy dotfiles'

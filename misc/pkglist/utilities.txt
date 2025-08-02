@@ -20,6 +20,7 @@ extra/eva
 extra/expect
 extra/fastfetch
 extra/firefox
+extra/flatpak
 extra/gpg-tui
 extra/gptfdisk
 extra/hyperfine
