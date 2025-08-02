@@ -1,5 +1,9 @@
 bindkey '^p' history-substring-search-up
 bindkey '^n' history-substring-search-down
+# NOTE: disable up arrow key of zsh-autocomplete
+# https://github.com/marlonrichert/zsh-autocomplete/discussions/792
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 bindkey -M main "^i" down-line-or-select
 bindkey -M menuselect "^i" forward-char
