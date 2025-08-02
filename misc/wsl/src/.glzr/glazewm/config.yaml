@@ -91,3 +91,4 @@ window_rules:
         window_title: {regex: 'Press F8 to stop the recording'}
       - window_process: {regex: 'ScreenToGif'}
         window_title: {regex: 'Exiting the Editor'}
+      - window_process: {equals: 'msrdc'}
