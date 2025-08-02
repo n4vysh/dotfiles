@@ -164,15 +164,7 @@ return {
 					}
 				end,
 				disabled_tools = {
-					-- brave search mcp server
 					"web_search",
-
-					-- fetch mcp server
-					"fetch",
-
-					-- git mcp server
-					"git_diff",
-					"git_commit",
 				},
 				behaviour = {
 					enable_claude_text_editor_tool_mode = true,
