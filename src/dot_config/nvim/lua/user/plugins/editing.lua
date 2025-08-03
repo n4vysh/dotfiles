@@ -107,6 +107,13 @@ return {
 				["Add Cursor Up"] = "<M-k>",
 			}
 
+			vim.g.VM_custom_motions = {
+				-- helix-like keymaps
+				["gh"] = "0",
+				["gl"] = "$",
+				["gs"] = "^",
+			}
+
 			-- NOTE: Use clipboard
 			-- https://github.com/mg979/vim-visual-multi/issues/116#issuecomment-639322793
 			vim.cmd(
