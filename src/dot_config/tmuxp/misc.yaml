@@ -26,7 +26,8 @@ windows:
 #             env LITELLM_MODIFY_PARAMS=true litellm \
 #               --model bedrock/converse/us.anthropic.claude-sonnet-4-20250514-v1:0
 # yamllint enable rule:line-length
-#   - panes:
+#   - layout: tiled
+#     panes:
 #       # for bedrock
 #       - |
 #         gopass env envs/openwebui \
@@ -43,13 +44,25 @@ windows:
 #           --name open-webui \
 #           ghcr.io/open-webui/open-webui:main
 #       - |
-#         uvx mcpo@0.0.14 --port 8000 -- \
-#           env FASTMCP_LOG_LEVEL=ERROR \
-#           uvx awslabs.aws-documentation-mcp-server@0.1.2
+#         uvx mcpo@0.0.17 --port 8000 --server-type "streamable-http" -- \
+#           https://knowledge-mcp.global.api.aws
 #       - |
-#         uvx mcpo@0.0.14 --port 8001 -- \
+#         uvx mcpo@0.0.17 --port 8001 -- \
 #           docker run \
 #             -i \
 #             --rm \
+#             --pull=always \
 #             --name mcpo-terraform-mcp-server \
-#             hashicorp/terraform-mcp-server:0.1.0
+#             hashicorp/terraform-mcp-server
+#       - |
+#         uvx mcpo@0.0.17 mcpo --port 8002 -- \
+#          docker run \
+#             -i \
+#             --rm \
+#             --init \
+#             --pull=always \
+#             --name mcpo-playwright-mcp-server \
+#             mcr.microsoft.com/playwright/mcp
+#       - |
+#         uvx mcpo@0.0.17 mcpo --port 8003 --server-type "streamable-http" -- \
+#           https://mcp.context7.com/mcp
