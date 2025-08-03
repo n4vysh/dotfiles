@@ -34,13 +34,24 @@
         "--rm",
         "--name",
         "opencode-terraform-mcp-server",
-        "hashicorp/terraform-mcp-server:0.2.1"
+        "--pull=always",
+        "hashicorp/terraform-mcp-server"
       ]
     },
     "playwright-server": {
       "enabled": true,
       "type": "local",
-      "command": ["bunx", "@playwright/mcp@0.0.32", "--headless"]
+      "command": [
+        "docker",
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "--name",
+        "opencode-playwright-mcp-server",
+        "--pull=always",
+        "mcr.microsoft.com/playwright/mcp"
+      ]
     },
     "context7-server": {
       "enabled": true,
