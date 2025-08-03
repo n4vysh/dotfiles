@@ -127,6 +127,7 @@ export CARGO_NET_GIT_FETCH_WITH_CLI=true
 
 # Less
 export LESS='-ciMR'
+export GROFF_NO_SGR=1 # use legacy format for $LESS_TERMCAP_*
 export LESS_TERMCAP_mb=$'\e[1;31m'
 export LESS_TERMCAP_md=$'\e[1;38;05;75m'
 export LESS_TERMCAP_me=$'\e[0m'
