@@ -108,8 +108,12 @@ bindkey -M menuselect '^b' backward-char
 zle -N add-less-pipe-widget
 bindkey "^[p" add-less-pipe-widget
 
-zle -N add-sudo-widget
-bindkey "^[s" add-sudo-widget
+## sudo plugin
+bindkey '^[s' sudo-command-line
+### remove default keybinds
+bindkey -M emacs -r '\e\e'
+bindkey -M vicmd -r '\e\e'
+bindkey -M viins -r '\e\e'
 
 # bash-like keybinds
 autoload -Uz edit-command-line
