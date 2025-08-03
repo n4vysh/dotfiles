@@ -586,14 +586,6 @@ return {
 	{
 		"stevearc/conform.nvim",
 		opts = {
-			formatters = {
-				sql_formatter = {
-					prepend_args = {
-						"-c",
-						vim.fn.expand("~/.config/sql-formatter/config.json"),
-					},
-				},
-			},
 			formatters_by_ft = {
 				hcl = { "hcl" },
 				go = { "goimports", "golangci-lint", "gofumpt" },
