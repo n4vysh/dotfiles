@@ -134,8 +134,6 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[1;44m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;36m'
-export LESS_CACHE_HOME="$XDG_CACHE_HOME/less"
-export LESSHISTFILE="$LESS_CACHE_HOME/history"
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
