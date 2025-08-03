@@ -29,14 +29,24 @@
         "--rm",
         "--name",
         "mcphub-terraform-mcp-server",
-        "hashicorp/terraform-mcp-server:0.2.1"
+        "--pull=always",
+        "hashicorp/terraform-mcp-server"
       ]
     },
     "playwright": {
       "disabled": false,
       "disabled_tools": [],
-      "command": "bunx",
-      "args": ["@playwright/mcp@0.0.32", "--headless"]
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "--name",
+        "mcphub-playwright-mcp-server",
+        "--pull=always",
+        "mcr.microsoft.com/playwright/mcp"
+      ]
     },
     "context7": {
       "disabled": false,
