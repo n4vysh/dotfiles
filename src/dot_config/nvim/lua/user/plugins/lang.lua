@@ -505,7 +505,6 @@ return {
 					"just",
 					"lua_ls",
 					"marksman",
-					"spectral",
 					"systemd_ls",
 					"tailwindcss",
 					"taplo",
