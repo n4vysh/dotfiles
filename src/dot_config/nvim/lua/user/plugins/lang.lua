@@ -780,6 +780,7 @@ return {
 			},
 			outline = {
 				close_after_jump = true,
+				auto_preview = false,
 			},
 			symbol_in_winbar = {
 				enable = false,
