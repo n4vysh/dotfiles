@@ -790,6 +790,21 @@ return {
 				code_action = "󱐌",
 			},
 		},
+		config = function(_, opts)
+			require("lspsaga").setup(opts)
+
+			do
+				local augroup = "sagaoutline_no_fold"
+				vim.api.nvim_create_augroup(augroup, { clear = true })
+				vim.api.nvim_create_autocmd("FileType", {
+					group = augroup,
+					pattern = { "sagaoutline" },
+					callback = function()
+						vim.opt_local.foldenable = false
+					end,
+				})
+			end
+		end,
 		dependencies = {
 			"neovim/nvim-lspconfig",
 			"nvim-tree/nvim-web-devicons",
