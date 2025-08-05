@@ -21,6 +21,8 @@ windows:
             -v litellm-postgres:/var/lib/postgresql/data \
             --name litellm-db \
             postgres:16
+  - panes:
+      # for anthropic
       # NOTE: run following commands
       #       ```sh
       #       gopass insert envs/litellm/ANTHROPIC_API_KEY
@@ -43,9 +45,12 @@ windows:
 # yamllint disable rule:line-length
 #   - panes:
 #       # for bedrock
-#       # ```sh
-#       # gopass insert envs/litellm/LITELLM_MASTER_KEY
-#       # ```
+#       # NOTE: run following commands
+#       #       ```sh
+#       #       gopass insert envs/litellm/DATABASE_URL
+#       #       echo "sk-$(pwgen -c -n -y -B -1 20 1)"
+#       #       gopass insert envs/litellm/LITELLM_MASTER_KEY
+#       #       ```
 #       - |
 #         gopass env envs/litellm \
 #           aws-vault exec bedrock -- \
