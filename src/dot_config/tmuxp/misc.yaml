@@ -5,15 +5,41 @@ windows:
   - panes:
       - ncspot
   - panes:
-      # NOTE: required $ANTHROPIC_API_KEY and LITELLM_MASTER_KEY
+      # NOTE: run following commands
+      #       ```sh
+      #       pwgen -c -n -y -B -1 20 1
+      #       gopass insert envs/litellm/POSTGRES_PASSWORD
+      #       ```
+      - |
+        gopass env envs/litellm \
+          docker run \
+            --rm \
+            -p 54320:5432 \
+            -e POSTGRES_DB=litellm \
+            -e POSTGRES_USER=llmproxy \
+            -e POSTGRES_PASSWORD \
+            -v litellm-postgres:/var/lib/postgresql/data \
+            --name litellm-db \
+            postgres:16
+      # NOTE: run following commands
       #       ```sh
       #       gopass insert envs/litellm/ANTHROPIC_API_KEY
+      #       gopass insert envs/litellm/DATABASE_URL
       #       echo "sk-$(pwgen -c -n -y -B -1 20 1)"
       #       gopass insert envs/litellm/LITELLM_MASTER_KEY
       #       ```
       - |
         gopass env envs/litellm \
-          litellm --drop_params --model claude-opus-4-20250514
+          docker run \
+            --rm \
+            --network=host \
+            -e STORE_MODEL_IN_DB=True \
+            -e DATABASE_URL \
+            -e LITELLM_MASTER_KEY \
+            -e ANTHROPIC_API_KEY \
+            --name litellm \
+            ghcr.io/berriai/litellm:main-stable \
+              --drop_params --model claude-sonnet-4-20250514
 # yamllint disable rule:line-length
 #   - panes:
 #       # for bedrock
@@ -23,8 +49,18 @@ windows:
 #       - |
 #         gopass env envs/litellm \
 #           aws-vault exec bedrock -- \
-#             env LITELLM_MODIFY_PARAMS=true litellm \
-#               --model bedrock/converse/us.anthropic.claude-sonnet-4-20250514-v1:0
+#             docker run \
+#               --rm \
+#               --network=host \
+#               -e STORE_MODEL_IN_DB=True \
+#               -e LITELLM_MODIFY_PARAMS=true \
+#               -e DATABASE_URL \
+#               -e LITELLM_MASTER_KEY \
+#               -e ANTHROPIC_API_KEY \
+#               --name litellm \
+#               ghcr.io/berriai/litellm:main-stable \
+#                 --drop_params \
+#                 --model bedrock/converse/us.anthropic.claude-sonnet-4-20250514-v1:0
 # yamllint enable rule:line-length
 #   - layout: tiled
 #     panes:
