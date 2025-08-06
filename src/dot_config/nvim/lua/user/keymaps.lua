@@ -41,6 +41,18 @@ vim.keymap.set("n", "<C-o>", "<C-o>zz", {
 	desc = nil,
 })
 
+vim.keymap.set({ "n", "v" }, "[s", "#", {
+	silent = true,
+	remap = true,
+	desc = "Search forward",
+})
+
+vim.keymap.set({ "n", "v" }, "]s", "*", {
+	silent = true,
+	remap = true,
+	desc = "Search backward",
+})
+
 vim.keymap.set({ "i" }, "<C-r><C-r>", "<C-r>+", {
 	silent = true,
 	desc = nil,

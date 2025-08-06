@@ -123,11 +123,6 @@ return {
 							query = "@class.outer",
 							desc = "Next class start",
 						},
-						["]s"] = {
-							query = "@scope",
-							query_group = "locals",
-							desc = "Next scope start",
-						},
 						["]z"] = {
 							query = "@fold",
 							query_group = "folds",
@@ -163,11 +158,6 @@ return {
 							query = "@class.outer",
 							desc = "Next class end",
 						},
-						["]S"] = {
-							query = "@scope",
-							query_group = "locals",
-							desc = "Next scope end",
-						},
 						["]Z"] = {
 							query = "@fold",
 							query_group = "folds",
@@ -198,11 +188,6 @@ return {
 						["[["] = {
 							query = "@class.outer",
 							desc = "Previous class start",
-						},
-						["[s"] = {
-							query = "@scope",
-							query_group = "locals",
-							desc = "Previous scope",
 						},
 						["[z"] = {
 							query = "@fold",
@@ -238,11 +223,6 @@ return {
 						["[]"] = {
 							query = "@class.outer",
 							desc = "Previous class end",
-						},
-						["[S"] = {
-							query = "@scope",
-							query_group = "locals",
-							desc = "Previous scope end",
 						},
 						["[Z"] = {
 							query = "@fold",
