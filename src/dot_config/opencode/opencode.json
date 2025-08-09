@@ -32,8 +32,6 @@
         "run",
         "-i",
         "--rm",
-        "--name",
-        "opencode-terraform-mcp-server",
         "--pull=always",
         "hashicorp/terraform-mcp-server"
       ]
@@ -47,8 +45,6 @@
         "-i",
         "--rm",
         "--init",
-        "--name",
-        "opencode-playwright-mcp-server",
         "--pull=always",
         "mcr.microsoft.com/playwright/mcp"
       ]
