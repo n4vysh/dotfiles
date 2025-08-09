@@ -33,7 +33,7 @@ snyk = "1.1260.0"
 "go:github.com/hashicorp/hcl/v2/cmd/hclfmt" = "v2.24.0"
 
 # AI
-"npm:opencode-ai" = "0.3.111"
+"npm:opencode-ai" = "0.4.2"
 
 # frontend
 ## typescript
