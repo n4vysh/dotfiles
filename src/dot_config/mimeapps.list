@@ -33,9 +33,6 @@ x-scheme-handler/sgnl=signal-desktop.desktop
 # ente
 x-scheme-handler/ente=ente-desktop.desktop
 
-# standard notes
-x-scheme-handler/standardnotes=standard-notes.desktop
-
 # tresorit
 x-scheme-handler/tresorit=tresorit.desktop
 

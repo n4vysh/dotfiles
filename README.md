@@ -75,7 +75,8 @@
   and [sbctl][sbctl-link]
 - Enhance password security with [1Password][1password-link] and [Ente Auth][ente-auth-link]
 - End-to-end encryption (E2EE) with [Signal][signal-link],
-  [Proton Mail][proton-mail-link], [Tresorit][tresorit-link], and [Ente Photos][ente-photos-link]
+  [Proton Mail][proton-mail-link], [Tresorit][tresorit-link],
+  [Ente Photos][ente-photos-link], and [Obsidian][obsidian-link]
 - Privacy focused web browsing
   - Search shortcuts for [DuckDuckGo][duckduckgo-link]
   - [Strict Enhanced Tracking Protection][strict-etp-link]
@@ -142,6 +143,7 @@
 [ente-auth-link]: https://github.com/ente-io/ente/tree/main/auth#readme
 [signal-link]: https://signal.org/
 [ente-photos-link]: https://ente.io/
+[obsidian-link]: https://obsidian.md/sync
 [strict-etp-link]: https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 [duckduckgo-link]: https://duckduckgo.com/
 [https-only-mode-link]: https://support.mozilla.org/en-US/kb/https-only-prefs
