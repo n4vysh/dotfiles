@@ -6,7 +6,6 @@ chaotic-aur/drawio-desktop
 chaotic-aur/git-extras
 chaotic-aur/google-cloud-cli
 chaotic-aur/lazydocker
-chaotic-aur/standardnotes-bin
 chaotic-aur/tflint
 chaotic-aur/viddy
 core/openssh
@@ -68,6 +67,7 @@ extra/mise
 extra/neovide
 extra/nix
 extra/npm
+extra/obsidian
 extra/oxipng
 extra/parallel
 extra/percona-server-clients
