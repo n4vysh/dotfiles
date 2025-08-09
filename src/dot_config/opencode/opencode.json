@@ -12,12 +12,12 @@
   },
   "mcp": {
     "aws-knowledge-server": {
-      "enabled": true,
+      "enabled": false,
       "type": "remote",
       "url": "https://knowledge-mcp.global.api.aws"
     },
     "awslabs-terraform-server": {
-      "enabled": true,
+      "enabled": false,
       "type": "local",
       "command": ["uvx", "awslabs.terraform-mcp-server@1.0.3"],
       "environment": {
@@ -25,7 +25,7 @@
       }
     },
     "hashicorp-terraform-server": {
-      "enabled": true,
+      "enabled": false,
       "type": "local",
       "command": [
         "docker",
@@ -39,7 +39,7 @@
       ]
     },
     "playwright-server": {
-      "enabled": true,
+      "enabled": false,
       "type": "local",
       "command": [
         "docker",
@@ -54,7 +54,7 @@
       ]
     },
     "context7-server": {
-      "enabled": true,
+      "enabled": false,
       "type": "remote",
       "url": "https://mcp.context7.com/mcp"
     }
