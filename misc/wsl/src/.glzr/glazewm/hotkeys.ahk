@@ -462,8 +462,12 @@ IsLauncher := false
 F13 & Enter::
 {
 	if ! GetKeyState("Shift") {
-		if ! (PID := ProcessExist("wezterm-gui.exe")) {
-			Run(".\wezterm-gui.exe", "C:\Program Files\WezTerm")
+		if GetKeyState("Ctrl", "P") {
+			Send "+{Enter}"
+		} else {
+			if ! (PID := ProcessExist("wezterm-gui.exe")) {
+				Run(".\wezterm-gui.exe", "C:\Program Files\WezTerm")
+			}
 		}
 	}
 }
