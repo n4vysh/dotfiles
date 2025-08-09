@@ -6,12 +6,12 @@
   },
   "mcpServers": {
     "aws-knowledge": {
-      "disabled": false,
+      "disabled": true,
       "disabled_tools": [],
       "url": "https://knowledge-mcp.global.api.aws"
     },
     "aws-terraform": {
-      "disabled": false,
+      "disabled": true,
       "disabled_tools": [],
       "command": "uvx",
       "args": ["awslabs.terraform-mcp-server@1.0.3"],
@@ -20,7 +20,7 @@
       }
     },
     "hashicorp-terraform": {
-      "disabled": false,
+      "disabled": true,
       "disabled_tools": [],
       "command": "docker",
       "args": [
@@ -34,7 +34,7 @@
       ]
     },
     "playwright": {
-      "disabled": false,
+      "disabled": true,
       "disabled_tools": [],
       "command": "docker",
       "args": [
@@ -49,7 +49,7 @@
       ]
     },
     "context7": {
-      "disabled": false,
+      "disabled": true,
       "disabled_tools": [],
       "url": "https://mcp.context7.com/mcp"
     }
