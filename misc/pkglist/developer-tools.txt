@@ -109,6 +109,7 @@ extra/tree-sitter-cli
 extra/trivy
 extra/ts-node
 extra/typos
+extra/unison
 extra/usage
 extra/uv
 extra/vhs

@@ -110,3 +110,12 @@ windows:
 #       - |
 #         uvx mcpo@0.0.17 mcpo --port 8003 --server-type "streamable-http" -- \
 #           https://mcp.context7.com/mcp
+# yamllint disable rule:line-length
+#   - layout: tiled
+#     panes:
+#       - mkdir -p $HOME/Documents && unison /mnt/c/Users/"$(powershell.exe '$env:USERNAME' | tr -d '\r')"/OneDrive\ -\ */Documents/ $HOME/Documents/ -repeat watch
+#       - mkdir -p $HOME/Downloads && unison /mnt/c/Users/"$(powershell.exe '$env:USERNAME' | tr -d '\r')"/Downloads/ $HOME/Downloads/ -repeat watch
+#       - mkdir -p $HOME/Pictures && unison /mnt/c/Users/"$(powershell.exe '$env:USERNAME' | tr -d '\r')"/OneDrive\ -\ */Pictures/ $HOME/Pictures/ -repeat watch
+#       - mkdir -p $HOME/Videos && unison /mnt/c/Users/"$(powershell.exe '$env:USERNAME' | tr -d '\r')"/Videos/ $HOME/Videos/ -repeat watch
+#       - mkdir -p $HOME/Music && unison /mnt/c/Users/"$(powershell.exe '$env:USERNAME' | tr -d '\r')"/Music/ $HOME/Music/ -repeat watch
+# yamllint enable rule:line-length
