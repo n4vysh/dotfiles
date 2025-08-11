@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [[ $1 == install ]]; then
-  true
-else
-  /usr/bin/bootctl "$@"
-fi

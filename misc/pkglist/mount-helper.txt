@@ -1,3 +1,0 @@
-extra/polkit
-extra/udiskie
-extra/udisks2

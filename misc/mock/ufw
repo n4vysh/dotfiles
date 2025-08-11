@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [[ $1 == enable ]]; then
-  true
-elif [[ $1 == status ]] && [[ $2 == verbose ]]; then
-  true
-else
-  /usr/bin/ufw "$@"
-fi

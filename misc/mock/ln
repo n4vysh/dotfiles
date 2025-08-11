@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [[ ${*:$#:1} == /etc/resolv.conf ]]; then
-  true
-else
-  /usr/bin/ln "$@"
-fi

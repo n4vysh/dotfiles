@@ -128,9 +128,12 @@ application/x-cue=mpv.desktop
 application/vnd.ms-asf=mpv.desktop
 video/mp2t=mpv.desktop
 application/vnd.apple.mpegurl=mpv.desktop
+# NOTE: use mpv instead of imv
+#       imv cannot play gif due to libnsgif-1.0.0 compatibility issues
+#       https://todo.sr.ht/~exec64/imv/55
+image/gif=mpv.desktop
 
 # imv
-image/gif=imv.desktop
 image/bmp=imv.desktop
 image/jpeg=imv.desktop
 image/x-tga=imv.desktop

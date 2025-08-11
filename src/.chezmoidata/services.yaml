@@ -1,0 +1,55 @@
+services:
+  systemd:
+    system:
+      enabled:
+        - bluetooth.service
+        - cpupower.service
+        - etckeeper.timer
+        - fstrim.timer
+        - irqbalance.service
+        - iwd.service
+        - keyd.service
+        - ly.service
+        - paccache.timer
+        - pcscd.service
+        - pkgfile-update.timer
+        - rkhunter.timer
+        - systemd-homed.service
+        - systemd-networkd.service
+        - systemd-oomd.service
+        - systemd-resolved.service
+        - systemd-timesyncd.service
+        - thermald.service
+        - tlp.service
+        - ufw.service
+        # HACK: use docker.socket instead of docker.service
+        #       docker.service slows down startup time
+        - docker.socket
+      running:
+        - bluetooth.service
+        - cpupower.service
+        - etckeeper.timer
+        - fstrim.timer
+        - irqbalance.service
+        - iwd.service
+        - keyd.service
+        - ly.service
+        - paccache.timer
+        - pkgfile-update.timer
+        - rkhunter.timer
+        - systemd-homed.service
+        - systemd-networkd.service
+        - systemd-oomd.service
+        - systemd-resolved.service
+        - systemd-timesyncd.service
+        - thermald.service
+        - tlp.service
+        - ufw.service
+    user:
+      enabled:
+        - tmux
+        - gcr-ssh-agent.socket
+        - espanso
+      running:
+        - gcr-ssh-agent.socket
+        - espanso

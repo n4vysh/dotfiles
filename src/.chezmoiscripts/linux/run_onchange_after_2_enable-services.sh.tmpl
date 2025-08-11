@@ -1,0 +1,40 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+gum log --level info 'Enable system services'
+sudo bash -c "systemctl enable $(
+	tr '\n' ' ' <<-EOF
+		{{ range .services.systemd.system.enabled -}}
+		{{ . }}
+		{{ end -}}
+	EOF
+)"
+
+gum log --level info 'Start system services'
+sudo bash -c "systemctl start $(
+	tr '\n' ' ' <<-EOF
+		{{ range .services.systemd.system.running -}}
+		{{ . }}
+		{{ end -}}
+	EOF
+)"
+
+gum log --level info 'Enable user services'
+bash -c "systemctl --user enable $(
+	tr '\n' ' ' <<-EOF
+		{{ range .services.systemd.user.enabled -}}
+		{{ . }}
+		{{ end -}}
+	EOF
+)"
+
+gum log --level info 'Start user services'
+bash -c "systemctl --user start $(
+	tr '\n' ' ' <<-EOF
+		{{ range .services.systemd.user.running -}}
+		{{ . }}
+		{{ end -}}
+	EOF
+)"
+
+{{ end -}}

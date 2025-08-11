@@ -1,4 +1,0 @@
-chaotic-aur/downgrade
-core/zstd
-extra/ccache
-extra/pkgfile

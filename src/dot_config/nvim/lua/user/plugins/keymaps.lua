@@ -35,7 +35,7 @@ return {
 		end,
 	},
 	{
-		"echasnovski/mini.bracketed",
+		"nvim-mini/mini.bracketed",
 		version = "*",
 		keys = {
 			{ "[k" },

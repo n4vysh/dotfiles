@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [[ $1 == +C ]]; then
-  true
-else
-  /usr/bin/chattr "$@"
-fi

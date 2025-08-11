@@ -20,26 +20,16 @@
   --notification-group-icon-size: 24px;
 }
 
-.close-button {
+* {
   border-radius: 0px;
 }
 
 .notification-row .notification-background .notification {
-  border-radius: 0px;
   background: var(--noti-bg);
 }
 
-.notification-row .notification-background .notification .notification-default-action {
-  border-radius: 0px;
-}
-
 .notification-row .notification-background .notification .notification-default-action .notification-content {
-  border-radius: 0px;
   padding: 4px;
-}
-
-.notification-row .notification-background .notification .notification-default-action .notification-content .image {
-  border-radius: 0px;
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .summary {
@@ -54,28 +44,14 @@
   font-size: 0.9rem;
 }
 
-.notification-row .notification-background .notification .notification-default-action .notification-content .body-image {
-  border-radius: 0px;
-}
-
-.notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-entry {
-  border-radius: 0px;
-}
-
-.notification-row .notification-background .notification .notification-default-action .notification-content .inline-reply .inline-reply-button {
-  border-radius: 0px;
-}
-
 .notification-row .notification-background .notification .notification-alt-actions {
   border-top: 1px solid var(--noti-border-color);
-  border-radius: 0px;
   border-right: 1px solid var(--noti-border-color);
 }
 
 .notification-row .notification-background .notification .notification-action>button {
   color: var(--text-color);
   border: 1px solid var(--noti-border-color);
-  border-radius: 0px;
 }
 
 .notification-row .notification-background .notification .notification-action>button:hover {
@@ -104,8 +80,6 @@
 }
 
 .control-center {
-  border-radius: 0px;
-
   /*
   * https://github.com/ErikReider/SwayNotificationCenter/pull/371
   */
@@ -137,7 +111,6 @@
   background: var(--noti-btn-bg);
   border: 1px solid var(--noti-border-color);
   box-shadow: none;
-  border-radius: 0px;
 }
 
 .widget-title>button:hover {
@@ -149,74 +122,7 @@
   font-size: 1rem;
 }
 
-.widget-dnd>switch {
-  border-radius: 0px;
-  background: var(--text-color-disabled);
-  border: 1px solid var(--noti-border-color);
-}
-
-.widget-dnd>switch:checked {
-  background: var(--bg-selected);
-}
-
-.widget-dnd>switch slider {
-  background: var(--noti-bg-hover);
-  border-radius: 0px;
-}
-
 /* Label widget */
 .widget-label>label {
   font-size: 0.9rem;
-}
-
-/* Mpris widget */
-.widget-mpris .widget-mpris-player {
-  border-radius: 0px;
-}
-
-.widget-mpris .widget-mpris-player .mpris-overlay .widget-mpris-album-art {
-  border-radius: 0px;
-}
-
-/* Buttons widget */
-.widget-buttons-grid {
-  border-radius: 0px;
-}
-
-.widget-buttons-grid>flowboxchild>button {
-  border-radius: 0px;
-}
-
-/* Menubar widget */
-.widget-menubar>.menu-button-bar>.widget-menubar-container button {
-  border-radius: 0px;
-}
-
-.widget-menubar>revealer button {
-  border-radius: 0px;
-}
-
-/* Volume widget */
-.widget-volume {
-  border-radius: 0px;
-}
-
-/* Each row app icon */
-.per-app-volume {
-  border-radius: 0px;
-}
-
-/* Slider widget */
-.widget-slider {
-  border-radius: 0px;
-}
-
-/* Backlight widget */
-.widget-backlight {
-  border-radius: 0px;
-}
-
-/* Inhibitors widget */
-.widget-inhibitors>button {
-  border-radius: 0px;
 }

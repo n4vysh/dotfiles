@@ -78,7 +78,7 @@
   "bluetooth": {
     "format": " 󰂯",
     "format-off": " 󰂲",
-    "on-click": "ghostty -e bluetuith",
+    "on-click": "ghostty -e bluetui",
     "tooltip": false
   },
   "pulseaudio": {

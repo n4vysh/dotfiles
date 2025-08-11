@@ -1,0 +1,9 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+gum log --level info "Add user to group"
+{{ range .groups -}}
+sudo gpasswd -a "$USER" {{ . | quote }}
+{{ end -}}
+
+{{ end -}}

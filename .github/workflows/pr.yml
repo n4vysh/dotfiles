@@ -1,0 +1,32 @@
+name: main
+"on": pull_request
+jobs:
+  commitlint:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.2.20
+      - name: Install commitlint
+        run: |
+          bun add -d \
+            @commitlint/cli@19.8.0 \
+            @commitlint/config-conventional@19.8.0
+      - name: Setup commitlint config
+        run: |
+          cat <<-EOF >commitlint.config.js
+            export default {
+              extends: ['@commitlint/config-conventional']
+            };
+          EOF
+      - name: Validate PR commits
+        run: |
+          bunx commitlint \
+            --from ${{ github.event.pull_request.base.sha }} \
+            --to ${{ github.event.pull_request.head.sha }} \
+            --verbose

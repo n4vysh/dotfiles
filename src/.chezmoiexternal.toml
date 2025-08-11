@@ -1,0 +1,22 @@
+[".local/share/fcitx5/themes"]
+type = "archive"
+url = "https://github.com/Reverier-Xu/Fluent-fcitx5/archive/refs/tags/v0.4.0.tar.gz"
+exact = true
+stripComponents = 1
+exclude = ["*/imgs", "*/README.md"]
+
+[".local/bin/grimblast"]
+type = "file"
+url = "https://raw.githubusercontent.com/hyprwm/contrib/481175e17e155f19a3b31416530b6edf725e7034/grimblast/grimblast"
+
+[".local/bin/scratchpad"]
+type = "file"
+url = "https://raw.githubusercontent.com/hyprwm/contrib/481175e17e155f19a3b31416530b6edf725e7034/scratchpad/scratchpad"
+
+[".local/bin/cliphist-rofi-img"]
+type = "file"
+url = "https://raw.githubusercontent.com/sentriz/cliphist/refs/tags/v0.6.1/contrib/cliphist-rofi-img"
+
+[".tmux/plugins/tpm"]
+type = "git-repo"
+url = "https://github.com/tmux-plugins/tpm"

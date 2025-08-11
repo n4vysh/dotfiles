@@ -6,40 +6,23 @@ experimental = true
 bun = true
 
 [tools]
-"pipx:posting" = { version = "2.5.4", uvx_args = "--python 3.12 --prerelease=allow" }
-"pipx:harlequin" = { version = "2.1.1", uvx_args = "--python 3.13" }
-"go:github.com/rhysd/vim-startuptime" = "1.3.2"
 "npm:czg" = "1.11.1"
 "npm:gitmoji-cli" = "9.6.0"
 "ubi:YiNNx/cmd-wrapped" = "0.4"
-adr-tools = "3.0.0"
 dyff = "1.10.1"
 jqp = "0.7.0"
 lefthook = "1.11.13"
 opa = "1.5.0"
-snyk = "1.1260.0"
-"npm:@stoplight/spectral-cli" = "6.15.0"
 "npm:@redocly/cli" = "1.34.3"
 "npm:sql-formatter" = "15.6.2"
-"npm:@mermaid-js/mermaid-cli" = "11.4.2"
-"aqua:simonwhitaker/gibo" = "3.0.14"
 "npm:git-open" = "3.1.0"
-"aqua:b3nj5m1n/xdg-ninja" = "0.2.0.2"
-"aqua:charmbracelet/freeze" = "0.2.2"
 "aqua:knqyf263/pet" = "1.0.1"
-"ubi:https://raw.githubusercontent.com/hyprwm/contrib/481175e17e155f19a3b31416530b6edf725e7034/grimblast/grimblast" = { version = "481175e", rename_exe = "grimblast" }
-"ubi:https://raw.githubusercontent.com/hyprwm/contrib/481175e17e155f19a3b31416530b6edf725e7034/scratchpad/scratchpad" = { version = "481175e", rename_exe = "scratchpad" }
-"ubi:https://raw.githubusercontent.com/sentriz/cliphist/refs/tags/v0.6.1/contrib/cliphist-rofi-img" = { version = "0.6.1", rename_exe = "cliphist-rofi-img" }
 "go:github.com/hashicorp/hcl/v2/cmd/hclfmt" = "v2.24.0"
 
 # AI
 "npm:opencode-ai" = "0.5.5"
 
-# frontend
-## typescript
-"npm:@nestjs/cli" = "11.0.7"
-
-# backend
+# app
 ## go
 gotestsum = "1.12.2"
 "go:github.com/josharian/impl" = "1.4.0"
@@ -50,7 +33,6 @@ golangci-lint = "2.1.6"
 # infra
 ## container
 hadolint = "2.12.0"
-tilt = "0.34.5"
 "ubi:docker/docker-credential-helpers" = { version = "0.9.3", exe = "docker-credential-pass" }
 ## terraform
 terraform-docs = "0.20.0"
@@ -69,10 +51,7 @@ helm-diff = "3.12.1"
 helm-docs = "1.14.2"
 ## platform
 amazon-ecr-credential-helper = "0.9.1"
-"npm:vercel" = "42.3.0"
 ## cost management
 infracost = "0.10.41"
 ## Policy as Code
 conftest = "0.61.0"
-## test
-goss = "0.4.9"

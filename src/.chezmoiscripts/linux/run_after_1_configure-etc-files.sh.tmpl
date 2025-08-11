@@ -1,0 +1,172 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+gum log --level info 'Deploy etc files'
+sudo mkdir -p /etc/keyd/ /etc/docker/
+dir="{{- .chezmoi.sourceDir -}}/.."
+xargs -I {} sudo cp -v "$dir/misc/{}" /{} <<-EOF
+	etc/keyd/default.conf
+	etc/docker/daemon.json
+	etc/polkit-1/rules.d/50-udisks.rules
+	etc/systemd/zram-generator.conf
+	etc/systemd/timesyncd.conf.d/ntp.conf
+	etc/systemd/system/openvpn-reconnect.service
+	etc/udev/rules.d/99-lowbat.rules
+	etc/ssh/sshd_config.d/permit_root_login.conf
+	etc/pacman.d/hooks/rkhunter-propupd.hook
+EOF
+
+gum log --level info 'Update etc files'
+sudo sed \
+	-i \
+	-e '/^clock =/s/null/%a, %b %d %H:%M/' \
+	-e '/^hide_key_hints =/s/false/true/' \
+	-e '/^session_log =/s/ ly-session.log$/ .ly-session.log$/' \
+	/etc/ly/config.ini
+sudo sed \
+	-i \
+	-e '/^#governor=/s/ondemand/performance/' \
+	-e '/^#governor=/s/#//' \
+	-e '/^#max_freq=/s/#max_freq="[0-9]*GHz"/max_freq="2GHz"/' \
+	/etc/default/cpupower
+sudo sed \
+	-i \
+	-e '/^#AutoEnable=/s/false/true/' \
+	-e '/^#AutoEnable=/s/#//' \
+	/etc/bluetooth/main.conf
+
+# U2F PAM
+if ! sudo grep -q "pam_u2f.so" /etc/pam.d/sudo; then
+	sudo sed \
+		-i \
+		-e '/^#%PAM-1.0$/a auth		sufficient		pam_u2f.so		cue		origin=pam:\/\/localhost		appid=pam:\/\/localhost' \
+		/etc/pam.d/sudo
+else
+	gum log --level warn "U2F PAM already set in /etc/pam.d/sudo -- skipping"
+fi
+
+if ! [ -f /etc/pam.d/polkit-1 ]; then
+	sudo cp -v /usr/lib/pam.d/polkit-1 /etc/pam.d/polkit-1
+fi
+if ! sudo grep -q "pam_u2f.so" /etc/pam.d/polkit-1; then
+	sudo sed \
+		-i \
+		-e '/^#%PAM-1.0$/a auth		sufficient		pam_u2f.so		cue		origin=pam:\/\/localhost		appid=pam:\/\/localhost' \
+		/etc/pam.d/polkit-1
+else
+	gum log --level warn "U2F PAM already set in /etc/pam.d/polkit-1 -- skipping"
+fi
+
+if ! sudo grep -q "pam_u2f.so" /etc/pam.d/hyprlock; then
+	sudo sed \
+		-i \
+		-e '/^auth        include     login$/i auth		sufficient		pam_u2f.so		cue		origin=pam:\/\/localhost		appid=pam:\/\/localhost' \
+		/etc/pam.d/hyprlock
+else
+	gum log --level warn "U2F PAM already set in /etc/pam.d/hyprlock -- skipping"
+fi
+
+# GNOME keyring
+sudo sed \
+	-i \
+	-e '/^auth *optional *pam_gnome_keyring.so$/! {
+			/^auth *include *system-local-login$/a auth       optional     pam_gnome_keyring.so
+		}' \
+	-e '/^session *optional *pam_gnome_keyring.so auto_start$/! {
+			/^session *include *system-local-login$/a session    optional     pam_gnome_keyring.so auto_start
+		}' \
+	/etc/pam.d/login
+
+sudo sed \
+	-i \
+	-e '/^password	optional	pam_gnome_keyring.so$/! {
+			$ a password	optional	pam_gnome_keyring.so
+		}' /etc/pam.d/passwd
+
+# rkhunter
+lists=(
+	/usr/bin/egrep
+	/usr/bin/fgrep
+	/usr/bin/ldd
+)
+
+for list in "${lists[@]}"; do
+	if ! sudo grep -q "SCRIPTWHITELIST=$list" /etc/rkhunter.conf; then
+		sudo tee -a /etc/rkhunter.conf <<<"SCRIPTWHITELIST=$list" >/dev/null
+	else
+		gum log --level warn "rkhunter SCRIPTWHITELIST=$list already set -- skipping"
+	fi
+done
+
+sudo sed \
+	-i \
+	-e '/^#ALLOW_SSH_PROT_V1/s/#//' \
+	-e '/^ALLOW_SSH_PROT_V1/s/0/2/' \
+	-e '/^#ALLOW_SSH_ROOT_USER/s/#//' \
+	-e '/^ALLOW_SSH_ROOT_USER/s/no/unset/' \
+	/etc/rkhunter.conf
+
+if ! sudo grep -q "ALLOWDEVFILE=/dev/shm/PostgreSQL.*" /etc/rkhunter.conf; then
+	sudo tee -a /etc/rkhunter.conf <<<"ALLOWDEVFILE=/dev/shm/PostgreSQL.*" >/dev/null
+else
+	gum log --level warn "rkhunter ALLOWDEVFILE=/dev/shm/PostgreSQL.* already set -- skipping"
+fi
+
+# For zoom
+if ! sudo grep -q "ALLOWDEVFILE=/dev/shm/aomshm.*" /etc/rkhunter.conf; then
+	sudo tee -a /etc/rkhunter.conf <<<"ALLOWDEVFILE=/dev/shm/aomshm.*" >/dev/null
+else
+	gum log --level warn "rkhunter ALLOWDEVFILE=/dev/shm/aomshm.* already set -- skipping"
+fi
+
+if ! sudo grep -q "ALLOWHIDDENDIR=/etc/.git" /etc/rkhunter.conf; then
+	sudo tee -a /etc/rkhunter.conf <<<"ALLOWHIDDENDIR=/etc/.git" >/dev/null
+else
+	gum log --level warn "rkhunter ALLOWHIDDENDIR=/etc/.git already set -- skipping"
+fi
+
+lists=(
+	/etc/.etckeeper
+	/etc/.gitignore
+	/etc/.updated
+	/usr/share/man/man5/.k5identity.5.gz
+	/usr/share/man/man5/.k5login.5.gz
+)
+
+for list in "${lists[@]}"; do
+	if ! sudo grep -q "ALLOWHIDDENFILE=$list" /etc/rkhunter.conf; then
+		sudo tee -a /etc/rkhunter.conf <<<"ALLOWHIDDENFILE=$list" >/dev/null
+	else
+		gum log --level warn "rkhunter ALLOWHIDDENFILE=$list already set -- skipping"
+	fi
+done
+
+# NOTE: allow IPC for ueberzug
+if ! sudo grep -q "ALLOWIPCUSER=$USER" /etc/rkhunter.conf; then
+	sudo tee -a /etc/rkhunter.conf <<<"ALLOWIPCUSER=$USER" >/dev/null
+else
+	gum log --level warn "rkhunter ALLOWIPCUSER=$USER already set -- skipping"
+fi
+
+gum log --level info 'Configure rkhunter'
+if ! systemctl is-active -q rkhunter.timer; then
+	# NOTE: use /dev/null to ignore grep warning
+	sudo rkhunter --update 2>/dev/null
+	sudo rkhunter --config-check 2>/dev/null
+	sudo rkhunter --propupd 2>/dev/null
+	sudo rkhunter -c --sk 2>/dev/null
+else
+	gum log --level warn "rkhunter already configured -- skipping"
+fi
+
+gum log --level info 'Configure etckeeper'
+if ! [ -d /etc/.git ]; then
+	sudo etckeeper init
+	sudo git -C /etc/ config --local user.name "etckeeper"
+	sudo git -C /etc/ config --local user.email "etckeeper@localhost"
+	sudo etckeeper commit "Initial commit"
+else
+	gum log --level warn "etckeeper already configured -- skipping"
+fi
+
+{{ end -}}

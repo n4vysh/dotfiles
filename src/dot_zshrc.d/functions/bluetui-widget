@@ -1,0 +1,2 @@
+BUFFER='bluetui'
+zle accept-line

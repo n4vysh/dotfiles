@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [[ $1 == create ]]; then
-  true
-elif [[ $1 == update ]]; then
-  true
-else
-  /usr/bin/homectl "$@"
-fi
