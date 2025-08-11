@@ -1,6 +1,5 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
-  "cssPriority": "application",
   "control-center-margin-top": 20,
   "control-center-margin-bottom": 100,
   "control-center-width": 400,

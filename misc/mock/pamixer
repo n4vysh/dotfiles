@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [[ $1 == --unmute ]]; then
-  true
-else
-  /usr/bin/pamixer "$@"
-fi

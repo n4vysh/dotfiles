@@ -9,6 +9,7 @@ repos:
       - id: end-of-file-fixer
         exclude: |
           (?x)^(
+            src/dot_docker/config.json|
             src/dot_config/nvim/lazy-lock.json|
             src/dot_mozilla/firefox/installs.ini|
             src/dot_mozilla/firefox/profiles.ini|
@@ -35,11 +36,6 @@ repos:
         language: system
         entry: yamlfmt -lint
         types_or: [yaml]
-        exclude: |
-          (?x)^(
-            test/templates/.*|
-            misc/security-lab/charts/.*
-          )$
       - id: yamllint
         name: check yaml files with yamllint
         language: system
@@ -100,12 +96,6 @@ repos:
         language: system
         entry: shfmt -w
         types_or: [sh, bash]
-      - id: just
-        name: format justfile with just --fmt option
-        language: system
-        entry: just --fmt --unstable
-        files: justfile$
-        pass_filenames: false
       - id: stylua
         name: format lua files with stylua
         language: system
@@ -121,14 +111,8 @@ repos:
         language: system
         entry: sh -c "printf '%s\n' $@ | xargs -I {} -t visudo -c -f {}"
         files: misc/etc/sudoer.d/.*
-      - id: goss
-        name: check dotfiles with goss
+      - id: bats
+        name: check dotfiles with bats
         language: system
-        entry: goss validate
+        entry: bats test
         pass_filenames: false
-      - id: commitlint
-        name: check commit message with commitlint
-        language: system
-        minimum_pre_commit_version: 0.7.0
-        stages: [commit-msg]
-        entry: commitlint --edit

@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [[ $1 == set-ntp ]] && [[ $2 == true ]]; then
-  true
-elif [[ $1 == status ]]; then
-  true
-else
-  /usr/bin/timedatectl "$@"
-fi

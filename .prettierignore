@@ -1,4 +1,4 @@
-test/templates/*.yaml
+src/dot_docker/config.json
 src/dot_config/nvim/lazy-lock.json
 misc/firefox/canvas-blocker.json
 misc/firefox/libredirect.json

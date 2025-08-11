@@ -1,0 +1,3 @@
+{{ if eq (env "CI") "true" }}
+.chezmoiscripts/linux/*
+{{ end }}

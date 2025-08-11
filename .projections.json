@@ -4,8 +4,5 @@
   },
   "docs/*.md": {
     "type": "doc"
-  },
-  "justfile": {
-    "type": "runner"
   }
 }

@@ -1,0 +1,130 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+gum log --level info 'Configure pacman'
+sudo sed \
+	-i \
+	-e '/^#Color$/s/#//' \
+	-e '/^#VerbosePkgLists$/s/#//' \
+	-e 's/^#ParallelDownloads = 5$/ParallelDownloads = 20/' \
+	/etc/pacman.conf
+
+gum log --level info 'Add chaotic-aur repository'
+if ! sudo grep -q "\[chaotic-aur\]" /etc/pacman.conf; then
+	sudo pacman-key \
+		--recv-key 3056513887B78AEB \
+		--keyserver keyserver.ubuntu.com
+	sudo pacman-key --lsign-key 3056513887B78AEB
+
+	domain=cdn-mirror.chaotic.cx
+	prefix=chaotic-aur
+	sudo pacman \
+		-U "https://$domain/$prefix/chaotic-keyring.pkg.tar.zst" \
+		--noconfirm
+	sudo pacman \
+		-U "https://$domain/$prefix/chaotic-mirrorlist.pkg.tar.zst" \
+		--noconfirm
+
+	sudo tee -a /etc/pacman.conf >/dev/null <<-EOF
+
+		[chaotic-aur]
+		Include = /etc/pacman.d/chaotic-mirrorlist
+	EOF
+
+	sudo pacman -Syy
+else
+	gum log --level warn 'chaotic-aur repository already exists -- skipping'
+fi
+
+gum log --level info 'Install official and chaotic-aur packages with pacman'
+sudo bash -c "yes '' | pacman -S --noconfirm --needed --disable-download-timeout $(
+	grep -E '^(core|extra|chaotic-aur)/' <<-EOF | tr '\n' ' '
+		{{ range .packages.linux.pacman -}}
+		{{ . }}
+		{{ end -}}
+	EOF
+)"
+
+gum log --level info 'Add blackarch repository'
+if ! sudo grep -q "\[blackarch\]" /etc/pacman.conf; then
+	curl -o '/tmp/#1' 'https://blackarch.org/{strap.sh}'
+	echo bbf0a0b838aed0ec05fff2d375dd17591cbdf8aa /tmp/strap.sh |
+		sha1sum -c
+	chmod +x /tmp/strap.sh
+	sudo /tmp/strap.sh
+
+	test -f /etc/pacman.d/blackarch-mirrorlist.bak ||
+		sudo cp /etc/pacman.d/blackarch-mirrorlist{,.bak}
+	sudo sed -i -e 's/^#Server/Server/' /etc/pacman.d/blackarch-mirrorlist.bak
+	rankmirrors -n 5 -p -r blackarch /etc/pacman.d/blackarch-mirrorlist.bak |
+		sudo tee /etc/pacman.d/blackarch-mirrorlist >/dev/null
+else
+	gum log --level warn 'blackarch repository already exists -- skipping'
+fi
+
+gum log --level info 'Install blackarch packages with pacman'
+# NOTE: install blackarch packages after official packages
+#       to avoid conflict between jack2 and pipewire-jack
+sudo bash -c "yes '' | pacman -S --noconfirm --needed --disable-download-timeout $(
+	grep '^blackarch/' <<-EOF | tr '\n' ' '
+		{{ range .packages.linux.pacman -}}
+		{{ . }}
+		{{ end -}}
+	EOF
+)"
+
+gum log --level info 'Import signing key'
+curl -sS https://downloads.1password.com/linux/keys/1password.asc |
+	gpg --import
+
+gum log --level info 'Install packages with yay'
+# NOTE: yay installed with chaotic-aur repository
+# HACK: enter password before running AUR helper to skip selection of package group with yes command
+sudo true
+bash -c "yes '' | yay -S --noconfirm --needed --disable-download-timeout --batchinstall $(
+	grep '^aur/' <<-EOF | tr '\n' ' '
+		{{ range .packages.linux.pacman -}}
+		{{ . }}
+		{{ end -}}
+	EOF
+)"
+
+gum log --level info 'Install packages with flatpak'
+bash -c "flatpak install -y flathub $(
+	tr '\n' ' ' <<-EOF
+		{{ range .packages.linux.flatpak.flathub -}}
+		{{ . }}
+		{{ end -}}
+	EOF
+)"
+
+gum log --level info 'Install packages with krew'
+bash -c "kubectl krew install $(
+	tr '\n' ' ' <<-EOF
+		{{ range .packages.linux.krew -}}
+		{{ . }}
+		{{ end -}}
+	EOF
+)"
+
+gum log --level info 'Install packages with gh'
+bash -c "gh extension install $(
+	tr '\n' ' ' <<-EOF
+		{{ range .packages.linux.gh -}}
+		{{ . }}
+		{{ end -}}
+	EOF
+)"
+
+gum log --level info 'Install tresorit'
+if ! [ -f ~/.local/share/tresorit/tresorit-cli ]; then
+	curl \
+		-o '/tmp/#1' \
+		'https://installer.tresorit.com/{tresorit_installer.run}'
+	chmod +x /tmp/tresorit_installer.run
+	/tmp/tresorit_installer.run
+else
+	gum log --level warn 'tresorit already exists -- skipping'
+fi
+
+{{ end -}}

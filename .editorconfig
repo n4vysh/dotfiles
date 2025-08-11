@@ -8,9 +8,6 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[justfile]
-indent_size = 4
-
 [*/.config/hypr/*.conf]
 indent_size = 4
 
@@ -20,10 +17,20 @@ indent_style = tab
 [*/dot_config/git/config]
 indent_style = tab
 
+[*/dot_docker/config.json]
+indent_style = tab
+insert_final_newline = false
+
+[*/dot_config/nwg-look/config]
+indent_size = 1
+
 [**/dot_local/bin/*]
 indent_style = unset
 
-[**/*.sh]
+[**/dot_config/git/templates/hooks/*]
+indent_style = unset
+
+[**/*.sh{,.tmpl}]
 indent_style = tab
 
 [**/*.bash]
