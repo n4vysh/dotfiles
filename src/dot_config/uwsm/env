@@ -1,8 +1,7 @@
 export XCURSOR_SIZE=24
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-export QT_QPA_PLATFORMTHEME=gtk3
-export QT_STYLE_OVERRIDE=Adwaita-Dark
+export QT_STYLE_OVERRIDE=kvantum
 export MOZ_ENABLE_WAYLAND=1
 export _JAVA_AWT_WM_NONREPARENTING=1
 export GRIMBLAST_EDITOR=swappy -f

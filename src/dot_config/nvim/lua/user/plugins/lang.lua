@@ -489,7 +489,6 @@ return {
 				ensure_installed = {
 					"bashls", -- NOTE: require shellcheck for linting from bashls
 					"biome",
-					"buf_ls",
 					"cssls",
 					"docker_compose_language_service",
 					"dockerls",
@@ -497,12 +496,10 @@ return {
 					"eslint",
 					"golangci_lint_ls",
 					"gopls",
-					"graphql",
 					"harper_ls",
 					"helm_ls",
 					"hyprls",
 					"jsonls",
-					"just",
 					"lua_ls",
 					"marksman",
 					"systemd_ls",
@@ -517,9 +514,6 @@ return {
 				},
 				automatic_enable = true,
 			})
-
-			-- NOTE: tilt_ls not support by mason-lspconfig
-			vim.lsp.enable("tilt_ls")
 		end,
 		dependencies = {
 			{
@@ -554,7 +548,6 @@ return {
 				border = "single",
 				sources = {
 					null_ls.builtins.diagnostics.actionlint,
-					null_ls.builtins.diagnostics.buf,
 					null_ls.builtins.diagnostics.editorconfig_checker,
 					null_ls.builtins.diagnostics.opacheck,
 					null_ls.builtins.diagnostics.sqlfluff.with({
@@ -591,13 +584,10 @@ return {
 				hcl = { "hcl" },
 				go = { "goimports", "golangci-lint", "gofumpt" },
 				lua = { "stylua" },
-				proto = { "buf" },
 				rego = { "opa_fmt" },
 				sql = { "sql_formatter" },
 				mysql = { "sql_formatter" },
-				just = { "just" },
 				sh = { "shellharden", "shellcheck", "shfmt" },
-				direnv = { "shellharden", "shfmt" },
 				javascript = {
 					"biome",
 					"prettier",
@@ -622,11 +612,6 @@ return {
 				jsonc = { "prettier" },
 				markdown = { "prettier" },
 				["markdown.mdx"] = { "prettier" },
-				graphql = {
-					"biome",
-					"prettier",
-					stop_after_first = true,
-				},
 				yaml = { "yamlfmt" },
 				toml = { "taplo" },
 				terraform = { "terraform_fmt" },

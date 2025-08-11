@@ -1,14 +1,30 @@
 name: main
 "on": push
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  chezmoi:
+    runs-on: ubuntu-24.04
     container:
-      image: archlinux:latest
-      env:
-        XDG_CONFIG_HOME: "/github/home/.config"
+      image: archlinux:base-20250810.0.398652
     steps:
-      - name: Install packages
+      - uses: actions/checkout@main
+      - name: Generate keyring and download database file
+        run: pacman-key --init && pacman -Sy
+      - name: Install git command for chezmoiexternal git-repo type
+        run: pacman -S --noconfirm git
+      - name: Install dotfiles manager
+        run: pacman -S --noconfirm chezmoi
+      - name: Deploy dotfiles
+        run: |
+          chezmoi init --branch "${{ github.ref_name }}" n4vysh && chezmoi apply
+          ls -l ~/.*
+  pre-commit:
+    runs-on: ubuntu-24.04
+    container:
+      image: archlinux:base-20250810.0.398652
+    steps:
+      - name: Generate keyring and download database file
+        run: pacman-key --init && pacman -Sy
+      - name: Install packages for test
         run: |
           sed \
             -i \
@@ -20,9 +36,7 @@ jobs:
             -e "/^#MAKEFLAGS=\"-j2\"$/s/-j2/-j$(nproc)/" \
             -e '/^COMPRESSZST/s/zstd -c/zstd -1 --threads=0 -c/' \
             /etc/makepkg.conf
-          pacman -Syu --noconfirm \
-            sudo \
-            just \
+          pacman -S --noconfirm \
             pre-commit \
             prettier \
             yamlfmt \
@@ -36,23 +50,34 @@ jobs:
             taplo \
             shellharden \
             shfmt \
-            clang \
-            git \
-            chezmoi \
-            mise
-      - name: Initialize packages with mise
-        run: mise install && eval "$(mise env)"
+            git
       - uses: actions/checkout@main
-      - name: Deploy dotfiles
-        run: |
-          chezmoi init --branch "${{ github.ref_name }}" n4vysh && chezmoi apply
       - name: Set safe directory for submodule clone
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-      - name: Change protocol for git clone
-        run: |
-          git config --global --remove-section url."git@github.com:"
-          git config --global \
-            url."https://github.com/".insteadOf \
-            git@github.com:
       - name: Run pre-commit
-        run: SKIP=hyprland,goss just test
+        run: SKIP=hyprland,bats pre-commit run -a
+  commitlint:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.2.20
+      - name: Install commitlint
+        run: |
+          bun add -d \
+            @commitlint/cli@19.8.0 \
+            @commitlint/config-conventional@19.8.0
+      - name: Setup commitlint config
+        run: |
+          cat <<-EOF >commitlint.config.js
+            export default {
+              extends: ['@commitlint/config-conventional']
+            };
+          EOF
+      - name: Validate current commit (last commit)
+        run: bunx commitlint --last --verbose

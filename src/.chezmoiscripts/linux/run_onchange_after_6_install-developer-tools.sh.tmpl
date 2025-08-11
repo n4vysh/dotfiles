@@ -1,0 +1,38 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+gum log --level info 'Install packages with mise'
+mise install
+
+gum log --level info 'Install git hooks'
+if ! [ -f {{- .chezmoi.sourceDir -}}.git/hooks/pre-commit ]; then
+	cd {{- .chezmoi.sourceDir }}
+	pre-commit install --install-hooks
+	cd -
+else
+	gum log --level warn 'git hooks already exists -- skipping'
+fi
+
+gum log --level info 'Download wpscan database'
+if ! [ -d .wpscan ]; then
+	wpscan --update
+else
+	gum log --level warn 'wpscan database already exists -- skipping'
+fi
+
+gum log --level info 'Download wordlists'
+sudo wordlistctl fetch best110
+sudo wordlistctl fetch rockyou
+sudo wordlistctl fetch fasttrack
+sudo wordlistctl fetch subdomains-top1million-5000
+
+gum log --level info 'Set java version for burp'
+sudo archlinux-java set "$(
+	archlinux-java status |
+		grep 'java-.*-openjdk' |
+		awk '{print $1}' |
+		sort |
+		tail -1
+)"
+
+{{ end -}}

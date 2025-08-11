@@ -1,0 +1,21 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+gum log --level info 'Lock the password of root user'
+sudo passwd -l root
+
+gum log --level info 'Configure securetty'
+sudo sed \
+	-i \
+	-e '/^console$/s/^/# /' \
+	-e '/^tty1$/s/^/# /' \
+	-e '/^tty2$/s/^/# /' \
+	-e '/^tty3$/s/^/# /' \
+	-e '/^tty4$/s/^/# /' \
+	-e '/^tty5$/s/^/# /' \
+	-e '/^tty6$/s/^/# /' \
+	-e '/^ttyS0$/s/^/# /' \
+	-e '/^hvc0$/s/^/# /' \
+	/etc/securetty
+
+{{ end -}}

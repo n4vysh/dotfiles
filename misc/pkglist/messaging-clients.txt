@@ -1,4 +1,0 @@
-chaotic-aur/slack-desktop
-chaotic-aur/zoom
-extra/discord
-extra/signal-desktop

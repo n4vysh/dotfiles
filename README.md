@@ -97,7 +97,7 @@
   - OSC 8 - hyperlinks (tmux + eza + rg + fd + delta + ls)
   - OSC 52 - clipboard integration for copy only (tmux + neovim)
   - OSC 133 - shell integration (tmux + powerlevel10k)
-- Ergonomic keybinds with [XKB][xkb-link] and [keyd][keyd-link]
+- Ergonomic keybinds with [keyd][keyd-link]
   - Thumb cluster
   - Dual function keys
     - xcape
@@ -161,9 +161,8 @@
 [nordvpn-link]: https://nordvpn.com/
 [pet-link]: https://github.com/knqyf263/pet
 [blackarch-link]: https://blackarch.org
-[xkb-link]: https://www.x.org/wiki/XKB/
 [keyd-link]: https://github.com/rvaiya/keyd
-[goss-link]: https://github.com/goss-org/goss
+[bats-link]: https://bats-core.readthedocs.io/
 
 ## Requirements
 
@@ -182,14 +181,20 @@
 
 ### Deploy dotfiles
 
-```bash
+```sh
 chezmoi init n4vysh && chezmoi apply
 ```
 
-### Install git hooks
+### Configure Tresorit
 
-```bash
-just install-git-hooks
+Login Tresorit and sync tresor with following commands.
+
+```sh
+tresorit-cli login
+tresorit-cli sync --start Documents --path ~/Documents
+tresorit-cli sync --start Music --path ~/Music
+tresorit-cli sync --start Pictures --path ~/Pictures
+tresorit-cli sync --start Videos --path ~/Videos
 ```
 
 ### Configure Firefox
@@ -211,7 +216,7 @@ and restore settings from following files in [misc/firefox/](misc/firefox/) dire
 
 ### Test
 
-Run `just test` to lint and format the source code with
+Run `pre-commit run -a` to lint and format the source code with
 [pre-commit][pre-commit-link]. pre-commit run following tools.
 
 | Name                                                                                  | Target type                |
@@ -219,7 +224,6 @@ Run `just test` to lint and format the source code with
 | [prettier][prettier-link]                                                             | JSON, YAML, Markdown files |
 | [yamllint][yamllint-link]                                                             | YAML files                 |
 | [taplo][taplo-link]                                                                   | TOML files                 |
-| [just][just-link]                                                                     | justfile                   |
 | [markdownlint-cli2][markdownlint-cli2-link]                                           | Markdown files             |
 | [shfmt][shfmt-link] + [shellharden][shellharden-link] + [shellcheck][shellcheck-link] | shell scripts              |
 | [commitlint][commitlint-link]                                                         | commit messages            |
@@ -227,13 +231,12 @@ Run `just test` to lint and format the source code with
 | hyprctl configerrors                                                                  | hyprland config file       |
 | [selene][selene-link] + [stylua][stylua-link]                                         | lua files                  |
 | [editorconfig-checker][ec-link]                                                       | all files                  |
-| [goss][goss-link]                                                                     | etc files                  |
+| [bats][bats-link]                                                                     | etc files                  |
 
 [pre-commit-link]: https://pre-commit.com/
 [prettier-link]: https://prettier.io/
 [yamllint-link]: https://github.com/adrienverge/yamllint
 [taplo-link]: https://taplo.tamasfe.dev/
-[just-link]: https://github.com/casey/just
 [markdownlint-cli2-link]: https://github.com/DavidAnson/markdownlint-cli2
 [shfmt-link]: https://github.com/mvdan/sh
 [shellharden-link]: https://github.com/anordal/shellharden
@@ -245,10 +248,11 @@ Run `just test` to lint and format the source code with
 
 ## Custom keybinds
 
-### XKB + keyd
+### keyd
 
 | Physical key  | Mapped To      | Note                        |
 | :------------ | :------------- | :-------------------------- |
+| `Capslock`    | N/A            |                             |
 | `Alt (Right)` | `Ctrl (Right)` | `Escape` when pressed alone |
 | `Alt (Left)`  | `Alt (Left)`   |                             |
 
@@ -344,7 +348,8 @@ prefix is `C-j`
 | Screen record                 | [wf-recorder][wf-recorder-link] + [slurp][slurp-link]                                             |
 | Notification                  | [swaync][swaync-link]                                                                             |
 | Font                          | [Fira Code][firacode-link] + [NerdFontsSymbolsOnly][nerd-font-link] + [Noto Sans][noto-sans-link] |
-| GTK Theme                     | [Arc][arc-link]                                                                                   |
+| GTK Theme                     | [Fluent gtk][fluent-gtk-link]                                                                     |
+| QT Theme                      | [Fluent kde][fluent-kde-link]                                                                     |
 | Overlay bar                   | [wob][wob-link]                                                                                   |
 | System information tool       | [fastfetch][fastfetch-link]                                                                       |
 
@@ -362,7 +367,8 @@ prefix is `C-j`
 [firacode-link]: https://github.com/tonsky/FiraCode
 [nerd-font-link]: https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/NerdFontsSymbolsOnly
 [noto-sans-link]: https://fonts.google.com/noto/specimen/Noto+Sans
-[arc-link]: https://github.com/jnsh/arc-theme
+[fluent-gtk-link]: https://github.com/vinceliuice/Fluent-gtk-theme
+[fluent-kde-link]: https://github.com/vinceliuice/Fluent-kde
 [wob-link]: https://github.com/francma/wob
 [fastfetch-link]: https://github.com/fastfetch-cli/fastfetch
 
@@ -452,10 +458,6 @@ If rkhunter or arch-audit found some problem, show following.
 ### [btop](https://github.com/aristocratos/btop)
 
 ![btop](./misc/screenshots/btop.png)
-
-### [bluetuith](https://github.com/darkhz/bluetuith)
-
-![bluetuith](./misc/screenshots/bluetuith.png)
 
 ### [msf](https://github.com/rapid7/metasploit-framework)
 

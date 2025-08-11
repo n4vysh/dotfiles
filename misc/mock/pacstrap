@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [[ $1 == /mnt ]]; then
-  pacman -S --noconfirm --needed --disable-download-timeout "${@:2}"
-else
-  /usr/bin/pacstrap "$@"
-fi

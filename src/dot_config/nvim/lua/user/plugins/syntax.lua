@@ -7,8 +7,6 @@ return {
 			vim.cmd.TSUpdate()
 		end,
 		init = function()
-			vim.treesitter.language.register("python", "tiltfile")
-
 			do
 				local augroup = "treesitter"
 				vim.api.nvim_create_augroup(augroup, { clear = true })
@@ -42,7 +40,6 @@ return {
 				"gosum",
 				"gowork",
 				"gpg",
-				"graphql",
 				"hcl",
 				"helm",
 				"html",
@@ -51,7 +48,6 @@ return {
 				"javascript",
 				"json",
 				"jsonnet",
-				"just",
 				"lua",
 				"luap",
 				"make",
@@ -59,11 +55,9 @@ return {
 				"markdown_inline",
 				"mermaid",
 				"nginx",
-				"nix",
 				"passwd",
 				"printf",
 				"promql",
-				"proto",
 				"python",
 				"query",
 				"rasi",

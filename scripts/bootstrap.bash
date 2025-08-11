@@ -51,26 +51,8 @@ main() {
 			_log::fatal 'try Arch Linux live system'
 		fi
 	else
-		while getopts puh opt; do
+		while getopts h opt; do
 			case $opt in
-			p)
-				_verify_arch_linux
-
-				if _runtime::is_privileged; then
-					_configure_with_privileged
-				else
-					_log::fatal 'try privileged user'
-				fi
-				;;
-			u)
-				_verify_arch_linux
-
-				if ! _runtime::is_privileged; then
-					_configure_without_privileged
-				else
-					_log::fatal 'try unprivileged user'
-				fi
-				;;
 			h)
 				_print_usage
 				;;
@@ -92,13 +74,13 @@ main() {
 _print_usage() {
 	# editorconfig-checker-disable
 	cat <<-EOF 1>&2
+		$(_color::main "${SCRIPT_NAME} is installer of Arch Linux")
+
 		$(_color::main "Usage:")
 		  ${SCRIPT_NAME} [options]
 
 		$(_color::main "OPTIONS:")
 		  $(_color::sub "-h") show list of command-line options
-		  $(_color::sub "-p") configure Arch Linux by privileged user after install
-		  $(_color::sub "-u") configure Arch Linux by unprivileged user after install
 	EOF
 	# editorconfig-checker-enable
 	exit 1
@@ -183,6 +165,9 @@ _install() {
 		etc/systemd/system/rkhunter.timer
 		etc/makepkg.conf.d/makepkg.conf
 		etc/modprobe.d/disable-overlay-redirect-dir.conf
+		etc/sudoers.d/env-keep
+		etc/sudoers.d/pwfeedback
+		etc/sudoers.d/wheel
 	EOF
 
 	_log::info 'Configure fstab'
@@ -294,6 +279,10 @@ _install() {
 	arch-chroot /mnt systemctl mask \
 		systemd-networkd-wait-online.service
 
+	_log::info 'Configure user daemon'
+	arch-chroot /mnt systemctl enable \
+		systemd-homed.service
+
 	_log::info 'Configure the regulatory domain'
 	arch-chroot /mnt sed \
 		-i \
@@ -311,461 +300,6 @@ _install() {
 }
 
 #######################################
-# Configure by privileged user
-# Globals:
-#   None
-# Arguments:
-#   None
-#######################################
-_configure_with_privileged() {
-	_log::info 'Configure user'
-	systemctl enable --now systemd-homed.service
-
-	homectl create "$USERNAME" --member-of=wheel --storage=directory
-
-	_log::info 'Configure privilege escalation'
-	cp -fv /tmp/dotfiles/misc/etc/sudoers.d/* /etc/sudoers.d/
-}
-
-#######################################
-# Configure by unprivileged user
-# Globals:
-#   XDG_DATA_HOME
-#   USER
-# Arguments:
-#   None
-#######################################
-_configure_without_privileged() {
-	_verify_internet_connection
-
-	# NOTE: stub-resolv.conf does not exist unless systemd-resolved starts
-	sudo ln -rsfv /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-
-	_log::info 'Configure pacman'
-	sudo sed \
-		-i \
-		-e '/^#Color$/s/#//' \
-		-e '/^#VerbosePkgLists$/s/#//' \
-		-e 's/^#ParallelDownloads = 5$/ParallelDownloads = 20/' \
-		/etc/pacman.conf
-	sudo systemctl enable --now paccache.timer
-
-	_log::info 'Add chaotic-aur repository'
-	sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-	sudo pacman-key --lsign-key 3056513887B78AEB
-	sudo pacman \
-		-U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' \
-		--noconfirm
-	sudo pacman \
-		-U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' \
-		--noconfirm
-	if ! sudo grep -q "\[chaotic-aur\]" /etc/pacman.conf; then
-		sudo tee -a /etc/pacman.conf >/dev/null <<-EOF
-
-			[chaotic-aur]
-			Include = /etc/pacman.d/chaotic-mirrorlist
-		EOF
-	else
-		_log::warn 'chaotic-aur repository already exists -- skipping'
-	fi
-
-	_log::info 'Add blackarch repository'
-	curl -o '/tmp/#1' 'https://blackarch.org/{strap.sh}'
-	echo 5ea40d49ecd14c2e024deecf90605426db97ea0c /tmp/strap.sh | sha1sum -c
-	chmod +x /tmp/strap.sh
-	sudo /tmp/strap.sh
-
-	test -f /etc/pacman.d/blackarch-mirrorlist.bak ||
-		sudo cp /etc/pacman.d/blackarch-mirrorlist{,.bak}
-	sudo sed -i -e 's/^#Server/Server/' /etc/pacman.d/blackarch-mirrorlist.bak
-	rankmirrors -n 5 -p -r blackarch /etc/pacman.d/blackarch-mirrorlist.bak |
-		sudo tee /etc/pacman.d/blackarch-mirrorlist >/dev/null
-
-	_log::info 'Install packages'
-	sudo bash -c "yes '' | pacman -S --noconfirm --needed --disable-download-timeout $(
-		find /tmp/dotfiles/misc/pkglist/ \
-			-type f \
-			-not -name base.txt \
-			-print0 |
-			xargs -0 cat |
-			grep -v aur |
-			tr '\n' ' '
-	)"
-
-	_log::info 'Configure pkgfile'
-	sudo systemctl start pkgfile-update.service
-	sudo systemctl enable --now pkgfile-update.timer
-
-	_log::info 'Install AUR helper'
-	curl -L -o '/tmp/#1' \
-		'https://aur.archlinux.org/cgit/aur.git/snapshot/{yay-bin.tar.gz}'
-	tar xzvf /tmp/yay-bin.tar.gz -C /tmp/
-	cd /tmp/yay-bin/
-	makepkg -si --noconfirm
-	cd -
-
-	_log::info 'Import 1Password signing key'
-	curl -sS https://downloads.1password.com/linux/keys/1password.asc |
-		gpg --import
-
-	_log::info 'Install AUR packages'
-	# HACK: enter password before running AUR helper to skip selection of package group with yes command
-	sudo true
-	bash -c "yes '' | yay -S --noconfirm --needed --disable-download-timeout $(
-		find /tmp/dotfiles/misc/pkglist/ \
-			-type f \
-			-print0 |
-			xargs -0 cat |
-			grep aur |
-			tr '\n' ' '
-	)"
-
-	_log::info 'Lock the password of root user'
-	sudo passwd -l root
-
-	_log::info 'Configure securetty'
-	sudo sed \
-		-i \
-		-e '/^console$/s/^/# /' \
-		-e '/^tty1$/s/^/# /' \
-		-e '/^tty2$/s/^/# /' \
-		-e '/^tty3$/s/^/# /' \
-		-e '/^tty4$/s/^/# /' \
-		-e '/^tty5$/s/^/# /' \
-		-e '/^tty6$/s/^/# /' \
-		-e '/^ttyS0$/s/^/# /' \
-		-e '/^hvc0$/s/^/# /' \
-		/etc/securetty
-
-	_log::info 'Configure firewall'
-	sudo systemctl enable --now ufw
-	sudo ufw enable
-	sudo ufw status verbose
-
-	_log::info 'Enable irqbalance'
-	sudo systemctl enable --now irqbalance.service
-
-	_log::info 'Clone dotfiles repository'
-	if ! [[ -e "$XDG_DATA_HOME/dotfiles/" ]]; then
-		git clone "https://github.com/$USERNAME/dotfiles" "$XDG_DATA_HOME/dotfiles/"
-	else
-		_log::warn 'dotfiles already exists -- skipping'
-	fi
-
-	_log::info 'Deploy config files'
-	sudo mkdir -p /etc/keyd/ /etc/docker/ /etc/keybase/
-	dir="$XDG_DATA_HOME/dotfiles"
-	xargs -I {} sudo cp -v "$dir/misc/{}" /{} <<-EOF
-		etc/keyd/default.conf
-		etc/docker/daemon.json
-		etc/polkit-1/rules.d/50-udisks.rules
-		etc/systemd/zram-generator.conf
-		etc/systemd/timesyncd.conf.d/ntp.conf
-		etc/systemd/system/openvpn-reconnect.service
-		etc/udev/rules.d/99-lowbat.rules
-		etc/ssh/sshd_config.d/permit_root_login.conf
-		etc/keybase/config.json
-	EOF
-
-	_log::info 'Change default shell'
-	sudo homectl update --shell="$(which zsh)" "$USER"
-
-	_log::info 'Configure clock synchronization'
-	sudo systemctl enable --now systemd-timesyncd
-	sudo timedatectl set-ntp true
-	sudo timedatectl status
-
-	# Graphical User Interface
-	_log::info 'Configure display manager'
-	sudo sed \
-		-i \
-		-e '/^clock =/s/null/%a, %b %d %H:%M/' \
-		-e '/^hide_key_hints =/s/false/true/' \
-		/etc/ly/config.ini
-	sudo systemctl enable ly.service
-
-	_log::info 'Configure window manager'
-	hyprpm update --no-shallow
-	yes | hyprpm add https://github.com/outfoxxed/hy3
-	yes | hyprpm add https://github.com/hyprwm/hyprland-plugins
-	hyprpm enable hy3
-	hyprpm enable hyprbars
-
-	# OOM-killer
-	_log::info 'Configure OOM-killer'
-	sudo systemctl enable --now systemd-oomd
-
-	# TRIM
-	_log::info 'Configure Periodic TRIM'
-	sudo systemctl enable --now fstrim.timer
-
-	# Power management
-	_log::info 'Configure CPU frequency scaling'
-	sudo sed \
-		-i \
-		-e '/^#governor=/s/ondemand/performance/' \
-		-e '/^#governor=/s/#//' \
-		-e '/^#max_freq=/s/#max_freq="[0-9]*GHz"/max_freq="2GHz"/' \
-		/etc/default/cpupower
-	sudo systemctl enable --now cpupower
-
-	# Input devices
-	_log::info 'Configure keyboard layouts'
-	keymap=us
-
-	sudo cp \
-		"/usr/share/kbd/keymaps/i386/qwerty/$keymap.map.gz" \
-		"/usr/share/kbd/keymaps/$keymap-custom.map.gz"
-	sudo gunzip "/usr/share/kbd/keymaps/$keymap-custom.map.gz"
-	# Disable caps lock
-	sudo sed \
-		-i \
-		-e 's/^keycode  58 = Caps_Lock$/keycode  58 = VoidSymbol/' \
-		"/usr/share/kbd/keymaps/$keymap-custom.map"
-	# Change right alt to control
-	if ! sudo grep -q "keycode 100 = Control" "/usr/share/kbd/keymaps/$keymap-custom.map"; then
-		sudo tee -a "/usr/share/kbd/keymaps/$keymap-custom.map" <<<"keycode 100 = Control" >/dev/null
-	fi
-	sudo sed -i \
-		-e "s|^KEYMAP=$keymap$|KEYMAP=$keymap-custom|" \
-		/etc/vconsole.conf
-	sudo systemctl enable --now keyd
-
-	_log::info 'Configure wallpaper'
-	mkdir -p "${XDG_DATA_HOME}/hypr/"
-	# https://www.pexels.com/photo/buildings-with-blue-light-747101/
-	curl \
-		'https://images.pexels.com/photos/747101/pexels-photo-747101.jpeg?dl&fit=crop&crop=entropy&w=1920&h=1280' \
-		>"${XDG_DATA_HOME}/hypr/wallpaper.jpeg"
-
-	_log::info 'Configure bluetooth'
-	sudo gpasswd -a "$USER" lp
-	sudo sed \
-		-i \
-		-e '/^#AutoEnable=/s/false/true/' \
-		-e '/^#AutoEnable=/s/#//' \
-		/etc/bluetooth/main.conf
-	sudo systemctl enable --now bluetooth
-
-	_log::info 'Configure yubikey'
-	sudo systemctl enable --now pcscd.service
-
-	_log::info 'Configure avrdude'
-	sudo gpasswd -a "$USER" uucp
-	sudo gpasswd -a "$USER" lock
-
-	_log::info 'Configure virtualization'
-	# NOTE: make faster startup time to use docker.socket instead of docker.service
-	sudo systemctl enable docker.socket
-	sudo gpasswd -a "$USER" docker
-	dir=$HOME/.docker/
-	[[ ! -d $dir ]] && mkdir "$dir"
-	file=$dir/config.json
-	[[ ! -f $file ]] && echo '{}' >"$file"
-	jq <"$file" '
-			.
-			| . + {
-				"detachKeys": "ctrl-\\",
-				"credsStore": "pass"
-			}
-		' |
-		sponge "$file"
-
-	# Utilities
-	_log::info 'Configure mount helper'
-	sudo gpasswd --add "$USER" storage
-
-	_log::info 'Create user directories'
-	mkdir "$HOME"/{Downloads,Public,Workspaces}
-
-	_log::info 'Configure U2F PAM'
-	if ! sudo grep -q "pam_u2f.so" /etc/pam.d/sudo; then
-		sudo sed \
-			-i \
-			-e '/^#%PAM-1.0$/a auth		sufficient		pam_u2f.so		cue		origin=pam:\/\/localhost		appid=pam:\/\/localhost' \
-			/etc/pam.d/sudo
-	else
-		_log::warn "U2F PAM already set in /etc/pam.d/sudo -- skipping"
-	fi
-	if ! sudo grep -q "pam_u2f.so" /etc/pam.d/polkit-1; then
-		sudo sed \
-			-i \
-			-e '/^#%PAM-1.0$/a auth		sufficient		pam_u2f.so		cue		origin=pam:\/\/localhost		appid=pam:\/\/localhost' \
-			/etc/pam.d/polkit-1
-	else
-		_log::warn "U2F PAM already set in /etc/pam.d/polkit-1 -- skipping"
-	fi
-	if ! sudo grep -q "pam_u2f.so" /etc/pam.d/hyprlock; then
-		sudo sed \
-			-i \
-			-e '/^auth        include     login$/i auth		sufficient		pam_u2f.so		cue		origin=pam:\/\/localhost		appid=pam:\/\/localhost' \
-			/etc/pam.d/hyprlock
-	else
-		_log::warn "U2F PAM already set in /etc/pam.d/hyprlock -- skipping"
-	fi
-
-	_log::info 'Configure GNOME keyring'
-	sudo sed \
-		-i \
-		-e '/^auth *optional *pam_gnome_keyring.so$/! {
-			/^auth *include *system-local-login$/a auth       optional     pam_gnome_keyring.so
-		}' \
-		-e '/^session *optional *pam_gnome_keyring.so auto_start$/! {
-			/^session *include *system-local-login$/a session    optional     pam_gnome_keyring.so auto_start
-		}' \
-		/etc/pam.d/login
-
-	sudo sed \
-		-i \
-		-e '/^password	optional	pam_gnome_keyring.so$/! {
-			$ a password	optional	pam_gnome_keyring.so
-		}' /etc/pam.d/passwd
-
-	_log::info 'Setup nix'
-	sudo gpasswd -a "$USER" nix-users
-	sudo systemctl enable --now nix-daemon.service
-	nix-channel --add https://nixos.org/channels/nixpkgs-unstable
-	nix-channel --update
-
-	_log::info 'Install kubectl packages'
-	bash -c "yes | kubectl krew install $(
-		tr '\n' ' ' </tmp/dotfiles/misc/kubectl-plugins.txt
-	)"
-
-	_log::info 'Install gh extensions'
-	gh extension install dlvhdr/gh-dash
-
-	_log::info 'Configure VPN'
-	sudo systemctl enable --now openvpn-reconnect.service
-
-	_log::info 'Configure scheduling utility'
-	sudo systemctl enable --now atd
-
-	_log::info 'Configure plocate'
-	sudo systemctl start plocate-updatedb.service
-	sudo systemctl enable --now plocate-updatedb.timer
-
-	_log::info 'Configure etckeeper'
-	sudo etckeeper init
-	sudo git -C /etc/ config --local user.name "etckeeper"
-	sudo git -C /etc/ config --local user.email "etckeeper@localhost"
-	sudo etckeeper commit "Initial commit"
-	sudo systemctl enable --now etckeeper.timer
-
-	_log::info 'Configure text expander'
-	systemctl --user enable espanso
-
-	_log::info 'Configure metasploit'
-	sudo mkdir -p /var/lib/postgres/data
-	sudo chattr +C /var/lib/postgres/data
-	sudo -u postgres initdb -D /var/lib/postgres/data
-	sudo systemctl start postgresql
-	yes no | msfdb init
-
-	_log::info 'Configure wireshark'
-	sudo gpasswd -a "$USER" wireshark
-
-	_log::info 'Downloads wordlists'
-	sudo wordlistctl fetch best110
-	sudo wordlistctl fetch -d rockyou
-	sudo wordlistctl fetch -d fasttrack
-	sudo wordlistctl fetch subdomains-top1million-5000
-
-	_log::info 'Configure wpscan'
-	wpscan --update
-
-	_log::info 'Configure rkhunter'
-	lists=(
-		/usr/bin/egrep
-		/usr/bin/fgrep
-		/usr/bin/ldd
-	)
-	for list in "${lists[@]}"; do
-		if ! sudo grep "SCRIPTWHITELIST=$list" /etc/rkhunter.conf; then
-			sudo tee -a /etc/rkhunter.conf <<<"SCRIPTWHITELIST=$list" >/dev/null
-		else
-			_log::warn "rkhunter SCRIPTWHITELIST=$list already set -- skipping"
-		fi
-	done
-	sudo sed \
-		-i \
-		-e '/^#ALLOW_SSH_PROT_V1/s/#//' \
-		-e '/^ALLOW_SSH_PROT_V1/s/0/2/' \
-		-e '/^#ALLOW_SSH_ROOT_USER/s/#//' \
-		-e '/^ALLOW_SSH_ROOT_USER/s/no/unset/' \
-		/etc/rkhunter.conf
-
-	if ! sudo grep "ALLOWDEVFILE=/dev/shm/PostgreSQL.*" /etc/rkhunter.conf; then
-		sudo tee -a /etc/rkhunter.conf <<<"ALLOWDEVFILE=/dev/shm/PostgreSQL.*" >/dev/null
-	else
-		_log::warn "rkhunter ALLOWDEVFILE=/dev/shm/PostgreSQL.* already set -- skipping"
-	fi
-	# For zoom
-	if ! sudo grep "ALLOWDEVFILE=/dev/shm/aomshm.*" /etc/rkhunter.conf; then
-		sudo tee -a /etc/rkhunter.conf <<<"ALLOWDEVFILE=/dev/shm/aomshm.*" >/dev/null
-	else
-		_log::warn "rkhunter ALLOWDEVFILE=/dev/shm/aomshm.* already set -- skipping"
-	fi
-	if ! sudo grep "ALLOWHIDDENDIR=/etc/.git" /etc/rkhunter.conf; then
-		sudo tee -a /etc/rkhunter.conf <<<"ALLOWHIDDENDIR=/etc/.git" >/dev/null
-	else
-		_log::warn "rkhunter ALLOWHIDDENDIR=/etc/.git already set -- skipping"
-	fi
-	lists=(
-		/etc/.etckeeper
-		/etc/.gitignore
-		/etc/.updated
-		/usr/share/man/man5/.k5identity.5.gz
-		/usr/share/man/man5/.k5login.5.gz
-	)
-	for list in "${lists[@]}"; do
-		if ! sudo grep "ALLOWHIDDENFILE=$list" /etc/rkhunter.conf; then
-			sudo tee -a /etc/rkhunter.conf <<<"ALLOWHIDDENFILE=$list" >/dev/null
-		else
-			_log::warn "rkhunter ALLOWHIDDENFILE=$list already set -- skipping"
-		fi
-	done
-	# NOTE: allow IPC for ueberzug
-	if ! sudo grep "ALLOWIPCUSER=$USER" /etc/rkhunter.conf; then
-		sudo tee -a /etc/rkhunter.conf <<<"ALLOWIPCUSER=$USER" >/dev/null
-	else
-		_log::warn "rkhunter ALLOWIPCUSER=$USER already set -- skipping"
-	fi
-	sudo cp -fv "$dir"/misc/etc/pacman.d/hooks/rkhunter-propupd.hook /etc/pacman.d/hooks/
-	# NOTE: use /dev/null to ignore grep warning
-	sudo rkhunter --update 2>/dev/null
-	sudo rkhunter --config-check 2>/dev/null
-	sudo rkhunter --propupd 2>/dev/null
-	sudo rkhunter -c --sk 2>/dev/null
-	sudo systemctl enable --now rkhunter.timer
-
-	# GUI Java Application
-	sudo archlinux-java set "$(
-		archlinux-java status |
-			grep 'java-.*-openjdk' |
-			awk '{print $1}' |
-			sort |
-			tail -1
-	)"
-
-	_log::info 'Configure fontconfig'
-	sudo sh -c 'cd /etc/fonts/conf.d; ln -s /usr/share/fontconfig/conf.avail/10-nerd-font-symbols.conf'
-
-	_log::info 'Disable root redirector of keybase'
-	sudo chmod a-s /usr/bin/keybase-redirector
-
-	_log::info 'Install apps with flatpak'
-	flatpak install -y flathub io.ente.auth
-
-	# NOTE: git clone fails when forcing ssh protocol
-	#       in ~/.config/git/config before creating ssh key
-	_log::info 'Deploy dotfiles'
-	# HACK: move default dotfiles to avoid conflict
-	mv -v ~/.bashrc{,.bak}
-	just --justfile "$XDG_DATA_HOME/dotfiles/justfile"
-}
-
-#######################################
 # Verify boot mode
 # Globals:
 #   None
@@ -773,8 +307,6 @@ _configure_without_privileged() {
 #   None
 #######################################
 _verify_boot_mode() {
-	_runtime::is_container && return
-
 	_log::info 'Verify boot mode of live environment'
 	if ! [[ -d /sys/firmware/efi/efivars ]]; then
 		_log::fatal 'UEFI mode is disabled'
@@ -882,17 +414,6 @@ _runtime::is_archiso() {
 }
 
 #######################################
-# Return true when container
-# Globals:
-#   CONTAINER
-# Arguments:
-#   None
-#######################################
-_runtime::is_container() {
-	[[ $CONTAINER == true ]]
-}
-
-#######################################
 # Return true when Arch Linux
 # Globals:
 #   None
@@ -901,17 +422,6 @@ _runtime::is_container() {
 #######################################
 _runtime::is_arch_linux() {
 	[[ -f /etc/arch-release ]]
-}
-
-#######################################
-# Return true when privileged user
-# Globals:
-#   None
-# Arguments:
-#   None
-#######################################
-_runtime::is_privileged() {
-	[[ $(id -u) == 0 ]]
 }
 
 #######################################
@@ -1037,4 +547,4 @@ _color::accent2() {
 	_print::color "$1" "$ACCENT_COLOR_2"
 }
 
-main """${@}"
+main "${@}"

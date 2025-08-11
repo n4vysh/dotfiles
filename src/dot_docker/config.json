@@ -1,0 +1,12 @@
+{
+	"auths": {
+		"ghcr.io": {}
+	},
+	"detachKeys": "ctrl-\\",
+	"credsStore": "pass",
+	"credHelpers": {
+		"425691168956.dkr.ecr.ap-northeast-1.amazonaws.com": "ecr-login",
+		"746269319114.dkr.ecr.ap-northeast-1.amazonaws.com": "ecr-login",
+		"804137327620.dkr.ecr.ap-northeast-1.amazonaws.com": "ecr-login"
+	}
+}

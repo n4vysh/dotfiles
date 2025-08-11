@@ -19,18 +19,6 @@ return {
 		opts = {},
 	},
 	{
-		"direnv/direnv.vim",
-		ft = { "direnv" },
-		keys = {
-			{
-				"<space>ee",
-				vim.cmd.EditEnvrc,
-				silent = true,
-				desc = "Edit .envrc",
-			},
-		},
-	},
-	{
 		"towolf/vim-helm",
 		ft = { "helm" },
 	},
@@ -44,10 +32,6 @@ return {
 		init = function()
 			vim.g.csv_no_conceal = 1
 		end,
-	},
-	{
-		"hjson/vim-hjson",
-		ft = { "hjson" },
 	},
 	{
 		"iamcco/markdown-preview.nvim",
@@ -88,7 +72,8 @@ return {
 				vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 					group = augroup,
 					pattern = {
-						vim.fn.expand("~") .. "/.local/share/chezmoi/src/*",
+						vim.fn.expand("~")
+							.. "/.local/share/chezmoi/src/*dot_*",
 					},
 					command = "silent !chezmoi apply --source-path %",
 				})

@@ -1,9 +1,0 @@
-[env]
-_.path = ["{{config_root}}/bin"]
-GOSS_VARS = "goss-vars.yaml"
-NODE_PATH = "{{env.XDG_DATA_HOME}}/mise/installs/npm-commitlint-config-conventional/19.8.0/lib/node_modules"
-
-[tools]
-goss = "0.4.9"
-"npm:@commitlint/cli" = "19.8.0"
-"npm:@commitlint/config-conventional" = "19.8.0"
