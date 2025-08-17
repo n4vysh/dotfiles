@@ -217,30 +217,6 @@ return {
 				},
 			},
 			{
-				"MeanderingProgrammer/render-markdown.nvim",
-				-- NOTE: render-markdown.nvim lazy load automatically
-				-- https://github.com/yetone/avante.nvim/issues/1450
-				lazy = false,
-				init = function()
-					-- HACK: set empty string into breakat to disable linebreak
-					--       linebreak does not work in japanese, but render-markdown.nvim enable linebreak always
-					vim.opt.breakat = ""
-				end,
-				opts = {
-					file_types = { "Avante" },
-					render_modes = true,
-					heading = {
-						width = "block",
-						icons = {},
-					},
-					code = {
-						width = "block",
-						min_width = 45,
-						border = "thin",
-					},
-				},
-			},
-			{
 				"ravitemer/mcphub.nvim",
 				build = "bundled_build.lua",
 				cmd = "MCPHub",
