@@ -21,14 +21,24 @@ vim.keymap.set(
 	}
 )
 
-vim.keymap.set("n", "<Tab>", "<C-w>w", {
+vim.keymap.set("n", "<Tab>", ">>", {
 	silent = true,
-	desc = "move cursor to the window below/right",
+	desc = "shift lines rightwards",
 })
 
-vim.keymap.set("n", "<S-Tab>", "<C-w>W", {
+vim.keymap.set("n", "<S-Tab>", "<<", {
 	silent = true,
-	desc = "move cursor to the window above/left",
+	desc = "shift lines leftwards",
+})
+
+vim.keymap.set("v", "<Tab>", ">", {
+	silent = true,
+	desc = "shift lines rightwards",
+})
+
+vim.keymap.set("v", "<S-Tab>", "<", {
+	silent = true,
+	desc = "shift lines leftwards",
 })
 
 vim.keymap.set("n", "<C-i>", "<C-i>zz", {
