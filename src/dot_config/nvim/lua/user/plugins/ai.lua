@@ -134,7 +134,9 @@ return {
 						},
 					},
 				},
-				hints = { enabled = false },
+				selection = {
+					hint_display = "none",
+				},
 				selector = {
 					provider = "telescope",
 				},
