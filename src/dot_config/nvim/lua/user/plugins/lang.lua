@@ -585,6 +585,7 @@ return {
 	},
 	{
 		"stevearc/conform.nvim",
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		opts = {
 			formatters_by_ft = {
 				hcl = { "hcl" },
