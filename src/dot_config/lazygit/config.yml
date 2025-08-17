@@ -1,4 +1,8 @@
 # yaml-language-server: $schema=https://json.schemastore.org/lazygit.json
+keybinding:
+  universal:
+    pushFiles: <c-p>
+    createPatchOptionsMenu: P
 gui:
   nerdFontsVersion: "3"
   showCommandLog: false
