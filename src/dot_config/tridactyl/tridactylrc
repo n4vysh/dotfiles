@@ -15,6 +15,8 @@ unbind K
 unbind b
 bind [b tabprev
 bind ]b tabnext
+bind [<Tab> tabmove -1
+bind ]<Tab> tabmove +1
 
 unbind H
 unbind L
