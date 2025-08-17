@@ -1,33 +1,30 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPre" },
-		cmd = {
-			"TSInstall",
-			"TSInstallSync",
-			"TSInstallInfo",
-			"TSUpdate",
-			"TSUpdateSync",
-			"TSUninstall",
-			"TSBufEnable",
-			"TSBufDisable",
-			"TSBufToggle",
-			"TSEnable",
-			"TSDisable",
-			"TSToggle",
-			"TSModuleInfo",
-			"TSEditQuery",
-			"TSEditQueryUserAfter",
-		},
+		lazy = false, -- nvim-treesitter not support lazy-loading
+		branch = "main",
 		build = function()
 			vim.cmd.TSUpdate()
 		end,
 		init = function()
 			vim.treesitter.language.register("python", "tiltfile")
+
+			do
+				local augroup = "treesitter"
+				vim.api.nvim_create_augroup(augroup, { clear = true })
+				vim.api.nvim_create_autocmd("FileType", {
+					group = augroup,
+					pattern = "*",
+					callback = function()
+						pcall(vim.treesitter.start)
+					end,
+				})
+			end
+
+			vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 		end,
-		main = "nvim-treesitter.configs",
-		opts = {
-			ensure_installed = {
+		config = function()
+			require("nvim-treesitter").install({
 				"bash",
 				"comment",
 				"css",
@@ -85,326 +82,354 @@ return {
 				"vim",
 				"vimdoc",
 				"yaml",
-			},
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					node_incremental = "<C-k>",
-					node_decremental = "<C-l>",
-				},
-			},
-			textobjects = {
-				select = {
-					enable = true,
-					keymaps = {
-						["ak"] = "@block.outer",
-						["ik"] = "@block.inner",
-						["aa"] = "@parameter.outer",
-						["ia"] = "@parameter.inner",
-						["ao"] = "@loop.outer",
-						["io"] = "@loop.inner",
-						["af"] = "@function.outer",
-						["if"] = "@function.inner",
-						["a?"] = "@conditional.outer",
-						["i?"] = "@conditional.inner",
-						["av"] = "@assignment.outer",
-						["iv"] = "@assignment.inner",
-					},
-				},
-				move = {
-					enable = true,
-					set_jumps = true,
-					goto_next_start = {
-						["]m"] = {
-							query = "@function.outer",
-							desc = "Next function start",
-						},
-						["]]"] = {
-							query = "@class.outer",
-							desc = "Next class start",
-						},
-						["]z"] = {
-							query = "@fold",
-							query_group = "folds",
-							desc = "Next fold start",
-						},
-						["]k"] = {
-							query = "@block.outer",
-							desc = "Next block start",
-						},
-						["]a"] = {
-							query = "@parameter.inner",
-							desc = "Next parameter start",
-						},
-						["]o"] = {
-							query = "@loop.outer",
-							desc = "Next loop start",
-						},
-						["]v"] = {
-							query = "@assignment.outer",
-							desc = "Next variable start",
-						},
-						["]?"] = {
-							query = "@conditional.outer",
-							desc = "Next conditional start",
-						},
-					},
-					goto_next_end = {
-						["]M"] = {
-							query = "@function.outer",
-							desc = "Next function end",
-						},
-						["]["] = {
-							query = "@class.outer",
-							desc = "Next class end",
-						},
-						["]Z"] = {
-							query = "@fold",
-							query_group = "folds",
-							desc = "Next fold end",
-						},
-						["]K"] = {
-							query = "@block.outer",
-							desc = "Next block end",
-						},
-						["]A"] = {
-							query = "@parameter.inner",
-							desc = "Next parameter end",
-						},
-						["]O"] = {
-							query = "@loop.outer",
-							desc = "Next loop end",
-						},
-						["]V"] = {
-							query = "@assignment.outer",
-							desc = "Next variable end",
-						},
-					},
-					goto_previous_start = {
-						["[m"] = {
-							query = "@function.outer",
-							desc = "Previous function start",
-						},
-						["[["] = {
-							query = "@class.outer",
-							desc = "Previous class start",
-						},
-						["[z"] = {
-							query = "@fold",
-							query_group = "folds",
-							desc = "Previous fold",
-						},
-						["[k"] = {
-							query = "@block.outer",
-							desc = "Previous block start",
-						},
-						["[a"] = {
-							query = "@parameter.inner",
-							desc = "Previous parameter start",
-						},
-						["[o"] = {
-							query = "@loop.outer",
-							desc = "Previous loop start",
-						},
-						["[v"] = {
-							query = "@assignment.outer",
-							desc = "Previous variable start",
-						},
-						["[?"] = {
-							query = "@conditional.outer",
-							desc = "Previous conditional start",
-						},
-					},
-					goto_previous_end = {
-						["[M"] = {
-							query = "@function.outer",
-							desc = "Previous function end",
-						},
-						["[]"] = {
-							query = "@class.outer",
-							desc = "Previous class end",
-						},
-						["[Z"] = {
-							query = "@fold",
-							query_group = "folds",
-							desc = "Previous fold end",
-						},
-						["[K"] = {
-							query = "@block.outer",
-							desc = "Previous block end",
-						},
-						["[A"] = {
-							query = "@parameter.inner",
-							desc = "Previous parameter end",
-						},
-						["[O"] = {
-							query = "@loop.outer",
-							desc = "Previous loop end",
-						},
-						["[V"] = {
-							query = "@assignment.outer",
-							desc = "Previous variable end",
-						},
-					},
-				},
-				swap = {
-					enable = true,
-					swap_next = {
-						[">k"] = {
-							query = "@block.outer",
-							desc = "Swap next block",
-						},
-						[">f"] = {
-							query = "@function.outer",
-							desc = "Swap next function",
-						},
-						[">a"] = {
-							query = "@parameter.inner",
-							desc = "Swap next argument",
-						},
-					},
-					swap_previous = {
-						["<k"] = {
-							query = "@block.outer",
-							desc = "Swap previous block",
-						},
-						["<f"] = {
-							query = "@function.outer",
-							desc = "Swap previous function",
-						},
-						["<a"] = {
-							query = "@parameter.inner",
-							desc = "Swap previous argument",
-						},
-					},
-				},
-			},
-			highlight = {
-				enable = true,
-				disable = {
-					-- NOTE: markdown parser is slow
-					--       only highlighting is disabled
-					--       other treesitter features (context, textobjects, etc.) remain enabled
-					-- https://github.com/nvim-treesitter/nvim-treesitter/issues/2916
-					"markdown",
-				},
-			},
-			indent = {
-				enable = true,
-			},
-			matchup = {
-				enable = true,
-			},
-			endwise = {
-				enable = true,
-			},
-		},
-		dependencies = {
-			{
-				"nvim-treesitter/nvim-treesitter-context",
-				opts = {},
-			},
-			"nvim-treesitter/nvim-treesitter-textobjects",
-			"RRethy/nvim-treesitter-endwise",
-			{
-				"andymass/vim-matchup",
-				keys = {
-					{
-						mode = { "n", "x", "o" },
-						"m",
-						"<plug>(matchup-%)",
-						{
-							silent = true,
-							desc = "Goto forward to matching word",
-						},
-					},
-					{
-						mode = { "n", "x", "o" },
-						"gm",
-						"<plug>(matchup-g%)",
-						{
-							silent = true,
-							desc = "Goto backword to matching word",
-						},
-					},
-					{
-						mode = { "n", "x", "o" },
-						"zm",
-						"<plug>(matchup-z%)",
-						{
-							silent = true,
-							desc = "Goto inside of matching word",
-						},
-					},
-					{
-						mode = { "n", "x", "o" },
-						"]w",
-						"<plug>(matchup-]%)",
-						{
-							silent = true,
-							desc = "Goto previous outer open word",
-						},
-					},
-					{
-						mode = { "n", "x", "o" },
-						"[w",
-						"<plug>(matchup-[%)",
-						{
-							silent = true,
-							desc = "Goto next surrounding close word",
-						},
-					},
-					{
-						mode = { "x", "o" },
-						"im",
-						"<plug>(matchup-i%)",
-						{
-							silent = true,
-							desc = "Inside of matching word",
-						},
-					},
-					{
-						mode = { "x", "o" },
-						"am",
-						"<plug>(matchup-a%)",
-						{
-							silent = true,
-							desc = "Around of matching word",
-						},
-					},
-					{
-						mode = { "n" },
-						"dzm",
-						"<plug>(matchup-ds%)",
-						{
-							silent = true,
-							desc = "Delete surrounding matching words",
-						},
-					},
-					{
-						mode = { "n" },
-						"czm",
-						"<plug>(matchup-cs%)",
-						{
-							silent = true,
-							desc = "Change surrounding matching words",
-						},
-					},
-				},
-				init = function()
-					vim.g.matchup_surround_enabled = 1
-
-					vim.g.matchup_matchparen_offscreen = {
-						scrolloff = 1,
-					}
-				end,
-			},
-		},
+			})
+		end,
 	},
 	{
 		"bezhermoso/tree-sitter-ghostty",
 		build = "make nvim_install",
 		ft = "ghostty",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		opts = {},
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		branch = "main",
+
+		keys = {
+			-- select
+			{
+				mode = { "x", "o" },
+				"ak",
+				function()
+					require("nvim-treesitter-textobjects.select").select_textobject(
+						"@block.outer",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Select textobject @block.outer",
+				},
+			},
+			{
+				mode = { "x", "o" },
+				"ik",
+				function()
+					require("nvim-treesitter-textobjects.select").select_textobject(
+						"@block.inner",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Select textobject @block.inner",
+				},
+			},
+			{
+				mode = { "x", "o" },
+				"aa",
+				function()
+					require("nvim-treesitter-textobjects.select").select_textobject(
+						"@parameter.outer",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Select textobject @parameter.outer",
+				},
+			},
+			{
+				mode = { "x", "o" },
+				"ia",
+				function()
+					require("nvim-treesitter-textobjects.select").select_textobject(
+						"@parameter.inner",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Select textobject @parameter.inner",
+				},
+			},
+			{
+				mode = { "x", "o" },
+				"af",
+				function()
+					require("nvim-treesitter-textobjects.select").select_textobject(
+						"@function.outer",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Select textobject @function.outer",
+				},
+			},
+			{
+				mode = { "x", "o" },
+				"if",
+				function()
+					require("nvim-treesitter-textobjects.select").select_textobject(
+						"@function.inner",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Select textobject @function.inner",
+				},
+			},
+			{
+				mode = { "x", "o" },
+				"av",
+				function()
+					require("nvim-treesitter-textobjects.select").select_textobject(
+						"@assignment.outer",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Select textobject @assignment.outer",
+				},
+			},
+			{
+				mode = { "x", "o" },
+				"iv",
+				function()
+					require("nvim-treesitter-textobjects.select").select_textobject(
+						"@assignment.inner",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Select textobject @assignment.inner",
+				},
+			},
+			-- move
+			{
+				mode = { "n", "x", "o" },
+				"]m",
+				function()
+					require("nvim-treesitter-textobjects.move").goto_next_start(
+						"@function.outer",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Next function start",
+				},
+			},
+			{
+				mode = { "n", "x", "o" },
+				"[m",
+				function()
+					require("nvim-treesitter-textobjects.move").goto_previous_start(
+						"@function.outer",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Previous function start",
+				},
+			},
+			{
+				mode = { "n", "x", "o" },
+				"]]",
+				function()
+					require("nvim-treesitter-textobjects.move").goto_next_start(
+						"@block.outer",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Next block start",
+				},
+			},
+			{
+				mode = { "n", "x", "o" },
+				"[[",
+				function()
+					require("nvim-treesitter-textobjects.move").goto_previous_start(
+						"@block.outer",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Previous block start",
+				},
+			},
+			{
+				mode = { "n", "x", "o" },
+				"]a",
+				function()
+					require("nvim-treesitter-textobjects.move").goto_next_start(
+						"@parameter.outer",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Next parameter start",
+				},
+			},
+			{
+				mode = { "n", "x", "o" },
+				"[a",
+				function()
+					require("nvim-treesitter-textobjects.move").goto_previous_start(
+						"@parameter.outer",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Previous parameter start",
+				},
+			},
+			{
+				mode = { "n", "x", "o" },
+				"]v",
+				function()
+					require("nvim-treesitter-textobjects.move").goto_next_start(
+						"@assignment.outer",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Next assignment start",
+				},
+			},
+			{
+				mode = { "n", "x", "o" },
+				"[v",
+				function()
+					require("nvim-treesitter-textobjects.move").goto_previous_start(
+						"@assignment.outer",
+						"textobjects"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Previous assignment start",
+				},
+			},
+			-- swap
+			{
+				">a",
+				function()
+					require("nvim-treesitter-textobjects.swap").swap_next(
+						"@parameter.inner"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Swap next argument",
+				},
+			},
+			{
+				"<a",
+				function()
+					require("nvim-treesitter-textobjects.swap").swap_previous(
+						"@parameter.outer"
+					)
+				end,
+				{
+					silent = true,
+					desc = "Swap previous argument",
+				},
+			},
+		},
+		opts = {
+			move = {
+				set_jumps = true,
+			},
+		},
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
+	{
+		"RRethy/nvim-treesitter-endwise",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
+	{
+		"andymass/vim-matchup",
+		lazy = false, -- vim-matchup not support lazy-loading
+		keys = {
+			{
+				mode = { "n", "x", "o" },
+				"m",
+				"<plug>(matchup-%)",
+				{
+					silent = true,
+					desc = "Goto forward to matching word",
+				},
+			},
+			{
+				mode = { "n", "x", "o" },
+				"zm",
+				"<plug>(matchup-z%)",
+				{
+					silent = true,
+					desc = "Goto inside of matching word",
+				},
+			},
+			{
+				mode = { "n", "x", "o" },
+				"]w",
+				"<plug>(matchup-]%)",
+				{
+					silent = true,
+					desc = "Goto previous outer open word",
+				},
+			},
+			{
+				mode = { "n", "x", "o" },
+				"[w",
+				"<plug>(matchup-[%)",
+				{
+					silent = true,
+					desc = "Goto next surrounding close word",
+				},
+			},
+			{
+				mode = { "x", "o" },
+				"im",
+				"<plug>(matchup-i%)",
+				{
+					silent = true,
+					desc = "Inside of matching word",
+				},
+			},
+			{
+				mode = { "x", "o" },
+				"am",
+				"<plug>(matchup-a%)",
+				{
+					silent = true,
+					desc = "Around of matching word",
+				},
+			},
+		},
+		opts = {
+			matchparen = {
+				offscreen = {
+					scrolloff = 1,
+				},
+			},
+		},
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 	{
