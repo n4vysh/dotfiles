@@ -729,7 +729,7 @@ return {
 				desc = "Go to previous buffer",
 			},
 			{
-				">b",
+				"]<Tab>",
 				function()
 					require("bufferline").move(1)
 				end,
@@ -737,7 +737,7 @@ return {
 				desc = "Move the current buffer forwards",
 			},
 			{
-				"<b",
+				"[<Tab>",
 				function()
 					require("bufferline").move(-1)
 				end,
