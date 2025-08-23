@@ -21,16 +21,6 @@ vim.keymap.set(
 	}
 )
 
-vim.keymap.set("n", "<Tab>", ">>", {
-	silent = true,
-	desc = "shift lines rightwards",
-})
-
-vim.keymap.set("n", "<S-Tab>", "<<", {
-	silent = true,
-	desc = "shift lines leftwards",
-})
-
 vim.keymap.set("v", "<Tab>", ">", {
 	silent = true,
 	desc = "shift lines rightwards",
