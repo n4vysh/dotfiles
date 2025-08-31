@@ -100,8 +100,8 @@
 - Ergonomic keybinds with [keyd][keyd-link]
   - Thumb cluster
   - Dual function keys
-    - xcape
-    - Space Cadet shift
+    - [xcape][xcape-link]
+    - [Space Cadet shift][space-cadet-shift-link]
 
 [rolling-release-link]: https://en.wikipedia.org/wiki/Rolling_release
 [zen-kernel-link]: https://github.com/zen-kernel/zen-kernel
@@ -163,6 +163,8 @@
 [blackarch-link]: https://blackarch.org
 [keyd-link]: https://github.com/rvaiya/keyd
 [bats-link]: https://bats-core.readthedocs.io/
+[xcape-link]: https://github.com/alols/xcape
+[space-cadet-shift-link]: https://docs.qmk.fm/features/space_cadet
 
 ## Requirements
 
