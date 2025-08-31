@@ -93,6 +93,7 @@
 - Prevent DNS leak and IPv6 leak
 - Command abbreviation and snippets for pentesting with [zsh][zsh-link] and [pet][pet-link]
 - Available a large amount of cyber security tools with [BlackArch repository][blackarch-link]
+- Available prebuilt binaries with [Chaotic-AUR repository][chaotic-aur-link]
 - Support for OSC
   - OSC 8 - hyperlinks (tmux + eza + rg + fd + delta + ls)
   - OSC 52 - clipboard integration for copy only (tmux + neovim)
@@ -161,6 +162,7 @@
 [nordvpn-link]: https://nordvpn.com/
 [pet-link]: https://github.com/knqyf263/pet
 [blackarch-link]: https://blackarch.org
+[chaotic-aur-link]: https://aur.chaotic.cx/
 [keyd-link]: https://github.com/rvaiya/keyd
 [bats-link]: https://bats-core.readthedocs.io/
 [xcape-link]: https://github.com/alols/xcape
