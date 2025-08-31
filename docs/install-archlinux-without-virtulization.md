@@ -4,10 +4,10 @@
 
 - <https://archlinux.org/download/>
 
-```bash
+```sh
 read -rp 'ISO URL: ' iso_url
 read -rp 'ISO PGP signature URL: ' iso_sig_url
-aria2c -d ~/Downloads/ "$iso_url"
+wget -P ~/Downloads/ "$iso_url"
 wget -P ~/Downloads/ "$iso_sig_url"
 gpg \
   --keyserver-options auto-key-retrieve \
@@ -17,7 +17,7 @@ gpg \
 
 ## Prepare an installation medium
 
-```bash
+```sh
 ls -l /dev/disk/by-id/usb-*
 # NOTE: check USB drive is not mounted
 lsblk
@@ -54,7 +54,7 @@ and boot the live environment.
 
 ## Wipe all data left on the device
 
-```bash
+```sh
 lvremove /dev/volume/home
 lvremove /dev/volume/root
 lvscan
@@ -69,14 +69,14 @@ dd if=/dev/zero of=/dev/nvme0n1 bs=4096 status=progress
 
 ## Launch tmux
 
-```bash
+```sh
 tmux
 tmux set -g mode-keys vi
 ```
 
 ## Authenticate to the wireless network
 
-```bash
+```sh
 iwctl
 ```
 
@@ -89,7 +89,7 @@ iwctl
 
 ## Execute install script
 
-```bash
+```sh
 bash <(
   curl -s https://raw.githubusercontent.com/n4vysh/dotfiles/main/scripts/bootstrap.bash
 )
@@ -98,24 +98,9 @@ reboot
 
 ## Post-installation
 
-login privileged user
+login privileged user and create unprivileged user
 
-```bash
-tmux
-tmux set -g mode-keys vi
-bash <(
-  curl -s https://raw.githubusercontent.com/n4vysh/dotfiles/main/scripts/bootstrap.bash
-) -p
-exit
-```
-
-login unprivileged user
-
-```bash
-tmux
-tmux set -g mode-keys vi
-bash <(
-  curl -s https://raw.githubusercontent.com/n4vysh/dotfiles/main/scripts/bootstrap.bash
-) -u
+```sh
+homectl create n4vysh --member-of=wheel --storage=directory
 exit
 ```
