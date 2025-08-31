@@ -332,34 +332,46 @@ prefix is `C-j`
 
 ## List of applications
 
-| Category                      | Name                                                                                              |
-| :---------------------------- | :------------------------------------------------------------------------------------------------ |
-| Taskbar                       | [waybar][waybar-link]                                                                             |
-| Launcher                      | [rofi-wayland][rofi-wayland-link]                                                                 |
-| Web Browser                   | [Firefox][firefox-link]                                                                           |
-| Password Manager              | [1Password][1password-link] + [Ente Auth][ente-auth-link]                                         |
-| VPN client                    | [OpenVPN][openvpn-link] + [NordVPN][nordvpn-link]                                                 |
-| Mail client                   | [Proton Mail][proton-mail-link]                                                                   |
-| Instant messaging clients     | [Signal][signal-link]                                                                             |
-| Audio player                  | [ncspot][ncspot-link]                                                                             |
-| Media player                  | [mpv][mpv-link]                                                                                   |
-| Cloud synchronization clients | [Tresorit][tresorit-link]                                                                         |
-| Screenshot                    | [grimblast][grimblast-link]                                                                       |
-| Screen record                 | [wf-recorder][wf-recorder-link] + [slurp][slurp-link]                                             |
-| Notification                  | [swaync][swaync-link]                                                                             |
-| Font                          | [Fira Code][firacode-link] + [NerdFontsSymbolsOnly][nerd-font-link] + [Noto Sans][noto-sans-link] |
-| GTK Theme                     | [Fluent gtk][fluent-gtk-link]                                                                     |
-| QT Theme                      | [Fluent kde][fluent-kde-link]                                                                     |
-| Overlay bar                   | [wob][wob-link]                                                                                   |
-| System information tool       | [fastfetch][fastfetch-link]                                                                       |
+| Category                     | Name                                                                                              |
+| :--------------------------- | :------------------------------------------------------------------------------------------------ |
+| Taskbar                      | [waybar][waybar-link]                                                                             |
+| Launcher                     | [rofi-wayland][rofi-wayland-link]                                                                 |
+| Web Browser                  | [Firefox][firefox-link]                                                                           |
+| Password Manager             | [1Password][1password-link] + [Ente Auth][ente-auth-link]                                         |
+| VPN client                   | [OpenVPN][openvpn-link] + [NordVPN][nordvpn-link]                                                 |
+| Mail client                  | [Proton Mail][proton-mail-link]                                                                   |
+| Instant messaging client     | [Signal][signal-link]                                                                             |
+| System monitor               | [btop][btop-link]                                                                                 |
+| Network manager              | [impala][impala-link]                                                                             |
+| Bluetooth manager            | [bluetui][bluetui-link]                                                                           |
+| Audio player                 | [ncspot][ncspot-link]                                                                             |
+| Media player                 | [mpv][mpv-link]                                                                                   |
+| Image viewer                 | [imv][imv-link]                                                                                   |
+| Document viewer              | [zathura][zathura-link]                                                                           |
+| Office suite                 | [WPS Office][wps-link]                                                                            |
+| Cloud synchronization client | [Tresorit][tresorit-link]                                                                         |
+| Screenshot                   | [grimblast][grimblast-link]                                                                       |
+| Screen record                | [wf-recorder][wf-recorder-link] + [slurp][slurp-link]                                             |
+| Notification                 | [swaync][swaync-link]                                                                             |
+| Font                         | [Fira Code][firacode-link] + [NerdFontsSymbolsOnly][nerd-font-link] + [Noto Sans][noto-sans-link] |
+| GTK Theme                    | [Fluent gtk][fluent-gtk-link]                                                                     |
+| QT Theme                     | [Fluent kde][fluent-kde-link]                                                                     |
+| Overlay bar                  | [wob][wob-link]                                                                                   |
+| System information tool      | [fastfetch][fastfetch-link]                                                                       |
 
 [waybar-link]: https://github.com/Alexays/Waybar
 [rofi-wayland-link]: https://github.com/lbonn/rofi
 [firefox-link]: https://www.mozilla.org/en-US/firefox/new/
 [proton-mail-link]: https://proton.me/mail/download
 [tresorit-link]: https://toresorit.com
+[btop-link]: https://github.com/aristocratos/btop
+[impala-link]: https://github.com/pythops/impala
+[bluetui-link]: https://github.com/bluetuith-org/bluetuith
 [ncspot-link]: https://github.com/hrkfdn/ncspot
 [mpv-link]: https://mpv.io/
+[imv-link]: https://sr.ht/~exec64/imv/
+[zathura-link]: https://pwmt.org/projects/zathura/
+[wps-link]: https://www.wps.com/office/linux/
 [grimblast-link]: https://github.com/hyprwm/contrib/tree/main/grimblast
 [slurp-link]: https://github.com/emersion/slurp
 [wf-recorder-link]: https://github.com/ammen99/wf-recorder
