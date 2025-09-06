@@ -146,7 +146,7 @@ packages:
       - extra/meson
       - extra/pipectl
       - extra/qt6-wayland
-      - extra/rofi-wayland
+      - extra/rofi
       - extra/rofimoji
       - extra/slurp
       - extra/swappy
