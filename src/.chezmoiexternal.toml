@@ -8,14 +8,17 @@ exclude = ["*/imgs", "*/README.md"]
 [".local/bin/grimblast"]
 type = "file"
 url = "https://raw.githubusercontent.com/hyprwm/contrib/481175e17e155f19a3b31416530b6edf725e7034/grimblast/grimblast"
+executable = true
 
 [".local/bin/scratchpad"]
 type = "file"
 url = "https://raw.githubusercontent.com/hyprwm/contrib/481175e17e155f19a3b31416530b6edf725e7034/scratchpad/scratchpad"
+executable = true
 
 [".local/bin/cliphist-rofi-img"]
 type = "file"
 url = "https://raw.githubusercontent.com/sentriz/cliphist/refs/tags/v0.6.1/contrib/cliphist-rofi-img"
+executable = true
 
 [".tmux/plugins/tpm"]
 type = "git-repo"
