@@ -382,6 +382,12 @@ IsScreenRecord := false
 	}
 #HotIf
 
+F13 & i::{
+	if GetKeyState("Ctrl", "P") {
+		Send("!{right}")
+	}
+}
+
 IsLauncher := false
 
 #HotIf !IsLauncher
@@ -389,7 +395,11 @@ IsLauncher := false
 	{
 		global IsLauncher
 		if ! GetKeyState("Shift") {
-			IsLauncher := true
+			if GetKeyState("Ctrl", "P") {
+				Send("!{left}")
+			} else {
+				IsLauncher := true
+			}
 		}
 	}
 #HotIf IsLauncher
