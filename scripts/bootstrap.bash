@@ -133,7 +133,12 @@ _install() {
 	fi
 
 	_log::info 'Install the base packages'
-	yes '' | bash -c "pacstrap /mnt $(tr '\n' ' ' </tmp/dotfiles/misc/pkglist/base.txt)"
+	yes '' | bash -c "pacstrap /mnt $(
+		sed -n '/# base/,/# .*/p' /tmp/dotfiles/src/.chezmoidata/packages.yaml |
+			grep -v '#' |
+			awk '{ print $2 }' |
+			tr '\n' ' '
+	)"
 
 	_log::info 'Copy reflector config from live environment'
 	cp -fv /{,mnt/}etc/xdg/reflector/reflector.conf
