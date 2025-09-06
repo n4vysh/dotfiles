@@ -341,7 +341,7 @@ prefix is `C-j`
 | Category                     | Name                                                                                              |
 | :--------------------------- | :------------------------------------------------------------------------------------------------ |
 | Taskbar                      | [waybar][waybar-link]                                                                             |
-| Launcher                     | [rofi-wayland][rofi-wayland-link]                                                                 |
+| Launcher                     | [rofi][rofi-link]                                                                                 |
 | Web Browser                  | [Firefox][firefox-link]                                                                           |
 | Password Manager             | [1Password][1password-link] + [Ente Auth][ente-auth-link]                                         |
 | VPN client                   | [OpenVPN][openvpn-link] + [NordVPN][nordvpn-link]                                                 |
@@ -366,7 +366,7 @@ prefix is `C-j`
 | System information tool      | [fastfetch][fastfetch-link]                                                                       |
 
 [waybar-link]: https://github.com/Alexays/Waybar
-[rofi-wayland-link]: https://github.com/lbonn/rofi
+[rofi-link]: https://github.com/davatorium/rofi
 [firefox-link]: https://www.mozilla.org/en-US/firefox/new/
 [proton-mail-link]: https://proton.me/mail/download
 [tresorit-link]: https://toresorit.com
