@@ -580,6 +580,20 @@ return {
 		"stevearc/conform.nvim",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		opts = {
+			formatters = {
+				prettier = {
+					prepend_args = function(_, ctx)
+						if vim.bo[ctx.buf].filetype == "markdown" then
+							return {
+								"--tab-width",
+								"4",
+							}
+						else
+							return {}
+						end
+					end,
+				},
+			},
 			formatters_by_ft = {
 				hcl = { "hcl" },
 				go = { "goimports", "golangci-lint", "gofumpt" },
