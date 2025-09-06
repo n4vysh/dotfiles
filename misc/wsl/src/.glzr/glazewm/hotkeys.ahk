@@ -31,27 +31,35 @@ F13 & h::
 }
 
 F13 & j::{
-	if ! GetKeyState("Shift") {
-		if GetKeyState("Ctrl", "P") {
-			Send("^{end}")
+	if GetKeyState("Ctrl", "P") {
+		if GetKeyState("Shift") {
+			Send("+^{end}")
 		} else {
-			RunWait("glazewm.exe command focus --direction down", , "Hide")
+			Send("^{end}")
 		}
 	} else {
-		RunWait("glazewm.exe command move --direction down", , "Hide")
+		if ! GetKeyState("Shift") {
+			RunWait("glazewm.exe command focus --direction down", , "Hide")
+		} else {
+			RunWait("glazewm.exe command move --direction down", , "Hide")
+		}
 	}
 }
 
 F13 & k::
 {
-	if ! GetKeyState("Shift") {
-		if GetKeyState("Ctrl", "P") {
-			Send("^{home}")
+	if GetKeyState("Ctrl", "P") {
+		if GetKeyState("Shift") {
+			Send("+^{home}")
 		} else {
-			RunWait("glazewm.exe command focus --direction up", , "Hide")
+			Send("^{home}")
 		}
 	} else {
-		RunWait("glazewm.exe command move --direction up", , "Hide")
+		if ! GetKeyState("Shift") {
+			RunWait("glazewm.exe command focus --direction up", , "Hide")
+		} else {
+			RunWait("glazewm.exe command move --direction up", , "Hide")
+		}
 	}
 }
 
