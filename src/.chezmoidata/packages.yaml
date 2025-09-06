@@ -249,6 +249,7 @@ packages:
       - extra/zip
       - extra/zram-generator
       # developer tools
+      - aur/aws-session-manager-plugin
       - aur/bazecor
       - chaotic-aur/bun-bin
       - chaotic-aur/git-extras
