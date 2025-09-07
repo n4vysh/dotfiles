@@ -150,7 +150,7 @@ windows:
           -v searxng-data:/var/cache/searxng:rw \
           -e SEARXNG_BASE_URL=https://${SEARXNG_HOSTNAME:-localhost}/ \
           -e GRANIAN_HOST=0.0.0.0 \
-          -e GRANIAN_PORT=7000 \
+          -e GRANIAN_PORT=8100 \
           -e SEARXNG_LIMITER=false \
           --log-driver json-file \
           --log-opt max-size=1m \
