@@ -21,6 +21,7 @@ opa = "1.5.0"
 
 # AI
 "npm:opencode-ai" = "0.5.24"
+"pipx:mcpo" = "0.0.17"
 
 # app
 ## go
