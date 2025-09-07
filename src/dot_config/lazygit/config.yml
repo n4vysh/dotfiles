@@ -118,12 +118,6 @@ customCommands:
       - type: 'confirm'
         title: 'Prune deleted remote branches'
         body: 'Are you sure you want to prune deleted remote branches?'
-  - key: "<C-f>"
-    command: "git absorb"
-    context: "commits"
-    description: "Create fixup commit automatically"
-    loadingText: "automatic fixup"
-    output: popup
   # https://github.com/jesseduffield/lazygit/issues/1807
   - key: "<c-t>"
     command: "git revert --continue"
