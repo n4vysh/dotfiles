@@ -17,6 +17,16 @@ fi
 # initialize sheldon
 eval "$(sheldon source)"
 
+# zsh-abbr
+ABBR_REGULAR_ABBREVIATION_GLOB_PREFIXES+=(
+	'*& '
+	'*&& '
+	'*\| '
+	'*\|\| '
+	'*; '
+	'[A-Z]*=* '
+)
+
 # load config files
 for file in ~/.zshrc.d/conf.d/*.zsh; do
 	source "$file"
