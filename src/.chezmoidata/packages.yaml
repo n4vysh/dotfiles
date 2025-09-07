@@ -249,7 +249,6 @@ packages:
       - core/openssh
       - extra/atool
       - extra/atuin
-      - extra/delve
       - extra/drawio-desktop
       - extra/editorconfig-checker
       - extra/expect # for unbuffer
@@ -292,6 +291,8 @@ packages:
       - extra/xh
       - extra/yazi
       - extra/zoxide
+      ## Debugger
+      - extra/delve
       ## Test
       - extra/bat
       - extra/bats
