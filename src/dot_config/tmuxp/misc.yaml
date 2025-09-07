@@ -4,7 +4,8 @@ start_directory: $HOME
 windows:
   - panes:
       - ncspot
-  - panes:
+  - layout: tiled
+    panes:
       # NOTE: run following commands
       #       ```sh
       #       pwgen -c -n -y -B -1 20 1
@@ -21,15 +22,6 @@ windows:
             -v litellm-postgres:/var/lib/postgresql/data \
             --name litellm-db \
             postgres:16
-  - panes:
-      # for anthropic
-      # NOTE: run following commands
-      #       ```sh
-      #       gopass insert envs/litellm/ANTHROPIC_API_KEY
-      #       gopass insert envs/litellm/DATABASE_URL
-      #       echo "sk-$(pwgen -c -n -y -B -1 20 1)"
-      #       gopass insert envs/litellm/LITELLM_MASTER_KEY
-      #       ```
       - |
         gopass env envs/litellm \
           docker run \
@@ -42,74 +34,129 @@ windows:
             --name litellm \
             ghcr.io/berriai/litellm:main-stable \
               --drop_params --model claude-sonnet-4-20250514
-# yamllint disable rule:line-length
-#   - panes:
-#       # for bedrock
-#       # NOTE: run following commands
-#       #       ```sh
-#       #       gopass insert envs/litellm/DATABASE_URL
-#       #       echo "sk-$(pwgen -c -n -y -B -1 20 1)"
-#       #       gopass insert envs/litellm/LITELLM_MASTER_KEY
-#       #       ```
-#       - |
-#         gopass env envs/litellm \
-#           aws-vault exec bedrock -- \
-#             docker run \
-#               --rm \
-#               --network=host \
-#               -e STORE_MODEL_IN_DB=True \
-#               -e LITELLM_MODIFY_PARAMS=true \
-#               -e DATABASE_URL \
-#               -e LITELLM_MASTER_KEY \
-#               -e AWS_REGION \
-#               -e AWS_ACCESS_KEY_ID \
-#               -e AWS_SECRET_ACCESS_KEY \
-#               -e AWS_SESSION_TOKEN \
-#               --name litellm \
-#               ghcr.io/berriai/litellm:main-stable \
-#                 --drop_params \
-#                 --model bedrock/converse/us.anthropic.claude-sonnet-4-20250514-v1:0
-# yamllint enable rule:line-length
-#   - layout: tiled
-#     panes:
-#       # for bedrock
-#       - |
-#         gopass env envs/openwebui \
-#           docker run \
-#           --rm \
-#           --network=host \
-#           -e PORT=5000 \
-#           -e WEBUI_AUTH=False \
-#           -e ENABLE_OLLAMA_API=false \
-#           -e ENABLE_EVALUATION_ARENA_MODELS=false \
-#           -e OPENAI_API_BASE_URL=http://127.0.0.1:4000 \
-#           -e OPENAI_API_KEY \
-#           -v open-webui:/app/backend/data \
-#           --name open-webui \
-#           ghcr.io/open-webui/open-webui:main
-#       - |
-#         uvx mcpo@0.0.17 --port 8000 --server-type "streamable-http" -- \
-#           https://knowledge-mcp.global.api.aws
-#       - |
-#         uvx mcpo@0.0.17 --port 8001 -- \
-#           docker run \
-#             -i \
-#             --rm \
-#             --pull=always \
-#             --name mcpo-terraform-mcp-server \
-#             hashicorp/terraform-mcp-server
-#       - |
-#         uvx mcpo@0.0.17 mcpo --port 8002 -- \
-#          docker run \
-#             -i \
-#             --rm \
-#             --init \
-#             --pull=always \
-#             --name mcpo-playwright-mcp-server \
-#             mcr.microsoft.com/playwright/mcp
-#       - |
-#         uvx mcpo@0.0.17 mcpo --port 8003 --server-type "streamable-http" -- \
-#           https://mcp.context7.com/mcp
+      # NOTE: run following commands
+      #       ```sh
+      #       gopass insert envs/litellm/DATABASE_URL
+      #       echo "sk-$(pwgen -c -n -y -B -1 20 1)" |
+      #         gopass insert envs/litellm/LITELLM_MASTER_KEY
+      #       ```
+      # yamllint disable rule:line-length
+      # - |
+      #   gopass env envs/litellm \
+      #     aws-vault exec bedrock -- \
+      #       docker run \
+      #         --rm \
+      #         --network=host \
+      #         -e STORE_MODEL_IN_DB=True \
+      #         -e LITELLM_MODIFY_PARAMS=true \
+      #         -e DATABASE_URL \
+      #         -e LITELLM_MASTER_KEY \
+      #         -e AWS_REGION \
+      #         -e AWS_ACCESS_KEY_ID \
+      #         -e AWS_SECRET_ACCESS_KEY \
+      #         -e AWS_SESSION_TOKEN \
+      #         --name litellm \
+      #         ghcr.io/berriai/litellm:main-stable \
+      #           --drop_params \
+      #           --model bedrock/converse/us.anthropic.claude-sonnet-4-20250514-v1:0
+      # yamllint enable rule:line-length
+      #
+      # NOTE: run following commands
+      #       ```sh
+      #       gopass show -o envs/litellm/LITELLM_MASTER_KEY |
+      #         gopass insert envs/openwebui/OPENAI_API_KEY
+      #       ```
+      - |
+        gopass env envs/openwebui \
+          docker run \
+          --rm \
+          --network=host \
+          -e PORT=5000 \
+          -e WEBUI_AUTH=False \
+          -e ENABLE_OLLAMA_API=false \
+          -e ENABLE_EVALUATION_ARENA_MODELS=false \
+          -e OPENAI_API_BASE_URL=http://127.0.0.1:4000 \
+          -e OPENAI_API_KEY \
+          -v open-webui:/app/backend/data \
+          --name open-webui \
+          ghcr.io/open-webui/open-webui:main
+  - layout: tiled
+    panes:
+      - |
+        mcpo --port 8000 --config /dev/stdin <<EOF
+        {
+          "mcpServers": {
+            "aws": {
+              "type": "streamable-http",
+              "url": "https://knowledge-mcp.global.api.aws"
+            },
+            "terraform": {
+              "command": "docker",
+              "args": [
+                "run",
+                "-i",
+                "--rm",
+                "--pull=always",
+                "--name",
+                "mcpo-terraform-mcp-server",
+                "hashicorp/terraform-mcp-server"
+              ]
+            },
+            "playwright": {
+              "command": "docker",
+              "args": [
+                "run",
+                "-i",
+                "--rm",
+                "--init",
+                "--pull=always",
+                "--name",
+                "mcpo-playwright-mcp-server",
+                "mcr.microsoft.com/playwright/mcp"
+              ]
+            },
+            "context7": {
+              "type": "streamable-http",
+              "url": "https://mcp.context7.com/mcp"
+            }
+          }
+        }
+        EOF
+      # yamllint disable rule:line-length
+      - |
+        ghq get https://github.com/searxng/searxng-docker.git
+        cd "$(ghq list -p github.com/searxng/searxng-docker)"
+        test -w searxng/settings.yml &&
+          sed \
+            -i \
+            "s|ultrasecretkey|$(openssl rand -hex 32)|g" \
+            searxng/settings.yml ||
+          echo 'no write permission'
+        test -w searxng/settings.yml &&
+          yq eval \
+            '.search.formats = ["html", "json"]' \
+            -i searxng/settings.yml ||
+          echo 'no write permission'
+        test -w searxng/settings.yml &&
+          yq eval \
+            '.use_default_settings = {"engines": {"keep_only": ["duckduckgo"]}}' \
+            -i searxng/settings.yml ||
+          echo 'no write permission'
+        docker run \
+          --rm \
+          --network=host \
+          --name searxng \
+          -v ./searxng:/etc/searxng:rw \
+          -v searxng-data:/var/cache/searxng:rw \
+          -e SEARXNG_BASE_URL=https://${SEARXNG_HOSTNAME:-localhost}/ \
+          -e GRANIAN_HOST=0.0.0.0 \
+          -e GRANIAN_PORT=7000 \
+          -e SEARXNG_LIMITER=false \
+          --log-driver json-file \
+          --log-opt max-size=1m \
+          --log-opt max-file=1 \
+          docker.io/searxng/searxng:2025.9.5-e7501ea
+      # yamllint enable rule:line-length
 # yamllint disable rule:line-length
 #   - layout: tiled
 #     panes:
