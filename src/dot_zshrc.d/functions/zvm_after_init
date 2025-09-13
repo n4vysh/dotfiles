@@ -123,3 +123,5 @@ bindkey '^u' backward-kill-line
 
 # emacs-like keybinds
 bindkey '^d' delete-char-or-list
+bindkey '^[f' forward-word
+bindkey '^[b' backward-word
