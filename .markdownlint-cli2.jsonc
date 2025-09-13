@@ -2,11 +2,12 @@
   "config": {
     "default": true,
     "MD007": {
-      "indent": 4
+      "indent": 4 // for parser compatibility
     },
     "MD024": {
+      // allow duplication with different parent headings like changelogs
       "siblings_only": true
     },
-    "MD034": false
+    "MD034": false // prettier not use bare URL
   }
 }
