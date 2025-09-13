@@ -46,7 +46,8 @@ indent_style = tab
 indent_style = tab
 
 [*.md]
-indent_size = 4
+# NOTE: avoid `Wrong amount of left-padding spaces`
+indent_size = unset
 trim_trailing_whitespace = false
 
 [misc/wsl/misc/remap.skl]
