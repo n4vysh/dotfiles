@@ -26,11 +26,16 @@ repos:
         exclude: src/.*
   - repo: local
     hooks:
-      - id: prettier
-        name: format json and markdown files with prettier
+      - id: prettier-markdown
+        name: format markdown files with prettier
+        language: system
+        entry: prettier --write --list-different --ignore-unknown --tab-width 4
+        types_or: [markdown]
+      - id: prettier-json
+        name: format json files with prettier
         language: system
         entry: prettier --write --list-different --ignore-unknown
-        types_or: [json, markdown]
+        types_or: [json]
       - id: yamlfmt
         name: format yaml files with yamlfmt
         language: system
