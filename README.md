@@ -41,52 +41,57 @@
 ## Features
 
 - Fast updates with [Rolling-release][rolling-release-link] system
-- More-responsive with
-  [Zen Kernel][zen-kernel-link],
-  [zram-generator][zram-generator-link],
-  [systemd-oomd][systemd-oomd-link],
-  [irqbalance][irqbalance-link],
-  [cpupower][cpupower-link],
-  [tlp][tlp-link],
-  and [thermald][thermald-link]
-- Parallelized [init process][init-link] with
-  [systemd][systemd-link],
-  [systemd-network][systemd-network-link],
-  [systemd-resolved][systemd-resolved-link],
-  and [systemd-timesyncd][systemd-timesyncd-link]
+- More-responsive
+    - [Zen Kernel][zen-kernel-link]
+    - [zram-generator][zram-generator-link]
+    - [systemd-oomd][systemd-oomd-link]
+    - [irqbalance][irqbalance-link]
+    - [cpupower][cpupower-link]
+    - [tlp][tlp-link]
+    - [thermald][thermald-link]
+- Parallelized [init process][init-link]
+    - [systemd][systemd-link]
+    - [systemd-network][systemd-network-link]
+    - [systemd-resolved][systemd-resolved-link]
+    - [systemd-timesyncd][systemd-timesyncd-link]
 - Secure [display server][display-server-link] with [Wayland protocol][wayland-link]
 - Efficiently and automatically organize desktop with [Tiling Window Manager][tiling-window-manager-link]
 - [Transparent file compression][transparent-file-compression-link]
-  with [Btrfs][btrfs-link] and [zstd][zstd-link]
+    - [Btrfs][btrfs-link]
+    - [zstd][zstd-link]
 - Minimal latency [sound server][sound-server-link] with [PipeWire][pipe-wire-link]
-- [Full-disk encryption (FDE)][fde-link] with
-  [dm-crypt][dm-crypt-link],
-  [LVM][lvm-link],
-  [LUKS][luks-link],
-  [systemd-cryptenroll][systemd-cryptenroll-link]
-  and [TPM2][tpm-link]
+- [Full-disk encryption (FDE)][fde-link]
+    - [dm-crypt][dm-crypt-link]
+    - [LVM][lvm-link]
+    - [LUKS][luks-link]
+    - [systemd-cryptenroll][systemd-cryptenroll-link]
+    - [TPM2][tpm-link]
 - Passwordless sudo with [PAM U2F module][pam-u2f-module-link]
 - User-related information encryption with [systemd-homed][systemd-homed-link]
-- [Improving Boot process][boot-process-link] with
-  [uncompressed initramfs][uncompressed-initramfs-link],
-  [Silent boot][silent-boot-link],
-  and [systemd-boot][systemd-boot-link]
-- [UEFI Secure Boot][uefi-secure-boot-link] with [unified kernel image (UKI)][uki-link]
-  and [sbctl][sbctl-link]
+- [Improving Boot process][boot-process-link]
+    - [uncompressed initramfs][uncompressed-initramfs-link]
+    - [Silent boot][silent-boot-link]
+    - [systemd-boot][systemd-boot-link]
+- [UEFI Secure Boot][uefi-secure-boot-link]
+    - [unified kernel image (UKI)][uki-link]
+    - [sbctl][sbctl-link]
 - Enhance password security with [1Password][1password-link] and [Ente Auth][ente-auth-link]
-- End-to-end encryption (E2EE) with [Signal][signal-link],
-  [Proton Mail][proton-mail-link], [Tresorit][tresorit-link],
-  [Ente Photos][ente-photos-link], and [Obsidian][obsidian-link]
+- End-to-end encryption (E2EE)
+    - [Signal][signal-link]
+    - [Proton Mail][proton-mail-link]
+    - [Tresorit][tresorit-link]
+    - [Ente Photos][ente-photos-link]
+    - [Obsidian][obsidian-link]
 - Privacy focused web browsing
-  - Search shortcuts for [DuckDuckGo][duckduckgo-link]
-  - [Strict Enhanced Tracking Protection][strict-etp-link]
-  - [HTTPS-Only Mode][https-only-mode-link]
-  - [Multi-Account Containers][multi-account-containers-link]
-  - [uBlock Origin][ublock-origin-link]
-  - [LibRedirect][libredirect-link]
-  - [LocalCDN][localcdn-link]
-  - [ClearURLs][clearurls-link]
-  - [CanvasBlocker][canvasblocker-link]
+    - Search shortcuts for [DuckDuckGo][duckduckgo-link]
+    - [Strict Enhanced Tracking Protection][strict-etp-link]
+    - [HTTPS-Only Mode][https-only-mode-link]
+    - [Multi-Account Containers][multi-account-containers-link]
+    - [uBlock Origin][ublock-origin-link]
+    - [LibRedirect][libredirect-link]
+    - [LocalCDN][localcdn-link]
+    - [ClearURLs][clearurls-link]
+    - [CanvasBlocker][canvasblocker-link]
 - Block incoming connections without allowed with [ufw][ufw-link]
 - Detect rootkit and package vulnerabilities with [rkhunter][rkhunter-link] and [arch-audit][arch-audit-link]
 - Support Onion over VPN with [Tor Browser][tor-browser-link] and [OpenVPN][openvpn-link]
@@ -95,14 +100,14 @@
 - Available a large amount of cyber security tools with [BlackArch repository][blackarch-link]
 - Available prebuilt binaries with [Chaotic-AUR repository][chaotic-aur-link]
 - Support for OSC
-  - OSC 8 - hyperlinks (tmux + eza + rg + fd + delta + ls)
-  - OSC 52 - clipboard integration for copy only (tmux + neovim)
-  - OSC 133 - shell integration (tmux + powerlevel10k)
+    - OSC 8 - hyperlinks (tmux + eza + rg + fd + delta + ls)
+    - OSC 52 - clipboard integration for copy only (tmux + neovim)
+    - OSC 133 - shell integration (tmux + powerlevel10k)
 - Ergonomic keybinds with [keyd][keyd-link]
-  - Thumb cluster
-  - Dual function keys
-    - [xcape][xcape-link]
-    - [Space Cadet shift][space-cadet-shift-link]
+    - Thumb cluster
+    - Dual function keys
+        - [xcape][xcape-link]
+        - [Space Cadet shift][space-cadet-shift-link]
 
 [rolling-release-link]: https://en.wikipedia.org/wiki/Rolling_release
 [zen-kernel-link]: https://github.com/zen-kernel/zen-kernel
@@ -498,6 +503,6 @@ See the [UNLICENSE](./UNLICENSE) file for details.
 
 <!-- markdownlint-configure-file
 {
-  "MD013": { "tables": false }
+    "MD013": { "tables": false }
 }
 -->
