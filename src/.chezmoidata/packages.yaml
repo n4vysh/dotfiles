@@ -269,6 +269,7 @@ packages:
       - extra/libwebp
       - extra/mermaid-cli
       - extra/mise
+      - extra/moreutils # for vidir and sponge
       - extra/neovide
       - extra/obsidian
       - extra/oxipng
