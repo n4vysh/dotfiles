@@ -588,6 +588,13 @@ return {
 								"--tab-width",
 								"4",
 							}
+						elseif vim.bo[ctx.buf].filetype == "jsonc" then
+							return {
+								--- NOTE: jsonc not support trailing commas
+								--- https://jsonc.org/trailingcommas.html
+								"--trailing-comma",
+								"none",
+							}
 						else
 							return {}
 						end
