@@ -251,7 +251,6 @@ packages:
       - extra/atuin
       - extra/drawio-desktop
       - extra/editorconfig-checker
-      - extra/ethersync
       - extra/expect # for unbuffer
       - extra/eza
       - extra/fd
