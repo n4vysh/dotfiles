@@ -1,5 +1,5 @@
 abbr "-"="cd -"
-abbr "."="cd \$(chezmoi source-path)"
+abbr "."="cd ~/.local/share/chezmoi"
 abbr "b"="bat"
 abbr "chezmoi a"="chezmoi apply"
 abbr "chezmoi d"="chezmoi diff"
