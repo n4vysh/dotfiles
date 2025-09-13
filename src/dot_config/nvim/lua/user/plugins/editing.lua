@@ -618,8 +618,4 @@ return {
 			},
 		},
 	},
-	{
-		"ethersync/ethersync-nvim",
-		lazy = false,
-	},
 }
