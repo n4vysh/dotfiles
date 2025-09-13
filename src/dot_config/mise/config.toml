@@ -20,7 +20,7 @@ opa = "1.5.0"
 "go:github.com/hashicorp/hcl/v2/cmd/hclfmt" = "v2.24.0"
 
 # AI
-"npm:opencode-ai" = "0.5.24"
+"npm:opencode-ai" = "0.7.8"
 "pipx:mcpo" = "0.0.17"
 
 # app

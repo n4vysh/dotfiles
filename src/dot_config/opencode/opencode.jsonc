@@ -8,7 +8,9 @@
   },
   "keybinds": {
     "input_submit": "ctrl+s",
-    "input_newline": "enter"
+    "input_newline": "enter",
+    "session_child_cycle": "ctrl+alt+l",
+    "session_child_cycle_reverse": "ctrl+alt+h"
   },
   "mcp": {
     "aws-knowledge-server": {
@@ -16,15 +18,7 @@
       "type": "remote",
       "url": "https://knowledge-mcp.global.api.aws"
     },
-    "awslabs-terraform-server": {
-      "enabled": false,
-      "type": "local",
-      "command": ["uvx", "awslabs.terraform-mcp-server@1.0.3"],
-      "environment": {
-        "FASTMCP_LOG_LEVEL": "ERROR"
-      }
-    },
-    "hashicorp-terraform-server": {
+    "terraform-server": {
       "enabled": false,
       "type": "local",
       "command": [
