@@ -12,9 +12,9 @@
 
 [overview-link]: ./misc/screenshots/overview.png
 [bootsplash-link]: ./misc/screenshots/bootsplash.png
-[login-screen-link]: ./misc/screenshots/login_screen.png
-[nowindow-link]: ./misc/screenshots/no_window.png
-[lock-screen-link]: ./misc/screenshots/lock_screen.png
+[login-screen-link]: ./misc/screenshots/login-screen.png
+[nowindow-link]: ./misc/screenshots/no-window.png
+[lock-screen-link]: ./misc/screenshots/lock-screen.png
 
 - Distro: [Arch Linux][archlinux-link]
 - Dotfiles Manager: [chezmoi][chezmoi-link]
@@ -415,7 +415,7 @@ prefix is `C-j`
 
 If rkhunter or arch-audit found some problem, show following.
 
-![waybar security check](./misc/screenshots/waybar_security_check.png)
+![waybar security check](./misc/screenshots/waybar-security-check.png)
 
 ### nvim
 
@@ -439,27 +439,27 @@ If rkhunter or arch-audit found some problem, show following.
 
 [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
-![nvim telescope](./misc/screenshots/nvim_telescope.png)
+![nvim telescope](./misc/screenshots/nvim-telescope.png)
 
 [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
 
-![nvim tree](./misc/screenshots/nvim_tree.png)
+![nvim tree](./misc/screenshots/nvim-tree.png)
 
 [which-key.nvim](https://github.com/folke/which-key.nvim)
 
-![nvim which-key](./misc/screenshots/nvim_which_key.png)
+![nvim which-key](./misc/screenshots/nvim-which-key.png)
 
 [hydra.nvim](https://github.com/anuvyklack/hydra.nvim)
 
-![nvim hydra](./misc/screenshots/nvim_hydra.png)
+![nvim hydra](./misc/screenshots/nvim-hydra.png)
 
 [wilder.nvim](https://github.com/gelguy/wilder.nvim)
 
-![nvim wilder](./misc/screenshots/nvim_wilder.png)
+![nvim wilder](./misc/screenshots/nvim-wilder.png)
 
 [vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui)
 
-![nvim dadbod ui](./misc/screenshots/nvim_dadbod_ui.png)
+![nvim dadbod ui](./misc/screenshots/nvim-dadbod-ui.png)
 
 ### yazi
 
@@ -468,7 +468,7 @@ If rkhunter or arch-audit found some problem, show following.
 ### [lazygit](https://github.com/jesseduffield/lazygit)
 
 ![lazygit](./misc/screenshots/lazygit.png)
-![lazygit cz](./misc/screenshots/lazygit_cz.png)
+![lazygit cz](./misc/screenshots/lazygit-cz.png)
 
 ### [lazydocker](https://github.com/jesseduffield/lazydocker)
 
