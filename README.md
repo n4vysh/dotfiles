@@ -230,7 +230,7 @@ Run `pre-commit run -a` to lint and format the source code with
 
 | Target type          | Formatter / Linter / Testing framework                                                |
 | :------------------- | :------------------------------------------------------------------------------------ |
-| all files            | [editorconfig-checker][ec-link]                                                       |
+| all files            | [editorconfig-checker][ec-link] / [typos][typos-link]                                 |
 | JSON files           | [prettier][prettier-link]                                                             |
 | YAML files           | [yamlfmt][yamlfmt-link] / [yamllint][yamllint-link]                                   |
 | TOML files           | [taplo][taplo-link]                                                                   |
@@ -243,6 +243,7 @@ Run `pre-commit run -a` to lint and format the source code with
 
 [pre-commit-link]: https://pre-commit.com/
 [ec-link]: https://github.com/editorconfig-checker/editorconfig-checker
+[typos-link]: https://github.com/crate-ci/typos
 [prettier-link]: https://prettier.io/
 [yamlfmt-link]: https://github.com/google/yamlfmt
 [yamllint-link]: https://github.com/adrienverge/yamllint
