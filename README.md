@@ -397,9 +397,9 @@ prefix is `C-j`
 
 ## Screenshots
 
-### rofi-wayland
+### rofi
 
-![rofi-wayland](./misc/screenshots/rofi-wayland.png)
+![rofi](./misc/screenshots/rofi.png)
 
 ### wlogout
 
