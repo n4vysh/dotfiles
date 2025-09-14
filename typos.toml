@@ -20,3 +20,6 @@ extend-ignore-identifiers-re = [
   # /etc/systemd/system/display-namager.service.d/color.conf
   "P7c0caf5",
 ]
+
+[files]
+extend-exclude = ["misc/screenshots/*.png"]
