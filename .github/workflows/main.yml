@@ -47,6 +47,7 @@ jobs:
             selene \
             stylua \
             editorconfig-checker \
+            typos \
             taplo \
             shellharden \
             shfmt \

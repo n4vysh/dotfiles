@@ -35,6 +35,10 @@ repos:
         name: check files with typos
         language: system
         entry: typos
+        exclude: |
+          (?x)^(
+            .*\.png|.*\.mozlz4
+          )$
       # JSON files
       - id: prettier-json
         name: format json files with prettier
