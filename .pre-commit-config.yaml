@@ -63,6 +63,11 @@ repos:
             src/.config/pet/config.toml|
             src/.config/pet/snippet.toml
           )$
+      - id: taplo-lint
+        name: format toml files with taplo lint
+        language: system
+        entry: taplo lint
+        types: [toml]
       # Markdown files
       - id: prettier-markdown
         name: format markdown files with prettier
@@ -119,11 +124,6 @@ repos:
         language: system
         entry: stylua
         types: [lua]
-      - id: taplo-lint
-        name: format toml files with taplo lint
-        language: system
-        entry: taplo lint
-        types: [toml]
       # etc files
       - id: bats
         name: check dotfiles with bats
