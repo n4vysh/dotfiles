@@ -175,24 +175,26 @@
 
 ## Requirements
 
-- [VAIO SX14 | ALL BLACK EDITION - June 2023 model (VJS1468)][vaio-sx14-link]
-- USB drive
-- [YubiKey 4][yubikey-link]
-
-[vaio-sx14-link]: https://store.vaio.com/shop/pages/allblack_sx1214-6g.aspx
-[yubikey-link]: https://support.yubico.com/hc/en-us/articles/360013714599-YubiKey-4
+- [Arch Linux][archlinux-link] ([installation guide](./docs/install-archlinux-without-virtulization.md))
+- [chezmoi][chezmoi-link]
 
 ## Usage
 
-### Install Arch Linux
-
-[without virtualization](./docs/install-archlinux-without-virtulization.md)
-
 ### Deploy dotfiles
+
+> [!CAUTION]
+> Do not use blindly. Running this will overwrite your dotfiles.
+
+Deploy dotfiles to home directory following commands.
 
 ```sh
 chezmoi init n4vysh && chezmoi apply
 ```
+
+Install packages with [chezmoi scripts][chezmoi-scripts-link]
+when running `chezmoi apply`.
+
+[chezmoi-scripts-link]: https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/
 
 ### Configure Tresorit
 
