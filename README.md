@@ -228,32 +228,31 @@ and restore settings from following files in [misc/firefox/](misc/firefox/) dire
 Run `pre-commit run -a` to lint and format the source code with
 [pre-commit][pre-commit-link]. pre-commit run following tools.
 
-| Name                                                                                  | Target type                |
-| :------------------------------------------------------------------------------------ | :------------------------- |
-| [prettier][prettier-link]                                                             | JSON, YAML, Markdown files |
-| [yamllint][yamllint-link]                                                             | YAML files                 |
-| [taplo][taplo-link]                                                                   | TOML files                 |
-| [markdownlint-cli2][markdownlint-cli2-link]                                           | Markdown files             |
-| [shfmt][shfmt-link] + [shellharden][shellharden-link] + [shellcheck][shellcheck-link] | shell scripts              |
-| [commitlint][commitlint-link]                                                         | commit messages            |
-| zsh --no-exec                                                                         | zsh files                  |
-| hyprctl configerrors                                                                  | hyprland config file       |
-| [selene][selene-link] + [stylua][stylua-link]                                         | lua files                  |
-| [editorconfig-checker][ec-link]                                                       | all files                  |
-| [bats][bats-link]                                                                     | etc files                  |
+| Target type          | Formatter / Linter / Testing framework                                                |
+| :------------------- | :------------------------------------------------------------------------------------ |
+| all files            | [editorconfig-checker][ec-link]                                                       |
+| JSON files           | [prettier][prettier-link]                                                             |
+| YAML files           | [yamlfmt][yamlfmt-link] / [yamllint][yamllint-link]                                   |
+| TOML files           | [taplo][taplo-link]                                                                   |
+| Markdown files       | [prettier][prettier-link] / [markdownlint-cli2][markdownlint-cli2-link]               |
+| shell scripts        | [shfmt][shfmt-link] / [shellharden][shellharden-link] / [shellcheck][shellcheck-link] |
+| zsh files            | `zsh --no-exec`                                                                       |
+| hyprland config file | `hyprctl configerrors`                                                                |
+| lua files            | [selene][selene-link] / [stylua][stylua-link]                                         |
+| etc files            | [bats][bats-link]                                                                     |
 
 [pre-commit-link]: https://pre-commit.com/
+[ec-link]: https://github.com/editorconfig-checker/editorconfig-checker
 [prettier-link]: https://prettier.io/
+[yamlfmt-link]: https://github.com/google/yamlfmt
 [yamllint-link]: https://github.com/adrienverge/yamllint
 [taplo-link]: https://taplo.tamasfe.dev/
 [markdownlint-cli2-link]: https://github.com/DavidAnson/markdownlint-cli2
 [shfmt-link]: https://github.com/mvdan/sh
 [shellharden-link]: https://github.com/anordal/shellharden
 [shellcheck-link]: https://www.shellcheck.net/
-[commitlint-link]: https://commitlint.js.org/#/
 [selene-link]: https://github.com/Kampfkarren/selene
 [stylua-link]: https://github.com/JohnnyMorganz/StyLua
-[ec-link]: https://github.com/editorconfig-checker/editorconfig-checker
 
 ## Custom keybinds
 
