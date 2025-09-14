@@ -38,7 +38,7 @@
 [tmux-link]: https://github.com/tmux/tmux
 [yazi-link]: https://yazi-rs.github.io/
 
-## Features
+## ✨ Features
 
 - Fast updates with [Rolling-release][rolling-release-link] system
 - More-responsive
@@ -173,12 +173,12 @@
 [xcape-link]: https://github.com/alols/xcape
 [space-cadet-shift-link]: https://docs.qmk.fm/features/space_cadet
 
-## Requirements
+## ⚡️ Requirements
 
 - [Arch Linux][archlinux-link] ([installation guide](./docs/install-archlinux-without-virtulization.md))
 - [chezmoi][chezmoi-link]
 
-## Usage
+## 🚀 Usage
 
 ### Deploy dotfiles
 
@@ -257,7 +257,7 @@ Run `pre-commit run -a` to lint and format the source code with
 [selene-link]: https://github.com/Kampfkarren/selene
 [stylua-link]: https://github.com/JohnnyMorganz/StyLua
 
-## Custom keybinds
+## ⌨️ Custom keybinds
 
 ### keyd
 
@@ -343,7 +343,7 @@ prefix is `C-j`
 | files   | `f`   | Open selected file with file manager      |
 | commits | `C-t` | Continue the revert operation in progress |
 
-## List of applications
+## 📦 List of applications
 
 | Category                     | Name                                                                                              |
 | :--------------------------- | :------------------------------------------------------------------------------------------------ |
@@ -397,7 +397,7 @@ prefix is `C-j`
 [wob-link]: https://github.com/francma/wob
 [fastfetch-link]: https://github.com/fastfetch-cli/fastfetch
 
-## Screenshots
+## 🖼️ Screenshots
 
 ### rofi
 
@@ -492,11 +492,11 @@ If rkhunter or arch-audit found some problem, show following.
 
 ![pet](./misc/screenshots/pet.png)
 
-## Tips
+## 💡 Tips
 
 [on WSL2](./docs/install-archlinux-on-wsl2.md)
 
-## License
+## 📜 License
 
 This project distributed under the [Unlicense][unlicense-link].
 See the [UNLICENSE](./UNLICENSE) file for details.
