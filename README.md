@@ -239,7 +239,7 @@ Run `pre-commit run -a` to lint and format the source code with
 | zsh files            | `zsh --no-exec`                                                                       |
 | hyprland config file | `hyprctl configerrors`                                                                |
 | lua files            | [selene][selene-link] / [stylua][stylua-link]                                         |
-| etc files            | [bats][bats-link]                                                                     |
+| etc files            | [bats][bats-link] / `visudo -c`                                                       |
 
 [pre-commit-link]: https://pre-commit.com/
 [ec-link]: https://github.com/editorconfig-checker/editorconfig-checker
