@@ -1,0 +1,22 @@
+[default]
+extend-ignore-identifiers-re = [
+  "ccahe", # makepkg.conf
+
+  # .config/pet/snippet.toml
+  "Pn",
+
+  # .config/nvim/
+  "enew",
+  "tabe",
+  "noice",
+  "Noice",
+  "nd",
+
+  # .zshenv
+  "LESS_TERMCAP_ue",
+  # .zshrc.d/functions/zvm_after_init
+  "^ot",
+
+  # /etc/systemd/system/display-namager.service.d/color.conf
+  "P7c0caf5",
+]

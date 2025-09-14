@@ -81,6 +81,10 @@ repos:
         name: check files with editorconfig-checker
         language: system
         entry: ec
+      - id: typos
+        name: check files with typos
+        language: system
+        entry: typos
       - id: taplo-format
         name: format toml files with taplo format
         language: system
