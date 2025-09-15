@@ -209,7 +209,7 @@ packages:
       - extra/torbrowser-launcher
       - extra/wpscan
       # utilities
-      - aur/espanso-wayland
+      - chaotic-aur/espanso-wayland-git
       - chaotic-aur/wps-office
       - core/dosfstools
       - core/man-db
