@@ -98,12 +98,15 @@ for list in "${lists[@]}"; do
 	fi
 done
 
+# NOTE: configure ssh and disable ports test
+#       ports test causes false positives, for example mcp-hub
 sudo sed \
 	-i \
 	-e '/^#ALLOW_SSH_PROT_V1/s/#//' \
 	-e '/^ALLOW_SSH_PROT_V1/s/0/2/' \
 	-e '/^#ALLOW_SSH_ROOT_USER/s/#//' \
 	-e '/^ALLOW_SSH_ROOT_USER/s/no/unset/' \
+	-e '/^DISABLE_TESTS=/s/suspscan hidden_ports/suspscan ports hidden_ports/' \
 	/etc/rkhunter.conf
 
 if ! sudo grep -q "ALLOWDEVFILE=/dev/shm/PostgreSQL.*" /etc/rkhunter.conf; then
