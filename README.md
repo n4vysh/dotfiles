@@ -26,7 +26,7 @@
 - Terminal Multiplexer: [Tmux][tmux-link]
 - Terminal Emulator: [Ghostty][ghostty-link]
 
-[package list](./misc/pkglist/)
+[package list](./src/.chezmoidata/packages.yaml)
 
 [archlinux-link]: https://archlinux.org/
 [chezmoi-link]: https://www.chezmoi.io/
