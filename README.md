@@ -10,11 +10,11 @@
 | :-------------------------- | :------------------------------- |
 | ![no window][nowindow-link] | ![lock-screen][lock-screen-link] |
 
-[overview-link]: ./misc/screenshots/overview.png
-[bootsplash-link]: ./misc/screenshots/bootsplash.png
-[login-screen-link]: ./misc/screenshots/login-screen.png
-[nowindow-link]: ./misc/screenshots/no-window.png
-[lock-screen-link]: ./misc/screenshots/lock-screen.png
+[overview-link]: ./docs/screenshots/overview.png
+[bootsplash-link]: ./docs/screenshots/bootsplash.png
+[login-screen-link]: ./docs/screenshots/login-screen.png
+[nowindow-link]: ./docs/screenshots/no-window.png
+[lock-screen-link]: ./docs/screenshots/lock-screen.png
 
 - Distro: [Arch Linux][archlinux-link]
 - Dotfiles Manager: [chezmoi][chezmoi-link]
@@ -401,23 +401,23 @@ prefix is `C-j`
 
 ### rofi
 
-![rofi](./misc/screenshots/rofi.png)
+![rofi](./docs/screenshots/rofi.png)
 
 ### wlogout
 
-![wlogout](./misc/screenshots/wlogout.png)
+![wlogout](./docs/screenshots/wlogout.png)
 
 ### swaync
 
-![swaync](./misc/screenshots/swaync.png)
+![swaync](./docs/screenshots/swaync.png)
 
 ### waybar
 
-![waybar](./misc/screenshots/waybar.png)
+![waybar](./docs/screenshots/waybar.png)
 
 If rkhunter or arch-audit found some problem, show following.
 
-![waybar security check](./misc/screenshots/waybar-security-check.png)
+![waybar security check](./docs/screenshots/waybar-security-check.png)
 
 ### nvim
 
@@ -437,60 +437,60 @@ If rkhunter or arch-audit found some problem, show following.
 [statuscol-link]: https://github.com/luukvbaal/statuscol.nvim
 [lualine-link]: https://github.com/nvim-lualine/lualine.nvim
 
-![nvim](./misc/screenshots/nvim.png)
+![nvim](./docs/screenshots/nvim.png)
 
 [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 
-![nvim telescope](./misc/screenshots/nvim-telescope.png)
+![nvim telescope](./docs/screenshots/nvim-telescope.png)
 
 [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
 
-![nvim tree](./misc/screenshots/nvim-tree.png)
+![nvim tree](./docs/screenshots/nvim-tree.png)
 
 [which-key.nvim](https://github.com/folke/which-key.nvim)
 
-![nvim which-key](./misc/screenshots/nvim-which-key.png)
+![nvim which-key](./docs/screenshots/nvim-which-key.png)
 
 [hydra.nvim](https://github.com/anuvyklack/hydra.nvim)
 
-![nvim hydra](./misc/screenshots/nvim-hydra.png)
+![nvim hydra](./docs/screenshots/nvim-hydra.png)
 
 [wilder.nvim](https://github.com/gelguy/wilder.nvim)
 
-![nvim wilder](./misc/screenshots/nvim-wilder.png)
+![nvim wilder](./docs/screenshots/nvim-wilder.png)
 
 [vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui)
 
-![nvim dadbod ui](./misc/screenshots/nvim-dadbod-ui.png)
+![nvim dadbod ui](./docs/screenshots/nvim-dadbod-ui.png)
 
 ### yazi
 
-![yazi](./misc/screenshots/yazi.png)
+![yazi](./docs/screenshots/yazi.png)
 
 ### [lazygit](https://github.com/jesseduffield/lazygit)
 
-![lazygit](./misc/screenshots/lazygit.png)
-![lazygit cz](./misc/screenshots/lazygit-cz.png)
+![lazygit](./docs/screenshots/lazygit.png)
+![lazygit cz](./docs/screenshots/lazygit-cz.png)
 
 ### [lazydocker](https://github.com/jesseduffield/lazydocker)
 
-![lazydocker](./misc/screenshots/lazydocker.png)
+![lazydocker](./docs/screenshots/lazydocker.png)
 
 ### ncspot
 
-![ncspot](./misc/screenshots/ncspot.png)
+![ncspot](./docs/screenshots/ncspot.png)
 
 ### [btop](https://github.com/aristocratos/btop)
 
-![btop](./misc/screenshots/btop.png)
+![btop](./docs/screenshots/btop.png)
 
 ### [msf](https://github.com/rapid7/metasploit-framework)
 
-![msf](./misc/screenshots/msf.png)
+![msf](./docs/screenshots/msf.png)
 
 ### pet
 
-![pet](./misc/screenshots/pet.png)
+![pet](./docs/screenshots/pet.png)
 
 ## 💡 Tips
 
