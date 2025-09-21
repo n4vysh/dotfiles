@@ -85,6 +85,9 @@ useradd -m -G wheel -s /bin/zsh "$username"
 passwd "$username"
 echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
 chmod 440 /etc/sudoers.d/wheel
+
+hostnamectl set-hostname localhost
+
 exit
 ```
 
