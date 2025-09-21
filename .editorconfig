@@ -50,7 +50,7 @@ indent_style = tab
 indent_size = unset
 trim_trailing_whitespace = false
 
-[misc/wsl/misc/remap.skl]
+[misc/wsl/remap.skl]
 insert_final_newline = false
 
 [misc/firefox/canvas-blocker.json]

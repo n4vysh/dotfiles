@@ -364,3 +364,24 @@ packages:
       - tree
     gh:
       - dlvhdr/gh-dash
+  windows:
+    winget:
+      - dandavison.delta # for chezmoi diff
+      - wez.wezterm
+      - Mozilla.Firefox
+      - glzr-io.glazewm
+      - OliverSchwendener.ueli
+      - RandyRants.SharpKeys
+      - Lexikos.AutoHotkey
+      - SlackTechnologies.Slack
+      - PortSwigger.BurpSuite.Community
+      - WiresharkFoundation.Wireshark
+      - Insecure.Nmap
+      - OpenVPNTechnologies.OpenVPN
+      - JGraph.Draw
+      - hrkfdn.ncspot
+      - Espanso.Espanso
+      - NickeManarin.ScreenToGif
+      - Gyan.FFmpeg
+      - Neovide.Neovide
+      - GnuPG.Gpg4win

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# https://github.com/nmap/nmap/issues/1864
-# https://libreddit.garudalinux.org/r/bashonubuntuonwindows/comments/tikwt1/how_do_i_make_my_wsl_to_make_network_scans_for_my/
-# https://superuser.com/questions/1700040/alexa-device-not-found-via-nmap-in-wsl2
-
-/mnt/c/Program\ Files\ \(x86\)/Nmap/nmap.exe "$@"

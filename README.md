@@ -175,8 +175,11 @@
 
 ## ⚡️ Requirements
 
-- [Arch Linux][archlinux-link] ([installation guide](./docs/install-archlinux-without-virtulization.md))
-- [chezmoi][chezmoi-link]
+- [Arch Linux][archlinux-link]
+  (installation guide: [native][install-guide-link] / [wsl][install-guide-wsl-link])
+
+[install-guide-link]: ./docs/install-archlinux-without-virtulization.md
+[install-guide-wsl-link]: ./docs/install-archlinux-on-wsl2.md
 
 ## 🚀 Usage
 
@@ -188,7 +191,9 @@
 Deploy dotfiles to home directory following commands.
 
 ```sh
-chezmoi init n4vysh && chezmoi apply
+sudo pacman -S --noconfirm --needed chazmoi &&
+    chezmoi init n4vysh &&
+    chezmoi apply
 ```
 
 Install packages with [chezmoi scripts][chezmoi-scripts-link]
@@ -491,10 +496,6 @@ If rkhunter or arch-audit found some problem, show following.
 ### pet
 
 ![pet](./docs/screenshots/pet.png)
-
-## 💡 Tips
-
-[on WSL2](./docs/install-archlinux-on-wsl2.md)
 
 ## 📜 License
 
