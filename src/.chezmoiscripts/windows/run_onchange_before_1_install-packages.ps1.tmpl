@@ -1,10 +1,14 @@
 {{ range .packages.windows.winget -}}
-winget install -e --id {{ . | quote }}
+echo 'INFO: Install {{ . | quote }}'
+winget install --no-upgrade -e --id {{ . | quote }}
 {{ end -}}
 
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-irm get.scoop.sh | iex
-
+echo 'Install fonts'
+if (Get-Command "scoop" -ErrorAction SilentlyContinue) {
+  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+  Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+} else {
+  echo "WARN: scoop already installed -- skipping"
+}
 scoop bucket add nerd-fonts
-
-sudo scoop install -g firacode
+sudo scoop install -g --no-update-scoop firacode
