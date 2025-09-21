@@ -54,7 +54,7 @@ bats_load_library bats-file
       grep -v 'etc/sudoers.d/' |
       grep -v 'etc/systemd/system/display-namager.service.d/color.conf' |
       grep -v 'etc/wsl.conf' |
-      grep -v 'etc/systemd/tmpfiles.d/wslg.conf' |
+      grep -v 'etc/tmpfiles.d/wslg.conf' |
       grep -v 'etc/systemd/system/systemd-timesyncd.service.d/override.conf'
   )
 
