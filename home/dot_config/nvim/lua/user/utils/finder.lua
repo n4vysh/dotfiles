@@ -5,7 +5,7 @@ function M.edit_config()
 	local builtin = require("telescope.builtin")
 	builtin.git_files({
 		use_git_root = false,
-		cwd = os.getenv("XDG_DATA_HOME") .. "/chezmoi/src/dot_config/nvim/",
+		cwd = os.getenv("XDG_DATA_HOME") .. "/chezmoi/home/dot_config/nvim/",
 	})
 end
 

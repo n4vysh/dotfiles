@@ -2,12 +2,22 @@
 
 gum log --level info 'Link etc files'
 # https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-setting-for-wslconfig
-ln -sf ~/.local/share/chezmoi/misc/wsl/etc/wsl.conf /etc/wsl.conf
-ln -sf \
-	~/.local/share/chezmoi/misc/wsl/etc/tmpfiles.d/wslg.conf \
-	/etc/tmpfiles.d/wslg.conf
 sudo cp -iv \
-	~/.local/share/chezmoi/misc/wsl/etc/systemd/system/systemd-timesyncd.service.d/override.conf \
+	~/.local/share/chezmoi/etc/wsl.conf \
+	/etc/wsl.conf
+
+# NOTE: fix wslg bug of WSL
+# https://github.com/microsoft/wslg/issues/1032#issuecomment-2310369848
+sudo mkdir -p /etc/tmpfiles.d/
+sudo cp -iv \
+	~/.local/share/chezmoi/etc/tmpfiles.d/wslg.conf \
+	/etc/tmpfiles.d/wslg.conf
+
+# NOTE: fix clock sync bug of WSL
+# https://github.com/microsoft/WSL/issues/8204#issuecomment-1339506778
+sudo mkdir -p /etc/systemd/system/systemd-timesyncd.service.d/
+sudo cp -iv \
+	~/.local/share/chezmoi/etc/systemd/system/systemd-timesyncd.service.d/override.conf \
 	/etc/systemd/system/systemd-timesyncd.service.d/override.conf
 
 gum log --level info 'Link commands'
@@ -58,4 +68,6 @@ ln -s /mnt/c/Program\ Files\ \(x86\)/Nmap/nmap.exe ~/.local/bin/nmap
 
 gum log --level info 'Enable systemd services'
 systemctl --user daemon-reload
+# NOTE: fix wslg bug of WSL
+# https://github.com/microsoft/wslg/issues/1032#issuecomment-2310369848
 systemctl --user enable --now wsl-wayland-symlink.service

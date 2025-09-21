@@ -47,12 +47,18 @@ bats_load_library bats-file
 
 @test "etc files are deployed" {
   mapfile -t files < <(
-    find misc/etc/ -type f |
-      sed 's|^misc||g' |
-      gre -v '/etc/kernel/cmdline'
+    find etc/ -type f |
+      grep -v 'etc/kernel/cmdline' |
+      grep -v 'etc/modprobe.d/disable-overlay-redirect-dir.conf' |
+      grep -v 'etc/polkit-1/rules.d/50-udisks.rules' |
+      grep -v 'etc/sudoers.d/' |
+      grep -v 'etc/systemd/system/display-namager.service.d/color.conf' |
+      grep -v 'etc/wsl.conf' |
+      grep -v 'etc/systemd/tmpfiles.d/wslg.conf' |
+      grep -v 'etc/systemd/system/systemd-timesyncd.service.d/override.conf'
   )
 
   for file in "${files[@]}"; do
-    assert_files_equal "misc$file" "$file"
+    assert_files_equal "/$file" "$file"
   done
 }

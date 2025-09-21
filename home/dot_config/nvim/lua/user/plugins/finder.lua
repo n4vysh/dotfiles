@@ -47,7 +47,7 @@ return {
 				function()
 					local builtin = require("telescope.builtin")
 					builtin.git_files({
-						cwd = os.getenv("XDG_DATA_HOME") .. "/chezmoi/src/",
+						cwd = os.getenv("XDG_DATA_HOME") .. "/chezmoi/home/",
 					})
 				end,
 				silent = true,

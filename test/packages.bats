@@ -6,7 +6,7 @@ bats_load_library bats-assert
 get_package_info() {
   yq e \
     '.packages.linux.pacman[]' \
-    src/.chezmoidata/packages.yaml |
+    home/.chezmoidata/packages.yaml |
     sed 's|^.*/||g' |
     xargs pacman -Q
 }

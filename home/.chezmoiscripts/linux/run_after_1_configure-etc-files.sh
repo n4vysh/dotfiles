@@ -5,7 +5,7 @@
 gum log --level info 'Deploy etc files'
 sudo mkdir -p /etc/keyd/ /etc/docker/
 dir="$HOME/.local/share/chezmoi"
-xargs -I {} sudo cp -v "$dir/misc/{}" /{} <<-EOF
+xargs -I {} sudo cp -v "$dir/{}" /{} <<-EOF
 	etc/keyd/default.conf
 	etc/docker/daemon.json
 	etc/polkit-1/rules.d/50-udisks.rules

@@ -8,7 +8,7 @@ Probably work following setup.
 - Window Manager: [GlazeWM][glazewm-link]
 - Terminal Emulator: [WezTerm][wezterm-link]
 
-[package list](./src/.chezmoidata/packages.yaml)
+[package list](./home/.chezmoidata/packages.yaml)
 
 [glazewm-link]: https://github.com/glzr-io/glazewm
 [wezterm-link]: https://wezterm.org/
@@ -43,7 +43,7 @@ with [SharpKeys][sharpkeys-link] and [AutoHotKey][ahk-link].
 | `Alt (Left)`   | `Alt (Left)`   |                             |
 
 [sharpkeys-config-link]: ../misc/wsl/remap.skl
-[ahk-config-link]: ../src/dot_glzr/glazewm/hotkeys.ahk
+[ahk-config-link]: ../home/dot_glzr/glazewm/hotkeys.ahk
 [sharpkeys-link]: https://github.com/randyrants/sharpkeys
 [ahk-link]: https://www.autohotkey.com/
 
