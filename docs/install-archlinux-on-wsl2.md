@@ -5,55 +5,21 @@ and Mobile Device Management software
 at my current company do not support Linux Desktop.
 Probably work following setup.
 
-## Packages
+## Windows
 
-### [winget][winget-link]
-
-Install some packages with winget.
+Install chezmoi with [winget][winget-link] and deploy dotfiles.
 
 ```pwsh
-winget install -e --id wez.wezterm --version 20240203-110809-5046fc22
-winget install -e --id Mozilla.Firefox --version 138.0.4
-winget install -e --id glzr-io.glazewm --version 3.8.1
-winget install -e --id OliverSchwendener.ueli --version 9.24.0
-winget install -e --id RandyRants.SharpKeys --version 3.9.4000
-winget install -e --id Lexikos.AutoHotkey --version 2.0.19
-winget install -e --id SlackTechnologies.Slack --version 4.44.60
-winget install -e --id PortSwigger.BurpSuite.Community --version 2025.4.4
-winget install -e --id WiresharkFoundation.Wireshark --version 4.4.6
-winget install -e --id Insecure.Nmap --version 7.8
-winget install -e --id OpenVPNTechnologies.OpenVPN --version 2.6.1401
-winget install -e --id QMK.QMKToolbox --version 0.3.3
-winget install -e --id JGraph.Draw --version 27.0.5
-winget install -e --id hrkfdn.ncspot --version 1.2.2
-winget install -e --id Espanso.Espanso --version 2.2.3
-winget install -e --id NickeManarin.ScreenToGif --version 2.41.2
-winget install -e --id Gyan.FFmpeg --version 7.1.1
-winget install -e --id Neovide.Neovide --version 0.15.0
-winget install -e --id GnuPG.Gpg4win --version 4.4.1
+winget install -e --id twpayne.chezmoi
+
+chezmoi init n4vysh && chezmoi apply
 ```
 
 [winget-link]: https://github.com/microsoft/winget-cli
 
-### [Scoop][scoop-link]
+### Keyboard
 
-Install scoop command and some packages.
-
-```pwsh
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-irm get.scoop.sh | iex
-scoop install git@2.49.0
-scoop bucket add extras
-scoop bucket add nerd-fonts
-scoop install archwsl@25.3.19.0
-sudo scoop install -g firacode@6.2
-```
-
-[scoop-link]: https://scoop.sh/
-
-## Keyboard
-
-Deploy [remap.skl][sharpkeys-config-link] and [remap.ahk][ahk-config-link]
+Deploy [remap.skl][sharpkeys-config-link] and [hotkeys.ahk][ahk-config-link]
 to remap following keys and shortcuts
 with [SharpKeys][sharpkeys-link] and [AutoHotKey][ahk-link].
 
@@ -64,12 +30,12 @@ with [SharpKeys][sharpkeys-link] and [AutoHotKey][ahk-link].
 | `Alt (Right)`  | `Ctrl (Right)` | `Escape` when pressed alone |
 | `Alt (Left)`   | `Alt (Left)`   |                             |
 
-[sharpkeys-config-link]: ../misc/wsl/misc/remap.skl
-[ahk-config-link]: ../misc/wsl/misc/remap.ahk
+[sharpkeys-config-link]: ../misc/wsl/remap.skl
+[ahk-config-link]: ../src/dot_glzr/glazewm/hotkeys.ahk
 [sharpkeys-link]: https://github.com/randyrants/sharpkeys
 [ahk-link]: https://www.autohotkey.com/
 
-## Font
+### Font
 
 Download [NerdFontsSymbolsOnly][nerdfonts-link] and [Noto Sans JP][noto-sans-link]
 and install its.
@@ -79,141 +45,10 @@ and install its.
 
 ## WSL
 
-[Install wsl command][install-wsl-link].
+[Install Arch Linux][install-wsl-link] and set default distribution.
 
 ```pwsh
-wsl --install
-```
-
-[Install ArchWSL][archwsl-setup-link] and set default distribution.
-
-```pwsh
-wsl --set-default Arch
-```
-
-[Disable swap and use mirrored mode][wslconfig-link].
-
-```sh
-user=$(powershell.exe '$env:UserName' | sed -e 's/\r//g')
-cp "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/.wslconfig" >"/mnt/c/Users/$user/.wslconfig"
-```
-
-[Enable systemd support][systemd-doc-link] without [wrapper scripts][genie-link]
-and [disable launching Windows processes][interop-doc-link]
-to [make faster auto-completion][path-issue-link].
-
-```sh
-cp "$XDG_DATA_HOME/dotfiles/misc/wsl/misc/etc/wsl.conf" >/etc/wsl.conf
-```
-
-Deploy wrapper scripts to [prevent invalid argument error][argument-issue-link].
-
-```sh
-(
-  dir="$XDG_DATA_HOME/dotfiles/misc/wsl/src"
-  cd "$dir"
-  find .local/bin/ -type f |
-    xargs -I {} ln -sv "$dir/{}" "$HOME/{}"
-)
-```
-
-Deploy dotfiles to Windows user directory.
-
-```sh
-(
-  user=$(powershell.exe '$env:UserName' | sed -e 's/\r//g')
-  dir="/mnt/c/Users/$user"
-  cp -iv \
-    "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.glzr" \
-    "$dir/.glzr"
-  dir="/mnt/c/Users/$user/.config"
-  mkdir "$dir/wezterm/"
-  cp -iv \
-    "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/wezterm/wezterm.lua" \
-    "$dir/wezterm/"
-  appdata=$(powershell.exe '$env:AppData' | sed -e 's/\r//g')
-  dir="/mnt/c/Users/$appdata"
-  mkdir "$dir/ncspot/"
-  cp -iv \
-    "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/ncspot/config.toml" \
-    "$dir/ncspot/"
-  dir="/mnt/c/Users/$appdata/Roaming"
-  mkdir "$dir/neovide/"
-  cp -iv \
-    "$XDG_DATA_HOME/dotfiles/misc/wsl/src/.config/neovide/config.toml" \
-    "$dir/neovide/"
-)
-```
-
-Deploy dotfiles to WSL user directory.
-
-```sh
-(
-  dir="$XDG_DATA_HOME/dotfiles/misc/wsl/src"
-  cd "$dir"
-  fd \
-    --hidden . \
-    -E .local/bin/ \
-    -E .glzr/ \
-    -E .config/wezterm/ \
-    -E .config/ncspot/ \
-    -t f |
-    xargs -I {} ln -sv "$dir/{}" "$HOME/{}"
-)
-```
-
-[Fix symlink for wslg][wslg-issue-link]
-
-```sh
-cat <<"EOF" >/etc/tmpfiles.d/wslg.conf
-# Type Path                          Mode UID  GID  Age Argument
-L+     /tmp/.X11-unix/X0              -    -    -    -   /mnt/wslg/.X11-unix/X0
-EOF
-dir="$XDG_DATA_HOME/dotfiles/misc/wsl/src"
-mkdir -p "${HOME}/.config/systemd/user"
-cp -v \
-  "$dir/.config/systemd/user/wsl-wayland-symlink.service" \
-  ~/.config/systemd/user/wsl-wayland-symlink.service
-systemctl --user daemon-reload
-systemctl --user enable wsl-wayland-symlink.service
-systemctl --user start wsl-wayland-symlink.service
-```
-
-Deploy etc files.
-
-```sh
-sudo cp -iv \
-  misc/wsl/misc/etc/systemd/system/systemd-timesyncd.service.d/override.conf \
-  /etc/systemd/system/systemd-timesyncd.service.d/
-```
-
-Set wallpaper and account icon for Windows.
-
-```sh
-sudo pacman -S archlinux-wallpaper
-cp /usr/share/backgrounds/archlinux/split.png ~/Downloads/wallpaper.png
-yay -S archlinux-artwork
-convert \
-  -density 1200 \
-  -background black \
-  /usr/share/archlinux/icons/archlinux-icon-crystal-256.svg \
-  ~/Downloads/archlinux-icon.png
-```
-
-Tweak dotfiles.
-
-```sh
-abbr add scoop=scoop.exe
-abbr add winget=winget.exe
-abbr add wsl=wsl.exe
+wsl --install archlinux
 ```
 
 [install-wsl-link]: https://learn.microsoft.com/en-us/windows/wsl/install
-[archwsl-setup-link]: https://wsldl-pg.github.io/ArchW-docs/How-to-Setup
-[wslconfig-link]: https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-setting-for-wslconfig
-[genie-link]: https://github.com/arkane-systems/genie
-[systemd-doc-link]: https://learn.microsoft.com/en-us/windows/wsl/wsl-config#systemd-support
-[interop-doc-link]: https://learn.microsoft.com/en-us/windows/wsl/wsl-config#interop-settings
-[path-issue-link]: https://github.com/microsoft/WSL/issues/4234#issuecomment-505609403
-[argument-issue-link]: https://github.com/microsoft/WSL/issues/6170#issuecomment-882501566
-[wslg-issue-link]: https://github.com/microsoft/wslg/issues/1032#issuecomment-2310369848

@@ -1,8 +1,30 @@
 # chezmoi scripts
 {{ if eq (env "CI") "true" }}
-.chezmoiscripts/*
+.chezmoiscripts/**
 {{ else }}
 {{   if ne .chezmoi.os "linux" }}
-.chezmoiscripts/linux/*
+.chezmoiscripts/linux/**
+{{   else if ne .chezmoi.os "windows" }}
+.chezmoiscripts/windows/**
+{{   end }}
+{{ end }}
+
+# dotfiles for WSL
+{{ if eq .chezmoi.os "windows" }}
+.*
+.local/bin/* # ignore chezmoi external
+.local/share/** # ignore chezmoi external
+!.wslconfig
+!.glzr
+!.config/wezterm
+{{ end }}
+{{ if ne .chezmoi.os "windows" }}
+.wslconfig
+.glzr
+.config/wezterm
+{{ else if eq .chezmoi.os "linux" }}
+{{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+.config/systemd/user/wsl-wayland-symlink.service
+.local/bin/*.exe
 {{   end }}
 {{ end }}
