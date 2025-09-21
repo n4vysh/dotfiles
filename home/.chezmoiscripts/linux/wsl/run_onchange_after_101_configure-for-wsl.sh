@@ -1,5 +1,7 @@
 #!/bin/sh
 
+[ "$WSL_DISTRO_NAME" = "" ] && exit 0 # NOTE: run when WSL
+
 gum log --level info 'Link etc files'
 # https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-setting-for-wslconfig
 sudo cp -iv \
@@ -21,24 +23,24 @@ sudo cp -iv \
 	/etc/systemd/system/systemd-timesyncd.service.d/override.conf
 
 gum log --level info 'Link commands'
-ln -s /mnt/c/Program\ Files/draw.io/draw.io.exe ~/.local/bin/draw.io.exe
-ln -s \
+ln -sf /mnt/c/Program\ Files/draw.io/draw.io.exe ~/.local/bin/draw.io.exe
+ln -sf \
 	/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe \
 	~/.local/bin/powershell.exe
-ln -s /mnt/c/Windows/System32/wsl.exe ~/.local/bin/wsl.exe
+ln -sf /mnt/c/Windows/System32/wsl.exe ~/.local/bin/wsl.exe
 
 # shellcheck disable=SC2016
 dir=$(wslpath "$(powershell.exe '$env:USERPROFILE')")
-ln -s \
+ln -sf \
 	"$dir/AppData/Local/Microsoft/WindowsApps/winget.exe" \
 	~/.local/bin/winget.exe
-ln -s "$dir/scoop/shims/scoop.ps1" ~/.local/bin/scoop.ps1
+ln -sf "$dir/scoop/shims/scoop.ps1" ~/.local/bin/scoop.ps1
 
 # for markdown-preview.nvim
-ln -s /mnt/c/Windows/System32/cmd.exe ~/.local/bin/cmd.exe
+ln -sf /mnt/c/Windows/System32/cmd.exe ~/.local/bin/cmd.exe
 
 gum log --level info 'Override binaries with exe files'
-ln -s \
+ln -sf \
 	/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe \
 	~/.local/bin/firefox
 
@@ -56,7 +58,7 @@ EOF
 
 # shellcheck disable=SC2016
 dir=$(wslpath "$(powershell.exe '$env:USERPROFILE')")
-ln -s \
+ln -sf \
 	"$dir/AppData/Local/Microsoft/WinGet/Packages/hrkfdn.ncspot_Microsoft.Winget.Source_8wekyb3d8bbwe/ncspot.exe" \
 	~/.local/bin/ncspot
 
@@ -64,7 +66,7 @@ ln -s \
 # https://libreddit.garudalinux.org/r/bashonubuntuonwindows/comments/tikwt1/how_do_i_make_my_wsl_to_make_network_scans_for_my/
 # https://superuser.com/questions/1700040/alexa-device-not-found-via-nmap-in-wsl2
 
-ln -s /mnt/c/Program\ Files\ \(x86\)/Nmap/nmap.exe ~/.local/bin/nmap
+ln -sf /mnt/c/Program\ Files\ \(x86\)/Nmap/nmap.exe ~/.local/bin/nmap
 
 gum log --level info 'Enable systemd services'
 systemctl --user daemon-reload
