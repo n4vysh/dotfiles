@@ -12,6 +12,10 @@ Install chezmoi with [winget][winget-link] and deploy dotfiles.
 ```pwsh
 winget install -e --id twpayne.chezmoi
 
+# install scoop for font installation
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+
 chezmoi init n4vysh && chezmoi apply
 ```
 

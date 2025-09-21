@@ -382,6 +382,6 @@ packages:
       - hrkfdn.ncspot
       - Espanso.Espanso
       - NickeManarin.ScreenToGif
-      - Gyan.FFmpeg
+      - Gyan.FFmpeg # for ScreenToGif
       - Neovide.Neovide
       - GnuPG.Gpg4win
