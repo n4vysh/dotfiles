@@ -124,3 +124,6 @@ customCommands:
     context: "commits"
     description: "Continue the revert operation in progress"
     output: terminal
+# NOTE: self-hosted GitLab configuration for work
+# services:
+#   'example.com': 'gitlab:example.com'
