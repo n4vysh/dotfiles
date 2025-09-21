@@ -22,18 +22,6 @@ windows:
             -v litellm-postgres:/var/lib/postgresql/data \
             --name litellm-db \
             postgres:16
-      - |
-        gopass env envs/litellm \
-          docker run \
-            --rm \
-            --network=host \
-            -e STORE_MODEL_IN_DB=True \
-            -e DATABASE_URL \
-            -e LITELLM_MASTER_KEY \
-            -e ANTHROPIC_API_KEY \
-            --name litellm \
-            ghcr.io/berriai/litellm:main-stable \
-              --drop_params --model claude-sonnet-4-20250514
       # NOTE: run following commands
       #       ```sh
       #       gopass insert envs/litellm/DATABASE_URL
@@ -41,24 +29,24 @@ windows:
       #         gopass insert envs/litellm/LITELLM_MASTER_KEY
       #       ```
       # yamllint disable rule:line-length
-      # - |
-      #   gopass env envs/litellm \
-      #     aws-vault exec bedrock -- \
-      #       docker run \
-      #         --rm \
-      #         --network=host \
-      #         -e STORE_MODEL_IN_DB=True \
-      #         -e LITELLM_MODIFY_PARAMS=true \
-      #         -e DATABASE_URL \
-      #         -e LITELLM_MASTER_KEY \
-      #         -e AWS_REGION \
-      #         -e AWS_ACCESS_KEY_ID \
-      #         -e AWS_SECRET_ACCESS_KEY \
-      #         -e AWS_SESSION_TOKEN \
-      #         --name litellm \
-      #         ghcr.io/berriai/litellm:main-stable \
-      #           --drop_params \
-      #           --model bedrock/converse/us.anthropic.claude-sonnet-4-20250514-v1:0
+      - |
+        gopass env envs/litellm \
+          aws-vault exec bedrock -- \
+            docker run \
+              --rm \
+              --network=host \
+              -e STORE_MODEL_IN_DB=True \
+              -e LITELLM_MODIFY_PARAMS=true \
+              -e DATABASE_URL \
+              -e LITELLM_MASTER_KEY \
+              -e AWS_REGION \
+              -e AWS_ACCESS_KEY_ID \
+              -e AWS_SECRET_ACCESS_KEY \
+              -e AWS_SESSION_TOKEN \
+              --name litellm \
+              ghcr.io/berriai/litellm:main-stable \
+                --drop_params \
+                --model bedrock/converse/us.anthropic.claude-sonnet-4-20250514-v1:0
       # yamllint enable rule:line-length
       #
       # NOTE: run following commands
