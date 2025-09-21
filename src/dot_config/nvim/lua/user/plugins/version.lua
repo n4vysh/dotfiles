@@ -106,6 +106,10 @@ return {
 				print_url = false,
 			},
 			mappings = nil,
+			-- NOTE: self-hosted GitLab configuration for work
+			-- callbacks = {
+			-- 	["example.com"] = require("gitlinker.hosts").get_gitlab_type_url,
+			-- },
 		},
 	},
 
