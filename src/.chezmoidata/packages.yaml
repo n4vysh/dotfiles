@@ -372,7 +372,7 @@ packages:
       - glzr-io.glazewm
       - OliverSchwendener.ueli
       - RandyRants.SharpKeys
-      - Lexikos.AutoHotkey
+      - AutoHotkey.AutoHotkey
       - SlackTechnologies.Slack
       - PortSwigger.BurpSuite.Community
       - WiresharkFoundation.Wireshark
