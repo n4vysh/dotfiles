@@ -1,6 +1,9 @@
 #!/bin/sh
 
-[ "$WSL_DISTRO_NAME" != "" ] && exit 0 # NOTE: skip if WSL
+if [ "$WSL_DISTRO_NAME" != "" ]; then
+	gum log --level warn "$0: running on WSL -- skipping"
+	exit 0
+fi
 
 gum log --level info 'Enable firewall'
 sudo ufw enable

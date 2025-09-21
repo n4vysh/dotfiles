@@ -1,6 +1,9 @@
 #!/bin/sh
 
-[ "$WSL_DISTRO_NAME" = "" ] && exit 0 # NOTE: run when WSL
+if [ "$WSL_DISTRO_NAME" = "" ]; then
+	gum log --level warn "$0: not running on WSL -- skipping"
+	exit 0
+fi
 
 gum log --level info 'Link etc files'
 # https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-setting-for-wslconfig
@@ -73,3 +76,13 @@ systemctl --user daemon-reload
 # NOTE: fix wslg bug of WSL
 # https://github.com/microsoft/wslg/issues/1032#issuecomment-2310369848
 systemctl --user enable --now wsl-wayland-symlink.service
+
+# NOTE: run a script when etc file changes
+# https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
+# https://github.com/twpayne/chezmoi/issues/4364
+# https://github.com/alker0/chezmoi.vim/issues/76
+cat <<-EOF >/dev/null
+	{{ include (joinPath .chezmoi.sourceDir "../etc/wsl.conf") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../etc/tmpfiles.d/wslg.conf") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../etc/systemd/system/systemd-timesyncd.service.d/override.conf") | sha256sum }}
+EOF
