@@ -1,14 +1,13 @@
-{{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
 gum log --level info 'Install packages with mise'
 mise install
 
 gum log --level info 'Install git hooks'
-if ! [ -f {{- .chezmoi.sourceDir -}}.git/hooks/pre-commit ]; then
-	cd {{- .chezmoi.sourceDir }}
+if ! [ -f ~/.local/share/chezmoi/.git/hooks/pre-commit ]; then
+	cd ~/.local/share/chezmoi/ || exit
 	pre-commit install --install-hooks
-	cd -
+	cd - || exit
 else
 	gum log --level warn 'git hooks already exists -- skipping'
 fi
@@ -34,5 +33,3 @@ sudo archlinux-java set "$(
 		sort |
 		tail -1
 )"
-
-{{ end -}}

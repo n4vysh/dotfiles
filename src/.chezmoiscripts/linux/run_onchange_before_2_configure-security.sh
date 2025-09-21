@@ -1,4 +1,3 @@
-{{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
 gum log --level info 'Lock the password of root user'
@@ -17,5 +16,3 @@ sudo sed \
 	-e '/^ttyS0$/s/^/# /' \
 	-e '/^hvc0$/s/^/# /' \
 	/etc/securetty
-
-{{ end -}}
