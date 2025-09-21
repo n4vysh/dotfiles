@@ -182,7 +182,7 @@ fi
 cat <<-EOF >/dev/null
 	{{ range (glob (joinPath .chezmoi.sourceDir "../etc/**")) -}}
 	{{   if eq (stat .).type "file" -}}
-	{{ . }} hash: {{ includeTemplate . | sha256sum }}
+	{{ includeTemplate . | sha256sum }}
 	{{   end }}
 	{{- end -}}
 EOF
