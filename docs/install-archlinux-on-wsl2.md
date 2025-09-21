@@ -55,4 +55,24 @@ and install its.
 wsl --install archlinux
 ```
 
-[install-wsl-link]: https://learn.microsoft.com/en-us/windows/wsl/install
+```sh
+pacman -Syu zsh sudo
+
+username="$(
+    powershell.exe '$env:USERNAME' |
+        tr -d '\r' |
+        tr '[:upper:]' '[:lower:]'
+)"
+useradd -m -G wheel -s /bin/zsh "$username"
+passwd "$username"
+echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
+chmod 440 /etc/sudoers.d/wheel
+exit
+```
+
+```pwsh
+wsl --manage archlinux --set-default-user $env:USERNAME.ToLower()
+wezterm
+```
+
+[install-wsl-link]: https://wiki.archlinux.org/title/Install_Arch_Linux_on_WSL
