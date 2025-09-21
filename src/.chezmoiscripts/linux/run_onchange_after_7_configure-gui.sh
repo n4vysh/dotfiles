@@ -1,5 +1,7 @@
 #!/bin/sh
 
+[ "$WSL_DISTRO_NAME" != "" ] && exit 0 # NOTE: skip when WSL
+
 gum log --level info 'Configure window manager'
 hyprpm update --no-shallow
 yes | hyprpm add https://github.com/outfoxxed/hy3

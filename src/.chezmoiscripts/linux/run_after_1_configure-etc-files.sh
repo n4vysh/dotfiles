@@ -1,5 +1,7 @@
 #!/bin/sh
 
+[ "$WSL_DISTRO_NAME" != "" ] && exit 0 # NOTE: skip when WSL
+
 gum log --level info 'Deploy etc files'
 sudo mkdir -p /etc/keyd/ /etc/docker/
 dir="$HOME/.local/share/chezmoi"

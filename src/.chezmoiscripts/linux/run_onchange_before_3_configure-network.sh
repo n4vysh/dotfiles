@@ -1,5 +1,7 @@
 #!/bin/sh
 
+[ "$WSL_DISTRO_NAME" != "" ] && exit 0 # NOTE: skip when WSL
+
 gum log --level info 'Make link of resolv.conf'
 # NOTE: stub-resolv.conf does not exist unless systemd-resolved starts
 if ! [ -f /etc/resolv.conf ]; then
