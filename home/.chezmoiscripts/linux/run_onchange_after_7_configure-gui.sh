@@ -1,11 +1,22 @@
 #!/bin/sh
 
-[ "$WSL_DISTRO_NAME" != "" ] && exit 0 # NOTE: skip if WSL
+if [ "$WSL_DISTRO_NAME" != "" ]; then
+	gum log --level warn "$0: running on WSL -- skipping"
+	exit 0
+fi
 
 gum log --level info 'Configure window manager'
 hyprpm update --no-shallow
-yes | hyprpm add https://github.com/outfoxxed/hy3
-yes | hyprpm add https://github.com/hyprwm/hyprland-plugins
+if ! (hyprpm list | grep -q 'Repository hy3'); then
+	yes | hyprpm add https://github.com/outfoxxed/hy3
+else
+	gum log --level warn 'hy3 already exists -- skipping'
+fi
+if ! (hyprpm list | grep -q 'Repository hyprland-plugins'); then
+	yes | hyprpm add https://github.com/hyprwm/hyprland-plugins
+else
+	gum log --level warn 'hyprland-plugins already exists -- skipping'
+fi
 hyprpm enable hy3
 hyprpm enable hyprbars
 
