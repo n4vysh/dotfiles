@@ -1,5 +1,20 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  // NOTE: configuration for work
+  // "provider": {
+  //   "litellm": {
+  //     "npm": "@ai-sdk/openai-compatible",
+  //     "name": "litellm",
+  //     "options": {
+  //       "baseURL": "http://127.0.0.1:4000"
+  //     },
+  //     "models": {
+  //       "us.anthropic.claude-sonnet-4-20250514-v1:0": {
+  //         "name": "claude-sonnet-4"
+  //       }
+  //     }
+  //   }
+  // },
   "theme": "tokyonight",
   "share": "disabled",
   "permission": {
