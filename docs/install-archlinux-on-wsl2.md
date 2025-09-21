@@ -5,7 +5,15 @@ and Mobile Device Management software
 at my current company do not support Linux Desktop.
 Probably work following setup.
 
-## Windows
+- Window Manager: [GlazeWM][glazewm-link]
+- Terminal Emulator: [WezTerm][wezterm-link]
+
+[package list](./src/.chezmoidata/packages.yaml)
+
+[glazewm-link]: https://github.com/glzr-io/glazewm
+[wezterm-link]: https://wezterm.org/
+
+## 🪟 Windows
 
 Install chezmoi with [winget][winget-link] and deploy dotfiles.
 
@@ -21,7 +29,7 @@ chezmoi init n4vysh && chezmoi apply
 
 [winget-link]: https://github.com/microsoft/winget-cli
 
-### Keyboard
+### ⌨️ Custom keybinds
 
 Deploy [remap.skl][sharpkeys-config-link] and [hotkeys.ahk][ahk-config-link]
 to remap following keys and shortcuts
@@ -39,7 +47,17 @@ with [SharpKeys][sharpkeys-link] and [AutoHotKey][ahk-link].
 [sharpkeys-link]: https://github.com/randyrants/sharpkeys
 [ahk-link]: https://www.autohotkey.com/
 
-### Font
+### 📦 List of applications
+
+| Category      | Name                            |
+| :------------ | :------------------------------ |
+| Launcher      | [ueli][ueli-link]               |
+| Screen record | [ScreenToGif][screentogif-link] |
+
+[ueli-link]: https://ueli.app/
+[screentogif-link]: https://www.screentogif.com/
+
+### 🗛 Font
 
 Download [NerdFontsSymbolsOnly][nerdfonts-link] and [Noto Sans JP][noto-sans-link]
 and install its.
@@ -47,7 +65,7 @@ and install its.
 [nerdfonts-link]: https://github.com/ryanoasis/nerd-fonts/releases
 [noto-sans-link]: https://fonts.google.com/noto/specimen/Noto+Sans+JP
 
-## WSL
+## 🐧 WSL
 
 [Install Arch Linux][install-wsl-link] and set default distribution.
 
