@@ -1,6 +1,9 @@
 #!/bin/sh
 
-[ "$WSL_DISTRO_NAME" != "" ] && exit 0 # NOTE: skip if WSL
+if [ "$WSL_DISTRO_NAME" != "" ]; then
+	gum log --level warn "$0: running on WSL -- skipping"
+	exit 0
+fi
 
 gum log --level info 'Deploy etc files'
 sudo mkdir -p /etc/keyd/ /etc/docker/
@@ -171,3 +174,15 @@ if ! [ -d /etc/.git ]; then
 else
 	gum log --level warn "etckeeper already configured -- skipping"
 fi
+
+# NOTE: run a script when etc file changes
+# https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
+# https://github.com/twpayne/chezmoi/issues/4364
+# https://github.com/alker0/chezmoi.vim/issues/76
+cat <<-EOF >/dev/null
+	{{ range (glob (joinPath .chezmoi.sourceDir "../etc/**")) -}}
+	{{   if eq (stat .).type "file" -}}
+	{{ . }} hash: {{ includeTemplate . | sha256sum }}
+	{{   end }}
+	{{- end -}}
+EOF
