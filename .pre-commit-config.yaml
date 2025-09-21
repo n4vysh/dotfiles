@@ -9,10 +9,10 @@ repos:
       - id: end-of-file-fixer
         exclude: |
           (?x)^(
-            src/dot_docker/config.json|
-            src/dot_config/nvim/lazy-lock.json|
-            src/dot_mozilla/firefox/installs.ini|
-            src/dot_mozilla/firefox/profiles.ini|
+            home/dot_docker/config.json|
+            home/dot_config/nvim/lazy-lock.json|
+            home/dot_mozilla/firefox/installs.ini|
+            home/dot_mozilla/firefox/profiles.ini|
             misc/firefox/canvas-blocker.json|
             misc/firefox/ublock.txt|
             misc/firefox/libredirect.json|
@@ -23,7 +23,7 @@ repos:
       - id: fix-byte-order-marker
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
-        exclude: src/.*
+        exclude: home/.*
   - repo: local
     hooks:
       # all files
@@ -64,8 +64,8 @@ repos:
         types: [toml]
         exclude: |
           (?x)^(
-            src/.config/pet/config.toml|
-            src/.config/pet/snippet.toml
+            home/dot_config/pet/config.toml|
+            home/dot_config/pet/snippet.toml
           )$
       - id: taplo-lint
         name: format toml files with taplo lint

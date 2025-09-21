@@ -134,7 +134,7 @@ _install() {
 
 	_log::info 'Install the base packages'
 	yes '' | bash -c "pacstrap /mnt $(
-		sed -n '/# base/,/# .*/p' /tmp/dotfiles/src/.chezmoidata/packages.yaml |
+		sed -n '/# base/,/# .*/p' /tmp/dotfiles/home/.chezmoidata/packages.yaml |
 			grep -v '#' |
 			awk '{ print $2 }' |
 			tr '\n' ' '
@@ -154,7 +154,7 @@ _install() {
 		/mnt/etc/systemd/system/systemd-fsck-root.service.d/ \
 		/mnt/etc/systemd/system/systemd-fsck@.service.d/ \
 		/mnt/etc/systemd/system/display-manager.service.d/
-	xargs -I {} cp -v "$dir/misc/{}" /mnt/{} <<-EOF
+	xargs -I {} cp -v "$dir/{}" /mnt/{} <<-EOF
 		etc/iwd/main.conf
 		etc/systemd/network/20-wired.network
 		etc/systemd/network/25-wireless.network
@@ -192,13 +192,13 @@ _install() {
 	_log::info 'Configure locale'
 	arch-chroot /mnt sed -i -e '/^#en_US.UTF-8 UTF-8  $/s/#//' /etc/locale.gen
 	arch-chroot /mnt locale-gen
-	cp -fv /tmp/dotfiles/misc/etc/locale.conf /mnt/etc/
+	cp -fv /tmp/dotfiles/etc/locale.conf /mnt/etc/
 
 	_log::info 'Configure keyboard'
 	arch-chroot /mnt bash -c 'echo KEYMAP=us >/etc/vconsole.conf'
 
 	_log::info 'Configure hostname'
-	cp -fv /tmp/dotfiles/misc/etc/hostname /mnt/etc/
+	cp -fv /tmp/dotfiles/etc/hostname /mnt/etc/
 
 	_log::info 'Configure Bootsplash'
 	sed \
@@ -207,7 +207,7 @@ _install() {
 		/usr/share/pixmaps/archlinux-logo.svg |
 		arch-chroot /mnt magick -size 80x80 -background 'rgb(0,0,0)' - \
 			/usr/share/systemd/bootctl/splash-arch-custom.bmp
-	xargs -I {} cp "$dir/misc/{}" /mnt/{} <<-EOF
+	xargs -I {} cp "$dir/{}" /mnt/{} <<-EOF
 		etc/sysctl.d/20-quiet-printk.conf
 	EOF
 	cat <<-EOF | sudo tee /mnt/etc/issue >/dev/null
@@ -222,7 +222,7 @@ _install() {
 
 	_log::info 'Configure Boot loader'
 	arch-chroot /mnt bootctl install
-	xargs -I {} cp "$dir/misc/{}" /mnt/{} <<-EOF
+	xargs -I {} cp "$dir/{}" /mnt/{} <<-EOF
 		boot/loader/loader.conf
 		etc/kernel/cmdline
 	EOF

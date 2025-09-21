@@ -6,7 +6,7 @@ bats_load_library bats-assert
 get_groups() {
   yq e \
     '.groups[]' \
-    src/.chezmoidata/groups.yaml |
+    home/.chezmoidata/groups.yaml |
     xargs -I {} sh -c 'printf "{}: "; getent group {} >/dev/null && echo ok || echo ng'
 }
 
