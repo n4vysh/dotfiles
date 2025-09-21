@@ -1,0 +1,5 @@
+{{ if eq .chezmoi.os "linux" -}}
+pinentry-program /usr/bin/pinentry-gtk
+{{ else if eq .chezmoi.os "windows" -}}
+pinentry-program /mnt/c/Program Files (x86)/Gpg4win/bin/pinentry.exe
+{{ end -}}

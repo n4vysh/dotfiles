@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [ "$1" = "--uninstall" ]; then
-  echo '!!! do not use --uninstall option !!!'
-  exit 1
-fi
-
-powershell.exe -c '& "C:\Windows\System32\wsl.exe"' "${@}"

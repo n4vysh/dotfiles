@@ -1,0 +1,10 @@
+{{ range .packages.windows.winget -}}
+winget install -e --id {{ . | quote }}
+{{ end -}}
+
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+irm get.scoop.sh | iex
+
+scoop bucket add nerd-fonts
+
+sudo scoop install -g firacode
