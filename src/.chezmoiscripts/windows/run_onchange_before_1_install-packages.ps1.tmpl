@@ -5,6 +5,7 @@ winget install --no-upgrade -e --id {{ . | quote }}
 
 echo 'Install fonts'
 if (Get-Command "scoop" -ErrorAction SilentlyContinue) {
+  Import-Module Microsoft.PowerShell.Security
   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
   Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 } else {
