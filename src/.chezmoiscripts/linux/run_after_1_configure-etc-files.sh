@@ -1,9 +1,8 @@
-{{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
 gum log --level info 'Deploy etc files'
 sudo mkdir -p /etc/keyd/ /etc/docker/
-dir="{{- .chezmoi.sourceDir -}}/.."
+dir="$HOME/.local/share/chezmoi"
 xargs -I {} sudo cp -v "$dir/misc/{}" /{} <<-EOF
 	etc/keyd/default.conf
 	etc/docker/daemon.json
@@ -84,15 +83,11 @@ sudo sed \
 		}' /etc/pam.d/passwd
 
 # rkhunter
-lists=(
-	/usr/bin/egrep
-	/usr/bin/fgrep
-	/usr/bin/ldd
-)
-
-for list in "${lists[@]}"; do
+set -- /usr/bin/egrep /usr/bin/fgrep /usr/bin/ldd
+for list in "$@"; do
 	if ! sudo grep -q "SCRIPTWHITELIST=$list" /etc/rkhunter.conf; then
-		sudo tee -a /etc/rkhunter.conf <<<"SCRIPTWHITELIST=$list" >/dev/null
+		echo "SCRIPTWHITELIST=$list" |
+			sudo tee -a /etc/rkhunter.conf >/dev/null
 	else
 		gum log --level warn "rkhunter SCRIPTWHITELIST=$list already set -- skipping"
 	fi
@@ -110,35 +105,37 @@ sudo sed \
 	/etc/rkhunter.conf
 
 if ! sudo grep -q "ALLOWDEVFILE=/dev/shm/PostgreSQL.*" /etc/rkhunter.conf; then
-	sudo tee -a /etc/rkhunter.conf <<<"ALLOWDEVFILE=/dev/shm/PostgreSQL.*" >/dev/null
+	echo "ALLOWDEVFILE=/dev/shm/PostgreSQL.*" |
+		sudo tee -a /etc/rkhunter.conf >/dev/null
 else
 	gum log --level warn "rkhunter ALLOWDEVFILE=/dev/shm/PostgreSQL.* already set -- skipping"
 fi
 
 # For zoom
 if ! sudo grep -q "ALLOWDEVFILE=/dev/shm/aomshm.*" /etc/rkhunter.conf; then
-	sudo tee -a /etc/rkhunter.conf <<<"ALLOWDEVFILE=/dev/shm/aomshm.*" >/dev/null
+	echo "ALLOWDEVFILE=/dev/shm/aomshm.*" |
+		sudo tee -a /etc/rkhunter.conf >/dev/null
 else
 	gum log --level warn "rkhunter ALLOWDEVFILE=/dev/shm/aomshm.* already set -- skipping"
 fi
 
 if ! sudo grep -q "ALLOWHIDDENDIR=/etc/.git" /etc/rkhunter.conf; then
-	sudo tee -a /etc/rkhunter.conf <<<"ALLOWHIDDENDIR=/etc/.git" >/dev/null
+	echo "ALLOWHIDDENDIR=/etc/.git" |
+		sudo tee -a /etc/rkhunter.conf >/dev/null
 else
 	gum log --level warn "rkhunter ALLOWHIDDENDIR=/etc/.git already set -- skipping"
 fi
 
-lists=(
-	/etc/.etckeeper
-	/etc/.gitignore
-	/etc/.updated
-	/usr/share/man/man5/.k5identity.5.gz
+set -- \
+	/etc/.etckeeper \
+	/etc/.gitignore \
+	/etc/.updated \
+	/usr/share/man/man5/.k5identity.5.gz \
 	/usr/share/man/man5/.k5login.5.gz
-)
-
-for list in "${lists[@]}"; do
+for list in "$@"; do
 	if ! sudo grep -q "ALLOWHIDDENFILE=$list" /etc/rkhunter.conf; then
-		sudo tee -a /etc/rkhunter.conf <<<"ALLOWHIDDENFILE=$list" >/dev/null
+		echo "ALLOWHIDDENFILE=$list" |
+			sudo tee -a /etc/rkhunter.conf >/dev/null
 	else
 		gum log --level warn "rkhunter ALLOWHIDDENFILE=$list already set -- skipping"
 	fi
@@ -146,7 +143,8 @@ done
 
 # NOTE: allow IPC for ueberzug
 if ! sudo grep -q "ALLOWIPCUSER=$USER" /etc/rkhunter.conf; then
-	sudo tee -a /etc/rkhunter.conf <<<"ALLOWIPCUSER=$USER" >/dev/null
+	echo "ALLOWIPCUSER=$USER" |
+		sudo tee -a /etc/rkhunter.conf >/dev/null
 else
 	gum log --level warn "rkhunter ALLOWIPCUSER=$USER already set -- skipping"
 fi
@@ -171,5 +169,3 @@ if ! [ -d /etc/.git ]; then
 else
 	gum log --level warn "etckeeper already configured -- skipping"
 fi
-
-{{ end -}}

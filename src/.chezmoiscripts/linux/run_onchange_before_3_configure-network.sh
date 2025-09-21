@@ -1,4 +1,3 @@
-{{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
 gum log --level info 'Make link of resolv.conf'
@@ -8,5 +7,3 @@ if ! [ -f /etc/resolv.conf ]; then
 else
 	gum log --level warn '/etc/resolv.conf already exists -- skipping'
 fi
-
-{{ end -}}

@@ -1,4 +1,3 @@
-{{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
 gum log --level info 'Change default shell'
@@ -7,5 +6,3 @@ if [ "$SHELL" != /usr/bin/zsh ]; then
 else
 	gum log --level warn 'default shell already changed -- skipping'
 fi
-
-{{ end -}}

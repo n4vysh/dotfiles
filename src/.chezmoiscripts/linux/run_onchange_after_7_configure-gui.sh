@@ -1,4 +1,3 @@
-{{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
 gum log --level info 'Configure window manager'
@@ -9,7 +8,7 @@ hyprpm enable hy3
 hyprpm enable hyprbars
 
 gum log --level info 'Create user directories'
-mkdir -p "$HOME"/{Downloads,Public,Workspaces}
+mkdir -p "$HOME/Downloads" "$HOME/Public" "$HOME/Workspaces"
 
 gum log --level info 'Configure wallpaper'
 if ! [ -f "${XDG_DATA_HOME}/hypr/wallpaper.jpeg" ]; then
@@ -21,5 +20,3 @@ if ! [ -f "${XDG_DATA_HOME}/hypr/wallpaper.jpeg" ]; then
 else
 	gum log --level warn 'wallpaper already exists -- skipping'
 fi
-
-{{ end -}}

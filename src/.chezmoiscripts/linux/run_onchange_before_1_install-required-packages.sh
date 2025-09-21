@@ -1,4 +1,3 @@
-{{ if eq .chezmoi.os "linux" -}}
 #!/bin/sh
 
 # NOTE: logger function with the same format as gum command
@@ -12,5 +11,3 @@ info() {
 
 info 'Install logging command'
 sudo pacman -S --noconfirm --needed --disable-download-timeout gum
-
-{{ end -}}
