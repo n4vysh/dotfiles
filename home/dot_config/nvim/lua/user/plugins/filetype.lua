@@ -66,7 +66,7 @@ return {
 		init = function()
 			vim.g["chezmoi#use_tmp_buffer"] = true
 			vim.g["chezmoi#source_dir_path"] = vim.fn.expand("~")
-				.. "/.local/share/chezmoi/src"
+				.. "/.local/share/chezmoi/home"
 
 			do
 				local augroup = "chezmoi"
@@ -75,7 +75,7 @@ return {
 					group = augroup,
 					pattern = {
 						vim.fn.expand("~")
-							.. "/.local/share/chezmoi/src/*dot_*",
+							.. "/.local/share/chezmoi/home/*dot_*",
 					},
 					command = "silent !chezmoi apply --source-path %",
 				})

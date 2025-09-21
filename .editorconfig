@@ -66,7 +66,7 @@ insert_final_newline = false
 [misc/firefox/zero_omega.bak]
 insert_final_newline = false
 
-[src/dot_mozilla/firefox/*.default-release/search.json.mozlz4]
+[home/dot_mozilla/firefox/*.default-release/search.json.mozlz4]
 end_of_line = unset
 indent_style = unset
 insert_final_newline = false
@@ -75,5 +75,5 @@ trim_trailing_whitespace = false
 [misc/firefox/twp.txt]
 insert_final_newline = false
 
-[src/dot_config/luacheck/dot_luacheckrc]
+[home/dot_config/luacheck/dot_luacheckrc]
 indent_style = tab
