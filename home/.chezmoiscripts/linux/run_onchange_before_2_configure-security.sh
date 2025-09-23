@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -eu
+
 gum log --level info 'Lock the password of root user'
 sudo passwd -l root
 

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -eu
+
 # NOTE: logger function with the same format as gum command
 # https://github.com/charmbracelet/log/blob/v0.4.2/styles.go#L62
 info() {
