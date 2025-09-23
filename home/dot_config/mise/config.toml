@@ -39,7 +39,7 @@ hadolint = "2.12.0"
 terraform-docs = "0.20.0"
 ## kubernetes
 kind = "0.29.0"
-kubecolor = "0.0.25"
+kubecolor = "0.5.1"
 kube-score = "1.20.0"
 kubeval = "0.16.1"
 kyverno = "1.14.1"
