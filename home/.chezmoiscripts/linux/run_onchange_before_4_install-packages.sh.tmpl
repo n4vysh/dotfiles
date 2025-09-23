@@ -57,6 +57,10 @@ if ! sudo grep -q "\[blackarch\]" /etc/pacman.conf; then
 	test -f /etc/pacman.d/blackarch-mirrorlist.bak ||
 		sudo cp /etc/pacman.d/blackarch-mirrorlist{,.bak}
 	sudo sed -i -e 's/^#Server/Server/' /etc/pacman.d/blackarch-mirrorlist.bak
+	if ! type rankmirrors >/dev/null 2>&1; then
+		# NOTE: official image of WSL not contain rankmirrors
+		sudo pacman -S --noconfirm --needed pacman-contrib
+	fi
 	rankmirrors -n 5 -p -r blackarch /etc/pacman.d/blackarch-mirrorlist.bak |
 		sudo tee /etc/pacman.d/blackarch-mirrorlist >/dev/null
 else
