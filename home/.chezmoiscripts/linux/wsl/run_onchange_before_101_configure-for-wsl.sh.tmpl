@@ -9,23 +9,31 @@ if [ "$WSL_DISTRO_NAME" = "none" ]; then
 	exit 0
 fi
 
-gum log --level info 'Link etc files'
+gum log --level info 'Copy etc files'
+xargs -I {} sudo cp -fv ~/.local/share/chezmoi/{} /{} <<-EOF
+	etc/systemd/system/rkhunter.service
+	etc/systemd/system/rkhunter.timer
+	etc/sudoers.d/env-keep
+	etc/sudoers.d/pwfeedback
+	etc/sudoers.d/wheel
+EOF
+
 # https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-setting-for-wslconfig
-sudo cp -iv \
+sudo cp -fv \
 	~/.local/share/chezmoi/etc/wsl.conf \
 	/etc/wsl.conf
 
 # NOTE: fix wslg bug of WSL
 # https://github.com/microsoft/wslg/issues/1032#issuecomment-2310369848
 sudo mkdir -p /etc/tmpfiles.d/
-sudo cp -iv \
+sudo cp -fv \
 	~/.local/share/chezmoi/etc/tmpfiles.d/wslg.conf \
 	/etc/tmpfiles.d/wslg.conf
 
 # NOTE: fix clock sync bug of WSL
 # https://github.com/microsoft/WSL/issues/8204#issuecomment-1339506778
 sudo mkdir -p /etc/systemd/system/systemd-timesyncd.service.d/
-sudo cp -iv \
+sudo cp -fv \
 	~/.local/share/chezmoi/etc/systemd/system/systemd-timesyncd.service.d/override.conf \
 	/etc/systemd/system/systemd-timesyncd.service.d/override.conf
 
@@ -37,7 +45,7 @@ ln -sf \
 ln -sf /mnt/c/Windows/System32/wsl.exe ~/.local/bin/wsl.exe
 
 # shellcheck disable=SC2016
-dir=$(wslpath "$(powershell.exe '$env:USERPROFILE')")
+dir=$(wslpath "$(powershell.exe '$env:USERPROFILE' | tr -d '\r')")
 ln -sf \
 	"$dir/AppData/Local/Microsoft/WindowsApps/winget.exe" \
 	~/.local/bin/winget.exe
@@ -51,20 +59,20 @@ ln -sf \
 	/mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe \
 	~/.local/bin/firefox
 
-cat <'EOF' >~/.local/bin/wl-paste
-#!/bin/sh
+cat <<-'EOF' >~/.local/bin/wl-paste
+	#!/bin/sh
 
-/usr/sbin/wl-paste "$@" | tr -d '\r'
+	/usr/sbin/wl-paste "$@" | tr -d '\r'
 EOF
 
-cat <'EOF' >~/.local/bin/xdg-open
-#!/bin/sh
+cat <<-'EOF' >~/.local/bin/xdg-open
+	#!/bin/sh
 
-powershell.exe start "$@"
+	powershell.exe start "$@"
 EOF
 
 # shellcheck disable=SC2016
-dir=$(wslpath "$(powershell.exe '$env:USERPROFILE')")
+dir=$(wslpath "$(powershell.exe '$env:USERPROFILE' | tr -d '\r')")
 ln -sf \
 	"$dir/AppData/Local/Microsoft/WinGet/Packages/hrkfdn.ncspot_Microsoft.Winget.Source_8wekyb3d8bbwe/ncspot.exe" \
 	~/.local/bin/ncspot
@@ -74,12 +82,6 @@ ln -sf \
 # https://superuser.com/questions/1700040/alexa-device-not-found-via-nmap-in-wsl2
 
 ln -sf /mnt/c/Program\ Files\ \(x86\)/Nmap/nmap.exe ~/.local/bin/nmap
-
-gum log --level info 'Enable systemd services'
-systemctl --user daemon-reload
-# NOTE: fix wslg bug of WSL
-# https://github.com/microsoft/wslg/issues/1032#issuecomment-2310369848
-systemctl --user enable --now wsl-wayland-symlink.service
 
 # NOTE: run a script when etc file changes
 # https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
