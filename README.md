@@ -191,7 +191,7 @@
 Deploy dotfiles to home directory following commands.
 
 ```sh
-sudo pacman -S --noconfirm --needed chazmoi &&
+sudo pacman -S --noconfirm --needed chezmoi &&
     chezmoi init n4vysh &&
     chezmoi apply
 ```
