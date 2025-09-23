@@ -94,14 +94,20 @@ bash -c "yes '' | yay -S --noconfirm --needed --disable-download-timeout --batch
 	EOF
 )"
 
+WSL_DISTRO_NAME="${WSL_DISTRO_NAME:=none}"
+
 gum log --level info 'Install packages with flatpak'
-bash -c "flatpak install -y flathub $(
-	tr '\n' ' ' <<-EOF
-		{{ range .packages.linux.flatpak.flathub -}}
-		{{ . }}
-		{{ end -}}
-	EOF
-)"
+if [ "$WSL_DISTRO_NAME" == "none" ]; then
+	bash -c "flatpak install -y flathub $(
+		tr '\n' ' ' <<-EOF
+			{{ range .packages.linux.flatpak.flathub -}}
+			{{ . }}
+			{{ end -}}
+		EOF
+	)"
+else
+	gum log --level warn 'running on WSL -- skipping'
+fi
 
 gum log --level info 'Install packages with krew'
 bash -c "kubectl krew install $(
