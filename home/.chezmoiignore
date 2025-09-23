@@ -30,5 +30,6 @@
 {{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 .config/systemd/user/wsl-wayland-symlink.service
 .local/bin/*.exe
+.local/bin/*.ps1
 {{   end }}
 {{ end }}
