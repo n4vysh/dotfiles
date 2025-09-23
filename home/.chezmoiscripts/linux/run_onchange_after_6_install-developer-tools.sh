@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -eu
+
 gum log --level info 'Install packages with mise'
 mise install
 
