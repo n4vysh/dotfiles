@@ -52,10 +52,10 @@ packages:
       - core/nfs-utils
       - extra/bind
       - extra/dog
-      - extra/gnu-netcat
       - extra/gping
       - extra/impala
       - extra/nmap
+      - extra/openbsd-netcat
       - extra/openvpn
       - extra/rustscan
       - extra/traceroute
