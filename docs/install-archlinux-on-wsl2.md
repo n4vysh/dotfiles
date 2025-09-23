@@ -74,19 +74,17 @@ wsl --install archlinux
 ```
 
 ```sh
-pacman -Syu zsh sudo
+(
+    set -x
 
-username="$(
-    powershell.exe '$env:USERNAME' |
-        tr -d '\r' |
-        tr '[:upper:]' '[:lower:]'
-)"
-useradd -m -G wheel -s /bin/zsh "$username"
-passwd "$username"
-echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
-chmod 440 /etc/sudoers.d/wheel
-
-hostnamectl set-hostname localhost
+    pacman -Syu --noconfirm zsh sudo &&
+        username="$(powershell.exe '$env:USERNAME.ToLower()' | tr -d '\r')" &&
+        useradd -m -G wheel -s /bin/zsh "$username" &&
+        passwd "$username" &&
+        echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel &&
+        chmod 440 /etc/sudoers.d/wheel &&
+        hostnamectl set-hostname localhost
+)
 
 exit
 ```
