@@ -10,6 +10,7 @@ if [ "$WSL_DISTRO_NAME" = "none" ]; then
 fi
 
 gum log --level info 'Enable systemd services'
+sudo systemctl start "user@$(id -u "$USER")" # start systemd-logind
 systemctl --user daemon-reload
 # NOTE: fix wslg bug of WSL
 # https://github.com/microsoft/wslg/issues/1032#issuecomment-2310369848
