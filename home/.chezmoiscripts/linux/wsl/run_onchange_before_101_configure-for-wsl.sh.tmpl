@@ -81,4 +81,10 @@ cat <<-EOF >/dev/null
 	{{ include (joinPath .chezmoi.sourceDir "../etc/wsl.conf") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "../etc/tmpfiles.d/wslg.conf") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "../etc/systemd/system/systemd-timesyncd.service.d/override.conf") | sha256sum }}
+
+	{{ include (joinPath .chezmoi.sourceDir "../etc/systemd/system/rkhunter.service") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../etc/systemd/system/rkhunter.timer") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../etc/sudoers.d/env-keep") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../etc/sudoers.d/pwfeedback") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../etc/sudoers.d/wheel") | sha256sum }}
 EOF
