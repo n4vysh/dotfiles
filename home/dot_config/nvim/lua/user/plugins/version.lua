@@ -101,16 +101,19 @@ return {
 				desc = "Yank link",
 			},
 		},
-		opts = {
-			ops = {
-				print_url = false,
-			},
-			mappings = nil,
-			-- NOTE: self-hosted GitLab configuration for work
-			-- callbacks = {
-			-- 	["example.com"] = require("gitlinker.hosts").get_gitlab_type_url,
-			-- },
-		},
+		config = function()
+			local gitlinker = require("gitlinker")
+			gitlinker.setup({
+				ops = {
+					print_url = false,
+				},
+				mappings = nil,
+				-- NOTE: self-hosted GitLab configuration for work
+				-- callbacks = {
+				-- 	["example.com"] = require("gitlinker.hosts").get_gitlab_type_url,
+				-- },
+			})
+		end,
 	},
 
 	{
