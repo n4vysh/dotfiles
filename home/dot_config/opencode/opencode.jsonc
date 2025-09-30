@@ -9,8 +9,8 @@
   //       "baseURL": "http://127.0.0.1:4000"
   //     },
   //     "models": {
-  //       "us.anthropic.claude-sonnet-4-20250514-v1:0": {
-  //         "name": "claude-sonnet-4"
+  //       "us.anthropic.claude-sonnet-4-5-20250929-v1:0": {
+  //         "name": "claude-sonnet-4.5"
   //       }
   //     }
   //   }
