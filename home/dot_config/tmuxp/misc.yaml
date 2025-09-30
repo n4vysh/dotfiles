@@ -46,7 +46,7 @@ windows:
               --name litellm \
               ghcr.io/berriai/litellm:main-stable \
                 --drop_params \
-                --model bedrock/converse/us.anthropic.claude-sonnet-4-20250514-v1:0
+                --model bedrock/converse/us.anthropic.claude-sonnet-4-5-20250929-v1:0
       # yamllint enable rule:line-length
       #
       # NOTE: run following commands
