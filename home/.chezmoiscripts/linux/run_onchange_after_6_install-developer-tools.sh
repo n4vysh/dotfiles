@@ -5,6 +5,9 @@ set -eu
 gum log --level info 'Install packages with mise'
 mise install
 
+gum log --level info 'Install plugins of yazi'
+ya pkg install
+
 gum log --level info 'Install git hooks'
 if ! [ -f ~/.local/share/chezmoi/.git/hooks/pre-commit ]; then
 	cd ~/.local/share/chezmoi/ || exit
@@ -42,4 +45,5 @@ sudo archlinux-java set "$(
 # https://github.com/alker0/chezmoi.vim/issues/76
 cat <<-EOF >/dev/null
 	{{ include (joinPath .chezmoi.sourceDir "dot_config/mise/config.toml") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "dot_config/yazi/package.toml") | sha256sum }}
 EOF
