@@ -1,5 +1,7 @@
 {{ if eq .chezmoi.os "linux" -}}
+{{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 pinentry-program /usr/bin/pinentry-gtk
-{{ else if eq .chezmoi.os "windows" -}}
+{{   else -}}
 pinentry-program /mnt/c/Program Files (x86)/Gpg4win/bin/pinentry.exe
+{{   end -}}
 {{ end -}}
