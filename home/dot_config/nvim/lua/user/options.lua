@@ -83,7 +83,10 @@ vim.opt.listchars:append({
 
 vim.opt.clipboard = "unnamedplus"
 
-if vim.env.WAYLAND_DISPLAY ~= nil then
+-- selene: allow(empty_if)
+if vim.env.WSL_DISTRO_NAME ~= nil then
+	-- NOTE: use wl-copy and wl-paste when WSL
+elseif vim.env.WAYLAND_DISPLAY ~= nil then
 	vim.g.clipboard = {
 		name = "OSC 52 and wl-paste",
 		copy = {
