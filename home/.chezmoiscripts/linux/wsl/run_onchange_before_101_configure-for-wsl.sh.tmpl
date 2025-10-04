@@ -43,18 +43,21 @@ cat <<-'EOF' >~/.local/bin/firefox
 
 	exec /mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe "$@"
 EOF
+chmod +x ~/.local/bin/firefox
 
 cat <<-'EOF' >~/.local/bin/wl-paste
 	#!/bin/sh
 
 	/usr/sbin/wl-paste "$@" | tr -d '\r'
 EOF
+chmod +x ~/.local/bin/wl-paste
 
 cat <<-'EOF' >~/.local/bin/xdg-open
 	#!/bin/sh
 
 	exec powershell.exe start "$@"
 EOF
+chmod +x ~/.local/bin/xdg-open
 
 cat <<-'EOF' >~/.local/bin/ncspot
 	#!/bin/sh
@@ -62,6 +65,7 @@ cat <<-'EOF' >~/.local/bin/ncspot
 	# shellcheck disable=SC2016
 	exec powershell.exe -c '& "$env:USERPROFILE\AppData\Local\Microsoft\WinGet\Packages\hrkfdn.ncspot_Microsoft.Winget.Source_8wekyb3d8bbwe\ncspot.exe"' "$@"
 EOF
+chmod +x ~/.local/bin/ncspot
 
 # https://github.com/nmap/nmap/issues/1864
 # https://libreddit.garudalinux.org/r/bashonubuntuonwindows/comments/tikwt1/how_do_i_make_my_wsl_to_make_network_scans_for_my/
@@ -72,6 +76,7 @@ cat <<-'EOF' >~/.local/bin/nmap
 
 	exec /mnt/c/Program\ Files\ \(x86\)/Nmap/nmap.exe "$@"
 EOF
+chmod +x ~/.local/bin/nmap
 
 # NOTE: run a script when etc file changes
 # https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
