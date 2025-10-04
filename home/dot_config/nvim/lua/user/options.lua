@@ -135,9 +135,6 @@ vim.filetype.add({
 	extension = {
 		-- HACK: detect with terraform-ls and tree-sitter-terraform
 		tf = "terraform",
-		-- HACK: avoid E5248
-		-- https://github.com/neovim/nvim-lspconfig/issues/2685
-		tfvars = "hcl",
 	},
 	pattern = {
 		[".*/.*%.rasi"] = "rasi",
