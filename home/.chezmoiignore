@@ -17,6 +17,8 @@
 .tmux/plugins/** # ignore chezmoi external
 !.wslconfig
 !.glzr
+!.config
+.config/*
 !.config/wezterm
 {{ end }}
 
