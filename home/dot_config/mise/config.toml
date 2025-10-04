@@ -32,6 +32,8 @@ golangci-lint = "2.1.6"
 "go:github.com/cweill/gotests/..." = "1.6.0"
 
 # infra
+## cloud
+granted = "0.38.0"
 ## container
 hadolint = "2.12.0"
 "ubi:docker/docker-credential-helpers" = { version = "0.9.3", exe = "docker-credential-pass" }
