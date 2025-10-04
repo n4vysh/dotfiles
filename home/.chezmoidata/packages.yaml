@@ -249,6 +249,7 @@ packages:
       - core/openssh
       - extra/atool
       - extra/atuin
+      - extra/cosign # for mise verification
       - extra/drawio-desktop
       - extra/editorconfig-checker
       - extra/expect # for unbuffer
