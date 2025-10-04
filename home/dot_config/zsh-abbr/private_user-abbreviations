@@ -1,5 +1,6 @@
 abbr "-"="cd -"
 abbr "."="cd ~/.local/share/chezmoi"
+abbr "a"="assume"
 abbr "b"="bat"
 abbr "chezmoi a"="chezmoi apply"
 abbr "chezmoi d"="chezmoi diff"
