@@ -398,7 +398,7 @@ _configure_disks() {
 #######################################
 _configure_secure_boot() {
 	_log::info 'Configure secure boot'
-	# NOTE: use $ESP_PATH to vaoid `failed to find EFI system partition`
+	# NOTE: use $ESP_PATH to avoid `failed to find EFI system partition`
 	arch-chroot /mnt sbctl status
 	arch-chroot /mnt sbctl create-keys
 	arch-chroot /mnt sbctl enroll-keys --yes-this-might-brick-my-machine
