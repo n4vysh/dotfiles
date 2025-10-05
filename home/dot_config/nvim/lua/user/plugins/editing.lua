@@ -252,11 +252,6 @@ return {
 		dependencies = "nvim-treesitter/nvim-treesitter",
 	},
 	{
-		"tpope/vim-repeat",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-	},
-
-	{
 		"kylechui/nvim-surround",
 		keys = {
 			{ "<C-g>z", mode = "i" },
