@@ -554,16 +554,7 @@ return {
 						extra_args = { "--dialect", "postgres" },
 					}),
 					null_ls.builtins.diagnostics.markdownlint_cli2,
-					null_ls.builtins.diagnostics.stylelint.with({
-						args = {
-							"--formatter",
-							"json",
-							"--stdin-filename",
-							"$FILENAME",
-							"--config",
-							vim.fn.expand("~/.stylelintrc.yaml"),
-						},
-					}),
+					null_ls.builtins.diagnostics.stylelint,
 					null_ls.builtins.diagnostics.yamllint,
 					null_ls.builtins.diagnostics.selene,
 					null_ls.builtins.diagnostics.hadolint,
