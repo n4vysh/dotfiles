@@ -93,7 +93,7 @@
         ""
       ]
     },
-    "on-click": "ghostty -e pulsemixer",
+    "on-click": "ghostty -e wiremix",
     "tooltip": false
   },
   "network#wired": {
