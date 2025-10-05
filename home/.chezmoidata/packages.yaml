@@ -98,6 +98,7 @@ packages:
       - extra/sound-theme-freedesktop
       - extra/spotify-launcher
       - extra/tesseract-data-eng # for zathura
+      - extra/wiremix
       - extra/wireplumber
       - extra/zathura
       - extra/zathura-pdf-mupdf
