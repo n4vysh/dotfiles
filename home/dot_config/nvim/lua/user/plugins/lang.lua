@@ -596,6 +596,7 @@ return {
 							end
 						end,
 					}),
+					-- NOTE: use stylua command instead of stylua LSP to avoid bugs
 					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.yamlfmt,
 					null_ls.builtins.formatting.goimports,
