@@ -69,18 +69,6 @@ return {
 		},
 	},
 	{
-		"cshuaimin/ssr.nvim",
-		keys = {
-			{
-				"<space>rs",
-				"<cmd>lua require('ssr').open()<cr>",
-				mode = { "n", "x" },
-				desc = "Structural search and replace",
-			},
-		},
-		opts = {},
-	},
-	{
 		"junegunn/vim-easy-align",
 		keys = {
 			{
