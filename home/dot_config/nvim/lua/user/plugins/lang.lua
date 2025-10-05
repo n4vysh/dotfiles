@@ -113,32 +113,6 @@ return {
 					)
 					vim.keymap.set(
 						"n",
-						"gy",
-						function()
-							require("lspsaga.definition"):init(2, 1)
-						end,
-						vim.tbl_extend("force", opts, {
-							desc = "Goto preview of t[y]pe definition",
-						})
-					)
-					vim.keymap.set(
-						"n",
-						"gD",
-						vim.lsp.buf.declaration,
-						vim.tbl_extend("force", opts, {
-							desc = "Goto preview of declaration",
-						})
-					)
-					vim.keymap.set(
-						"n",
-						"gi",
-						vim.lsp.buf.implementation,
-						vim.tbl_extend("force", opts, {
-							desc = "Goto preview of implementation",
-						})
-					)
-					vim.keymap.set(
-						"n",
 						"<C-w>d",
 						function()
 							local _, win = vim.diagnostic.open_float({
@@ -219,14 +193,6 @@ return {
 					-- https://github.com/neovim/neovim/pull/28650
 					vim.keymap.set(
 						"n",
-						"grr",
-						vim.lsp.buf.references,
-						vim.tbl_extend("force", opts, {
-							desc = "Goto references",
-						})
-					)
-					vim.keymap.set(
-						"n",
 						"grn",
 						function()
 							return ":IncRename " .. vim.fn.expand("<cword>")
@@ -242,6 +208,16 @@ return {
 						require("actions-preview").code_actions,
 						vim.tbl_extend("force", opts, {
 							desc = "Run code action",
+						})
+					)
+					vim.keymap.set(
+						"n",
+						"grt",
+						function()
+							require("lspsaga.definition"):init(2, 1)
+						end,
+						vim.tbl_extend("force", opts, {
+							desc = "Goto preview of type definition",
 						})
 					)
 					vim.keymap.set(
