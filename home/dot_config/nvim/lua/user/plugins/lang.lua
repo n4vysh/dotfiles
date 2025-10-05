@@ -257,6 +257,31 @@ return {
 						})
 					)
 
+					if client.supports_method("textDocument/formatting") then
+						local augroup = vim.api.nvim_create_augroup(
+							"lsp_document_formatting_" .. buf,
+							{}
+						)
+
+						vim.api.nvim_create_autocmd("BufWritePre", {
+							group = augroup,
+							buffer = buf,
+							callback = function()
+								vim.lsp.buf.format({ async = false })
+							end,
+						})
+					end
+
+					-- NOTE: disable LSP format to use formatter
+					--       - lua_ls -> stylua
+					if client.name == "lua_ls" then
+						client.server_capabilities.signatureHelpProvider = false
+						client.server_capabilities.documentFormattingProvider =
+							false
+						client.server_capabilities.documentRangeFormattingProvider =
+							false
+					end
+
 					if client.server_capabilities.documentHighlightProvider then
 						vim.api.nvim_set_hl(0, "LspReferenceRead", {
 							bg = "#45403d",
@@ -547,6 +572,38 @@ return {
 			return {
 				border = "single",
 				sources = {
+					-- formatter
+					null_ls.builtins.formatting.rego,
+					null_ls.builtins.formatting.sql_formatter,
+					null_ls.builtins.formatting.shellharden,
+					null_ls.builtins.formatting.shfmt,
+					null_ls.builtins.formatting.prettier.with({
+						disabled_filetypes = {
+							"yaml", -- use yamlfmt
+						},
+						extra_args = function(params)
+							if params.filetype == "markdown" then
+								return {
+									"--tab-width",
+									"4",
+								}
+							elseif params.filetype == "jsonc" then
+								--- NOTE: jsonc not support trailing commas
+								--- https://jsonc.org/trailingcommas.html
+								return {
+									"--trailing-comma",
+									"none",
+								}
+							else
+								return {}
+							end
+						end,
+					}),
+					null_ls.builtins.formatting.stylua,
+					null_ls.builtins.formatting.yamlfmt,
+					null_ls.builtins.formatting.goimports,
+					null_ls.builtins.formatting.terragrunt_fmt,
+					-- linter
 					null_ls.builtins.diagnostics.actionlint,
 					null_ls.builtins.diagnostics.editorconfig_checker,
 					null_ls.builtins.diagnostics.opacheck,
@@ -560,81 +617,13 @@ return {
 					null_ls.builtins.diagnostics.hadolint,
 					null_ls.builtins.diagnostics.zsh,
 					null_ls.builtins.diagnostics.todo_comments,
+					-- code action
 					null_ls.builtins.code_actions.gomodifytags,
 					null_ls.builtins.code_actions.impl,
 				},
 			}
 		end,
 		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-	{
-		"stevearc/conform.nvim",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		opts = {
-			formatters = {
-				prettier = {
-					prepend_args = function(_, ctx)
-						if vim.bo[ctx.buf].filetype == "markdown" then
-							return {
-								"--tab-width",
-								"4",
-							}
-						elseif vim.bo[ctx.buf].filetype == "jsonc" then
-							return {
-								--- NOTE: jsonc not support trailing commas
-								--- https://jsonc.org/trailingcommas.html
-								"--trailing-comma",
-								"none",
-							}
-						else
-							return {}
-						end
-					end,
-				},
-			},
-			formatters_by_ft = {
-				hcl = { "hcl" },
-				go = { "goimports", "golangci-lint", "gofumpt" },
-				lua = { "stylua" },
-				rego = { "opa_fmt" },
-				sql = { "sql_formatter" },
-				mysql = { "sql_formatter" },
-				sh = { "shellharden", "shellcheck", "shfmt" },
-				javascript = {
-					"biome",
-					"prettier",
-					stop_after_first = true,
-				},
-				javascriptreact = {
-					"biome",
-					"prettier",
-					stop_after_first = true,
-				},
-				typescript = {
-					"biome",
-					"prettier",
-					stop_after_first = true,
-				},
-				typescriptreact = {
-					"biome",
-					"prettier",
-					stop_after_first = true,
-				},
-				json = { "prettier" },
-				jsonc = { "prettier" },
-				markdown = { "prettier" },
-				["markdown.mdx"] = { "prettier" },
-				yaml = { "yamlfmt" },
-				toml = { "taplo" },
-				terraform = { "terraform_fmt" },
-				tf = { "terraform_fmt" },
-				["terraform-vars"] = { "terraform_fmt" },
-			},
-			format_on_save = {
-				timeout_ms = 2000,
-				lsp_format = "fallback",
-			},
-		},
 	},
 	{
 		"ray-x/lsp_signature.nvim",
