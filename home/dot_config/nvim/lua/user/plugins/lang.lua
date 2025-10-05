@@ -273,7 +273,7 @@ return {
 					end
 
 					-- NOTE: disable LSP format to use formatter
-					--       - lua_ls -> stylua ls
+					--       - lua_ls -> stylua
 					if client.name == "lua_ls" then
 						client.server_capabilities.signatureHelpProvider = false
 						client.server_capabilities.documentFormattingProvider =
@@ -525,7 +525,6 @@ return {
 					"jsonls",
 					"lua_ls",
 					"marksman",
-					"stylua",
 					"systemd_ls",
 					"tailwindcss",
 					"taplo",
@@ -597,6 +596,7 @@ return {
 							end
 						end,
 					}),
+					null_ls.builtins.formatting.stylua,
 					null_ls.builtins.formatting.yamlfmt,
 					null_ls.builtins.formatting.goimports,
 					null_ls.builtins.formatting.terragrunt_fmt,
