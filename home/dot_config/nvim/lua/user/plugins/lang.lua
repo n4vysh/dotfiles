@@ -603,7 +603,6 @@ return {
 					-- linter
 					null_ls.builtins.diagnostics.actionlint,
 					null_ls.builtins.diagnostics.editorconfig_checker,
-					null_ls.builtins.diagnostics.opacheck,
 					null_ls.builtins.diagnostics.sqlfluff.with({
 						extra_args = { "--dialect", "postgres" },
 					}),
