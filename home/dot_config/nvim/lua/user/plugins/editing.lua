@@ -137,11 +137,6 @@ return {
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
-		"pianohacker/vim-textobj-indented-paragraph",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		dependencies = "kana/vim-textobj-user",
-	},
-	{
 		"kana/vim-textobj-indent",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
@@ -171,11 +166,6 @@ return {
 		-- NOTE: nvim-treesitter-textobjects not work multiline comments
 		-- https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/133
 		"glts/vim-textobj-comment",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		dependencies = "kana/vim-textobj-user",
-	},
-	{
-		"rsrchboy/vim-textobj-heredocs",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
 	},
