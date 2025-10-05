@@ -362,6 +362,7 @@ prefix is `C-j`
 | System monitor               | [btop][btop-link]                                                                                 |
 | Network manager              | [impala][impala-link]                                                                             |
 | Bluetooth manager            | [bluetui][bluetui-link]                                                                           |
+| Audio mixer                  | [wiremix][wiremix-link]                                                                           |
 | Audio player                 | [ncspot][ncspot-link]                                                                             |
 | Media player                 | [mpv][mpv-link]                                                                                   |
 | Image viewer                 | [imv][imv-link]                                                                                   |
@@ -385,6 +386,7 @@ prefix is `C-j`
 [btop-link]: https://github.com/aristocratos/btop
 [impala-link]: https://github.com/pythops/impala
 [bluetui-link]: https://github.com/bluetuith-org/bluetuith
+[wiremix-link]: https://github.com/tsowell/wiremix
 [ncspot-link]: https://github.com/hrkfdn/ncspot
 [mpv-link]: https://mpv.io/
 [imv-link]: https://sr.ht/~exec64/imv/
