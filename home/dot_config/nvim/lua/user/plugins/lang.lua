@@ -424,8 +424,6 @@ return {
 				},
 			})
 
-			vim.lsp.config("biome", {})
-
 			-- NOTE: user’s on_attach function override the default on_attach of eslint
 			--       https://github.com/neovim/nvim-lspconfig/issues/3837
 			local base_on_attach = vim.lsp.config.eslint.on_attach
