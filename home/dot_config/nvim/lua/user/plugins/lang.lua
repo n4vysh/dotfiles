@@ -573,7 +573,6 @@ return {
 				border = "single",
 				sources = {
 					-- formatter
-					null_ls.builtins.formatting.rego,
 					null_ls.builtins.formatting.sql_formatter,
 					null_ls.builtins.formatting.shellharden,
 					null_ls.builtins.formatting.shfmt,
