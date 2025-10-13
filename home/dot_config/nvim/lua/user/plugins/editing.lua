@@ -130,27 +130,6 @@ return {
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
-		"kana/vim-operator-replace",
-		keys = {
-			{
-				"cx",
-				"<Plug>(operator-replace)",
-				silent = true,
-				desc = "Replace text",
-				remap = true,
-			},
-			{
-				"gX",
-				"<Plug>(operator-replace)",
-				mode = "x",
-				silent = true,
-				desc = "Replace text",
-				remap = true,
-			},
-		},
-		dependencies = "kana/vim-operator-user",
-	},
-	{
 		-- NOTE: nvim-treesitter-textobjects not work multiline comments
 		-- https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/133
 		"glts/vim-textobj-comment",
