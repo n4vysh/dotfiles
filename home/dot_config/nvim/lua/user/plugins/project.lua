@@ -17,21 +17,18 @@ return {
 				silent = true,
 				desc = "Edit the alternate file in a split",
 			},
-
 			{
 				"<Space>ev",
 				":AV<cr>",
 				silent = true,
 				desc = "Edit the alternate file in a vertical split",
 			},
-
 			{
 				"<Space>ed",
 				":Edoc<cr>",
 				silent = true,
 				desc = "Edit the doc file",
 			},
-
 			{
 				"<Space>er",
 				":Erunner<cr>",

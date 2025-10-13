@@ -57,7 +57,6 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 		},
 	},
-
 	{
 		"ruifm/gitlinker.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -115,7 +114,6 @@ return {
 			})
 		end,
 	},
-
 	{
 		"sindrets/diffview.nvim",
 		keys = {
