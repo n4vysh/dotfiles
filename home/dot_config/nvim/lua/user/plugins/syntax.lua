@@ -454,12 +454,6 @@ return {
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 	{
-		"m-demare/hlargs.nvim",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		opts = {},
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-	},
-	{
 		"itchyny/vim-highlighturl",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 	},
