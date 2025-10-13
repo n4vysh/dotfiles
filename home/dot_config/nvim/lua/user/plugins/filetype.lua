@@ -23,10 +23,6 @@ return {
 		ft = { "helm" },
 	},
 	{
-		"MTDL9/vim-log-highlighting",
-		ft = { "log" },
-	},
-	{
 		"chrisbra/csv.vim",
 		ft = { "csv" },
 		init = function()
@@ -54,11 +50,6 @@ return {
 		config = function()
 			vim.cmd("silent TableModeToggle")
 		end,
-	},
-	{
-		"rafcamlet/nvim-luapad",
-		cmd = "Luapad",
-		dependencies = "antoinemadec/FixCursorHold.nvim",
 	},
 	{
 		"alker0/chezmoi.vim",

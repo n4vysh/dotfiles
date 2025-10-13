@@ -165,14 +165,6 @@ return {
 		end,
 	},
 	{
-		"wsdjeg/vim-fetch",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		keys = {
-			{ "gf", "<cmd>call fetch#cfile(v:count1)<CR>" },
-			{ "gf", "<cmd>call fetch#visual(v:count1)<CR>", mode = "x" },
-		},
-	},
-	{
 		"moll/vim-bbye",
 		keys = {
 			{
@@ -304,15 +296,6 @@ return {
 		dependencies = {
 			"mrjones2014/smart-splits.nvim",
 		},
-	},
-	{
-		"kevinhwang91/nvim-bqf",
-		ft = { "qf" },
-	},
-	{
-		"kwkarlwang/bufresize.nvim",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		opts = {},
 	},
 	{
 		"echuraev/translate-shell.vim",
