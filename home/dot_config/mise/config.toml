@@ -20,7 +20,7 @@ lefthook = "1.11.13"
 "go:github.com/hashicorp/hcl/v2/cmd/hclfmt" = "v2.24.0"
 
 # AI
-"npm:opencode-ai" = "0.11.1"
+opencode = "0.11.1"
 "pipx:mcpo" = "0.0.17"
 
 # app
