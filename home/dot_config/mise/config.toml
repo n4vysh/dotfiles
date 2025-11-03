@@ -21,7 +21,7 @@ lefthook = "1.11.13"
 ls-lint = "2.3.1"
 
 # AI
-opencode = "0.15.3"
+opencode = "0.15.31"
 "pipx:mcpo" = "0.0.17"
 
 # app
