@@ -29,6 +29,12 @@
     "session_child_cycle": "ctrl+alt+l",
     "session_child_cycle_reverse": "ctrl+alt+h"
   },
+  "formatter": {
+    "terraform-fmt": {
+      "command": ["terraform", "fmt", "$FILE"],
+      "extensions": [".tf", ".tfvars"]
+    }
+  },
   "lsp": {
     "terraform-ls": {
       "disabled": false,
