@@ -13,7 +13,19 @@ return {
 	color_scheme = "tokyonight",
 	enable_tab_bar = false,
 	window_background_opacity = 0.9,
-	default_domain = "WSL:archlinux",
+	-- Start without SSH
+	-- default_domain = "WSL:archlinux",
+	-- Start with SSH
+	default_domain = "archlinux-ssh",
+	ssh_domains = {
+		{
+			name = "archlinux-ssh",
+			remote_address = "127.0.0.1:22",
+			---@diagnostic disable-next-line:param-type-mismatch
+			username = string.lower(os.getenv("USERNAME")),
+			multiplexing = "None",
+		},
+	},
 	canonicalize_pasted_newlines = "LineFeed",
 	adjust_window_size_when_changing_font_size = false,
 	allow_win32_input_mode = false,
