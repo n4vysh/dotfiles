@@ -9,6 +9,10 @@ if [ "$WSL_DISTRO_NAME" = "none" ]; then
 	exit 0
 fi
 
+gum log --level info 'Configure locale'
+sudo sed -i -e '/^#en_US.UTF-8 UTF-8  $/s/#//' /etc/locale.gen
+sudo locale-gen
+
 gum log --level info 'Copy etc files'
 xargs -I {} sudo cp -fv ~/.local/share/chezmoi/{} /{} <<-EOF
 	etc/systemd/system/rkhunter.service
