@@ -94,4 +94,17 @@ wsl --manage archlinux --set-default-user $env:USERNAME.ToLower()
 wezterm
 ```
 
+setup ssh key following commands.
+
+```pwsh
+# powershell
+ssh-keygen
+Get-Content ~/.ssh/id_ed25519.pub | Set-Clipboard
+```
+
+```sh
+# WSL
+Wl-paste >~/.ssh/authorized_keys
+```
+
 [install-wsl-link]: https://wiki.archlinux.org/title/Install_Arch_Linux_on_WSL
