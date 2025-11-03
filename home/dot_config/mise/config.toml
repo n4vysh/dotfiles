@@ -45,6 +45,7 @@ hadolint = "2.12.0"
 "ubi:docker/docker-credential-helpers" = { version = "0.9.3", exe = "docker-credential-pass" }
 ## terraform
 terraform-docs = "0.20.0"
+terraform-ls = "0.38.1"
 ## kubernetes
 kubectl = "1.34.1"
 kubectx = "0.9.5"
