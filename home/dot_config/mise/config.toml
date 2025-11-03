@@ -18,6 +18,7 @@ lefthook = "1.11.13"
 "npm:git-open" = "3.1.0"
 "aqua:knqyf263/pet" = "1.0.1"
 "go:github.com/hashicorp/hcl/v2/cmd/hclfmt" = "v2.24.0"
+ls-lint = "2.3.1"
 
 # AI
 opencode = "0.15.3"
