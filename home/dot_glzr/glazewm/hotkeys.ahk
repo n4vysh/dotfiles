@@ -310,9 +310,7 @@ F13 & n::
 ; Misc
 F13 & q::
 {
-	if GetKeyState("Shift") {
-		RunWait("glazewm.exe command close", , "Hide")
-	}
+	RunWait("glazewm.exe command close", , "Hide")
 }
 
 F13 & d::
