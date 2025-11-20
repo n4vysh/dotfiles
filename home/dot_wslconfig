@@ -1,3 +1,6 @@
+[general]
+instanceIdleTimeout=-1
+
 [wsl2]
 swap=0
 networkingMode=mirrored
