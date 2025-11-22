@@ -67,6 +67,7 @@ insert_final_newline = false
 insert_final_newline = false
 
 [home/dot_mozilla/firefox/*.default-release/search.json.mozlz4]
+charset = unset
 end_of_line = unset
 indent_style = unset
 insert_final_newline = false
