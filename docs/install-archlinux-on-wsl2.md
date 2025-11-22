@@ -27,7 +27,14 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 chezmoi init n4vysh && chezmoi apply
 ```
 
+Update [conpty.dll][conpty-link] and [OpenConsole.exe][open-console-link]
+in `C:\Program Files\WezTerm`
+to ignore [WSL ConPTY limitations][wsl-conpyt-link] if WezTerm v20240203.
+
 [winget-link]: https://github.com/microsoft/winget-cli
+[conpty-link]: https://github.com/wezterm/wezterm/blob/118802c24420f3f4c206333cc7885cd922142e8e/assets/windows/conhost/conpty.dll
+[open-console-link]: https://github.com/wezterm/wezterm/blob/118802c24420f3f4c206333cc7885cd922142e8e/assets/windows/conhost/OpenConsole.exe
+[wsl-conpyt-link]: https://github.com/wezterm/wezterm/discussions/6588#discussioncomment-11956378
 
 ### ⌨️ Custom keybinds
 
