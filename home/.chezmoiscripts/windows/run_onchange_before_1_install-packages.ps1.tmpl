@@ -6,11 +6,3 @@ winget install --no-upgrade -e --id {{ . | quote }}
 echo 'Install fonts'
 scoop bucket add nerd-fonts
 sudo scoop install -g --no-update-scoop firacode
-
-echo 'Create scheduled task for WSL'
-sudo schtasks /create `
-    /tn "WSL2 start on boot" `
-    /tr "C:\Windows\System32\wsl.exe -u root sleep infinity" `
-    /sc onlogon `
-    /np `
-    /f
