@@ -88,6 +88,7 @@ return {
 				"vim",
 				"vimdoc",
 				"yaml",
+				"zsh",
 			})
 		end,
 	},
