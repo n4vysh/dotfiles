@@ -31,3 +31,7 @@ matches:
     replace: "引き続きよろしくお願いいたします"
   - trigger: ";kd "
     replace: "共有です"
+  - trigger: ";kk "
+    replace: "解決可能でしょうか?"
+  - trigger: ";os "
+    replace: "お願いします"
