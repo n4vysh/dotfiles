@@ -1,3 +1,15 @@
+# NOTE: WSL configuration for work
+# [opener]
+# open = [
+#   { run = 'explorer.exe "$(wslpath -w "$1")"', orphan = true, desc = "Open", for = "linux" },
+# ]
+# reveal = [
+#   { run = 'explorer.exe /select "$(dirname "$1")"', orphan = true, desc = "Reveal", for = "linux" },
+# ]
+# play = [
+#   { run = 'explorer.exe "$(wslpath -w "$1")"', orphan = true, desc = "Play", for = "linux" },
+# ]
+
 [[plugin.prepend_previewers]]
 name = "*.tar*"
 run = 'piper --format=url -- tar tf "$1"'
