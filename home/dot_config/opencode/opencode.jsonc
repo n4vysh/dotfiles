@@ -25,9 +25,10 @@
   },
   "keybinds": {
     "input_submit": "ctrl+s",
-    "input_newline": "enter",
-    "session_child_cycle": "ctrl+alt+l",
-    "session_child_cycle_reverse": "ctrl+alt+h"
+    "editor_open": "<leader>ctrl+e",
+    "input_newline": "return",
+    "session_child_cycle": "ctrl+meta+l",
+    "session_child_cycle_reverse": "ctrl+meta+h"
   },
   "formatter": {
     "terraform-fmt": {
