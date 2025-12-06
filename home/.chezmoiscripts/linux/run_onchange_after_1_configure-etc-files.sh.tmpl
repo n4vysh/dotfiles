@@ -29,7 +29,7 @@ sudo sed \
 	-i \
 	-e '/^clock =/s/null/%a, %b %d %H:%M/' \
 	-e '/^hide_key_hints =/s/false/true/' \
-	-e '/^session_log =/s/ ly-session.log$/ .ly-session.log$/' \
+	-e '/^session_log =/s/ ly-session.log$/ .ly-session.log/' \
 	/etc/ly/config.ini
 sudo sed \
 	-i \
