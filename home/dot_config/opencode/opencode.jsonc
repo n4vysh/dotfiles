@@ -21,7 +21,33 @@
   "share": "disabled",
   "permission": {
     "edit": "ask",
-    "bash": "ask"
+    "bash": {
+      "*": "ask",
+      "ls": "allow",
+      "grep": "allow",
+      "rg": "allow",
+      "find": "allow",
+      "fd": "allow",
+      "head": "allow",
+      "tail": "allow",
+      "git show": "allow",
+      "git status": "allow",
+      "git diff": "allow",
+      "git log": "allow",
+      "terraform init -backend=false": "allow",
+      "terragrunt init -backend=false": "allow",
+      "terragrunt validate": "allow",
+      "terraform state list": "allow",
+      "terraform show": "allow",
+      "terraform console": "allow",
+      "terraform fmt": "allow",
+      "terraform test": "allow",
+      "terraform validate": "allow",
+      "terraform-docs": "allow",
+      "jq": "allow",
+      "wc": "allow",
+      "echo": "allow"
+    }
   },
   "keybinds": {
     "input_submit": "ctrl+s",
