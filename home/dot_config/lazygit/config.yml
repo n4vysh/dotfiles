@@ -11,16 +11,16 @@ gui:
   border: single
   spinner:
     frames:
-      - '⠋'
-      - '⠙'
-      - '⠹'
-      - '⠸'
-      - '⠼'
-      - '⠴'
-      - '⠦'
-      - '⠧'
-      - '⠇'
-      - '⠏'
+      - "⠋"
+      - "⠙"
+      - "⠹"
+      - "⠸"
+      - "⠼"
+      - "⠴"
+      - "⠦"
+      - "⠧"
+      - "⠇"
+      - "⠏"
 git:
   parseEmoji: true
   paging:
@@ -41,34 +41,34 @@ customCommands:
     context: "status"
     description: "Open CI page"
     loadingText: "Opening CI page..."
-  - key: 'n'
-    context: 'localBranches'
+  - key: "n"
+    context: "localBranches"
     prompts:
-      - type: 'menu'
-        title: 'What kind of branch is it?'
-        key: 'BranchType'
+      - type: "menu"
+        title: "What kind of branch is it?"
+        key: "BranchType"
         options:
-          - name: 'feature'
-            description: 'branch based off develop for new feature'
-            value: 'feature'
-          - name: 'bugfix'
-            description: 'branch based off develop for minor bug fixes'
-            value: 'bugfix'
-          - name: 'release'
-            description: 'branch based off develop for release prepare'
-            value: 'release'
-          - name: 'hotfix'
-            description: 'branch based off main for critical bug fixes'
-            value: 'hotfix'
-          - name: 'misc'
-            description: 'branch for misc'
-            value: 'misc'
-      - type: 'input'
-        title: 'What is the new branch name?'
-        key: 'BranchName'
-        initialValue: ''
+          - name: "feature"
+            description: "branch based off develop for new feature"
+            value: "feature"
+          - name: "bugfix"
+            description: "branch based off develop for minor bug fixes"
+            value: "bugfix"
+          - name: "release"
+            description: "branch based off develop for release prepare"
+            value: "release"
+          - name: "hotfix"
+            description: "branch based off main for critical bug fixes"
+            value: "hotfix"
+          - name: "misc"
+            description: "branch for misc"
+            value: "misc"
+      - type: "input"
+        title: "What is the new branch name?"
+        key: "BranchName"
+        initialValue: ""
     command: "git checkout -b {{.Form.BranchType}}/{{.Form.BranchName}}"
-    loadingText: 'Creating branch'
+    loadingText: "Creating branch"
   - key: "f"
     command: "yazi"
     context: "status"
@@ -106,18 +106,18 @@ customCommands:
     description: "Prune local branches that have been merged to default branch"
     loadingText: "Pruning..."
     prompts:
-      - type: 'confirm'
-        title: 'Prune local branches'
-        body: 'Are you sure you want to prune local branches?'
+      - type: "confirm"
+        title: "Prune local branches"
+        body: "Are you sure you want to prune local branches?"
   - key: "D"
     command: "git remote prune {{.SelectedRemote.Name}}"
     context: "remotes"
     description: "Prune deleted remote branches"
     loadingText: "Pruning..."
     prompts:
-      - type: 'confirm'
-        title: 'Prune deleted remote branches'
-        body: 'Are you sure you want to prune deleted remote branches?'
+      - type: "confirm"
+        title: "Prune deleted remote branches"
+        body: "Are you sure you want to prune deleted remote branches?"
   # https://github.com/jesseduffield/lazygit/issues/1807
   - key: "<c-t>"
     command: "git revert --continue"
