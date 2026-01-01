@@ -50,6 +50,8 @@ services:
         - tmux
         - gcr-ssh-agent.socket
         - espanso
+        - hyprpaper
       running:
         - gcr-ssh-agent.socket
         - espanso
+        - hyprpaper
