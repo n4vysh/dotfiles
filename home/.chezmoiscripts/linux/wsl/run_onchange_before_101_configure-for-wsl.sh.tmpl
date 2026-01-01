@@ -85,6 +85,17 @@ cat <<-'EOF' >~/.local/bin/nmap
 EOF
 chmod +x ~/.local/bin/nmap
 
+cat <<-'EOF' >~/.local/bin/notify-send
+#!/bin/sh
+
+# HACK: hide default app logo with fake image
+#       and redirect warning message to null
+#       https://github.com/Windos/BurntToast/issues/150
+exec /mnt/c/Program\ Files/PowerShell/7/pwsh.exe \
+	-Command "New-BurntToastNotification -Text \"$1\" -AppLogo C:\fake.png 3>\$null"
+EOF
+chmod +x ~/.local/bin/notify-send
+
 # NOTE: run a script when etc file changes
 # https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
 # https://github.com/twpayne/chezmoi/issues/4364

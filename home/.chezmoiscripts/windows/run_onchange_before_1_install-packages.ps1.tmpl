@@ -6,3 +6,6 @@ winget install --no-upgrade -e --id {{ . | quote }}
 echo 'Install fonts'
 scoop bucket add nerd-fonts
 sudo scoop install -g --no-update-scoop firacode
+
+echo 'Install BurntToast'
+pwsh -Command 'Install-Module -Name BurntToast'
