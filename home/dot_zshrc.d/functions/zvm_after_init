@@ -80,6 +80,9 @@ zvm_bindkey viins '^ov' lazygit-widget
 zvm_define_widget gh-dash-widget
 zvm_bindkey viins '^o^v' gh-dash-widget
 
+zvm_define_widget impala-widget
+zvm_bindkey viins '^ow' impala-widget
+
 zvm_define_widget bluetui-widget
 zvm_bindkey viins '^o^w' bluetui-widget
 
