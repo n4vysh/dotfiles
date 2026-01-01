@@ -374,7 +374,7 @@ prefix is `C-j`
 | Notification                 | [swaync][swaync-link]                                                                             |
 | Font                         | [Fira Code][firacode-link] + [NerdFontsSymbolsOnly][nerd-font-link] + [Noto Sans][noto-sans-link] |
 | GTK Theme                    | [Fluent gtk][fluent-gtk-link]                                                                     |
-| QT Theme                     | [Fluent kde][fluent-kde-link]                                                                     |
+| QT Theme                     | [Kvantum][kvantum-link] + [Fluent gtk][fluent-gtk-link]                                           |
 | Overlay bar                  | [wob][wob-link]                                                                                   |
 | System information tool      | [fastfetch][fastfetch-link]                                                                       |
 
@@ -400,7 +400,7 @@ prefix is `C-j`
 [nerd-font-link]: https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/NerdFontsSymbolsOnly
 [noto-sans-link]: https://fonts.google.com/noto/specimen/Noto+Sans
 [fluent-gtk-link]: https://github.com/vinceliuice/Fluent-gtk-theme
-[fluent-kde-link]: https://github.com/vinceliuice/Fluent-kde
+[kvantum-link]: https://github.com/tsujan/Kvantum
 [wob-link]: https://github.com/francma/wob
 [fastfetch-link]: https://github.com/fastfetch-cli/fastfetch
 
