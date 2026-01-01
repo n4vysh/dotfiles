@@ -73,7 +73,6 @@ packages:
       # appearance
       - chaotic-aur/fluent-gtk-theme-git
       - chaotic-aur/fluent-icon-theme-git
-      - chaotic-aur/plasma6-themes-fluent-git
       - extra/gtk3
       - extra/gtk4
       - extra/kvantum
