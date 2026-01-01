@@ -23,10 +23,10 @@ gui:
       - "⠏"
 git:
   parseEmoji: true
-  paging:
-    colorArg: always
-    # https://github.com/jesseduffield/lazygit/issues/3473#issuecomment-2039010947
-    pager: delta --paging=never --dark
+  pagers:
+    - colorArg: always
+      # https://github.com/jesseduffield/lazygit/issues/3473#issuecomment-2039010947
+      pager: delta --paging=never --dark
   # delta not support `git log --graph`
   # https://github.com/jesseduffield/lazygit/blob/v0.28.2/docs/Config.md#default
   # https://github.com/dandavison/delta/issues/141
