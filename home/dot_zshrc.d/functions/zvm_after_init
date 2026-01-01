@@ -77,8 +77,8 @@ zvm_bindkey viins '^on' note-widget
 zvm_define_widget tasks-widget
 zvm_bindkey viins '^ot' tasks-widget
 
-zvm_define_widget lg-widget
-zvm_bindkey viins '^ov' lg-widget
+zvm_define_widget lazygit-widget
+zvm_bindkey viins '^ov' lazygit-widget
 
 zvm_define_widget gh-dash-widget
 zvm_bindkey viins '^o^v' gh-dash-widget
