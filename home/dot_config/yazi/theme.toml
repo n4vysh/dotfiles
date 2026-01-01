@@ -5,3 +5,11 @@ dark = "catppuccin-frappe"
 [status]
 sep_left = { open = "", close = "" }
 sep_right = { open = "", close = "" }
+
+# NOTE: change selector shape to rectangle
+
+# https://github.com/sxyazi/yazi/discussions/3474#discussioncomment-15372032
+[indicator]
+preview = {}
+current = { fg = "#303446", bg = "#babbf1" }
+padding = { open = "█", close = "█" }
