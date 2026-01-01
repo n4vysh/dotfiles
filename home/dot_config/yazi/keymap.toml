@@ -17,6 +17,7 @@ prepend_keymap = [
   { on = "i", run = "spot", desc = "Spot hovered file" },
 
   # Operation
+  { on = "<C-s>", run = "search --via=rg", desc = "Search files by content via ripgrep" },
   { on = "Z", run = "noop" },
 
   # Help
