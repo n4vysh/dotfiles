@@ -9,7 +9,7 @@ services:
         - irqbalance.service
         - iwd.service
         - keyd.service
-        - ly.service
+        - ly@tty2.service
         - paccache.timer
         - pcscd.service
         - pkgfile-update.timer
@@ -33,7 +33,7 @@ services:
         - irqbalance.service
         - iwd.service
         - keyd.service
-        - ly.service
+        - ly@tty2.service
         - paccache.timer
         - pkgfile-update.timer
         - rkhunter.timer
