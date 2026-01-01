@@ -21,7 +21,7 @@ lefthook = "1.11.13"
 ls-lint = "2.3.1"
 
 # AI
-"npm:opencode-ai" = "1.0.134"
+"npm:opencode-ai" = "1.0.223"
 "pipx:mcpo" = "0.0.17"
 
 # app
