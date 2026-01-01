@@ -17,7 +17,10 @@ prepend_keymap = [
   { on = "i", run = "spot", desc = "Spot hovered file" },
 
   # Operation
+  { on = "<C-l>", run = "unyank", desc = "Cancel the yank status" },
   { on = "<C-s>", run = "search --via=rg", desc = "Search files by content via ripgrep" },
+  { on = "Y", run = "noop" },
+  { on = "X", run = "noop" },
   { on = "Z", run = "noop" },
 
   # Help
