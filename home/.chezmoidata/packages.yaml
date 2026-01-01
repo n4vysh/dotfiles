@@ -323,7 +323,7 @@ packages:
       - extra/trivy
       - extra/yamllint
       ## runtime / package manager
-      - chaotic-aur/bun-bin
+      - extra/bun
       - extra/go
       - extra/npm # for mise npm backend with bun
       - extra/pnpm
