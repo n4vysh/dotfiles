@@ -47,9 +47,6 @@ zvm_bindkey vicmd 'ge' vi-fetch-history
 zvm_define_widget opencode-widget
 zvm_bindkey viins '^oa' opencode-widget
 
-zvm_define_widget bluetui-widget
-zvm_bindkey viins '^ob' bluetui-widget
-
 zvm_define_widget lazydocker-widget
 zvm_bindkey viins '^oc' lazydocker-widget
 
@@ -82,6 +79,9 @@ zvm_bindkey viins '^ov' lazygit-widget
 
 zvm_define_widget gh-dash-widget
 zvm_bindkey viins '^o^v' gh-dash-widget
+
+zvm_define_widget bluetui-widget
+zvm_bindkey viins '^o^w' bluetui-widget
 
 zvm_define_widget zi-widget
 zvm_bindkey viins '^oz' zi-widget
