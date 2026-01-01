@@ -501,7 +501,7 @@ return {
 					"jsonls",
 					"lua_ls",
 					"marksman",
-					"systemd_ls",
+					"systemd_lsp",
 					"tailwindcss",
 					"taplo",
 					"terraformls",
