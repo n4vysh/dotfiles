@@ -27,6 +27,20 @@ ABBR_REGULAR_ABBREVIATION_GLOB_PREFIXES+=(
 	'[A-Z]*=* '
 )
 
+# zsh-auto-notify
+AUTO_NOTIFY_IGNORE+=(
+	"lazygit"
+	"y"
+	"yazi"
+	"opencode"
+	"lazydocker"
+	"k9s"
+	"gh dash"
+	"btop"
+	"bluetui"
+	"impala"
+)
+
 # load config files
 for file in ~/.zshrc.d/conf.d/*.zsh; do
 	source "$file"
