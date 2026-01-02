@@ -186,7 +186,6 @@ packages:
       - blackarch/steghide
       - blackarch/stegseek
       - blackarch/subfinder
-      - blackarch/theharvester
       - blackarch/wapiti
       - blackarch/webshells
       - blackarch/wordlistctl
@@ -246,6 +245,7 @@ packages:
       - extra/zram-generator
       # developer tools
       - aur/bazecor
+      - chaotic-aur/playwright
       - core/openssh
       - extra/atool
       - extra/atuin
