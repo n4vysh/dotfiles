@@ -1,7 +1,7 @@
 matches:
-  - trigger: ";c "
+  - trigger: ";sc "
     replace: "✅"
-  - trigger: ";w "
+  - trigger: ";sw "
     replace: "⚠️"
-  - trigger: ";q "
+  - trigger: ";sq "
     replace: "❓"
