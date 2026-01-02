@@ -58,19 +58,6 @@
     "session_child_cycle": "ctrl+meta+l",
     "session_child_cycle_reverse": "ctrl+meta+h"
   },
-  "formatter": {
-    "terraform-fmt": {
-      "command": ["terraform", "fmt", "$FILE"],
-      "extensions": [".tf", ".tfvars"]
-    }
-  },
-  "lsp": {
-    "terraform-ls": {
-      "disabled": false,
-      "command": ["terraform-ls", "serve"],
-      "extensions": [".tf", ".tfvars"]
-    }
-  },
   "mcp": {
     "aws-knowledge-server": {
       "enabled": false,
