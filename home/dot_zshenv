@@ -7,6 +7,7 @@ export XDG_STATE_HOME=${XDG_STATE_HOME:=~/.local/state}
 # base
 export PAGER=less
 export EDITOR=nvim
+export CZ_EDITOR='cz-editor'
 export BROWSER=firefox
 export DIFFPROG='nvim -d'
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
