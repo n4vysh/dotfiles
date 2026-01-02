@@ -199,6 +199,7 @@ packages:
       - extra/john
       - extra/metasploit
       - extra/nikto
+      - extra/osv-scanner
       - extra/perl-image-exiftool
       - extra/qflipper
       - extra/rkhunter
