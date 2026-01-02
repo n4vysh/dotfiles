@@ -116,10 +116,10 @@ return {
 
 			return {
 				provider = provider,
-				-- WARNING: always use `claude` provider
+				-- WARNING: do not use `copilot` provider
 				--          `copilot` provider is expensive and dangerous
 				--          https://github.com/yetone/avante.nvim/issues/1048
-				auto_suggestions_provider = "claude",
+				auto_suggestions_provider = nil,
 				providers = {
 					copilot = {
 						model = "claude-sonnet-4.5",
