@@ -83,6 +83,7 @@ packages:
       - extra/ttf-fira-code
       - extra/ttf-nerd-fonts-symbols-mono
       # multi media
+      - extra/gifsicle
       - extra/imv
       - extra/mpv
       - extra/mpv-mpris
