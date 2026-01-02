@@ -181,14 +181,6 @@ return {
 							desc = "Show LSP signature help",
 						})
 					)
-					vim.keymap.set(
-						"n",
-						"<C-k>",
-						vim.lsp.buf.signature_help,
-						vim.tbl_extend("force", opts, {
-							desc = "Show LSP signature help",
-						})
-					)
 					-- NOTE: LSP refactoring keymaps (gr)
 					-- https://github.com/neovim/neovim/pull/28650
 					vim.keymap.set(

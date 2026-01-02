@@ -21,6 +21,10 @@ vim.keymap.set(
 	}
 )
 
+vim.keymap.set("n", "<C-k>", ":", {
+	desc = "Open command mode",
+})
+
 vim.keymap.set("v", "<Tab>", ">", {
 	silent = true,
 	desc = "shift lines rightwards",
