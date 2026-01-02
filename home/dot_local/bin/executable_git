@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ "$1" = czg ]; then
+	# NOTE: run following commands
+	#       ```sh
+	#       gopass cat envs/litellm/LITELLM_MASTER_KEY |
+	#         gopass insert envs/git-czg/CZ_OPENAI_API_KEY
+	#       ```
+	exec gopass env envs/git-czg/CZ_OPENAI_API_KEY \
+		/bin/git "$@"
+else
+	exec /bin/git "$@"
+fi
