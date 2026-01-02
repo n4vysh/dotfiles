@@ -27,6 +27,8 @@ ls-lint = "2.3.1"
 # app
 ## TS
 node = "24.9.0"
+bun = "1.3.5"
+"npm:@antfu/ni" = "28.0.0"
 ## go
 gotestsum = "1.12.2"
 "go:github.com/josharian/impl" = "1.4.0"
