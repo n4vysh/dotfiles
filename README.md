@@ -22,6 +22,7 @@
 - Window Manager: [Hyprland][hyprland-link]
 - Shell: [Zsh][zsh-link]
 - Editor: [Neovim][neovim-link]
+- Coding Agent: [OpenCode][opencode-link]
 - File Manager: [yazi][yazi-link]
 - Terminal Multiplexer: [Tmux][tmux-link]
 - Terminal Emulator: [Ghostty][ghostty-link]
@@ -34,6 +35,7 @@
 [hyprland-link]: https://hyprland.org/
 [zsh-link]: https://www.zsh.org/
 [neovim-link]: https://neovim.io/
+[opencode-link]: https://opencode.ai/
 [ghostty-link]: https://ghostty.org/
 [tmux-link]: https://github.com/tmux/tmux
 [yazi-link]: https://yazi-rs.github.io/
