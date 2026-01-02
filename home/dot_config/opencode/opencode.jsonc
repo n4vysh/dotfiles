@@ -58,6 +58,12 @@
     "session_child_cycle": "ctrl+meta+l",
     "session_child_cycle_reverse": "ctrl+meta+h"
   },
+  "formatter": {
+    "yamlfmt": {
+      "command": ["yamlfmt", "$FILE"],
+      "extensions": [".yml", ".yaml"]
+    }
+  },
   "mcp": {
     "aws-knowledge-server": {
       "enabled": false,
