@@ -117,7 +117,7 @@ return {
 				"onsails/lspkind.nvim",
 				opts = {
 					symbol_map = {
-						Copilot = "",
+						Copilot = "",
 					},
 				},
 				config = function(_, opts)
