@@ -39,6 +39,7 @@ AUTO_NOTIFY_IGNORE+=(
 	"btop"
 	"bluetui"
 	"impala"
+	"zi"
 )
 
 # load config files
