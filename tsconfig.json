@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2020"],
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@opencode-ai/plugin": [
+        "../../../.config/opencode/node_modules/@opencode-ai/plugin/dist"
+      ],
+      "@opencode-ai/sdk": [
+        "../../../.config/opencode/node_modules/@opencode-ai/sdk/dist"
+      ]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  }
+}
