@@ -103,7 +103,7 @@ for list in "$@"; do
 done
 
 # NOTE: configure ssh and disable ports test
-#       ports test causes false positives, for example mcp-hub
+#       ports test causes false positives
 sudo sed \
 	-i \
 	-e '/^#ALLOW_SSH_PROT_V1/s/#//' \
