@@ -130,13 +130,6 @@ return {
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
-		-- NOTE: nvim-treesitter-textobjects not work multiline comments
-		-- https://github.com/nvim-treesitter/nvim-treesitter-textobjects/issues/133
-		"glts/vim-textobj-comment",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		dependencies = "kana/vim-textobj-user",
-	},
-	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		opts = {
