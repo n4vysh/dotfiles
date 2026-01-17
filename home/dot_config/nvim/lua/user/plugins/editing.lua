@@ -137,63 +137,6 @@ return {
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
-		"coachshea/vim-textobj-markdown",
-		ft = { "markdown" },
-		dependencies = {
-			"kana/vim-textobj-user",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		config = function()
-			-- remove keymap of nvim-treesitter-textobjects
-			vim.cmd([[silent! ounmap <buffer> af]])
-			vim.cmd([[silent! ounmap <buffer> if]])
-			vim.cmd([[silent! ounmap <buffer> aF]])
-			vim.cmd([[silent! ounmap <buffer> iF]])
-			vim.cmd([[silent! xunmap <buffer> af]])
-			vim.cmd([[silent! xunmap <buffer> if]])
-			vim.cmd([[silent! xunmap <buffer> aF]])
-			vim.cmd([[silent! xunmap <buffer> iF]])
-			-- remap for vim-textobj-markdown
-			-- https://github.com/coachshea/vim-textobj-markdown/blob/master/README.md#conflicts-with-other-plugins
-			vim.keymap.set(
-				{ "o", "x" },
-				"af",
-				"<plug>(textobj-markdown-chunk-a)",
-				{
-					silent = true,
-					desc = "around the current fence",
-				}
-			)
-			vim.keymap.set(
-				{ "o", "x" },
-				"if",
-				"<plug>(textobj-markdown-chunk-i)",
-				{
-					silent = true,
-					desc = "inside the current fence",
-				}
-			)
-			vim.keymap.set(
-				{ "o", "x" },
-				"aF",
-				"<plug>(textobj-markdown-Bchunk-a)",
-				{
-					silent = true,
-					desc = "around the backward fence",
-				}
-			)
-			vim.keymap.set(
-				{ "o", "x" },
-				"iF",
-				"<plug>(textobj-markdown-Bchunk-i)",
-				{
-					silent = true,
-					desc = "inside the backward fence",
-				}
-			)
-		end,
-	},
-	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		opts = {
