@@ -115,11 +115,6 @@ return {
 		dependencies = "kana/vim-textobj-user",
 	},
 	{
-		"kana/vim-textobj-datetime",
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		dependencies = "kana/vim-textobj-user",
-	},
-	{
 		"LeonB/vim-textobj-url",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		dependencies = "kana/vim-textobj-user",
