@@ -119,7 +119,6 @@
   "vim-textobj-datetime": { "branch": "master", "commit": "be2db6717e91bd14b99ab364ea09347903a6dce4" },
   "vim-textobj-entire": { "branch": "master", "commit": "64a856c9dff3425ed8a863b9ec0a21dbaee6fb3a" },
   "vim-textobj-indent": { "branch": "master", "commit": "deb76867c302f933c8f21753806cbf2d8461b548" },
-  "vim-textobj-markdown": { "branch": "master", "commit": "9cba182b2c30afc982ace0deb1200cc394799799" },
   "vim-textobj-url": { "branch": "master", "commit": "f66aad52e5a53127a551286ec8680f718d8fd0b5" },
   "vim-textobj-user": { "branch": "master", "commit": "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
   "vim-tridactyl": { "branch": "master", "commit": "fdd069bde3a34c786abed4601b6d59a065590ad9" },
