@@ -203,7 +203,7 @@ vim.keymap.set({ "n", "v", "o" }, "gs", "^", {
 	desc = "Goto first non-blank in line",
 })
 
--- VSCode-like keymaps
+-- SublimeText-like keymaps
 vim.keymap.set("n", "<C-h>", ":%s///g<left><left><left>", {
 	desc = "Set command for substitute",
 })
