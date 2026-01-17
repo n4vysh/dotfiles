@@ -6,11 +6,6 @@ return {
 			{
 				"<Space>ft",
 				function()
-					-- NOTE: create new `[No Name]` buffer when dashboard
-					if vim.bo.filetype == "dashboard" then
-						vim.cmd.enew()
-					end
-
 					if vim.fn.expand("%") == "" then
 						vim.cmd.NvimTreeToggle()
 					else
