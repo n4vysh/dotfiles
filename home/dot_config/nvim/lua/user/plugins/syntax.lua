@@ -75,7 +75,7 @@ return {
 				"rasi",
 				"regex",
 				"rego",
-				"robots",
+				"robots_txt",
 				"sql",
 				"ssh_config",
 				"styled",
