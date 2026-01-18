@@ -221,13 +221,13 @@ tresorit-cli sync --start Videos --path ~/Videos
 Install addons refer to the [collections][collections-link]
 and restore settings from following files in [misc/firefox/](misc/firefox/) directory.
 
-| Addon name                          | File name                                                |
-| :---------------------------------- | :------------------------------------------------------- |
-| [uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)                    |
-| [LibRedirect][libredirect-link]     | [libredirect.json](misc/firefox/canvas-libredirect.json) |
-| [ZeroOmega][zero-omega-link]        | [zero_omega.bak](misc/firefox/zero_omega.bak)            |
-| [Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)                          |
-| [CanvasBlocker][canvasblocker-link] | [canvas-blocker.json](misc/firefox/canvas-blocker.json)  |
+| Addon name                          | File name                                               |
+| :---------------------------------- | :------------------------------------------------------ |
+| [uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)                   |
+| [LibRedirect][libredirect-link]     | [libredirect.json](misc/firefox/libredirect.json)       |
+| [ZeroOmega][zero-omega-link]        | [zero_omega.bak](misc/firefox/zero_omega.bak)           |
+| [Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)                         |
+| [CanvasBlocker][canvasblocker-link] | [canvas-blocker.json](misc/firefox/canvas-blocker.json) |
 
 [collections-link]: https://addons.mozilla.org/en-US/firefox/collections/17575539/n4vysh/
 [zero-omega-link]: https://github.com/zero-peak/ZeroOmega
