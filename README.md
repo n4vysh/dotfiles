@@ -95,7 +95,8 @@
     - [ClearURLs][clearurls-link]
     - [CanvasBlocker][canvasblocker-link]
 - Block incoming connections without allowed with [ufw][ufw-link]
-- Detect rootkit and package vulnerabilities with [rkhunter][rkhunter-link] and [arch-audit][arch-audit-link]
+- Detect rootkit with [rkhunter][rkhunter-link]
+- Detect package vulnerabilities with [arch-audit][arch-audit-link]
 - Support Onion over VPN with [Tor Browser][tor-browser-link] and [OpenVPN][openvpn-link]
 - Prevent DNS leak and IPv6 leak
 - Command abbreviation and snippets for pentesting with [zsh][zsh-link] and [pet][pet-link]
