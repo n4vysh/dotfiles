@@ -11,8 +11,8 @@ repos:
           (?x)^(
             home/dot_docker/config.json|
             home/dot_config/nvim/lazy-lock.json|
-            home/dot_mozilla/firefox/installs.ini|
-            home/dot_mozilla/firefox/profiles.ini|
+            home/dot_config/mozilla/firefox/installs.ini|
+            home/dot_config/mozilla/firefox/profiles.ini|
             misc/firefox/canvas-blocker.json|
             misc/firefox/ublock.txt|
             misc/firefox/libredirect.json|

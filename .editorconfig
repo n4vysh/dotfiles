@@ -66,7 +66,7 @@ insert_final_newline = false
 [misc/firefox/zero_omega.bak]
 insert_final_newline = false
 
-[home/dot_mozilla/firefox/*.default-release/search.json.mozlz4]
+[home/dot_config/mozilla/firefox/*.default-release/search.json.mozlz4]
 charset = unset
 end_of_line = unset
 indent_style = unset
