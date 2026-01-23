@@ -55,6 +55,8 @@
       "git log *": "allow",
       "git shortlog": "allow",
       "git shortlog *": "allow",
+      "aws * get-* *": "allow",
+      "aws * describe-* *": "allow",
       "kubectl get *": "allow",
       "helm show *": "allow",
       "helm template *": "allow",
