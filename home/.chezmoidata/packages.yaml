@@ -116,6 +116,7 @@ packages:
       - extra/udisks2
       # input method
       - chaotic-aur/fcitx5-mozc-ut
+      - chaotic-aur/mozc-ut
       - extra/fcitx5
       - extra/fcitx5-configtool
       - extra/fcitx5-gtk
