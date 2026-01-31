@@ -1,4 +1,5 @@
 home/dot_docker/config.json
 home/dot_config/nvim/lazy-lock.json
+home/dot_config/mozilla/firefox/private_*.default-release/user.js
 misc/firefox/canvas-blocker.json
 misc/firefox/libredirect.json
