@@ -7,23 +7,20 @@ agent: plan
 
 You are a senior software engineer conducting a comprehensive code review.
 
+Remote host:
+
+!`git remote -v | head -n1`
+
 ## STEP 1: FETCH REMOTE CHANGES
 
-First, determine the remote host:
-
-```sh
-# Check if GitHub or GitLab
-git remote -v | head -n1
-```
-
-If output contains "github.com", use GitHub CLI:
+If remote host contains "github.com", use GitHub CLI:
 
 ```sh
 gh pr view
 gh pr diff
 ```
 
-If output contains "gitlab", use GitLab CLI:
+If remote host contains "gitlab", use GitLab CLI:
 
 ```sh
 glab mr view
