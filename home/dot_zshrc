@@ -40,6 +40,7 @@ AUTO_NOTIFY_IGNORE+=(
 	"bluetui"
 	"impala"
 	"zi"
+	"trans"
 )
 
 # load config files
