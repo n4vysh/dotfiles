@@ -11,5 +11,6 @@ alias fd='fd --hyperlink'
 alias rg='rg --hyperlink-format default'
 alias kubectl=kubecolor
 alias assume=". assume"
+alias trans="rlwrap -a trans"
 
 source /etc/grc.zsh
