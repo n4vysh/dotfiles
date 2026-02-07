@@ -58,6 +58,8 @@
       "aws * get-* *": "allow",
       "aws * describe-* *": "allow",
       "kubectl get *": "allow",
+      "kubectl describe *": "allow",
+      "kubectl rollout history *": "allow",
       "helm show *": "allow",
       "helm template *": "allow",
       "helmfile template": "allow",
