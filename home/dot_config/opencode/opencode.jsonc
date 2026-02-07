@@ -45,6 +45,7 @@
       "head *": "allow",
       "tail": "allow",
       "tail *": "allow",
+      "git blame *": "allow",
       "git show": "allow",
       "git show *": "allow",
       "git status": "allow",
