@@ -276,6 +276,7 @@ packages:
       - extra/moreutils # for vidir and sponge
       - extra/neovide
       - extra/obsidian
+      - extra/opencode
       - extra/oxipng
       - extra/parallel
       - extra/postgresql
