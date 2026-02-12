@@ -7,6 +7,7 @@ bun = true
 
 [tools]
 "npm:czg" = "1.12.0"
+"github:max-sixty/worktrunk" = "0.23.2"
 "npm:gitmoji-cli" = "9.6.0"
 "ubi:YiNNx/cmd-wrapped" = "0.4"
 dyff = "1.10.1"
