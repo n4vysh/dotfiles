@@ -34,6 +34,11 @@ windows:
         litellm_settings:
           drop_params: True
         model_list:
+          - model_name: chatgpt/gpt-5.3-codex
+            model_info:
+              mode: responses
+            litellm_params:
+              model: chatgpt/gpt-5.3-codex
           - model_name: &model bedrock/converse/us.anthropic.claude-sonnet-4-5-20250929-v1:0
             litellm_params:
               model: *model
