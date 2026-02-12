@@ -61,6 +61,7 @@ windows:
               -e AWS_SECRET_ACCESS_KEY \
               -e AWS_SESSION_TOKEN \
               -v "$HOME/.cache/litellm_config.yaml:/app/config.yaml" \
+              -v litellm-chatgpt:/root/.config/litellm/chatgpt \
               --name litellm \
               ghcr.io/berriai/litellm:main-stable \
                 --config /app/config.yaml
