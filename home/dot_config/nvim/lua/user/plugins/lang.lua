@@ -141,15 +141,14 @@ return {
 					)
 					vim.keymap.set(
 						"n",
-						"g<C-t>",
+						"grd",
 						function()
 							require("trouble").open({
 								mode = "diagnostics",
-								focus = true,
 							})
 						end,
 						vim.tbl_extend("force", opts, {
-							desc = "Toggle trouble (diagnostics) panel",
+							desc = "Toggle diagnostics panel",
 						})
 					)
 					vim.keymap.set(
@@ -759,6 +758,23 @@ return {
 		"folke/trouble.nvim",
 		event = "LspAttach",
 		opts = {
+			modes = {
+				diagnostics = {
+					focus = true,
+					filter = { buf = 0 },
+					preview = {
+						type = "float",
+						border = "single",
+						title = "Preview",
+						title_pos = "center",
+						position = { -24, 0 },
+						size = { width = 1, height = 0.2 },
+						wo = {
+							foldenable = false,
+						},
+					},
+				},
+			},
 			action_keys = {
 				-- NOTE: jump action can't work jump back,
 				--       so use always jump_close action
