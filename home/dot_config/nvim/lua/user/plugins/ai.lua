@@ -98,10 +98,9 @@ return {
 			return vim.list_extend(mappings, keys)
 		end,
 		opts = function()
-			-- NOTE: use copilot as default provider to avoid Claude's API rate limits and costs
 			local provider = "copilot"
 
-			-- NOTE: comment in to use bedrock with litellm
+			-- NOTE: comment in to use litellm
 			-- provider = "openai"
 
 			return {
@@ -112,11 +111,11 @@ return {
 				auto_suggestions_provider = nil,
 				providers = {
 					copilot = {
-						model = "claude-sonnet-4.5",
+						model = "gpt-5.2",
 					},
 					openai = {
 						endpoint = "http://127.0.0.1:4000/v1",
-						model = "bedrock/converse/us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+						model = "chatgpt/gpt-5.3-codex",
 						-- NOTE: use the same max_tokens value as litellm's default
 						-- https://github.com/BerriAI/litellm/blob/05e0a6d8d5a52e5cacebebe8e9ba37b3a9c800ef/litellm/constants.py
 						extra_request_body = {
