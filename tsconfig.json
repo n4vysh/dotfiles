@@ -8,7 +8,7 @@
         "../../../.config/opencode/node_modules/@opencode-ai/plugin/dist"
       ],
       "@opencode-ai/sdk": [
-        "../../../.config/opencode/node_modules/@opencode-ai/sdk/dist"
+        "../../../.config/opencode/node_modules/@opencode-ai/sdk/dist/v2"
       ]
     },
     "esModuleInterop": true,
