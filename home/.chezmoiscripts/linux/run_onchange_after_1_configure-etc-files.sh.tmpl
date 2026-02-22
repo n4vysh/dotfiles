@@ -36,7 +36,7 @@ sudo sed \
 	-e '/^#governor=/s/ondemand/performance/' \
 	-e '/^#governor=/s/#//' \
 	-e '/^#max_freq=/s/#max_freq="[0-9]*GHz"/max_freq="2GHz"/' \
-	/etc/default/cpupower
+	/etc/default/cpupower-service.conf
 sudo sed \
 	-i \
 	-e '/^#AutoEnable=/s/false/true/' \
