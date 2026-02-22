@@ -179,6 +179,12 @@ else
 	gum log --level warn "etckeeper already configured -- skipping"
 fi
 
+# bluetooth
+sudo sed \
+	-i \
+	-e '/^AutoEnable=/s/true/false/' \
+	/etc/bluetooth/main.conf
+
 # NOTE: run a script when etc file changes
 # https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
 # https://github.com/twpayne/chezmoi/issues/4364
