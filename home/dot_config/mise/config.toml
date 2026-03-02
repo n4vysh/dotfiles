@@ -3,7 +3,7 @@ jobs = 20
 experimental = true
 
 [settings.npm]
-bun = true
+package_manager = "bun"
 
 [tools]
 "npm:czg" = "1.12.0"
