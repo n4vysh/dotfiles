@@ -1,6 +1,7 @@
 [settings]
 jobs = 20
 experimental = true
+install_before = "7d"
 
 [settings.npm]
 package_manager = "bun"
