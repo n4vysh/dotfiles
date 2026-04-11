@@ -78,3 +78,6 @@ insert_final_newline = false
 
 [home/dot_config/luacheck/dot_luacheckrc]
 indent_style = tab
+
+[home/dot_config/opencode/package.json]
+insert_final_newline = false
