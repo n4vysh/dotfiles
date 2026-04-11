@@ -11,6 +11,7 @@ repos:
           (?x)^(
             home/dot_docker/config.json|
             home/dot_config/nvim/lazy-lock.json|
+            home/dot_config/opencode/package.json|
             home/dot_config/mozilla/firefox/installs.ini|
             home/dot_config/mozilla/firefox/profiles.ini|
             misc/firefox/canvas-blocker.json|
