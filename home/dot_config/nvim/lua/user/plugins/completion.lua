@@ -10,7 +10,6 @@ return {
 				preselect = cmp.PreselectMode.None,
 				sorting = {
 					comparators = {
-						require("copilot_cmp.comparators").prioritize,
 						compare.offset,
 						compare.exact,
 						-- compare.scopes,
@@ -57,8 +56,6 @@ return {
 					{ name = "buffer", priority = 3 },
 				}, {
 					{ name = "path", priority = 2 },
-				}, {
-					{ name = "copilot", priority = 1 },
 				}, {
 					{
 						name = "lazydev",
@@ -108,32 +105,18 @@ return {
 			})
 		end,
 		dependencies = {
-			{ "zbirenbaum/copilot-cmp" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
 			{ "hrsh7th/cmp-cmdline" },
 			{
 				"onsails/lspkind.nvim",
-				opts = {
-					symbol_map = {
-						Copilot = "",
-					},
-				},
+				opts = {},
 				config = function(_, opts)
 					local lspkind = require("lspkind")
 
 					lspkind.init(opts)
-
-					vim.api.nvim_set_hl(
-						0,
-						"CmpItemKindCopilot",
-						{ fg = "#6CC644" }
-					)
 				end,
-				dependencies = {
-					{ "zbirenbaum/copilot-cmp" },
-				},
 			},
 			{
 				"L3MON4D3/LuaSnip",

@@ -53,7 +53,7 @@ return {
 				"help",
 				"markdown",
 				"dashboard",
-				"Avante",
+				"snacks_terminal",
 			}
 
 			do

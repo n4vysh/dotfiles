@@ -10,6 +10,7 @@ local options = {
 	shiftwidth = 0,
 	expandtab = true,
 	-- appearance
+	winborder = "single",
 	splitbelow = true,
 	splitright = true,
 	splitkeep = "topline",

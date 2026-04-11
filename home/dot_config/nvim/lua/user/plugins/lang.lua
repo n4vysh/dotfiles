@@ -1,6 +1,6 @@
 return {
 	{
-		"williamboman/mason.nvim",
+		"mason-org/mason.nvim",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		cmd = { "Mason" },
 		keys = {
@@ -35,7 +35,7 @@ return {
 								do
 								end
 							elseif choice == "normal lang server" then
-								vim.cmd.LspInfo()
+								vim.cmd.checkhealth("vim.lsp")
 							else
 								vim.cmd.NullLsInfo()
 							end
@@ -217,7 +217,7 @@ return {
 						})
 					)
 
-					if client.supports_method("textDocument/formatting") then
+					if client:supports_method("textDocument/formatting") then
 						local augroup = vim.api.nvim_create_augroup(
 							"lsp_document_formatting_" .. buf,
 							{}
@@ -500,9 +500,9 @@ return {
 		end,
 		dependencies = {
 			{
-				"williamboman/mason-lspconfig.nvim",
+				"mason-org/mason-lspconfig.nvim",
 				dependencies = {
-					{ "williamboman/mason.nvim" },
+					{ "mason-org/mason.nvim" },
 				},
 			},
 			{ "b0o/SchemaStore.nvim" },
