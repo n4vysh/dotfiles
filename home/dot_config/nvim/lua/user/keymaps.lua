@@ -203,6 +203,18 @@ vim.keymap.set({ "n", "v", "o" }, "gs", "^", {
 	desc = "Goto first non-blank in line",
 })
 
+vim.keymap.set({ "v" }, "<M-o>", "an", {
+	silent = true,
+	remap = true,
+	desc = "Expand selection to parent syntax node",
+})
+
+vim.keymap.set({ "v" }, "<M-i>", "in", {
+	silent = true,
+	remap = true,
+	desc = "Shrink syntax tree object selection",
+})
+
 -- SublimeText-like keymaps
 vim.keymap.set("n", "<C-h>", ":%s///g<left><left><left>", {
 	desc = "Set command for substitute",

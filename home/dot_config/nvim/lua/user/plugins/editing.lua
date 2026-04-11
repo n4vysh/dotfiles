@@ -462,6 +462,7 @@ return {
 	{
 		"smjonas/live-command.nvim",
 		keys = {
+			{ "<space>cu", ":Uniq ", desc = "Set command for sort" },
 			{ "<space>c<C-s>", ":%Sort ", desc = "Set command for sort" },
 			{
 				"<space>c<C-s>",
@@ -498,6 +499,7 @@ return {
 				Global = { cmd = "global" },
 				Vglobal = { cmd = "vglobal" },
 				Sort = { cmd = "sort" },
+				Uniq = { cmd = "uniq" },
 			},
 		},
 	},
