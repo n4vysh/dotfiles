@@ -34,7 +34,7 @@ windows:
         litellm_settings:
           drop_params: True
         model_list:
-          - model_name: &model chatgpt/gpt-5.3-codex
+          - model_name: &model chatgpt/gpt-5.4
             model_info:
               mode: responses
             litellm_params:
