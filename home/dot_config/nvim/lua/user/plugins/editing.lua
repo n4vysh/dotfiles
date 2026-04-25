@@ -152,34 +152,82 @@ return {
 	{
 		"kylechui/nvim-surround",
 		keys = {
-			{ "<C-g>z", mode = "i" },
-			{ "<C-g>Z", mode = "i" },
-			{ "yz" },
-			{ "yzz" },
-			{ "yZ" },
-			{ "yZZ" },
-			{ "gz", mode = "x" },
-			{ "gZ", mode = "x" },
-			{ "dz" },
-			{ "cz" },
-			{ "cZ" },
+			{
+				"<C-g>z",
+				"<Plug>(nvim-surround-insert)",
+				mode = "i",
+				silent = true,
+				desc = "Add a surrounding pair around the cursor",
+			},
+			{
+				"<C-g>Z",
+				"<Plug>(nvim-surround-insert-line)",
+				mode = "i",
+				silent = true,
+				desc = "Add a surrounding pair around the cursor, on new lines",
+			},
+			{
+				"yz",
+				"<Plug>(nvim-surround-normal)",
+				silent = true,
+				desc = "Add a surrounding pair around a motion",
+			},
+			{
+				"yzz",
+				"<Plug>(nvim-surround-normal-cur)",
+				silent = true,
+				desc = "Add a surrounding pair around the current line",
+			},
+			{
+				"yZ",
+				"<Plug>(nvim-surround-normal-line)",
+				silent = true,
+				desc = "Add a surrounding pair around a motion, on new lines",
+			},
+			{
+				"yZZ",
+				"<Plug>(nvim-surround-normal-cur-line)",
+				silent = true,
+				desc = "Add a surrounding pair around the current line, on new lines",
+			},
+			{
+				"gz",
+				"<Plug>(nvim-surround-visual)",
+				mode = "x",
+				silent = true,
+				desc = "Add a surrounding pair around a visual selection",
+			},
+			{
+				"gZ",
+				"<Plug>(nvim-surround-visual-line)",
+				mode = "x",
+				silent = true,
+				desc = "Add a surrounding pair around a visual selection, on new lines",
+			},
+			{
+				"dz",
+				"<Plug>(nvim-surround-delete)",
+				silent = true,
+				desc = "Delete a surrounding pair",
+			},
+			{
+				"cz",
+				"<Plug>(nvim-surround-change)",
+				silent = true,
+				desc = "Change a surrounding pair",
+			},
+			{
+				"cZ",
+				"<Plug>(nvim-surround-change-line)",
+				silent = true,
+				desc = "Change a surrounding pair, putting replacements on new lines",
+			},
 		},
 		-- HACK: change keymap to avoid conflict for leap.nvim and helix-like keymaps
 		-- https://github.com/ggandor/leap.nvim/discussions/59#discussioncomment-3842315
-		opts = {
-			keymaps = {
-				insert = "<C-g>z",
-				insert_line = "<C-g>Z",
-				normal = "yz",
-				normal_line = "yzz",
-				normal_cur = "yZ",
-				normal_cur_line = "yZZ",
-				visual = "gz",
-				visual_line = "gZ",
-				delete = "dz",
-				change = "cz",
-			},
-		},
+		init = function()
+			vim.g.nvim_surround_no_mappings = 1
+		end,
 	},
 	{
 		"wellle/targets.vim",
