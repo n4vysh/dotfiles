@@ -17,6 +17,13 @@ fi
 # initialize sheldon
 eval "$(sheldon source)"
 
+# zsh-vi-mode
+# NOTE: use ZLE instead of NEX
+#       NEX introduced in v0.12.0
+#       NEX stop working keybinds under certain conditions
+#       https://github.com/jeffreytse/zsh-vi-mode/tree/v0.12.0#readkey-engine
+export ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
+
 # zsh-abbr
 ABBR_REGULAR_ABBREVIATION_GLOB_PREFIXES+=(
 	'*& '
