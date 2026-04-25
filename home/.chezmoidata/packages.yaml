@@ -145,6 +145,7 @@ packages:
       - extra/pipectl
       - extra/qt6-wayland
       - extra/rofi
+      - extra/rofi-calc
       - extra/rofimoji
       - extra/slurp
       - extra/swappy
