@@ -43,9 +43,7 @@ tag = "0.11.1"
 
 [plugins.zsh-autocomplete]
 github = "marlonrichert/zsh-autocomplete"
-# NOTE: use `adfade3` to avoid freeze
-#       https://github.com/marlonrichert/zsh-autocomplete/issues/736#issuecomment-2232428532
-rev = "adfade3"
+rev = "20f6c34"
 
 [plugins.ohmyzsh]
 github = "ohmyzsh/ohmyzsh"
