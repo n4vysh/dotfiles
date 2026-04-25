@@ -19,7 +19,7 @@ tag = "v6.5.2"
 
 [plugins.zsh-fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
-rev = "cf318e0"
+rev = "3d574cc"
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
