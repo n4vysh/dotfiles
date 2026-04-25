@@ -366,7 +366,6 @@ prefix is `C-j`
 | Network manager              | [impala][impala-link]                                                                             |
 | Bluetooth manager            | [bluetui][bluetui-link]                                                                           |
 | Audio mixer                  | [wiremix][wiremix-link]                                                                           |
-| Audio player                 | [ncspot][ncspot-link]                                                                             |
 | Media player                 | [mpv][mpv-link]                                                                                   |
 | Image viewer                 | [imv][imv-link]                                                                                   |
 | Document viewer              | [zathura][zathura-link]                                                                           |
@@ -390,7 +389,6 @@ prefix is `C-j`
 [impala-link]: https://github.com/pythops/impala
 [bluetui-link]: https://github.com/bluetuith-org/bluetuith
 [wiremix-link]: https://github.com/tsowell/wiremix
-[ncspot-link]: https://github.com/hrkfdn/ncspot
 [mpv-link]: https://mpv.io/
 [imv-link]: https://sr.ht/~exec64/imv/
 [zathura-link]: https://pwmt.org/projects/zathura/
@@ -485,10 +483,6 @@ If rkhunter or arch-audit found some problem, show following.
 ### [lazydocker](https://github.com/jesseduffield/lazydocker)
 
 ![lazydocker](./docs/screenshots/lazydocker.png)
-
-### ncspot
-
-![ncspot](./docs/screenshots/ncspot.png)
 
 ### [btop](https://github.com/aristocratos/btop)
 

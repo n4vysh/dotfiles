@@ -44,9 +44,6 @@ x-scheme-handler/web+stellar=keybase.desktop
 # slack
 x-scheme-handler/slack=slack.desktop
 
-# spotify
-x-scheme-handler/spotify=spotify-launcher.desktop
-
 # wireshark
 application/vnd.tcpdump.pcap=org.wireshark.Wireshark.desktop
 application/x-etherpeek=org.wireshark.Wireshark.desktop

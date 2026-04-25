@@ -87,7 +87,6 @@ packages:
       - extra/imv
       - extra/mpv
       - extra/mpv-mpris
-      - extra/ncspot
       - extra/pamixer
       - extra/pipewire
       - extra/pipewire-alsa
@@ -96,7 +95,6 @@ packages:
       - extra/playerctl
       - extra/pulsemixer
       - extra/sound-theme-freedesktop
-      - extra/spotify-launcher
       - extra/tesseract-data-eng # for zathura
       - extra/wiremix
       - extra/wireplumber
@@ -240,7 +238,6 @@ packages:
       - extra/tokei
       - extra/translate-shell
       - extra/trash-cli
-      - extra/ueberzug # for album art of ncspot
       - extra/unrar
       - extra/unzip
       - extra/visidata
@@ -384,7 +381,6 @@ packages:
       - Insecure.Nmap
       - OpenVPNTechnologies.OpenVPN
       - JGraph.Draw
-      - hrkfdn.ncspot
       - Espanso.Espanso
       - NickeManarin.ScreenToGif
       - Gyan.FFmpeg # for ScreenToGif
