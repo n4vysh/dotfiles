@@ -78,14 +78,14 @@ EOF
 chmod +x ~/.local/bin/nmap
 
 cat <<-'EOF' >~/.local/bin/notify-send
-#!/bin/sh
+	#!/bin/sh
 
-# HACK: hide default app logo with fake image
-#       redirect warning message to null
-#       run in background to avoid waiting for pwsh startup
-#       https://github.com/Windos/BurntToast/issues/150
-exec /mnt/c/Program\ Files/PowerShell/7/pwsh.exe \
-	-Command "New-BurntToastNotification -Text '$1' -AppLogo C:\fake.png 3>\$null" &
+	# HACK: hide default app logo with fake image
+	#       redirect warning message to null
+	#       run in background to avoid waiting for pwsh startup
+	#       https://github.com/Windos/BurntToast/issues/150
+	exec /mnt/c/Program\ Files/PowerShell/7/pwsh.exe \
+		-Command "New-BurntToastNotification -Text '$1' -AppLogo C:\fake.png 3>\$null" &
 EOF
 chmod +x ~/.local/bin/notify-send
 
