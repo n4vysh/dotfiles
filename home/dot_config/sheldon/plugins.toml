@@ -39,7 +39,7 @@ rev = "449a7c3"
 
 [plugins.zsh-auto-notify]
 github = "MichaelAquilina/zsh-auto-notify"
-rev = "27c07dd"
+tag = "0.11.1"
 
 [plugins.zsh-autocomplete]
 github = "marlonrichert/zsh-autocomplete"
