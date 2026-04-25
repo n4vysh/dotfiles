@@ -19,8 +19,13 @@ eval "$(atuin init zsh --disable-up-arrow)"
 zvm_define_widget atuin-search-viins-wrapper
 zvm_bindkey viins '^r' atuin-search-viins-wrapper
 
-# NOTE: clipboard integration
+# clipboard integration
 # https://github.com/jeffreytse/zsh-vi-mode/issues/19
+# NOTE: use custom wrappers
+#       builtin feature has following limits:
+#       - only covers some operations
+#       - does not override the default `p` and `P` keybinds
+#       https://github.com/jeffreytse/zsh-vi-mode/tree/v0.12.0#system-clipboard
 if [[ -n WAYLAND_DISPLAY ]]; then
 	for f in \
 		zvm_backward_kill_region \

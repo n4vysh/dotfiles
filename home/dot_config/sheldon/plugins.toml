@@ -11,7 +11,7 @@ tag = "v1.0.0"
 
 [plugins.zsh-vi-mode]
 github = "jeffreytse/zsh-vi-mode"
-tag = "v0.11.0"
+tag = "v0.12.0"
 
 [plugins.zsh-abbr]
 github = "olets/zsh-abbr"
