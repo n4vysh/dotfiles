@@ -49,3 +49,4 @@ rev = "20f6c34"
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
 use = ["sudo/sudo.plugin.zsh"]
+rev = "349b9e4"
