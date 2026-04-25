@@ -27,7 +27,7 @@ tag = "v0.7.1"
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
-rev = "0adf2f0"
+tag = "0.36.0"
 
 [plugins.zsh-history-substring-search]
 github = "zsh-users/zsh-history-substring-search"
