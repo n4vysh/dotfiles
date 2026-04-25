@@ -54,6 +54,6 @@ windows:
             -v "$HOME/.cache/litellm_config.yaml:/app/config.yaml" \
             -v litellm-chatgpt:/root/.config/litellm/chatgpt \
             --name litellm \
-            ghcr.io/berriai/litellm:main-stable \
+            ghcr.io/berriai/litellm:v1.83.7-stable.patch.1 \
                 --config /app/config.yaml
       # yamllint enable rule:line-length
