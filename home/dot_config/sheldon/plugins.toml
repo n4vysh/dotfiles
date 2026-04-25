@@ -3,7 +3,7 @@ shell = "zsh"
 [plugins]
 [plugins.powerlevel10k]
 github = "romkatv/powerlevel10k"
-rev = "8fa10f4"
+rev = "604f19a"
 
 [plugins.zsh-no-ps2]
 github = "romkatv/zsh-no-ps2"
