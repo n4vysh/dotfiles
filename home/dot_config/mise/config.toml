@@ -26,6 +26,7 @@ ls-lint = "2.3.1"
 # AI
 opencode = "1.14.25"
 rtk = "0.37.2"
+"npm:skills" = "1.5.1"
 
 # app
 ## TS
