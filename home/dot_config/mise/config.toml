@@ -24,7 +24,6 @@ ls-lint = "2.3.1"
 
 # AI
 opencode = "1.14.25"
-"pipx:mcpo" = "0.0.17"
 
 # app
 ## TS
