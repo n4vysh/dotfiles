@@ -46,7 +46,7 @@ return {
 				"<Esc>",
 				"<Plug>(clever-f-reset)",
 				mode = { "n" },
-				remap = true,
+				remap = false,
 			},
 		},
 	},
