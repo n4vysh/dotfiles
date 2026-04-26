@@ -1,0 +1,53 @@
+{
+  "version": 3,
+  "skills": {
+    "terraform-style-guide": {
+      "source": "hashicorp/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/hashicorp/agent-skills.git",
+      "skillPath": "terraform/code-generation/skills/terraform-style-guide/SKILL.md",
+      "skillFolderHash": "a6d14b66fa495d767536a6705856fe4553958e24",
+      "installedAt": "2026-04-26T14:32:26.096Z",
+      "updatedAt": "2026-04-26T14:32:26.096Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "3013fdeb8a11b10b1eb795ec3ae8bfca38f7c26d",
+      "installedAt": "2026-04-26T14:32:32.791Z",
+      "updatedAt": "2026-04-26T14:32:32.791Z"
+    },
+    "terraform-test": {
+      "source": "hashicorp/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/hashicorp/agent-skills.git",
+      "skillPath": "terraform/code-generation/skills/terraform-test/SKILL.md",
+      "skillFolderHash": "e24dc7d3c72d1208736b329434667d43c7bfcfa4",
+      "installedAt": "2026-04-26T14:47:45.016Z",
+      "updatedAt": "2026-04-26T14:47:45.016Z"
+    },
+    "terraform-search-import": {
+      "source": "hashicorp/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/hashicorp/agent-skills.git",
+      "skillPath": "terraform/code-generation/skills/terraform-search-import/SKILL.md",
+      "skillFolderHash": "ae8924c00f9d9a5da5feb30fe9e654577c10f8f0",
+      "installedAt": "2026-04-26T14:48:03.144Z",
+      "updatedAt": "2026-04-26T14:48:03.144Z"
+    },
+    "refactor-module": {
+      "source": "hashicorp/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/hashicorp/agent-skills.git",
+      "skillPath": "terraform/module-generation/skills/refactor-module/SKILL.md",
+      "skillFolderHash": "f0abaa84ffa8642ee10bac6b6c1e7c32b72461f2",
+      "installedAt": "2026-04-26T14:48:29.323Z",
+      "updatedAt": "2026-04-26T14:48:29.323Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  }
+}

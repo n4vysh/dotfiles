@@ -81,3 +81,11 @@ indent_style = tab
 
 [home/dot_config/opencode/package.json]
 insert_final_newline = false
+
+[home/{dot_agents/skills,dot_local/private_state/skills}/**/{,.}*]
+charset = unset
+end_of_line = unset
+indent_size = unset
+indent_style = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
