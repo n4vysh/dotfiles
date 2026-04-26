@@ -134,6 +134,11 @@
       "enabled": false,
       "type": "remote",
       "url": "https://mcp.context7.com/mcp"
+    },
+    "microsandbox-server": {
+      "enabled": false,
+      "type": "local",
+      "command": ["microsandbox-mcp"]
     }
   }
 }
