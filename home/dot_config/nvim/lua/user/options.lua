@@ -141,7 +141,6 @@ vim.filetype.add({
 		[".*/%.zshrc.d/functions/.*"] = "zsh",
 		[".*/%.config/hypr/.*%.conf"] = "hyprlang",
 		[".*/%.config/git/config%..*"] = "gitconfig",
-		[".*/%.config/swappy/config"] = "ini",
 		[".*/%.config/waybar/config"] = "json",
 		[".*/%.czrc"] = "json",
 		[".*/%.config/yamllint/config"] = "yaml",
