@@ -71,6 +71,7 @@ packages:
       - extra/bluez
       - extra/bluez-utils
       # appearance
+      - aur/plasma6-themes-fluent-git
       - chaotic-aur/fluent-gtk-theme-git
       - chaotic-aur/fluent-icon-theme-git
       - extra/gtk3
