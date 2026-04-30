@@ -147,8 +147,8 @@ packages:
       - extra/rofi
       - extra/rofi-calc
       - extra/rofimoji
+      - extra/satty
       - extra/slurp
-      - extra/swappy
       - extra/swaync
       - extra/uwsm
       - extra/waybar

@@ -1,0 +1,7 @@
+[general]
+corner-roundness = 0
+initial-tool = "rectangle"
+output-filename = "~/Pictures/screenshots/%Y%m%d_%H%M%S.png"
+
+[color-palette]
+palette = ["#eb4d4b", "#f0932b", "#6ab04c", "#22a6b3", "#130f40"]
