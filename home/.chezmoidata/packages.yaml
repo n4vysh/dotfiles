@@ -318,8 +318,6 @@ packages:
       - extra/selene
       - extra/shellcheck
       - extra/sqlfluff
-      - extra/stylelint
-      - extra/stylelint-config-standard
       - extra/taplo-cli
       - extra/tflint
       - extra/trivy
