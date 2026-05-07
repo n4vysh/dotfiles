@@ -47,11 +47,11 @@ services:
         - ufw.service
     user:
       enabled:
-        - tmux
+        - tmux.service
         - gcr-ssh-agent.socket
-        - espanso
-        - hyprpaper
+        - espanso.service
+        - hyprpaper.service
       running:
         - gcr-ssh-agent.socket
-        - espanso
-        - hyprpaper
+        - espanso.service
+        - hyprpaper.service
