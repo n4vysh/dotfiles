@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Obsidian headless sync continuously
+
+[Service]
+Type=simple
+ExecStart=%h/.local/share/mise/shims/ob sync --continuous --path %h/Documents
+Restart=on-failure
+RestartSec=30s
+
+[Install]
+WantedBy=default.target

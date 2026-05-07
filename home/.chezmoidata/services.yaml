@@ -51,7 +51,9 @@ services:
         - gcr-ssh-agent.socket
         - espanso.service
         - hyprpaper.service
+        - obsidian-sync.service
       running:
         - gcr-ssh-agent.socket
         - espanso.service
         - hyprpaper.service
+        - obsidian-sync.service
