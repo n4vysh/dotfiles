@@ -34,3 +34,5 @@ user_pref("network.dns.disableIPv6", true);
 // remove support.mozilla.org from restricted domains
 user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,addons.cdn.mozilla.net,addons.mozilla.org,api.accounts.firefox.com,content.cdn.mozilla.net,discovery.addons.mozilla.org,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com");
 user_pref("privacy.resistFingerprinting.block_mozAddonManage", true);
+
+user_pref("media.webspeech.synth.enabled", false);
