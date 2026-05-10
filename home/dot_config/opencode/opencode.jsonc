@@ -227,6 +227,9 @@
     //     "GRAFANA_URL": "https://example.com"
     //   }
     // },
+    // ```sh
+    // opencode mcp auth context7-server
+    // ```
     "context7-server": {
       "enabled": false,
       "type": "remote",
