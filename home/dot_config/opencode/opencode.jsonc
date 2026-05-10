@@ -178,8 +178,9 @@
         "run",
         "-i",
         "--rm",
-        "--pull=always",
-        "hashicorp/terraform-mcp-server"
+        "--name",
+        "terraform-mcp-server",
+        "hashicorp/terraform-mcp-server:0.5.0"
       ]
     },
     // "aws-example-dev-server": {
