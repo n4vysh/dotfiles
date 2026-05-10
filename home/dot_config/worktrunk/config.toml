@@ -1,1 +1,1 @@
-worktree-path = "{{ repo_path }}/.git/worktrees/{{ branch | sanitize }}"
+worktree-path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
