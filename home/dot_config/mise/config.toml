@@ -29,6 +29,7 @@ rtk = "0.37.2"
 "npm:skills" = "1.5.1"
 "npm:microsandbox-mcp" = "0.3.14"
 "npm:context-mode" = "1.0.111"
+"npm:kubernetes-mcp-server" = "0.0.60"
 
 # app
 ## frontend

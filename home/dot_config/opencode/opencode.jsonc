@@ -122,6 +122,17 @@
         "hashicorp/terraform-mcp-server"
       ]
     },
+    // "kubernetes-example-dev-server": {
+    //   "enabled": false,
+    //   "type": "local",
+    //   "command": [
+    //     "kubernetes-mcp-server",
+    //     "--read-only"
+    //   ],
+    //   "environment": {
+    //     "KUBECONFIG": "{env:HOME}/.kube/configs/example-dev"
+    //   }
+    // },
     "playwright-server": {
       "enabled": false,
       "type": "local",
