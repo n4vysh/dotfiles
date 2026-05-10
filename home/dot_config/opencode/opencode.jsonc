@@ -230,7 +230,7 @@
     "context7-server": {
       "enabled": false,
       "type": "remote",
-      "url": "https://mcp.context7.com/mcp"
+      "url": "https://mcp.context7.com/mcp/oauth"
     },
     "microsandbox-server": {
       "enabled": false,
