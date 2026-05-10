@@ -526,12 +526,33 @@ return {
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		opts = function()
 			local null_ls = require("null-ls")
+			local logger = require("null-ls.logger")
+
+			-- NOTE: print error messages
+			-- https://github.com/nvimtools/none-ls.nvim/issues/216
+			-- https://github.com/nvimtools/none-ls.nvim/pull/221/changes
+			local function check_formatter_exit_code(code, stderr)
+				local success = code <= 0
+
+				if not success then
+					vim.schedule(function()
+						logger:warn(
+							("failed to run formatter: %s"):format(stderr)
+						)
+					end)
+				end
+
+				return success
+			end
 
 			return {
 				border = "single",
 				sources = {
 					-- formatter
-					null_ls.builtins.formatting.sql_formatter,
+					null_ls.builtins.formatting.sqlfluff.with({
+						extra_args = { "--dialect", "postgres" },
+						check_exit_code = check_formatter_exit_code,
+					}),
 					null_ls.builtins.formatting.shellharden,
 					null_ls.builtins.formatting.shfmt,
 					null_ls.builtins.formatting.prettier.with({
