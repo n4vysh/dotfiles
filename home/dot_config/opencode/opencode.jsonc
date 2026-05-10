@@ -146,6 +146,26 @@
     //     "KUBECONFIG": "{env:HOME}/.kube/configs/example-dev"
     //   }
     // },
+    // // ```sh
+    // // gopass insert envs/mcp-grafana/example-dev/GRAFANA_SERVICE_ACCOUNT_TOKEN
+    // // ```
+    // "grafana-example-dev-server": {
+    //   "enabled": false,
+    //   "type": "local",
+    //   "command": [
+    //     "gopass",
+    //     "env",
+    //     "envs/mcp-grafana/example-dev",
+    //     "mcp-grafana",
+    //     "--disable-write",
+    //     "-t",
+    //     "stdio"
+    //   ],
+    //   "environment": {
+    //     "GRAFANA_ORG_ID": "1",
+    //     "GRAFANA_URL": "https://example.com"
+    //   }
+    // },
     "playwright-server": {
       "enabled": false,
       "type": "local",
