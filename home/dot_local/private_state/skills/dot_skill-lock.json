@@ -63,6 +63,56 @@
       "skillFolderHash": "c1470a475a0472fceda2401ea6763708a91680a8",
       "installedAt": "2026-05-10T15:52:02.131Z",
       "updatedAt": "2026-05-10T15:52:02.131Z"
+    },
+    "loki": {
+      "source": "grafana/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/grafana/skills.git",
+      "skillPath": "skills/grafana-lgtm/loki/SKILL.md",
+      "skillFolderHash": "eb7b299e3a84bc103dbc1ce767a4afd4492ad843",
+      "pluginName": "grafana-lgtm",
+      "installedAt": "2026-05-10T16:08:55.477Z",
+      "updatedAt": "2026-05-10T16:08:55.477Z"
+    },
+    "mimir": {
+      "source": "grafana/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/grafana/skills.git",
+      "skillPath": "skills/grafana-lgtm/mimir/SKILL.md",
+      "skillFolderHash": "65168587ad41e9096fed0ae7c0ab954928e55023",
+      "pluginName": "grafana-lgtm",
+      "installedAt": "2026-05-10T16:08:56.293Z",
+      "updatedAt": "2026-05-10T16:08:56.293Z"
+    },
+    "prometheus": {
+      "source": "grafana/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/grafana/skills.git",
+      "skillPath": "skills/grafana-lgtm/prometheus/SKILL.md",
+      "skillFolderHash": "c7e1330562e426bc64b6f4b0425d32f6b3cdfd32",
+      "pluginName": "grafana-lgtm",
+      "installedAt": "2026-05-10T16:08:57.114Z",
+      "updatedAt": "2026-05-10T16:08:57.114Z"
+    },
+    "tempo": {
+      "source": "grafana/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/grafana/skills.git",
+      "skillPath": "skills/grafana-lgtm/tempo/SKILL.md",
+      "skillFolderHash": "d98f0e2f3bebbb1f5d7a46d0700e550aaaa98563",
+      "pluginName": "grafana-lgtm",
+      "installedAt": "2026-05-10T16:08:57.908Z",
+      "updatedAt": "2026-05-10T16:08:57.908Z"
+    },
+    "promql": {
+      "source": "grafana/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/grafana/skills.git",
+      "skillPath": "skills/grafana-core/promql/SKILL.md",
+      "skillFolderHash": "6f529ce21330feaedf6705fa96001056447639ea",
+      "pluginName": "grafana-core",
+      "installedAt": "2026-05-10T16:10:20.674Z",
+      "updatedAt": "2026-05-10T16:10:20.674Z"
     }
   },
   "dismissed": {
