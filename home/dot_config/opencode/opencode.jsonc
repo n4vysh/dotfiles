@@ -122,6 +122,19 @@
         "hashicorp/terraform-mcp-server"
       ]
     },
+    // "aws-example-dev-server": {
+    //   "enabled": false,
+    //   "type": "local",
+    //   "command": [
+    //     "mcp-proxy-for-aws",
+    //     "https://aws-mcp.us-east-1.api.aws/mcp",
+    //     "--disable-telemetry"
+    //   ],
+    //   "environment": {
+    //     "AWS_PROFILE": "example-dev",
+    //     "AWS_REGION": "ap-northeast-1"
+    //   }
+    // },
     // "kubernetes-example-dev-server": {
     //   "enabled": false,
     //   "type": "local",
