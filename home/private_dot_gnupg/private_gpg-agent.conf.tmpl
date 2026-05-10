@@ -2,6 +2,6 @@
 {{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 pinentry-program /usr/bin/pinentry-gtk
 {{   else -}}
-pinentry-program /mnt/c/Program Files (x86)/Gpg4win/bin/pinentry.exe
+pinentry-program /mnt/c/Program Files/Gpg4win/bin/pinentry.exe
 {{   end -}}
 {{ end -}}
