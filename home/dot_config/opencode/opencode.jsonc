@@ -166,19 +166,6 @@
     //     "GRAFANA_URL": "https://example.com"
     //   }
     // },
-    "playwright-server": {
-      "enabled": false,
-      "type": "local",
-      "command": [
-        "docker",
-        "run",
-        "-i",
-        "--rm",
-        "--init",
-        "--pull=always",
-        "mcr.microsoft.com/playwright/mcp"
-      ]
-    },
     "context7-server": {
       "enabled": false,
       "type": "remote",
