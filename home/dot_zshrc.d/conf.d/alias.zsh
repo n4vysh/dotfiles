@@ -1,7 +1,4 @@
 alias ip='ip -c'
-alias cp='cp -iv'
-alias mv='mv -iv'
-alias rm='rm -iv'
 alias httpx=httpx-pd
 alias ssh='TERM=xterm-256color ssh'
 # enable OSC 8 with --hyperlink option
