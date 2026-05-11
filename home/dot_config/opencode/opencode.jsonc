@@ -7,6 +7,7 @@
     "edit": "ask",
     "bash": {
       "*": "ask",
+      "agent-browser skills get core": "allow",
       "rtk ls": "allow",
       "rtk ls *": "allow",
       "rtk grep *": "allow",
