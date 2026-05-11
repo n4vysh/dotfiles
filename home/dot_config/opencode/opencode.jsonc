@@ -8,6 +8,11 @@
     "bash": {
       "*": "ask",
       "agent-browser skills get core": "allow",
+      "ccc init": "allow",
+      "ccc index": "allow",
+      "ccc search *": "allow",
+      "ccc describe *": "allow",
+      "ccc guide *": "allow",
       "rtk ls": "allow",
       "rtk ls *": "allow",
       "rtk grep *": "allow",
