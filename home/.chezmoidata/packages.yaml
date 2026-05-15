@@ -145,6 +145,7 @@ packages:
       - extra/meson
       - extra/pipectl
       - extra/qt6-wayland
+      - extra/quickshell
       - extra/rofi
       - extra/rofi-calc
       - extra/rofimoji

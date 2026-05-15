@@ -375,6 +375,7 @@ prefix is `C-j`
 | Screen record                | [wf-recorder][wf-recorder-link] + [slurp][slurp-link]                                             |
 | Notification                 | [swaync][swaync-link]                                                                             |
 | Font                         | [Fira Code][firacode-link] + [NerdFontsSymbolsOnly][nerd-font-link] + [Noto Sans][noto-sans-link] |
+| Widget system                | [Quickshell][quickshell-link]                                                                     |
 | GTK Theme                    | [Fluent gtk][fluent-gtk-link]                                                                     |
 | QT Theme                     | [Kvantum][kvantum-link] + [Fluent gtk][fluent-gtk-link]                                           |
 | Overlay bar                  | [wob][wob-link]                                                                                   |
@@ -400,6 +401,7 @@ prefix is `C-j`
 [firacode-link]: https://github.com/tonsky/FiraCode
 [nerd-font-link]: https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/NerdFontsSymbolsOnly
 [noto-sans-link]: https://fonts.google.com/noto/specimen/Noto+Sans
+[quickshell-link]: https://quickshell.org/
 [fluent-gtk-link]: https://github.com/vinceliuice/Fluent-gtk-theme
 [kvantum-link]: https://github.com/tsujan/Kvantum
 [wob-link]: https://github.com/francma/wob
