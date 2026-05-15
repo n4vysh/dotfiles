@@ -29,6 +29,7 @@ sudo sed \
 	-i \
 	-e '/^clock =/s/null/%a, %b %d %H:%M/' \
 	-e '/^hide_key_hints =/s/false/true/' \
+	-e '/^hide_version_string =/s/false/true/' \
 	/etc/ly/config.ini
 sudo sed \
 	-i \
