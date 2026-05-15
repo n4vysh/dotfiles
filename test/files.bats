@@ -32,6 +32,7 @@ bats_load_library bats-file
 
   assert_file_contains /etc/ly/config.ini '^clock = %a, %b %d %H:%M$'
   assert_file_contains /etc/ly/config.ini '^hide_key_hints = true$'
+  assert_file_contains /etc/ly/config.ini '^hide_version_string = true$'
 
   assert_file_contains /etc/pacman.conf '^Color$'
   assert_file_contains /etc/pacman.conf '^VerbosePkgLists$'
