@@ -5,7 +5,6 @@
 - When making a commit, create a message in english.
 - Use conventional commit format and gitmoji for commit messages.
 - Use `trash` command instead of `rm` command for file deletion.
-- Load @~/.local/share/mise/installs/npm-context-mode/1.0.111/node_modules/context-mode/configs/opencode/AGENTS.md
 
 ## Tone and Style
 

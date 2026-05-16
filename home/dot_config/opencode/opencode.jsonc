@@ -167,12 +167,7 @@
       "extensions": [".yml", ".yaml"]
     }
   },
-  "plugin": ["context-mode"],
   "mcp": {
-    "context-mode": {
-      "type": "local",
-      "command": ["context-mode"]
-    },
     "aws-knowledge-server": {
       "enabled": false,
       "type": "remote",
