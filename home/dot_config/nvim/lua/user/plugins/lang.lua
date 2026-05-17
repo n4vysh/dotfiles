@@ -513,6 +513,7 @@ return {
 					library = {
 						vim.fn.stdpath("config") .. "/lua",
 						vim.fn.expand("~/.config/yazi/plugins/types.yazi/"),
+						"/usr/share/hypr/stubs/",
 						"${3rd}/luv/library",
 						"${3rd}/busted/library",
 						"${3rd}/luassert/library",
