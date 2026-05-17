@@ -91,14 +91,31 @@ hl.config({
     },
 })
 
-hl.permission("/usr/bin/grim", "screencopy", "allow")
-hl.permission("/usr/lib/xdg-desktop-portal-hyprland", "screencopy", "allow")
-hl.permission("/usr/bin/hyprpm", "plugin", "allow")
+hl.permission({ binary = "/usr/bin/grim", type = "screencopy", mode = "allow" })
+hl.permission({
+    binary = "/usr/lib/xdg-desktop-portal-hyprland",
+    type = "screencopy",
+    mode = "allow",
+})
+hl.permission({
+    binary = "/usr/bin/hyprpicker",
+    type = "screencopy",
+    mode = "allow",
+})
+hl.permission({ binary = "/usr/bin/hyprpm", type = "plugin", mode = "allow" })
 -- for hyprpm update
-hl.permission("/usr/bin/hyprpm", "screencopy", "allow")
+hl.permission({
+    binary = "/usr/bin/hyprpm",
+    type = "screencopy",
+    mode = "allow",
+})
 -- NOTE: allow using screenshot for fade-in and fade-out
 --       https://github.com/hyprwm/hyprlock/issues/836#issuecomment-3132484838
-hl.permission("/usr/bin/hyprlock", "screencopy", "allow")
+hl.permission({
+    binary = "/usr/bin/hyprlock",
+    type = "screencopy",
+    mode = "allow",
+})
 
 -----------------------
 ---- LOOK AND FEEL ----
