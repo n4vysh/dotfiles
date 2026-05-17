@@ -1,0 +1,2 @@
+exclude:
+  - home/dot_agents/skills/aws-observability/assets/otel-config.yaml
