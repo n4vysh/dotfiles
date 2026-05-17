@@ -159,7 +159,7 @@
     // NOTE: run prettier even without package.json
     //       https://github.com/anomalyco/opencode/blob/v1.14.46/packages/opencode/src/format/formatter.ts#L37-L84
     "prettier-markdown": {
-      "command": ["prettier", "--write", "$FILE"],
+      "command": ["prettier", "--tab-width", "4", "--write", "$FILE"],
       "extensions": [".md"]
     },
     "yamlfmt": {
