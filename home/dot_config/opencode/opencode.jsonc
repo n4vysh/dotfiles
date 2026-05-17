@@ -253,6 +253,11 @@
       "type": "remote",
       "url": "https://mcp.grep.app"
     },
+    "deepwiki-server": {
+      "enabled": false,
+      "type": "remote",
+      "url": "https://mcp.deepwiki.com/mcp"
+    },
     "microsandbox-server": {
       "enabled": false,
       "type": "local",
