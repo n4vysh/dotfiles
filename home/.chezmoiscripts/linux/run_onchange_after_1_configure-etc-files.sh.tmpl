@@ -28,6 +28,7 @@ gum log --level info 'Update etc files'
 sudo sed \
 	-i \
 	-e '/^clock =/s/null/%a, %b %d %H:%M/' \
+	-e '/^border_fg =/s/0x00FFFFFF/0x007DCFFF/' \
 	-e '/^hide_key_hints =/s/false/true/' \
 	-e '/^hide_version_string =/s/false/true/' \
 	/etc/ly/config.ini
