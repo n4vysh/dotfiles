@@ -8,9 +8,6 @@ indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*/.config/hypr/*.conf]
-indent_size = 4
-
 [**/*.ahk]
 indent_style = tab
 
@@ -81,6 +78,10 @@ indent_style = tab
 
 [home/dot_config/opencode/package.json]
 insert_final_newline = false
+
+[home/dot_config/hypr/*.{conf,lua}]
+indent_style = space
+indent_size = 4
 
 [home/{dot_agents/skills,dot_local/private_state/skills}/**/{,.}*]
 charset = unset
