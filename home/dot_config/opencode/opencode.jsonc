@@ -171,6 +171,10 @@
     "yamlfmt": {
       "command": ["yamlfmt", "$FILE"],
       "extensions": [".yml", ".yaml"]
+    },
+    "stylua": {
+      "command": ["stylua", "$FILE"],
+      "extensions": [".lua"]
     }
   },
   "mcp": {
