@@ -217,6 +217,24 @@ recommended:
 
 ## Tool Usage Policy
 
+### MCP Usage
+
+- Keep MCP servers disabled by default to save context.
+- If a listed need appears, suggest enabling the matching MCP server.
+- Explain the purpose briefly and ask the user before relying on it.
+- After the task, suggest disabling it again.
+
+#### MCP Server Rules
+
+- If AWS docs/resource inspection is needed, suggest enabling AWS MCP Server.
+- If Terraform docs/modules/HCL are needed, suggest enabling Terraform MCP Server.
+- If Kubernetes resources is needed, suggest enabling Kubernetes MCP Server.
+- If Grafana observability data is needed, suggest enabling Grafana MCP Server.
+- If library docs/examples are needed, suggest enabling Context7 MCP Server.
+- If public GitHub code search are needed, suggest enabling grep.app MCP Server.
+- If GitHub repo docs/architecture are needed, suggest enabling DeepWiki MCP Server.
+- If isolated risky execution is needed, suggest enabling microsandbox MCP Server.
+
 ### Search and Exploration
 
 - When doing file search, prefer the Task tool to reduce context usage.
