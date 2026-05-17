@@ -31,6 +31,7 @@ bats_load_library bats-file
   assert_file_contains /etc/kernel/cmdline '^rd.luks.name=.*=cryptlvm rd.luks.options=.*=tpm2-device=auto root=/dev/volume/root quiet loglevel=0 systemd.show_status=false rd.udev.log_level=1 vt.global_cursor_default=0 fbcon=nodefer ro nosgx mitigations=auto,nosmt modprobe.blacklist=iTCO_wdt ipv6.disable=1$'
 
   assert_file_contains /etc/ly/config.ini '^clock = %a, %b %d %H:%M$'
+  assert_file_contains /etc/ly/config.ini '^border_fg = 0x007DCFFF$'
   assert_file_contains /etc/ly/config.ini '^hide_key_hints = true$'
   assert_file_contains /etc/ly/config.ini '^hide_version_string = true$'
 
