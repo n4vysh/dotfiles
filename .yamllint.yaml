@@ -4,3 +4,5 @@ rules:
     min-spaces-from-content: 1
   document-start:
     present: false
+ignore: |
+  home/dot_agents/skills/aws-observability/assets/otel-config.yaml

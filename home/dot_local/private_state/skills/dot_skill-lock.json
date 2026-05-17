@@ -122,6 +122,33 @@
       "skillFolderHash": "637307beb0e55de9c11148f04a842916619dbb40",
       "installedAt": "2026-05-11T15:33:03.019Z",
       "updatedAt": "2026-05-11T15:33:03.019Z"
+    },
+    "aws-iam": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/core-skills/aws-iam/SKILL.md",
+      "skillFolderHash": "374b61e9f60da08848e31c099269a6626e191f62",
+      "installedAt": "2026-05-17T19:07:12.201Z",
+      "updatedAt": "2026-05-17T19:07:12.201Z"
+    },
+    "aws-observability": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/core-skills/aws-observability/SKILL.md",
+      "skillFolderHash": "aab2af0676520374cb3b201a68cb541ea95087cb",
+      "installedAt": "2026-05-17T19:07:12.670Z",
+      "updatedAt": "2026-05-17T19:07:12.670Z"
+    },
+    "troubleshooting-application-failures": {
+      "source": "aws/agent-toolkit-for-aws",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
+      "skillPath": "skills/specialized-skills/operations-skills/troubleshooting-application-failures/SKILL.md",
+      "skillFolderHash": "f519cd0e9b2f2c37e773508572bcf567802aa083",
+      "installedAt": "2026-05-17T19:07:13.304Z",
+      "updatedAt": "2026-05-17T19:07:13.304Z"
     }
   },
   "dismissed": {
