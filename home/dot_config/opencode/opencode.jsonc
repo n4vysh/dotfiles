@@ -170,19 +170,19 @@
     }
   },
   "mcp": {
-    "aws-knowledge-server": {
-      "enabled": false,
+    "aws-knowledge-mcp-server": {
+      "enabled": true,
       "type": "remote",
       "url": "https://knowledge-mcp.global.api.aws"
     },
-    "terraform-server": {
-      "enabled": false,
+    "terraform-mcp-server": {
+      "enabled": true,
       "type": "local",
       "command": [
         "terraform-mcp-server"
       ]
     },
-    // "aws-example-dev-server": {
+    // "aws-example-dev-mcp-server": {
     //   "enabled": false,
     //   "type": "local",
     //   "command": [
@@ -195,7 +195,7 @@
     //     "AWS_REGION": "ap-northeast-1"
     //   }
     // },
-    // "kubernetes-example-dev-server": {
+    // "kubernetes-example-dev-mcp-server": {
     //   "enabled": false,
     //   "type": "local",
     //   "command": [
@@ -209,7 +209,7 @@
     // // ```sh
     // // gopass insert envs/mcp-grafana/example-dev/GRAFANA_SERVICE_ACCOUNT_TOKEN
     // // ```
-    // "grafana-example-dev-server": {
+    // "grafana-example-dev-mcp-server": {
     //   "enabled": false,
     //   "type": "local",
     //   "command": [
@@ -227,20 +227,20 @@
     //   }
     // },
     // ```sh
-    // opencode mcp auth context7-server
+    // opencode mcp auth context7-mcp-server
     // ```
-    "context7-server": {
-      "enabled": false,
+    "context7-mcp-server": {
+      "enabled": true,
       "type": "remote",
       "url": "https://mcp.context7.com/mcp/oauth"
     },
-    "grep-server": {
-      "enabled": false,
+    "grep-mcp-server": {
+      "enabled": true,
       "type": "remote",
       "url": "https://mcp.grep.app"
     },
-    "deepwiki-server": {
-      "enabled": false,
+    "deepwiki-mcp-server": {
+      "enabled": true,
       "type": "remote",
       "url": "https://mcp.deepwiki.com/mcp"
     },
@@ -248,6 +248,43 @@
       "enabled": false,
       "type": "local",
       "command": ["microsandbox-mcp"]
+  "tools": {
+    "aws-knowledge-mcp-server*": false,
+    "terraform-mcp-server*": false,
+    "context7-mcp-server*": false,
+    "grep-mcp-server*": false,
+    "deepwiki-mcp-server*": false
+  },
+  "agent": {
+    "aws-cloud-expert": {
+      "mode": "subagent",
+      "tools": {
+        "aws-knowledge-mcp-server*": true
+      }
+    },
+    "terraform-expert": {
+      "mode": "subagent",
+      "tools": {
+        "terraform-mcp-server*": true
+      }
+    },
+    "context7": {
+      "mode": "subagent",
+      "tools": {
+        "context7-mcp-server*": true
+      }
+    },
+    "grep.app": {
+      "mode": "subagent",
+      "tools": {
+        "grep-mcp-server*": true
+      }
+    },
+    "deepwiki": {
+      "mode": "subagent",
+      "tools": {
+        "deepwiki-mcp-server*": true
+      }
     }
   }
 }
