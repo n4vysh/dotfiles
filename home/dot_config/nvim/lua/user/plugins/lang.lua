@@ -484,6 +484,7 @@ return {
 					"gopls",
 					"harper_ls",
 					"helm_ls",
+					"html",
 					"hyprls",
 					"jsonls",
 					"lua_ls",
