@@ -2,6 +2,7 @@
   "$schema": "https://opencode.ai/config.json",
   "model": "openai/gpt-5.5-fast",
   "small_model": "openai/gpt-5.5",
+  "default_agent": "plan",
   "share": "disabled",
   "permission": {
     "edit": "ask",
