@@ -181,6 +181,9 @@ if [[ -f ~/.kube/config ]]; then
 	fi
 fi
 
+# opencode
+export OPENCODE_ENABLE_EXA=1
+
 # local
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local
 
