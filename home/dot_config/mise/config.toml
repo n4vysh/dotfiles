@@ -24,7 +24,7 @@ ls-lint = "2.3.1"
 
 # AI
 opencode = "1.15.5"
-rtk = "0.37.2"
+rtk = "0.40.0"
 "npm:skills" = "1.5.1"
 "npm:microsandbox-mcp" = "0.3.14"
 "pipx:mcp-proxy-for-aws" = "1.4.0"
