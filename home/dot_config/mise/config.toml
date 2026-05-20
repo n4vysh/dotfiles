@@ -32,6 +32,7 @@ rtk = "0.40.0"
 "pipx:mcp-grafana" = "0.11.4"
 "npm:tokscale" = "2.0.22"
 "npm:agent-browser" = "0.27.0"
+"pipx:semble" = "0.1.10"
 
 # app
 ## frontend

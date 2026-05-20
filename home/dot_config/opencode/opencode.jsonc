@@ -12,6 +12,8 @@
     },
     "bash": {
       "*": "ask",
+      "semble search *": "allow",
+      "semble find-related *": "allow",
       "agent-browser skills get core": "allow",
       "rtk ls": "allow",
       "rtk ls *": "allow",
