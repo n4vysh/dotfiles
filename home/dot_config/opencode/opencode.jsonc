@@ -178,9 +178,7 @@
     "terraform-mcp-server": {
       "enabled": true,
       "type": "local",
-      "command": [
-        "terraform-mcp-server"
-      ]
+      "command": ["terraform-mcp-server"]
     },
     // "aws-example-dev-mcp-server": {
     //   "enabled": false,
