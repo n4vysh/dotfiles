@@ -66,7 +66,6 @@ return {
 				"markdown",
 				"markdown_inline",
 				"mermaid",
-				"nginx",
 				"passwd",
 				"printf",
 				"promql",
