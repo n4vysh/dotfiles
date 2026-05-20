@@ -234,7 +234,8 @@ return {
 
 					-- NOTE: disable LSP format to use formatter
 					--       - lua_ls -> stylua
-					if client.name == "lua_ls" then
+					--       - jsonls -> prettier
+					if client.name == "lua_ls" or client.name == "jsonls" then
 						client.server_capabilities.signatureHelpProvider = false
 						client.server_capabilities.documentFormattingProvider =
 							false
