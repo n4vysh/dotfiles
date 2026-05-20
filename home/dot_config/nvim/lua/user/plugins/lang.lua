@@ -494,6 +494,7 @@ return {
 					"yamlls",
 					"vale_ls",
 					"vtsls",
+					"zizmor",
 				},
 				automatic_enable = true,
 			})
