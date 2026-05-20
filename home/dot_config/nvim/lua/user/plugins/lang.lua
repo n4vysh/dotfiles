@@ -494,6 +494,7 @@ return {
 					"taplo",
 					"terraformls",
 					"tflint",
+					"ty",
 					"typos_lsp",
 					"yamlls",
 					"vale_ls",
