@@ -243,11 +243,8 @@
       "enabled": true,
       "type": "remote",
       "url": "https://mcp.deepwiki.com/mcp"
-    },
-    "microsandbox-server": {
-      "enabled": false,
-      "type": "local",
-      "command": ["microsandbox-mcp"]
+    }
+  },
   "tools": {
     "aws-knowledge-mcp-server*": false,
     "terraform-mcp-server*": false,
