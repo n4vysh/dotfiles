@@ -179,13 +179,7 @@
       "enabled": false,
       "type": "local",
       "command": [
-        "docker",
-        "run",
-        "-i",
-        "--rm",
-        "--name",
-        "terraform-mcp-server",
-        "hashicorp/terraform-mcp-server:0.5.0"
+        "terraform-mcp-server"
       ]
     },
     // "aws-example-dev-server": {
