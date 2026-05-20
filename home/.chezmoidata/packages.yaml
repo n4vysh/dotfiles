@@ -250,6 +250,7 @@ packages:
       - aur/bazecor
       - chaotic-aur/playwright
       - core/openssh
+      - core/python
       - extra/atool
       - extra/atuin
       - extra/cosign # for mise verification
@@ -284,11 +285,13 @@ packages:
       - extra/qemu-user-static
       - extra/qemu-user-static-binfmt
       - extra/ripgrep
+      - extra/ruff
       - extra/sheldon
       - extra/testssl.sh
       - extra/tmuxp
       - extra/tree
       - extra/tree-sitter-cli # for nvim-treesitter
+      - extra/ty
       - extra/typos
       - extra/unison
       - extra/usage
