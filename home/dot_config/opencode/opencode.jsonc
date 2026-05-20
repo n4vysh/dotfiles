@@ -180,6 +180,24 @@
       "type": "local",
       "command": ["terraform-mcp-server"]
     },
+    // ```sh
+    // opencode mcp auth context7-mcp-server
+    // ```
+    "context7-mcp-server": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp/oauth"
+    },
+    "grep-mcp-server": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.grep.app"
+    },
+    "deepwiki-mcp-server": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.deepwiki.com/mcp"
+    }
     // "aws-example-dev-mcp-server": {
     //   "enabled": false,
     //   "type": "local",
@@ -224,24 +242,6 @@
     //     "GRAFANA_URL": "https://example.com"
     //   }
     // },
-    // ```sh
-    // opencode mcp auth context7-mcp-server
-    // ```
-    "context7-mcp-server": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp/oauth"
-    },
-    "grep-mcp-server": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://mcp.grep.app"
-    },
-    "deepwiki-mcp-server": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://mcp.deepwiki.com/mcp"
-    }
   },
   "tools": {
     "aws-knowledge-mcp-server*": false,
