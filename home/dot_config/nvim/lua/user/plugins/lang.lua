@@ -500,6 +500,7 @@ return {
 					"typos_lsp",
 					"yamlls",
 					"vale_ls",
+					"vimls",
 					"vtsls",
 					"zizmor",
 				},
