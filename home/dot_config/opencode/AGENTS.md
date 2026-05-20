@@ -5,6 +5,7 @@
 - When making a commit, create a message in english.
 - Use conventional commit format and gitmoji for commit messages.
 - Use `trash` command instead of `rm` command for file deletion.
+- Use `~/Workspaces/localhost/tmp/opencode/` for temporary files outside the workspace.
 
 ## Tone and Style
 
