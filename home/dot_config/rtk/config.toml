@@ -1,0 +1,11 @@
+[telemetry]
+enabled = false
+consent_given = false
+
+[hooks]
+exclude_commands = [
+  "git show-ref",
+  "kubectl describe",
+  "helm show",
+  "helm template",
+]
