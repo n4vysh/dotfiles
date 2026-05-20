@@ -114,15 +114,6 @@
       "installedAt": "2026-05-10T16:10:20.674Z",
       "updatedAt": "2026-05-10T16:10:20.674Z"
     },
-    "ccc": {
-      "source": "cocoindex-io/cocoindex-code",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/cocoindex-io/cocoindex-code.git",
-      "skillPath": "skills/ccc/SKILL.md",
-      "skillFolderHash": "637307beb0e55de9c11148f04a842916619dbb40",
-      "installedAt": "2026-05-11T15:33:03.019Z",
-      "updatedAt": "2026-05-11T15:33:03.019Z"
-    },
     "aws-iam": {
       "source": "aws/agent-toolkit-for-aws",
       "sourceType": "github",
