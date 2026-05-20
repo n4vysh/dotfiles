@@ -4,6 +4,9 @@
   "share": "disabled",
   "permission": {
     "edit": "ask",
+    "external_directory": {
+      "~/Workspaces/localhost/tmp/opencode/**": "allow"
+    },
     "bash": {
       "*": "ask",
       "agent-browser skills get core": "allow",
