@@ -217,23 +217,31 @@ recommended:
 
 ## Tool Usage Policy
 
+### Subagent Usage
+
+- Use dedicated subagents for MCP-backed docs/code search workflows.
+- Prefer subagents over enabling MCP tools directly in the main agent.
+- Ask the user before relying on a subagent that uses an external MCP server.
+
+#### Subagent Rules
+
+- If AWS docs are needed, suggest `aws-cloud-expert` subagent.
+- If Terraform docs/modules/HCL are needed, suggest `terraform-expert` subagent.
+- If library docs/examples are needed, suggest `context7` subagent.
+- If public GitHub code search is needed, suggest `grep.app` subagent.
+- If GitHub repo docs/architecture is needed, suggest `deepwiki` subagent.
+
 ### MCP Usage
 
-- Keep MCP servers disabled by default to save context.
-- If a listed need appears, suggest enabling the matching MCP server.
-- Explain the purpose briefly and ask the user before relying on it.
-- After the task, suggest disabling it again.
+- MCP tools are disabled globally unless exposed through a dedicated subagent.
+- Keep credential-backed resource MCP servers disabled by default.
+- Do not suggest enabling them unless resource inspection is directly needed.
 
 #### MCP Server Rules
 
-- If AWS docs/resource inspection is needed, suggest enabling AWS MCP Server.
-- If Terraform docs/modules/HCL are needed, suggest enabling Terraform MCP Server.
-- If Kubernetes resources is needed, suggest enabling Kubernetes MCP Server.
-- If Grafana observability data is needed, suggest enabling Grafana MCP Server.
-- If library docs/examples are needed, suggest enabling Context7 MCP Server.
-- If public GitHub code search are needed, suggest enabling grep.app MCP Server.
-- If GitHub repo docs/architecture are needed, suggest enabling DeepWiki MCP Server.
-- If isolated risky execution is needed, suggest enabling microsandbox MCP Server.
+- If AWS resource inspection is needed, suggest AWS MCP Server.
+- If Kubernetes resources are needed, suggest Kubernetes MCP Server.
+- If Grafana observability is needed, suggest Grafana MCP Server.
 
 ### Search and Exploration
 
