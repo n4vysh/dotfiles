@@ -200,11 +200,6 @@
       "enabled": true,
       "type": "remote",
       "url": "https://mcp.deepwiki.com/mcp"
-    },
-    "exa-mcp-server": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://mcp.exa.ai/mcp"
     }
     // "aws-example-dev-mcp-server": {
     //   "enabled": false,
@@ -256,8 +251,7 @@
     "terraform-mcp-server*": false,
     "context7-mcp-server*": false,
     "grep-mcp-server*": false,
-    "deepwiki-mcp-server*": false,
-    "exa-mcp-server*": false
+    "deepwiki-mcp-server*": false
   },
   "agent": {
     "aws-cloud-expert": {
@@ -288,12 +282,6 @@
       "mode": "subagent",
       "tools": {
         "deepwiki-mcp-server*": true
-      }
-    },
-    "exa": {
-      "mode": "subagent",
-      "tools": {
-        "exa-mcp-server*": true
       }
     }
   }
