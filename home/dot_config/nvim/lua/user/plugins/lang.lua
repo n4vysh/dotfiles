@@ -489,6 +489,7 @@ return {
 					"jsonls",
 					"lua_ls",
 					"marksman",
+					"ruff",
 					"systemd_lsp",
 					"tailwindcss",
 					"taplo",
