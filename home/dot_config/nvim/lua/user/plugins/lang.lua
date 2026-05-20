@@ -473,8 +473,11 @@ return {
 					"bashls", -- NOTE: require shellcheck for linting from bashls
 					"biome",
 					"cssls",
-					"docker_compose_language_service",
-					"dockerls",
+					-- NOTE: use official and third party docker language servers
+					-- https://github.com/rcjsuen/dockerfile-language-server/issues/277
+					"docker_language_server", -- official
+					"dockerls", -- third party
+					"docker_compose_language_service", -- third party
 					"emmet_language_server",
 					"eslint",
 					"golangci_lint_ls",
