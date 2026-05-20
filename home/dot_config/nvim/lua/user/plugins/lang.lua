@@ -490,6 +490,7 @@ return {
 					"lua_ls",
 					"marksman",
 					"ruff",
+					"regols",
 					"systemd_lsp",
 					"tailwindcss",
 					"taplo",
