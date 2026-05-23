@@ -26,14 +26,15 @@ ls-lint = "2.3.1"
 opencode = "1.15.10"
 rtk = "0.40.0"
 "npm:skills" = "1.5.1"
+"npm:tokscale" = "2.0.22"
+"npm:agent-browser" = "0.27.0"
+"pipx:semble" = "0.1.10"
+## mcp
 "pipx:mcp-proxy-for-aws" = "1.4.0"
 "npm:kubernetes-mcp-server" = "0.0.60"
 "go:github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server" = "0.5.2"
 "pipx:mcp-grafana" = "0.11.4"
 "github:github/github-mcp-server" = "1.0.5"
-"npm:tokscale" = "2.0.22"
-"npm:agent-browser" = "0.27.0"
-"pipx:semble" = "0.1.10"
 
 # app
 ## frontend
