@@ -50,10 +50,12 @@ services:
         - tmux.service
         - gcr-ssh-agent.socket
         - espanso.service
+        - hypridle.service
         - hyprpaper.service
         - obsidian-sync.service
       running:
         - gcr-ssh-agent.socket
         - espanso.service
+        - hypridle.service
         - hyprpaper.service
         - obsidian-sync.service

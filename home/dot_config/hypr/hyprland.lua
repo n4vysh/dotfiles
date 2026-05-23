@@ -32,7 +32,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("uwsm app -- gnome-keyring-daemon --start") -- Keyring
     hl.exec_cmd("uwsm app -- udiskie --automount") -- Mount Helper
     hl.exec_cmd("uwsm app -- tresorit-cli start") -- Cloud Storage
-    hl.exec_cmd("uwsm app -- hypridle") -- Idle management daemon
 
     -- Overlay bar
     -- NOTE: wob systemd integration not working after logout
