@@ -2,3 +2,8 @@
 # https://github.com/espanso/espanso/issues/1002
 # https://github.com/espanso/espanso/issues/1116
 show_notifications: false
+# NOTE: Espanso defaults to Ctrl+V but terminals expect Ctrl+Shift+V
+# https://github.com/espanso/espanso/issues/1367
+# https://github.com/espanso/espanso/issues/2270
+# https://github.com/espanso/espanso/issues/2428
+paste_shortcut: CTRL+SHIFT+V
