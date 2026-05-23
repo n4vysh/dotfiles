@@ -261,30 +261,40 @@
   "agent": {
     "aws-cloud-expert": {
       "mode": "subagent",
+      "description": "Provides AWS official documents for designing, building, and operating workloads",
+      "prompt": "Use aws-knowledge-mcp-server* tools",
       "tools": {
         "aws-knowledge-mcp-server*": true
       }
     },
     "terraform-expert": {
       "mode": "subagent",
+      "description": "Provides Terraform official documents for providers and modules",
+      "prompt": "Use terraform-mcp-server* tools",
       "tools": {
         "terraform-mcp-server*": true
       }
     },
     "context7": {
       "mode": "subagent",
+      "description": "Provides up-to-date documentation for latest library versions, best practices, and correct syntax",
+      "prompt": "Use context7-mcp-server* tools",
       "tools": {
         "context7-mcp-server*": true
       }
     },
     "grep.app": {
       "mode": "subagent",
+      "description": "Search for code, files, and paths across GitHub repositories",
+      "prompt": "Use grep-mcp-server* tools",
       "tools": {
         "grep-mcp-server*": true
       }
     },
     "deepwiki": {
       "mode": "subagent",
+      "description": "Provides DeepWiki’s public repository documentation and search capabilities",
+      "prompt": "Use deepwiki-mcp-server* tools",
       "tools": {
         "deepwiki-mcp-server*": true
       }
