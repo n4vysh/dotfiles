@@ -92,6 +92,16 @@ hl.config({
 
 hl.permission({ binary = "/usr/bin/grim", type = "screencopy", mode = "allow" })
 hl.permission({
+    binary = "/usr/bin/wf-recorder",
+    type = "screencopy",
+    mode = "allow",
+})
+hl.permission({
+    binary = "/usr/bin/wl-mirror",
+    type = "screencopy",
+    mode = "allow",
+})
+hl.permission({
     binary = "/usr/lib/xdg-desktop-portal-hyprland",
     type = "screencopy",
     mode = "allow",
