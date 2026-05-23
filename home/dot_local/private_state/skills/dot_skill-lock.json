@@ -149,6 +149,26 @@
       "skillFolderHash": "49e037db730a57e8c1f131a3f86845cb6eca72d9",
       "installedAt": "2026-05-23T10:12:48.889Z",
       "updatedAt": "2026-05-23T10:12:48.889Z"
+    },
+    "k6": {
+      "source": "grafana/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/grafana/skills.git",
+      "skillPath": "skills/grafana-k6/k6/SKILL.md",
+      "skillFolderHash": "49dc98be06899eaac78041889c32cf3c9961c53b",
+      "pluginName": "grafana-k6",
+      "installedAt": "2026-05-23T11:15:31.035Z",
+      "updatedAt": "2026-05-23T11:15:31.035Z"
+    },
+    "pyroscope": {
+      "source": "grafana/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/grafana/skills.git",
+      "skillPath": "skills/grafana-lgtm/pyroscope/SKILL.md",
+      "skillFolderHash": "1c360d3d38344195414a7441f3b33d1621e1d91b",
+      "pluginName": "grafana-lgtm",
+      "installedAt": "2026-05-23T11:15:31.470Z",
+      "updatedAt": "2026-05-23T11:15:31.470Z"
     }
   },
   "dismissed": {
