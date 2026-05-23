@@ -906,8 +906,8 @@ hl.window_rule({
 
     float = true,
     pin = true,
-    move = "((monitor_w*0.745)) ((monitor_h*0.82))",
-    size = "(monitor_w*0.25) (monitor_h*0.175)",
+    move = { "monitor_w*0.745", "monitor_h*0.82" },
+    size = { "monitor_w*0.25", "monitor_h*0.175" },
 })
 
 -- Blur
