@@ -201,6 +201,25 @@
       "type": "remote",
       "url": "https://mcp.grep.app"
     },
+    // NOTE: github-mcp-server not support Dynamic Client Registration
+    //       https://github.com/github/github-mcp-server/issues/1396#issuecomment-3895920244
+    //
+    // ```sh
+    // gh auth token |
+    //   gopass insert envs/github-mcp-server/GITHUB_PERSONAL_ACCESS_TOKEN
+    // ```
+    "github-mcp-server": {
+      "enabled": true,
+      "type": "local",
+      "command": [
+        "gopass",
+        "env",
+        "envs/github-mcp-server",
+        "github-mcp-server",
+        "stdio",
+        "--read-only"
+      ]
+    },
     "deepwiki-mcp-server": {
       "enabled": true,
       "type": "remote",
@@ -256,6 +275,7 @@
     "terraform-mcp-server*": false,
     "context7-mcp-server*": false,
     "grep-mcp-server*": false,
+    "github-mcp-server*": false,
     "deepwiki-mcp-server*": false
   },
   "agent": {
@@ -289,6 +309,14 @@
       "prompt": "Use grep-mcp-server* tools",
       "tools": {
         "grep-mcp-server*": true
+      }
+    },
+    "github": {
+      "mode": "subagent",
+      "description": "Read repositories, code files, issues, and PRs",
+      "prompt": "Use github-mcp-server* tools",
+      "tools": {
+        "github-mcp-server*": true
       }
     },
     "deepwiki": {
