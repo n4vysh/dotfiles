@@ -12,6 +12,7 @@ windows:
       - |
         gopass env envs/litellm \
           docker run \
+            -it \
             --rm \
             -p 54320:5432 \
             -e POSTGRES_DB=litellm \
@@ -44,6 +45,7 @@ windows:
         EOF
         gopass env envs/litellm \
           docker run \
+            -it \
             --rm \
             --network=host \
             -e STORE_MODEL_IN_DB=True \
