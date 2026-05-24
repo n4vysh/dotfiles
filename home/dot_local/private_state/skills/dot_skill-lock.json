@@ -169,6 +169,16 @@
       "pluginName": "grafana-lgtm",
       "installedAt": "2026-05-23T11:15:31.470Z",
       "updatedAt": "2026-05-23T11:15:31.470Z"
+    },
+    "grill-me": {
+      "source": "mattpocock/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/mattpocock/skills.git",
+      "skillPath": "skills/productivity/grill-me/SKILL.md",
+      "skillFolderHash": "2a1ad17028306ebe45f0e49703fa28b9b2e7f499",
+      "pluginName": "mattpocock-skills",
+      "installedAt": "2026-05-24T17:20:41.136Z",
+      "updatedAt": "2026-05-24T17:20:41.136Z"
     }
   },
   "dismissed": {
