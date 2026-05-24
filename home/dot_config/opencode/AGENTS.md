@@ -220,21 +220,22 @@ recommended:
 
 ### Subagent Usage
 
-- Use dedicated subagents for MCP-backed docs/code search workflows.
+- Use dedicated subagents for MCP-backed workflows.
 - Prefer subagents over enabling MCP tools directly in the main agent.
-- Ask the user before relying on a subagent that uses an external MCP server.
 
 #### Subagent Rules
 
-- If AWS docs are needed, suggest `aws-cloud-expert` subagent.
+- If AWS docs are needed, suggest `aws-docs-expert` subagent.
 - If Terraform docs/modules/HCL are needed, suggest `terraform-expert` subagent.
 - If library docs/examples are needed, suggest `context7` subagent.
 - If public GitHub code search is needed, suggest `grep.app` subagent.
 - If GitHub repo docs/architecture is needed, suggest `deepwiki` subagent.
+- If AWS resources inspection is needed, suggest `aws-api-expert` subagent.
+- If Kubernetes resources inspection is needed, suggest `kubernetes-expert` subagent.
+- If Grafana resources inspection is needed, suggest `grafana-expert` subagent.
 
 ### MCP Usage
 
-- MCP tools are disabled globally unless exposed through a dedicated subagent.
 - Keep credential-backed resource MCP servers disabled by default.
 - Do not suggest enabling them unless resource inspection is directly needed.
 

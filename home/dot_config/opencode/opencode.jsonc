@@ -224,6 +224,65 @@
       "enabled": true,
       "type": "remote",
       "url": "https://mcp.deepwiki.com/mcp"
+    },
+    "aws-n4vysh-stg-mcp-server": {
+      "enabled": false,
+      "type": "local",
+      "command": [
+        "mcp-proxy-for-aws",
+        "https://aws-mcp.us-east-1.api.aws/mcp",
+        "--disable-telemetry"
+      ],
+      "environment": {
+        "AWS_PROFILE": "n4vysh-stg",
+        "AWS_REGION": "ap-northeast-1"
+      }
+    },
+    "aws-n4vysh-prod-mcp-server": {
+      "enabled": false,
+      "type": "local",
+      "command": [
+        "mcp-proxy-for-aws",
+        "https://aws-mcp.us-east-1.api.aws/mcp",
+        "--disable-telemetry"
+      ],
+      "environment": {
+        "AWS_PROFILE": "n4vysh-prod",
+        "AWS_REGION": "ap-northeast-1"
+      }
+    },
+    "aws-n4vysh-common-mcp-server": {
+      "enabled": false,
+      "type": "local",
+      "command": [
+        "mcp-proxy-for-aws",
+        "https://aws-mcp.us-east-1.api.aws/mcp",
+        "--disable-telemetry"
+      ],
+      "environment": {
+        "AWS_PROFILE": "n4vysh-common",
+        "AWS_REGION": "ap-northeast-1"
+      }
+    },
+    // ```sh
+    // gopass insert envs/mcp-grafana/n4vysh/GRAFANA_SERVICE_ACCOUNT_TOKEN
+    // ```
+    "grafana-n4vysh-mcp-server": {
+      "enabled": false,
+      "type": "local",
+      "command": [
+        "gopass",
+        "env",
+        "envs/mcp-grafana/n4vysh",
+        "mcp-grafana",
+        "--disable-write",
+        "-t",
+        "stdio"
+      ],
+      "environment": {
+        "GRAFANA_ORG_ID": "0",
+        "GRAFANA_URL": "https://n4vysh.grafana.net"
+      }
     }
     // "aws-example-dev-mcp-server": {
     //   "enabled": false,
@@ -265,7 +324,7 @@
     //     "stdio"
     //   ],
     //   "environment": {
-    //     "GRAFANA_ORG_ID": "1",
+    //     "GRAFANA_ORG_ID": "0",
     //     "GRAFANA_URL": "https://example.com"
     //   }
     // },
@@ -276,10 +335,17 @@
     "context7-mcp-server*": false,
     "grep-mcp-server*": false,
     "github-mcp-server*": false,
-    "deepwiki-mcp-server*": false
+    "deepwiki-mcp-server*": false,
+    "aws-n4vysh-stg-mcp-server*": false,
+    "aws-n4vysh-prod-mcp-server*": false,
+    "aws-n4vysh-common-mcp-server*": false,
+    "grafana-n4vysh-mcp-server*": false
+    // "aws-example-dev-mcp-server*": false,
+    // "kubernetes-example-dev-mcp-server*": false,
+    // "grafana-example-dev-mcp-server*": false
   },
   "agent": {
-    "aws-cloud-expert": {
+    "aws-docs-expert": {
       "mode": "subagent",
       "description": "Provides AWS official documents for designing, building, and operating workloads",
       "prompt": "Use aws-knowledge-mcp-server* tools",
@@ -326,6 +392,62 @@
       "tools": {
         "deepwiki-mcp-server*": true
       }
+    },
+    "aws-api-expert:n4vysh-stg": {
+      "mode": "subagent",
+      "description": "Provides AWS API access for n4vysh-stg",
+      "prompt": "Use aws-n4vysh-stg-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
+      "tools": {
+        "aws-n4vysh-stg-mcp-server*": true
+      }
+    },
+    "aws-api-expert:n4vysh-prod": {
+      "mode": "subagent",
+      "description": "Provides AWS API access for n4vysh-prod",
+      "prompt": "Use aws-n4vysh-prod-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
+      "tools": {
+        "aws-n4vysh-prod-mcp-server*": true
+      }
+    },
+    "aws-api-expert:n4vysh-common": {
+      "mode": "subagent",
+      "description": "Provides AWS API access for n4vysh-common",
+      "prompt": "Use aws-n4vysh-common-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
+      "tools": {
+        "aws-n4vysh-common-mcp-server*": true
+      }
+    },
+    "grafana-expert:n4vysh": {
+      "mode": "subagent",
+      "description": "Provides Grafana API access for n4vysh",
+      "prompt": "Use grafana-n4vysh-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
+      "tools": {
+        "grafana-n4vysh-mcp-server*": true
+      }
     }
+    // "aws-api-expert:example-dev": {
+    //   "mode": "subagent",
+    //   "description": "Provides AWS API access for example-dev",
+    //   "prompt": "Use aws-example-dev-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
+    //   "tools": {
+    //     "aws-example-dev-mcp-server*": true
+    //   }
+    // },
+    // "kubernetes-expert:example-dev": {
+    //   "mode": "subagent",
+    //   "description": "Provides Kubernetes API access for example-dev",
+    //   "prompt": "Use kubernetes-example-dev-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
+    //   "tools": {
+    //     "kubernetes-example-dev-mcp-server*": true
+    //   }
+    // },
+    // "grafana-expert:example-dev": {
+    //   "mode": "subagent",
+    //   "description": "Provides Grafana API access for example-dev",
+    //   "prompt": "Use grafana-example-dev-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
+    //   "tools": {
+    //     "grafana-example-dev-mcp-server*": true
+    //   }
+    // }
   }
 }
