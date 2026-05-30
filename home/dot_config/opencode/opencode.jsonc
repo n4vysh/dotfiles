@@ -13,6 +13,7 @@
     },
     "bash": {
       "*": "ask",
+      "* --help": "allow",
       "semble search *": "allow",
       "semble find-related *": "allow",
       "agent-browser skills get core": "allow",
