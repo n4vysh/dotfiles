@@ -187,6 +187,8 @@
       "glab api *--method=GET*": "allow",
       "glab api *-X GET*": "allow",
       "glab api *-XGET*": "allow",
+      "hyprctl monitors": "allow",
+      "hyprctl clients": "allow",
       "jq": "allow",
       "jq *": "allow",
       "rtk wc": "allow",
