@@ -36,6 +36,7 @@
       "fd": "allow",
       "fd *": "allow",
       "test *": "allow",
+      "stat *": "allow",
       "cat *": "allow",
       "rtk read *": "allow",
       "pwd": "allow",
