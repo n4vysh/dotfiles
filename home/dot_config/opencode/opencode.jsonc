@@ -82,6 +82,7 @@
       "git log *": "allow",
       "git shortlog": "allow",
       "git shortlog *": "allow",
+      "git symbolic-ref *": "allow",
       "git rev-parse *": "allow",
       "git rev-list *": "allow",
       "git remote -v": "allow",
