@@ -221,6 +221,7 @@
       "uniq": "allow",
       "date": "allow",
       "date *": "allow",
+      "command -v *": "allow",
       "which *": "allow"
     }
   },
