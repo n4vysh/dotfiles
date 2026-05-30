@@ -14,6 +14,7 @@
     "bash": {
       "*": "ask",
       "* --help": "allow",
+      "* --version": "allow",
       "semble search *": "allow",
       "semble find-related *": "allow",
       "agent-browser skills get core": "allow",
@@ -100,7 +101,6 @@
       "helm template *": "allow",
       "helmfile template": "allow",
       "helmfile template *": "allow",
-      "helmfile --version": "allow",
       "terraform init -backend=false": "allow",
       "terragrunt init -backend=false": "allow",
       "terragrunt validate": "allow",
@@ -133,7 +133,6 @@
       "gh pr view *": "allow",
       "gh pr diff": "allow",
       "gh pr diff *": "allow",
-      "glab --version": "allow",
       "glab auth status": "allow",
       "glab ci trace *": "allow",
       "glab ci status": "allow",
