@@ -179,6 +179,15 @@
       "pluginName": "mattpocock-skills",
       "installedAt": "2026-05-24T17:20:41.136Z",
       "updatedAt": "2026-05-24T17:20:41.136Z"
+    },
+    "gh": {
+      "source": "cli/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/cli/cli.git",
+      "skillPath": "skills/gh/SKILL.md",
+      "skillFolderHash": "6d120aad852cec84f9d4f7a624fb4984e5f57ba4",
+      "installedAt": "2026-05-31T13:33:59.938Z",
+      "updatedAt": "2026-05-31T13:33:59.938Z"
     }
   },
   "dismissed": {
