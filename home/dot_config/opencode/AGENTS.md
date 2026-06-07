@@ -218,6 +218,20 @@ recommended:
 
 ## Tool Usage Policy
 
+### Command Output
+
+- shell command output may be replaced by rtk.
+    - The opencode plugin runs `rtk rewrite <command>` automatically.
+    - The plugin is `~/.config/opencode/plugins/rtk.ts`.
+- rtk output may be summarized, compacted, or truncated.
+- rtk rewriting reduces token usage by summarizing command output.
+- Do not bypass rtk output on your own.
+- Treat rtk output as valid unless a concrete inconsistency exists.
+- Treat explicit errors as errors.
+- Do not reject output only because it is shorter than usual.
+- Do not reject output only because its format is different.
+- If exact raw output is required, rerun with `RTK_DISABLED=1`.
+
 ### Subagent Usage
 
 - Use dedicated subagents for MCP-backed workflows.
