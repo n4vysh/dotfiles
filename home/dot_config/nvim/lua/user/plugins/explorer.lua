@@ -141,6 +141,7 @@ return {
 		},
 		---@type YaziConfig | {}
 		opts = {
+			open_for_directories = true,
 			yazi_floating_window_border = "single",
 			keymaps = {
 				show_help = "<C-_>",
