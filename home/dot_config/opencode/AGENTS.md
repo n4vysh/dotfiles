@@ -160,7 +160,7 @@
     - Bullet points (-) for lists
     - Numbered lists when order matters
     - Code blocks for technical content
-- Do not write a single bullet item across multiple lines.
+- Keep each bullet item on one physical line; do not wrap it.
 - If a point would wrap, rewrite it or split it into multiple bullets.
 - Use nested bullets when the content has a real hierarchy.
 - Prefer nested bullets over flat lists when sub-points clarify structure.
