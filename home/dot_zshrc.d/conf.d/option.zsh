@@ -8,5 +8,6 @@ setopt \
 	interactive_comments \
 	noclobber \
 	hist_ignore_space \
-	no_flow_control
+	no_flow_control \
+	correct
 unsetopt beep
