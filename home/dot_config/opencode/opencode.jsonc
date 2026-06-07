@@ -231,6 +231,8 @@
       "glab api *--input*": "ask",
       "glab api *--method*": "ask",
       "glab api *-X*": "ask",
+      "glab api graphql*": "ask",
+      "glab api * graphql*": "ask",
       "glab api *--method GET*": "allow",
       "glab api *--method=GET*": "allow",
       "glab api *-X GET*": "allow",
