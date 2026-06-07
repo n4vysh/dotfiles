@@ -48,13 +48,15 @@ lazy.setup({
 				"gzip",
 				"matchit",
 				"matchparen",
-				"netrwPlugin",
 				"rplugin",
 				"spellfile",
 				"tarPlugin",
 				"tohtml",
 				"tutor",
 				"zipPlugin",
+				-- NOTE: preffer yazi.nvim to netrw
+				-- https://github.com/mikavilpas/yazi.nvim/issues/802
+				"netrwPlugin",
 			},
 		},
 	},
