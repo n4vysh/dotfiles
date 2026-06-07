@@ -16,16 +16,16 @@
 [nowindow-link]: ./docs/screenshots/no-window.png
 [lock-screen-link]: ./docs/screenshots/lock-screen.png
 
-- Distro: [Arch Linux][archlinux-link]
-- Dotfiles Manager: [chezmoi][chezmoi-link]
-- Display Manager: [ly][ly-link]
-- Window Manager: [Hyprland][hyprland-link]
-- Shell: [Zsh][zsh-link]
-- Editor: [Neovim][neovim-link]
-- Coding Agent: [OpenCode][opencode-link]
-- File Manager: [yazi][yazi-link]
-- Terminal Multiplexer: [Tmux][tmux-link]
-- Terminal Emulator: [Ghostty][ghostty-link]
+- **Distro**: [Arch Linux][archlinux-link]
+- **Dotfiles Manager**: [chezmoi][chezmoi-link]
+- **Display Manager**: [ly][ly-link]
+- **Window Manager**: [Hyprland][hyprland-link]
+- **Shell**: [Zsh][zsh-link]
+- **Editor**: [Neovim][neovim-link]
+- **Coding Agent**: [OpenCode][opencode-link]
+- **File Manager**: [yazi][yazi-link]
+- **Terminal Multiplexer**: [Tmux][tmux-link]
+- **Terminal Emulator**: [Ghostty][ghostty-link]
 
 [package list](./home/.chezmoidata/packages.yaml)
 
