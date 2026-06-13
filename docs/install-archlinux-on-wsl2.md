@@ -56,12 +56,12 @@ with [SharpKeys][sharpkeys-link] and [AutoHotKey][ahk-link].
 
 ### 📦 List of applications
 
-| Category      | Name                            |
-| :------------ | :------------------------------ |
-| Launcher      | [ueli][ueli-link]               |
-| Screen record | [ScreenToGif][screentogif-link] |
+| Category      | Name                                |
+| :------------ | :---------------------------------- |
+| Launcher      | [Flow Launcher][flow-launcher-link] |
+| Screen record | [ScreenToGif][screentogif-link]     |
 
-[ueli-link]: https://ueli.app/
+[flow-launcher-link]: https://github.com/Flow-Launcher/Flow.Launcher
 [screentogif-link]: https://www.screentogif.com/
 
 ### 🗛 Font

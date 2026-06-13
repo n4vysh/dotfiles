@@ -71,7 +71,6 @@ window_rules:
       - window_process: {equals: 'Lively'}
         window_class: {regex: 'HwndWrapper'}
       - window_process: {equals: 'pinentry'}
-      - window_process: {equals: 'ueli'}
       - window_title: {equals: 'Microsoft Teams Notification'}
       - window_title: {equals: 'Microsoft Teams Call'}
       - window_title: {regex: 'Meeting compact view .*'}
