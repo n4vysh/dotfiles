@@ -72,7 +72,7 @@
     "return-type": "json",
     "exec": "~/.config/waybar/lib/vpn.bash",
     "interval": 1,
-    "on-click": "ghostty -e 'systemctl status openvpn-client@nordvpn'",
+    "on-click": "ghostty -e systemctl status openvpn-client@nordvpn",
     "tooltip": false
   },
   "bluetooth": {
@@ -132,7 +132,7 @@
       "warning": 25,
       "critical": 10
     },
-    "on-click": "ghostty -e 'acpi -i; read -n 1'",
+    "on-click": "ghostty -e sh -c 'acpi -i; read -n 1'",
     "tooltip": false
   },
   "custom/notification": {
