@@ -251,6 +251,7 @@ packages:
       - chaotic-aur/playwright
       - core/openssh
       - core/python
+      - extra/7zip # for yazi archive extraction and preview
       - extra/atool
       - extra/atuin
       - extra/cosign # for mise verification
