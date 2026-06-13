@@ -5,6 +5,8 @@ consent_given = false
 [hooks]
 exclude_commands = [
   "git show-ref",
+  "git blame",
+  "git ls-tree",
   "kubectl describe",
   "helm show",
   "helm template",
