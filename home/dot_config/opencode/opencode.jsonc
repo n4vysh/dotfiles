@@ -48,6 +48,7 @@
       "awk *": "allow",
       "sed *": "allow",
       "sed *-i*": "ask",
+      "col *": "allow",
       "head": "allow",
       "head *": "allow",
       "tail": "allow",
