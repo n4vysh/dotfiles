@@ -376,6 +376,7 @@ packages:
       - wez.wezterm
       - Mozilla.Firefox
       - glzr-io.glazewm
+      - AmN.yasb
       - Flow-Launcher.Flow-Launcher
       - RandyRants.SharpKeys
       - AutoHotkey.AutoHotkey

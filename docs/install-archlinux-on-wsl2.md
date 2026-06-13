@@ -58,9 +58,11 @@ with [SharpKeys][sharpkeys-link] and [AutoHotKey][ahk-link].
 
 | Category      | Name                                |
 | :------------ | :---------------------------------- |
+| Status bar    | [YASB][yasb-link]                   |
 | Launcher      | [Flow Launcher][flow-launcher-link] |
 | Screen record | [ScreenToGif][screentogif-link]     |
 
+[yasb-link]: https://github.com/amnweb/yasb
 [flow-launcher-link]: https://github.com/Flow-Launcher/Flow.Launcher
 [screentogif-link]: https://www.screentogif.com/
 

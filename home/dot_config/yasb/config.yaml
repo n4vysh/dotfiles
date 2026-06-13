@@ -1,0 +1,221 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/amnweb/yasb/main/schema.json
+
+watch_stylesheet: true
+watch_config: true
+debug: false
+update_check: true
+bars:
+  primary-bar:
+    enabled: true
+    screens:
+      - "*"
+    class_name: yasb-bar
+    alignment:
+      position: top
+      align: center
+    animation:
+      enabled: true
+      duration: 300
+    blur_effect:
+      enabled: true
+      round_corners: false
+    window_flags:
+      always_on_top: false
+      windows_app_bar: true
+    dimensions:
+      width: 100%
+      height: 34
+    padding:
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+    widgets:
+      left:
+        - home
+        - glazewm_workspaces
+      center: []
+      right:
+        - systray
+        - bluetooth
+        - microphone
+        - volume
+        - battery
+        - notifications
+        - clock
+widgets:
+  home:
+    type: yasb.home.HomeWidget
+    options:
+      label: "<span>\ue8e5</span>"
+      menu_list:
+        - title: User Home
+          path: "~"
+        - title: Download
+          path: ~\Downloads
+        - title: Documents
+          path: ~\Documents
+        - title: Pictures
+          path: ~\Pictures
+      system_menu: true
+      power_menu: true
+      blur: true
+      round_corners: false
+      border_color: System
+      alignment: left
+      offset_left: -12
+  glazewm_workspaces:
+    type: glazewm.workspaces.GlazewmWorkspacesWidget
+    options:
+      hide_if_offline: true
+      monitor_exclusive: false
+      populated_label: 
+      empty_label: 
+      active_populated_label: 
+      active_empty_label: 
+      focused_populated_label: 
+      focused_empty_label: 
+  systray:
+    type: yasb.systray.SystrayWidget
+    options:
+      class_name: systray
+      label_collapsed: ""
+      label_expanded: ""
+      label_position: right
+      pin_click_modifier: ctrl
+      show_unpinned: false
+      show_battery: false
+      show_volume: false
+      icon_size: 16
+      use_hook: true
+      show_in_popup: true
+      icons_per_row: 5
+      popup:
+        blur: true
+        round_corners: false
+        border_color: None
+        alignment: center
+        direction: down
+        offset_top: 6
+        offset_left: 0
+  bluetooth:
+    type: "yasb.bluetooth.BluetoothWidget"
+    options:
+      label: "<span>{icon}</span>"
+      label_alt: "{device_name}"
+      label_no_device: "No devices connected"
+      label_device_separator: ", "
+      max_length: 10
+      max_length_ellipsis: "..."
+      icons:
+        bluetooth_on: "\udb80\udcaf"
+        bluetooth_off: "\udb80\udcb2"
+        bluetooth_connected: "\udb80\udcb1"
+      device_aliases:
+        - name: "T5.0"
+          alias: "\uf025"
+      callbacks:
+        on_left: "toggle_label"
+        on_right: "exec cmd.exe /c start ms-settings:bluetooth"
+  microphone:
+    type: yasb.microphone.MicrophoneWidget
+    options:
+      label: <span>{icon}</span>
+      label_alt: <span>{icon}</span> {level}
+      mute_text: mute
+      icons:
+        normal: ""
+        muted: ""
+      mic_menu:
+        blur: true
+        round_corners: false
+        border_color: system
+        alignment: right
+        direction: down
+      callbacks:
+        on_left: toggle_mic_menu
+        on_middle: toggle_label
+        on_right: toggle_mute
+  volume:
+    type: yasb.volume.VolumeWidget
+    options:
+      label: <span>{icon}</span>
+      label_alt: <span>{icon}</span>{level}
+      tooltip: true
+      icons:
+        muted: ""
+        "10": ""
+        "30": ""
+        "60": ""
+        "100": ""
+      callbacks:
+        on_left: toggle_volume_menu
+        on_right: toggle_mute
+      audio_menu:
+        blur: true
+        round_corners: false
+        border_color: system
+        alignment: right
+        direction: down
+        show_apps: true
+        show_app_labels: false
+        show_app_icons: true
+        show_apps_expanded: false
+        app_icons:
+          toggle_down: ""
+          toggle_up: ""
+  battery:
+    type: "yasb.battery.BatteryWidget"
+    options:
+      label: "<span>{icon}</span>"
+      label_alt: "<span>{icon}</span> {percent}% | {power}W | {time_remaining}"
+      update_interval: 5000
+      time_remaining_natural: False
+      hide_unsupported: True
+      charging_options:
+        icon_format: "{charging_icon}"
+        blink_charging_icon: true
+        blink_interval: 500
+      status_thresholds:
+        critical: 10
+        low: 25
+        medium: 75
+        high: 95
+        full: 100
+      status_icons:
+        icon_charging: ""
+        icon_critical: ""
+        icon_low: ""
+        icon_medium: ""
+        icon_high: ""
+        icon_full: ""
+  notifications:
+    type: yasb.notifications.NotificationsWidget
+    options:
+      label: "<span></span>"
+      label_alt: "{count} notifications"
+      hide_empty: true
+      tooltip: false
+      callbacks:
+        on_left: toggle_notification
+        on_right: do_nothing
+        on_middle: do_nothing
+  clock:
+    type: yasb.clock.ClockWidget
+    options:
+      label: "{%a, %b %d %H:%M}<span>{alarm}</span>"
+      label_alt: "{%a, %b %d %H:%M}"
+      timezones: []
+      calendar:
+        blur: true
+        round_corners: false
+        alignment: center
+        direction: down
+        extended: false
+        show_years: true
+        show_holidays: false
+        show_week_numbers: true
+      callbacks:
+        on_left: toggle_calendar
+        on_middle: toggle_label
+        on_right: context_menu

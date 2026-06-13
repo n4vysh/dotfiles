@@ -355,7 +355,7 @@ prefix is `C-j`
 
 | Category                     | Name                                                                                              |
 | :--------------------------- | :------------------------------------------------------------------------------------------------ |
-| Taskbar                      | [waybar][waybar-link]                                                                             |
+| Status bar                   | [waybar][waybar-link]                                                                             |
 | Launcher                     | [rofi][rofi-link]                                                                                 |
 | Web Browser                  | [Firefox][firefox-link]                                                                           |
 | Password Manager             | [1Password][1password-link] + [Ente Auth][ente-auth-link]                                         |
