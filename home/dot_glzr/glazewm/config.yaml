@@ -62,7 +62,6 @@ workspaces:
 window_rules:
   - commands: ['ignore']
     match:
-      - window_process: {equals: 'zebar'}
       - window_title: {regex: '[Pp]icture.in.[Pp]icture'}
         window_class: {regex: 'Chrome_WidgetWin_1|MozillaDialogClass'}
       - window_process: {equals: 'PowerToys'}
