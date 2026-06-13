@@ -25,7 +25,7 @@ local wobsock = (os.getenv("XDG_RUNTIME_DIR") or "/tmp") .. "/wob.sock"
 hl.on("hyprland.start", function()
     hl.exec_cmd("uwsm app -- hyprpm reload") -- Window manager plugins
     hl.exec_cmd("uwsm app -- fcitx5 --replace -d >/dev/null 2>&1") -- Input Method Framework
-    hl.exec_cmd("uwsm app -- brightnessctl set 1") -- Brightness
+    hl.exec_cmd("uwsm app -- brightnessctl set 1%") -- Brightness
     hl.exec_cmd("uwsm app -- waybar") -- Status bar
     hl.exec_cmd("uwsm app -- kanshi") -- Dynamic display configuration
     hl.exec_cmd("uwsm app -- swaync") -- Notification daemon
