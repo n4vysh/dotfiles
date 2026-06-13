@@ -15,6 +15,7 @@
       "*": "ask",
       "* --help": "allow",
       "* --version": "allow",
+      "man *": "allow",
       "chezmoi managed": "allow",
       "chezmoi status": "allow",
       "chezmoi diff": "allow",
