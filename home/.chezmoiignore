@@ -20,6 +20,7 @@
 !.config
 .config/*
 !.config/wezterm
+!.config/yasb
 {{ end }}
 
 # dotfiles for linux
@@ -27,6 +28,7 @@
 .wslconfig
 .glzr
 .config/wezterm
+.config/yasb
 {{ end }}
 {{ if eq .chezmoi.os "linux" }}
 {{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
