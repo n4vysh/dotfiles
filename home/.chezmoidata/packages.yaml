@@ -387,6 +387,5 @@ packages:
       - JGraph.Draw
       - Espanso.Espanso
       - NickeManarin.ScreenToGif
-      - Gyan.FFmpeg # for ScreenToGif
       - Neovide.Neovide
       - GnuPG.Gpg4win
