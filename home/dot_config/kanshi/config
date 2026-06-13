@@ -1,5 +1,6 @@
 profile default {
   output eDP-1 enable
+  exec sh -c 'hyprctl dispatch -- workspace 1 && hyprctl dispatch -- movecurrentworkspacetomonitor eDP-1'
 }
 
 profile extend-dp-1 {
