@@ -77,14 +77,21 @@ cat <<-'EOF' >~/.local/bin/nmap
 EOF
 chmod +x ~/.local/bin/nmap
 
-cat <<-'EOF' >~/.local/bin/notify-send
+localappdata="$(
+	wslpath "$(
+		/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe \
+			'$env:LOCALAPPDATA' |
+			tr -d '\r'
+	)"
+)"
+cat <<-EOF >~/.local/bin/notify-send
 	#!/bin/sh
 
 	# HACK: hide default app logo with fake image
 	#       redirect warning message to null
 	#       run in background to avoid waiting for pwsh startup
 	#       https://github.com/Windos/BurntToast/issues/150
-	exec /mnt/c/Program\ Files/PowerShell/7/pwsh.exe \
+	exec $localappdata/Microsoft/WindowsApps/pwsh.exe \
 		-Command "New-BurntToastNotification -Text '$1' -AppLogo C:\fake.png 3>\$null" &
 EOF
 chmod +x ~/.local/bin/notify-send
