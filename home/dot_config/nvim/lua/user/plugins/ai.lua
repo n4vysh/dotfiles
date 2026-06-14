@@ -63,7 +63,12 @@ return {
 			{
 				"<C-.>",
 				function()
-					require("opencode").toggle()
+					require("snacks.terminal").toggle("opencode --port", {
+						win = {
+							position = "right",
+							enter = false,
+						},
+					})
 				end,
 				desc = "Toggle sidebar for AI",
 				mode = { "n", "t" },
@@ -87,16 +92,15 @@ return {
 		},
 		config = function()
 			local opencode_cmd = "opencode --port"
+
 			---@type snacks.terminal.Opts
 			local snacks_terminal_opts = {
 				win = {
 					position = "right",
 					enter = false,
-					on_win = function(win)
-						require("opencode.terminal").setup(win.win)
-					end,
 				},
 			}
+
 			---@type opencode.Opts
 			vim.g.opencode_opts = {
 				server = {
@@ -106,19 +110,25 @@ return {
 							snacks_terminal_opts
 						)
 					end,
-					stop = function()
-						require("snacks.terminal")
-							.get(opencode_cmd, snacks_terminal_opts)
-							:close()
-					end,
-					toggle = function()
-						require("snacks.terminal").toggle(
-							opencode_cmd,
-							snacks_terminal_opts
-						)
-					end,
 				},
 			}
+
+			vim.api.nvim_create_autocmd("User", {
+				pattern = { "OpencodeEvent:tui.command.execute" },
+				callback = function(args)
+					---@type opencode.server.Event
+					local event = args.data.event
+					if event.properties.command == "prompt.submit" then
+						local win = require("snacks.terminal").get(
+							opencode_cmd,
+							{ create = false }
+						)
+						if win then
+							win:show()
+						end
+					end
+				end,
+			})
 		end,
 		dependencies = {
 			{
