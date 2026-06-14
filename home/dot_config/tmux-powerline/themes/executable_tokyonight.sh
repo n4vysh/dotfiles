@@ -16,7 +16,7 @@ if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_CURRENT" ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_CURRENT=(
 		"#[$(format inverse)]"
 		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR"
-		" #I#F "
+		" #I#{s/Z//:window_flags} "
 		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN"
 		" #W "
 		"#[$(format regular)]"
@@ -37,7 +37,7 @@ if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_FORMAT" ]; then
 	# shellcheck disable=SC3030
 	TMUX_POWERLINE_WINDOW_STATUS_FORMAT=(
 		"#[$(format regular)]"
-		"  #I#{?window_flags,#F, } "
+		"  #I#{?window_flags,#{s/Z//:window_flags}, } "
 		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN"
 		" #W "
 	)
