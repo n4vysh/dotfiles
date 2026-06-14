@@ -1,6 +1,8 @@
 ---
 description: Performs security audits and identifies vulnerabilities
 mode: subagent
+model: openai/gpt-5.4
+reasoningEffort: low
 permission:
     edit: deny
 ---

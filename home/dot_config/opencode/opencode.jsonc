@@ -1,7 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "model": "openai/gpt-5.5-fast",
-  "small_model": "openai/gpt-5.5",
+  "small_model": "openai/gpt-5.4",
   "default_agent": "plan",
   "autoupdate": false,
   "share": "disabled",
@@ -473,6 +473,8 @@
   "agent": {
     "aws-docs-expert": {
       "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
       "description": "Provides AWS official documents for designing, building, and operating workloads",
       "prompt": "Use aws-knowledge-mcp-server* tools",
       "tools": {
@@ -481,6 +483,8 @@
     },
     "terraform-expert": {
       "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
       "description": "Provides Terraform official documents for providers and modules",
       "prompt": "Use terraform-mcp-server* tools",
       "tools": {
@@ -489,6 +493,8 @@
     },
     "context7": {
       "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
       "description": "Provides up-to-date documentation for latest library versions, best practices, and correct syntax",
       "prompt": "Use context7-mcp-server* tools",
       "tools": {
@@ -497,6 +503,8 @@
     },
     "grep.app": {
       "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
       "description": "Search for code, files, and paths across GitHub repositories",
       "prompt": "Use grep-mcp-server* tools",
       "tools": {
@@ -505,6 +513,8 @@
     },
     "github": {
       "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
       "description": "Read repositories, code files, issues, and PRs",
       "prompt": "Use github-mcp-server* tools",
       "tools": {
@@ -513,6 +523,8 @@
     },
     "deepwiki": {
       "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
       "description": "Provides DeepWiki’s public repository documentation and search capabilities",
       "prompt": "Use deepwiki-mcp-server* tools",
       "tools": {
@@ -521,6 +533,8 @@
     },
     "aws-api-expert:n4vysh-stg": {
       "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
       "description": "Provides AWS API access for n4vysh-stg",
       "prompt": "Use aws-n4vysh-stg-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
       "tools": {
@@ -529,6 +543,8 @@
     },
     "aws-api-expert:n4vysh-prod": {
       "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
       "description": "Provides AWS API access for n4vysh-prod",
       "prompt": "Use aws-n4vysh-prod-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
       "tools": {
@@ -537,6 +553,8 @@
     },
     "aws-api-expert:n4vysh-common": {
       "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
       "description": "Provides AWS API access for n4vysh-common",
       "prompt": "Use aws-n4vysh-common-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
       "tools": {
@@ -545,6 +563,8 @@
     },
     "grafana-expert:n4vysh": {
       "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
       "description": "Provides Grafana API access for n4vysh",
       "prompt": "Use grafana-n4vysh-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
       "tools": {

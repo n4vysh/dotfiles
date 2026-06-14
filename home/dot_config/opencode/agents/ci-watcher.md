@@ -1,6 +1,8 @@
 ---
 description: Monitors and investigates CI failures on GitHub Actions and GitLab CI
 mode: subagent
+model: openai/gpt-5.4
+reasoningEffort: low
 permission:
     edit: deny
     bash: ask

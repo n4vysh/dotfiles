@@ -1,6 +1,8 @@
 ---
 description: Investigates bugs and test failures to identify root causes
 mode: subagent
+model: openai/gpt-5.4
+reasoningEffort: low
 permission:
     edit: deny
     bash: ask
