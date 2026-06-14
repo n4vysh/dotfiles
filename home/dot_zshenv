@@ -170,17 +170,6 @@ export HWLOC_HIDE_ERRORS=2
 # https://github.com/openwall/john/issues/4765
 export OMPI_MCA_opal_warn_on_missing_libcuda=0
 
-# kubectx
-# NOTE: set kubeconfig per shell session
-# https://github.com/ahmetb/kubectx/issues/12#issuecomment-557852519
-if [[ -f ~/.kube/config ]]; then
-	if [ -z "$KUBECONFIG" ]; then # NOTE: use same kubeconfig in nested shell
-		file="$(mktemp -t "kubectx.XXXXXX")"
-		cat ~/.kube/config >|"$file"
-		export KUBECONFIG="$file"
-	fi
-fi
-
 # opencode
 export OPENCODE_ENABLE_EXA=1
 export OPENCODE_EXPERIMENTAL_LSP_TOOL=true

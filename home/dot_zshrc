@@ -50,6 +50,19 @@ AUTO_NOTIFY_IGNORE+=(
 	"trans"
 )
 
+# kubectx
+# NOTE: set kubeconfig per shell session
+# WARN: Do not move to .zshenv
+#       inherit kubeconfig in tmux if move to .zshenv
+# https://github.com/ahmetb/kubectx/issues/12#issuecomment-557852519
+if [[ -f ~/.kube/config ]]; then
+	if [ -z "$KUBECONFIG" ]; then # NOTE: use same kubeconfig in nested shell
+		file="$(mktemp -t "kubectx.XXXXXX")"
+		cat ~/.kube/config >|"$file"
+		export KUBECONFIG="$file"
+	fi
+fi
+
 # load config files
 for file in ~/.zshrc.d/conf.d/*.zsh; do
 	source "$file"
