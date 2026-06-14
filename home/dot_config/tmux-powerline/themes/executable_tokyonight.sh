@@ -47,7 +47,7 @@ fi
 if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
 	# shellcheck disable=SC3030
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-		"tmux_session_info #7aa2f7 #15161e"
+		"tmux_session_info #{?client_prefix,#7dcfff,#7aa2f7} #15161e"
 		"mode_indicator #16161e #a9b1d6"
 	)
 fi
