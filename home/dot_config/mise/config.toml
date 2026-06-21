@@ -23,9 +23,8 @@ ls-lint = "2.3.1"
 "npm:obsidian-headless" = "0.0.8"
 
 # AI
-opencode = "1.17.9"
+opencode = "1.17.4"
 rtk = "0.40.0"
-"npm:claude-mem" = "13.6.0"
 "npm:skills" = "1.5.1"
 "npm:tokscale" = "2.0.22"
 "npm:agent-browser" = "0.27.0"
