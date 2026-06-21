@@ -2,12 +2,21 @@
   "$schema": "https://opencode.ai/config.json",
   "model": "openai/gpt-5.5-fast",
   "small_model": "openai/gpt-5.4",
+  "provider": {
+    "anthropic": {
+      "options": {
+        "baseURL": "http://127.0.0.1:3456",
+        "apiKey": "dummy"
+      }
+    }
+  },
   "default_agent": "plan",
   "autoupdate": false,
   "share": "disabled",
   "plugin": [
     "superpowers@git+https://github.com/obra/superpowers.git#v5.1.0",
-    "@devtheops/opencode-plugin-otel@1.2.0"
+    "@devtheops/opencode-plugin-otel@1.2.0",
+    "opencode-with-claude@1.6.11"
   ],
   "permission": {
     "edit": "ask",
