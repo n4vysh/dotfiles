@@ -3,6 +3,12 @@
   "model": "openai/gpt-5.5-fast",
   "small_model": "openai/gpt-5.4",
   "provider": {
+    "amazon-bedrock": {
+      "options": {
+        "region": "us-east-1",
+        "profile": "bedrock"
+      }
+    },
     "anthropic": {
       "options": {
         "baseURL": "http://127.0.0.1:3456",
