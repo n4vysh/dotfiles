@@ -244,6 +244,7 @@ recommended:
 - If library docs/examples are needed, suggest `context7` subagent.
 - If public GitHub code search is needed, suggest `grep.app` subagent.
 - If GitHub repo docs/architecture is needed, suggest `deepwiki` subagent.
+- If Web platform docs or browser compatibility data is needed, suggest `mdn` subagent.
 - If document or URI conversion to Markdown is needed, suggest `markitdown` subagent.
 - If AWS resources inspection is needed, suggest `aws-api-expert` subagent.
 - If Kubernetes resources inspection is needed, suggest `kubernetes-expert` subagent.

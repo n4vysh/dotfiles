@@ -351,6 +351,14 @@
       "type": "remote",
       "url": "https://mcp.deepwiki.com/mcp"
     },
+    "mdn-mcp-server": {
+      "enabled": true,
+      "type": "remote",
+      "url": "https://mcp.mdn.mozilla.net/",
+      "headers": {
+        "X-Moz-1st-Party-Data-Opt-Out": "1"
+      }
+    },
     "markitdown-mcp-server": {
       "enabled": true,
       "type": "local",
@@ -467,6 +475,7 @@
     "grep-mcp-server*": false,
     "github-mcp-server*": false,
     "deepwiki-mcp-server*": false,
+    "mdn-mcp-server*": false,
     "markitdown-mcp-server*": false,
     "aws-n4vysh-stg-mcp-server*": false,
     "aws-n4vysh-prod-mcp-server*": false,
@@ -535,6 +544,16 @@
       "prompt": "Use deepwiki-mcp-server* tools",
       "tools": {
         "deepwiki-mcp-server*": true
+      }
+    },
+    "mdn": {
+      "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
+      "description": "Provides MDN Web Docs search, documentation, and browser compatibility data",
+      "prompt": "Use mdn-mcp-server* tools. Provide reliable, up-to-date web platform documentation and browser compatibility data from MDN Web Docs.",
+      "tools": {
+        "mdn-mcp-server*": true
       }
     },
     "markitdown": {
