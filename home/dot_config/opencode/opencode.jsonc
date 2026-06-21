@@ -351,6 +351,11 @@
       "type": "remote",
       "url": "https://mcp.deepwiki.com/mcp"
     },
+    "markitdown-mcp-server": {
+      "enabled": true,
+      "type": "local",
+      "command": ["markitdown-mcp"]
+    },
     "aws-n4vysh-stg-mcp-server": {
       "enabled": false,
       "type": "local",
@@ -462,6 +467,7 @@
     "grep-mcp-server*": false,
     "github-mcp-server*": false,
     "deepwiki-mcp-server*": false,
+    "markitdown-mcp-server*": false,
     "aws-n4vysh-stg-mcp-server*": false,
     "aws-n4vysh-prod-mcp-server*": false,
     "aws-n4vysh-common-mcp-server*": false,
@@ -529,6 +535,16 @@
       "prompt": "Use deepwiki-mcp-server* tools",
       "tools": {
         "deepwiki-mcp-server*": true
+      }
+    },
+    "markitdown": {
+      "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
+      "description": "Converts files, URLs, and data URIs to Markdown using MarkItDown",
+      "prompt": "Use markitdown-mcp-server* tools. Convert supported file, http, https, and data URIs to Markdown. Be careful with untrusted URIs because MarkItDown can read local files and network resources accessible to the current user.",
+      "tools": {
+        "markitdown-mcp-server*": true
       }
     },
     "aws-api-expert:n4vysh-stg": {

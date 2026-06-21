@@ -30,6 +30,7 @@ rtk = "0.40.0"
 "npm:tokscale" = "2.0.22"
 "npm:agent-browser" = "0.27.0"
 "pipx:semble" = "0.1.10"
+"pipx:markitdown-mcp" = "0.0.1a4"
 "pipx:litellm" = { version = "1.88.0", extras = "proxy,extra_proxy" }
 ## mcp
 "pipx:mcp-proxy-for-aws" = "1.4.0"
