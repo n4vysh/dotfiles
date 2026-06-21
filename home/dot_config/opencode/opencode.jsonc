@@ -370,6 +370,11 @@
       "type": "local",
       "command": ["semgrep", "mcp"]
     },
+    "trivy-mcp-server": {
+      "enabled": true,
+      "type": "local",
+      "command": ["trivy", "mcp"]
+    },
     "aws-n4vysh-stg-mcp-server": {
       "enabled": false,
       "type": "local",
@@ -484,6 +489,7 @@
     "mdn-mcp-server*": false,
     "markitdown-mcp-server*": false,
     "semgrep-mcp-server*": false,
+    "trivy-mcp-server*": false,
     "aws-n4vysh-stg-mcp-server*": false,
     "aws-n4vysh-prod-mcp-server*": false,
     "aws-n4vysh-common-mcp-server*": false,
@@ -581,6 +587,16 @@
       "prompt": "Use semgrep-mcp-server* tools. Run semgrep security analysis and report findings with file paths, severity, and remediation guidance.",
       "tools": {
         "semgrep-mcp-server*": true
+      }
+    },
+    "trivy": {
+      "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
+      "description": "Runs trivy security scans for vulnerabilities, misconfigurations, secrets, and SBOMs",
+      "prompt": "Use trivy-mcp-server* tools. Run trivy security scans and report findings with file paths, severity, affected packages or resources, and remediation guidance.",
+      "tools": {
+        "trivy-mcp-server*": true
       }
     },
     "aws-api-expert:n4vysh-stg": {
