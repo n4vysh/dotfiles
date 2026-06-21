@@ -197,6 +197,15 @@
       "skillFolderHash": "8da1f030185bdfe8471220585162991eaeb970e9",
       "installedAt": "2026-06-21T15:03:21.948Z",
       "updatedAt": "2026-06-21T15:03:21.948Z"
+    },
+    "defuddle": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/kepano/obsidian-skills.git",
+      "skillPath": "skills/defuddle/SKILL.md",
+      "skillFolderHash": "db0b775af7e7d603f59fa2b67bdef615baf1a48f",
+      "installedAt": "2026-06-21T15:49:09.723Z",
+      "updatedAt": "2026-06-21T15:49:09.723Z"
     }
   },
   "dismissed": {
