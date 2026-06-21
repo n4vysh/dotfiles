@@ -365,6 +365,11 @@
       "type": "local",
       "command": ["markitdown-mcp"]
     },
+    "semgrep-mcp-server": {
+      "enabled": true,
+      "type": "local",
+      "command": ["semgrep", "mcp"]
+    },
     "aws-n4vysh-stg-mcp-server": {
       "enabled": false,
       "type": "local",
@@ -478,6 +483,7 @@
     "deepwiki-mcp-server*": false,
     "mdn-mcp-server*": false,
     "markitdown-mcp-server*": false,
+    "semgrep-mcp-server*": false,
     "aws-n4vysh-stg-mcp-server*": false,
     "aws-n4vysh-prod-mcp-server*": false,
     "aws-n4vysh-common-mcp-server*": false,
@@ -565,6 +571,16 @@
       "prompt": "Use markitdown-mcp-server* tools. Convert supported file, http, https, and data URIs to Markdown. Be careful with untrusted URIs because MarkItDown can read local files and network resources accessible to the current user.",
       "tools": {
         "markitdown-mcp-server*": true
+      }
+    },
+    "semgrep": {
+      "mode": "subagent",
+      "model": "openai/gpt-5.4",
+      "reasoningEffort": "low",
+      "description": "Runs semgrep security analysis for code, dependencies, and secrets",
+      "prompt": "Use semgrep-mcp-server* tools. Run semgrep security analysis and report findings with file paths, severity, and remediation guidance.",
+      "tools": {
+        "semgrep-mcp-server*": true
       }
     },
     "aws-api-expert:n4vysh-stg": {
