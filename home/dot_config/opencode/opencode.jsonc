@@ -7,7 +7,7 @@
   "share": "disabled",
   "plugin": [
     "superpowers@git+https://github.com/obra/superpowers.git#v5.1.0",
-    "@devtheops/opencode-plugin-otel@1.1.0"
+    "@devtheops/opencode-plugin-otel@1.2.0"
   ],
   "permission": {
     "edit": "ask",
