@@ -247,6 +247,7 @@ recommended:
 - If Web platform docs or browser compatibility data is needed, suggest `mdn` subagent.
 - If document or URI conversion to Markdown is needed, suggest `markitdown` subagent.
 - If semgrep security analysis is needed, suggest `semgrep` subagent.
+- If trivy security scanning is needed, suggest `trivy` subagent.
 - If AWS resources inspection is needed, suggest `aws-api-expert` subagent.
 - If Kubernetes resources inspection is needed, suggest `kubernetes-expert` subagent.
 - If Grafana resources inspection is needed, suggest `grafana-expert` subagent.
