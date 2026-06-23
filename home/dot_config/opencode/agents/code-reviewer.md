@@ -1,8 +1,9 @@
 ---
 description: Reviews code changes for correctness, maintainability, and regressions
 mode: subagent
-model: openai/gpt-5.4
+model: openai/gpt-5.4-mini
 reasoningEffort: low
+textVerbosity: low
 permission:
     edit: deny
     bash: deny

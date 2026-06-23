@@ -1,8 +1,9 @@
 ---
 description: Writes and maintains project documentation
 mode: subagent
-model: openai/gpt-5.4
+model: openai/gpt-5.4-mini
 reasoningEffort: low
+textVerbosity: low
 permission:
     bash: deny
 ---
