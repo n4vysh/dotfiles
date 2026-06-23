@@ -1,8 +1,9 @@
 ---
 description: Runs tests for changed files and reports failures
 mode: subagent
-model: openai/gpt-5.4
+model: openai/gpt-5.4-mini
 reasoningEffort: low
+textVerbosity: low
 permission:
     edit: deny
     bash: ask

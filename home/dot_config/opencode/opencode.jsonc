@@ -1,8 +1,17 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "openai/gpt-5.5-fast",
-  "small_model": "openai/gpt-5.4",
+  "model": "openai/gpt-5.4",
+  "small_model": "openai/gpt-5.4-mini",
   "provider": {
+    "openai": {
+      "models": {
+        "gpt-5.4": {
+          "options": {
+            "textVerbosity": "low"
+          }
+        }
+      }
+    },
     "amazon-bedrock": {
       "options": {
         "region": "us-east-1",
@@ -509,8 +518,9 @@
   "agent": {
     "aws-docs-expert": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Provides AWS official documents for designing, building, and operating workloads",
       "prompt": "Use aws-knowledge-mcp-server* tools",
       "tools": {
@@ -519,8 +529,9 @@
     },
     "terraform-expert": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Provides Terraform official documents for providers and modules",
       "prompt": "Use terraform-mcp-server* tools",
       "tools": {
@@ -529,8 +540,9 @@
     },
     "context7": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Provides up-to-date documentation for latest library versions, best practices, and correct syntax",
       "prompt": "Use context7-mcp-server* tools",
       "tools": {
@@ -539,8 +551,9 @@
     },
     "grep.app": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Search for code, files, and paths across GitHub repositories",
       "prompt": "Use grep-mcp-server* tools",
       "tools": {
@@ -549,8 +562,9 @@
     },
     "github": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Read repositories, code files, issues, and PRs",
       "prompt": "Use github-mcp-server* tools",
       "tools": {
@@ -559,8 +573,9 @@
     },
     "deepwiki": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Provides DeepWiki’s public repository documentation and search capabilities",
       "prompt": "Use deepwiki-mcp-server* tools",
       "tools": {
@@ -569,8 +584,9 @@
     },
     "mdn": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Provides MDN Web Docs search, documentation, and browser compatibility data",
       "prompt": "Use mdn-mcp-server* tools. Provide reliable, up-to-date web platform documentation and browser compatibility data from MDN Web Docs.",
       "tools": {
@@ -579,8 +595,9 @@
     },
     "markitdown": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Converts files, URLs, and data URIs to Markdown using MarkItDown",
       "prompt": "Use markitdown-mcp-server* tools. Convert supported file, http, https, and data URIs to Markdown. Be careful with untrusted URIs because MarkItDown can read local files and network resources accessible to the current user.",
       "tools": {
@@ -589,8 +606,9 @@
     },
     "semgrep": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Runs semgrep security analysis for code, dependencies, and secrets",
       "prompt": "Use semgrep-mcp-server* tools. Run semgrep security analysis and report findings with file paths, severity, and remediation guidance.",
       "tools": {
@@ -599,8 +617,9 @@
     },
     "trivy": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Runs trivy security scans for vulnerabilities, misconfigurations, secrets, and SBOMs",
       "prompt": "Use trivy-mcp-server* tools. Run trivy security scans and report findings with file paths, severity, affected packages or resources, and remediation guidance.",
       "tools": {
@@ -609,8 +628,9 @@
     },
     "aws-api-expert:n4vysh-stg": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Provides AWS API access for n4vysh-stg",
       "prompt": "Use aws-n4vysh-stg-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
       "tools": {
@@ -619,8 +639,9 @@
     },
     "aws-api-expert:n4vysh-prod": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Provides AWS API access for n4vysh-prod",
       "prompt": "Use aws-n4vysh-prod-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
       "tools": {
@@ -629,8 +650,9 @@
     },
     "aws-api-expert:n4vysh-common": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Provides AWS API access for n4vysh-common",
       "prompt": "Use aws-n4vysh-common-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
       "tools": {
@@ -639,8 +661,9 @@
     },
     "grafana-expert:n4vysh": {
       "mode": "subagent",
-      "model": "openai/gpt-5.4",
+      "model": "openai/gpt-5.4-mini",
       "reasoningEffort": "low",
+      "textVerbosity": "low",
       "description": "Provides Grafana API access for n4vysh",
       "prompt": "Use grafana-n4vysh-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
       "tools": {
@@ -649,6 +672,9 @@
     }
     // "aws-api-expert:example-dev": {
     //   "mode": "subagent",
+    //   "model": "openai/gpt-5.4-mini",
+    //   "reasoningEffort": "low",
+    //   "textVerbosity": "low",
     //   "description": "Provides AWS API access for example-dev",
     //   "prompt": "Use aws-example-dev-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
     //   "tools": {
@@ -657,6 +683,9 @@
     // },
     // "kubernetes-expert:example-dev": {
     //   "mode": "subagent",
+    //   "model": "openai/gpt-5.4-mini",
+    //   "reasoningEffort": "low",
+    //   "textVerbosity": "low",
     //   "description": "Provides Kubernetes API access for example-dev",
     //   "prompt": "Use kubernetes-example-dev-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
     //   "tools": {
@@ -665,6 +694,9 @@
     // },
     // "grafana-expert:example-dev": {
     //   "mode": "subagent",
+    //   "model": "openai/gpt-5.4-mini",
+    //   "reasoningEffort": "low",
+    //   "textVerbosity": "low",
     //   "description": "Provides Grafana API access for example-dev",
     //   "prompt": "Use grafana-example-dev-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
     //   "tools": {
