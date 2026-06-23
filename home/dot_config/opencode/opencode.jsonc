@@ -8,12 +8,6 @@
         "region": "us-east-1",
         "profile": "bedrock"
       }
-    },
-    "anthropic": {
-      "options": {
-        "baseURL": "http://127.0.0.1:3456",
-        "apiKey": "dummy"
-      }
     }
   },
   "default_agent": "plan",
@@ -21,8 +15,7 @@
   "share": "disabled",
   "plugin": [
     "superpowers@git+https://github.com/obra/superpowers.git#v5.1.0",
-    "@devtheops/opencode-plugin-otel@1.2.0",
-    "opencode-with-claude@1.6.11"
+    "@devtheops/opencode-plugin-otel@1.2.0"
   ],
   "permission": {
     "edit": "ask",
