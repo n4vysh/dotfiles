@@ -33,11 +33,14 @@ windows:
         litellm_settings:
           drop_params: True
         model_list:
-          - model_name: &model chatgpt/gpt-5.5
+          - model_name: &model chatgpt/gpt-5.4-mini
             model_info:
               mode: responses
             litellm_params:
               model: *model
+              reasoning_effort:
+                effort: low
+              verbosity: low
               additional_drop_params:
                 # for git-czg
                 # https://github.com/BerriAI/litellm/issues/15070
