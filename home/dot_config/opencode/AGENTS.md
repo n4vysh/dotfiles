@@ -232,6 +232,46 @@ recommended:
 - Do not reject output only because its format is different.
 - If exact raw output is required, rerun with `RTK_DISABLED=1`.
 
+### Command Execution
+
+#### Working Directory
+
+- Do not use command options that set the execution or target directory.
+    - Examples: `git -C`, `make -C`, `go -C`, and `terraform -chdir`.
+- Do not pass absolute paths to those command options.
+- Run commands in the current working directory by default.
+- Use `workdir` in the `bash` tool input for another allowed directory.
+- This is required for safety and readability.
+    - Execution stays within the current or allowed external directories.
+    - Commands stay short without long absolute paths.
+
+#### Option Order
+
+- With the `bash` tool, place options after the subcommand when possible.
+- This keeps commands aligned with `bash` tool permission rules.
+
+Use this option order:
+
+```sh
+kubectl get pods --context <context> -n <namespace>
+helm template <release> <chart> --kube-context <context> -n <namespace>
+helmfile template --kube-context <context> -n <namespace>
+```
+
+Avoid this option order:
+
+```sh
+kubectl --context <context> -n <namespace> get pods
+helm --kube-context <context> -n <namespace> template <release> <chart>
+helmfile --kube-context <context> -n <namespace> template
+```
+
+This rule applies to these options:
+
+- `kubectl`: `--context`, `--namespace`, `-n`
+- `helm`: `--kube-context`, `--namespace`, `-n`
+- `helmfile`: `--kube-context`, `--namespace`, `-n`
+
 ### Subagent Usage
 
 - Use dedicated subagents for MCP-backed workflows.
