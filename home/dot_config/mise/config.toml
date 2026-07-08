@@ -23,7 +23,7 @@ ls-lint = "2.3.1"
 "npm:obsidian-headless" = "0.0.8"
 
 # AI
-opencode = "1.17.4"
+opencode = "1.17.15"
 rtk = "0.40.0"
 "npm:skills" = "1.5.1"
 "npm:tokscale" = "2.0.22"
