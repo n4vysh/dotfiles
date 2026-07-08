@@ -431,6 +431,14 @@
         "AWS_REGION": "ap-northeast-1"
       }
     },
+    "kubernetes-kind-sandbox-mcp-server": {
+      "enabled": false,
+      "type": "local",
+      "command": ["kubernetes-mcp-server", "--read-only"],
+      "environment": {
+        "KUBECONFIG": "{env:HOME}/.kube/configs/kind-sandbox.yaml"
+      }
+    },
     // ```sh
     // gopass insert envs/mcp-grafana/n4vysh/GRAFANA_SERVICE_ACCOUNT_TOKEN
     // ```
@@ -510,6 +518,7 @@
     "aws-n4vysh-stg-mcp-server*": false,
     "aws-n4vysh-prod-mcp-server*": false,
     "aws-n4vysh-common-mcp-server*": false,
+    "kubernetes-kind-sandbox-mcp-server*": false,
     "grafana-n4vysh-mcp-server*": false
     // "aws-example-dev-mcp-server*": false,
     // "kubernetes-example-dev-mcp-server*": false,
@@ -657,6 +666,17 @@
       "prompt": "Use aws-n4vysh-common-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
       "permission": {
         "aws-n4vysh-common-mcp-server*": "allow"
+      }
+    },
+    "kubernetes-expert:kind-sandbox": {
+      "mode": "subagent",
+      "model": "openai/gpt-5.4-mini",
+      "reasoningEffort": "low",
+      "textVerbosity": "low",
+      "description": "Provides Kubernetes API access for kind-sandbox",
+      "prompt": "Use kubernetes-kind-sandbox-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
+      "permission": {
+        "kubernetes-kind-sandbox-mcp-server*": "allow"
       }
     },
     "grafana-expert:n4vysh": {
