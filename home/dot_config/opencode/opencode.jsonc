@@ -296,7 +296,23 @@
       "date *": "allow",
       "command -v *": "allow",
       "which *": "allow"
-    }
+    },
+    // MCP Servers
+    "aws-knowledge-mcp-server*": "deny",
+    "terraform-mcp-server*": "deny",
+    "context7-mcp-server*": "deny",
+    "grep-mcp-server*": "deny",
+    "github-mcp-server*": "deny",
+    "deepwiki-mcp-server*": "deny",
+    "mdn-mcp-server*": "deny",
+    "markitdown-mcp-server*": "deny",
+    "semgrep-mcp-server*": "deny",
+    "trivy-mcp-server*": "deny",
+    "aws-n4vysh-stg-mcp-server*": "deny",
+    "aws-n4vysh-prod-mcp-server*": "deny",
+    "aws-n4vysh-common-mcp-server*": "deny",
+    "kubernetes-kind-sandbox-mcp-server*": "deny",
+    "grafana-n4vysh-mcp-server*": "deny"
   },
   "lsp": true,
   "formatter": {
@@ -459,23 +475,6 @@
         "GRAFANA_URL": "https://n4vysh.grafana.net"
       }
     }
-  },
-  "tools": {
-    "aws-knowledge-mcp-server*": false,
-    "terraform-mcp-server*": false,
-    "context7-mcp-server*": false,
-    "grep-mcp-server*": false,
-    "github-mcp-server*": false,
-    "deepwiki-mcp-server*": false,
-    "mdn-mcp-server*": false,
-    "markitdown-mcp-server*": false,
-    "semgrep-mcp-server*": false,
-    "trivy-mcp-server*": false,
-    "aws-n4vysh-stg-mcp-server*": false,
-    "aws-n4vysh-prod-mcp-server*": false,
-    "aws-n4vysh-common-mcp-server*": false,
-    "kubernetes-kind-sandbox-mcp-server*": false,
-    "grafana-n4vysh-mcp-server*": false
   },
   "agent": {
     "aws-docs-expert": {
