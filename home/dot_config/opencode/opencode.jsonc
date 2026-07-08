@@ -523,8 +523,8 @@
       "textVerbosity": "low",
       "description": "Provides AWS official documents for designing, building, and operating workloads",
       "prompt": "Use aws-knowledge-mcp-server* tools",
-      "tools": {
-        "aws-knowledge-mcp-server*": true
+      "permission": {
+        "aws-knowledge-mcp-server*": "allow"
       }
     },
     "terraform-expert": {
@@ -534,8 +534,8 @@
       "textVerbosity": "low",
       "description": "Provides Terraform official documents for providers and modules",
       "prompt": "Use terraform-mcp-server* tools",
-      "tools": {
-        "terraform-mcp-server*": true
+      "permission": {
+        "terraform-mcp-server*": "allow"
       }
     },
     "context7": {
@@ -545,8 +545,8 @@
       "textVerbosity": "low",
       "description": "Provides up-to-date documentation for latest library versions, best practices, and correct syntax",
       "prompt": "Use context7-mcp-server* tools",
-      "tools": {
-        "context7-mcp-server*": true
+      "permission": {
+        "context7-mcp-server*": "allow"
       }
     },
     "grep.app": {
@@ -556,8 +556,8 @@
       "textVerbosity": "low",
       "description": "Search for code, files, and paths across GitHub repositories",
       "prompt": "Use grep-mcp-server* tools",
-      "tools": {
-        "grep-mcp-server*": true
+      "permission": {
+        "grep-mcp-server*": "allow"
       }
     },
     "github": {
@@ -567,8 +567,8 @@
       "textVerbosity": "low",
       "description": "Read repositories, code files, issues, and PRs",
       "prompt": "Use github-mcp-server* tools",
-      "tools": {
-        "github-mcp-server*": true
+      "permission": {
+        "github-mcp-server*": "allow"
       }
     },
     "deepwiki": {
@@ -578,8 +578,8 @@
       "textVerbosity": "low",
       "description": "Provides DeepWiki’s public repository documentation and search capabilities",
       "prompt": "Use deepwiki-mcp-server* tools",
-      "tools": {
-        "deepwiki-mcp-server*": true
+      "permission": {
+        "deepwiki-mcp-server*": "allow"
       }
     },
     "mdn": {
@@ -589,8 +589,8 @@
       "textVerbosity": "low",
       "description": "Provides MDN Web Docs search, documentation, and browser compatibility data",
       "prompt": "Use mdn-mcp-server* tools. Provide reliable, up-to-date web platform documentation and browser compatibility data from MDN Web Docs.",
-      "tools": {
-        "mdn-mcp-server*": true
+      "permission": {
+        "mdn-mcp-server*": "allow"
       }
     },
     "markitdown": {
@@ -600,8 +600,8 @@
       "textVerbosity": "low",
       "description": "Converts files, URLs, and data URIs to Markdown using MarkItDown",
       "prompt": "Use markitdown-mcp-server* tools. Convert supported file, http, https, and data URIs to Markdown. Be careful with untrusted URIs because MarkItDown can read local files and network resources accessible to the current user.",
-      "tools": {
-        "markitdown-mcp-server*": true
+      "permission": {
+        "markitdown-mcp-server*": "allow"
       }
     },
     "semgrep": {
@@ -611,8 +611,8 @@
       "textVerbosity": "low",
       "description": "Runs semgrep security analysis for code, dependencies, and secrets",
       "prompt": "Use semgrep-mcp-server* tools. Run semgrep security analysis and report findings with file paths, severity, and remediation guidance.",
-      "tools": {
-        "semgrep-mcp-server*": true
+      "permission": {
+        "semgrep-mcp-server*": "allow"
       }
     },
     "trivy": {
@@ -622,8 +622,8 @@
       "textVerbosity": "low",
       "description": "Runs trivy security scans for vulnerabilities, misconfigurations, secrets, and SBOMs",
       "prompt": "Use trivy-mcp-server* tools. Run trivy security scans and report findings with file paths, severity, affected packages or resources, and remediation guidance.",
-      "tools": {
-        "trivy-mcp-server*": true
+      "permission": {
+        "trivy-mcp-server*": "allow"
       }
     },
     "aws-api-expert:n4vysh-stg": {
@@ -633,8 +633,8 @@
       "textVerbosity": "low",
       "description": "Provides AWS API access for n4vysh-stg",
       "prompt": "Use aws-n4vysh-stg-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
-      "tools": {
-        "aws-n4vysh-stg-mcp-server*": true
+      "permission": {
+        "aws-n4vysh-stg-mcp-server*": "allow"
       }
     },
     "aws-api-expert:n4vysh-prod": {
@@ -644,8 +644,8 @@
       "textVerbosity": "low",
       "description": "Provides AWS API access for n4vysh-prod",
       "prompt": "Use aws-n4vysh-prod-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
-      "tools": {
-        "aws-n4vysh-prod-mcp-server*": true
+      "permission": {
+        "aws-n4vysh-prod-mcp-server*": "allow"
       }
     },
     "aws-api-expert:n4vysh-common": {
@@ -655,8 +655,8 @@
       "textVerbosity": "low",
       "description": "Provides AWS API access for n4vysh-common",
       "prompt": "Use aws-n4vysh-common-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
-      "tools": {
-        "aws-n4vysh-common-mcp-server*": true
+      "permission": {
+        "aws-n4vysh-common-mcp-server*": "allow"
       }
     },
     "grafana-expert:n4vysh": {
@@ -666,8 +666,8 @@
       "textVerbosity": "low",
       "description": "Provides Grafana API access for n4vysh",
       "prompt": "Use grafana-n4vysh-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
-      "tools": {
-        "grafana-n4vysh-mcp-server*": true
+      "permission": {
+        "grafana-n4vysh-mcp-server*": "allow"
       }
     }
     // "aws-api-expert:example-dev": {
@@ -677,8 +677,8 @@
     //   "textVerbosity": "low",
     //   "description": "Provides AWS API access for example-dev",
     //   "prompt": "Use aws-example-dev-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
-    //   "tools": {
-    //     "aws-example-dev-mcp-server*": true
+    //   "permission": {
+    //     "aws-example-dev-mcp-server*": "allow"
     //   }
     // },
     // "kubernetes-expert:example-dev": {
@@ -688,8 +688,8 @@
     //   "textVerbosity": "low",
     //   "description": "Provides Kubernetes API access for example-dev",
     //   "prompt": "Use kubernetes-example-dev-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
-    //   "tools": {
-    //     "kubernetes-example-dev-mcp-server*": true
+    //   "permission": {
+    //     "kubernetes-example-dev-mcp-server*": "allow"
     //   }
     // },
     // "grafana-expert:example-dev": {
@@ -699,8 +699,8 @@
     //   "textVerbosity": "low",
     //   "description": "Provides Grafana API access for example-dev",
     //   "prompt": "Use grafana-example-dev-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
-    //   "tools": {
-    //     "grafana-example-dev-mcp-server*": true
+    //   "permission": {
+    //     "grafana-example-dev-mcp-server*": "allow"
     //   }
     // }
   }
