@@ -33,6 +33,7 @@
     },
     "bash": {
       "*": "ask",
+      "rm *": "deny", // NOTE: use trash command
       "* --help": "allow",
       "* --version": "allow",
       "man *": "allow",
