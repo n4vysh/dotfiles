@@ -5,7 +5,7 @@ model: openai/gpt-5.4-mini
 reasoningEffort: low
 textVerbosity: low
 permission:
-    aws-knowledge-mcp-server*: allow
+    mcp_server.aws_knowledge.*: allow
 ---
 
-Use `aws-knowledge-mcp-server*` tools
+Use `mcp_server.aws_knowledge.*` tools

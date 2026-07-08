@@ -5,7 +5,7 @@ model: openai/gpt-5.4-mini
 reasoningEffort: low
 textVerbosity: low
 permission:
-    mdn-mcp-server*: allow
+    mcp_server.mdn.*: allow
 ---
 
-Use `mdn-mcp-server*` tools. Provide reliable, up-to-date web platform documentation and browser compatibility data from MDN Web Docs.
+Use `mcp_server.mdn.*` tools. Provide reliable, up-to-date web platform documentation and browser compatibility data from MDN Web Docs.

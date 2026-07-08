@@ -5,7 +5,7 @@ model: openai/gpt-5.4-mini
 reasoningEffort: low
 textVerbosity: low
 permission:
-    context7-mcp-server*: allow
+    mcp_server.context7.*: allow
 ---
 
-Use `context7-mcp-server*` tools
+Use `mcp_server.context7.*` tools

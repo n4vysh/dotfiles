@@ -5,7 +5,7 @@ model: openai/gpt-5.4-mini
 reasoningEffort: low
 textVerbosity: low
 permission:
-    kubernetes-kind-sandbox-mcp-server*: allow
+    mcp_server.kubernetes.kind_sandbox.*: allow
 ---
 
-Use `kubernetes-kind-sandbox-mcp-server*` tools. If unavailable, report that MCP server must be enabled before proceeding.
+Use `mcp_server.kubernetes.kind_sandbox.*` tools. If unavailable, report that MCP server must be enabled before proceeding.

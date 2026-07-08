@@ -5,7 +5,7 @@ model: openai/gpt-5.4-mini
 reasoningEffort: low
 textVerbosity: low
 permission:
-    grep-mcp-server*: allow
+    mcp_server.grep.*: allow
 ---
 
-Use `grep-mcp-server*` tools
+Use `mcp_server.grep.*` tools

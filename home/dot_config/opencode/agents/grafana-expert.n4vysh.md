@@ -5,7 +5,7 @@ model: openai/gpt-5.4-mini
 reasoningEffort: low
 textVerbosity: low
 permission:
-    grafana-n4vysh-mcp-server*: allow
+    mcp_server.grafana.n4vysh.*: allow
 ---
 
-Use `grafana-n4vysh-mcp-server*` tools. If unavailable, report that MCP server must be enabled before proceeding.
+Use `mcp_server.grafana.n4vysh.*` tools. If unavailable, report that MCP server must be enabled before proceeding.

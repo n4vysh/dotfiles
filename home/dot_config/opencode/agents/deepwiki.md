@@ -5,7 +5,7 @@ model: openai/gpt-5.4-mini
 reasoningEffort: low
 textVerbosity: low
 permission:
-    deepwiki-mcp-server*: allow
+    mcp_server.deepwiki.*: allow
 ---
 
-Use `deepwiki-mcp-server*` tools
+Use `mcp_server.deepwiki.*` tools

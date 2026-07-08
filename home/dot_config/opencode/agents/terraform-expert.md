@@ -5,7 +5,7 @@ model: openai/gpt-5.4-mini
 reasoningEffort: low
 textVerbosity: low
 permission:
-    terraform-mcp-server*: allow
+    mcp_server.terraform.*: allow
 ---
 
-Use `terraform-mcp-server*` tools
+Use `mcp_server.terraform.*` tools

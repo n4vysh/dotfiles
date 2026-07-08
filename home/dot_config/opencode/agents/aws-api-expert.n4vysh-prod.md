@@ -5,7 +5,7 @@ model: openai/gpt-5.4-mini
 reasoningEffort: low
 textVerbosity: low
 permission:
-    aws-n4vysh-prod-mcp-server*: allow
+    mcp_server.aws.n4vysh_prod.*: allow
 ---
 
-Use `aws-n4vysh-prod-mcp-server*` tools. If unavailable, report that MCP server must be enabled before proceeding.
+Use `mcp_server.aws.n4vysh_prod.*` tools. If unavailable, report that MCP server must be enabled before proceeding.

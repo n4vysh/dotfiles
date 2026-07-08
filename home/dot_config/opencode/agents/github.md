@@ -5,7 +5,7 @@ model: openai/gpt-5.4-mini
 reasoningEffort: low
 textVerbosity: low
 permission:
-    github-mcp-server*: allow
+    mcp_server.github.*: allow
 ---
 
-Use `github-mcp-server*` tools
+Use `mcp_server.github.*` tools
