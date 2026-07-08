@@ -27,7 +27,6 @@
     "@devtheops/opencode-plugin-otel@1.2.0"
   ],
   "permission": {
-    "edit": "ask",
     "external_directory": {
       "~/Workspaces/localhost/tmp/opencode/**": "allow"
     },
