@@ -157,6 +157,7 @@
       "kubectl get *": "allow",
       "kubectl describe *": "allow",
       "kubectl rollout history *": "allow",
+      "helm list *": "allow",
       "helm show *": "allow",
       "helm template *": "allow",
       "helmfile template": "allow",
