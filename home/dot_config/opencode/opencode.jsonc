@@ -459,50 +459,6 @@
         "GRAFANA_URL": "https://n4vysh.grafana.net"
       }
     }
-    // "aws-example-dev-mcp-server": {
-    //   "enabled": false,
-    //   "type": "local",
-    //   "command": [
-    //     "mcp-proxy-for-aws",
-    //     "https://aws-mcp.us-east-1.api.aws/mcp",
-    //     "--disable-telemetry"
-    //   ],
-    //   "environment": {
-    //     "AWS_PROFILE": "example-dev",
-    //     "AWS_REGION": "ap-northeast-1"
-    //   }
-    // },
-    // "kubernetes-example-dev-mcp-server": {
-    //   "enabled": false,
-    //   "type": "local",
-    //   "command": [
-    //     "kubernetes-mcp-server",
-    //     "--read-only"
-    //   ],
-    //   "environment": {
-    //     "KUBECONFIG": "{env:HOME}/.kube/configs/example-dev"
-    //   }
-    // },
-    // // ```sh
-    // // gopass insert envs/mcp-grafana/example-dev/GRAFANA_SERVICE_ACCOUNT_TOKEN
-    // // ```
-    // "grafana-example-dev-mcp-server": {
-    //   "enabled": false,
-    //   "type": "local",
-    //   "command": [
-    //     "gopass",
-    //     "env",
-    //     "envs/mcp-grafana/example-dev",
-    //     "mcp-grafana",
-    //     "--disable-write",
-    //     "-t",
-    //     "stdio"
-    //   ],
-    //   "environment": {
-    //     "GRAFANA_ORG_ID": "0",
-    //     "GRAFANA_URL": "https://example.com"
-    //   }
-    // },
   },
   "tools": {
     "aws-knowledge-mcp-server*": false,
@@ -520,9 +476,6 @@
     "aws-n4vysh-common-mcp-server*": false,
     "kubernetes-kind-sandbox-mcp-server*": false,
     "grafana-n4vysh-mcp-server*": false
-    // "aws-example-dev-mcp-server*": false,
-    // "kubernetes-example-dev-mcp-server*": false,
-    // "grafana-example-dev-mcp-server*": false
   },
   "agent": {
     "aws-docs-expert": {
@@ -690,38 +643,5 @@
         "grafana-n4vysh-mcp-server*": "allow"
       }
     }
-    // "aws-api-expert:example-dev": {
-    //   "mode": "subagent",
-    //   "model": "openai/gpt-5.4-mini",
-    //   "reasoningEffort": "low",
-    //   "textVerbosity": "low",
-    //   "description": "Provides AWS API access for example-dev",
-    //   "prompt": "Use aws-example-dev-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
-    //   "permission": {
-    //     "aws-example-dev-mcp-server*": "allow"
-    //   }
-    // },
-    // "kubernetes-expert:example-dev": {
-    //   "mode": "subagent",
-    //   "model": "openai/gpt-5.4-mini",
-    //   "reasoningEffort": "low",
-    //   "textVerbosity": "low",
-    //   "description": "Provides Kubernetes API access for example-dev",
-    //   "prompt": "Use kubernetes-example-dev-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
-    //   "permission": {
-    //     "kubernetes-example-dev-mcp-server*": "allow"
-    //   }
-    // },
-    // "grafana-expert:example-dev": {
-    //   "mode": "subagent",
-    //   "model": "openai/gpt-5.4-mini",
-    //   "reasoningEffort": "low",
-    //   "textVerbosity": "low",
-    //   "description": "Provides Grafana API access for example-dev",
-    //   "prompt": "Use grafana-example-dev-mcp-server* tools. If unavailable, report that MCP server must be enabled before proceeding.",
-    //   "permission": {
-    //     "grafana-example-dev-mcp-server*": "allow"
-    //   }
-    // }
   }
 }
