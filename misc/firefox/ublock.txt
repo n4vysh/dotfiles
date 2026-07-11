@@ -1,6 +1,6 @@
 {
-  "timeStamp": 1716690368629,
-  "version": "1.58.0",
+  "timeStamp": 1783750611469,
+  "version": "1.72.0",
   "userSettings": {
     "externalLists": "https://filters.adtidy.org/extension/ublock/filters/7_optimized.txt\nhttps://raw.githubusercontent.com/quenhus/uBlock-Origin-dev-filter/main/dist/duckduckgo/global.txt",
     "importedLists": [
@@ -18,6 +18,7 @@
     "ublock-unbreak",
     "easylist",
     "easyprivacy",
+    "adguard-spyware-url",
     "urlhaus-1",
     "plowe-0",
     "fanboy-cookiemonster",
@@ -58,5 +59,5 @@
   "dynamicFilteringString": "behind-the-scene * * noop\nbehind-the-scene * inline-script noop\nbehind-the-scene * 1p-script noop\nbehind-the-scene * 3p-script noop\nbehind-the-scene * 3p-frame noop\nbehind-the-scene * image noop\nbehind-the-scene * 3p noop",
   "urlFilteringString": "",
   "hostnameSwitchesString": "no-large-media: behind-the-scene false\nno-csp-reports: * true",
-  "userFilters": "! 2024-02-09 https://duckduckgo.com\nduckduckgo.com##.footer\nduckduckgo.com##.js-feedback-btn-wrap\nduckduckgo.com##.js-hl-button.header__clickable\n\n! May 26, 2024 https://duckduckgo.com\nduckduckgo.com##.js-text-promo.header--text_promo.text_promo"
+  "userFilters": "! https://duckduckgo.com\nduckduckgo.com##.footer\nduckduckgo.com##.js-feedback-btn-wrap\nduckduckgo.com##.js-hl-button.header__clickable\nduckduckgo.com##.q_wRJwz5akFF3htUlg2g > .d26Geqs1C__RaCO7MUs2.wZ4JdaHxSAhGy1HoNVja\nduckduckgo.com##.js-text-promo.header--text_promo.text_promo\n\n! https://m.youtube.com\nm.youtube.com##.full-bleed-wn-thumbs.watch-content > .single-column-watch-next-modern-panels.scwnr-content\nm.youtube.com##button-view-model.slim_video_action_bar_renderer_button.ytSpecButtonViewModelHost > .ytSpecButtonShapeNextIconLeading.ytSpecButtonShapeNextSizeM.ytSpecButtonShapeNextMono.ytSpecButtonShapeNextTonal.ytSpecButtonShapeNextHost > .ytSpecTouchFeedbackShapeTouchResponse.ytSpecTouchFeedbackShapeHost > .ytSpecTouchFeedbackShapeFill\nm.youtube.com##button-view-model.slim_video_action_bar_renderer_button.ytSpecButtonViewModelHost > .ytSpecButtonShapeNextIconLeading.ytSpecButtonShapeNextSizeM.ytSpecButtonShapeNextMono.ytSpecButtonShapeNextTonal.ytSpecButtonShapeNextHost > .ytSpecTouchFeedbackShapeTouchResponse.ytSpecTouchFeedbackShapeHost > .ytSpecTouchFeedbackShapeStroke\nm.youtube.com##button-view-model.slim_video_action_bar_renderer_button.ytSpecButtonViewModelHost > .ytSpecButtonShapeNextIconLeading.ytSpecButtonShapeNextSizeM.ytSpecButtonShapeNextMono.ytSpecButtonShapeNextTonal.ytSpecButtonShapeNextHost\nm.youtube.com##.ytSpecButtonShapeNextIconLeading.ytSpecButtonShapeNextSizeM.ytSpecButtonShapeNextOverlay.ytSpecButtonShapeNextOutline.ytSpecButtonShapeNextHost > .ytSpecTouchFeedbackShapeOverlayTouchResponse.ytSpecTouchFeedbackShapeHost > .ytSpecTouchFeedbackShapeFill\nm.youtube.com##.ytSpecButtonShapeNextIconLeading.ytSpecButtonShapeNextSizeM.ytSpecButtonShapeNextOverlay.ytSpecButtonShapeNextOutline.ytSpecButtonShapeNextHost > .ytSpecTouchFeedbackShapeOverlayTouchResponse.ytSpecTouchFeedbackShapeHost > .ytSpecTouchFeedbackShapeStroke\nm.youtube.com##.mobile-topbar-header-sign-in-button\n\n! https://b.hatena.ne.jp\nb.hatena.ne.jp##.entry-comment.js-bookmarks-sort-tabs-group\nb.hatena.ne.jp##.js-dynamic-link-app-banner.link-app-banner\nb.hatena.ne.jp##.gh-service-menu\nb.hatena.ne.jp##li:has-text(anond.hatelabo.jp)\nb.hatena.ne.jp##li:has-text(togetter.com)\nb.hatena.ne.jp##li:has-text(posfie.com)"
 }

@@ -50,10 +50,6 @@ trim_trailing_whitespace = false
 [misc/wsl/remap.skl]
 insert_final_newline = false
 
-[misc/firefox/canvas-blocker.json]
-indent_style = tab
-insert_final_newline = false
-
 [misc/firefox/ublock.txt]
 insert_final_newline = false
 

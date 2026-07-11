@@ -18,7 +18,6 @@ repos:
             home/dot_config/opencode/package.json|
             home/dot_config/mozilla/firefox/installs.ini|
             home/dot_config/mozilla/firefox/profiles.ini|
-            misc/firefox/canvas-blocker.json|
             misc/firefox/ublock.txt|
             misc/firefox/libredirect.json|
             misc/firefox/zero_omega.bak|
