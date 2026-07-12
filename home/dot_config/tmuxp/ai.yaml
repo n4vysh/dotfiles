@@ -1,61 +1,70 @@
 session_name: ai
 suppress_history: true
 start_directory: $HOME
+workspace_builder_options:
+  pane_readiness: always
 windows:
   - layout: tiled
     panes:
-      # NOTE: run following commands
-      #       ```sh
-      #       pwgen -c -n -y -B -1 20 1
-      #       gopass insert envs/litellm/POSTGRES_PASSWORD
-      #       ```
-      - |
-        gopass env envs/litellm \
-          docker run \
-            -it \
-            --rm \
-            -p 54320:5432 \
-            -e POSTGRES_DB=litellm \
-            -e POSTGRES_USER=llmproxy \
-            -e POSTGRES_PASSWORD \
-            -v litellm-postgres:/var/lib/postgresql/data \
-            --name litellm-db \
-            postgres:16.13-alpine3.23
-      # NOTE: run following commands
-      #       ```sh
-      #       gopass insert envs/litellm/DATABASE_URL
-      #       echo "sk-$(pwgen -c -n -y -B -1 20 1)" |
-      #         gopass insert envs/litellm/LITELLM_MASTER_KEY
-      #       ```
-      # yamllint disable rule:line-length
-      - |
-        cat <<EOF >|~/.cache/litellm_config.yaml
-        litellm_settings:
-          drop_params: True
-        model_list:
-          - model_name: &model chatgpt/gpt-5.6-luna
-            model_info:
-              mode: responses
-            litellm_params:
-              model: *model
-              reasoning_effort:
-                effort: low
-              verbosity: low
-              additional_drop_params:
-                # for git-czg
-                # https://github.com/BerriAI/litellm/issues/15070
-                - top_p
-        EOF
-
-        # use prisma and prisma-client-py in PATH
-        PATH="$(mise where pipx:litellm)/litellm/bin:$PATH" \
-          prisma generate \
-          --schema "$(mise where pipx:litellm)"/litellm/lib/python*/site-packages/litellm/proxy/schema.prisma
-
-        gopass env envs/litellm \
-          env \
-          STORE_MODEL_IN_DB=True \
-          LITELLM_DROP_PARAMS=true \
-          LITELLM_MODIFY_PARAMS=true \
-          litellm --config ~/.cache/litellm_config.yaml
-      # yamllint enable rule:line-length
+      - shell_command:
+          # NOTE: run following commands
+          #       ```sh
+          #       pwgen -c -n -y -B -1 20 1
+          #       gopass insert envs/litellm/POSTGRES_PASSWORD
+          #       ```
+          - cmd: |
+              gopass env envs/litellm \
+                docker run \
+                  -it \
+                  --rm \
+                  -p 54320:5432 \
+                  -e POSTGRES_DB=litellm \
+                  -e POSTGRES_USER=llmproxy \
+                  -e POSTGRES_PASSWORD \
+                  -v litellm-postgres:/var/lib/postgresql/data \
+                  --name litellm-db \
+                  postgres:16.13-alpine3.23
+      - shell_command:
+          - cmd: mkdir -p "$XDG_CACHE_HOME/litellm"
+          - cmd: |
+              cat <<EOF >|"$XDG_CACHE_HOME/litellm/config.yaml"
+              litellm_settings:
+                drop_params: True
+              model_list:
+                - model_name: &model chatgpt/gpt-5.6-luna
+                  model_info:
+                    mode: responses
+                  litellm_params:
+                    model: *model
+                    reasoning_effort:
+                      effort: low
+                    verbosity: low
+                    additional_drop_params:
+                      # for git-czg
+                      # https://github.com/BerriAI/litellm/issues/15070
+                      - top_p
+              EOF
+          # yamllint disable rule:line-length
+          - cmd: |
+              sed \
+                "s|provider = \"prisma-client-py\"|provider = \"$(mise where pipx:litellm)/litellm/bin/prisma-client-py\"|" \
+                "$(mise where pipx:litellm)"/litellm/lib/python*/site-packages/litellm/proxy/schema.prisma \
+                >|"$XDG_CACHE_HOME/litellm/schema.prisma"
+          # yamllint enable rule:line-length
+          - cmd: |
+              PATH="$(mise where pipx:litellm)/litellm/bin:$PATH" \
+                prisma generate --schema "$XDG_CACHE_HOME/litellm/schema.prisma"
+          # NOTE: run following commands
+          #       ```sh
+          #       gopass insert envs/litellm/DATABASE_URL
+          #       echo "sk-$(pwgen -c -n -y -B -1 20 1)" |
+          #         gopass insert envs/litellm/LITELLM_MASTER_KEY
+          #       ```
+          - cmd: |
+              gopass env envs/litellm \
+                env \
+                STORE_MODEL_IN_DB=True \
+                LITELLM_DROP_PARAMS=true \
+                LITELLM_MODIFY_PARAMS=true \
+                PATH="$(mise where pipx:litellm)/litellm/bin:$PATH" \
+                  litellm --config "$XDG_CACHE_HOME/litellm/config.yaml"
