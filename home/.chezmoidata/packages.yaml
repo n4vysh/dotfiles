@@ -186,12 +186,12 @@ packages:
       - blackarch/smbmap
       - blackarch/smtp-user-enum
       - blackarch/ssrfmap
-      - blackarch/steghide
       - blackarch/stegseek
       - blackarch/subfinder
       - blackarch/wapiti
       - blackarch/webshells
       - blackarch/wordlistctl
+      - chaotic-aur/steghide
       - extra/arch-audit
       - extra/binwalk
       - extra/exploitdb
