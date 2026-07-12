@@ -231,6 +231,7 @@ recommended:
 - Do not reject output only because it is shorter than usual.
 - Do not reject output only because its format is different.
 - If exact raw output is required, rerun with `RTK_DISABLED=1`.
+- On failure, rtk saves unfiltered output and reports a path you can read.
 
 ### Command Execution
 

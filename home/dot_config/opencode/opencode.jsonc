@@ -29,7 +29,8 @@
   ],
   "permission": {
     "external_directory": {
-      "~/Workspaces/localhost/tmp/opencode/**": "allow"
+      "~/Workspaces/localhost/tmp/opencode/**": "allow",
+      "~/.local/share/rtk/tee/**": "allow"
     },
     "bash": {
       "*": "ask",
