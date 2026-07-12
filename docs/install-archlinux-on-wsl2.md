@@ -8,7 +8,7 @@ Probably work following setup.
 - Window Manager: [GlazeWM][glazewm-link]
 - Terminal Emulator: [WezTerm][wezterm-link]
 
-[package list](./home/.chezmoidata/packages.yaml)
+[package list](../home/.chezmoidata/packages.yaml)
 
 [glazewm-link]: https://github.com/glzr-io/glazewm
 [wezterm-link]: https://wezterm.org/

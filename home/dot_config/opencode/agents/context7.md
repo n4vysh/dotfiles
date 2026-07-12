@@ -9,3 +9,5 @@ permission:
 ---
 
 Use `mcp_server.context7.*` tools
+
+<!-- rumdl-disable-file MD041 -->

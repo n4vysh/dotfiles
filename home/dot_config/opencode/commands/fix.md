@@ -7,4 +7,4 @@ Analyze the following error message and suggest how to fix it:
 
 $ARGUMENTS
 
-<!-- markdownlint-disable-file MD041 -->
+<!-- rumdl-disable-file MD041 -->

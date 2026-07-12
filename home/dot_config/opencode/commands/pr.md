@@ -73,4 +73,4 @@ gh pr create --title "<title>" --body "<body>"
 
 After creation, show the pull request URL.
 
-<!-- markdownlint-disable-file MD041 -->
+<!-- rumdl-disable-file MD041 -->

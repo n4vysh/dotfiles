@@ -39,9 +39,9 @@ jobs:
           pacman -S --noconfirm \
             pre-commit \
             prettier \
+            rumdl \
             yamlfmt \
             yamllint \
-            markdownlint-cli2 \
             shellcheck \
             zsh \
             selene \

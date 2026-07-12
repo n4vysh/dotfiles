@@ -190,7 +190,7 @@
       "terraform-docs *": "allow",
       "tflint": "allow",
       "tflint *": "allow",
-      "markdownlint-cli2 *": "allow",
+      "rumdl *": "allow",
       "gh auth status": "allow",
       "gh auth status *": "allow",
       "gh auth status *--show-token*": "deny",
@@ -304,10 +304,8 @@
   },
   "lsp": true,
   "formatter": {
-    // NOTE: run prettier even without package.json
-    //       https://github.com/anomalyco/opencode/blob/v1.14.46/packages/opencode/src/format/formatter.ts#L37-L84
-    "prettier-markdown": {
-      "command": ["prettier", "--tab-width", "4", "--write", "$FILE"],
+    "rumdl-markdown": {
+      "command": ["rumdl", "fmt", "$FILE"],
       "extensions": [".md"]
     },
     // NOTE: run prettier even without package.json

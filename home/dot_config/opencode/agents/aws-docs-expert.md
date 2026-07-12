@@ -9,3 +9,5 @@ permission:
 ---
 
 Use `mcp_server.aws_knowledge.*` tools
+
+<!-- rumdl-disable-file MD041 -->

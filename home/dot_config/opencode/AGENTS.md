@@ -107,8 +107,15 @@
 - Do not generalize that prohibition to other expressions with similar shapes.
 - If a prohibited form appears, rewrite the sentence.
 - Do not leave the comma in place.
-- Expressions such as `ため、`, `ので、`, `が、`, and `けれど、` are allowed.
-- Expressions such as `ではなく、`, `一方、`, `ただし、`, and `また、` are also allowed.
+    - The following forms are allowed:
+        - `ため、`
+        - `ので、`
+        - `が、`
+        - `けれど、`
+        - `ではなく、`
+        - `一方、`
+        - `ただし、`
+        - `また、`
 - Keep `、` if removing it makes the sentence harder to parse.
 - Keep `、` if removing it delays disambiguation.
 - Keep `、` if removing it blurs the clause boundary.

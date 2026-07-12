@@ -72,4 +72,4 @@ glab mr create --title "<title>" --description "<description>"
 
 After creation, show the merge request URL.
 
-<!-- markdownlint-disable-file MD041 -->
+<!-- rumdl-disable-file MD041 -->

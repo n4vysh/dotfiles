@@ -9,3 +9,5 @@ permission:
 ---
 
 Use `mcp_server.github.*` tools
+
+<!-- rumdl-disable-file MD041 -->

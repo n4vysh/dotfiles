@@ -8,4 +8,7 @@ permission:
     mcp_server.aws.*: allow
 ---
 
-Use `mcp_server.aws.*` tools. If unavailable, report that MCP server must be enabled before proceeding.
+Use `mcp_server.aws.*` tools.
+If unavailable, report that MCP server must be enabled before proceeding.
+
+<!-- rumdl-disable-file MD041 -->

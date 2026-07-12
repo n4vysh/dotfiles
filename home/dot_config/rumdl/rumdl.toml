@@ -1,0 +1,12 @@
+[global]
+disable = [
+  "MD034", # GitHub Flavored Markdown (GFM) allows bare URLs
+]
+exclude = ["home/dot_agents/skills/**"]
+
+[MD007]
+indent = 4 # for parser compatibility
+
+[MD024]
+# allow duplication with different parent headings like changelogs
+siblings-only = true

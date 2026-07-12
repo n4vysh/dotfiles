@@ -9,3 +9,5 @@ permission:
 ---
 
 Use `mcp_server.deepwiki.*` tools
+
+<!-- rumdl-disable-file MD041 -->

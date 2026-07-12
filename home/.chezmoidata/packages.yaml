@@ -313,8 +313,8 @@ packages:
       - extra/actionlint
       - extra/eslint
       - extra/gofumpt
-      - extra/markdownlint-cli2
       - extra/prettier
+      - extra/rumdl
       - extra/selene
       - extra/shellcheck
       - extra/shellharden

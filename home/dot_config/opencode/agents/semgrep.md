@@ -8,4 +8,8 @@ permission:
     mcp_server.semgrep.*: allow
 ---
 
-Use `mcp_server.semgrep.*` tools. Run semgrep security analysis and report findings with file paths, severity, and remediation guidance.
+Use `mcp_server.semgrep.*` tools.
+Run semgrep security analysis and report findings with file paths, severity,
+and remediation guidance.
+
+<!-- rumdl-disable-file MD041 -->

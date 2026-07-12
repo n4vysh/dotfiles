@@ -495,6 +495,7 @@ return {
 					"marksman",
 					"ruff",
 					"regols",
+					"rumdl",
 					"systemd_lsp",
 					"tailwindcss",
 					"taplo",
@@ -571,15 +572,11 @@ return {
 					null_ls.builtins.formatting.shfmt,
 					null_ls.builtins.formatting.prettier.with({
 						disabled_filetypes = {
+							"markdown", -- use rumdl
 							"yaml", -- use yamlfmt
 						},
 						extra_args = function(params)
-							if params.filetype == "markdown" then
-								return {
-									"--tab-width",
-									"4",
-								}
-							elseif params.filetype == "jsonc" then
+							if params.filetype == "jsonc" then
 								--- NOTE: jsonc not support trailing commas
 								--- https://jsonc.org/trailingcommas.html
 								return {
@@ -602,7 +599,6 @@ return {
 					null_ls.builtins.diagnostics.sqlfluff.with({
 						extra_args = { "--dialect", "postgres" },
 					}),
-					null_ls.builtins.diagnostics.markdownlint_cli2,
 					null_ls.builtins.diagnostics.stylelint,
 					null_ls.builtins.diagnostics.yamllint,
 					null_ls.builtins.diagnostics.selene,

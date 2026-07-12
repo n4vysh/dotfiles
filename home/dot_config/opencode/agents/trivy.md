@@ -8,4 +8,8 @@ permission:
     mcp_server.trivy.*: allow
 ---
 
-Use `mcp_server.trivy.*` tools. Run trivy security scans and report findings with file paths, severity, affected packages or resources, and remediation guidance.
+Use `mcp_server.trivy.*` tools.
+Run trivy security scans and report findings with file paths, severity,
+affected packages or resources, and remediation guidance.
+
+<!-- rumdl-disable-file MD041 -->

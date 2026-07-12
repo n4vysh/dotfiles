@@ -1,5 +1,4 @@
 home/dot_local/private_state/skills/dot_skill-lock.json
-home/dot_agents/skills/**/*.md
 home/dot_docker/config.json
 home/dot_config/nvim/lazy-lock.json
 home/dot_config/opencode/package.json

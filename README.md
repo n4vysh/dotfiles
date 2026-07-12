@@ -237,7 +237,7 @@ Run `pre-commit run -a` to lint and format the source code with
 | JSON files           | [prettier][prettier-link]                                                             |
 | YAML files           | [yamlfmt][yamlfmt-link] / [yamllint][yamllint-link]                                   |
 | TOML files           | [taplo][taplo-link]                                                                   |
-| Markdown files       | [prettier][prettier-link] / [markdownlint-cli2][markdownlint-cli2-link]               |
+| Markdown files       | [rumdl][rumdl-link]                                                                   |
 | shell scripts        | [shfmt][shfmt-link] / [shellharden][shellharden-link] / [shellcheck][shellcheck-link] |
 | zsh files            | `zsh --no-exec`                                                                       |
 | hyprland config file | `hyprctl configerrors`                                                                |
@@ -251,7 +251,7 @@ Run `pre-commit run -a` to lint and format the source code with
 [yamlfmt-link]: https://github.com/google/yamlfmt
 [yamllint-link]: https://github.com/adrienverge/yamllint
 [taplo-link]: https://taplo.tamasfe.dev/
-[markdownlint-cli2-link]: https://github.com/DavidAnson/markdownlint-cli2
+[rumdl-link]: https://github.com/rvben/rumdl
 [shfmt-link]: https://github.com/mvdan/sh
 [shellharden-link]: https://github.com/anordal/shellharden
 [shellcheck-link]: https://www.shellcheck.net/
@@ -498,7 +498,7 @@ See the [UNLICENSE](./UNLICENSE) file for details.
 
 [unlicense-link]: https://choosealicense.com/licenses/unlicense/
 
-<!-- markdownlint-configure-file
+<!-- rumdl-configure-file
 {
     "MD013": { "tables": false }
 }

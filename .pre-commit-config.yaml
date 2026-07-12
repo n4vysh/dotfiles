@@ -79,15 +79,15 @@ repos:
         entry: taplo lint
         types: [toml]
       # Markdown files
-      - id: prettier-markdown
-        name: format markdown files with prettier
+      - id: rumdl-format
+        name: format markdown files with rumdl
         language: system
-        entry: prettier --write --list-different --ignore-unknown --tab-width 4
-        types_or: [markdown]
-      - id: markdownlint-cli2
-        name: check markdown files with markdownlint-cli2
+        entry: rumdl fmt
+        types: [markdown]
+      - id: rumdl-check
+        name: check markdown files with rumdl
         language: system
-        entry: markdownlint-cli2
+        entry: rumdl check
         types: [markdown]
       # shell scripts
       - id: shfmt
