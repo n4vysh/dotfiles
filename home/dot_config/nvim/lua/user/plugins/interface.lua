@@ -534,7 +534,7 @@ return {
 				local line_start = vim.fn.line("v")
 				local line_end = vim.fn.line(".")
 				if
-					mode:match("")
+					mode:match("\22")
 					or mode:match("V")
 					or line_start ~= line_end
 				then

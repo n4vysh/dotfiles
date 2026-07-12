@@ -48,7 +48,11 @@ indent_size = unset
 trim_trailing_whitespace = false
 
 [misc/wsl/remap.skl]
+charset = binary
 insert_final_newline = false
+
+[home/dot_config/yasb/*]
+end_of_line = crlf
 
 [misc/firefox/ublock.txt]
 insert_final_newline = false

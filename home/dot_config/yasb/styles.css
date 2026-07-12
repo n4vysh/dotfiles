@@ -50,7 +50,7 @@
 .yasb-bar {
   background-color: var(--yasb-bar-bg);
   border-bottom: 1px solid var(--yasb-bar-border);
-  padding: 0px 12px
+  padding: 0px 12px;
 }
 
 /* Tooltip */
@@ -101,7 +101,7 @@
 .context-menu::item:selected,
 .context-menu .menu-checkbox:hover {
   background-color: var(--yasb-white-alpha-10);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .context-menu::separator {
@@ -160,7 +160,7 @@
   padding: 0px 6px;
   margin: 4px 0;
   border-radius: 4px;
-  transition: background-color 0.1s
+  transition: background-color 0.1s;
 }
 
 .widget .icon {
@@ -182,8 +182,8 @@
 }
 
 /*
-   NOTE: use JetBrainsMono NFP when home icon
-   https://github.com/amnweb/yasb/issues/66#issuecomment-2474227974
+  NOTE: use JetBrainsMono NFP when home icon
+        https://github.com/amnweb/yasb/issues/66#issuecomment-2474227974
  */
 .home-widget .icon {
   font-family: var(--icons-font-fallback);
@@ -213,13 +213,13 @@
 /* Bluetooth */
 .bluetooth-widget .icon {
   /*
-     NOTE: use JetBrainsMono NFP when bluetooth icon
-     https://github.com/amnweb/yasb/issues/66#issuecomment-2474227974
+    NOTE: use JetBrainsMono NFP when bluetooth icon
+          https://github.com/amnweb/yasb/issues/66#issuecomment-2474227974
    */
   font-family: var(--icons-font-fallback);
 
   /*
-     NOTE: tweak font size
+    NOTE: tweak font size
    */
   font-size: 16px;
 }
@@ -227,8 +227,8 @@
 /* Battery */
 .battery-widget .icon {
   /*
-     NOTE: use JetBrainsMono NFP when battery icon
-     https://github.com/amnweb/yasb/issues/66#issuecomment-2474227974
+    NOTE: use JetBrainsMono NFP when battery icon
+          https://github.com/amnweb/yasb/issues/66#issuecomment-2474227974
    */
   font-family: var(--icons-font-fallback);
 }
@@ -241,7 +241,7 @@
 
 .clock-widget .label {
   /*
-     NOTE: tweak font size
+    NOTE: tweak font size
    */
   font-size: 16px;
 }
@@ -309,7 +309,7 @@
 .clock-popup.timer .clock-popup-footer,
 .clock-popup.alarm .clock-popup-footer {
   padding: 16px;
-  background-color: var(--yasb-dialog-surface)
+  background-color: var(--yasb-dialog-surface);
 }
 
 .clock-popup .clock-label-timer {
@@ -357,7 +357,7 @@
 
 .clock-popup .button.save:hover,
 .clock-popup .button.start:hover {
-  background-color: var(--yasb-accent-hover)
+  background-color: var(--yasb-accent-hover);
 }
 
 .clock-popup .button.is-alarm-enabled {
@@ -648,8 +648,8 @@
   padding: 0px 5px;
   outline: none;
   /*
-     NOTE: use JetBrainsMono NFP when glazewm workspaces icon
-     https://github.com/amnweb/yasb/issues/66#issuecomment-2474227974
+    NOTE: use JetBrainsMono NFP when glazewm workspaces icon
+          https://github.com/amnweb/yasb/issues/66#issuecomment-2474227974
    */
   font-family: var(--icons-font-fallback);
   font-size: 17px;

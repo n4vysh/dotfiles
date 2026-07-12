@@ -54,7 +54,7 @@ lazy.setup({
 				"tohtml",
 				"tutor",
 				"zipPlugin",
-				-- NOTE: preffer yazi.nvim to netrw
+				-- NOTE: prefer yazi.nvim to netrw
 				-- https://github.com/mikavilpas/yazi.nvim/issues/802
 				"netrwPlugin",
 			},
