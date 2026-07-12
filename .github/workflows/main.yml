@@ -53,7 +53,7 @@ jobs:
             shfmt \
             git
       - uses: actions/checkout@main
-      - name: Set safe directory for submodule clone
+      - name: Set safe directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Run pre-commit
         run: SKIP=hyprland,bats pre-commit run -a
@@ -71,5 +71,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Set safe directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Validate current commit (last commit)
         run: cog check HEAD~1..HEAD
