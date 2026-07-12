@@ -64,12 +64,12 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - name: Generate keyring and download database file
         run: pacman-key --init && pacman -Sy
       - name: Install cocogitto command
         run: pacman -S --noconfirm git cocogitto
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Validate current commit (last commit)
         run: cog check HEAD~1..HEAD

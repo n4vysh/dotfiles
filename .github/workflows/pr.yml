@@ -8,13 +8,13 @@ jobs:
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - name: Generate keyring and download database file
         run: pacman-key --init && pacman -Sy
       - name: Install cocogitto command
         run: pacman -S --noconfirm git cocogitto
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Validate PR commits
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
