@@ -1,7 +1,7 @@
 ---
 description: Converts files, URLs, and data URIs to Markdown using MarkItDown
 mode: subagent
-model: openai/gpt-5.4-mini
+model: openai/gpt-5.6-luna
 reasoningEffort: low
 textVerbosity: low
 permission:

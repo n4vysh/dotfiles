@@ -1,7 +1,7 @@
 ---
 description: Provides AWS official documents for designing, building, and operating workloads
 mode: subagent
-model: openai/gpt-5.4-mini
+model: openai/gpt-5.6-luna
 reasoningEffort: low
 textVerbosity: low
 permission:

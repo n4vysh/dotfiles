@@ -1,7 +1,7 @@
 ---
 description: Writes and maintains project documentation
 mode: subagent
-model: openai/gpt-5.4-mini
+model: openai/gpt-5.6-luna
 reasoningEffort: low
 textVerbosity: low
 permission:
