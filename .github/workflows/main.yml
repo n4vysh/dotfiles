@@ -4,7 +4,7 @@ jobs:
   chezmoi:
     runs-on: ubuntu-26.04
     container:
-      image: archlinux:base-20260712.0.555322
+      image: archlinux:base-20260705.0.552420
     steps:
       - uses: actions/checkout@main
       - name: Generate keyring and download database file
@@ -20,7 +20,7 @@ jobs:
   pre-commit:
     runs-on: ubuntu-24.04
     container:
-      image: archlinux:base-20260712.0.555322
+      image: archlinux:base-20260705.0.552420
     steps:
       - name: Generate keyring and download database file
         run: pacman-key --init && pacman -Sy
