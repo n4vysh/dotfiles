@@ -309,23 +309,22 @@ packages:
       - extra/bats-assert
       - extra/bats-file
       - extra/bats-support
-      ## Formatter
-      - extra/gofumpt
-      - extra/prettier
-      - extra/shellharden
-      - extra/shfmt
-      - extra/stylua
-      - extra/yamlfmt
-      ## Linter
+      ## Formatter & Linter
       - extra/actionlint
       - extra/eslint
+      - extra/gofumpt
       - extra/markdownlint-cli2
+      - extra/prettier
       - extra/selene
       - extra/shellcheck
+      - extra/shellharden
+      - extra/shfmt
       - extra/sqlfluff
+      - extra/stylua
       - extra/taplo-cli
       - extra/tflint
       - extra/trivy
+      - extra/yamlfmt
       - extra/yamllint
       ## runtime / package manager
       - extra/bun
