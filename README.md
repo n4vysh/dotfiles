@@ -243,6 +243,7 @@ Run `pre-commit run -a` to lint and format the source code with
 | hyprland config file | `hyprctl configerrors`                                                                |
 | lua files            | [selene][selene-link] / [stylua][stylua-link]                                         |
 | etc files            | [bats][bats-link] / `visudo -c`                                                       |
+| commit messages      | [Cocogitto][cocogitto-link]                                                          |
 
 [pre-commit-link]: https://pre-commit.com/
 [ec-link]: https://github.com/editorconfig-checker/editorconfig-checker
@@ -257,6 +258,7 @@ Run `pre-commit run -a` to lint and format the source code with
 [shellcheck-link]: https://www.shellcheck.net/
 [selene-link]: https://github.com/Kampfkarren/selene
 [stylua-link]: https://github.com/JohnnyMorganz/StyLua
+[cocogitto-link]: https://docs.cocogitto.io/
 
 ## ⌨️ Custom keybinds
 
