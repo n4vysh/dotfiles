@@ -24,7 +24,7 @@ ls-lint = "2.3.1"
 
 # AI
 opencode = "1.17.18"
-rtk = "0.40.0"
+rtk = "0.43.0"
 "npm:skills" = "1.5.1"
 "npm:tokscale" = "2.0.22"
 "npm:agent-browser" = "0.27.0"
