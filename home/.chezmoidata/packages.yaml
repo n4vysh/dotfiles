@@ -349,6 +349,7 @@ packages:
       - extra/argocd
       - extra/helm
       - extra/helmfile
+      - extra/istio
       - extra/k9s
       - extra/krew
       - extra/kube-linter
