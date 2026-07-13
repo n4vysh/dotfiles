@@ -225,6 +225,13 @@ recommended:
 
 ## Tool Usage Policy
 
+### User Questions
+
+- When user input is required, always use the `question` tool.
+- Do not ask questions in a normal response.
+- Gather all currently known, independent questions whenever possible.
+- Ask them in a single `question` tool call.
+
 ### Command Output
 
 - shell command output may be replaced by rtk.
