@@ -5,10 +5,10 @@ model: openai/gpt-5.6-luna
 reasoningEffort: low
 textVerbosity: low
 permission:
-    mcp_server.aws.*: allow
+    mcp_server_aws_*: allow
 ---
 
-Use `mcp_server.aws.*` tools.
+Use `mcp_server_aws_*` tools.
 If unavailable, report that MCP server must be enabled before proceeding.
 
 <!-- rumdl-disable-file MD041 -->

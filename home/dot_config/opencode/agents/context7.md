@@ -5,9 +5,9 @@ model: openai/gpt-5.6-luna
 reasoningEffort: low
 textVerbosity: low
 permission:
-    mcp_server.context7.*: allow
+    mcp_server_context7: allow
 ---
 
-Use `mcp_server.context7.*` tools
+Use `mcp_server_context7` tools
 
 <!-- rumdl-disable-file MD041 -->

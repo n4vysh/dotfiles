@@ -5,9 +5,9 @@ model: openai/gpt-5.6-luna
 reasoningEffort: low
 textVerbosity: low
 permission:
-    mcp_server.aws_knowledge.*: allow
+    mcp_server_aws_knowledge: allow
 ---
 
-Use `mcp_server.aws_knowledge.*` tools
+Use `mcp_server_aws_knowledge` tools
 
 <!-- rumdl-disable-file MD041 -->

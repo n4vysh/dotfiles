@@ -5,10 +5,10 @@ model: openai/gpt-5.6-luna
 reasoningEffort: low
 textVerbosity: low
 permission:
-    mcp_server.markitdown.*: allow
+    mcp_server_markitdown: allow
 ---
 
-Use `mcp_server.markitdown.*` tools.
+Use `mcp_server_markitdown` tools.
 Convert supported file, http, https, and data URIs to Markdown.
 Be careful with untrusted URIs because MarkItDown can read local files
 and network resources accessible to the current user.

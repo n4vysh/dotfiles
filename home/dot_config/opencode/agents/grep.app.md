@@ -5,9 +5,9 @@ model: openai/gpt-5.6-luna
 reasoningEffort: low
 textVerbosity: low
 permission:
-    mcp_server.grep.*: allow
+    mcp_server_grep: allow
 ---
 
-Use `mcp_server.grep.*` tools
+Use `mcp_server_grep` tools
 
 <!-- rumdl-disable-file MD041 -->

@@ -5,10 +5,10 @@ model: openai/gpt-5.6-luna
 reasoningEffort: low
 textVerbosity: low
 permission:
-    mcp_server.mdn.*: allow
+    mcp_server_mdn: allow
 ---
 
-Use `mcp_server.mdn.*` tools.
+Use `mcp_server_mdn` tools.
 Provide reliable, up-to-date web platform documentation and browser
 compatibility data from MDN Web Docs.
 

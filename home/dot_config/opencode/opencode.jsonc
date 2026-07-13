@@ -300,7 +300,7 @@
       "command -v *": "allow",
       "which *": "allow"
     },
-    "mcp_server.*": "deny"
+    "mcp_server_*": "deny"
   },
   "lsp": true,
   "formatter": {
@@ -324,25 +324,25 @@
     }
   },
   "mcp": {
-    "mcp_server.aws_knowledge": {
+    "mcp_server_aws_knowledge": {
       "enabled": true,
       "type": "remote",
       "url": "https://knowledge-mcp.global.api.aws"
     },
-    "mcp_server.terraform": {
+    "mcp_server_terraform": {
       "enabled": true,
       "type": "local",
       "command": ["terraform-mcp-server"]
     },
     // ```sh
-    // opencode mcp auth mcp_server.context7
+    // opencode mcp auth mcp_server_context7
     // ```
-    "mcp_server.context7": {
+    "mcp_server_context7": {
       "enabled": true,
       "type": "remote",
       "url": "https://mcp.context7.com/mcp/oauth"
     },
-    "mcp_server.grep": {
+    "mcp_server_grep": {
       "enabled": true,
       "type": "remote",
       "url": "https://mcp.grep.app"
@@ -354,7 +354,7 @@
     // gh auth token |
     //   gopass insert envs/github-mcp-server/GITHUB_PERSONAL_ACCESS_TOKEN
     // ```
-    "mcp_server.github": {
+    "mcp_server_github": {
       "enabled": true,
       "type": "local",
       "command": [
@@ -366,12 +366,12 @@
         "--read-only"
       ]
     },
-    "mcp_server.deepwiki": {
+    "mcp_server_deepwiki": {
       "enabled": true,
       "type": "remote",
       "url": "https://mcp.deepwiki.com/mcp"
     },
-    "mcp_server.mdn": {
+    "mcp_server_mdn": {
       "enabled": true,
       "type": "remote",
       "url": "https://mcp.mdn.mozilla.net/",
@@ -379,22 +379,22 @@
         "X-Moz-1st-Party-Data-Opt-Out": "1"
       }
     },
-    "mcp_server.markitdown": {
+    "mcp_server_markitdown": {
       "enabled": true,
       "type": "local",
       "command": ["markitdown-mcp"]
     },
-    "mcp_server.semgrep": {
+    "mcp_server_semgrep": {
       "enabled": true,
       "type": "local",
       "command": ["semgrep", "mcp"]
     },
-    "mcp_server.trivy": {
+    "mcp_server_trivy": {
       "enabled": true,
       "type": "local",
       "command": ["trivy", "mcp"]
     },
-    "mcp_server.aws.n4vysh_stg": {
+    "mcp_server_aws_n4vysh_stg": {
       "enabled": false,
       "type": "local",
       "command": [
@@ -407,7 +407,7 @@
         "AWS_REGION": "ap-northeast-1"
       }
     },
-    "mcp_server.aws.n4vysh_prod": {
+    "mcp_server_aws_n4vysh_prod": {
       "enabled": false,
       "type": "local",
       "command": [
@@ -420,7 +420,7 @@
         "AWS_REGION": "ap-northeast-1"
       }
     },
-    "mcp_server.aws.n4vysh_common": {
+    "mcp_server_aws_n4vysh_common": {
       "enabled": false,
       "type": "local",
       "command": [
@@ -433,7 +433,7 @@
         "AWS_REGION": "ap-northeast-1"
       }
     },
-    "mcp_server.kubernetes.kind_sandbox": {
+    "mcp_server_kubernetes_kind_sandbox": {
       "enabled": false,
       "type": "local",
       "command": ["kubernetes-mcp-server", "--read-only"],
@@ -444,7 +444,7 @@
     // ```sh
     // gopass insert envs/mcp-grafana/n4vysh/GRAFANA_SERVICE_ACCOUNT_TOKEN
     // ```
-    "mcp_server.grafana.n4vysh": {
+    "mcp_server_grafana_n4vysh": {
       "enabled": false,
       "type": "local",
       "command": [
