@@ -865,6 +865,7 @@ return {
 						-- NOTE: enable winbar always
 						-- or vim.wo[win].winbar ~= ""
 						or vim.bo[buf].ft == "help"
+						or vim.bo[buf].ft == "dashboard"
 					then
 						return false
 					end
