@@ -167,8 +167,10 @@
     - Bullet points (-) for lists
     - Numbered lists when order matters
     - Code blocks for technical content
-- Keep each bullet item on one physical line; do not wrap it.
-- If a point would wrap, rewrite it or split it into multiple bullets.
+- Keep each bullet short and focused on one point.
+- Put only one instruction in each bullet.
+- Split compound or multi-sentence instructions into separate bullets.
+- Keep each bullet on one physical line.
 - Use nested bullets when the content has a real hierarchy.
 - Prefer nested bullets over flat lists when sub-points clarify structure.
 - Keep items flat when they belong to the same logical level.
