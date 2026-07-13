@@ -27,14 +27,31 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 chezmoi init n4vysh && chezmoi apply
 ```
 
-Update [conpty.dll][conpty-link] and [OpenConsole.exe][open-console-link]
-in `C:\Program Files\WezTerm`
-to ignore [WSL ConPTY limitations][wsl-conpyt-link] if WezTerm v20240203.
+Update the bundled `OpenConsole.exe` and `conpty.dll` as a matched pair
+if WezTerm v20240203.
+
+1. Close all WezTerm windows.
+2. Download `Microsoft.Windows.Console.ConPTY.1.24.260402001.nupkg` from the
+   [Microsoft Terminal v1.24.10921.0 release][conpty-release-link].
+3. Extract the downloaded NuGet package.
+4. Copy the following files into `C:\Program Files\WezTerm` with Administrator
+   permissions, replacing the bundled files.
+   - `build/native/runtimes/x64/OpenConsole.exe` to `OpenConsole.exe`
+   - `runtimes/win-x64/native/conpty.dll` to `conpty.dll`
+5. Restart WezTerm.
+
+A WezTerm upgrade can overwrite these files, so repeat the procedure when
+necessary.
+
+References:
+
+- [WezTerm Discussion #6588][wezterm-discussion-link]
+- [WezTerm Issue #7774][wezterm-issue-link]
 
 [winget-link]: https://github.com/microsoft/winget-cli
-[conpty-link]: https://github.com/wezterm/wezterm/blob/118802c24420f3f4c206333cc7885cd922142e8e/assets/windows/conhost/conpty.dll
-[open-console-link]: https://github.com/wezterm/wezterm/blob/118802c24420f3f4c206333cc7885cd922142e8e/assets/windows/conhost/OpenConsole.exe
-[wsl-conpyt-link]: https://github.com/wezterm/wezterm/discussions/6588#discussioncomment-11956378
+[conpty-release-link]: https://github.com/microsoft/terminal/releases/tag/v1.24.10921.0
+[wezterm-discussion-link]: https://github.com/wezterm/wezterm/discussions/6588#discussioncomment-11956378
+[wezterm-issue-link]: https://github.com/wezterm/wezterm/issues/7774
 
 ### ⌨️ Custom keybinds
 
