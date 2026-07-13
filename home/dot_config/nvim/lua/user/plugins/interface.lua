@@ -460,7 +460,7 @@ return {
 							icon = " ",
 							key = "f",
 							desc = "Find files",
-							action = ":lua Snacks.dashboard.pick('files')",
+							action = ":lua require('telescope.builtin').find_files()",
 						},
 						{
 							icon = "󰈬 ",
