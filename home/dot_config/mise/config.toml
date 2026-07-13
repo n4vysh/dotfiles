@@ -31,7 +31,7 @@ rtk = "0.43.0"
 "pipx:semble" = "0.1.10"
 "pipx:markitdown-mcp" = "0.0.1a4"
 "npm:defuddle" = "0.18.1"
-"pipx:litellm" = { version = "1.88.0", extras = "proxy,extra_proxy" }
+"pipx:litellm" = { version = "1.88.0", extras = "proxy,extra_proxy", uvx_args = "--python 3.13.14" }
 ## mcp
 "pipx:mcp-proxy-for-aws" = "1.4.0"
 "npm:kubernetes-mcp-server" = "0.0.60"
