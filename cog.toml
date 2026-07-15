@@ -18,6 +18,7 @@ scopes = [
   "gnupg",
   "gtk",
   "herdr",
+  "hunk",
   "hushlogin",
   "hypr",
   "k9s",
