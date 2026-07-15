@@ -1,6 +1,8 @@
 # Global Rules
 
 - Use Japanese for all internal reasoning and external responses.
+- In Plan mode, propose switching to Build mode when changes are required.
+- In Build mode, propose switching to Plan mode when no changes are required.
 - When creating a commit:
     - Write the commit message in English.
     - Use Conventional Commits with gitmoji.
