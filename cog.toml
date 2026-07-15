@@ -17,6 +17,7 @@ scopes = [
   "glzr",
   "gnupg",
   "gtk",
+  "herdr",
   "hushlogin",
   "hypr",
   "k9s",

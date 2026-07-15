@@ -7,6 +7,10 @@ windows:
   - layout: tiled
     panes:
       - shell_command:
+          - cmd: herdr
+  - layout: tiled
+    panes:
+      - shell_command:
           - cmd: |
               (sleep 1; tmux send-keys -t "$TMUX_PANE" Right) & exec tokscale
   - layout: tiled

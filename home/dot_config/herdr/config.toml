@@ -1,0 +1,15 @@
+onboarding = false
+
+[theme]
+name = "tokyo-night"
+
+[keys]
+prefix = "ctrl+j"
+new_workspace = "prefix+ctrl+c"
+navigate_workspace_up = "ctrl+p"
+navigate_workspace_down = "ctrl+n"
+split_vertical = "prefix+ctrl+v"
+split_horizontal = "prefix+ctrl+s"
+
+[ui.sound]
+enabled = false
