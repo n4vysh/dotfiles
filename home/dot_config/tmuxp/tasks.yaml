@@ -1,9 +1,0 @@
-session_name: tasks
-suppress_history: true
-start_directory: $HOME
-workspace_builder_options:
-  pane_readiness: always
-windows:
-  - panes:
-      - shell_command:
-          - cmd: $EDITOR ~/Documents/tasks.md

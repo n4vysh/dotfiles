@@ -1,9 +1,14 @@
-session_name: note
+session_name: docs
 suppress_history: true
 start_directory: $HOME
 workspace_builder_options:
   pane_readiness: always
 windows:
-  - panes:
+  - window_name: tasks
+    panes:
+      - shell_command:
+          - cmd: $EDITOR ~/Documents/tasks.md
+  - window_name: note
+    panes:
       - shell_command:
           - cmd: $EDITOR ~/Documents/note.md

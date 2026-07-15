@@ -4,16 +4,19 @@ start_directory: $HOME
 workspace_builder_options:
   pane_readiness: always
 windows:
-  - layout: tiled
+  - window_name: herdr
+    layout: tiled
     panes:
       - shell_command:
           - cmd: herdr
-  - layout: tiled
+  - window_name: tokscale
+    layout: tiled
     panes:
       - shell_command:
           - cmd: |
               (sleep 1; tmux send-keys -t "$TMUX_PANE" Right) & exec tokscale
-  - layout: tiled
+  - window_name: litellm
+    layout: tiled
     panes:
       - shell_command:
           # NOTE: run following commands
