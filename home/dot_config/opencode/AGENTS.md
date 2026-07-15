@@ -6,7 +6,7 @@
     - Use Conventional Commits with gitmoji.
 - Use `trash` instead of `rm` when deleting files.
 - Store temporary files outside the workspace in this directory:
-    - `~/Workspaces/localhost/tmp/opencode/`
+    - `~/Workspaces/localhost/tmp/opencode-playground/`
 
 ## Communication
 
