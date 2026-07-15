@@ -5,6 +5,7 @@ name = "tokyo-night"
 
 [keys]
 prefix = "ctrl+j"
+workspace_picker = "prefix+ctrl+w"
 new_workspace = "prefix+ctrl+c"
 navigate_workspace_up = "ctrl+p"
 navigate_workspace_down = "ctrl+n"
