@@ -1,0 +1,6 @@
+{
+  "defaultClients": ["opencode"],
+  "autosubmit": {
+    "enabled": false
+  }
+}

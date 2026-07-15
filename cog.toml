@@ -55,6 +55,7 @@ scopes = [
   "tmux",
   "tmux-powerline",
   "tmuxp",
+  "tokscale",
   "translate-shell",
   "tridactyl",
   "user-dirs",
