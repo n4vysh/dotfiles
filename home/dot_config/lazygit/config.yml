@@ -38,6 +38,11 @@ git:
     - git log --all --abbrev-commit --pretty=medium
 disableStartupPopups: false
 customCommands:
+  - key: "e"
+    command: "chezmoi edit --apply ~/.config/lazygit/config.yml"
+    context: "status"
+    description: "Edit config file with chezmoi"
+    output: terminal
   - key: "c"
     command: "git browse-ci"
     context: "status"
