@@ -3,6 +3,20 @@ export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
 lazygit "$@"
 
 if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-	cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
+	local dir
+	dir="$(cat "$LAZYGIT_NEW_DIR_FILE")"
+
+	local current_repo
+	current_repo="$(git rev-parse --show-toplevel 2>/dev/null)"
+
+	local new_repo
+	new_repo="$(git -C "$dir" rev-parse --show-toplevel 2>/dev/null)"
+
+	# NOTE: change directory when diffurent repo or worktree
+	#       do not change directory when subdirectory
+	if [ "$current_repo" != "$new_repo" ]; then
+		cd "$dir" || return
+	fi
+
 	rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
 fi
