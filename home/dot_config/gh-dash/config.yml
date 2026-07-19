@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=https://gh-dash.dev/schema.json
+prSections:
+  - title: All Pull Requests
+    filters: is:open
+  - title: All Closed Pull Requests
+    filters: is:closed
+  - title: My Pull Requests
+    filters: is:open author:@me
+  - title: My Closed Pull Requests
+    filters: is:closed author:@me
+  - title: Needs My Review
+    filters: is:open review-requested:@me
+  - title: Involved
+    filters: is:open involves:@me -author:@me
+issuesSections:
+  - title: All Issues
+    filters: is:open
+  - title: All Closed Issues
+    filters: is:closed
+  - title: My Issues
+    filters: is:open author:@me
+  - title: My Closed Issues
+    filters: is:closed author:@me
+  - title: Assigned
+    filters: is:open assignee:@me
+  - title: Involved
+    filters: is:open involves:@me -author:@me
+defaults:
+  preview:
+    open: false
+    width: 50
+  prsLimit: 20
+  issuesLimit: 20
+  view: prs
+  layout:
+    prs:
+      updatedAt:
+        width: 7
+      repo:
+        width: 15
+      author:
+        width: 15
+      assignees:
+        width: 20
+        hidden: true
+      base:
+        width: 15
+        hidden: true
+      lines:
+        width: 16
+    issues:
+      updatedAt:
+        width: 7
+      repo:
+        width: 15
+      creator:
+        width: 10
+      assignees:
+        width: 20
+        hidden: true
+  refetchIntervalMinutes: 30
+keybindings:
+  issues: []
+  prs:
+    - key: ctrl+p
+      name: show CI/CD pipeline
+      command: gh enhance -R {{.RepoName}} {{.PrNumber}}
+  notifications:
+    - key: ctrl+d
+      builtin: markAsDone
+    - key: alt+d
+      builtin: markAllAsRead
+    - key: alt+u
+      builtin: unsubscribe
+repoPaths: {}
+theme:
+  ui:
+    sectionsShowCount: true
+pager:
+  diff: "diffnav"

@@ -12,6 +12,7 @@ scopes = [
   "firefox",
   "fontconfig",
   "gh",
+  "gh-dash",
   "ghostty",
   "git",
   "glzr",

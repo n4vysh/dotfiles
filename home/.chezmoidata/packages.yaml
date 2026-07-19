@@ -373,6 +373,7 @@ packages:
       - tree
     gh:
       - dlvhdr/gh-dash
+      - dlvhdr/gh-enhance
     trivy:
       - mcp
   windows:
