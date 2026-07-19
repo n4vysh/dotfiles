@@ -1,4 +1,6 @@
 # yaml-language-server: $schema=https://json.schemastore.org/lazygit.json
+worktree:
+  defaultPath: ".worktrees"
 keybinding:
   universal:
     pushFiles: <c-p>
