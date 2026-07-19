@@ -335,6 +335,7 @@ packages:
       - extra/uv
       ## VCS
       - chaotic-aur/git-extras
+      - extra/diffnav
       - extra/ghq
       - extra/git-crypt
       - extra/git-delta
