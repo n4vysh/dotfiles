@@ -23,7 +23,7 @@ ls-lint = "2.3.1"
 "npm:obsidian-headless" = "0.0.8"
 
 # AI
-opencode = "1.18.1"
+opencode = "1.18.3"
 rtk = "0.43.0"
 herdr = "0.7.3"
 hunk = "0.17.0"
