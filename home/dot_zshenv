@@ -19,10 +19,6 @@ if [[ -n $WAYLAND_DISPLAY ]]; then
 	eval $(gnome-keyring-daemon --start 2>/dev/null)
 	export SSH_AUTH_SOCK
 fi
-if type tty gpg-connect-agent >/dev/null 2>&1; then
-	export GPG_TTY="$TTY"
-	gpg-connect-agent updatestartuptty /bye >/dev/null
-fi
 
 # zsh
 export HISTFILE=~/.zsh_history
