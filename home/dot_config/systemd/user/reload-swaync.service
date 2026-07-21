@@ -8,4 +8,4 @@ ExecStart=swaync-client -rs
 ExecStart=notify-send "Reloaded swaync"
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=graphical-session.target

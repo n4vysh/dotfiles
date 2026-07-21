@@ -56,11 +56,6 @@ hl.on("hyprland.start", function()
     -- polkit agent
     hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 
-    -- NOTE: `systemctl enable` not work, so start user path unit manually
-    hl.exec_cmd("systemctl --user start reload-waybar.path")
-    hl.exec_cmd("systemctl --user start reload-kanshi.path")
-    hl.exec_cmd("systemctl --user start reload-swaync.path")
-
     -- NOTE: Set desktop interface for GTK 3
     -- https://wiki.hyprland.org/FAQ/#gtk-settings-no-work--whatever
     hl.exec_cmd(

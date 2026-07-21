@@ -5,4 +5,4 @@ Description=Watch swaync for changes
 PathModified=%h/.config/swaync/
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=graphical-session.target

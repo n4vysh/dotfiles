@@ -55,6 +55,9 @@ services:
         - obsidian-sync.service
         - hyprsunset.service
         - waybar.service
+        - reload-waybar.path
+        - reload-kanshi.path
+        - reload-swaync.path
       running:
         - gcr-ssh-agent.socket
         - espanso.service
@@ -63,3 +66,6 @@ services:
         - obsidian-sync.service
         - hyprsunset.service
         - waybar.service
+        - reload-waybar.path
+        - reload-kanshi.path
+        - reload-swaync.path

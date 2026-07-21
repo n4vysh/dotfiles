@@ -6,4 +6,4 @@ PathModified=%h/.config/waybar/
 PathModified=%h/.config/waybar/lib/
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=graphical-session.target

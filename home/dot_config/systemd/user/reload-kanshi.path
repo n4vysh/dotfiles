@@ -5,4 +5,4 @@ Description=Watch kanshi for changes
 PathModified=%h/.config/kanshi/config
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=graphical-session.target
