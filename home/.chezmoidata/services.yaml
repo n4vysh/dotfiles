@@ -54,6 +54,7 @@ services:
         - hyprpaper.service
         - obsidian-sync.service
         - hyprsunset.service
+        - waybar.service
       running:
         - gcr-ssh-agent.socket
         - espanso.service
@@ -61,3 +62,4 @@ services:
         - hyprpaper.service
         - obsidian-sync.service
         - hyprsunset.service
+        - waybar.service
