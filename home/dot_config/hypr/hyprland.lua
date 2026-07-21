@@ -27,7 +27,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("uwsm app -- fcitx5 --replace -d >/dev/null 2>&1") -- Input Method Framework
     hl.exec_cmd("uwsm app -- brightnessctl set 1") -- Brightness
     hl.exec_cmd("uwsm app -- kanshi") -- Dynamic display configuration
-    hl.exec_cmd("uwsm app -- gnome-keyring-daemon --start") -- Keyring
     hl.exec_cmd("uwsm app -- udiskie --automount") -- Mount Helper
     hl.exec_cmd("uwsm app -- tresorit-cli start") -- Cloud Storage
 
