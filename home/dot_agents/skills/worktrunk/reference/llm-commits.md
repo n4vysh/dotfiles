@@ -10,16 +10,16 @@ Any command that reads a prompt from stdin and outputs a commit message works. A
 
 ```toml
 [commit.generation]
-command = "CLAUDECODE= MAX_THINKING_TOKENS=0 claude -p --no-session-persistence --model=haiku --tools='' --disable-slash-commands --setting-sources='' --system-prompt=''"
+command = "MAX_THINKING_TOKENS=0 claude -p --no-session-persistence --model=haiku --tools='' --safe-mode --setting-sources='user' --system-prompt=''"
 ```
 
-`CLAUDECODE=` unsets the nesting guard so `claude -p` works from within a Claude Code session. `--no-session-persistence` prevents the commit conversation from polluting `claude --continue`. The other flags disable tools, skills, settings, and system prompt for fast text-only output. See [Claude Code docs](https://docs.anthropic.com/en/docs/build-with-claude/claude-code) for installation.
+`--no-session-persistence` prevents the commit conversation from polluting `claude --continue`. `--safe-mode` keeps the run hermetic — no hooks, plugins, MCP, skills, or CLAUDE.md — while leaving authentication working normally, so setups that authenticate via `apiKeyHelper` (not just OAuth or `ANTHROPIC_API_KEY`) still get a key. `--setting-sources='user'` scopes settings to your user config so a project `.claude/settings.json` can't override auth. The remaining flags disable tools, system prompt, and thinking for fast text-only output. `--safe-mode` requires Claude Code ≥ 2.1.169. See [Claude Code docs](https://code.claude.com/docs/en/setup) for installation.
 
 ### Codex
 
 ```toml
 [commit.generation]
-command = "codex exec -m gpt-5.1-codex-mini -c model_reasoning_effort='low' -c system_prompt='' --sandbox=read-only --json - | jq -sr '[.[] | select(.item.type? == \"agent_message\")] | last.item.text'"
+command = "codex exec -m gpt-5.6-luna -c model_reasoning_effort='low' -c system_prompt='' --sandbox=read-only --json - | jq -sr '[.[] | select(.item.type? == \"agent_message\")] | last.item.text'"
 ```
 
 Uses the fast mini model with low reasoning effort and an empty system prompt for faster output. Requires `jq` for JSON parsing. See [Codex CLI docs](https://developers.openai.com/codex/cli/).
@@ -36,10 +36,6 @@ command = "llm -m claude-haiku-4.5"
 # aichat
 command = "aichat -m claude:claude-haiku-4.5"
 ```
-
-## How it works
-
-When worktrunk needs a commit message, it builds a prompt from a template and pipes it to the configured command via shell (`sh -c`). Environment variables can be set inline in the command string.
 
 ## Usage
 
@@ -66,7 +62,7 @@ $ wt merge
 <span style='background:var(--bright-white,#fff)'> </span>  jwt.rs              | 3 <span class=g>+++</span>
 <span style='background:var(--bright-white,#fff)'> </span>  jwt_test.rs         | 3 <span class=g>+++</span>
 <span style='background:var(--bright-white,#fff)'> </span>  5 files changed, 16 insertions(+)
-<span class=g>✓</span> <span class=g>Merged to <b>main</b> <span style='color:var(--bright-black,#555)'>(1 commit, 5 files, +16</span></span><span style='color:var(--bright-black,#555)'>)</span>
+<span class=g>✓</span> <span class=g>Merged to <b>main</b> <span style='color:var(--bright-black,#555)'>(1 commit, 5 files, <span class=g>+16</span></span></span><span style='color:var(--bright-black,#555)'>)</span>
 <span class=c>◎</span> <span class=c>Removing <b>feature</b> worktree &amp; branch in background (same commit as <b>main</b>,</span> <span class=d>_</span><span class=c>)</span>
 <span class=d>○</span> Switched to worktree for <b>main</b> @ <b>~/repo</b>
 ```
@@ -121,7 +117,7 @@ Summaries are cached and regenerated only when the diff changes.
 
 ## Prompt templates
 
-Worktrunk uses [minijinja](https://docs.rs/minijinja/) templates (Jinja2-like syntax) to build prompts. There are sensible defaults, but templates are fully customizable.
+Worktrunk uses [minijinja](https://docs.rs/minijinja/) templates (Jinja2-like syntax) to build prompts.
 
 ### Custom templates
 
@@ -140,9 +136,9 @@ Diff:
 """
 
 squash-template = """
-Combine these {{ commits | length }} commits into one message:
-{% for c in commits %}
-- {{ c }}
+Combine these {{ commit_details | length }} commits into one message:
+{% for c in commit_details %}
+- {{ c.subject }}
 {% endfor %}
 
 Diff:
@@ -159,21 +155,44 @@ Diff:
 | `{{ branch }}` | Current branch name |
 | `{{ repo }}` | Repository name |
 | `{{ recent_commits }}` | Recent commit subjects (for style reference) |
-| `{{ commits }}` | Commits being squashed (squash template only) |
+| `{{ commit_details }}` | Commits being squashed (squash template only); each renders as its subject and exposes `.subject` / `.body` |
 | `{{ target_branch }}` | Merge target branch (squash template only) |
+| `{{ user_guidance }}` | Rendered user `template-append` fragment (see below) |
+| `{{ project_guidance }}` | Rendered project `template-append` fragment (see below) |
 
 ### Template syntax
 
 Templates use [minijinja](https://docs.rs/minijinja/latest/minijinja/syntax/index.html), which supports:
 
 - **Variables**: `{{ branch }}`, `{{ repo | upper }}`
-- **Filters**: `{{ commits | length }}`, `{{ repo | upper }}`
+- **Filters**: `{{ commit_details | length }}`, `{{ repo | upper }}`
 - **Conditionals**: `{% if recent_commits %}...{% endif %}`
-- **Loops**: `{% for c in commits %}{{ c }}{% endfor %}`
+- **Loops**: `{% for c in commit_details %}{{ c.subject }}{% endfor %}`
 - **Loop variables**: `{{ loop.index }}`, `{{ loop.length }}`
 - **Whitespace control**: `{%- ... -%}` strips surrounding whitespace
 
 See `wt config create --help` for the full default templates.
+
+## Appending to the prompt
+
+[experimental]
+
+`template-append` adds to the commit and squash prompts instead of replacing them. It lives in both user config (personal preferences) and project config (`.config/wt.toml`, shared so every teammate's LLM sees the same style guide). Each fragment is itself a [minijinja](https://docs.rs/minijinja/) template — Worktrunk renders it with the same variables as the main template (`{{ branch }}`, `{{ git_diff }}`, …), then appends the result after `<style>`. The user fragment renders into a `<user-guidance>` block and the project fragment into a `<project-guidance>` block, so the LLM can tell personal preference from shared convention:
+
+```toml
+# .config/wt.toml
+[commit.generation]
+template-append = """
+- Use conventional commits (feat:, fix:, docs:, …)
+- Reference the related issue ID in the body
+"""
+```
+
+When both the user and project set `template-append`, the `<user-guidance>` block comes first, then `<project-guidance>`.
+
+The user fragment needs no approval — it's the developer's own config. For the project fragment, the first time the rendered text is sent to the LLM, Worktrunk shows the raw fragment in an approval prompt — the same one-shot gate as project-defined hooks. Subsequent commits don't re-prompt unless the fragment changes. Declining is non-fatal: the LLM runs with just the user fragment (if any).
+
+Custom user templates that don't reference `{{ user_guidance }}` / `{{ project_guidance }}` opt out of the appended blocks — the rendered values are injected only where the template places them.
 
 ## Fallback behavior
 

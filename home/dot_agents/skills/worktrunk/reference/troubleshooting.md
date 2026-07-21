@@ -50,7 +50,7 @@ If a template file is used, verify it exists at the specified path.
 Check sequence:
 1. Verify `.config/wt.toml` exists: `ls -la .config/wt.toml`
 2. Check TOML syntax (use `wt hook show` to see parsed config)
-3. Verify hook type spelling matches one of the seven types
+3. Verify hook type spelling matches one of the ten types
 4. Test command manually in the worktree
 
 ### Hook failing
@@ -58,7 +58,7 @@ Check sequence:
 Debug steps:
 1. Run the command manually in the worktree to see errors
 2. Check for missing dependencies (npm packages, system tools)
-3. Verify template variables expand correctly (`wt hook show --verbose`)
+3. Verify template variables expand correctly with `wt hook show --expanded` (shows each command with its variables substituted)
 4. For background hooks, check `.git/wt/logs/` for output
 
 ### Slow blocking hooks
@@ -73,6 +73,17 @@ pre-start = "npm run build"
 pre-start = "npm install"
 post-start = "npm run build"
 ```
+
+## Aliases
+
+### Inspecting an alias
+
+- `wt config alias show <name>` prints the raw template.
+- `wt config alias dry-run <name> [-- args...]` prints the rendered command without running it.
+
+### A `for-each` or `--execute` alias uses the same value in every worktree
+
+The alias body renders once at dispatch, in the invoking worktree, so a per-worktree variable like `{{ branch }}` is baked before the nested `wt` command iterates. If `wt config alias dry-run <name>` shows a single substituted value (e.g. `… echo branch=main`), it was baked at that first pass. Defer it with `{% raw %}{{ branch }}{% endraw %}`, and for `for-each` keep it inside a quoted `sh -c '...'` so the alias's shell doesn't word-split it. Repo-level variables like `{{ default_branch }}` are unaffected — they are identical in every worktree. See `reference/extending.md#deferring-expansion-to-a-nested-wt-command`.
 
 ## List
 
@@ -104,18 +115,9 @@ for pid in $(pgrep -f 'git fsmonitor--daemon'); do
 done
 ```
 
-Sockets listed as bare `fsmonitor--daemon.ipc` (no resolved path) belong to deleted worktrees — safe to kill:
+Sockets listed as bare `fsmonitor--daemon.ipc` (no resolved path) belong to deleted worktrees. Any `wt remove` cleans these up: it terminates the removed worktree's own daemon and sweeps daemons whose worktree no longer exists, including ones orphaned by `git worktree remove` or `rm -rf` (mechanism details: [What can Worktrunk delete?](https://worktrunk.dev/faq/#what-can-worktrunk-delete)).
 
-```bash
-for pid in $(pgrep -f 'git fsmonitor--daemon'); do
-  sock=$(lsof -p $pid 2>/dev/null | grep 'fsmonitor--daemon.ipc' | awk '{print $NF}' | head -1)
-  [ "$sock" = "fsmonitor--daemon.ipc" ] && kill -9 $pid
-done
-```
-
-For a specific hung worktree, kill the daemon whose socket path matches it, or just `pkill -9 -f 'git fsmonitor--daemon'` and let the next `wt list` respawn the live ones. Disabling fsmonitor globally (`git config --global core.fsmonitor false`) avoids the class of problem entirely at the cost of some `git status` speed on large repos.
-
-Daemons leak when a worktree is removed while its daemon is already unresponsive — `wt remove` calls `git fsmonitor--daemon stop`, but a daemon that can't answer its IPC can't be stopped through it.
+The residual case both paths deliberately leave is a wedged daemon on a *live* worktree that is never removed: `git status` in that worktree blocks on the unresponsive IPC, but the daemon still serves a real worktree, so reaping it implicitly is out of scope. Terminate it manually: kill the daemon whose socket path matches the worktree, or `pkill -9 -f 'git fsmonitor--daemon'` and let the next `wt list` respawn the live ones. Disabling fsmonitor globally (`git config --global core.fsmonitor false`) avoids the class of problem entirely at the cost of some `git status` speed on large repos.
 
 ## PowerShell on Windows
 

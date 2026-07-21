@@ -8,18 +8,13 @@ Subprocesses cannot change the parent shell's current directory. When
 `wt switch feature` runs, the `wt` binary runs as a child process and cannot
 `cd` the terminal.
 
-Worktrunk solves this with **split directive file passing**:
-
-1. Shell wrapper creates two temp files via `mktemp` (one for cd, one for exec)
-2. Shell sets `WORKTRUNK_DIRECTIVE_CD_FILE` and `WORKTRUNK_DIRECTIVE_EXEC_FILE`
-3. `wt` binary writes a raw path to the CD file (no shell escaping needed)
-4. `wt` writes shell commands to the EXEC file (only for `--execute`)
-5. Shell reads the CD file with `cd -- "$(< file)"` — no shell parsing
-6. Shell sources the EXEC file if non-empty
-7. Shell removes both temp files
-
-The split design eliminates shell injection from cd directives — the CD file
-holds a raw path that is never parsed as shell.
+Worktrunk solves this with **split directive file passing**: the shell wrapper
+creates two temp files, `wt` writes a raw path to one (cd) and shell commands
+to the other (`--execute` payloads), and the wrapper applies both after `wt`
+exits. The split design eliminates shell injection from cd directives — the CD
+file holds a raw path that is never parsed as shell. The wrapper's steps and a
+simplified implementation: [How the Shell Wrapper
+Works](#how-the-shell-wrapper-works).
 
 ## Installation
 
@@ -38,7 +33,7 @@ eval "$(wt config shell init zsh)"
 wt config shell init fish | source
 
 # nushell (experimental) — save to vendor autoload directory:
-wt config shell init nu | save -f ($nu.default-config-dir | path join vendor/autoload/wt.nu)
+wt config shell init nu | save -f ($nu.vendor-autoload-dirs | last | path join wt.nu)
 
 # PowerShell ($PROFILE):
 Invoke-Expression (& wt config shell init powershell | Out-String)
@@ -60,16 +55,22 @@ When shell integration isn't working, `wt switch` shows warnings explaining why.
 
 ### "shell integration not installed"
 
-**Meaning**: The shell config file doesn't have the `eval "$(wt config shell init ...)"` line.
+**Meaning**: The current shell's config file doesn't have the
+`eval "$(wt config shell init ...)"` line. The current shell is detected from
+the process tree (falling back to `$SHELL`), so this refers to the shell wt
+was actually invoked from, not necessarily the login shell.
 
 **Fix**: Run `wt config shell install` or add the line manually.
 
-### "shell requires restart"
+### "shell integration installed but not active"
 
-**Meaning**: Shell integration is configured, but the current shell session was
-started before installation. The shell function isn't loaded yet.
+**Meaning**: Shell integration is configured for the current shell, but the
+shell function isn't loaded in this session — usually because the session was
+started before installation.
 
-**Fix**: Start a new terminal or run `source ~/.bashrc` (or equivalent).
+**Fix**: Start a new terminal or run `source ~/.bashrc` (or equivalent). If
+the message persists after a restart, `wt config show` reports the detected
+shell, `$SHELL`, and per-shell integration status.
 
 ### "ran ./path/to/wt; shell integration wraps wt"
 
@@ -253,7 +254,7 @@ If you see path issues, ensure you're using a recent Git for Windows version.
 | `WORKTRUNK_DIRECTIVE_CD_FILE` | Set by shell wrapper; wt writes a raw path, wrapper `cd`s to it |
 | `WORKTRUNK_DIRECTIVE_EXEC_FILE` | Set by shell wrapper; wt writes shell commands, wrapper sources the file |
 | `WORKTRUNK_BIN` | Override binary path (for testing dev builds) |
-| `WORKTRUNK_SHELL` | Set by PowerShell wrapper to indicate shell type |
+| `WORKTRUNK_SHELL` | Set by the PowerShell (`powershell`) and fish (`fish`) wrappers; selects how wt escapes the EXEC directive payload for that shell |
 
 ## See Also
 

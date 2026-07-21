@@ -7,7 +7,7 @@ Worktrunk's three core commands make worktrees as easy as branches.
 Plus, Worktrunk has a bunch of quality-of-life features to simplify working
 with many parallel changes, including hooks to automate local workflows.
 
-Scaling agents becomes trivial. A quick demo:
+A quick demo:
 
 ## Context: git worktrees
 
@@ -79,7 +79,7 @@ git branch -d feat</td>
 - **[Aliases](https://worktrunk.dev/extending/#aliases) & [per-branch variables](https://worktrunk.dev/config/#wt-config-state-vars)** — custom `wt <name>` commands and branch-scoped state for hook templates
 - ...and **[lots more](#next-steps)**
 
-A demo with some advanced features:
+Multiple parallel agents, same simple commands:
 
 ## Install
 
@@ -98,24 +98,32 @@ cargo install worktrunk && wt config shell install
 ```
 
 <details>
-<summary><strong>Windows</strong></summary>
+<summary><strong>Windows & other</strong></summary>
 
-On Windows, `wt` defaults to Windows Terminal's command. Winget additionally installs Worktrunk as `git-wt` to avoid the conflict:
+**Windows.** `wt` defaults to Windows Terminal's command, so Winget additionally installs Worktrunk as `git-wt` to avoid the conflict:
 
 ```bash
 winget install max-sixty.worktrunk
 git-wt config shell install
 ```
 
-Alternatively, disable Windows Terminal's alias (Settings → Privacy & security → For developers → App Execution Aliases → disable "Windows Terminal") to use `wt` directly.
-
-</details>
+Alternatively, disable Windows Terminal's alias (Settings → Apps → Advanced app settings → App execution aliases → "Terminal"/"Terminal Preview") to use `wt` directly.
 
 **Arch Linux:**
 
 ```bash
 sudo pacman -S worktrunk && wt config shell install
 ```
+
+**Conda / Pixi** (community-maintained [feedstock](https://github.com/conda-forge/worktrunk-feedstock)):
+
+```bash
+conda install -c conda-forge worktrunk && wt config shell install
+```
+
+Or with [Pixi](https://pixi.sh): `pixi global install worktrunk && wt config shell install`.
+
+</details>
 
 ## Quick start
 
@@ -130,9 +138,9 @@ This creates a new branch and worktree, then switches to it. Do your work, then 
 
 ```bash
 $ wt list
-  <b>Branch</b>        <b>Status</b>        <b>HEAD±</b>    <b>main↕</b>  <b>Remote⇅</b>  <b>Commit</b>    <b>Age</b>   <b>Message</b>
-@ feature-auth  <span class=c>+</span>   <span class=d>↑</span>      <span class=g>+27</span>   <span class=r>-8</span>   <span class=g>↑1</span>               <span class=d>4bc72dc9</span>  <span class=d>2h</span>    <span class=d>Add authentication module</span>
-^ main              <span class=d>^</span><span class=d>⇡</span>                         <span class=g>⇡1</span>      <span class=d>0e631add</span>  <span class=d>1d</span>    <span class=d>Initial commit</span>
+  <b>Branch</b>        <b>Status</b>        <b>HEAD±</b>    <b>main↕</b>     <b>main…±</b>  <b>Remote⇅</b>  <b>Commit</b>    <b>Age</b>   <b>Message</b>
+@ feature-auth  <span class=c>+</span>   <span class=d>↑</span>      <span class=g>+27</span>   <span class=r>-8</span>   <span class=g>↑1</span>       <span class=g>+31</span>                <span class=d>4bc72dc9</span>  <span class=d>2h</span>    <span class=d>Add authenticat…</span>
+^ main              <span class=d>^</span><span class=d>⇡</span>                                    <span class=g>⇡1</span>      <span class=d>0e631add</span>  <span class=d>1d</span>    <span class=d>Initial commit</span>
 
 <span class=d>○</span> <span class=d>Showing 2 worktrees, 1 with changes, 1 ahead, 1 column hidden</span>
 ```
@@ -161,7 +169,7 @@ $ wt merge main
 <span style='background:var(--bright-white,#fff)'> </span>  auth.rs | 51 <span class=g>+++++++++++++++++++++++++++++++++++++++++++++++++++</span>
 <span style='background:var(--bright-white,#fff)'> </span>  lib.rs  |  2 <span class=g>++</span>
 <span style='background:var(--bright-white,#fff)'> </span>  2 files changed, 53 insertions(+)
-<span class=g>✓</span> <span class=g>Merged to <b>main</b> <span style='color:var(--bright-black,#555)'>(1 commit, 2 files, +53</span></span><span style='color:var(--bright-black,#555)'>)</span>
+<span class=g>✓</span> <span class=g>Merged to <b>main</b> <span style='color:var(--bright-black,#555)'>(1 commit, 2 files, <span class=g>+53</span></span></span><span style='color:var(--bright-black,#555)'>)</span>
 <span class=c>◎</span> <span class=c>Removing <b>feature-auth</b> worktree &amp; branch in background (same commit as <b>main</b>,</span> <span class=d>_</span><span class=c>)</span>
 <span class=d>○</span> Switched to worktree for <b>main</b> @ <b>~/repo</b>
 ```

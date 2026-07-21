@@ -6,18 +6,18 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/hashicorp/agent-skills.git",
       "skillPath": "terraform/code-generation/skills/terraform-style-guide/SKILL.md",
-      "skillFolderHash": "a6d14b66fa495d767536a6705856fe4553958e24",
+      "skillFolderHash": "6479909cfba618b042f2272d160d68af1a48f96b",
       "installedAt": "2026-04-26T14:32:26.096Z",
-      "updatedAt": "2026-04-26T14:32:26.096Z"
+      "updatedAt": "2026-07-21T05:17:26.183Z"
     },
     "find-skills": {
       "source": "vercel-labs/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/skills.git",
       "skillPath": "skills/find-skills/SKILL.md",
-      "skillFolderHash": "3013fdeb8a11b10b1eb795ec3ae8bfca38f7c26d",
+      "skillFolderHash": "76a98a285cb0434f3d39e1a873823556330e398b",
       "installedAt": "2026-04-26T14:32:32.791Z",
-      "updatedAt": "2026-04-26T14:32:32.791Z"
+      "updatedAt": "2026-07-21T05:17:30.869Z"
     },
     "terraform-test": {
       "source": "hashicorp/agent-skills",
@@ -33,36 +33,36 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/hashicorp/agent-skills.git",
       "skillPath": "terraform/code-generation/skills/terraform-search-import/SKILL.md",
-      "skillFolderHash": "ae8924c00f9d9a5da5feb30fe9e654577c10f8f0",
+      "skillFolderHash": "1a09b6467ff7ccca097a8093e4415e3b65f37537",
       "installedAt": "2026-04-26T14:48:03.144Z",
-      "updatedAt": "2026-04-26T14:48:03.144Z"
+      "updatedAt": "2026-07-21T05:17:27.610Z"
     },
     "refactor-module": {
       "source": "hashicorp/agent-skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/hashicorp/agent-skills.git",
       "skillPath": "terraform/module-generation/skills/refactor-module/SKILL.md",
-      "skillFolderHash": "f0abaa84ffa8642ee10bac6b6c1e7c32b72461f2",
+      "skillFolderHash": "3b4f5f862b4c27a3fe3d4702c37ac3a8e11e03f7",
       "installedAt": "2026-04-26T14:48:29.323Z",
-      "updatedAt": "2026-04-26T14:48:29.323Z"
+      "updatedAt": "2026-07-21T05:17:29.788Z"
     },
     "worktrunk": {
       "source": "max-sixty/worktrunk",
       "sourceType": "github",
       "sourceUrl": "https://github.com/max-sixty/worktrunk.git",
       "skillPath": "skills/worktrunk/SKILL.md",
-      "skillFolderHash": "7bd55b63a1a483acbe088c2ee2ae6462037f195c",
+      "skillFolderHash": "30835978f598bcb01ccd966df7ab3f04d983b60d",
       "installedAt": "2026-04-26T15:27:48.226Z",
-      "updatedAt": "2026-04-26T15:27:48.226Z"
+      "updatedAt": "2026-07-21T05:17:34.224Z"
     },
     "agent-browser": {
       "source": "vercel-labs/agent-browser",
       "sourceType": "github",
       "sourceUrl": "https://github.com/vercel-labs/agent-browser.git",
       "skillPath": "skills/agent-browser/SKILL.md",
-      "skillFolderHash": "c1470a475a0472fceda2401ea6763708a91680a8",
+      "skillFolderHash": "037e8078db4b20b4aa25c04f21c6de7d335ec449",
       "installedAt": "2026-05-10T15:52:02.131Z",
-      "updatedAt": "2026-05-10T15:52:02.131Z"
+      "updatedAt": "2026-07-21T05:17:35.415Z"
     },
     "loki": {
       "source": "grafana/skills",
@@ -79,58 +79,54 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/grafana/skills.git",
       "skillPath": "skills/grafana-lgtm/mimir/SKILL.md",
-      "skillFolderHash": "65168587ad41e9096fed0ae7c0ab954928e55023",
-      "pluginName": "grafana-lgtm",
+      "skillFolderHash": "65931a3fe6b65c33977fd29c8bb8a10380dbab86",
       "installedAt": "2026-05-10T16:08:56.293Z",
-      "updatedAt": "2026-05-10T16:08:56.293Z"
+      "updatedAt": "2026-07-21T05:17:37.648Z"
     },
     "prometheus": {
       "source": "grafana/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/grafana/skills.git",
       "skillPath": "skills/grafana-lgtm/prometheus/SKILL.md",
-      "skillFolderHash": "c7e1330562e426bc64b6f4b0425d32f6b3cdfd32",
-      "pluginName": "grafana-lgtm",
+      "skillFolderHash": "5655d734f3506e862588b57d0dd2c0b6b0fbc4dd",
       "installedAt": "2026-05-10T16:08:57.114Z",
-      "updatedAt": "2026-05-10T16:08:57.114Z"
+      "updatedAt": "2026-07-21T05:17:39.256Z"
     },
     "tempo": {
       "source": "grafana/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/grafana/skills.git",
       "skillPath": "skills/grafana-lgtm/tempo/SKILL.md",
-      "skillFolderHash": "d98f0e2f3bebbb1f5d7a46d0700e550aaaa98563",
-      "pluginName": "grafana-lgtm",
+      "skillFolderHash": "8003617369f62d3b9b886c4d9e9ad68c5cdc9dc1",
       "installedAt": "2026-05-10T16:08:57.908Z",
-      "updatedAt": "2026-05-10T16:08:57.908Z"
+      "updatedAt": "2026-07-21T05:17:41.270Z"
     },
     "promql": {
       "source": "grafana/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/grafana/skills.git",
       "skillPath": "skills/grafana-core/promql/SKILL.md",
-      "skillFolderHash": "6f529ce21330feaedf6705fa96001056447639ea",
-      "pluginName": "grafana-core",
+      "skillFolderHash": "921be6f98a338a30e0cebede6e899d235df386ca",
       "installedAt": "2026-05-10T16:10:20.674Z",
-      "updatedAt": "2026-05-10T16:10:20.674Z"
+      "updatedAt": "2026-07-21T05:17:42.968Z"
     },
     "aws-iam": {
       "source": "aws/agent-toolkit-for-aws",
       "sourceType": "github",
       "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
       "skillPath": "skills/core-skills/aws-iam/SKILL.md",
-      "skillFolderHash": "374b61e9f60da08848e31c099269a6626e191f62",
+      "skillFolderHash": "5da0a0c41f57fbf7470deb7970a5f403ab40997d",
       "installedAt": "2026-05-17T19:07:12.201Z",
-      "updatedAt": "2026-05-17T19:07:12.201Z"
+      "updatedAt": "2026-07-21T05:17:47.638Z"
     },
     "aws-observability": {
       "source": "aws/agent-toolkit-for-aws",
       "sourceType": "github",
       "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
       "skillPath": "skills/core-skills/aws-observability/SKILL.md",
-      "skillFolderHash": "aab2af0676520374cb3b201a68cb541ea95087cb",
+      "skillFolderHash": "c7a5a4a12d602cf6462605462c1482bf20c199f5",
       "installedAt": "2026-05-17T19:07:12.670Z",
-      "updatedAt": "2026-05-17T19:07:12.670Z"
+      "updatedAt": "2026-07-21T05:17:50.108Z"
     },
     "troubleshooting-application-failures": {
       "source": "aws/agent-toolkit-for-aws",
@@ -138,17 +134,17 @@
       "sourceUrl": "https://github.com/aws/agent-toolkit-for-aws.git",
       "skillPath": "skills/specialized-skills/operations-skills/troubleshooting-application-failures/SKILL.md",
       "skillFolderHash": "f519cd0e9b2f2c37e773508572bcf567802aa083",
-      "installedAt": "2026-05-17T19:07:13.304Z",
-      "updatedAt": "2026-05-17T19:07:13.304Z"
+      "installedAt": "2026-07-21T05:26:14.482Z",
+      "updatedAt": "2026-07-21T05:26:14.482Z"
     },
     "context7-mcp": {
       "source": "upstash/context7",
       "sourceType": "github",
       "sourceUrl": "https://github.com/upstash/context7.git",
       "skillPath": "skills/context7-mcp/SKILL.md",
-      "skillFolderHash": "49e037db730a57e8c1f131a3f86845cb6eca72d9",
+      "skillFolderHash": "0969a2f77545a8ef5e3296b4fd25d63689331854",
       "installedAt": "2026-05-23T10:12:48.889Z",
-      "updatedAt": "2026-05-23T10:12:48.889Z"
+      "updatedAt": "2026-07-21T05:17:55.522Z"
     },
     "k6": {
       "source": "grafana/skills",
@@ -165,28 +161,27 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/grafana/skills.git",
       "skillPath": "skills/grafana-lgtm/pyroscope/SKILL.md",
-      "skillFolderHash": "1c360d3d38344195414a7441f3b33d1621e1d91b",
-      "pluginName": "grafana-lgtm",
+      "skillFolderHash": "025eaf6a3c1157a3ce90113786d9dcfb3c890b0d",
       "installedAt": "2026-05-23T11:15:31.470Z",
-      "updatedAt": "2026-05-23T11:15:31.470Z"
+      "updatedAt": "2026-07-21T05:17:45.060Z"
     },
     "grill-me": {
       "source": "mattpocock/skills",
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/productivity/grill-me/SKILL.md",
-      "skillFolderHash": "8320e7b87f7b208f50ce165b1dd43d1e93c8e801",
+      "skillFolderHash": "c817f6f36acd483294144694a935a76d3e3eb101",
       "installedAt": "2026-05-24T17:20:41.136Z",
-      "updatedAt": "2026-07-08T18:17:49.196Z"
+      "updatedAt": "2026-07-21T05:17:56.625Z"
     },
     "gh": {
       "source": "cli/cli",
       "sourceType": "github",
       "sourceUrl": "https://github.com/cli/cli.git",
       "skillPath": "skills/gh/SKILL.md",
-      "skillFolderHash": "6d120aad852cec84f9d4f7a624fb4984e5f57ba4",
+      "skillFolderHash": "cc6ec4740cd90d35fdec0bb125ccbd5ad38e98e0",
       "installedAt": "2026-05-31T13:33:59.938Z",
-      "updatedAt": "2026-05-31T13:33:59.938Z"
+      "updatedAt": "2026-07-21T05:18:02.985Z"
     },
     "stop-slop": {
       "source": "hardikpandya/stop-slop",
@@ -211,9 +206,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/mattpocock/skills.git",
       "skillPath": "skills/productivity/grilling/SKILL.md",
-      "skillFolderHash": "0ace40ac10f5c0b1534324e4e109ebfa831fb361",
+      "skillFolderHash": "10b0db61f9b3869243db8a1a0ee84f862139b94e",
       "installedAt": "2026-07-08T18:17:07.245Z",
-      "updatedAt": "2026-07-08T18:17:07.245Z"
+      "updatedAt": "2026-07-21T05:17:58.013Z"
     },
     "hunk-review": {
       "source": "modem-dev/hunk",
