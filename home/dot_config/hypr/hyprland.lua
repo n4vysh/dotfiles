@@ -28,7 +28,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("uwsm app -- brightnessctl set 1") -- Brightness
     hl.exec_cmd("uwsm app -- kanshi") -- Dynamic display configuration
     hl.exec_cmd("uwsm app -- udiskie --automount") -- Mount Helper
-    hl.exec_cmd("uwsm app -- tresorit-cli start") -- Cloud Storage
 
     -- Overlay bar
     -- NOTE: wob systemd integration not working after logout
