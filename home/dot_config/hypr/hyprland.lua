@@ -65,8 +65,6 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("systemctl --user start reload-kanshi.path")
     hl.exec_cmd("systemctl --user start reload-swaync.path")
 
-    hl.exec_cmd("hyprsunset -t 3000") -- Screen shader
-
     -- NOTE: Set desktop interface for GTK 3
     -- https://wiki.hyprland.org/FAQ/#gtk-settings-no-work--whatever
     hl.exec_cmd(

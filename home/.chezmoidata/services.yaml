@@ -53,9 +53,11 @@ services:
         - hypridle.service
         - hyprpaper.service
         - obsidian-sync.service
+        - hyprsunset.service
       running:
         - gcr-ssh-agent.socket
         - espanso.service
         - hypridle.service
         - hyprpaper.service
         - obsidian-sync.service
+        - hyprsunset.service
