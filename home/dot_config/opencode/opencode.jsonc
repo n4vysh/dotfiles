@@ -56,6 +56,8 @@
       "rm *": "deny", // NOTE: use trash command
       "* --help": "allow",
       "* --version": "allow",
+      "ctx7 library *": "allow",
+      "ctx7 docs *": "allow",
       "man *": "allow",
       "chezmoi managed": "allow",
       "chezmoi status": "allow",
@@ -353,14 +355,6 @@
       "enabled": true,
       "type": "local",
       "command": ["terraform-mcp-server"]
-    },
-    // ```sh
-    // opencode mcp auth mcp_server_context7
-    // ```
-    "mcp_server_context7": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp/oauth"
     },
     "mcp_server_grep": {
       "enabled": true,

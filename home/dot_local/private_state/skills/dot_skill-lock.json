@@ -137,15 +137,6 @@
       "installedAt": "2026-07-21T05:26:14.482Z",
       "updatedAt": "2026-07-21T05:26:14.482Z"
     },
-    "context7-mcp": {
-      "source": "upstash/context7",
-      "sourceType": "github",
-      "sourceUrl": "https://github.com/upstash/context7.git",
-      "skillPath": "skills/context7-mcp/SKILL.md",
-      "skillFolderHash": "0969a2f77545a8ef5e3296b4fd25d63689331854",
-      "installedAt": "2026-05-23T10:12:48.889Z",
-      "updatedAt": "2026-07-21T05:17:55.522Z"
-    },
     "k6": {
       "source": "grafana/skills",
       "sourceType": "github",
@@ -227,6 +218,15 @@
       "skillFolderHash": "44f2211608618e56d4bd80ef9c2bac4d9c8be4d2",
       "installedAt": "2026-07-21T05:11:43.595Z",
       "updatedAt": "2026-07-21T05:11:43.595Z"
+    },
+    "find-docs": {
+      "source": "upstash/context7",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/upstash/context7.git",
+      "skillPath": "skills/find-docs/SKILL.md",
+      "skillFolderHash": "f1f7597c0575b2c138a551a222f56808a86e16b1",
+      "installedAt": "2026-07-22T17:36:51.424Z",
+      "updatedAt": "2026-07-22T17:36:51.424Z"
     }
   },
   "dismissed": {
