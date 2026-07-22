@@ -356,11 +356,6 @@
       "type": "local",
       "command": ["terraform-mcp-server"]
     },
-    "mcp_server_grep": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://mcp.grep.app"
-    },
     // NOTE: github-mcp-server not support Dynamic Client Registration
     //       https://github.com/github/github-mcp-server/issues/1396#issuecomment-3895920244
     //
