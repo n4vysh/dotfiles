@@ -346,11 +346,6 @@
     }
   },
   "mcp": {
-    "mcp_server_aws_knowledge": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://knowledge-mcp.global.api.aws"
-    },
     "mcp_server_terraform": {
       "enabled": true,
       "type": "local",

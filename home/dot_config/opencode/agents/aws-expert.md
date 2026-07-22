@@ -1,5 +1,7 @@
 ---
-description: Provides AWS API access
+description: |
+    Inspects live AWS resources in selected accounts and environments
+    Searches AWS docs for service behavior, design, and operations
 mode: subagent
 model: openai/gpt-5.6-terra # balanced model
 reasoningEffort: medium
