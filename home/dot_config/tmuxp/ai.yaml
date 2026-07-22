@@ -43,7 +43,7 @@ windows:
               litellm_settings:
                 drop_params: True
               model_list:
-                - model_name: &model chatgpt/gpt-5.6-luna
+                - model_name: &model chatgpt/gpt-5.6-terra
                   model_info:
                     mode: responses
                   litellm_params:
