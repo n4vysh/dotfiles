@@ -1,2 +1,3 @@
 watch = true
 wrap_lines = true
+agent_notes = true
