@@ -1,7 +1,7 @@
 ---
 description: Runs tests for changed files and reports failures
 mode: subagent
-model: openai/gpt-5.6-terra
+model: openai/gpt-5.6-terra # balanced model
 reasoningEffort: medium
 textVerbosity: high
 permission:

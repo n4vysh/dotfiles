@@ -1,7 +1,7 @@
 ---
 description: Provides up-to-date documentation for latest library versions, best practices, and correct syntax
 mode: subagent
-model: openai/gpt-5.6-terra
+model: openai/gpt-5.6-terra # balanced model
 reasoningEffort: medium
 textVerbosity: high
 permission:

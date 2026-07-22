@@ -1,7 +1,7 @@
 ---
 description: Converts files, URLs, and data URIs to Markdown using MarkItDown
 mode: subagent
-model: openai/gpt-5.6-terra
+model: openai/gpt-5.6-terra # balanced model
 reasoningEffort: medium
 textVerbosity: high
 permission:
