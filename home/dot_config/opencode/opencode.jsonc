@@ -384,11 +384,6 @@
       "type": "local",
       "command": ["markitdown-mcp"]
     },
-    "mcp_server_semgrep": {
-      "enabled": true,
-      "type": "local",
-      "command": ["semgrep", "mcp"]
-    },
     "mcp_server_trivy": {
       "enabled": true,
       "type": "local",
