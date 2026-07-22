@@ -322,8 +322,7 @@
       "command -v *": "allow",
       "which *": "allow",
       "mise which *": "allow"
-    },
-    "mcp_server_*": "deny"
+    }
   },
   "lsp": true,
   "formatter": {
