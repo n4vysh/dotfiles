@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "openai/gpt-5.6-terra",
+  "model": "openai/gpt-5.6-sol",
   "small_model": "openai/gpt-5.6-luna",
   "enabled_providers": ["openai", "amazon-bedrock"],
   "provider": {
@@ -27,6 +27,25 @@
     "superpowers@git+https://github.com/obra/superpowers.git#v5.1.0",
     "@devtheops/opencode-plugin-otel@1.2.0"
   ],
+  "agent": {
+    // Built-in primary agents
+    "compaction": {
+      "model": "openai/gpt-5.6-sol",
+      "reasoningEffort": "medium",
+      "textVerbosity": "high"
+    },
+    // Built-in subagents
+    "general": {
+      "model": "openai/gpt-5.6-terra",
+      "reasoningEffort": "medium",
+      "textVerbosity": "high"
+    },
+    "explore": {
+      "model": "openai/gpt-5.6-terra",
+      "reasoningEffort": "medium",
+      "textVerbosity": "high"
+    }
+  },
   "permission": {
     "external_directory": {
       "~/Workspaces/localhost/tmp/opencode-playground/**": "allow",

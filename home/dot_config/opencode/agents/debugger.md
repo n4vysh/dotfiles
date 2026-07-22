@@ -1,9 +1,9 @@
 ---
 description: Investigates bugs and test failures to identify root causes
 mode: subagent
-model: openai/gpt-5.6-luna
-reasoningEffort: low
-textVerbosity: low
+model: openai/gpt-5.6-terra
+reasoningEffort: medium
+textVerbosity: high
 permission:
     edit: deny
     bash: ask
