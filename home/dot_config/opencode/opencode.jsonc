@@ -320,7 +320,8 @@
       "date": "allow",
       "date *": "allow",
       "command -v *": "allow",
-      "which *": "allow"
+      "which *": "allow",
+      "mise which *": "allow"
     },
     "mcp_server_*": "deny"
   },
