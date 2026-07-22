@@ -63,6 +63,7 @@
       "semble search *": "allow",
       "semble find-related *": "allow",
       "defuddle parse *": "allow",
+      "markitdown *": "allow",
       "agent-browser skills get core": "allow",
       "rtk ls": "allow",
       "rtk ls *": "allow",

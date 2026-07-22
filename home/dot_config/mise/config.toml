@@ -30,7 +30,7 @@ hunk = "0.17.0"
 "npm:skills" = "1.5.17"
 "npm:agent-browser" = "0.27.0"
 "pipx:semble" = "0.1.10"
-"pipx:markitdown-mcp" = "0.0.1a4"
+"pipx:markitdown" = { version = "0.1.5", extras = "all" }
 "npm:defuddle" = "0.18.1"
 "pipx:litellm" = { version = "1.88.0", extras = "proxy,extra_proxy", uvx_args = "--python 3.13.14" }
 ## token tracker
