@@ -374,8 +374,6 @@ packages:
     gh:
       - dlvhdr/gh-dash
       - dlvhdr/gh-enhance
-    trivy:
-      - mcp
   windows:
     winget:
       - dandavison.delta # for chezmoi diff

@@ -384,11 +384,6 @@
       "type": "local",
       "command": ["markitdown-mcp"]
     },
-    "mcp_server_trivy": {
-      "enabled": true,
-      "type": "local",
-      "command": ["trivy", "mcp"]
-    },
     "mcp_server_aws_n4vysh_stg": {
       "enabled": false,
       "type": "local",

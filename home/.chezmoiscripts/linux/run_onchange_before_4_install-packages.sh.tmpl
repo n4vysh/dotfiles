@@ -127,15 +127,6 @@ bash -c "gh extension install $(
 	EOF
 )"
 
-gum log --level info 'Install packages with trivy'
-bash -c "trivy plugin install $(
-	tr '\n' ' ' <<-EOF
-		{{ range .packages.linux.trivy -}}
-		{{ . }}
-		{{ end -}}
-	EOF
-)"
-
 gum log --level info 'Install tresorit'
 if ! [ -f ~/.local/share/tresorit/tresorit-cli ]; then
 	curl \
