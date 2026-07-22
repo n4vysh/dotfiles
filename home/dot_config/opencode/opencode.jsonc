@@ -390,14 +390,6 @@
       "type": "remote",
       "url": "https://mcp.deepwiki.com/mcp"
     },
-    "mcp_server_mdn": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://mcp.mdn.mozilla.net/",
-      "headers": {
-        "X-Moz-1st-Party-Data-Opt-Out": "1"
-      }
-    },
     "mcp_server_markitdown": {
       "enabled": true,
       "type": "local",
