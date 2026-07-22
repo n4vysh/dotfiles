@@ -49,7 +49,11 @@
   "permission": {
     "external_directory": {
       "~/Workspaces/localhost/tmp/opencode-playground/**": "allow",
+      "~/.config/opencode/**": "allow",
       "~/.local/share/rtk/tee/**": "allow"
+    },
+    "edit": {
+      "~/.config/opencode/**": "deny"
     },
     "bash": {
       "*": "ask",
