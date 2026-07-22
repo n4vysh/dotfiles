@@ -375,11 +375,6 @@
         "--read-only"
       ]
     },
-    "mcp_server_deepwiki": {
-      "enabled": true,
-      "type": "remote",
-      "url": "https://mcp.deepwiki.com/mcp"
-    },
     "mcp_server_aws_n4vysh_stg": {
       "enabled": false,
       "type": "local",
