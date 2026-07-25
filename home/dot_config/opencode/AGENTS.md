@@ -89,6 +89,8 @@
         - `上記理由から、採用します`
     - `は、`
         - `この観点は、重要です`
+    - `も、`
+        - `この観点も、重要です`
     - `として、`
     - `をもとに、`
     - Do not extend this prohibition to similar endings such as `ため、` or `ので、`.
