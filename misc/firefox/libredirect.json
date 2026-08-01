@@ -72,11 +72,12 @@
     "https://skyview.social"
   ],
   "reddit": {
-    "enabled": false,
+    "enabled": true,
     "frontend": "redlib",
     "unsupportedUrls": "bypass",
     "instance": "public",
-    "redirectOnlyInIncognito": false
+    "redirectOnlyInIncognito": false,
+    "redirectType": "main_frame"
   },
   "libreddit": [],
   "redlib": [
@@ -129,7 +130,8 @@
     "frontend": "proxigram",
     "unsupportedUrls": "bypass",
     "instance": "public",
-    "redirectOnlyInIncognito": false
+    "redirectOnlyInIncognito": false,
+    "embedFrontend": "kittygram"
   },
   "proxigram": [
     "https://ig.opnxng.com"
@@ -585,5 +587,33 @@
   "ultimateTab": [
     "https://ultimate-tab.com"
   ],
-  "version": "3.2.0"
+  "ytifyMusic": [
+    "https://ytify.pp.ua"
+  ],
+  "skylib": [
+    "https://skylib.coffee"
+  ],
+  "kittygram": [
+    "https://kittygram.irelephant.net/"
+  ],
+  "phantom": [
+    "https://phantom.kuuro.net"
+  ],
+  "pinless": [
+    "https://pinterest.bunk.im"
+  ],
+  "mezzo": [
+    "https://tenor.fsky.io"
+  ],
+  "googleLens": {
+    "enabled": false,
+    "frontend": "rens",
+    "unsupportedUrls": "bypass",
+    "instance": "public",
+    "redirectOnlyInIncognito": false
+  },
+  "rens": [
+    "https://ren.maid.zone"
+  ],
+  "version": "3.4.0"
 }
