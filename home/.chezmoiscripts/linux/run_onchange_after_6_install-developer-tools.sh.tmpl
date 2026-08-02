@@ -8,6 +8,30 @@ mise install
 gum log --level info 'Install plugins of yazi'
 ya pkg install
 
+gum log --level info 'Install agent skills with skills command'
+xargs -r -L 1 -P "$(nproc)" sh -c '
+		source=$1
+		shift
+		skills=$*
+		set -- "$source"
+
+		for skill in $skills; do
+			[ -d "$HOME/.agents/skills/$skill" ] || set -- "$@" -s "$skill"
+		done
+
+		[ "$#" -ne 1 ] || exit 0
+
+		gum spin \
+			--title "Installing..." \
+			--show-error \
+			-- \
+			skills add "$@" -a opencode -g -y
+	' _ <<-'EOF'
+	{{ range .packages.linux.skills -}}
+	{{ .source }}{{ range .only }} {{ . }}{{ end }}
+	{{ end -}}
+EOF
+
 gum log --level info 'Install git hooks'
 if ! [ -f ~/.local/share/chezmoi/.git/hooks/pre-commit ]; then
 	cd ~/.local/share/chezmoi/ || exit
@@ -46,4 +70,9 @@ sudo archlinux-java set "$(
 cat <<-EOF >/dev/null
 	{{ include (joinPath .chezmoi.sourceDir "dot_config/mise/config.toml") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "dot_config/yazi/package.toml") | sha256sum }}
+	{{ if stat (joinPath .chezmoi.homeDir ".local/state/skills/.skill-lock.json") }}
+	{{ include (joinPath .chezmoi.homeDir ".local/state/skills/.skill-lock.json") | sha256sum }}
+	{{ else }}
+	missing
+	{{ end }}
 EOF
