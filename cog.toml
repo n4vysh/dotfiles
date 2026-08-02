@@ -1,6 +1,6 @@
 pre = "*-alpha"
 scopes = [
-  "agents",
+  "apm",
   "applications",
   "atuin",
   "bat",
@@ -80,6 +80,7 @@ scopes = [
   "zsh",
   "zsh-abbr",
   # old
+  "agents",
   "aicommits",
   "asdf",
   "bash",

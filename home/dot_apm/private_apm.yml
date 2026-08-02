@@ -1,0 +1,39 @@
+name: n4vysh
+version: 1.0.0
+description: APM project for n4vysh
+author: n4vysh
+dependencies:
+  apm:
+    - aws/agent-toolkit-for-aws/skills/core-skills/aws-iam#395df44
+    - aws/agent-toolkit-for-aws/skills/core-skills/aws-observability#395df44
+    - cli/cli/skills/gh#v2.96.0
+    - grafana/skills/skills/grafana-core/promql#80bb293
+    - grafana/skills/skills/grafana-k6/k6#80bb293
+    - grafana/skills/skills/grafana-lgtm/loki#80bb293
+    - grafana/skills/skills/grafana-lgtm/mimir#80bb293
+    - grafana/skills/skills/grafana-lgtm/prometheus#80bb293
+    - grafana/skills/skills/grafana-lgtm/pyroscope#80bb293
+    - grafana/skills/skills/grafana-lgtm/tempo#80bb293
+    - hardikpandya/stop-slop#8da1f03
+    - hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import#1d09fac
+    - hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide#1d09fac
+    - hashicorp/agent-skills/terraform/code-generation/skills/terraform-test#1d09fac
+    - hashicorp/agent-skills/terraform/module-generation/skills/refactor-module#1d09fac
+    - herdrdev/herdr/skills/herdr#8901139
+    - kepano/obsidian-skills/skills/defuddle#a1dc48e
+    - mattpocock/skills/skills/productivity/grill-me#v1.1.0
+    - mattpocock/skills/skills/productivity/grilling#v1.1.0
+    - max-sixty/worktrunk/skills/worktrunk#v0.69.2
+    - modem-dev/hunk/skills/hunk-review#v0.17.6
+    - obra/superpowers/skills/dispatching-parallel-agents#v6.2.0
+    - obra/superpowers/skills/receiving-code-review#v6.2.0
+    - obra/superpowers/skills/systematic-debugging#v6.2.0
+    - obra/superpowers/skills/test-driven-development#v6.2.0
+    - obra/superpowers/skills/verification-before-completion#v6.2.0
+    - obra/superpowers/skills/writing-skills#v6.2.0
+    - upstash/context7/skills/find-docs#594a731
+    - vercel-labs/agent-browser/skills/agent-browser#v0.33.0
+    - vercel-labs/skills/skills/find-skills#v1.5.20
+  mcp: []
+includes: auto
+scripts: {}

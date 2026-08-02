@@ -7,13 +7,9 @@ repos:
       - id: check-case-conflict
       - id: trailing-whitespace
         args: [--markdown-linebreak-ext=md]
-        exclude: |
-          (?x)^home/dot_agents/skills/.*/.*$
       - id: end-of-file-fixer
         exclude: |
           (?x)^(
-            home/dot_agents/skills/.*|
-            home/dot_local/private_state/skills/dot_skill-lock.json|
             home/dot_docker/config.json|
             home/dot_config/nvim/lazy-lock.json|
             home/dot_config/opencode/package.json|
@@ -43,8 +39,7 @@ repos:
         exclude: |
           (?x)^(
             .*\.png|
-            .*\.mozlz4|
-            home/dot_agents/skills/.*
+            .*\.mozlz4
           )$
       # JSON files
       - id: prettier-json

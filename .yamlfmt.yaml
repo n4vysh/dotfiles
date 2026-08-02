@@ -1,3 +1,3 @@
 exclude:
-  - home/dot_agents/skills/aws-observability/assets/otel-config.yaml
+  - home/dot_apm/private_apm.lock.yaml
   - home/dot_config/yasb/config.yaml
