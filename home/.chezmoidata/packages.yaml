@@ -315,6 +315,7 @@ packages:
       - extra/actionlint
       - extra/eslint
       - extra/gofumpt
+      - extra/lychee
       - extra/prettier
       - extra/rumdl
       - extra/selene
