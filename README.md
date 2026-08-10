@@ -196,7 +196,7 @@ sudo pacman -S --noconfirm --needed chezmoi &&
 Install packages with [chezmoi scripts][chezmoi-scripts-link]
 when running `chezmoi apply`.
 
-[chezmoi-scripts-link]: https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/
+[chezmoi-scripts-link]: https://github.com/twpayne/chezmoi/blob/master/assets/chezmoi.io/docs/user-guide/use-scripts-to-perform-actions.md
 
 ### Configure Tresorit
 
