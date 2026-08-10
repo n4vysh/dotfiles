@@ -146,7 +146,7 @@
 [uki-link]: https://wiki.archlinux.org/title/Unified_kernel_image
 [sbctl-link]: https://github.com/Foxboron/sbctl
 [1password-link]: https://1password.com/
-[ente-auth-link]: https://github.com/ente-io/ente/tree/main/auth#readme
+[ente-auth-link]: https://github.com/ente/ente#ente-auth
 [signal-link]: https://signal.org/
 [ente-photos-link]: https://ente.io/
 [obsidian-link]: https://obsidian.md/sync
@@ -155,10 +155,10 @@
 [https-only-mode-link]: https://support.mozilla.org/en-US/kb/https-only-prefs
 [multi-account-containers-link]: https://support.mozilla.org/en-US/kb/containers
 [ublock-origin-link]: https://ublockorigin.com/
-[libredirect-link]: https://libredirect.github.io/
+[libredirect-link]: https://github.com/libredirect/browser_extension
 [ufw-link]: https://launchpad.net/ufw
 [rkhunter-link]: https://rkhunter.sourceforge.net/
-[arch-audit-link]: https://gitlab.com/ilpianista/arch-audit
+[arch-audit-link]: https://gitlab.archlinux.org/archlinux/arch-audit
 [tor-browser-link]: https://www.torproject.org/download/
 [openvpn-link]: https://openvpn.net/client/
 [nordvpn-link]: https://nordvpn.com/
@@ -167,7 +167,7 @@
 [chaotic-aur-link]: https://aur.chaotic.cx/
 [keyd-link]: https://github.com/rvaiya/keyd
 [bats-link]: https://bats-core.readthedocs.io/
-[xcape-link]: https://github.com/alols/xcape
+[xcape-link]: https://man.archlinux.org/man/xcape.1.en
 [space-cadet-shift-link]: https://docs.qmk.fm/features/space_cadet
 
 ## ⚡️ Requirements
@@ -383,7 +383,7 @@ prefix is `C-j`
 [rofi-link]: https://github.com/davatorium/rofi
 [firefox-link]: https://www.mozilla.org/en-US/firefox/new/
 [proton-mail-link]: https://proton.me/mail/download
-[tresorit-link]: https://toresorit.com
+[tresorit-link]: https://tresorit.com/
 [btop-link]: https://github.com/aristocratos/btop
 [impala-link]: https://github.com/pythops/impala
 [bluetui-link]: https://github.com/bluetuith-org/bluetuith
