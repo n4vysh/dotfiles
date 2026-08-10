@@ -37,7 +37,7 @@ apm = "0.26.0"
 "pipx:litellm" = { version = "1.88.0", extras = "proxy,extra_proxy", uvx_args = "--python 3.13.14" }
 ## token tracker
 "npm:tokscale" = "4.12.0"
-codex = "0.143.0"         # for tokscale usage
+codex = "0.147.0"         # for tokscale usage
 ## mcp
 "pipx:mcp-proxy-for-aws" = "1.4.0"
 "npm:kubernetes-mcp-server" = "0.0.60"
