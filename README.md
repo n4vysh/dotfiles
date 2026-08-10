@@ -243,7 +243,7 @@ Run `pre-commit run -a` to lint and format the source code with
 | hyprland config file | `hyprctl configerrors`                                                                |
 | lua files            | [selene][selene-link] / [stylua][stylua-link]                                         |
 | etc files            | [bats][bats-link] / `visudo -c`                                                       |
-| CI/CD                | [zizmor][zizmor-link]                                                                 |
+| CI/CD                | [actionlint][actionlint-link] / [zizmor][zizmor-link]                                |
 | commit messages      | [Cocogitto][cocogitto-link]                                                           |
 
 [pre-commit-link]: https://pre-commit.com/
@@ -259,6 +259,7 @@ Run `pre-commit run -a` to lint and format the source code with
 [shellcheck-link]: https://www.shellcheck.net/
 [selene-link]: https://github.com/Kampfkarren/selene
 [stylua-link]: https://github.com/JohnnyMorganz/StyLua
+[actionlint-link]: https://github.com/rhysd/actionlint
 [zizmor-link]: https://docs.zizmor.sh/
 [cocogitto-link]: https://docs.cocogitto.io/
 
