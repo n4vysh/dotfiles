@@ -29,16 +29,16 @@
 
 [package list](./home/.chezmoidata/packages.yaml)
 
-[archlinux-link]: https://archlinux.org/
-[chezmoi-link]: https://www.chezmoi.io/
+[archlinux-link]: https://github.com/archlinux
+[chezmoi-link]: https://github.com/twpayne/chezmoi
 [ly-link]: https://github.com/fairyglade/ly
-[hyprland-link]: https://hyprland.org/
-[zsh-link]: https://www.zsh.org/
-[neovim-link]: https://neovim.io/
-[opencode-link]: https://opencode.ai/
-[ghostty-link]: https://ghostty.org/
+[hyprland-link]: https://github.com/hyprwm/Hyprland
+[zsh-link]: https://github.com/zsh-users/zsh
+[neovim-link]: https://github.com/neovim/neovim
+[opencode-link]: https://github.com/anomalyco/opencode
+[ghostty-link]: https://github.com/ghostty-org/ghostty
 [tmux-link]: https://github.com/tmux/tmux
-[yazi-link]: https://yazi-rs.github.io/
+[yazi-link]: https://github.com/sxyazi/yazi
 
 ## ✨ Features
 
@@ -112,63 +112,63 @@
 [rolling-release-link]: https://en.wikipedia.org/wiki/Rolling_release
 [zen-kernel-link]: https://github.com/zen-kernel/zen-kernel
 [zram-generator-link]: https://github.com/systemd/zram-generator
-[systemd-oomd-link]: https://www.freedesktop.org/software/systemd/man/systemd-oomd.service.html
+[systemd-oomd-link]: https://www.freedesktop.org/software/systemd/man/latest/systemd-oomd.service.html
 [irqbalance-link]: https://github.com/irqbalance/irqbalance
 [cpupower-link]: https://github.com/torvalds/linux/tree/master/tools/power/cpupower
-[tlp-link]: https://linrunner.de/tlp/index.html
+[tlp-link]: https://github.com/linrunner/TLP
 [thermald-link]: https://github.com/intel/thermal_daemon
 [uncompressed-initramfs-link]: https://bbs.archlinux.org/viewtopic.php?id=148172
 [init-link]: https://wiki.archlinux.org/title/Init
-[systemd-link]: https://systemd.io/
-[systemd-network-link]: https://www.freedesktop.org/software/systemd/man/systemd.network.html
-[systemd-resolved-link]: https://www.freedesktop.org/software/systemd/man/systemd-resolved.service.html
-[systemd-timesyncd-link]: https://www.freedesktop.org/software/systemd/man/systemd-timesyncd.service.html
+[systemd-link]: https://github.com/systemd/systemd
+[systemd-network-link]: https://www.freedesktop.org/software/systemd/man/latest/systemd.network.html
+[systemd-resolved-link]: https://www.freedesktop.org/software/systemd/man/latest/systemd-resolved.service.html
+[systemd-timesyncd-link]: https://www.freedesktop.org/software/systemd/man/latest/systemd-timesyncd.service.html
 [tiling-window-manager-link]: https://en.wikipedia.org/wiki/Tiling_window_manager
 [display-server-link]: https://en.wikipedia.org/wiki/Windowing_system#Display_server
 [wayland-link]: https://wayland.freedesktop.org/
-[transparent-file-compression-link]: https://btrfs.wiki.kernel.org/index.php/Compression
-[btrfs-link]: https://btrfs.wiki.kernel.org/index.php/Main_Page
+[transparent-file-compression-link]: https://btrfs.readthedocs.io/en/latest/Compression.html
+[btrfs-link]: https://btrfs.readthedocs.io/en/latest/
 [zstd-link]: https://github.com/facebook/zstd
 [sound-server-link]: https://en.wikipedia.org/wiki/Sound_server
-[pipe-wire-link]: https://pipewire.org/
+[pipe-wire-link]: https://github.com/PipeWire/pipewire
 [fde-link]: https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS
 [dm-crypt-link]: https://en.wikipedia.org/wiki/Dm-crypt
 [lvm-link]: https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)
 [luks-link]: https://en.wikipedia.org/wiki/Linux_Unified_Key_Setup
-[systemd-cryptenroll-link]: https://www.freedesktop.org/software/systemd/man/systemd-cryptenroll.html
+[systemd-cryptenroll-link]: https://www.freedesktop.org/software/systemd/man/latest/systemd-cryptenroll.html
 [tpm-link]: https://en.wikipedia.org/wiki/Trusted_Platform_Module
-[pam-u2f-module-link]: https://developers.yubico.com/pam-u2f/
+[pam-u2f-module-link]: https://github.com/Yubico/pam-u2f
 [systemd-homed-link]: https://systemd.io/HOME_DIRECTORY/
 [boot-process-link]: https://wiki.archlinux.org/title/Improving_performance/Boot_process
 [silent-boot-link]: https://wiki.archlinux.org/title/Silent_boot
-[systemd-boot-link]: https://www.freedesktop.org/software/systemd/man/systemd-boot.html
+[systemd-boot-link]: https://www.freedesktop.org/software/systemd/man/latest/systemd-boot.html
 [uefi-secure-boot-link]: https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot
 [uki-link]: https://wiki.archlinux.org/title/Unified_kernel_image
 [sbctl-link]: https://github.com/Foxboron/sbctl
 [1password-link]: https://1password.com/
 [ente-auth-link]: https://github.com/ente/ente#ente-auth
-[signal-link]: https://signal.org/
-[ente-photos-link]: https://ente.io/
+[signal-link]: https://github.com/signalapp/Signal-Desktop
+[ente-photos-link]: https://github.com/ente/ente#ente-photos
 [obsidian-link]: https://obsidian.md/sync
 [strict-etp-link]: https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 [duckduckgo-link]: https://duckduckgo.com/
 [https-only-mode-link]: https://support.mozilla.org/en-US/kb/https-only-prefs
 [multi-account-containers-link]: https://support.mozilla.org/en-US/kb/containers
-[ublock-origin-link]: https://ublockorigin.com/
+[ublock-origin-link]: https://github.com/gorhill/uBlock
 [libredirect-link]: https://github.com/libredirect/browser_extension
 [ufw-link]: https://launchpad.net/ufw
 [rkhunter-link]: https://rkhunter.sourceforge.net/
 [arch-audit-link]: https://gitlab.archlinux.org/archlinux/arch-audit
 [tor-browser-link]: https://www.torproject.org/download/
-[openvpn-link]: https://openvpn.net/client/
+[openvpn-link]: https://github.com/OpenVPN/openvpn
 [nordvpn-link]: https://nordvpn.com/
 [pet-link]: https://github.com/knqyf263/pet
-[blackarch-link]: https://blackarch.org
+[blackarch-link]: https://github.com/BlackArch/blackarch
 [chaotic-aur-link]: https://aur.chaotic.cx/
 [keyd-link]: https://github.com/rvaiya/keyd
-[bats-link]: https://bats-core.readthedocs.io/
+[bats-link]: https://github.com/bats-core/bats-core
 [xcape-link]: https://man.archlinux.org/man/xcape.1.en
-[space-cadet-shift-link]: https://docs.qmk.fm/features/space_cadet
+[space-cadet-shift-link]: https://github.com/qmk/qmk_firmware/blob/master/docs/features/space_cadet.md
 
 ## ⚡️ Requirements
 
@@ -246,22 +246,22 @@ Run `pre-commit run -a` to lint and format the source code with
 | CI/CD                | [actionlint][actionlint-link] / [zizmor][zizmor-link]                                |
 | commit messages      | [Cocogitto][cocogitto-link]                                                           |
 
-[pre-commit-link]: https://pre-commit.com/
+[pre-commit-link]: https://github.com/pre-commit/pre-commit
 [ec-link]: https://github.com/editorconfig-checker/editorconfig-checker
 [typos-link]: https://github.com/crate-ci/typos
-[prettier-link]: https://prettier.io/
+[prettier-link]: https://github.com/prettier/prettier
 [yamlfmt-link]: https://github.com/google/yamlfmt
 [yamllint-link]: https://github.com/adrienverge/yamllint
-[taplo-link]: https://taplo.tamasfe.dev/
+[taplo-link]: https://github.com/tamasfe/taplo
 [rumdl-link]: https://github.com/rvben/rumdl
 [shfmt-link]: https://github.com/mvdan/sh
 [shellharden-link]: https://github.com/anordal/shellharden
-[shellcheck-link]: https://www.shellcheck.net/
+[shellcheck-link]: https://github.com/koalaman/shellcheck
 [selene-link]: https://github.com/Kampfkarren/selene
 [stylua-link]: https://github.com/JohnnyMorganz/StyLua
 [actionlint-link]: https://github.com/rhysd/actionlint
-[zizmor-link]: https://docs.zizmor.sh/
-[cocogitto-link]: https://docs.cocogitto.io/
+[zizmor-link]: https://github.com/zizmorcore/zizmor
+[cocogitto-link]: https://github.com/cocogitto/cocogitto
 
 ## ⌨️ Custom keybinds
 
@@ -381,16 +381,16 @@ prefix is `C-j`
 
 [waybar-link]: https://github.com/Alexays/Waybar
 [rofi-link]: https://github.com/davatorium/rofi
-[firefox-link]: https://www.mozilla.org/en-US/firefox/new/
-[proton-mail-link]: https://proton.me/mail/download
+[firefox-link]: https://github.com/mozilla-firefox/firefox
+[proton-mail-link]: https://github.com/ProtonMail/WebClients
 [tresorit-link]: https://tresorit.com/
 [btop-link]: https://github.com/aristocratos/btop
 [impala-link]: https://github.com/pythops/impala
 [bluetui-link]: https://github.com/bluetuith-org/bluetuith
 [wiremix-link]: https://github.com/tsowell/wiremix
-[mpv-link]: https://mpv.io/
+[mpv-link]: https://github.com/mpv-player/mpv
 [imv-link]: https://sr.ht/~exec64/imv/
-[zathura-link]: https://pwmt.org/projects/zathura/
+[zathura-link]: https://github.com/pwmt/zathura
 [wps-link]: https://www.wps.com/office/linux/
 [grimblast-link]: https://github.com/hyprwm/contrib/tree/main/grimblast
 [slurp-link]: https://github.com/emersion/slurp
@@ -399,7 +399,7 @@ prefix is `C-j`
 [firacode-link]: https://github.com/tonsky/FiraCode
 [nerd-font-link]: https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/NerdFontsSymbolsOnly
 [noto-sans-link]: https://fonts.google.com/noto/specimen/Noto+Sans
-[quickshell-link]: https://quickshell.org/
+[quickshell-link]: https://github.com/quickshell-mirror/quickshell
 [fluent-gtk-link]: https://github.com/vinceliuice/Fluent-gtk-theme
 [kvantum-link]: https://github.com/tsujan/Kvantum
 [wob-link]: https://github.com/francma/wob
