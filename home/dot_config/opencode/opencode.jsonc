@@ -212,7 +212,8 @@
       "actionlint *": "allow",
       "zizmor": "allow",
       "zizmor *": "allow",
-      "pre-commit run *": "allow",
+      "rtk pre-commit run *": "allow",
+      "SKIP=* rtk pre-commit run *": "allow",
       // AWS read operations
       "rtk aws * get-* *": "allow",
       "rtk aws * describe-* *": "allow",
