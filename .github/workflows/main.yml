@@ -6,7 +6,7 @@ jobs:
     container:
       image: archlinux:base-20260802.0.566770
     steps:
-      - uses: actions/checkout@main
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Generate keyring and download database file
         run: pacman-key --init && pacman -Sy
       - name: Install git command for chezmoiexternal git-repo type
@@ -52,7 +52,7 @@ jobs:
             shellharden \
             shfmt \
             git
-      - uses: actions/checkout@main
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Set safe directory
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Run pre-commit
@@ -68,7 +68,7 @@ jobs:
         run: pacman-key --init && pacman -Sy
       - name: Install cocogitto command
         run: pacman -S --noconfirm git cocogitto
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
       - name: Set safe directory
