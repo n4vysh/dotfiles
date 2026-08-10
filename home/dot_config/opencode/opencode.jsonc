@@ -212,6 +212,7 @@
       "sqlfluff lint *": "allow",
       "rtk prettier --check *": "allow",
       "RTK_DISABLED=1 prettier --check *": "allow",
+      "lychee *": "allow",
       "actionlint": "allow",
       "actionlint *": "allow",
       "zizmor": "allow",
