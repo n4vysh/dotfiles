@@ -237,13 +237,13 @@ Run `pre-commit run -a` to lint and format the source code with
 | JSON files           | [prettier][prettier-link]                                                             |
 | YAML files           | [yamlfmt][yamlfmt-link] / [yamllint][yamllint-link]                                   |
 | TOML files           | [taplo][taplo-link]                                                                   |
-| Markdown files       | [rumdl][rumdl-link]                                                                   |
+| Markdown files       | [rumdl][rumdl-link] / [lychee][lychee-link]                                           |
 | shell scripts        | [shfmt][shfmt-link] / [shellharden][shellharden-link] / [shellcheck][shellcheck-link] |
 | zsh files            | `zsh --no-exec`                                                                       |
 | hyprland config file | `hyprctl configerrors`                                                                |
 | lua files            | [selene][selene-link] / [stylua][stylua-link]                                         |
 | etc files            | [bats][bats-link] / `visudo -c`                                                       |
-| CI/CD                | [actionlint][actionlint-link] / [zizmor][zizmor-link]                                |
+| CI/CD                | [actionlint][actionlint-link] / [zizmor][zizmor-link]                                 |
 | commit messages      | [Cocogitto][cocogitto-link]                                                           |
 
 [pre-commit-link]: https://github.com/pre-commit/pre-commit
@@ -254,6 +254,7 @@ Run `pre-commit run -a` to lint and format the source code with
 [yamllint-link]: https://github.com/adrienverge/yamllint
 [taplo-link]: https://github.com/tamasfe/taplo
 [rumdl-link]: https://github.com/rvben/rumdl
+[lychee-link]: https://github.com/lycheeverse/lychee
 [shfmt-link]: https://github.com/mvdan/sh
 [shellharden-link]: https://github.com/anordal/shellharden
 [shellcheck-link]: https://github.com/koalaman/shellcheck
