@@ -23,7 +23,7 @@
   "default_agent": "plan",
   "autoupdate": false,
   "share": "disabled",
-  "plugin": ["@devtheops/opencode-plugin-otel@1.2.0"],
+  "plugin": ["@devtheops/opencode-plugin-otel@1.5.0"],
   "agent": {
     // Built-in primary agents
     "compaction": {
