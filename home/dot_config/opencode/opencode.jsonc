@@ -353,6 +353,7 @@
       "gh search issues *": "allow",
       "gh search prs *": "allow",
       "gh search repos *": "allow",
+      "gh search commits *": "allow",
       "gh api *": "allow",
       "gh api *-f*": "ask",
       "gh api *--raw-field*": "ask",
