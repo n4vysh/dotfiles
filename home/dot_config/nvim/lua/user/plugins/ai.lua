@@ -1,38 +1,5 @@
 return {
 	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		opts = {
-			suggestion = {
-				enabled = true,
-				auto_trigger = true,
-			},
-			filetypes = {
-				lua = true,
-				go = true,
-				typescript = true,
-				["*"] = false,
-			},
-		},
-	},
-	{
-		"folke/sidekick.nvim",
-		keys = {
-			{
-				"<tab>",
-				function()
-					if not require("sidekick").nes_jump_or_apply() then
-						return "<Tab>"
-					end
-				end,
-				expr = true,
-				desc = "Goto/Apply Next Edit Suggestion",
-			},
-		},
-		opts = {},
-	},
-	{
 		"nickjvandyke/opencode.nvim",
 		version = "*",
 		keys = {
