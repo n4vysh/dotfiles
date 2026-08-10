@@ -4,7 +4,7 @@ experimental = true
 install_before = "7d"
 
 [settings.npm]
-package_manager = "bun"
+package_manager = "aube"
 
 [tools]
 "npm:czg" = "1.13.0"
