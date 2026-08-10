@@ -208,6 +208,10 @@
       "sqlfluff lint *": "allow",
       "rtk prettier --check *": "allow",
       "RTK_DISABLED=1 prettier --check *": "allow",
+      "actionlint": "allow",
+      "actionlint *": "allow",
+      "zizmor": "allow",
+      "zizmor *": "allow",
       "pre-commit run *": "allow",
       // AWS read operations
       "rtk aws * get-* *": "allow",
