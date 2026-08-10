@@ -110,6 +110,7 @@ packages:
       - extra/pcsc-tools
       - extra/yubikey-manager
       # mount helper
+      - extra/android-udev
       - extra/polkit
       - extra/udiskie
       - extra/udisks2
