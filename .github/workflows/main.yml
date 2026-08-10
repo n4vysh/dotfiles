@@ -18,8 +18,10 @@ jobs:
       - name: Install dotfiles manager
         run: pacman -S --noconfirm chezmoi
       - name: Deploy dotfiles
+        env:
+          branch: ${{ github.ref_name }}
         run: |
-          chezmoi init --branch "${{ github.ref_name }}" n4vysh && chezmoi apply
+          chezmoi init --branch "$branch" n4vysh && chezmoi apply
           ls -l ~/.*
   pre-commit:
     runs-on: ubuntu-26.04
