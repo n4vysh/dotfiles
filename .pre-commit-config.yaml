@@ -141,6 +141,12 @@ repos:
         language: system
         entry: sh -c "printf '%s\n' $@ | xargs -I {} -t visudo -c -f {}"
         files: misc/etc/sudoer.d/.*
+      # CI/CD
+      - id: zizmor
+        name: check GitHub Actions workflows with zizmor
+        language: system
+        entry: zizmor
+        files: ^\.github/workflows/.*\.ya?ml$
       # commit
       - id: cocogitto
         name: check commit message with cocogitto

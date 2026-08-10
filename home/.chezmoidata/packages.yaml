@@ -328,6 +328,7 @@ packages:
       - extra/trivy
       - extra/yamlfmt
       - extra/yamllint
+      - extra/zizmor
       ## runtime / package manager
       - extra/bun
       - extra/go

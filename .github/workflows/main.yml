@@ -51,6 +51,7 @@ jobs:
             yamlfmt \
             yamllint \
             shellcheck \
+            zizmor \
             zsh \
             selene \
             stylua \
