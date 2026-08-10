@@ -1,5 +1,6 @@
 pre = "*-alpha"
 ignore_fixup_commits = true
+ignore_merge_commits = true
 scopes = [
   "apm",
   "applications",
