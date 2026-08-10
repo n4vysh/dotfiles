@@ -85,6 +85,11 @@ repos:
         language: system
         entry: rumdl check
         types: [markdown]
+      - id: lychee
+        name: check links in markdown files with lychee
+        language: system
+        entry: lychee -n
+        types: [markdown]
       # shell scripts
       - id: shfmt
         name: format shell scripts with shfmt

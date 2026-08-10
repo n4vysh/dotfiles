@@ -48,6 +48,7 @@ jobs:
             pre-commit \
             prettier \
             rumdl \
+            lychee \
             yamlfmt \
             yamllint \
             shellcheck \

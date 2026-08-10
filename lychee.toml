@@ -1,0 +1,10 @@
+method = "head"
+max_concurrency = 200
+
+# NOTE: check only local and GitHub links to prevent slowdowns
+exclude = ['^https?://']
+include = ['^https://github\.com/']
+
+[hosts."github.com"]
+concurrency = 200
+request_interval = "0"
