@@ -153,7 +153,7 @@
 [strict-etp-link]: https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop
 [duckduckgo-link]: https://duckduckgo.com/
 [https-only-mode-link]: https://support.mozilla.org/en-US/kb/https-only-prefs
-[multi-account-containers-link]: https://support.mozilla.org/en-US/kb/containers
+[multi-account-containers-link]: https://github.com/mozilla/multi-account-containers
 [ublock-origin-link]: https://github.com/gorhill/uBlock
 [libredirect-link]: https://github.com/libredirect/browser_extension
 [ufw-link]: https://launchpad.net/ufw
