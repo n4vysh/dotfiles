@@ -1,0 +1,6 @@
+paths:
+  .github/workflows/**/*.{yml,yaml}:
+    ignore:
+      # HACK: actionlint not support `ubuntu-26.04`
+      # https://github.com/rhysd/actionlint/issues/682
+      - '^label "ubuntu-26\.04" is unknown\.'

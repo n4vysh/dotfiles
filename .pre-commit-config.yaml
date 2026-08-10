@@ -142,6 +142,11 @@ repos:
         entry: sh -c "printf '%s\n' $@ | xargs -I {} -t visudo -c -f {}"
         files: misc/etc/sudoer.d/.*
       # CI/CD
+      - id: actionlint
+        name: check GitHub Actions workflows with actionlint
+        language: system
+        entry: actionlint
+        files: ^\.github/workflows/.*\.ya?ml$
       - id: zizmor
         name: check GitHub Actions workflows with zizmor
         language: system

@@ -51,6 +51,7 @@ jobs:
             yamlfmt \
             yamllint \
             shellcheck \
+            actionlint \
             zizmor \
             zsh \
             selene \
