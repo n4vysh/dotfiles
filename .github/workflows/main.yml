@@ -3,6 +3,8 @@ name: main
 jobs:
   chezmoi:
     runs-on: ubuntu-26.04
+    permissions:
+      contents: read
     container:
       image: archlinux:base-20260802.0.566770
     steps:
@@ -21,6 +23,8 @@ jobs:
           ls -l ~/.*
   pre-commit:
     runs-on: ubuntu-26.04
+    permissions:
+      contents: read
     container:
       image: archlinux:base-20260802.0.566770
     steps:
