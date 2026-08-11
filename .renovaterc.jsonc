@@ -92,7 +92,8 @@
       "matchDepNames": ["opencode", "@opencode-ai/plugin"],
       "groupName": "opencode",
       "groupSlug": "opencode",
-      "minimumGroupSize": 2
+      "minimumGroupSize": 2,
+      "minimumReleaseAge": "3 days"
     },
     {
       "description": "Group Sheldon plugin updates",
