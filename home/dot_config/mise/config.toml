@@ -3,6 +3,9 @@ jobs = 20
 experimental = true
 install_before = "7d"
 
+[settings.github]
+credential_command = "gh auth token"
+
 [settings.npm]
 package_manager = "aube"
 
