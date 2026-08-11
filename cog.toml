@@ -81,6 +81,8 @@ scopes = [
   "zathura",
   "zsh",
   "zsh-abbr",
+  # chore
+  "deps",
   # old
   "agents",
   "aicommits",

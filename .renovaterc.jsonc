@@ -1,0 +1,114 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    ":enablePreCommit",
+    "schedule:monthly",
+    ":maintainLockFilesMonthly"
+  ],
+  "timezone": "Asia/Tokyo",
+  "automerge": false, // disable automerge to reduce supply-chain risk
+  "prCreation": "not-pending",
+  // Dependency update groups:
+  // - github-actions
+  // - mise
+  // - opencode
+  // - sheldon
+  // - chezmoi-externals
+  // - pre-commit
+  // Up to 2 PRs per group (major/non-major): 6 x 2 = 12
+  "prConcurrentLimit": 12,
+  "prHourlyLimit": 12,
+  "commitHourlyLimit": 12,
+  "separateMajorMinor": true,
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update tagged chezmoi externals",
+      "managerFilePatterns": ["/^home\\/\\.chezmoiexternal\\.toml$/"],
+      "matchStrings": [
+        "https://github\\.com/(?<depName>[^/]+/[^/]+)/archive/refs/tags/(?<currentValue>[^/]+)\\.tar\\.gz",
+        "https://raw\\.githubusercontent\\.com/(?<depName>[^/]+/[^/]+)/refs/tags/(?<currentValue>[^/]+)/[^\\\"\\s]+"
+      ],
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "semver-coerced",
+      "depTypeTemplate": "chezmoi-external"
+    },
+    {
+      "customType": "regex",
+      "description": "Update commit-pinned chezmoi externals",
+      "managerFilePatterns": ["/^home\\/\\.chezmoiexternal\\.toml$/"],
+      "matchStrings": [
+        "# renovate: depName=(?<depName>\\S+) branch=(?<currentValue>\\S+)\\s+url = \\\"https://raw\\.githubusercontent\\.com/[^/]+/[^/]+/(?<currentDigest>[0-9a-f]+)/"
+      ],
+      "packageNameTemplate": "https://github.com/{{{depName}}}",
+      "datasourceTemplate": "git-refs",
+      "depTypeTemplate": "chezmoi-external"
+    },
+    {
+      "customType": "regex",
+      "description": "Update tagged Sheldon plugins",
+      "managerFilePatterns": [
+        "/^home\\/dot_config\\/sheldon\\/plugins\\.toml$/"
+      ],
+      "matchStrings": [
+        "github = \\\"(?<depName>[^\\\"]+)\\\"\\s+tag = \\\"(?<currentValue>[^\\\"]+)\\\""
+      ],
+      "datasourceTemplate": "github-tags",
+      "versioningTemplate": "semver-coerced",
+      "depTypeTemplate": "sheldon"
+    },
+    {
+      "customType": "regex",
+      "description": "Update commit-pinned Sheldon plugins",
+      "managerFilePatterns": [
+        "/^home\\/dot_config\\/sheldon\\/plugins\\.toml$/"
+      ],
+      "matchStrings": [
+        "# renovate: depName=(?<depName>\\S+) branch=(?<currentValue>\\S+)\\s+rev = \\\"(?<currentDigest>[0-9a-f]+)\\\""
+      ],
+      "packageNameTemplate": "https://github.com/{{{depName}}}",
+      "datasourceTemplate": "git-refs",
+      "depTypeTemplate": "sheldon"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "Group GitHub Actions updates",
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions",
+      "groupSlug": "github-actions"
+    },
+    {
+      "description": "Group mise updates",
+      "matchManagers": ["mise"],
+      "groupName": "mise",
+      "groupSlug": "mise"
+    },
+    {
+      "description": "Update OpenCode CLI and plugin together",
+      "matchDepNames": ["opencode", "@opencode-ai/plugin"],
+      "groupName": "opencode",
+      "groupSlug": "opencode",
+      "minimumGroupSize": 2
+    },
+    {
+      "description": "Group Sheldon plugin updates",
+      "matchDepTypes": ["sheldon"],
+      "groupName": "sheldon",
+      "groupSlug": "sheldon"
+    },
+    {
+      "description": "Group chezmoi external updates",
+      "matchDepTypes": ["chezmoi-external"],
+      "groupName": "chezmoi-external",
+      "groupSlug": "chezmoi-external"
+    },
+    {
+      "description": "Group pre-commit updates",
+      "matchManagers": ["pre-commit"],
+      "groupName": "pre-commit",
+      "groupSlug": "pre-commit"
+    }
+  ]
+}

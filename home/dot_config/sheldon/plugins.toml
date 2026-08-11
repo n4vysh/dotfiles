@@ -3,6 +3,7 @@ shell = "zsh"
 [plugins]
 [plugins.powerlevel10k]
 github = "romkatv/powerlevel10k"
+# renovate: depName=romkatv/powerlevel10k branch=master
 rev = "604f19a"
 
 [plugins.zsh-no-ps2]
@@ -19,6 +20,7 @@ tag = "v6.5.2"
 
 [plugins.zsh-fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
+# renovate: depName=zdharma-continuum/fast-syntax-highlighting branch=master
 rev = "3d574cc"
 
 [plugins.zsh-autosuggestions]
@@ -31,10 +33,12 @@ tag = "0.36.0"
 
 [plugins.zsh-history-substring-search]
 github = "zsh-users/zsh-history-substring-search"
+# renovate: depName=zsh-users/zsh-history-substring-search branch=master
 rev = "87ce96b"
 
 [plugins.zsh-autopair]
 github = "hlissner/zsh-autopair"
+# renovate: depName=hlissner/zsh-autopair branch=master
 rev = "449a7c3"
 
 [plugins.zsh-auto-notify]
@@ -43,10 +47,12 @@ tag = "0.11.1"
 
 [plugins.zsh-autocomplete]
 github = "marlonrichert/zsh-autocomplete"
+# renovate: depName=marlonrichert/zsh-autocomplete branch=main
 rev = "20f6c34"
 
 [plugins.ohmyzsh]
 github = "ohmyzsh/ohmyzsh"
 dir = "plugins"
 use = ["sudo/sudo.plugin.zsh"]
+# renovate: depName=ohmyzsh/ohmyzsh branch=master
 rev = "349b9e4"
