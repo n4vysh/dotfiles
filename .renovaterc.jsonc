@@ -78,18 +78,21 @@
     {
       "description": "Group GitHub Actions updates",
       "matchManagers": ["github-actions"],
+      "commitMessageAction": ":package: bump",
       "groupName": "github-actions",
       "groupSlug": "github-actions"
     },
     {
       "description": "Group mise updates",
       "matchManagers": ["mise"],
+      "commitMessageAction": ":package: bump",
       "groupName": "mise",
       "groupSlug": "mise"
     },
     {
       "description": "Update OpenCode CLI and plugin together",
       "matchDepNames": ["opencode", "@opencode-ai/plugin"],
+      "commitMessageAction": ":package: bump",
       "groupName": "opencode",
       "groupSlug": "opencode",
       "minimumGroupSize": 2,
@@ -98,18 +101,21 @@
     {
       "description": "Group Sheldon plugin updates",
       "matchDepTypes": ["sheldon"],
+      "commitMessageAction": ":package: bump",
       "groupName": "sheldon",
       "groupSlug": "sheldon"
     },
     {
       "description": "Group chezmoi external updates",
       "matchDepTypes": ["chezmoi-external"],
+      "commitMessageAction": ":package: bump",
       "groupName": "chezmoi-external",
       "groupSlug": "chezmoi-external"
     },
     {
       "description": "Group pre-commit updates",
       "matchManagers": ["pre-commit"],
+      "commitMessageAction": ":package: bump",
       "groupName": "pre-commit",
       "groupSlug": "pre-commit"
     },
@@ -119,7 +125,7 @@
       "matchUpdateTypes": ["lockFileMaintenance"],
       "groupName": "mise",
       "groupSlug": "mise",
-      "commitMessageAction": "Maintain",
+      "commitMessageAction": ":package: maintain",
       "commitMessageTopic": "mise.lock"
     },
     {
@@ -129,7 +135,7 @@
       "matchUpdateTypes": ["lockFileMaintenance"],
       "groupName": "opencode",
       "groupSlug": "opencode",
-      "commitMessageAction": "Maintain",
+      "commitMessageAction": ":package: maintain",
       "commitMessageTopic": "opencode package-lock.json"
     }
   ]
