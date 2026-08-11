@@ -33,7 +33,7 @@ ls-lint = "2.3.1"
 # AI
 opencode = "1.18.15"
 rtk = "0.43.0"
-herdr = "0.7.3"
+herdr = "0.8.0"
 hunk = "0.17.0"
 apm = "0.26.0"
 "npm:ctx7" = "0.5.5"
