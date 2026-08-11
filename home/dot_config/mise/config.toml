@@ -72,7 +72,7 @@ golangci-lint = "2.1.6"
 # infra
 ## cloud
 awscli = "2.31.8"
-aws-vault = "7.2.0"
+aws-vault = "7.13.3"
 granted = "0.38.0"
 ## container
 hadolint = "2.12.0"
