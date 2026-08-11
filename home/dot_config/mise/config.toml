@@ -2,6 +2,7 @@
 jobs = 20
 experimental = true
 install_before = "7d"
+lockfile = true
 
 [settings.github]
 credential_command = "gh auth token"
