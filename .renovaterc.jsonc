@@ -13,15 +13,15 @@
   "prCreation": "not-pending",
   // Dependency update groups:
   // - github-actions
-  // - mise
-  // - opencode
+  // - mise (+ mise.lock maintenance)
+  // - opencode (+ package-lock.json maintenance)
   // - sheldon
   // - chezmoi-externals
   // - pre-commit
-  // Up to 2 PRs per group (major/non-major): 6 x 2 = 12
-  "prConcurrentLimit": 12,
-  "prHourlyLimit": 12,
-  "commitHourlyLimit": 12,
+  // Maximum PRs: 6 x 2 (major/non-major) + 2 lock file maintenance = 14
+  "prConcurrentLimit": 14,
+  "prHourlyLimit": 14,
+  "commitHourlyLimit": 14,
   "separateMajorMinor": true,
   "customManagers": [
     {
@@ -114,12 +114,23 @@
       "groupSlug": "pre-commit"
     },
     {
-      "description": "Group monthly OpenCode lock file maintenance",
+      "description": "Group mise.lock maintenance",
+      "matchManagers": ["mise"],
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "groupName": "mise",
+      "groupSlug": "mise",
+      "commitMessageAction": "Maintain",
+      "commitMessageTopic": "mise.lock"
+    },
+    {
+      "description": "Group opencode package-lock.json maintenance",
       "matchManagers": ["npm"],
       "matchFileNames": ["home/dot_config/opencode/package.json"],
       "matchUpdateTypes": ["lockFileMaintenance"],
       "groupName": "opencode",
-      "groupSlug": "opencode"
+      "groupSlug": "opencode",
+      "commitMessageAction": "Maintain",
+      "commitMessageTopic": "opencode package-lock.json"
     }
   ]
 }
