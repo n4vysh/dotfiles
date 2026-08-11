@@ -112,6 +112,14 @@
       "matchManagers": ["pre-commit"],
       "groupName": "pre-commit",
       "groupSlug": "pre-commit"
+    },
+    {
+      "description": "Group monthly OpenCode lock file maintenance",
+      "matchManagers": ["npm"],
+      "matchFileNames": ["home/dot_config/opencode/package.json"],
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "groupName": "opencode",
+      "groupSlug": "opencode"
     }
   ]
 }
