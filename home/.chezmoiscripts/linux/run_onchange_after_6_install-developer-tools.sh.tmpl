@@ -49,5 +49,5 @@ sudo archlinux-java set "$(
 cat <<-EOF >/dev/null
 	{{ include (joinPath .chezmoi.sourceDir "dot_config/mise/config.toml") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "dot_config/yazi/package.toml") | sha256sum }}
-	{{ include (joinPath .chezmoi.sourceDir "dot_apm/apm.yml") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "dot_apm/private_apm.yml") | sha256sum }}
 EOF
