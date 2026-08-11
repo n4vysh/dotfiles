@@ -2,6 +2,8 @@ name: n4vysh
 version: 1.0.0
 description: APM project for n4vysh
 author: n4vysh
+targets:
+  - agent-skills
 dependencies:
   apm:
     - aws/agent-toolkit-for-aws/skills/core-skills/aws-iam#395df44

@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-08-02T15:14:20.514428+00:00'
+generated_at: '2026-08-11T04:25:30.461813+00:00'
 apm_version: 0.26.0
 dependencies:
 - repo_url: aws/agent-toolkit-for-aws
@@ -718,7 +718,7 @@ dependencies:
   content_hash: sha256:913b9d37d0d54047dd65222bb8c67b2bf04e3cb87dcad1729068d7a8b2c8c396
 deployments:
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/agent-browser
   runtime: null
   scope: project
@@ -727,7 +727,7 @@ deployments:
   active_owner: vercel-labs/agent-browser/skills/agent-browser
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/agent-browser/SKILL.md
   runtime: null
   scope: project
@@ -736,7 +736,7 @@ deployments:
   active_owner: vercel-labs/agent-browser/skills/agent-browser
   content_hash: sha256:243eeaa5e9a42bb12d94d6af29a51b2c956546a16b1862282db1e5bd27315f8a
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-iam
   runtime: null
   scope: project
@@ -745,7 +745,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-iam
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-iam/SKILL.md
   runtime: null
   scope: project
@@ -754,7 +754,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-iam
   content_hash: sha256:2ac94985a4c83c545cc65f69a0fb48940957f55ca28dfba30d53721c32300ced
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-iam/references/aws-iam-policy-generation.md
   runtime: null
   scope: project
@@ -763,7 +763,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-iam
   content_hash: sha256:f0c549bdf9930cd3a2ba8f8941ac8c26330ce588845f8ca5b9810536e1e88f5b
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-iam/references/aws-iam-role-management.md
   runtime: null
   scope: project
@@ -772,7 +772,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-iam
   content_hash: sha256:77be16ee747569264ed42bf9f8ce56641cc1eb9fa7aed7f438466939836d9518
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-iam/references/common-pitfalls.md
   runtime: null
   scope: project
@@ -781,7 +781,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-iam
   content_hash: sha256:6ba0ac7b68d8902a6d52344bd3733b083fa4a185a8e90174947f092e1a6f69e2
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-iam/references/service-authorization.md
   runtime: null
   scope: project
@@ -790,7 +790,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-iam
   content_hash: sha256:0368bfcd3a30a438e47b81042a89746d5990298f599ac00400d4f7a90d6c24e8
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability
   runtime: null
   scope: project
@@ -799,7 +799,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/SKILL.md
   runtime: null
   scope: project
@@ -808,7 +808,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:bc7d8ae0eeb2ef227d57b7899a498f2f5f48c4386e855f387780f695ec6a8750
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/assets/alarm-template.ts
   runtime: null
   scope: project
@@ -817,7 +817,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:b242e56ac6a51788da30cc2ed9a957a49891c0e363ec865c925041074d43a7b8
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/assets/otel-config.yaml
   runtime: null
   scope: project
@@ -826,7 +826,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:7e1412c0a286f0dfda4d113a0f954ff1b4bbd619a942a0eaf6d4c3c835d99063
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/alarms.md
   runtime: null
   scope: project
@@ -835,7 +835,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:bdd5f0787c625e01d3a35a7b428a26963b057ab662665eb3b7ec8cece46840f9
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/application-signals-cicd-metadata.md
   runtime: null
   scope: project
@@ -844,7 +844,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:336f27f5a3961b2df051ae8d05ab71829d392cc06b77733561348d3ef4d48dc9
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/application-signals-onboarding.md
   runtime: null
   scope: project
@@ -853,7 +853,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:c0ff803e8817c8d0dec61e51389f2dc9cae6d23231d0e7dc2184a2e635972cde
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/ec2-dotnet.md
   runtime: null
   scope: project
@@ -862,7 +862,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:8b8a553ec1635b2eab4b23a958c89aba48b76e83ad0cde77210db8b25dbb95cc
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/ec2-java.md
   runtime: null
   scope: project
@@ -871,7 +871,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:d23591d7fa962d836a5586c03a172d7ce6235fd3bc0f02d22b15d7f8a7bba245
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/ec2-nodejs.md
   runtime: null
   scope: project
@@ -880,7 +880,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:f9dee3d4d8e8abef1b05f563b5d560757612d7199de3bc5f3c166b56ac7260cc
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/ec2-python.md
   runtime: null
   scope: project
@@ -889,7 +889,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:3e8e8c42ceceb1b43b24ec5f0973de719b81b7cee2cb0b97a84f161cf75f4e8a
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/ecs-dotnet.md
   runtime: null
   scope: project
@@ -898,7 +898,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:36bb4d645595c7b8c01561e17e7961b56ad352033f983b624c4bb2aadcd07fc2
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/ecs-java.md
   runtime: null
   scope: project
@@ -907,7 +907,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:478648fad3e10d1b64defbac6aaf0951ed06e0d407d1aab2398405c96782ead8
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/ecs-nodejs.md
   runtime: null
   scope: project
@@ -916,7 +916,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:7dec2ddae79dd29ca450d4ea06a3ff669aeac75df3a67e03555a85b2ace9db17
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/ecs-python.md
   runtime: null
   scope: project
@@ -925,7 +925,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:e5683f6cc2e149ea2786f91f710b6c757d358289e38a7bbc871e7389133fec18
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/eks-dotnet.md
   runtime: null
   scope: project
@@ -934,7 +934,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:156ed9d0e3f93d6a5e3b1a9d2c210565ee5ebebefa25333d27f8338a9bdd9270
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/eks-java.md
   runtime: null
   scope: project
@@ -943,7 +943,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:bfa7989364e4141b8b8d6faf887bdb6952cb08df133642798aba75ef1ca8f2fb
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/eks-nodejs.md
   runtime: null
   scope: project
@@ -952,7 +952,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:3f0cc969c87ff5d7b3ee71bd4344550d641a9802ae48ca8cb7bc97d224b3efc3
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/eks-python.md
   runtime: null
   scope: project
@@ -961,7 +961,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:a96b20f9b3c75b40d44c960cdb090bf20ce6c94da3009b72503e88044f40c3d4
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/lambda-dotnet.md
   runtime: null
   scope: project
@@ -970,7 +970,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:ee93e201ea0026da1d38cfbcd3d8e8a3fc6a2599e667a6af36c802276263f497
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/lambda-java.md
   runtime: null
   scope: project
@@ -979,7 +979,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:bc61050162583364e0403de35f1f649b969bc8ce9bde5e222c0cfbbf8bb73ee4
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/lambda-nodejs.md
   runtime: null
   scope: project
@@ -988,7 +988,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:d54a1f954f0b68b9e14c82e728f295118faf325d740eb61403ec4f9b8a281f19
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/appsignals-guides/lambda-python.md
   runtime: null
   scope: project
@@ -997,7 +997,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:09acc68f1a06387bf420dfd3a886a78b7bf79972b5f94b70d5449bd036a89f7e
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/cloudtrail.md
   runtime: null
   scope: project
@@ -1006,7 +1006,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:9c7f323f05d1882b42d0e01cb5676f6abd6e7136970671c3b2e3683d29be78bf
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/dashboards.md
   runtime: null
   scope: project
@@ -1015,7 +1015,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:323cb457287287c3fa25ea719c582df9f3589932ecaac79ce4109d81e17347e7
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/dynamic-instrumentation.md
   runtime: null
   scope: project
@@ -1024,7 +1024,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:42cfff13584157041766745cacf533389f7388c006827dec5eb1a73b428a0fc5
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/dynamic-instrumentation/breakpoint-creation.md
   runtime: null
   scope: project
@@ -1033,7 +1033,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:57ef70dbd46d415370dc2b3fe1a1b87bcc005beaf3638e5c80e506762f2e5fd2
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/dynamic-instrumentation/call-tree-and-directions.md
   runtime: null
   scope: project
@@ -1042,7 +1042,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:d7e9023303000302b3e2431aee8084a5fc1ec83300a518cf8e2f4e02d8b49cef
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/dynamic-instrumentation/snapshot-parsing.md
   runtime: null
   scope: project
@@ -1051,7 +1051,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:a2ecf65b7c44ea27e5dc70ded7ce71b4c411f9c2321639a045defc071d508738
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/log-insights.md
   runtime: null
   scope: project
@@ -1060,7 +1060,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:2ae72120f4f34ab6fddf0726e9e6a8dfc3066a6889493b16cc174ac069d5aa87
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/metrics.md
   runtime: null
   scope: project
@@ -1069,7 +1069,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:7260fe26d2473fe9614b264ac461d45363fa1d4b743bc3bcd5bba959bce30ae8
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/synthetics.md
   runtime: null
   scope: project
@@ -1078,7 +1078,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:b767b7ea045491e835ab481ac3e568435a61efa0155ed02284d8ab701552f371
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/tracing.md
   runtime: null
   scope: project
@@ -1087,7 +1087,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:f5e9578850f9a8ae4a933016af8d2ed5a0ea10fef14d152754ebf8f0fec5561d
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/references/troubleshooting.md
   runtime: null
   scope: project
@@ -1096,7 +1096,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:c7a3b3e6eaf8427dd227184822b8d019669d6d78364bf3aa47bbfd632e66bffe
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_app_signals_client.py
   runtime: null
   scope: project
@@ -1105,7 +1105,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:946c61a57089189d37b5138748d4ed598b6bf48318a8ead5ef1748a1e5718ba8
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_capture.py
   runtime: null
   scope: project
@@ -1114,7 +1114,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:bcf808de0ccab0f5cc75d84961cc2c3272123bd870777df38add112d062e09e4
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_constants.py
   runtime: null
   scope: project
@@ -1123,7 +1123,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:d0e6abbe921bf4add096a46b6f90544c317382accf97bca8d433fc981d45e105
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_crud_rendering.py
   runtime: null
   scope: project
@@ -1132,7 +1132,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:ed670954d47ccf880753da349f5af492746faff6827e56f70ee5af655ec5037b
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_crud_tools.py
   runtime: null
   scope: project
@@ -1141,7 +1141,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:132c2ef6318ddd3a44797e55cc2f7d0cfbf8f8dd37e401117572a16f07b336c5
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_error_translation.py
   runtime: null
   scope: project
@@ -1150,7 +1150,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:8d2f5ac61e4499bcd57050274cfa3a1f862173fcc37e9bb89d87092e1fc0da2b
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_formatting.py
   runtime: null
   scope: project
@@ -1159,7 +1159,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:2793a664f304218cbcf8c6076bc9379a69ceb973e0755cc70f6185ddad1e2ea8
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_gateway.py
   runtime: null
   scope: project
@@ -1168,7 +1168,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:1fa5de4858c680adefba5c84e220156d20a039ec6c5814a4f3099b4318b2ef4a
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_instrumentation.py
   runtime: null
   scope: project
@@ -1177,7 +1177,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:007fa0274bbc1707c064c7370a77ae95811531eed291f580b4b036f8b8973192
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_location.py
   runtime: null
   scope: project
@@ -1186,7 +1186,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:1772cc8c66ec0f85e0fd9b17bd4b71af5eb29b0258ace5ba54340ac78a489897
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_logs_client.py
   runtime: null
   scope: project
@@ -1195,7 +1195,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:9c107f8f9145acee4d33807f99d36a4f9bbb2b4e754198542f8c2d08fa9979af
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_region.py
   runtime: null
   scope: project
@@ -1204,7 +1204,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:ef6b3c96951f4b045d8d8f10685dd9f29f5805201b41da829a7b4761826b74bc
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_result.py
   runtime: null
   scope: project
@@ -1213,7 +1213,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:39875674c626f17e2388d67870cd7e8771ad83598c9f570d161dd2038b6a7d7d
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_session.py
   runtime: null
   scope: project
@@ -1222,7 +1222,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:bafbaec1b83975a6c5702d4a8a9ecd95b509abff69b2eb52e967284e124dc223
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_snapshot_parsing.py
   runtime: null
   scope: project
@@ -1231,7 +1231,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:53db896ac57b2b174da5affcfc72c0d81b85ca17448006ad68266952139c0398
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_snapshot_queries.py
   runtime: null
   scope: project
@@ -1240,7 +1240,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:0c7863824199e5da9dfc87eb0199d5bcfd6e06d3babd5beaa5d88508cdeb8f18
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_snapshot_rendering.py
   runtime: null
   scope: project
@@ -1249,7 +1249,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:3b2726ffba95872c5e41cc495aa0000be36740e1740e2cad1a42a0d02dc441c4
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_snapshot_tools.py
   runtime: null
   scope: project
@@ -1258,7 +1258,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:374eea422d58fb6c8d6548bebf65847cdd6623257d6aeee4a93afafe26f5df4d
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_snapshots.py
   runtime: null
   scope: project
@@ -1267,7 +1267,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:bd4d61bb0f6c5e3a9500179646c35376a088e833829b71596c756c6f50706d8b
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_status_assessment.py
   runtime: null
   scope: project
@@ -1276,7 +1276,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:4ec65bb5bd07a0de8314116d3649246620f986d7b020cbbf40083f7c3c581428
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_status_rendering.py
   runtime: null
   scope: project
@@ -1285,7 +1285,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:29ffe8f1854bd04b65ff9691ea7553914e703d734126dca53729e39253cadde4
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_status_tools.py
   runtime: null
   scope: project
@@ -1294,7 +1294,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:9c3c835cc5d7a0029a4264f38cd705d5a57ecd5f1bb7ad005aab14460a50fb93
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/aws-observability/scripts/di_validation.py
   runtime: null
   scope: project
@@ -1303,7 +1303,7 @@ deployments:
   active_owner: aws/agent-toolkit-for-aws/skills/core-skills/aws-observability
   content_hash: sha256:fa729c80aa684e1c74150eb00ea4478dd761e3cc2d92b8cf8ebac06d1aa6f939
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/defuddle
   runtime: null
   scope: project
@@ -1312,7 +1312,7 @@ deployments:
   active_owner: kepano/obsidian-skills/skills/defuddle
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/defuddle/SKILL.md
   runtime: null
   scope: project
@@ -1321,7 +1321,7 @@ deployments:
   active_owner: kepano/obsidian-skills/skills/defuddle
   content_hash: sha256:10673a4dc70a0a057612d443243ab7a5aa4abdd4a0fadc3f6eec5fd71ad5a971
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/dispatching-parallel-agents
   runtime: null
   scope: project
@@ -1330,7 +1330,7 @@ deployments:
   active_owner: obra/superpowers/skills/dispatching-parallel-agents
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/dispatching-parallel-agents/SKILL.md
   runtime: null
   scope: project
@@ -1339,7 +1339,7 @@ deployments:
   active_owner: obra/superpowers/skills/dispatching-parallel-agents
   content_hash: sha256:1968923066f3b707eb01d1992cdf4c42284c3855f70253b9cd5000ff45fca13c
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/find-docs
   runtime: null
   scope: project
@@ -1348,7 +1348,7 @@ deployments:
   active_owner: upstash/context7/skills/find-docs
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/find-docs/SKILL.md
   runtime: null
   scope: project
@@ -1357,7 +1357,7 @@ deployments:
   active_owner: upstash/context7/skills/find-docs
   content_hash: sha256:5bf22997630fd5518112ab855c55ddba8653b7aefe16e5efad70e38966927fcf
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/find-skills
   runtime: null
   scope: project
@@ -1366,7 +1366,7 @@ deployments:
   active_owner: vercel-labs/skills/skills/find-skills
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/find-skills/SKILL.md
   runtime: null
   scope: project
@@ -1375,7 +1375,7 @@ deployments:
   active_owner: vercel-labs/skills/skills/find-skills
   content_hash: sha256:c00eeea0e13e74fe4a9d84ba0a8542205a1b736d65f13134fe1a6647eb14976f
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/gh
   runtime: null
   scope: project
@@ -1384,7 +1384,7 @@ deployments:
   active_owner: cli/cli/skills/gh
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/gh/SKILL.md
   runtime: null
   scope: project
@@ -1393,7 +1393,7 @@ deployments:
   active_owner: cli/cli/skills/gh
   content_hash: sha256:7ed50736f6954da4cd73f9b7a5b1f004ae12c31ba437f78c160c40ceecf84f8f
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/grill-me
   runtime: null
   scope: project
@@ -1402,7 +1402,7 @@ deployments:
   active_owner: mattpocock/skills/skills/productivity/grill-me
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/grill-me/SKILL.md
   runtime: null
   scope: project
@@ -1411,7 +1411,7 @@ deployments:
   active_owner: mattpocock/skills/skills/productivity/grill-me
   content_hash: sha256:6189dfceb7304a6e5558f75d87e68fa3bc7fcf7ba120e44f21f8a61fe01eba54
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/grilling
   runtime: null
   scope: project
@@ -1420,7 +1420,7 @@ deployments:
   active_owner: mattpocock/skills/skills/productivity/grilling
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/grilling/SKILL.md
   runtime: null
   scope: project
@@ -1429,7 +1429,7 @@ deployments:
   active_owner: mattpocock/skills/skills/productivity/grilling
   content_hash: sha256:5a35925d03a391bcfa46940868b649b72dba89ec9c19525e785bbb6bd3a7f478
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/herdr
   runtime: null
   scope: project
@@ -1438,7 +1438,7 @@ deployments:
   active_owner: herdrdev/herdr/skills/herdr
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/herdr/SKILL.md
   runtime: null
   scope: project
@@ -1447,7 +1447,7 @@ deployments:
   active_owner: herdrdev/herdr/skills/herdr
   content_hash: sha256:0786182f02ebf92708e09d82d79e4614d1a9c30bfc337643cc2af1d0fb9db29f
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/hunk-review
   runtime: null
   scope: project
@@ -1456,7 +1456,7 @@ deployments:
   active_owner: modem-dev/hunk/skills/hunk-review
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/hunk-review/SKILL.md
   runtime: null
   scope: project
@@ -1465,7 +1465,7 @@ deployments:
   active_owner: modem-dev/hunk/skills/hunk-review
   content_hash: sha256:22ba96f09771f74ad4db81873b4174f38edcd86a53b7af5f90a0359612a0b33c
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6
   runtime: null
   scope: project
@@ -1474,7 +1474,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/SETUP.md
   runtime: null
   scope: project
@@ -1483,7 +1483,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:13fa6543788c129555b44f2b447ad457a810197c50404f2bf1362e27496762f0
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/SKILL.md
   runtime: null
   scope: project
@@ -1492,7 +1492,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:e7c61ca691de676325b612a096f7284cd613bed02394789157e276b11db3be82
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/browser-best-practices.md
   runtime: null
   scope: project
@@ -1501,7 +1501,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:d51e6ba70b62cfbbc99a60b688ac4315cbbf1ca6290ac1363ba7c06f112539be
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/docs-guidance.md
   runtime: null
   scope: project
@@ -1510,7 +1510,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:dfe9413a86f0ecf7afb3a285271407f2629f2725990a9fa9e9409b2081892030
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/browser.js
   runtime: null
   scope: project
@@ -1519,7 +1519,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:b1dd61fc7821a27148d6903d8860bcf6e5256001ceabf1f976c8d7881dafee3b
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/cloud.js
   runtime: null
   scope: project
@@ -1528,7 +1528,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:3588959ffff286a7f050445ef532297e07c844cdde2a1a09da33572f8411ac26
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/crypto-encoding.js
   runtime: null
   scope: project
@@ -1537,7 +1537,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:a32b1abfc9f0e60c40526b8f4721b8320fd9cce87abfc4c322947a5c098e63b2
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/executors.js
   runtime: null
   scope: project
@@ -1546,7 +1546,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:3d7a0ca525b941c1bc44406476e5942fdb181d64b8fdba76876e4de567f3ffd0
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/ext-crawler.js
   runtime: null
   scope: project
@@ -1555,7 +1555,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:15afe7466178627356a48b107fa93ec0d2883b6539ecac77ec0484464db3b36e
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/ext-dns.js
   runtime: null
   scope: project
@@ -1564,7 +1564,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:a57e1d72755c4de129a1ae9a03d984802cc61ac739ebc6fa2190c08144034c65
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/ext-exec.js
   runtime: null
   scope: project
@@ -1573,7 +1573,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:d57a95e72d09de6cf0260200456e9dea964e8affcc63ad4a4bd42a6028ba811c
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/ext-faker.js
   runtime: null
   scope: project
@@ -1582,7 +1582,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:840c9f2948eb343cf76d91ab9c61504609231a5de6b3d150fb2826e54275556c
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/ext-redis.js
   runtime: null
   scope: project
@@ -1591,7 +1591,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:033bcb26331a0c91e194623d08ba64d5245d61826434df8a073fbd5b53889131
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/ext-sql.js
   runtime: null
   scope: project
@@ -1600,7 +1600,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:71971afcf6746a31cc74c385119c3f9fd3a9b3494b7c51d4adc78eb36e9e6c99
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/ext-tcp.js
   runtime: null
   scope: project
@@ -1609,7 +1609,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:d262e021aaae71515e1302d8a1710df4c73f9e7f8cf207ab603e5a78868244fa
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/ext-tls.js
   runtime: null
   scope: project
@@ -1618,7 +1618,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:508c5842f675fdd49d6b5bfcd8a80e17418b6cacb373cfc032848d364e436614
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/functional.js
   runtime: null
   scope: project
@@ -1627,7 +1627,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:f770476ac2f20af8b9d732ba6e9b848a286eea4bccf1c18a1a925629ef3d3e40
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/grpc.js
   runtime: null
   scope: project
@@ -1636,7 +1636,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:88f64acb6159945b56f7a101fceabbfb8ff6707ba0471dea09c4afc72bc41553
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/html.js
   runtime: null
   scope: project
@@ -1645,7 +1645,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:33037098800b6cdf5d58a1fdab2c1ad0e770fbd04b18cf50881ade24bcb4b3e9
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/http.js
   runtime: null
   scope: project
@@ -1654,7 +1654,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:e1c2489f31ca68224199aa39a516b5f5196155137c9cf3c23da5341956e512f5
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/metrics.js
   runtime: null
   scope: project
@@ -1663,7 +1663,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:12eb2eb4d7df8ac960af740549d99ddb5b5de965a86ca11f14475482e1eedc23
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/k6/examples/websocket.js
   runtime: null
   scope: project
@@ -1672,7 +1672,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-k6/k6
   content_hash: sha256:422ee7955eedd6fef62faf63254998a058a75cc7881a457f4a391ec4245701c5
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/loki
   runtime: null
   scope: project
@@ -1681,7 +1681,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/loki
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/loki/SKILL.md
   runtime: null
   scope: project
@@ -1690,7 +1690,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/loki
   content_hash: sha256:62e7daecefc73d4392585fff99a5c5d72d2de1aa1472c80c8305b96222982779
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/mimir
   runtime: null
   scope: project
@@ -1699,7 +1699,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/mimir
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/mimir/SKILL.md
   runtime: null
   scope: project
@@ -1708,7 +1708,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/mimir
   content_hash: sha256:96f9b208c68137bcf3afb4f1175b222f1f0b70069981a2fcaa12f0da90e0a847
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/mimir/references/architecture.md
   runtime: null
   scope: project
@@ -1717,7 +1717,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/mimir
   content_hash: sha256:b7ccf099c7b96e18140e565bf36abbf18651c489d36b7f21be46d94561a7d0c2
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/mimir/references/storage.md
   runtime: null
   scope: project
@@ -1726,7 +1726,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/mimir
   content_hash: sha256:dbcaa6f09b71824f58f6e1d1965c174153cc5e0f13689e5584495025e12e66a9
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/prometheus
   runtime: null
   scope: project
@@ -1735,7 +1735,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/prometheus
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/prometheus/SKILL.md
   runtime: null
   scope: project
@@ -1744,7 +1744,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/prometheus
   content_hash: sha256:1547de8e4e92ef45bf13911b6279770c6d771577815683da68880e18cb97473a
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/promql
   runtime: null
   scope: project
@@ -1753,7 +1753,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-core/promql
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/promql/SKILL.md
   runtime: null
   scope: project
@@ -1762,7 +1762,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-core/promql
   content_hash: sha256:c2283cb8e2921d95da9641834c9b9bae8a2d8f287aa0e893f8f5ce31ea79c069
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/promql/references/patterns.md
   runtime: null
   scope: project
@@ -1771,7 +1771,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-core/promql
   content_hash: sha256:dc1e8712b5c742731ed30fab6dcb7f0ba49096886babb5533747319ea1cd6e17
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/pyroscope
   runtime: null
   scope: project
@@ -1780,7 +1780,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/pyroscope
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/pyroscope/SKILL.md
   runtime: null
   scope: project
@@ -1789,7 +1789,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/pyroscope
   content_hash: sha256:58ab9560110f50d05cdd3191ac970912af75eb5682855d9a66cd708c8bb2bf96
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/pyroscope/references/ebpf-and-query.md
   runtime: null
   scope: project
@@ -1798,7 +1798,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/pyroscope
   content_hash: sha256:89f0b364635df130717ca2cfd481c8ad620c366f083aaa7a4fe4d5953a3125fb
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/pyroscope/references/sdks.md
   runtime: null
   scope: project
@@ -1807,7 +1807,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/pyroscope
   content_hash: sha256:121abef4b1b6fd41e6905b25299dfa378bf61c97fdc6f0ff526920dbb61667f4
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/receiving-code-review
   runtime: null
   scope: project
@@ -1816,7 +1816,7 @@ deployments:
   active_owner: obra/superpowers/skills/receiving-code-review
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/receiving-code-review/SKILL.md
   runtime: null
   scope: project
@@ -1825,7 +1825,7 @@ deployments:
   active_owner: obra/superpowers/skills/receiving-code-review
   content_hash: sha256:091df1629510af1b92fc4abd6f96732ebedb4cb2c0f3457e8f2740b0504a2438
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/refactor-module
   runtime: null
   scope: project
@@ -1834,7 +1834,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/module-generation/skills/refactor-module
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/refactor-module/SKILL.md
   runtime: null
   scope: project
@@ -1843,7 +1843,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/module-generation/skills/refactor-module
   content_hash: sha256:d7a54b33f33989f567b10657ddaba018fdb42a28c2bb6c74dddc0d6e45cf5af4
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/stop-slop
   runtime: null
   scope: project
@@ -1852,7 +1852,7 @@ deployments:
   active_owner: hardikpandya/stop-slop
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/stop-slop/CHANGELOG.md
   runtime: null
   scope: project
@@ -1861,7 +1861,7 @@ deployments:
   active_owner: hardikpandya/stop-slop
   content_hash: sha256:fe2f1484ef02abf22efc09def89bac186a2235831fd0da13d4895edb19cc6dd0
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/stop-slop/LICENSE
   runtime: null
   scope: project
@@ -1870,7 +1870,7 @@ deployments:
   active_owner: hardikpandya/stop-slop
   content_hash: sha256:2e2b2beaf41cc0ce28485455a62aed81777cdcdf68702e142427aef1cd720f2c
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/stop-slop/README.md
   runtime: null
   scope: project
@@ -1879,7 +1879,7 @@ deployments:
   active_owner: hardikpandya/stop-slop
   content_hash: sha256:d5c699e712e62d286aa4314e6b4ba02cde7a9da36ce56102660f98d1a8ceebba
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/stop-slop/SKILL.md
   runtime: null
   scope: project
@@ -1888,7 +1888,7 @@ deployments:
   active_owner: hardikpandya/stop-slop
   content_hash: sha256:7432a1d9ebdd42b27666da8458af252edf549f723fb14bcd4791425103930310
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/stop-slop/references/examples.md
   runtime: null
   scope: project
@@ -1897,7 +1897,7 @@ deployments:
   active_owner: hardikpandya/stop-slop
   content_hash: sha256:49c592899eb4457f95d0767e15e3143569e2cef50f2927c3174e62432984cd3d
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/stop-slop/references/phrases.md
   runtime: null
   scope: project
@@ -1906,7 +1906,7 @@ deployments:
   active_owner: hardikpandya/stop-slop
   content_hash: sha256:4ca1b7e97123b5c67eff3dc97e5e977332e0b24021265c1553888a93ec33fa93
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/stop-slop/references/structures.md
   runtime: null
   scope: project
@@ -1915,7 +1915,7 @@ deployments:
   active_owner: hardikpandya/stop-slop
   content_hash: sha256:ffbf1316c7fb5aaf552de005609a64a9639b546ecd76bfb0e482864d5bbe6f58
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/systematic-debugging
   runtime: null
   scope: project
@@ -1924,7 +1924,7 @@ deployments:
   active_owner: obra/superpowers/skills/systematic-debugging
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/systematic-debugging/CREATION-LOG.md
   runtime: null
   scope: project
@@ -1933,7 +1933,7 @@ deployments:
   active_owner: obra/superpowers/skills/systematic-debugging
   content_hash: sha256:c24733a5b1821bd6bed1fc950261f0b9f4e90097e0bbb96459d8179713730789
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/systematic-debugging/SKILL.md
   runtime: null
   scope: project
@@ -1942,7 +1942,7 @@ deployments:
   active_owner: obra/superpowers/skills/systematic-debugging
   content_hash: sha256:808fc5717aa88ad65efff312b11c186294d3e6ee301afb584e2f86599b137787
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/systematic-debugging/condition-based-waiting-example.ts
   runtime: null
   scope: project
@@ -1951,7 +1951,7 @@ deployments:
   active_owner: obra/superpowers/skills/systematic-debugging
   content_hash: sha256:40ae5ebe497fdf310200e43fe986552546d0a22837c0d39e855db1cfd33eb88e
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/systematic-debugging/condition-based-waiting.md
   runtime: null
   scope: project
@@ -1960,7 +1960,7 @@ deployments:
   active_owner: obra/superpowers/skills/systematic-debugging
   content_hash: sha256:e89fec8400d6cd50f43407cec9fab50976ba4d55d0ec2eb51c0bd68036b54c26
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/systematic-debugging/defense-in-depth.md
   runtime: null
   scope: project
@@ -1969,7 +1969,7 @@ deployments:
   active_owner: obra/superpowers/skills/systematic-debugging
   content_hash: sha256:1e175fb86fc357e58c6aebf5441e481e1b7868b4380c0456b63a17eefbd18ba7
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/systematic-debugging/find-polluter.sh
   runtime: null
   scope: project
@@ -1978,7 +1978,7 @@ deployments:
   active_owner: obra/superpowers/skills/systematic-debugging
   content_hash: sha256:dd7b8f13c4cc2a24b33ff87b18da9248f3e1c80a085c3316224f69ff0fa5c43c
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/systematic-debugging/root-cause-tracing.md
   runtime: null
   scope: project
@@ -1987,7 +1987,7 @@ deployments:
   active_owner: obra/superpowers/skills/systematic-debugging
   content_hash: sha256:6b0622269e098ca1399e123e553fd385f0b6412d88ef0e9c4f5a8ea9cf1cec7b
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/systematic-debugging/test-academic.md
   runtime: null
   scope: project
@@ -1996,7 +1996,7 @@ deployments:
   active_owner: obra/superpowers/skills/systematic-debugging
   content_hash: sha256:fe2ba480d78ac0d686dc025f41c2a32a43d642bf533f91b0c6053a04d35d6486
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/systematic-debugging/test-pressure-1.md
   runtime: null
   scope: project
@@ -2005,7 +2005,7 @@ deployments:
   active_owner: obra/superpowers/skills/systematic-debugging
   content_hash: sha256:0b6a915db0054577819834c79be9eb614e97bddba10d73768e1fbe91cfed048a
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/systematic-debugging/test-pressure-2.md
   runtime: null
   scope: project
@@ -2014,7 +2014,7 @@ deployments:
   active_owner: obra/superpowers/skills/systematic-debugging
   content_hash: sha256:b2030aeffba07050e8ad573ddf87486457c4a016a786bb326235bebd856f2016
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/systematic-debugging/test-pressure-3.md
   runtime: null
   scope: project
@@ -2023,7 +2023,7 @@ deployments:
   active_owner: obra/superpowers/skills/systematic-debugging
   content_hash: sha256:96b50a52e2c7989c9cf20fb752c47c1e9a3a70dc362f8f7989f8f5b64dac7708
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/tempo
   runtime: null
   scope: project
@@ -2032,7 +2032,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/tempo
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/tempo/SKILL.md
   runtime: null
   scope: project
@@ -2041,7 +2041,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/tempo
   content_hash: sha256:548446ae11f0bb5c63bb5d37e53d0f158b2f866002ccff825cc22c2fa474be75
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/tempo/references/architecture-and-operations.md
   runtime: null
   scope: project
@@ -2050,7 +2050,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/tempo
   content_hash: sha256:faaf366e8362c4d1d778013203a3cc49f755c11fcbc050d50aaa7535ab2c4b09
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/tempo/references/traceql.md
   runtime: null
   scope: project
@@ -2059,7 +2059,7 @@ deployments:
   active_owner: grafana/skills/skills/grafana-lgtm/tempo
   content_hash: sha256:b9c0a478830c1562920d600a364ad5293625303c92d324d07f1256c369bb6e52
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/terraform-search-import
   runtime: null
   scope: project
@@ -2068,7 +2068,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/terraform-search-import/SKILL.md
   runtime: null
   scope: project
@@ -2077,7 +2077,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
   content_hash: sha256:4922006c3b2492486756da50fe176c9f380f07640420311715c4b7ed7355f88f
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/terraform-search-import/references/MANUAL-IMPORT.md
   runtime: null
   scope: project
@@ -2086,7 +2086,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
   content_hash: sha256:705db1d5286a090e73cec26cd308b5add4f500a8332193a4e2a2fd7e83a8f220
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/terraform-search-import/scripts/list_resources.sh
   runtime: null
   scope: project
@@ -2095,7 +2095,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
   content_hash: sha256:8325fbf9e82e8b4ab1d281c02ad7058220a82878278a7f004c92f899167c79ea
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/terraform-style-guide
   runtime: null
   scope: project
@@ -2104,7 +2104,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/terraform-style-guide/SECURITY.md
   runtime: null
   scope: project
@@ -2113,7 +2113,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
   content_hash: sha256:3dc8ffa10139e9772c5c102fee6377f66f5167bd043a7c43e6e5df682dc75f92
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/terraform-style-guide/SKILL.md
   runtime: null
   scope: project
@@ -2122,7 +2122,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
   content_hash: sha256:fea8a0eadf68f1ac45cae3b1d6dc4c66b489fb6e40a3d41762120059c49540c2
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/terraform-test
   runtime: null
   scope: project
@@ -2131,7 +2131,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/terraform-test/SKILL.md
   runtime: null
   scope: project
@@ -2140,7 +2140,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
   content_hash: sha256:f7b0c4d1e1381751f75c4a07b7a97d8c011f741723aea1cca7f73e54af27b138
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/terraform-test/references/CI_CD.md
   runtime: null
   scope: project
@@ -2149,7 +2149,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
   content_hash: sha256:88fdffa4d3b8f361c570cb7c0df90a44380c70eb4471b3e27d552f32820179c8
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/terraform-test/references/EXAMPLES.md
   runtime: null
   scope: project
@@ -2158,7 +2158,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
   content_hash: sha256:e57ef65b6c6545e00f7dc6106c71d44d29e819923ea8e0040efb38fbfbc60f50
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/terraform-test/references/MOCK_PROVIDERS.md
   runtime: null
   scope: project
@@ -2167,7 +2167,7 @@ deployments:
   active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
   content_hash: sha256:788a9fcb988df8a207c1251fd971a11d1cd59b6b8e4023907b00a0fee976c001
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/test-driven-development
   runtime: null
   scope: project
@@ -2176,7 +2176,7 @@ deployments:
   active_owner: obra/superpowers/skills/test-driven-development
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/test-driven-development/SKILL.md
   runtime: null
   scope: project
@@ -2185,7 +2185,7 @@ deployments:
   active_owner: obra/superpowers/skills/test-driven-development
   content_hash: sha256:bf1b8216e523851a411e91d429a7c1c2a173e79d88957bc78e348218d50edd54
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/test-driven-development/writing-good-tests.md
   runtime: null
   scope: project
@@ -2194,7 +2194,7 @@ deployments:
   active_owner: obra/superpowers/skills/test-driven-development
   content_hash: sha256:51471c853306ff92ca8bb41dcaea05f31c0e46b03651f8f3c99754b7172f4ae1
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/verification-before-completion
   runtime: null
   scope: project
@@ -2203,7 +2203,7 @@ deployments:
   active_owner: obra/superpowers/skills/verification-before-completion
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/verification-before-completion/SKILL.md
   runtime: null
   scope: project
@@ -2212,7 +2212,7 @@ deployments:
   active_owner: obra/superpowers/skills/verification-before-completion
   content_hash: sha256:2befe7fc55bcadaa3d97dd9e8efeb633d2561c0ebe74c5a8b17c4d9e7e4520b3
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk
   runtime: null
   scope: project
@@ -2221,7 +2221,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/SKILL.md
   runtime: null
   scope: project
@@ -2230,7 +2230,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:0a217b6b0a30588569bf97d5ad828d07aaf8241c67e2855ef461233098ec8c53
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/README.md
   runtime: null
   scope: project
@@ -2239,7 +2239,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:e3e14402a4e6f2238d14b17ea7e06d1f3afb58426471937f4c9246b241433555
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/claude-code.md
   runtime: null
   scope: project
@@ -2248,7 +2248,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:659987ff411cc95b89b88fd39d7adceb3461e1996ed509439bc330f770c027e4
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/code-signing.md
   runtime: null
   scope: project
@@ -2257,7 +2257,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:8f27f89e960ecc914cef4d30ad00121047365d245f50a5d58f0c2b9918497858
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/config.md
   runtime: null
   scope: project
@@ -2266,7 +2266,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:46da033cc097c5c648c2beefda4f6aa48df1a7a3190ed6789b03158b28ea1cd2
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/extending.md
   runtime: null
   scope: project
@@ -2275,7 +2275,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:7ac210ca494348ebcadf951b195988224e9ac30b5240cd74ce295cc8ef0a0126
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/faq.md
   runtime: null
   scope: project
@@ -2284,7 +2284,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:0ca0e09922f6d3594219f9b4dafb822a3f877320ffd9a34884c6c5a91374e356
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/hook.md
   runtime: null
   scope: project
@@ -2293,7 +2293,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:76b5b15facc13314f0d2126166209086fd5334e412ef4a6f74a410834de07b57
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/list.md
   runtime: null
   scope: project
@@ -2302,7 +2302,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:f0ad45d426f951ba8c8df27eb76567995b9c119bfa809f9ebd88494ae796243c
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/llm-commits.md
   runtime: null
   scope: project
@@ -2311,7 +2311,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:d6700bf190fb9baa4f120d19b37f7549e4cfbde2a9a7dff110c5e6ce66e61212
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/merge.md
   runtime: null
   scope: project
@@ -2320,7 +2320,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:8ef5603744e8cc4a54d843fcc5cc53213614861e60cdee5db2760993ae4330c8
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/remove.md
   runtime: null
   scope: project
@@ -2329,7 +2329,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:74e9c126befe6f6b3aab422d479aecfc823f18bc8e903b08183b949ee3dfce2e
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/shell-integration.md
   runtime: null
   scope: project
@@ -2338,7 +2338,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:a6a2c95b401472dbba1a5e65a80104d255387fafeaab50b847a8118632e04b80
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/step.md
   runtime: null
   scope: project
@@ -2347,7 +2347,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:723a3b73efb662d5c5761826e7b6af4ac097819b4b0b026cc1e21c864fad0e39
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/switch.md
   runtime: null
   scope: project
@@ -2356,7 +2356,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:24086d98e223fd914399d3741043873e5eff786b6fcb854d8e67a072879be72f
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/tips-patterns.md
   runtime: null
   scope: project
@@ -2365,7 +2365,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:d3e12923aaa5e161618dc9553ced6cc1dc8bb47a444c79313a36b018fe3f4b92
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/troubleshooting.md
   runtime: null
   scope: project
@@ -2374,7 +2374,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:bc89dc87cb643de7e0b4e890f3177538cd1224cf5f177fe5a3cff3afdb8e36f9
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/worktrunk/reference/worktrunk.md
   runtime: null
   scope: project
@@ -2383,7 +2383,7 @@ deployments:
   active_owner: max-sixty/worktrunk/skills/worktrunk
   content_hash: sha256:a79244a73a30c4ef01f29c0842bb370d00508a2184fddb6742ca6c11d5da9f03
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/writing-skills
   runtime: null
   scope: project
@@ -2392,7 +2392,7 @@ deployments:
   active_owner: obra/superpowers/skills/writing-skills
   content_hash: null
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/writing-skills/SKILL.md
   runtime: null
   scope: project
@@ -2401,7 +2401,7 @@ deployments:
   active_owner: obra/superpowers/skills/writing-skills
   content_hash: sha256:d34db5c8aed6a4e0440132bd0613aace70a693ec7819d5637ad77481d8e10d1b
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/writing-skills/anthropic-best-practices.md
   runtime: null
   scope: project
@@ -2410,7 +2410,7 @@ deployments:
   active_owner: obra/superpowers/skills/writing-skills
   content_hash: sha256:217629b356c09c9bd11017c9788e8fc654ca1b32c92d4a51cd490e16dd65e59a
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/writing-skills/examples/CLAUDE_MD_TESTING.md
   runtime: null
   scope: project
@@ -2419,7 +2419,7 @@ deployments:
   active_owner: obra/superpowers/skills/writing-skills
   content_hash: sha256:0b379a3415e185d3c434b3ad283d8aa132f3022c2a4f210f168865b5986bcef0
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/writing-skills/graphviz-conventions.dot
   runtime: null
   scope: project
@@ -2428,7 +2428,7 @@ deployments:
   active_owner: obra/superpowers/skills/writing-skills
   content_hash: sha256:e2890a593c91370e384b42f2f67b1a6232c9e69dddea7891a0c1c46d7b20b694
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/writing-skills/persuasion-principles.md
   runtime: null
   scope: project
@@ -2437,7 +2437,7 @@ deployments:
   active_owner: obra/superpowers/skills/writing-skills
   content_hash: sha256:a51bc9bf75189ea73a27b3fb504a2fdfdb966fb1f7f1cdf03203230a216ccc03
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/writing-skills/render-graphs.js
   runtime: null
   scope: project
@@ -2446,7 +2446,7 @@ deployments:
   active_owner: obra/superpowers/skills/writing-skills
   content_hash: sha256:ccda971a87bb185f8febf81c56b556a20d026fa980c17b35fa3e8824fbb37852
 - kind: project-relative
-  target: opencode
+  target: agent-skills
   value: .agents/skills/writing-skills/testing-skills-with-subagents.md
   runtime: null
   scope: project
