@@ -3,6 +3,7 @@
   "extends": [
     "config:best-practices",
     "security:minimumReleaseAgePypi",
+    "security:openssf-scorecard",
     ":enablePreCommit",
     "schedule:monthly",
     ":maintainLockFilesMonthly"
