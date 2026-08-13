@@ -244,6 +244,10 @@ return {
 	},
 	{
 		"ThePrimeagen/refactoring.nvim",
+		-- NOTE: use v1 to avoid plugin name conflict
+		-- https://github.com/ThePrimeagen/refactoring.nvim/issues/546
+		-- https://github.com/LazyVim/LazyVim/issues/7122
+		commit = "74b608dfee827c2372250519d433cc21cb083407",
 		keys = {
 			-- NOTE: normal and visual mode
 			{
