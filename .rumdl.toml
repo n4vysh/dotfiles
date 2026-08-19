@@ -2,6 +2,7 @@
 disable = [
   "MD034", # GitHub Flavored Markdown (GFM) allows bare URLs
 ]
+exclude = ["home/dot_claude/symlink_CLAUDE.md"]
 
 [MD007]
 indent = 4 # for parser compatibility

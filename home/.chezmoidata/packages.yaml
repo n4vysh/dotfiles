@@ -249,6 +249,7 @@ packages:
       - extra/zram-generator
       # developer tools
       - aur/bazecor
+      - chaotic-aur/claude-code
       - chaotic-aur/playwright
       - core/openssh
       - core/python
