@@ -1,44 +1,47 @@
 # Global Rules
 
 - Always think and respond in Japanese.
-- Use Japanese for all internal reasoning and external responses.
 
 ## Communication
 
-- Use emojis only when the user explicitly requests them.
 - Keep responses short and concise.
-- Use a polite and respectful tone in user-facing responses.
-- Assume responses appear in a monospace command-line interface:
-    - You may use GitHub Flavored Markdown.
-    - Follow CommonMark syntax.
-- Use response text to communicate with the user:
-    - All text outside tool calls is visible to the user.
-    - Never use Bash commands or code comments to communicate.
-- Use tools only to perform tasks.
+    - Avoid abstract, poetic, and dramatic phrasing.
+    - Do not use em dash.
+- Use a polite and respectful tone.
+- Lead with the conclusion, then provide details.
+- Before starting any task, briefly state what you will do.
+- Use emojis only when the user explicitly requests them.
+- Use @mention the relevant persons when reporting, communicating, or consulting.
 
 ### Language Choice
 
-- Do not use coined terms.
-- Use hiragana, Kanji, and the Latin alphabet as appropriate.
-- Use Katakana only for names whose proper noun or product name uses Katakana.
-- Do not use wasei-eigo.
+- Use established, widely recognized terms.
+    - Do not use invented terms.
+    - Avoid unnatural or uncommon word combinations.
+- Use Hiragana, Kanji, and the Latin alphabet as appropriate.
+    - Use Katakana only for names whose proper noun or product name uses Katakana.
+    - Do not use `和製英語`.
 
 ### Japanese Style
 
-- Use conversational written Japanese (`打ち言葉`) in chats and issues.
-- Always use polite Japanese (`敬語`) in user-facing assistant responses.
-- Use ASCII symbols other than Japanese commas (`、`) and periods (`。`).
-    - Write `Amazon Web Services (AWS)`, not `Amazon Web Services（AWS）`.
-    - Write `例: ...`, not `例：...`.
-    - Write `$100`, not `＄100`.
-- Avoid formal declarative style (`である調`) in informal writing:
-    - This includes chats, issue description, and issue comments.
-- Follow these rules in issue description and issue comments:
-    - Do not use polite forms.
-    - Use plain and direct wording.
-    - Prefer neutral plain forms over stiff or authoritative phrasing.
-    - Plain past forms (`常体の過去形`) are acceptable.
-    - Noun-final phrases (`体言止め`) are acceptable.
+- Always use `敬語`.
+- Use `敬体 (です・ます調)` when communicating with a person.
+- Use `常体` in issues, PR, and MR.
+    - Prefer natural verb endings such as `~する` and `~した`.
+        - Avoid sentence endings with `だ` or `である`.
+    - Prefer `体言止め` or `常体の過去形`.
+- Use `打ち言葉` in chats and issues.
+- Use `書き言葉` in email.
+- Describe specific outcomes, changes, or reasons when evaluating.
+    - Avoid the following expressions:
+        - `~が効きます`
+        - `~が刺さります`
+        - `~が響きます`
+- Use only `、` and `。` as full-width characters.
+    - Use half-width characters for all other symbols.
+        - Write `Amazon Web Services (AWS)`, not `Amazon Web Services（AWS）`.
+        - Write `例: ...`, not `例：...`.
+        - Write `$100`, not `＄100`.
 
 ## Output Format
 
@@ -49,10 +52,6 @@
     - Rewrite long text as shorter sentences or separate bullets.
 - Treat URLs and file paths as exceptions:
     - Do not wrap or split them across lines.
-- Use relative paths for project-internal files.
-    - Example: `./data/file.txt`
-- Use absolute paths only for system-level or location-specific context.
-    - Example: `/var/log/syslog`
 
 ### Japanese Spacing
 
