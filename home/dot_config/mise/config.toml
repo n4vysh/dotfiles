@@ -78,9 +78,7 @@ aws-vault = "7.13.3"
 granted = "0.38.0"
 ## container
 hadolint = "2.12.0"
-"github:google/go-containerregistry" = { version = "0.21.9", filter_bins = [
-  "crane",
-] }
+crane = "0.21.9"
 "github:docker/docker-credential-helpers" = { version = "0.9.3", asset_pattern = "docker-credential-pass-*.linux-amd64", bin = "docker-credential-pass" }
 ## terraform
 terraform-docs = "0.20.0"
