@@ -166,6 +166,65 @@ checksum = "sha256:e0e726fd34d5dd96c68381f69fd4457145d9fd0cca6fc4739b65bafe9eb24
 url = "https://github.com/awslabs/eks-node-viewer/releases/download/v0.7.4/eks-node-viewer_Windows_x86_64.exe"
 url_api = "https://api.github.com/repos/awslabs/eks-node-viewer/releases/assets/249148438"
 
+[[tools."aqua:grafana/gcx"]]
+version = "1.1.0"
+backend = "aqua:grafana/gcx"
+
+[tools."aqua:grafana/gcx"."platforms.linux-arm64"]
+checksum = "sha256:4d39b70a5691045b7e381fd37976b75988926931f6cf184698444099099692e1"
+url = "https://github.com/grafana/gcx/releases/download/v1.1.0/gcx_1.1.0_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/514303325"
+
+[tools."aqua:grafana/gcx"."platforms.linux-arm64-musl"]
+checksum = "sha256:4d39b70a5691045b7e381fd37976b75988926931f6cf184698444099099692e1"
+url = "https://github.com/grafana/gcx/releases/download/v1.1.0/gcx_1.1.0_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/514303325"
+
+[tools."aqua:grafana/gcx"."platforms.linux-x64"]
+checksum = "sha256:0c7867e99f5786b7e1b5ea449cf540c14b67f40c1c92c0f93031eaa2e0c38df9"
+url = "https://github.com/grafana/gcx/releases/download/v1.1.0/gcx_1.1.0_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/514303327"
+
+[tools."aqua:grafana/gcx"."platforms.linux-x64-baseline"]
+checksum = "sha256:0c7867e99f5786b7e1b5ea449cf540c14b67f40c1c92c0f93031eaa2e0c38df9"
+url = "https://github.com/grafana/gcx/releases/download/v1.1.0/gcx_1.1.0_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/514303327"
+
+[tools."aqua:grafana/gcx"."platforms.linux-x64-musl"]
+checksum = "sha256:0c7867e99f5786b7e1b5ea449cf540c14b67f40c1c92c0f93031eaa2e0c38df9"
+url = "https://github.com/grafana/gcx/releases/download/v1.1.0/gcx_1.1.0_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/514303327"
+
+[tools."aqua:grafana/gcx"."platforms.linux-x64-musl-baseline"]
+checksum = "sha256:0c7867e99f5786b7e1b5ea449cf540c14b67f40c1c92c0f93031eaa2e0c38df9"
+url = "https://github.com/grafana/gcx/releases/download/v1.1.0/gcx_1.1.0_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/514303327"
+
+[tools."aqua:grafana/gcx"."platforms.macos-arm64"]
+checksum = "sha256:a1e1e62b54700d829ece3cc4a013570e0eff3c872e8c11991866ed58a6701709"
+url = "https://github.com/grafana/gcx/releases/download/v1.1.0/gcx_1.1.0_darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/514303326"
+
+[tools."aqua:grafana/gcx"."platforms.macos-x64"]
+checksum = "sha256:94324fd3d052eee604df58af41ef125ac5cfc6d878fcb615b34012e21a6bc7f5"
+url = "https://github.com/grafana/gcx/releases/download/v1.1.0/gcx_1.1.0_darwin_amd64.tar.gz"
+url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/514303329"
+
+[tools."aqua:grafana/gcx"."platforms.macos-x64-baseline"]
+checksum = "sha256:94324fd3d052eee604df58af41ef125ac5cfc6d878fcb615b34012e21a6bc7f5"
+url = "https://github.com/grafana/gcx/releases/download/v1.1.0/gcx_1.1.0_darwin_amd64.tar.gz"
+url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/514303329"
+
+[tools."aqua:grafana/gcx"."platforms.windows-x64"]
+checksum = "sha256:21039e34896c0bafaf044cee0de7545d3ccda2f05ed0f13404685b1e09fd3cb0"
+url = "https://github.com/grafana/gcx/releases/download/v1.1.0/gcx_1.1.0_windows_amd64.zip"
+url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/514303368"
+
+[tools."aqua:grafana/gcx"."platforms.windows-x64-baseline"]
+checksum = "sha256:21039e34896c0bafaf044cee0de7545d3ccda2f05ed0f13404685b1e09fd3cb0"
+url = "https://github.com/grafana/gcx/releases/download/v1.1.0/gcx_1.1.0_windows_amd64.zip"
+url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/514303368"
+
 [[tools."aqua:knqyf263/pet"]]
 version = "1.0.1"
 backend = "aqua:knqyf263/pet"
