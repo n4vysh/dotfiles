@@ -166,6 +166,76 @@ checksum = "sha256:e0e726fd34d5dd96c68381f69fd4457145d9fd0cca6fc4739b65bafe9eb24
 url = "https://github.com/awslabs/eks-node-viewer/releases/download/v0.7.4/eks-node-viewer_Windows_x86_64.exe"
 url_api = "https://api.github.com/repos/awslabs/eks-node-viewer/releases/assets/249148438"
 
+[[tools."aqua:github/github-mcp-server"]]
+version = "1.0.5"
+backend = "aqua:github/github-mcp-server"
+
+[tools."aqua:github/github-mcp-server"."platforms.linux-arm64"]
+checksum = "sha256:ef5ba03df4aea7aaf52ba25be7bacb9fe64038dc17e46a85ba251998e8513f62"
+url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381426"
+provenance = "github-attestations"
+
+[tools."aqua:github/github-mcp-server"."platforms.linux-arm64-musl"]
+checksum = "sha256:ef5ba03df4aea7aaf52ba25be7bacb9fe64038dc17e46a85ba251998e8513f62"
+url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381426"
+provenance = "github-attestations"
+
+[tools."aqua:github/github-mcp-server"."platforms.linux-x64"]
+checksum = "sha256:201082f569a846eaefd4318f13bccb5d9227c2cec45037d1d292ee83111173c1"
+url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Linux_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381432"
+provenance = "github-attestations"
+
+[tools."aqua:github/github-mcp-server"."platforms.linux-x64-baseline"]
+checksum = "sha256:201082f569a846eaefd4318f13bccb5d9227c2cec45037d1d292ee83111173c1"
+url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Linux_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381432"
+provenance = "github-attestations"
+
+[tools."aqua:github/github-mcp-server"."platforms.linux-x64-musl"]
+checksum = "sha256:201082f569a846eaefd4318f13bccb5d9227c2cec45037d1d292ee83111173c1"
+url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Linux_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381432"
+provenance = "github-attestations"
+
+[tools."aqua:github/github-mcp-server"."platforms.linux-x64-musl-baseline"]
+checksum = "sha256:201082f569a846eaefd4318f13bccb5d9227c2cec45037d1d292ee83111173c1"
+url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Linux_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381432"
+provenance = "github-attestations"
+
+[tools."aqua:github/github-mcp-server"."platforms.macos-arm64"]
+checksum = "sha256:2284ecd06c179df1ab397627f48316bddb037168146b04b9faeed0755f7dcea9"
+url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381430"
+provenance = "github-attestations"
+
+[tools."aqua:github/github-mcp-server"."platforms.macos-x64"]
+checksum = "sha256:b5b939180a29414c834b038174e213c29873c678a1716068168882d7102532f1"
+url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Darwin_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381433"
+provenance = "github-attestations"
+
+[tools."aqua:github/github-mcp-server"."platforms.macos-x64-baseline"]
+checksum = "sha256:b5b939180a29414c834b038174e213c29873c678a1716068168882d7102532f1"
+url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Darwin_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381433"
+provenance = "github-attestations"
+
+[tools."aqua:github/github-mcp-server"."platforms.windows-x64"]
+checksum = "sha256:92523838eaaac426aeb4ffc4540c5d3c49a6c1f627ff5f61ce585553240c2e09"
+url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Windows_x86_64.zip"
+url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381421"
+provenance = "github-attestations"
+
+[tools."aqua:github/github-mcp-server"."platforms.windows-x64-baseline"]
+checksum = "sha256:92523838eaaac426aeb4ffc4540c5d3c49a6c1f627ff5f61ce585553240c2e09"
+url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Windows_x86_64.zip"
+url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381421"
+provenance = "github-attestations"
+
 [[tools."aqua:grafana/gcx"]]
 version = "1.1.0"
 backend = "aqua:grafana/gcx"
@@ -879,77 +949,6 @@ url_api = "https://api.github.com/repos/docker/docker-credential-helpers/release
 checksum = "sha256:dc2d864f5f4e4ddfb23ef8e2193626f5f26eee5be1e49ff2a9ba40d4298392e0"
 url = "https://github.com/docker/docker-credential-helpers/releases/download/v0.9.3/docker-credential-pass-v0.9.3.linux-amd64"
 url_api = "https://api.github.com/repos/docker/docker-credential-helpers/releases/assets/237482408"
-
-[[tools."github:github/github-mcp-server"]]
-version = "1.0.5"
-backend = "github:github/github-mcp-server"
-
-[tools."github:github/github-mcp-server"."platforms.linux-arm64"]
-checksum = "sha256:ef5ba03df4aea7aaf52ba25be7bacb9fe64038dc17e46a85ba251998e8513f62"
-url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381426"
-provenance = "github-attestations"
-
-[tools."github:github/github-mcp-server"."platforms.linux-arm64-musl"]
-checksum = "sha256:ef5ba03df4aea7aaf52ba25be7bacb9fe64038dc17e46a85ba251998e8513f62"
-url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381426"
-provenance = "github-attestations"
-
-[tools."github:github/github-mcp-server"."platforms.linux-x64"]
-checksum = "sha256:201082f569a846eaefd4318f13bccb5d9227c2cec45037d1d292ee83111173c1"
-url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Linux_x86_64.tar.gz"
-url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381432"
-provenance = "github-attestations"
-provenance_verified = true
-
-[tools."github:github/github-mcp-server"."platforms.linux-x64-baseline"]
-checksum = "sha256:201082f569a846eaefd4318f13bccb5d9227c2cec45037d1d292ee83111173c1"
-url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Linux_x86_64.tar.gz"
-url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381432"
-provenance = "github-attestations"
-
-[tools."github:github/github-mcp-server"."platforms.linux-x64-musl"]
-checksum = "sha256:201082f569a846eaefd4318f13bccb5d9227c2cec45037d1d292ee83111173c1"
-url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Linux_x86_64.tar.gz"
-url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381432"
-provenance = "github-attestations"
-
-[tools."github:github/github-mcp-server"."platforms.linux-x64-musl-baseline"]
-checksum = "sha256:201082f569a846eaefd4318f13bccb5d9227c2cec45037d1d292ee83111173c1"
-url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Linux_x86_64.tar.gz"
-url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381432"
-provenance = "github-attestations"
-
-[tools."github:github/github-mcp-server"."platforms.macos-arm64"]
-checksum = "sha256:2284ecd06c179df1ab397627f48316bddb037168146b04b9faeed0755f7dcea9"
-url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Darwin_arm64.tar.gz"
-url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381430"
-provenance = "github-attestations"
-
-[tools."github:github/github-mcp-server"."platforms.macos-x64"]
-checksum = "sha256:b5b939180a29414c834b038174e213c29873c678a1716068168882d7102532f1"
-url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Darwin_x86_64.tar.gz"
-url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381433"
-provenance = "github-attestations"
-
-[tools."github:github/github-mcp-server"."platforms.macos-x64-baseline"]
-checksum = "sha256:b5b939180a29414c834b038174e213c29873c678a1716068168882d7102532f1"
-url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Darwin_x86_64.tar.gz"
-url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381433"
-provenance = "github-attestations"
-
-[tools."github:github/github-mcp-server"."platforms.windows-x64"]
-checksum = "sha256:92523838eaaac426aeb4ffc4540c5d3c49a6c1f627ff5f61ce585553240c2e09"
-url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Windows_x86_64.zip"
-url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381421"
-provenance = "github-attestations"
-
-[tools."github:github/github-mcp-server"."platforms.windows-x64-baseline"]
-checksum = "sha256:92523838eaaac426aeb4ffc4540c5d3c49a6c1f627ff5f61ce585553240c2e09"
-url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Windows_x86_64.zip"
-url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381421"
-provenance = "github-attestations"
 
 [[tools."github:google/go-containerregistry"]]
 version = "0.21.9"
