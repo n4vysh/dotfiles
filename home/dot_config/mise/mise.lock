@@ -1686,6 +1686,16 @@ checksum = "sha256:636e09c59a7481d7a12fbc2f0dc54acfbc0286813604d86a52b3644739222
 url = "https://github.com/modem-dev/hunk/releases/download/v0.17.0/hunkdiff-darwin-x64.tar.gz"
 url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/468967649"
 
+[tools.hunk."platforms.windows-x64"]
+checksum = "sha256:f27a130df772a3076cac71b7894ea49e243e48dbb4d80d41ce10590d7c42cca2"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.17.0/hunkdiff-windows-x64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/468967652"
+
+[tools.hunk."platforms.windows-x64-baseline"]
+checksum = "sha256:f27a130df772a3076cac71b7894ea49e243e48dbb4d80d41ce10590d7c42cca2"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.17.0/hunkdiff-windows-x64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/468967652"
+
 [[tools.infracost]]
 version = "0.10.41"
 backend = "aqua:infracost/infracost"
