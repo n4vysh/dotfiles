@@ -12,7 +12,7 @@ package_manager = "aube"
 
 [tools]
 "npm:czg" = "1.13.0"
-"github:max-sixty/worktrunk" = "0.23.2"
+worktrunk = "0.23.2"
 "npm:gitmoji-cli" = "9.6.0"
 "github:YiNNx/cmd-wrapped" = { version = "0.4.1", bin = "cmd-wrapped" }
 dyff = "1.10.1"
