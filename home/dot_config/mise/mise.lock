@@ -1496,7 +1496,7 @@ url_api = "https://api.github.com/repos/norwoodj/helm-docs/releases/assets/17832
 
 [[tools.herdr]]
 version = "0.8.0"
-backend = "aqua:ogulcancelik/herdr"
+backend = "aqua:herdrdev/herdr"
 
 [tools.herdr."platforms.linux-arm64"]
 checksum = "sha256:f647ac66468d9efbc642fe534fb284468f0aea60641606fc008dfc0d82a3ca87"
