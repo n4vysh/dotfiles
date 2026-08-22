@@ -2,7 +2,7 @@
 
 [settings]
 jobs = 20
-install_before = "7d"
+minimum_release_age = "3d"
 lockfile = true
 disable_backends = ["asdf", "ubi"]
 
