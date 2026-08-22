@@ -5,6 +5,7 @@ jobs = 20
 experimental = true
 install_before = "7d"
 lockfile = true
+disable_backends = ["asdf", "ubi"]
 
 [settings.github]
 credential_command = "gh auth token"
