@@ -330,6 +330,8 @@
       "RTK_DISABLED=1 gh pr checks *": "allow",
       "gh status": "allow",
       "gh status *": "allow",
+      "gh repo view": "allow",
+      "gh repo view *": "allow",
       "rtk gh repo view": "allow",
       "rtk gh repo view *": "allow",
       "rtk gh repo list": "allow",
