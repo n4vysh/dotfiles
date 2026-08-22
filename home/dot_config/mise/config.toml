@@ -3,6 +3,7 @@
 [settings]
 jobs = 20
 minimum_release_age = "3d"
+pin = true
 lockfile = true
 lockfile_platforms = ["linux-x64"]
 disable_backends = ["asdf", "ubi"]
