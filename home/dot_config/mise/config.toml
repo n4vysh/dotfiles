@@ -79,6 +79,18 @@ golangci-lint = "2.1.6"
 awscli = "2.31.8"
 aws-vault = "7.13.3"
 granted = "0.38.0"
+
+### session-manager-plugin
+### NOTE: taplo not support multiline inline tables of TOML 1.1
+###       https://github.com/tamasfe/taplo/issues/332
+"http-deb:session-manager-plugin".version = "1.2.835.0"
+"http-deb:session-manager-plugin".os = ["linux"]
+"http-deb:session-manager-plugin".bin_path = "usr/local/sessionmanagerplugin/bin"
+"http-deb:session-manager-plugin".version_list_url = "https://api.github.com/repos/aws/session-manager-plugin/releases"
+"http-deb:session-manager-plugin".version_json_path = ".[].tag_name"
+"http-deb:session-manager-plugin".platforms.linux-x64.url = "https://s3.amazonaws.com/session-manager-downloads/plugin/{{ version }}/ubuntu_64bit/session-manager-plugin.deb"
+"http-deb:session-manager-plugin".platforms.linux-x64.checksum = "sha512:971613d4d937d356493b8469d8e442860a903c6c50313f308c5c87b6140d3873b8c345f6757636180ea18e3ae061b9df9cf19cd4541db8e238c527953d80addd"
+
 ## container
 hadolint = "2.12.0"
 crane = "0.21.9"

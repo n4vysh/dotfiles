@@ -347,7 +347,6 @@ packages:
       - extra/glab
       - extra/lazygit
       ## Cloud
-      - aur/aws-session-manager-plugin
       - extra/aws-cli-v2
       - extra/aws-vault
       ## IaC

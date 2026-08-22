@@ -1543,6 +1543,10 @@ checksum = "sha256:77cb5afd6c8fcaaaf3bc28e474ec01c209331ad08094e20d7f8aa9b0bb78d
 url = "https://github.com/herdrdev/herdr/releases/download/v0.8.0/herdr-macos-x86_64"
 url_api = "https://api.github.com/repos/herdrdev/herdr/releases/assets/500422626"
 
+[[tools."http-deb:session-manager-plugin"]]
+version = "1.2.835.0"
+backend = "http-deb:session-manager-plugin"
+
 [[tools.hunk]]
 version = "0.17.0"
 backend = "aqua:modem-dev/hunk"
