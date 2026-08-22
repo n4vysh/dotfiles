@@ -4,6 +4,7 @@
 jobs = 20
 minimum_release_age = "3d"
 lockfile = true
+lockfile_platforms = ["linux-x64"]
 disable_backends = ["asdf", "ubi"]
 
 [settings.github]
