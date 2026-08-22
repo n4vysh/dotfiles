@@ -1,0 +1,9 @@
+[selene]
+base = "lua51"
+name = "mise"
+
+[PLUGIN]
+any = true
+
+[RUNTIME]
+any = true

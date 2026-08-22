@@ -48,6 +48,10 @@ sudo archlinux-java set "$(
 # https://github.com/alker0/chezmoi.vim/issues/76
 cat <<-EOF >/dev/null
 	{{ include (joinPath .chezmoi.sourceDir "dot_config/mise/config.toml") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "dot_config/mise/plugins/vfox-http-deb/metadata.lua") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "dot_config/mise/plugins/vfox-http-deb/hooks/backend_list_versions.lua") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "dot_config/mise/plugins/vfox-http-deb/hooks/backend_install.lua") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "dot_config/mise/plugins/vfox-http-deb/hooks/backend_exec_env.lua") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "dot_config/yazi/package.toml") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "dot_apm/private_apm.yml") | sha256sum }}
 EOF

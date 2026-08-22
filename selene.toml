@@ -1,4 +1,4 @@
-std = "lua51+selene-lib-nvim+selene-lib-yazi+selene-lib-hypr"
+std = "lua51+selene-lib-nvim+selene-lib-yazi+selene-lib-hypr+selene-lib-mise"
 
 [lints]
 mixed_table = "allow"

@@ -1,0 +1,4 @@
+std = "lua51+selene-lib-mise"
+
+[lints]
+mixed_table = "allow"
