@@ -2,8 +2,8 @@
 
 set -eu
 
-gum log --level info 'Install packages with mise'
-mise install
+gum log --level info 'Bootstrap packages and tools with mise'
+mise bootstrap --yes
 
 gum log --level info 'Install plugins of yazi'
 ya pkg install
@@ -48,6 +48,7 @@ sudo archlinux-java set "$(
 # https://github.com/alker0/chezmoi.vim/issues/76
 cat <<-EOF >/dev/null
 	{{ include (joinPath .chezmoi.sourceDir "dot_config/mise/config.toml") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "dot_config/mise/mise.lock") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "dot_config/mise/plugins/vfox-http-deb/metadata.lua") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "dot_config/mise/plugins/vfox-http-deb/hooks/backend_list_versions.lua") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "dot_config/mise/plugins/vfox-http-deb/hooks/backend_install.lua") | sha256sum }}

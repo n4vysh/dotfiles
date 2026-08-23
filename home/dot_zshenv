@@ -7,10 +7,8 @@ export XDG_STATE_HOME=${XDG_STATE_HOME:=~/.local/state}
 # base
 export PAGER=less
 export EDITOR=nvim
-export CZ_EDITOR='cz-editor'
 export BROWSER=firefox
 export DIFFPROG='nvim -d'
-export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 if type vivid >/dev/null 2>&1; then
 	export LS_COLORS="$(vivid generate tokyonight-night)"
 fi
@@ -110,15 +108,9 @@ path=(
 	$XDG_DATA_HOME/mise/shims(N-/)
 
 	$HOME/.local/bin(N-/)
-	$HOME/.krew/bin(N-/)
-	$PNPM_HOME(N-/)
 
 	$path
 )
-
-# Programming
-export GOPATH="$HOME/.local"
-export CARGO_NET_GIT_FETCH_WITH_CLI=true
 
 # Less
 export LESS='-ciMR'
@@ -146,18 +138,6 @@ export FZF_DEFAULT_OPTS="
 	--color hl:27,bg+:21,hl+:75
 	--color info:69,prompt:75,spinner:69,pointer:69,marker:69,scrollbar:75
 "
-
-# Terraform
-export TF_CLI_ARGS_plan="-parallelism=30"
-export TF_CLI_ARGS_apply="-parallelism=30"
-
-# aws
-export AWS_CLI_AUTO_PROMPT=on-partial
-
-# aws-vault
-export AWS_VAULT_BACKEND=pass
-export AWS_VAULT_PASS_CMD=gopass
-export AWS_VAULT_PASS_PREFIX=aws-vault
 
 # john
 # https://github.com/open-mpi/hwloc/issues/354

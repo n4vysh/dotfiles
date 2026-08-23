@@ -22,9 +22,6 @@ services:
         - thermald.service
         - tlp.service
         - ufw.service
-        # HACK: use docker.socket instead of docker.service
-        #       docker.service slows down startup time
-        - docker.socket
       running:
         - bluetooth.service
         - cpupower.service

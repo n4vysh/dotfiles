@@ -1,7 +1,5 @@
 autoload -Uz compinit && compinit
 
-source /usr/bin/aws_zsh_completer.sh
-
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'

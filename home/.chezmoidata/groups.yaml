@@ -1,5 +1,4 @@
 groups:
-  - docker
   - storage # for mount helper
   - lp # for Bluetooth and PulseAudio
   - wheel

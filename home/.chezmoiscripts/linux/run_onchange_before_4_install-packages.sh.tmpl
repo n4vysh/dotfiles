@@ -109,15 +109,6 @@ else
 	gum log --level warn 'running on WSL -- skipping'
 fi
 
-gum log --level info 'Install packages with krew'
-bash -c "kubectl krew install $(
-	tr '\n' ' ' <<-EOF
-		{{ range .packages.linux.krew -}}
-		{{ . }}
-		{{ end -}}
-	EOF
-)"
-
 gum log --level info 'Install packages with gh'
 bash -c "gh extension install $(
 	tr '\n' ' ' <<-EOF

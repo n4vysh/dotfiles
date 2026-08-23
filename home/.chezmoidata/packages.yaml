@@ -121,12 +121,6 @@ packages:
       - extra/fcitx5-configtool
       - extra/fcitx5-gtk
       - extra/fcitx5-qt
-      # virtualization
-      - extra/dive
-      - extra/docker
-      - extra/docker-buildx
-      - extra/docker-compose
-      - extra/skopeo
       # window manager
       - chaotic-aur/wlogout
       - extra/brightnessctl
@@ -252,50 +246,41 @@ packages:
       - chaotic-aur/claude-code
       - chaotic-aur/playwright
       - core/openssh
-      - core/python
       - extra/7zip # for yazi archive extraction and preview
       - extra/atool
       - extra/atuin
       - extra/cocogitto
       - extra/cosign # for mise verification
-      - extra/drawio-desktop
       - extra/editorconfig-checker
       - extra/expect # for unbuffer
       - extra/eza
       - extra/fd
-      - extra/fx
       - extra/fzf
       - extra/ghostty
       - extra/glow
-      - extra/go-tools
-      - extra/go-yq
       - extra/grc
       - extra/gum
       - extra/jpegoptim
       - extra/jq
-      - extra/jwt-cli
       - extra/kitty # use kitty icat for fastfetch
       - extra/libwebp
-      - extra/mermaid-cli
       - extra/mise
       - extra/moreutils # for vidir and sponge
       - extra/neovide
       - extra/obsidian
+      - extra/openai-codex
       - extra/opencode
-      - extra/oxipng
       - extra/parallel
       - extra/postgresql
       - extra/pre-commit
       - extra/qemu-user-static
       - extra/qemu-user-static-binfmt
       - extra/ripgrep
-      - extra/ruff
       - extra/sheldon
       - extra/testssl.sh
       - extra/tmuxp
       - extra/tree
       - extra/tree-sitter-cli # for nvim-treesitter
-      - extra/ty
       - extra/typos
       - extra/unison
       - extra/usage
@@ -304,8 +289,6 @@ packages:
       - extra/xh
       - extra/yazi
       - extra/zoxide
-      ## Debugger
-      - extra/delve
       ## Test
       - extra/bat
       - extra/bats
@@ -315,7 +298,6 @@ packages:
       ## Formatter & Linter
       - extra/actionlint
       - extra/eslint
-      - extra/gofumpt
       - extra/lychee
       - extra/prettier
       - extra/rumdl
@@ -326,54 +308,23 @@ packages:
       - extra/sqlfluff
       - extra/stylua
       - extra/taplo-cli
-      - extra/tflint
-      - extra/trivy
       - extra/yamlfmt
       - extra/yamllint
       - extra/zizmor
-      ## runtime / package manager
-      - extra/bun
-      - extra/go
-      - extra/npm # for mise npm backend with bun
-      - extra/pnpm
-      - extra/uv
       ## VCS
       - chaotic-aur/git-extras
       - extra/diffnav
       - extra/ghq
+      - extra/git
       - extra/git-crypt
       - extra/git-delta
       - extra/github-cli
       - extra/glab
       - extra/lazygit
-      ## Cloud
-      - extra/aws-cli-v2
-      - extra/aws-vault
-      ## IaC
-      - extra/argocd
-      - extra/helm
-      - extra/helmfile
-      - extra/istio
-      - extra/k9s
-      - extra/krew
-      - extra/kube-linter
-      - extra/kubeconform
-      - extra/kubectl
-      - extra/kubectx
-      - extra/lazydocker
-      - extra/skaffold
-      - extra/sops
-      - extra/stern
-      - extra/terraform
-      - extra/terragrunt
     flatpak:
       flathub:
         - io.ente.photos
         - io.ente.auth
-    krew:
-      - neat
-      - resource-capacity
-      - tree
     gh:
       - dlvhdr/gh-dash
       - dlvhdr/gh-enhance

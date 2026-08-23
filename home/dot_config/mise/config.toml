@@ -14,8 +14,60 @@ credential_command = "gh auth token"
 [settings.npm]
 package_manager = "aube"
 
+[shell_alias]
+kubectl = "kubecolor"
+assume = ". assume"
+
+[env]
+_.path = ["~/.krew/bin", "{{env.XDG_DATA_HOME}}/pnpm"]
+# czg
+CZ_EDITOR = 'cz-editor'
+# pnpm
+PNPM_HOME = "{{env.XDG_DATA_HOME}}/pnpm"
+# Go
+GOPATH = "~/.local"
+# Terraform
+TF_CLI_ARGS_plan = "-parallelism=30"
+TF_CLI_ARGS_apply = "-parallelism=30"
+# AWS
+AWS_CLI_AUTO_PROMPT = "on-partial"
+## aws-vault
+AWS_VAULT_BACKEND = "pass"
+AWS_VAULT_PASS_CMD = "gopass"
+AWS_VAULT_PASS_PREFIX = "aws-vault"
+
 [plugins]
 "vfox-backend:http-deb" = "~/.config/mise/plugins/vfox-http-deb"
+
+[bootstrap.packages]
+"pacman:docker" = "latest"
+"pacman:docker-buildx" = "latest"
+"pacman:docker-compose" = "latest"
+"pacman:skopeo" = "latest"
+"pacman:drawio-desktop" = "latest"
+
+[bootstrap.hooks.post-packages]
+run = '''
+if ! id -nG "$USER" | grep -qw docker; then
+  sudo usermod -aG docker "$USER"
+fi
+'''
+
+[bootstrap.directories."/etc/docker"]
+owner = "root"
+group = "root"
+mode = "0755"
+
+[bootstrap.files."/etc/docker/daemon.json"]
+source = "./files/etc/docker/daemon.json"
+owner = "root"
+group = "root"
+mode = "0644"
+
+[bootstrap.services."docker.socket"]
+state = "stopped"
+enabled = true
+on_change = "none"
 
 [tools]
 "npm:czg" = "1.13.0"
@@ -23,7 +75,6 @@ worktrunk = "0.23.2"
 "npm:gitmoji-cli" = "9.6.0"
 "github:YiNNx/cmd-wrapped" = { version = "0.4.1", bin = "cmd-wrapped" }
 dyff = "1.10.1"
-fzf = "0.65.2"
 jqp = "0.7.0"
 lefthook = "1.11.13"
 "npm:@redocly/cli" = "1.34.3"
@@ -37,9 +88,23 @@ ls-lint = "2.3.1"
 ], trust_policy_excludes = [
   "@yarnpkg/libzip@3.2.2",
 ] }
+fx = { version = "39.2.0", postinstall = '''
+fx --comp zsh >~/.zshrc.d/site-functions/_fx
+''' }
+yq = { version = "4.53.3", postinstall = '''
+yq shell-completion zsh >~/.zshrc.d/site-functions/_yq
+''' }
+jwt = { version = "6.2.0", postinstall = '''
+jwt completion zsh >~/.zshrc.d/site-functions/_jwt
+''' }
+oxipng = "10.2.0"
+"npm:@mermaid-js/mermaid-cli" = { version = "11.16.0", allow_builds = [
+  "puppeteer",
+], trust_policy_excludes = [
+  "cytoscape@3.34.1",
+] }
 
 # AI
-opencode = "1.18.15"
 rtk = "0.43.0"
 herdr = "0.8.0"
 hunk = "0.17.0"
@@ -53,8 +118,6 @@ apm = "0.26.0"
 "pipx:litellm" = { version = "1.88.0", extras = "proxy,extra_proxy", uvx_args = "--python 3.13.14" }
 ## token tracker
 "npm:tokscale" = "4.12.0"
-codex = "0.147.0"         # for tokscale usage
-claude = "2.1.228"
 ## mcp
 "pipx:mcp-proxy-for-aws" = "1.4.0"
 "npm:kubernetes-mcp-server" = "0.0.60"
@@ -66,23 +129,60 @@ claude = "2.1.228"
 ## frontend
 ### TS
 node = "24.11.0"
-bun = "1.3.5"
+pnpm = { version = "11.3.0", postinstall = '''
+pnpm completion zsh >~/.zshrc.d/site-functions/_pnpm
+''' }
+bun = { version = "1.3.14", postinstall = '''
+bun completions >~/.zshrc.d/site-functions/_bun
+''' }
 "npm:@antfu/ni" = "28.0.0"
 ### CSS
 "npm:stylelint" = "17.11.0"
 "npm:stylelint-config-standard" = "40.0.0"
+## backend
 ### go
+go = "1.26.6"
 gotestsum = "1.13.0"
 "go:github.com/josharian/impl" = "1.4.0"
 "go:github.com/fatih/gomodifytags" = "1.17.0"
 golangci-lint = "2.1.6"
 "go:github.com/cweill/gotests/..." = "1.6.0"
+"aqua:go-delve/delve" = { version = "1.26.3", postinstall = '''
+dlv completion zsh >~/.zshrc.d/site-functions/_dlv
+''' }
+gofumpt = "0.10.0"
+"go:golang.org/x/tools/cmd/goimports" = "0.49.0"
+### Python
+python = "3.13.14"
+uv = { version = "0.12.5", postinstall = '''
+uv generate-shell-completion zsh >~/.zshrc.d/site-functions/_uv
+''' }
+ruff = { version = "0.16.3", postinstall = '''
+ruff generate-shell-completion zsh >~/.zshrc.d/site-functions/_ruff
+''' }
+ty = { version = "0.0.72", postinstall = '''
+ty generate-shell-completion zsh >~/.zshrc.d/site-functions/_ty
+''' }
 
 # infra
 ## cloud
-awscli = "2.31.8"
-aws-vault = "7.13.3"
+awscli = { version = "2.34.32", postinstall = '''
+cat >~/.zshrc.d/site-functions/_aws <<'EOF'
+#compdef aws
+
+if (( ! $+functions[_bash_complete] )); then
+  autoload -Uz bashcompinit
+  bashcompinit
+fi
+
+_bash_complete -C aws_completer
+EOF
+''' }
+aws-vault = { version = "7.13.3", postinstall = '''
+aws-vault --completion-script-zsh >~/.zshrc.d/site-functions/_aws-vault
+''' }
 granted = "0.38.0"
+amazon-ecr-credential-helper = "0.9.1"
 
 ### session-manager-plugin
 ### NOTE: taplo not support multiline inline tables of TOML 1.1
@@ -99,34 +199,116 @@ granted = "0.38.0"
 hadolint = "2.12.0"
 crane = "0.21.9"
 "github:docker/docker-credential-helpers" = { version = "0.9.3", asset_pattern = "docker-credential-pass-*.linux-amd64", bin = "docker-credential-pass" }
+dive = "0.13.1"
+
 ## terraform
+terraform = { version = "1.15.8", postinstall = '''
+cat >~/.zshrc.d/site-functions/_terraform <<'EOF'
+#compdef terraform
+
+if (( ! $+functions[_bash_complete] )); then
+  autoload -Uz bashcompinit
+  bashcompinit
+fi
+
+_bash_complete -o nospace -C terraform
+EOF
+''' }
 terraform-docs = "0.20.0"
 terraform-ls = "0.38.1"
+tflint = "0.64.0"
+terragrunt = "1.1.1"
+
 ## kubernetes
-kubectl = "1.36.2"
-kubectx = "0.11.0"
-kubens = "0.11.0"
+argocd = { version = "3.4.2", postinstall = '''
+argocd completion zsh >~/.zshrc.d/site-functions/_argocd
+''' }
+kubectl = { version = "1.36.3", postinstall = '''
+kubectl completion zsh >~/.zshrc.d/site-functions/_kubectl
+''' }
+kubectx = { version = "0.11.0", postinstall = '''
+tmp=$(mktemp)
+trap 'rm -f "$tmp"' 0
+curl \
+  -fsSL \
+  "https://raw.githubusercontent.com/ahmetb/kubectx/v${MISE_TOOL_VERSION}/completion/_kubectx.zsh" \
+  -o "$tmp"
+printf '%s  %s\n' '410b5315f7a91b1c210cbc86c9cc4dda065f2ac180b490f3ebbf7e764ab6b470' "$tmp" |
+  sha256sum -c -
+install -m 0644 "$tmp" ~/.zshrc.d/site-functions/_kubectx
+''' }
+kubens = { version = "0.11.0", postinstall = '''
+tmp=$(mktemp)
+trap 'rm -f "$tmp"' 0
+curl \
+  -fsSL \
+  "https://raw.githubusercontent.com/ahmetb/kubectx/v${MISE_TOOL_VERSION}/completion/_kubens.zsh" \
+  -o "$tmp"
+printf '%s  %s\n' '084c226035af951e582020b2bc055a6521929ee54d8942b4d19577e5d45fd8f7' "$tmp" |
+  sha256sum -c -
+install -m 0644 "$tmp" ~/.zshrc.d/site-functions/_kubens
+''' }
 kind = "0.32.0"
 kubecolor = "0.6.0"
 kube-score = "1.20.0"
-istioctl = "1.30.2"
+istioctl = { version = "1.30.2", postinstall = '''
+istioctl completion zsh >~/.zshrc.d/site-functions/_istioctl
+''' }
 kyverno = "1.18.1"
 pluto = "5.24.0"
+k9s = { version = "0.51.0", postinstall = '''
+k9s completion zsh >~/.zshrc.d/site-functions/_k9s
+''' }
+krew = { version = "0.5.0", postinstall = '''
+if [ ! -x "${KREW_ROOT:-$HOME/.krew}/bin/kubectl-krew" ]; then
+  krew install krew
+fi
+
+for plugin in neat resource-capacity tree; do
+  kubectl krew install "$plugin"
+done
+''' }
+kube-linter = { version = "0.8.3", postinstall = '''
+kube-linter completion zsh >~/.zshrc.d/site-functions/_kube-linter
+''' }
+kubeconform = "0.7.0"
+lazydocker = "0.25.2"
+skaffold = { version = "2.24.0", postinstall = '''
+skaffold completion zsh >~/.zshrc.d/site-functions/_skaffold
+''' }
+sops = { version = "3.13.3", postinstall = '''
+sops completion zsh >~/.zshrc.d/site-functions/_sops
+''' }
+stern = { version = "1.34.0", postinstall = '''
+stern completion zsh >~/.zshrc.d/site-functions/_stern
+''' }
 "aqua:awslabs/eks-node-viewer" = "0.7.4"
 "aqua:kubescape/kubescape" = "4.0.10"
+
 ### helm
-helm = "4.2.2"
+helm = { version = "4.2.2", postinstall = '''
+helm completion zsh >~/.zshrc.d/site-functions/_helm
+''' }
+helmfile = { version = "1.5.2", postinstall = '''
+helmfile completion zsh >~/.zshrc.d/site-functions/_helmfile
+''' }
 helm-ct = "3.14.0"
 helm-diff = "3.15.10"
 helm-docs = "1.14.2"
+
 ## Grafana
 "aqua:grafana/gcx" = "1.1.0"
-## platform
-amazon-ecr-credential-helper = "0.9.1"
+
 ## cost management
 infracost = "0.10.41"
+
 ## Policy as Code
 conftest = "0.61.0"
+
 ## Security
+trivy = { version = "0.73.0", postinstall = '''
+trivy completion zsh >~/.zshrc.d/site-functions/_trivy
+''' }
+
 ### for mise verification
 "go:github.com/slsa-framework/slsa-verifier/v2/cli/slsa-verifier" = "v2.7.1"

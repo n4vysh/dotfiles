@@ -14,11 +14,10 @@
   // Dependency update groups:
   // - github-actions
   // - mise (+ mise.lock maintenance)
-  // - opencode (+ package-lock.json maintenance)
   // - sheldon
   // - chezmoi-externals
   // - pre-commit
-  // Maximum PRs: 6 x 2 (major/non-major) + 2 lock file maintenance = 14
+  // Maximum PRs: 5 x 2 (major/non-major) + 1 lock file maintenance = 14
   "prConcurrentLimit": 14,
   "prHourlyLimit": 14,
   "commitHourlyLimit": 14,
@@ -90,15 +89,6 @@
       "groupSlug": "mise"
     },
     {
-      "description": "Update OpenCode CLI and plugin together",
-      "matchDepNames": ["opencode", "@opencode-ai/plugin"],
-      "commitMessageAction": ":package: bump",
-      "groupName": "opencode",
-      "groupSlug": "opencode",
-      "minimumGroupSize": 2,
-      "minimumReleaseAge": "3 days"
-    },
-    {
       "description": "Group Sheldon plugin updates",
       "matchDepTypes": ["sheldon"],
       "commitMessageAction": ":package: bump",
@@ -127,16 +117,6 @@
       "groupSlug": "mise",
       "commitMessageAction": ":package: maintain",
       "commitMessageTopic": "mise.lock"
-    },
-    {
-      "description": "Group opencode package-lock.json maintenance",
-      "matchManagers": ["npm"],
-      "matchFileNames": ["home/dot_config/opencode/package.json"],
-      "matchUpdateTypes": ["lockFileMaintenance"],
-      "groupName": "opencode",
-      "groupSlug": "opencode",
-      "commitMessageAction": ":package: maintain",
-      "commitMessageTopic": "opencode package-lock.json"
     }
   ]
 }

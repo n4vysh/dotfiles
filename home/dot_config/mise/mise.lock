@@ -36,6 +36,19 @@ url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/gith
 url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381432"
 provenance = "github-attestations"
 
+[[tools."aqua:go-delve/delve"]]
+version = "1.26.3"
+backend = "aqua:go-delve/delve"
+
+[tools."aqua:go-delve/delve"."platforms.linux-x64"]
+checksum = "sha256:cdd4d6b2a638d8f26468d82a76b766df594641490bea566629305d90fbccc06e"
+url = "https://github.com/go-delve/delve/releases/download/v1.26.3/dlv_1.26.3_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/go-delve/delve/releases/assets/406886271"
+
+[[tools."aqua:golang/tools/goimports"]]
+version = "0.49.0"
+backend = "aqua:golang/tools/goimports"
+
 [[tools."aqua:grafana/gcx"]]
 version = "1.1.0"
 backend = "aqua:grafana/gcx"
@@ -64,6 +77,18 @@ url = "https://github.com/kubescape/kubescape/releases/download/v4.0.10/kubescap
 url_api = "https://api.github.com/repos/kubescape/kubescape/releases/assets/461849343"
 provenance = "github-attestations"
 
+[[tools.argocd]]
+version = "3.4.2"
+backend = "aqua:argoproj/argo-cd"
+
+[tools.argocd."platforms.linux-x64"]
+checksum = "sha256:d4cb1ac8002baab8afaca2da3de597b613df8459074bc7c6d96dc95161c2a33f"
+url = "https://github.com/argoproj/argo-cd/releases/download/v3.4.2/argocd-linux-amd64"
+url_api = "https://api.github.com/repos/argoproj/argo-cd/releases/assets/418714527"
+
+[tools.argocd."platforms.linux-x64".provenance.slsa]
+url = "https://github.com/argoproj/argo-cd/releases/download/v3.4.2/argocd-cli.intoto.jsonl"
+
 [[tools.aws-vault]]
 version = "7.13.3"
 backend = "aqua:ByteNess/aws-vault"
@@ -74,40 +99,32 @@ url = "https://github.com/ByteNess/aws-vault/releases/download/v7.13.3/aws-vault
 url_api = "https://api.github.com/repos/ByteNess/aws-vault/releases/assets/501551873"
 
 [[tools.awscli]]
-version = "2.31.8"
+version = "2.34.32"
 backend = "aqua:aws/aws-cli"
 
 [tools.awscli."platforms.linux-x64"]
-url = "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.31.8.zip"
+checksum = "blake3:d37d023dbbc5347d52445c03e70f914d82718a8a9c6406aed43084c32737bcff"
+url = "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.34.32.zip"
 
 [[tools.bun]]
-version = "1.3.5"
+version = "1.3.14"
 backend = "core:bun"
 
 [tools.bun."platforms.linux-x64"]
-checksum = "sha256:7051d86a924aefea3e0b96213b5fd8f79c0793f9cae6534233e627e5c3db4669"
-url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-linux-x64.zip"
+checksum = "sha256:951ee2aee855f08595aeec6225226a298d3fea83a3dcd6465c09cbccdf7e848f"
+url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64.zip"
 
 [tools.bun."platforms.linux-x64-baseline"]
-checksum = "sha256:6bddacd6a65855698b9816f2d74871eda4dd0b7fa921140c6445248f94a742fd"
-url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-linux-x64-baseline.zip"
+checksum = "sha256:a063908ae08b7852ca10939bbdc6ceed3ddabce8fb9402dce83d65d73b36e6c7"
+url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64-baseline.zip"
 
 [tools.bun."platforms.linux-x64-musl"]
-checksum = "sha256:720d88e0e5f40450a1da91c0226f626b156eaa224876d794fa95f6ebf74f46b6"
-url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-linux-x64-musl.zip"
+checksum = "sha256:14bd9aedeebf1dba67e8def9531c89bc989ecfdf1de42e5bfcaf1b8cd9294719"
+url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64-musl.zip"
 
 [tools.bun."platforms.linux-x64-musl-baseline"]
-checksum = "sha256:57997319f8b9f72ce137363c3dfcd8d401327925108bb30dc5c3257452fba524"
-url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.5/bun-linux-x64-musl-baseline.zip"
-
-[[tools.claude]]
-version = "2.1.228"
-backend = "aqua:anthropics/claude-code"
-
-[tools.claude."platforms.linux-x64"]
-checksum = "sha256:9050d667bcc3940b7ceee65e3e5c4439d2b7161a71d940fdf60192302243f960"
-url = "https://github.com/anthropics/claude-code/releases/download/v2.1.228/claude-linux-x64.tar.gz"
-url_api = "https://api.github.com/repos/anthropics/claude-code/releases/assets/510438993"
+checksum = "sha256:56a7d6806cf155536c0178f0ea5fbd098e684fa509ebdb4fc0a7e19fb65382dc"
+url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64-musl-baseline.zip"
 
 [[tools.codex]]
 version = "0.147.0"
@@ -145,14 +162,14 @@ checksum = "sha256:fa35de9f24d5e322fa3713588f5931145ec59212ca59ab7aa4b51fbdb44c3
 url = "https://github.com/homeport/dyff/releases/download/v1.10.1/dyff_1.10.1_linux_amd64.tar.gz"
 url_api = "https://api.github.com/repos/homeport/dyff/releases/assets/235469133"
 
-[[tools.fzf]]
-version = "0.65.2"
-backend = "aqua:junegunn/fzf"
+[[tools.fx]]
+version = "39.2.0"
+backend = "aqua:antonmedv/fx"
 
-[tools.fzf."platforms.linux-x64"]
-checksum = "sha256:5eb8efc0e94aa559f84ea83eeba99bea7dce818e63f92b4b62e60663220f1c14"
-url = "https://github.com/junegunn/fzf/releases/download/v0.65.2/fzf-0.65.2-linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/junegunn/fzf/releases/assets/288116170"
+[tools.fx."platforms.linux-x64"]
+checksum = "sha256:17ea6549c7cf0b8be5ec109d04da7fbf1d5de9f7b99d957a6215081933528afe"
+url = "https://github.com/antonmedv/fx/releases/download/39.2.0/fx_linux_amd64"
+url_api = "https://api.github.com/repos/antonmedv/fx/releases/assets/315468989"
 
 [[tools."github:YiNNx/cmd-wrapped"]]
 version = "0.4.1"
@@ -173,6 +190,24 @@ asset_pattern = "docker-credential-pass-*.linux-amd64"
 checksum = "sha256:dc2d864f5f4e4ddfb23ef8e2193626f5f26eee5be1e49ff2a9ba40d4298392e0"
 url = "https://github.com/docker/docker-credential-helpers/releases/download/v0.9.3/docker-credential-pass-v0.9.3.linux-amd64"
 url_api = "https://api.github.com/repos/docker/docker-credential-helpers/releases/assets/237482408"
+
+[[tools.glow]]
+version = "3.0.0"
+backend = "aqua:charmbracelet/glow"
+
+[tools.glow."platforms.linux-x64"]
+checksum = "sha256:13e05e4b2acc18d2aee44291aefe6325b077ec321b631a0cfa780e8e3bc33f78"
+url = "https://github.com/charmbracelet/glow/releases/download/v3.0.0/glow_3.0.0_Linux_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/charmbracelet/glow/releases/assets/510466923"
+provenance = "cosign"
+
+[[tools.go]]
+version = "1.26.6"
+backend = "core:go"
+
+[tools.go."platforms.linux-x64"]
+checksum = "sha256:708effb774be8237570d0add163225abbdfaf4fca28b2611df167beba4feef89"
+url = "https://dl.google.com/go/go1.26.6.linux-amd64.tar.gz"
 
 [[tools."go:github.com/cweill/gotests/..."]]
 version = "1.6.0"
@@ -197,6 +232,19 @@ backend = "go:github.com/josharian/impl"
 [[tools."go:github.com/slsa-framework/slsa-verifier/v2/cli/slsa-verifier"]]
 version = "2.7.1"
 backend = "go:github.com/slsa-framework/slsa-verifier/v2/cli/slsa-verifier"
+
+[[tools."go:golang.org/x/tools/cmd/goimports"]]
+version = "0.49.0"
+backend = "go:golang.org/x/tools/cmd/goimports"
+
+[[tools.gofumpt]]
+version = "0.10.0"
+backend = "aqua:mvdan/gofumpt"
+
+[tools.gofumpt."platforms.linux-x64"]
+checksum = "sha256:48ee398ec72afdaca6accb70f5ed741349d5dcccb52c5bb4c4469d698980b186"
+url = "https://github.com/mvdan/gofumpt/releases/download/v0.10.0/gofumpt_v0.10.0_linux_amd64"
+url_api = "https://api.github.com/repos/mvdan/gofumpt/releases/assets/411914544"
 
 [[tools.golangci-lint]]
 version = "2.1.6"
@@ -269,6 +317,15 @@ checksum = "sha256:a8cf72ada34fad93285ba2a452b38bdc5bd52cc9a571236244ec31022928d
 url = "https://github.com/norwoodj/helm-docs/releases/download/v1.14.2/helm-docs_1.14.2_Linux_x86_64.tar.gz"
 url_api = "https://api.github.com/repos/norwoodj/helm-docs/releases/assets/178327210"
 
+[[tools.helmfile]]
+version = "1.5.2"
+backend = "aqua:helmfile/helmfile"
+
+[tools.helmfile."platforms.linux-x64"]
+checksum = "sha256:96e342ff19a45c2e36371f93cf6264f3ef285bbde0fc363e56cb53bdef3df1ff"
+url = "https://github.com/helmfile/helmfile/releases/download/v1.5.2/helmfile_1.5.2_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/helmfile/helmfile/releases/assets/426654336"
+
 [[tools.herdr]]
 version = "0.8.0"
 backend = "aqua:herdrdev/herdr"
@@ -318,6 +375,24 @@ checksum = "sha256:53d595ad76f2a91dcba0b1de71f720c36c3021e37fe114184b4eb4d949c4d
 url = "https://github.com/noahgorstein/jqp/releases/download/v0.7.0/jqp_Linux_x86_64.tar.gz"
 url_api = "https://api.github.com/repos/noahgorstein/jqp/releases/assets/172834962"
 
+[[tools.jwt]]
+version = "6.2.0"
+backend = "aqua:mike-engel/jwt-cli"
+
+[tools.jwt."platforms.linux-x64"]
+checksum = "sha256:bf5cb1f120842cbc4df003d6694e0951e93f47be78c03f8e747629bdfd0796df"
+url = "https://github.com/mike-engel/jwt-cli/releases/download/6.2.0/jwt-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/mike-engel/jwt-cli/releases/assets/209429616"
+
+[[tools.k9s]]
+version = "0.51.0"
+backend = "aqua:derailed/k9s"
+
+[tools.k9s."platforms.linux-x64"]
+checksum = "sha256:c3752ad51a5a4015a113819c4eeb6e55a4d0e4b8e652494797532f6fc8161dd7"
+url = "https://github.com/derailed/k9s/releases/download/v0.51.0/k9s_Linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/derailed/k9s/releases/assets/440224321"
+
 [[tools.kind]]
 version = "0.32.0"
 backend = "aqua:kubernetes-sigs/kind"
@@ -326,6 +401,25 @@ backend = "aqua:kubernetes-sigs/kind"
 checksum = "sha256:50030de23cf40a18505f20426f6a8506bedf13c6e509244bd1fa9463721b0f54"
 url = "https://github.com/kubernetes-sigs/kind/releases/download/v0.32.0/kind-linux-amd64"
 url_api = "https://api.github.com/repos/kubernetes-sigs/kind/releases/assets/436442498"
+
+[[tools.krew]]
+version = "0.5.0"
+backend = "aqua:kubernetes-sigs/krew"
+
+[tools.krew."platforms.linux-x64"]
+checksum = "sha256:5d5a221fffdf331d1c5c68d9917530ecd102e0def5b5a6d62eeed1c404efb28a"
+url = "https://github.com/kubernetes-sigs/krew/releases/download/v0.5.0/krew-linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/kubernetes-sigs/krew/releases/assets/362537140"
+
+[[tools.kube-linter]]
+version = "0.8.3"
+backend = "aqua:stackrox/kube-linter"
+
+[tools.kube-linter."platforms.linux-x64"]
+checksum = "sha256:618d299a3e2839c8ca9d86fce0db617be0fba41f0fecbbbfb7fbf1c04299fae1"
+url = "https://github.com/stackrox/kube-linter/releases/download/v0.8.3/kube-linter-linux"
+url_api = "https://api.github.com/repos/stackrox/kube-linter/releases/assets/370825076"
+provenance = "cosign"
 
 [[tools.kube-score]]
 version = "1.20.0"
@@ -346,13 +440,22 @@ url = "https://github.com/kubecolor/kubecolor/releases/download/v0.6.0/kubecolor
 url_api = "https://api.github.com/repos/kubecolor/kubecolor/releases/assets/394790528"
 provenance = "github-attestations"
 
+[[tools.kubeconform]]
+version = "0.7.0"
+backend = "aqua:yannh/kubeconform"
+
+[tools.kubeconform."platforms.linux-x64"]
+checksum = "sha256:c31518ddd122663b3f3aa874cfe8178cb0988de944f29c74a0b9260920d115d3"
+url = "https://github.com/yannh/kubeconform/releases/download/v0.7.0/kubeconform-linux-amd64.tar.gz"
+url_api = "https://api.github.com/repos/yannh/kubeconform/releases/assets/253886788"
+
 [[tools.kubectl]]
-version = "1.36.2"
+version = "1.36.3"
 backend = "aqua:kubernetes/kubernetes/kubectl"
 
 [tools.kubectl."platforms.linux-x64"]
-checksum = "sha256:1e9045ec32bea85da43de85f0065358529ea7c7a152eca78154fba5b58c27d82"
-url = "https://dl.k8s.io/v1.36.2/bin/linux/amd64/kubectl"
+checksum = "sha256:ebbd080e7c2e275093b55915722043257eb24004363e20acb3c4d71919f88336"
+url = "https://dl.k8s.io/v1.36.3/bin/linux/amd64/kubectl"
 
 [[tools.kubectx]]
 version = "0.11.0"
@@ -381,6 +484,15 @@ checksum = "sha256:5e6bba9ca85beec6c93e94ca7fb0972a66df3b2e67636a08bef090cd3fc65
 url = "https://github.com/kyverno/kyverno/releases/download/v1.18.1/kyverno-cli_v1.18.1_linux_x86_64.tar.gz"
 url_api = "https://api.github.com/repos/kyverno/kyverno/releases/assets/423201067"
 provenance = "cosign"
+
+[[tools.lazydocker]]
+version = "0.25.2"
+backend = "aqua:jesseduffield/lazydocker"
+
+[tools.lazydocker."platforms.linux-x64"]
+checksum = "sha256:0d9dbfc26068b218e7ed84b104748cadc6e3cf733c0afd35465306fb39b9523c"
+url = "https://github.com/jesseduffield/lazydocker/releases/download/v0.25.2/lazydocker_0.25.2_Linux_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/jesseduffield/lazydocker/releases/assets/399711577"
 
 [[tools.lefthook]]
 version = "1.11.13"
@@ -411,6 +523,14 @@ url = "https://nodejs.org/dist/v24.11.0/node-v24.11.0-linux-x64.tar.gz"
 [[tools."npm:@antfu/ni"]]
 version = "28.0.0"
 backend = "npm:@antfu/ni"
+
+[[tools."npm:@mermaid-js/mermaid-cli"]]
+version = "11.16.0"
+backend = "npm:@mermaid-js/mermaid-cli"
+
+[tools."npm:@mermaid-js/mermaid-cli".options]
+allow_builds = '["puppeteer"]'
+trust_policy_excludes = '["cytoscape@3.34.1"]'
 
 [[tools."npm:@redocly/cli"]]
 version = "1.34.3"
@@ -472,14 +592,14 @@ backend = "npm:stylelint-config-standard"
 version = "4.12.0"
 backend = "npm:tokscale"
 
-[[tools.opencode]]
-version = "1.18.15"
-backend = "aqua:anomalyco/opencode"
+[[tools.oxipng]]
+version = "10.2.0"
+backend = "aqua:oxipng/oxipng"
 
-[tools.opencode."platforms.linux-x64"]
-checksum = "sha256:d842e0e8c622c672a481b7dc6f0329009b64db96b2ba6041e56f4f93f0293b1c"
-url = "https://github.com/anomalyco/opencode/releases/download/v1.18.15/opencode-linux-x64.tar.gz"
-url_api = "https://api.github.com/repos/anomalyco/opencode/releases/assets/504765645"
+[tools.oxipng."platforms.linux-x64"]
+checksum = "sha256:a27ecb29faab9da1549f4a243bab12f1e43e4ed8ae6a2a2186a543dc9ffd3956"
+url = "https://github.com/oxipng/oxipng/releases/download/v10.2.0/oxipng-10.2.0-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/oxipng/oxipng/releases/assets/506928028"
 
 [[tools."pipx:litellm"]]
 version = "1.88.0"
@@ -518,6 +638,25 @@ url = "https://github.com/FairwindsOps/pluto/releases/download/v5.24.0/pluto_5.2
 url_api = "https://api.github.com/repos/FairwindsOps/pluto/releases/assets/406818508"
 provenance = "cosign"
 
+[[tools.pnpm]]
+version = "11.3.0"
+backend = "aqua:pnpm/pnpm"
+
+[tools.pnpm."platforms.linux-x64"]
+checksum = "sha256:6eb506b53297eb1186ba0cbff1577bb26d17713835a01a5342dcafae550827ce"
+url = "https://github.com/pnpm/pnpm/releases/download/v11.3.0/pnpm-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/428449600"
+provenance = "github-attestations"
+
+[[tools.python]]
+version = "3.13.14"
+backend = "core:python"
+
+[tools.python."platforms.linux-x64"]
+checksum = "blake3:ec39339d3d419fdec73e2b51ada2b5077b143082a4a22d7b64c0dc1b7f8bc075"
+url = "https://github.com/astral-sh/python-build-standalone/releases/download/20260805/cpython-3.13.14+20260805-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz"
+provenance = "github-attestations"
+
 [[tools.rtk]]
 version = "0.43.0"
 backend = "aqua:rtk-ai/rtk"
@@ -526,6 +665,53 @@ backend = "aqua:rtk-ai/rtk"
 checksum = "sha256:ff8a1e7766496e175291a85aeca1dc97c9ff6df33e51e5893d1fbc78fea2a609"
 url = "https://github.com/rtk-ai/rtk/releases/download/v0.43.0/rtk-x86_64-unknown-linux-musl.tar.gz"
 url_api = "https://api.github.com/repos/rtk-ai/rtk/releases/assets/460115882"
+
+[[tools.ruff]]
+version = "0.16.3"
+backend = "aqua:astral-sh/ruff"
+
+[tools.ruff."platforms.linux-x64"]
+checksum = "sha256:d67c9b5949981698c48915abf65e0b3406ba9184ad73521cdf20a926bc889c73"
+url = "https://github.com/astral-sh/ruff/releases/download/0.16.3/ruff-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/ruff/releases/assets/513140356"
+provenance = "github-attestations"
+
+[[tools.skaffold]]
+version = "2.24.0"
+backend = "aqua:GoogleContainerTools/skaffold"
+
+[tools.skaffold."platforms.linux-x64"]
+checksum = "blake3:0d954128ae845bc951a394aa62a39186556c7171e3e5bef05e72c46154c296f8"
+url = "https://storage.googleapis.com/skaffold/releases/v2.24.0/skaffold-linux-amd64"
+
+[[tools.sops]]
+version = "3.13.3"
+backend = "aqua:getsops/sops"
+
+[tools.sops."platforms.linux-x64"]
+checksum = "sha256:e5bec3346a873ae91d871550f3e698c1aad962aff462a080e40f25fde17fef6b"
+url = "https://github.com/getsops/sops/releases/download/v3.13.3/sops-v3.13.3.linux.amd64"
+url_api = "https://api.github.com/repos/getsops/sops/releases/assets/486808201"
+
+[tools.sops."platforms.linux-x64".provenance.slsa]
+url = "https://github.com/getsops/sops/releases/download/v3.13.3/sops-v3.13.3.intoto.jsonl"
+
+[[tools.stern]]
+version = "1.34.0"
+backend = "aqua:stern/stern"
+
+[tools.stern."platforms.linux-x64"]
+checksum = "sha256:7754adfa653939240f7d20fff4ada9b69cda40c9e70732301f67bb8045f1ef3e"
+url = "https://github.com/stern/stern/releases/download/v1.34.0/stern_1.34.0_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/stern/stern/releases/assets/410516137"
+
+[[tools.terraform]]
+version = "1.15.8"
+backend = "aqua:hashicorp/terraform"
+
+[tools.terraform."platforms.linux-x64"]
+checksum = "sha256:d25ce7b6902013ad905db3d2eab0be4cd905887fe88b81a6171b8d5503c31f3d"
+url = "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_amd64.zip"
 
 [[tools.terraform-docs]]
 version = "0.20.0"
@@ -544,6 +730,55 @@ backend = "aqua:hashicorp/terraform-ls"
 checksum = "sha256:c5869f946b0d17e2c13157dc3bc2aea87fab12d39ac17b3a198102332e79bf62"
 url = "https://releases.hashicorp.com/terraform-ls/0.38.1/terraform-ls_0.38.1_linux_amd64.zip"
 
+[[tools.terragrunt]]
+version = "1.1.1"
+backend = "aqua:gruntwork-io/terragrunt"
+
+[tools.terragrunt."platforms.linux-x64"]
+checksum = "sha256:ce90077ac31ef17a2ba10d11d45f36c6501997a8f4f79d703bb7daba37032f53"
+url = "https://github.com/gruntwork-io/terragrunt/releases/download/v1.1.1/terragrunt_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/gruntwork-io/terragrunt/releases/assets/476785968"
+
+[[tools.tflint]]
+version = "0.64.0"
+backend = "aqua:terraform-linters/tflint"
+
+[tools.tflint."platforms.linux-x64"]
+checksum = "sha256:cca9d13e2e1d7a2c627af60ff899a3c9b74212899416aeb96ec764d2ef954537"
+url = "https://github.com/terraform-linters/tflint/releases/download/v0.64.0/tflint_linux_amd64.zip"
+url_api = "https://api.github.com/repos/terraform-linters/tflint/releases/assets/480528344"
+provenance = "github-attestations"
+
+[[tools.trivy]]
+version = "0.73.0"
+backend = "aqua:aquasecurity/trivy"
+
+[tools.trivy."platforms.linux-x64"]
+checksum = "sha256:2edd39da482bb4e9831962487b68f68e3928ec3137794757f54d00383d79547b"
+url = "https://github.com/aquasecurity/trivy/releases/download/v0.73.0/trivy_0.73.0_Linux-64bit.tar.gz"
+url_api = "https://api.github.com/repos/aquasecurity/trivy/releases/assets/499939909"
+provenance = "cosign"
+
+[[tools.ty]]
+version = "0.0.72"
+backend = "aqua:astral-sh/ty"
+
+[tools.ty."platforms.linux-x64"]
+checksum = "sha256:0a0f8025cac337bf4939f65fea4f71652d8e2a2bab12c3a2e45b15bcdd1be626"
+url = "https://github.com/astral-sh/ty/releases/download/0.0.72/ty-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/ty/releases/assets/514948432"
+provenance = "github-attestations"
+
+[[tools.uv]]
+version = "0.12.5"
+backend = "aqua:astral-sh/uv"
+
+[tools.uv."platforms.linux-x64"]
+checksum = "sha256:a4742988791c9aeae68c78150d6cba762062ad2a47e53738c2779d2b596bfcdb"
+url = "https://github.com/astral-sh/uv/releases/download/0.12.5/uv-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/514851105"
+provenance = "github-attestations"
+
 [[tools.worktrunk]]
 version = "0.23.2"
 backend = "aqua:max-sixty/worktrunk"
@@ -552,3 +787,13 @@ backend = "aqua:max-sixty/worktrunk"
 checksum = "sha256:95030d092e493a2c3f4e1341536e8cf4fe1aaeff5951039b07f1b3fe35141ae2"
 url = "https://github.com/max-sixty/worktrunk/releases/download/v0.23.2/worktrunk-x86_64-unknown-linux-musl.tar.xz"
 url_api = "https://api.github.com/repos/max-sixty/worktrunk/releases/assets/354077794"
+
+[[tools.yq]]
+version = "4.53.3"
+backend = "aqua:mikefarah/yq"
+
+[tools.yq."platforms.linux-x64"]
+checksum = "sha256:fa52a4e758c63d38299163fbdd1edfb4c4963247918bf9c1c5d31d84789eded4"
+url = "https://github.com/mikefarah/yq/releases/download/v4.53.3/yq_linux_amd64"
+url_api = "https://api.github.com/repos/mikefarah/yq/releases/assets/440146735"
+provenance = "cosign"
