@@ -25,7 +25,11 @@ export ABBR_LOG_AVAILABLE_ABBREVIATION=1
 export ABBR_LOG_AVAILABLE_ABBREVIATION_AFTER=1
 zle_highlight=('paste:none')
 
-fpath=(~/.zshrc.d/functions $fpath)
+fpath=(
+	~/.zshrc.d/functions
+	~/.zshrc.d/site-functions
+	$fpath
+)
 autoload -Uz ~/.zshrc.d/functions/*(.:t)
 
 ## color

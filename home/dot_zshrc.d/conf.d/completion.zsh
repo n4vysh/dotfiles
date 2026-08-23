@@ -1,6 +1,5 @@
 autoload -Uz compinit && compinit
 
-compdef _gnu_generic fzf
 compdef kubecolor=kubectl
 source /usr/bin/aws_zsh_completer.sh
 
