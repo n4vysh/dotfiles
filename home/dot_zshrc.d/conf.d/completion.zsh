@@ -1,6 +1,5 @@
 autoload -Uz compinit && compinit
 
-compdef kubecolor=kubectl
 source /usr/bin/aws_zsh_completer.sh
 
 zstyle ':completion:*' menu select
