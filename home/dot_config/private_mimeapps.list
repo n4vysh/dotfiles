@@ -164,3 +164,6 @@ application/oxps=org.pwmt.zathura-pdf-mupdf.desktop
 application/epub+zip=org.pwmt.zathura-pdf-mupdf.desktop
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop
 application/x-fictionbook+xml=org.pwmt.zathura-pdf-mupdf.desktop
+
+# claude-code
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
