@@ -4,6 +4,7 @@
   "availableModels": ["opus", "sonnet"],
   "effortLevel": "low",
   "theme": "dark",
+  "tui": "fullscreen",
   "env": {
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "DISABLE_AUTOUPDATER": "1",
