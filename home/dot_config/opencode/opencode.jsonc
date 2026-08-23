@@ -59,6 +59,8 @@
       "chezmoi diff": "allow",
       "pacman -Si *": "allow",
       "pacman -Ss *": "allow",
+      "pacman -Ql *": "allow",
+      "pacman -Qo *": "allow",
       "yay -Si *": "allow",
       "yay -Ss *": "allow",
       "semble search *": "allow",
