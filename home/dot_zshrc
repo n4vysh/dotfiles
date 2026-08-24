@@ -40,6 +40,7 @@ AUTO_NOTIFY_IGNORE+=(
 	"y"
 	"yazi"
 	"opencode"
+	"claude"
 	"lazydocker"
 	"k9s"
 	"gh dash"
