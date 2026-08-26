@@ -119,7 +119,7 @@ apm = "0.26.0"
 ## token tracker
 "npm:tokscale" = "4.12.0"
 ## mcp
-"pipx:mcp-proxy-for-aws" = "1.4.0"
+"pipx:mcp-proxy-for-aws" = "1.6.4"
 "npm:kubernetes-mcp-server" = "0.0.60"
 "go:github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server" = "0.5.2"
 "pipx:mcp-grafana" = "0.11.4"
