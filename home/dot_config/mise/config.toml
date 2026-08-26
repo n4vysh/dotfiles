@@ -123,7 +123,7 @@ apm = "0.26.0"
 "npm:kubernetes-mcp-server" = "0.0.66"
 "go:github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server" = "1.2.0"
 "pipx:mcp-grafana" = "1.1.0"
-"aqua:github/github-mcp-server" = "1.0.5"
+"aqua:github/github-mcp-server" = "1.10.1"
 
 # app
 ## frontend
