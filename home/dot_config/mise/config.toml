@@ -65,7 +65,7 @@ group = "root"
 mode = "0644"
 
 [bootstrap.services."docker.socket"]
-state = "stopped"
+state = "running"
 enabled = true
 on_change = "none"
 
