@@ -166,7 +166,7 @@ ty generate-shell-completion zsh >~/.zshrc.d/site-functions/_ty
 
 # infra
 ## cloud
-awscli = { version = "2.34.32", postinstall = '''
+awscli = { version = "2.36.31", postinstall = '''
 cat >~/.zshrc.d/site-functions/_aws <<'EOF'
 #compdef aws
 
