@@ -27,13 +27,13 @@ url = "https://github.com/awslabs/eks-node-viewer/releases/download/v0.7.4/eks-n
 url_api = "https://api.github.com/repos/awslabs/eks-node-viewer/releases/assets/249148436"
 
 [[tools."aqua:github/github-mcp-server"]]
-version = "1.0.5"
+version = "1.10.1"
 backend = "aqua:github/github-mcp-server"
 
 [tools."aqua:github/github-mcp-server"."platforms.linux-x64"]
-checksum = "sha256:201082f569a846eaefd4318f13bccb5d9227c2cec45037d1d292ee83111173c1"
-url = "https://github.com/github/github-mcp-server/releases/download/v1.0.5/github-mcp-server_Linux_x86_64.tar.gz"
-url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/423381432"
+checksum = "sha256:c2629e850a344275cfc5a1590acdfd8c11476a44b688812d460163768e05572d"
+url = "https://github.com/github/github-mcp-server/releases/download/v1.10.1/github-mcp-server_Linux_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/522007554"
 provenance = "github-attestations"
 
 [[tools."aqua:go-delve/delve"]]
@@ -44,10 +44,6 @@ backend = "aqua:go-delve/delve"
 checksum = "sha256:cdd4d6b2a638d8f26468d82a76b766df594641490bea566629305d90fbccc06e"
 url = "https://github.com/go-delve/delve/releases/download/v1.26.3/dlv_1.26.3_linux_amd64.tar.gz"
 url_api = "https://api.github.com/repos/go-delve/delve/releases/assets/406886271"
-
-[[tools."aqua:golang/tools/goimports"]]
-version = "0.49.0"
-backend = "aqua:golang/tools/goimports"
 
 [[tools."aqua:grafana/gcx"]]
 version = "1.1.0"
@@ -99,12 +95,12 @@ url = "https://github.com/ByteNess/aws-vault/releases/download/v7.13.3/aws-vault
 url_api = "https://api.github.com/repos/ByteNess/aws-vault/releases/assets/501551873"
 
 [[tools.awscli]]
-version = "2.34.32"
+version = "2.36.31"
 backend = "aqua:aws/aws-cli"
 
 [tools.awscli."platforms.linux-x64"]
-checksum = "blake3:d37d023dbbc5347d52445c03e70f914d82718a8a9c6406aed43084c32737bcff"
-url = "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.34.32.zip"
+checksum = "blake3:2e9a06f513dabf8b64e46734c0327e4c2c4a4ba8bbc3f770d6fc28cca8d8b069"
+url = "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.36.31.zip"
 
 [[tools.bun]]
 version = "1.3.14"
@@ -126,15 +122,6 @@ url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x6
 checksum = "sha256:56a7d6806cf155536c0178f0ea5fbd098e684fa509ebdb4fc0a7e19fb65382dc"
 url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64-musl-baseline.zip"
 
-[[tools.codex]]
-version = "0.147.0"
-backend = "aqua:openai/codex"
-
-[tools.codex."platforms.linux-x64"]
-checksum = "sha256:bd758d53d56e41dc65e045f4589df79a038ed197a011adcb52a258e6ad64cfda"
-url = "https://github.com/openai/codex/releases/download/rust-v0.147.0/codex-package-x86_64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/openai/codex/releases/assets/504450439"
-
 [[tools.conftest]]
 version = "0.61.0"
 backend = "aqua:open-policy-agent/conftest"
@@ -152,6 +139,15 @@ backend = "aqua:google/go-containerregistry"
 checksum = "sha256:5c16d8ddb971cb1d5e6ed8b1e743da8224414eeba2c2762d8f1a61b2f095699e"
 url = "https://github.com/google/go-containerregistry/releases/download/v0.21.9/go-containerregistry_Linux_x86_64.tar.gz"
 url_api = "https://api.github.com/repos/google/go-containerregistry/releases/assets/503108053"
+
+[[tools.dive]]
+version = "0.13.1"
+backend = "aqua:wagoodman/dive"
+
+[tools.dive."platforms.linux-x64"]
+checksum = "sha256:0970549eb4a306f8825a84145a2534153badb4d7dcf3febd1967c706367c3d0e"
+url = "https://github.com/wagoodman/dive/releases/download/v0.13.1/dive_0.13.1_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/wagoodman/dive/releases/assets/241842462"
 
 [[tools.dyff]]
 version = "1.10.1"
@@ -191,16 +187,6 @@ checksum = "sha256:dc2d864f5f4e4ddfb23ef8e2193626f5f26eee5be1e49ff2a9ba40d429839
 url = "https://github.com/docker/docker-credential-helpers/releases/download/v0.9.3/docker-credential-pass-v0.9.3.linux-amd64"
 url_api = "https://api.github.com/repos/docker/docker-credential-helpers/releases/assets/237482408"
 
-[[tools.glow]]
-version = "3.0.0"
-backend = "aqua:charmbracelet/glow"
-
-[tools.glow."platforms.linux-x64"]
-checksum = "sha256:13e05e4b2acc18d2aee44291aefe6325b077ec321b631a0cfa780e8e3bc33f78"
-url = "https://github.com/charmbracelet/glow/releases/download/v3.0.0/glow_3.0.0_Linux_x86_64.tar.gz"
-url_api = "https://api.github.com/repos/charmbracelet/glow/releases/assets/510466923"
-provenance = "cosign"
-
 [[tools.go]]
 version = "1.26.6"
 backend = "core:go"
@@ -222,7 +208,7 @@ version = "2.24.0"
 backend = "go:github.com/hashicorp/hcl/v2/cmd/hclfmt"
 
 [[tools."go:github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server"]]
-version = "0.5.2"
+version = "1.2.0"
 backend = "go:github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server"
 
 [[tools."go:github.com/josharian/impl"]]
@@ -561,7 +547,7 @@ version = "9.6.0"
 backend = "npm:gitmoji-cli"
 
 [[tools."npm:kubernetes-mcp-server"]]
-version = "0.0.60"
+version = "0.0.66"
 backend = "npm:kubernetes-mcp-server"
 
 [[tools."npm:obsidian-headless"]]
@@ -617,11 +603,11 @@ backend = "pipx:markitdown"
 extras = "all"
 
 [[tools."pipx:mcp-grafana"]]
-version = "0.11.4"
+version = "1.1.0"
 backend = "pipx:mcp-grafana"
 
 [[tools."pipx:mcp-proxy-for-aws"]]
-version = "1.4.0"
+version = "1.6.4"
 backend = "pipx:mcp-proxy-for-aws"
 
 [[tools."pipx:semble"]]
@@ -653,7 +639,7 @@ version = "3.13.14"
 backend = "core:python"
 
 [tools.python."platforms.linux-x64"]
-checksum = "blake3:ec39339d3d419fdec73e2b51ada2b5077b143082a4a22d7b64c0dc1b7f8bc075"
+checksum = "sha256:39e82d05926bdcd206732026bcd878d9f00e288cd227d91c1fabf379b6ea4fa5"
 url = "https://github.com/astral-sh/python-build-standalone/releases/download/20260805/cpython-3.13.14+20260805-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz"
 provenance = "github-attestations"
 
