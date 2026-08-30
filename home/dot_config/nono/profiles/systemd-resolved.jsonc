@@ -1,0 +1,6 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "filesystem": {
+    "unix_socket": ["/run/systemd/resolve/io.systemd.Resolve"]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "filesystem": {
+    "unix_socket": ["$XDG_RUNTIME_DIR/gnupg/S.gpg-agent"]
+  },
+  "command_policies": {
+    "commands": {
+      "gpg": {
+        "executable": "/usr/bin/gpg",
+        "from": {
+          "session": {
+            "sandbox": {
+              "fs_read": [
+                "$HOME/.gnupg",
+                "$TMPDIR" // for git log --show-signature
+              ],
+              "fs_write": ["$HOME/.gnupg"],
+              "environment": {
+                "allow_vars": [
+                  "HOME", // for ~/.gnupg
+                  "DISPLAY" // for pinentry-gtk
+                ]
+              }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [
+                {
+                  // for git commit
+                  "argv": {
+                    "prefix": ["--status-fd=2", "-bsau"]
+                  }
+                },
+                {
+                  // for following commands
+                  //   - git log --show-signature
+                  //   - git verify-commit <commit>
+                  "argv": {
+                    "prefix": [
+                      "--keyid-format=long",
+                      "--status-fd=1",
+                      "--verify"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

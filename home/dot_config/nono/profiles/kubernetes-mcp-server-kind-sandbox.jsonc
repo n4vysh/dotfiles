@@ -1,0 +1,30 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "filesystem": {
+    "read": [
+      "$XDG_DATA_HOME/mise/installs/npm-kubernetes-mcp-server",
+      "$XDG_DATA_HOME/mise/installs/node",
+      "$HOME/.kube/configs/kind-sandbox.yaml"
+    ],
+    "read_file": ["$XDG_CONFIG_HOME/mise/config.toml"],
+    "bypass_protection": [
+      // NOTE: kubeconfig is denied by the default credential protection group
+      "$HOME/.kube/configs/kind-sandbox.yaml"
+    ]
+  },
+  "environment": {
+    "allow_vars": ["PATH", "HOME"],
+    "set_vars": {
+      // ```sh
+      // KUBECONFIG=~/.kube/config \
+      //   kubectl config view \
+      //     --raw \
+      //     --flatten \
+      //     --minify \
+      //     --context=kind-sandbox \
+      //     >|~/.kube/configs/kind-sandbox.yaml
+      // ```
+      "KUBECONFIG": "$HOME/.kube/configs/kind-sandbox.yaml"
+    }
+  }
+}

@@ -167,6 +167,16 @@ checksum = "sha256:17ea6549c7cf0b8be5ec109d04da7fbf1d5de9f7b99d957a6215081933528
 url = "https://github.com/antonmedv/fx/releases/download/39.2.0/fx_linux_amd64"
 url_api = "https://api.github.com/repos/antonmedv/fx/releases/assets/315468989"
 
+[[tools.gh]]
+version = "2.98.0"
+backend = "aqua:cli/cli"
+
+[tools.gh."platforms.linux-x64"]
+checksum = "sha256:3b8ac6b30336802fc1a858d7c084e11cdf24ac1a761ca90b68022d7d729208de"
+url = "https://github.com/cli/cli/releases/download/v2.98.0/gh_2.98.0_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/522857901"
+provenance = "github-attestations"
+
 [[tools."github:YiNNx/cmd-wrapped"]]
 version = "0.4.1"
 backend = "github:YiNNx/cmd-wrapped"
@@ -240,6 +250,15 @@ backend = "aqua:golangci/golangci-lint"
 checksum = "sha256:e55e0eb515936c0fbd178bce504798a9bd2f0b191e5e357768b18fd5415ee541"
 url = "https://github.com/golangci/golangci-lint/releases/download/v2.1.6/golangci-lint-2.1.6-linux-amd64.tar.gz"
 url_api = "https://api.github.com/repos/golangci/golangci-lint/releases/assets/251764987"
+
+[[tools.gopass]]
+version = "1.16.1"
+backend = "aqua:gopasspw/gopass"
+
+[tools.gopass."platforms.linux-x64"]
+checksum = "sha256:be77309ba4491cedfb847155380fc04c3f356231d368721ee3c69b77ab0c0eb7"
+url = "https://github.com/gopasspw/gopass/releases/download/v1.16.1/gopass-1.16.1-linux-amd64.tar.gz"
+url_api = "https://api.github.com/repos/gopasspw/gopass/releases/assets/328236149"
 
 [[tools.gotestsum]]
 version = "1.13.0"
@@ -505,6 +524,17 @@ backend = "core:node"
 [tools.node."platforms.linux-x64"]
 checksum = "sha256:b3c071cdf47aab867c3b2aa287257df12ec5d7c962bf922b32fd33226c4295fd"
 url = "https://nodejs.org/dist/v24.11.0/node-v24.11.0-linux-x64.tar.gz"
+
+[[tools.nono]]
+version = "0.74.0"
+backend = "github:nolabs-ai/nono"
+
+[tools.nono."platforms.linux-x64"]
+checksum = "sha256:b625399efd48490d6367a6159e5241263aa7ac2e464d21a6ec29d9ebfbfdd4b3"
+url = "https://github.com/nolabs-ai/nono/releases/download/v0.74.0/nono-v0.74.0-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/nolabs-ai/nono/releases/assets/520878363"
+provenance = "github-attestations"
+provenance_verified = true
 
 [[tools."npm:@antfu/ni"]]
 version = "28.0.0"

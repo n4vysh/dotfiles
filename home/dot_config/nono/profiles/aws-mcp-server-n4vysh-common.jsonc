@@ -1,0 +1,39 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "filesystem": {
+    "read": [
+      "$XDG_DATA_HOME/mise/installs/pipx-mcp-proxy-for-aws",
+      "$XDG_DATA_HOME/uv/python"
+    ],
+    "read_file": [
+      "/etc/mime.types" // NOTE: fastmcp reads mimetypes
+    ]
+  },
+  "network": {
+    "credentials": ["aws_mcp"],
+    "custom_credentials": {
+      "aws_mcp": {
+        "upstream": "https://aws-mcp.us-east-1.api.aws",
+        "aws_auth": {
+          "profile": "n4vysh-common",
+          "region": "us-east-1",
+          "service": "aws-mcp"
+        }
+      }
+    }
+  },
+  "environment": {
+    "allow_vars": ["PATH"],
+    "deny_vars": [
+      "AWS_ACCESS_KEY_ID",
+      "AWS_SECRET_ACCESS_KEY",
+      "AWS_SESSION_TOKEN",
+      "AWS_PROFILE"
+    ],
+    "set_vars": {
+      "AWS_ACCESS_KEY_ID": "nono-placeholder",
+      "AWS_SECRET_ACCESS_KEY": "nono-placeholder",
+      "AWS_REGION": "ap-northeast-1"
+    }
+  }
+}

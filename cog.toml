@@ -39,6 +39,7 @@ scopes = [
   "mpv",
   "msf4",
   "neovide",
+  "nono",
   "nvim",
   "nwg-look",
   "opencode",

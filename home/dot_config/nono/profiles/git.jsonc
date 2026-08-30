@@ -1,0 +1,6 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "filesystem": {
+    "read_file": ["$XDG_CONFIG_HOME/git/config.local"]
+  }
+}

@@ -44,6 +44,13 @@
       "~/.config/opencode/**": "allow",
       "~/.local/share/rtk/tee/**": "allow"
     },
+    "read": {
+      "~/.aws/credentials": "deny",
+      "~/.aws/sso/cache/*.json": "deny",
+      "~/.kube/config": "deny",
+      "~/.kube/configs/*.yaml": "deny",
+      "~/.config/gcx/config.yaml": "deny"
+    },
     "edit": {
       "~/.config/opencode/**": "deny"
     },
@@ -54,6 +61,14 @@
       "* --version": "allow",
       "ctx7 library *": "allow",
       "ctx7 docs *": "allow",
+      "nono profile list": "allow",
+      "nono profile show *": "allow",
+      "nono profile validate *": "allow",
+      "nono profile groups": "allow",
+      "nono profile groups *": "allow",
+      "nono why *": "allow",
+      "nono audit list *": "allow",
+      "nono audit show *": "allow",
       "man *": "allow",
       "chezmoi managed": "allow",
       "chezmoi status": "allow",
@@ -484,7 +499,14 @@
     "mcp_server_terraform": {
       "enabled": true,
       "type": "local",
-      "command": ["terraform-mcp-server"]
+      "command": [
+        "nono",
+        "run",
+        "--profile",
+        "terraform-mcp-server",
+        "--",
+        "terraform-mcp-server"
+      ]
     },
     // NOTE: github-mcp-server not support Dynamic Client Registration
     //       https://github.com/github/github-mcp-server/issues/1396#issuecomment-3895920244
@@ -497,9 +519,11 @@
       "enabled": true,
       "type": "local",
       "command": [
-        "gopass",
-        "env",
-        "envs/github-mcp-server",
+        "nono",
+        "run",
+        "--profile",
+        "github-mcp-server",
+        "--",
         "github-mcp-server",
         "stdio",
         "--read-only"
@@ -509,68 +533,71 @@
       "enabled": false,
       "type": "local",
       "command": [
+        "nono",
+        "run",
+        "--profile",
+        "aws-mcp-server-n4vysh-stg",
+        "--",
         "mcp-proxy-for-aws",
         "https://aws-mcp.us-east-1.api.aws/mcp",
         "--disable-telemetry"
-      ],
-      "environment": {
-        "AWS_PROFILE": "n4vysh-stg",
-        "AWS_REGION": "ap-northeast-1"
-      }
+      ]
     },
     "mcp_server_aws_n4vysh_prod": {
       "enabled": false,
       "type": "local",
       "command": [
+        "nono",
+        "run",
+        "--profile",
+        "aws-mcp-server-n4vysh-prod",
+        "--",
         "mcp-proxy-for-aws",
         "https://aws-mcp.us-east-1.api.aws/mcp",
         "--disable-telemetry"
-      ],
-      "environment": {
-        "AWS_PROFILE": "n4vysh-prod",
-        "AWS_REGION": "ap-northeast-1"
-      }
+      ]
     },
     "mcp_server_aws_n4vysh_common": {
       "enabled": false,
       "type": "local",
       "command": [
+        "nono",
+        "run",
+        "--profile",
+        "aws-mcp-server-n4vysh-common",
+        "--",
         "mcp-proxy-for-aws",
         "https://aws-mcp.us-east-1.api.aws/mcp",
         "--disable-telemetry"
-      ],
-      "environment": {
-        "AWS_PROFILE": "n4vysh-common",
-        "AWS_REGION": "ap-northeast-1"
-      }
+      ]
     },
     "mcp_server_kubernetes_kind_sandbox": {
       "enabled": false,
       "type": "local",
-      "command": ["kubernetes-mcp-server", "--read-only"],
-      "environment": {
-        "KUBECONFIG": "{env:HOME}/.kube/configs/kind-sandbox.yaml"
-      }
+      "command": [
+        "nono",
+        "run",
+        "--profile",
+        "kubernetes-mcp-server-kind-sandbox",
+        "--",
+        "kubernetes-mcp-server",
+        "--read-only"
+      ]
     },
-    // ```sh
-    // gopass insert envs/mcp-grafana/n4vysh/GRAFANA_SERVICE_ACCOUNT_TOKEN
-    // ```
     "mcp_server_grafana_n4vysh": {
       "enabled": false,
       "type": "local",
       "command": [
-        "gopass",
-        "env",
-        "envs/mcp-grafana/n4vysh",
+        "nono",
+        "run",
+        "--profile",
+        "grafana-mcp-server-n4vysh",
+        "--",
         "mcp-grafana",
         "--disable-write",
         "-t",
         "stdio"
-      ],
-      "environment": {
-        "GRAFANA_ORG_ID": "0",
-        "GRAFANA_URL": "https://n4vysh.grafana.net"
-      }
+      ]
     }
   }
 }

@@ -1,0 +1,10 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "extends": ["nolabs-ai/opencode", "dbus", "systemd-resolved", "git", "gpg"],
+  "groups": {
+    "include": ["mise_manager", "go_runtime", "go_runtime_linux"]
+  },
+  "filesystem": {
+    "allow": ["$WORKDIR"]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "filesystem": {
+    "read": ["$XDG_DATA_HOME/mise/installs/aqua-github-github-mcp-server"],
+    "read_file": ["$XDG_CONFIG_HOME/mise/config.toml"]
+  },
+  "network": {
+    "credentials": ["github"],
+    "custom_credentials": {
+      "github": {
+        "upstream": "https://api.github.com",
+        "credential_key": "cmd://github",
+        "env_var": "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "inject_header": "Authorization",
+        "credential_format": "Bearer {}"
+      }
+    }
+  },
+  "environment": {
+    "allow_vars": ["PATH"]
+  },
+  "credential_capture": {
+    "github": {
+      "command": ["/usr/sbin/mise", "x", "--", "gh", "auth", "token"],
+      "timeout_secs": 5,
+      "cache_ttl_secs": 900
+    }
+  }
+}

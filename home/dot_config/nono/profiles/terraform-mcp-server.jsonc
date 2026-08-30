@@ -1,0 +1,25 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "filesystem": {
+    "read": [
+      "$XDG_DATA_HOME/mise/installs/go-github-com-hashicorp-terraform-mcp-server-cmd-terraform-mcp-server"
+    ]
+  },
+  "network": {
+    "allow_domain": [
+      "registry.terraform.io",
+      // for static read-only guides
+      // https://github.com/hashicorp/web-unified-docs
+      // https://developer.hashicorp.com/terraform/mcp-server/reference#available-resources
+      "raw.githubusercontent.com"
+    ]
+  },
+  "environment": {
+    "allow_vars": [
+      "PATH",
+      "HOME", // NOTE: needed to discover Terraform MCP credentials and config
+      "TFE_*",
+      "TF_MCP_*"
+    ]
+  }
+}

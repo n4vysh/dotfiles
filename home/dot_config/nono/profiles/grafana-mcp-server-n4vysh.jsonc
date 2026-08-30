@@ -1,0 +1,47 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "filesystem": {
+    "read": [
+      "$XDG_DATA_HOME/mise/installs/pipx-mcp-grafana",
+      "$XDG_DATA_HOME/uv/python"
+    ],
+    "read_file": ["$XDG_CONFIG_HOME/mise/config.toml"]
+  },
+  "network": {
+    "credentials": ["grafana"],
+    "custom_credentials": {
+      "grafana": {
+        "upstream": "https://n4vysh.grafana.net",
+        "credential_key": "cmd://grafana",
+        "env_var": "GRAFANA_SERVICE_ACCOUNT_TOKEN",
+        "inject_header": "Authorization",
+        "credential_format": "Bearer {}"
+      }
+    }
+  },
+  "environment": {
+    "allow_vars": ["PATH"],
+    "set_vars": {
+      "GRAFANA_ORG_ID": "0",
+      "GRAFANA_URL": "https://n4vysh.grafana.net"
+    }
+  },
+  "credential_capture": {
+    "grafana": {
+      // ```sh
+      // gopass insert envs/mcp-grafana/n4vysh/GRAFANA_SERVICE_ACCOUNT_TOKEN
+      // ```
+      "command": [
+        "/usr/sbin/mise",
+        "x",
+        "--",
+        "gopass",
+        "show",
+        "-o",
+        "envs/mcp-grafana/n4vysh/GRAFANA_SERVICE_ACCOUNT_TOKEN"
+      ],
+      "timeout_secs": 5,
+      "cache_ttl_secs": 900
+    }
+  }
+}

@@ -9,7 +9,7 @@ lockfile_platforms = ["linux-x64"]
 disable_backends = ["asdf", "ubi"]
 
 [settings.github]
-credential_command = "gh auth token"
+credential_command = "/usr/sbin/gh auth token"
 
 [settings.npm]
 package_manager = "aube"
@@ -70,6 +70,8 @@ enabled = true
 on_change = "none"
 
 [tools]
+gh = "2.98.0"
+gopass = "1.16.1"
 "npm:czg" = "1.13.0"
 worktrunk = "0.23.2"
 "npm:gitmoji-cli" = "9.6.0"
@@ -105,6 +107,12 @@ oxipng = "10.2.0"
 ] }
 
 # AI
+nono = { version = "0.74.0", postinstall = '''
+nono completion zsh >~/.zshrc.d/site-functions/_nono
+nono pull nolabs-ai/opencode
+nono profile schema \
+  --output "$(chezmoi source-path)/dot_config/nono/nono-profile.schema.json"
+''' }
 rtk = "0.43.0"
 herdr = "0.8.0"
 hunk = "0.17.0"
