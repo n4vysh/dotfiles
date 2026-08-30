@@ -60,6 +60,7 @@
       "chezmoi diff": "allow",
       "pacman -Si *": "allow",
       "pacman -Ss *": "allow",
+      "pacman -Qi *": "allow",
       "pacman -Ql *": "allow",
       "pacman -Qo *": "allow",
       "yay -Si *": "allow",
