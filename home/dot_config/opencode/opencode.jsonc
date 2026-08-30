@@ -39,7 +39,7 @@
   },
   "permission": {
     "external_directory": {
-      "~/Workspaces/localhost/tmp/opencode-playground/**": "allow",
+      "~/Workspaces/**": "allow",
       "~/.config/opencode/**": "allow",
       "~/.local/share/rtk/tee/**": "allow"
     },
