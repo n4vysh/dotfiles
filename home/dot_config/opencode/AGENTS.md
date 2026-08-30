@@ -19,7 +19,10 @@
     - Do not use invented terms.
     - Avoid unnatural or uncommon word combinations.
 - Use Hiragana, Kanji, and the Latin alphabet as appropriate.
-    - Use Katakana only for names whose proper noun or product name uses Katakana.
+    - Avoid Katakana.
+        - Use Kanji or Latin alphabet instead of Katakana.
+            - Write `user`, not `ユーザー`.
+        - Use Katakana only for names whose proper noun uses Katakana.
     - Do not use `和製英語`.
 
 ### Japanese Style
