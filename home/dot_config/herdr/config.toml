@@ -14,3 +14,6 @@ split_horizontal = "prefix+ctrl+s"
 
 [ui.sound]
 enabled = false
+
+[ui.toast.clipboard]
+enabled = false
