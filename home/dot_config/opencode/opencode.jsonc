@@ -440,6 +440,7 @@
       // Output measurement
       "jq": "allow",
       "jq *": "allow",
+      "file *": "allow",
       "rtk wc": "allow",
       "rtk wc *": "allow",
       "RTK_DISABLED=1 wc": "allow",
@@ -451,7 +452,11 @@
       "command -v *": "allow",
       "which *": "allow",
       "mise which *": "allow",
-      "mise where *": "allow"
+      "mise where *": "allow",
+      "mise ls *": "allow",
+      "mise current *": "allow",
+      "sha256sum *": "allow",
+      "pgrep *": "allow"
     }
   },
   "lsp": true,
