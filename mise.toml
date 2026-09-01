@@ -22,7 +22,6 @@ mise install \
   shellcheck \
   aqua:anordal/shellharden \
   shfmt \
-  pipx:sqlfluff \
   stylua \
   taplo \
   yamlfmt \
