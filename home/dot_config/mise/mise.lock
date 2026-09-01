@@ -644,6 +644,10 @@ backend = "pipx:mcp-proxy-for-aws"
 version = "0.1.10"
 backend = "pipx:semble"
 
+[[tools."pipx:zensical"]]
+version = "0.0.57"
+backend = "pipx:zensical"
+
 [[tools.pluto]]
 version = "5.24.0"
 backend = "aqua:FairwindsOps/pluto"

@@ -106,6 +106,9 @@ oxipng = "10.2.0"
   "cytoscape@3.34.1",
 ] }
 
+# docs
+"pipx:zensical" = "0.0.57"
+
 # AI
 nono = { version = "0.74.0", postinstall = '''
 nono completion zsh >~/.zshrc.d/site-functions/_nono
