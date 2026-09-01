@@ -226,6 +226,14 @@ and restore settings from following files in [misc/firefox/](misc/firefox/) dire
 [zero-omega-link]: https://github.com/zero-peak/ZeroOmega
 [twp-link]: https://github.com/FilipePS/Traduzir-paginas-web
 
+### Development
+
+Install the required development tools with following commands.
+
+```sh
+mise bootstrap --only task --yes
+```
+
 ### Test
 
 Run `pre-commit run -a` to lint and format the source code with

@@ -23,6 +23,7 @@ export ABBR_LOG_AVAILABLE_ABBREVIATION=1
 export ABBR_LOG_AVAILABLE_ABBREVIATION_AFTER=1
 zle_highlight=('paste:none')
 
+mkdir -p ~/.zshrc.d/site-functions
 fpath=(
 	~/.zshrc.d/functions
 	~/.zshrc.d/site-functions
