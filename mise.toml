@@ -1,0 +1,31 @@
+[tasks.bootstrap]
+run = '''
+# NOTE: install required tools only for dotfiles repository
+#       version pinning with global config
+#          home/dot_config/mise/config.toml
+export MISE_CONFIG_FILE=home/dot_config/mise/config.toml
+mise bootstrap repos apply --yes
+mise install \
+  node \
+  python \
+  uv \
+  cocogitto \
+  bats \
+  pre-commit \
+  editorconfig-checker \
+  typos \
+  actionlint \
+  lychee \
+  prettier \
+  rumdl \
+  aqua:Kampfkarren/selene \
+  shellcheck \
+  aqua:anordal/shellharden \
+  shfmt \
+  pipx:sqlfluff \
+  stylua \
+  taplo \
+  yamlfmt \
+  yamllint \
+  zizmor
+'''

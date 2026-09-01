@@ -3,21 +3,29 @@ name: main
 jobs:
   cocogitto:
     runs-on: ubuntu-26.04
-    container:
-      image: archlinux:base-20260802.0.566770
     permissions:
       contents: read
     steps:
-      - name: Generate keyring and download database file
-        run: pacman-key --init && pacman -Sy
-      - name: Install cocogitto command
-        run: pacman -S --noconfirm git cocogitto
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Set safe directory
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - name: Define XDG_DATA_HOME for mise env
+        run: echo "XDG_DATA_HOME=$HOME/.local/share" >>"$GITHUB_ENV"
+      - name: Create zsh completion directory for mise postinstall
+        run: mkdir -p "$HOME/.zshrc.d/site-functions"
+      - name: Make source mise plugin discoverable
+        run: |
+          mkdir -p "$HOME/.config/mise/plugins"
+          ln -s \
+            "$GITHUB_WORKSPACE/home/dot_config/mise/plugins/vfox-http-deb" \
+            "$HOME/.config/mise/plugins/vfox-http-deb"
+      - uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c # v4.3.0
+        env:
+          MISE_CONFIG_FILE: home/dot_config/mise/config.toml
+        with:
+          bootstrap: true
+          bootstrap_args: --only task --yes
       - name: Validate PR commits
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}

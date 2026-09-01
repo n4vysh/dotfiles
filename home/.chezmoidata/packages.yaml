@@ -249,9 +249,8 @@ packages:
       - extra/7zip # for yazi archive extraction and preview
       - extra/atool
       - extra/atuin
-      - extra/cocogitto
+      - extra/bat
       - extra/cosign # for mise verification
-      - extra/editorconfig-checker
       - extra/expect # for unbuffer
       - extra/eza
       - extra/fd
@@ -272,7 +271,6 @@ packages:
       - extra/opencode
       - extra/parallel
       - extra/postgresql
-      - extra/pre-commit
       - extra/qemu-user-static
       - extra/qemu-user-static-binfmt
       - extra/ripgrep
@@ -281,7 +279,6 @@ packages:
       - extra/tmuxp
       - extra/tree
       - extra/tree-sitter-cli # for nvim-treesitter
-      - extra/typos
       - extra/unison
       - extra/usage
       - extra/vhs
@@ -289,28 +286,6 @@ packages:
       - extra/xh
       - extra/yazi
       - extra/zoxide
-      ## Test
-      - extra/bat
-      - extra/bats
-      - extra/bats-assert
-      - extra/bats-file
-      - extra/bats-support
-      ## Formatter & Linter
-      - extra/actionlint
-      - extra/eslint
-      - extra/lychee
-      - extra/prettier
-      - extra/rumdl
-      - extra/selene
-      - extra/shellcheck
-      - extra/shellharden
-      - extra/shfmt
-      - extra/sqlfluff
-      - extra/stylua
-      - extra/taplo-cli
-      - extra/yamlfmt
-      - extra/yamllint
-      - extra/zizmor
       ## VCS
       - chaotic-aur/git-extras
       - extra/diffnav
