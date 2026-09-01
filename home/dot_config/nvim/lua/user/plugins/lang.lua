@@ -595,7 +595,9 @@ return {
 					null_ls.builtins.formatting.terragrunt_fmt,
 					-- linter
 					null_ls.builtins.diagnostics.actionlint,
-					null_ls.builtins.diagnostics.editorconfig_checker,
+					null_ls.builtins.diagnostics.editorconfig_checker.with({
+						command = "ec",
+					}),
 					null_ls.builtins.diagnostics.sqlfluff.with({
 						extra_args = { "--dialect", "postgres" },
 					}),
