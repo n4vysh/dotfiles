@@ -18,5 +18,5 @@ if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
 		cd "$dir" || return
 	fi
 
-	rm -f $LAZYGIT_NEW_DIR_FILE >/dev/null
+	rm -f -- "$LAZYGIT_NEW_DIR_FILE" >/dev/null
 fi
