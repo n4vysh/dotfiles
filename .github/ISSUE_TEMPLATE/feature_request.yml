@@ -1,0 +1,25 @@
+name: Feature request
+description: Suggest an improvement
+type: Feature
+body:
+  - type: markdown
+    attributes:
+      value: "Before requesting: search existing feature requests."
+  - type: textarea
+    attributes:
+      label: Problem
+      description: Describe the problem to be solved.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: Describe what you would like to change or add.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Motivation
+      description: Explain why this improvement is needed.
+    validations:
+      required: true

@@ -1,0 +1,48 @@
+name: Bug report
+description: Report a reproducible problem
+type: Bug
+body:
+  - type: textarea
+    attributes:
+      label: Problem
+      description: Describe the problem you encountered.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Current behavior
+      description: Describe what currently happens.
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: Describe what you expected to happen.
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Screenshots / recordings
+      description: |
+        Attach screenshots or recordings when they help explain the problem.
+      placeholder: Paste link or drag and drop screenshot here
+    validations:
+      required: false
