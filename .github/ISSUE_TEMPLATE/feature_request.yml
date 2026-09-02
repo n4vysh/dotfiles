@@ -4,7 +4,9 @@ type: Feature
 body:
   - type: markdown
     attributes:
-      value: "Before requesting: search existing feature requests."
+      value: |
+        > [!NOTE]
+        > Before requesting: search existing feature requests.
   - type: textarea
     attributes:
       label: Problem
