@@ -1,0 +1,30 @@
+name: review
+"on":
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+permissions: {}
+jobs:
+  pr-agent:
+    # yamllint disable-line rule:line-length
+    if: github.event.sender.type != 'Bot' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-26.04
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+    steps:
+      # yamllint disable-line rule:line-length
+      - uses: docker://pragent/pr-agent@sha256:b70f4a41621a838cb0dfbc199f86f595ab9cfe698ac4b19ec2b5562b05d49858 # 0.44.0-github_action
+        env:
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          config.restricted_mode: "true"
+          github_action_config.auto_review: "true"
+          github_action_config.auto_describe: "false"
+          github_action_config.auto_improve: "false"
+          github_action_config.pr_actions: >-
+            ["opened", "reopened", "ready_for_review", "synchronize"]
+          pr_reviewer.final_update_message: "false"
