@@ -1,7 +1,7 @@
 # NOTE: temporarily change options until loading p10k
 'builtin' 'local' '-a' 'p10k_config_opts'
-[[ ! -o 'aliases'         ]] || p10k_config_opts+=('aliases')
-[[ ! -o 'sh_glob'         ]] || p10k_config_opts+=('sh_glob')
+[[ ! -o 'aliases' ]] || p10k_config_opts+=('aliases')
+[[ ! -o 'sh_glob' ]] || p10k_config_opts+=('sh_glob')
 [[ ! -o 'no_brace_expand' ]] || p10k_config_opts+=('no_brace_expand')
 'builtin' 'setopt' 'no_aliases' 'no_sh_glob' 'brace_expand'
 
@@ -146,19 +146,19 @@
 			return
 		fi
 
-		if (( $1 )); then
+		if (($1)); then
 			# up-to-date Git status
-			local       meta='%f'          # default foreground
-			local      clean='%F{#00afff}' # blue foreground
-			local   modified='%F{#ff9e64}' # orange foreground
-			local  untracked='%F{#7dcfff}' # cyan foreground
+			local meta='%f'                # default foreground
+			local clean='%F{#00afff}'      # blue foreground
+			local modified='%F{#ff9e64}'   # orange foreground
+			local untracked='%F{#7dcfff}'  # cyan foreground
 			local conflicted='%F{#f7768e}' # red foreground
 		else
 			# incomplete and stale Git status
-			local       meta='%F{#767676}' # grey foreground
-			local      clean='%F{#767676}' # grey foreground
-			local   modified='%F{#767676}' # grey foreground
-			local  untracked='%F{#767676}' # grey foreground
+			local meta='%F{#767676}'       # grey foreground
+			local clean='%F{#767676}'      # grey foreground
+			local modified='%F{#767676}'   # grey foreground
+			local untracked='%F{#767676}'  # grey foreground
 			local conflicted='%F{#767676}' # grey foreground
 		fi
 
@@ -167,17 +167,17 @@
 		if [[ -n $VCS_STATUS_LOCAL_BRANCH ]]; then
 			local branch=${(V)VCS_STATUS_LOCAL_BRANCH}
 			# shorten branch name
-			(( $#branch > 32 )) && branch[13,-13]="…"
+			(($#branch > 32)) && branch[13,-13]="…"
 			res+="${clean}${(g::)POWERLEVEL9K_VCS_BRANCH_ICON}${branch//\%/%%}"
 		fi
 
-		if [[ -n $VCS_STATUS_TAG
-					# NOTE: show tag only if not on a branch
-					&& -z $VCS_STATUS_LOCAL_BRANCH
-				]]; then
+		if [[ -n $VCS_STATUS_TAG &&
+
+			-z $VCS_STATUS_LOCAL_BRANCH ]] \
+			; then # NOTE: show tag only if not on a branch
 			local tag=${(V)VCS_STATUS_TAG}
 			# shorten tag name
-			(( $#tag > 32 )) && tag[13,-13]="…"
+			(($#tag > 32)) && tag[13,-13]="…"
 			res+="${meta}#${clean}${tag//\%/%%}"
 		fi
 
@@ -195,33 +195,33 @@
 			res+=" ${modified}wip"
 		fi
 
-		if (( VCS_STATUS_COMMITS_AHEAD || VCS_STATUS_COMMITS_BEHIND )); then
+		if ((VCS_STATUS_COMMITS_AHEAD || VCS_STATUS_COMMITS_BEHIND)); then
 			# behind the remote
-			(( VCS_STATUS_COMMITS_BEHIND )) && res+=" ${clean}⇣${VCS_STATUS_COMMITS_BEHIND}"
+			((VCS_STATUS_COMMITS_BEHIND)) && res+=" ${clean}⇣${VCS_STATUS_COMMITS_BEHIND}"
 			# ahead of the remote
-			(( VCS_STATUS_COMMITS_AHEAD && !VCS_STATUS_COMMITS_BEHIND )) && res+=" "
-			(( VCS_STATUS_COMMITS_AHEAD  )) && res+="${clean}⇡${VCS_STATUS_COMMITS_AHEAD}"
+			((VCS_STATUS_COMMITS_AHEAD && !VCS_STATUS_COMMITS_BEHIND)) && res+=" "
+			((VCS_STATUS_COMMITS_AHEAD)) && res+="${clean}⇡${VCS_STATUS_COMMITS_AHEAD}"
 		fi
 
 		# behind the push remote
-		(( VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" ${clean}⇠${VCS_STATUS_PUSH_COMMITS_BEHIND}"
-		(( VCS_STATUS_PUSH_COMMITS_AHEAD && !VCS_STATUS_PUSH_COMMITS_BEHIND )) && res+=" "
+		((VCS_STATUS_PUSH_COMMITS_BEHIND)) && res+=" ${clean}⇠${VCS_STATUS_PUSH_COMMITS_BEHIND}"
+		((VCS_STATUS_PUSH_COMMITS_AHEAD && !VCS_STATUS_PUSH_COMMITS_BEHIND)) && res+=" "
 		# ahead of the push remote
-		(( VCS_STATUS_PUSH_COMMITS_AHEAD  )) && res+="${clean}⇢${VCS_STATUS_PUSH_COMMITS_AHEAD}"
+		((VCS_STATUS_PUSH_COMMITS_AHEAD)) && res+="${clean}⇢${VCS_STATUS_PUSH_COMMITS_AHEAD}"
 		# stashes
-		(( VCS_STATUS_STASHES        )) && res+=" ${clean}⚑"
+		((VCS_STATUS_STASHES)) && res+=" ${clean}⚑"
 		# an unusual state
-		[[ -n $VCS_STATUS_ACTION     ]] && res+=" ${conflicted}${VCS_STATUS_ACTION}"
+		[[ -n $VCS_STATUS_ACTION ]] && res+=" ${conflicted}${VCS_STATUS_ACTION}"
 		# merge conflicts
-		(( VCS_STATUS_NUM_CONFLICTED )) && res+=" ${conflicted}~"
+		((VCS_STATUS_NUM_CONFLICTED)) && res+=" ${conflicted}~"
 		# staged changes
-		(( VCS_STATUS_NUM_STAGED     )) && res+=" ${modified}+"
+		((VCS_STATUS_NUM_STAGED)) && res+=" ${modified}+"
 		# unstaged changes
-		(( VCS_STATUS_NUM_UNSTAGED   )) && res+=" ${modified}!"
+		((VCS_STATUS_NUM_UNSTAGED)) && res+=" ${modified}!"
 		# untracked files
-		(( VCS_STATUS_NUM_UNTRACKED  )) && res+=" ${untracked}${(g::)POWERLEVEL9K_VCS_UNTRACKED_ICON}"
+		((VCS_STATUS_NUM_UNTRACKED)) && res+=" ${untracked}${(g::)POWERLEVEL9K_VCS_UNTRACKED_ICON}"
 		# the number of unstaged files is unknown
-		(( VCS_STATUS_HAS_UNSTAGED == -1 )) && res+=" ${modified}─"
+		((VCS_STATUS_HAS_UNSTAGED == -1)) && res+=" ${modified}─"
 
 		typeset -g my_git_format=$res
 	}
@@ -272,10 +272,10 @@
 
 	# kubecontext: current kubernetes context
 	typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
-			'*prod*'  PROD
-			'*prd*'   PROD
-			'*stg*'   STG
-			'*'       DEFAULT)
+		'*prod*' PROD
+		'*prd*' PROD
+		'*stg*' STG
+		'*' DEFAULT)
 	typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_FOREGROUND='#f7768e'
 	typeset -g POWERLEVEL9K_KUBECONTEXT_STG_FOREGROUND='#ff9e64'
 	typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND='#00afff'
@@ -287,10 +287,10 @@
 
 	# aws: aws profile
 	typeset -g POWERLEVEL9K_AWS_CLASSES=(
-			'*prod*'  PROD
-			'*prd*'   PROD
-			'*stg*'   STG
-			'*'       DEFAULT)
+		'*prod*' PROD
+		'*prd*' PROD
+		'*stg*' STG
+		'*' DEFAULT)
 	typeset -g POWERLEVEL9K_AWS_PROD_FOREGROUND='#f7768e'
 	typeset -g POWERLEVEL9K_AWS_STG_FOREGROUND='#ff9e64'
 	typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND='#00afff'
@@ -304,11 +304,11 @@
 	typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
 
 	# NOTE: if p10k is already loaded, reload configuration
-	(( ! $+functions[p10k] )) || p10k reload
+	((!$+functions[p10k])) || p10k reload
 }
 
 # NOTE: tell `p10k configure` which file it should overwrite
 typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
-(( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
+((${#p10k_config_opts})) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'

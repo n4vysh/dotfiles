@@ -23,7 +23,7 @@ jobs:
         run: |
           chezmoi init --branch "$branch" n4vysh && chezmoi apply
           ls -l ~/.*
-  pre-commit:
+  lefthook:
     runs-on: ubuntu-26.04
     permissions:
       contents: read
@@ -49,10 +49,8 @@ jobs:
         with:
           bootstrap: true
           bootstrap_args: --only task --yes
-      - name: Run pre-commit
-        env:
-          SKIP: hyprland,bats
-        run: pre-commit run -a
+      - name: Run lefthook
+        run: lefthook run pre-commit --all-files
   cocogitto:
     runs-on: ubuntu-26.04
     permissions:

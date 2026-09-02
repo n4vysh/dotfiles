@@ -8,7 +8,7 @@ Chezmoi-managed dotfiles for Arch Linux.
 - `chezmoi re-add <path>`: Update a managed source file from deployment.
 - `chezmoi diff`: Show pending deployment changes.
 - `chezmoi apply`: Deploy managed files and run chezmoi scripts.
-- `pre-commit run -a`: Format and validate all files.
+- `lefthook run pre-commit --all-files`: Validate all files.
 
 ## Project Structure
 

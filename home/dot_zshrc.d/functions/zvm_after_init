@@ -35,12 +35,18 @@ if [[ -n WAYLAND_DISPLAY ]]; then
 		zvm_vi_delete \
 		zvm_vi_change \
 		zvm_vi_change_eol; do
-		eval "$(echo "_$f() {"; declare -f $f | tail -n +2)"
+		eval "$(
+			echo "_$f() {"
+			declare -f $f | tail -n +2
+		)"
 		eval "$f() { _$f; echo -en \$CUTBUFFER | wl-copy -n }"
 	done
 
 	for f in zvm_vi_put_after zvm_vi_put_before; do
-		eval "$(echo "_$f() {"; declare -f $f | tail -n +2)"
+		eval "$(
+			echo "_$f() {"
+			declare -f $f | tail -n +2
+		)"
 		eval "$f() { CUTBUFFER=\$(wl-paste); _$f; zvm_highlight clear }"
 	done
 fi

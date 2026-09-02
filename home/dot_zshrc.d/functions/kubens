@@ -22,7 +22,7 @@ if [ $# = 0 ]; then
 
 	choice="$(
 		echo "$list_namespaces" |
-		fzf --ansi --no-preview || true
+			fzf --ansi --no-preview || true
 	)"
 
 	if [[ -z "${choice}" ]]; then

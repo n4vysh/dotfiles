@@ -1,0 +1,191 @@
+min_version: 2.1.12
+glob_matcher: doublestar
+pre-commit:
+  parallel: true
+  jobs:
+    - name: all
+      group:
+        parallel: true
+        jobs:
+          - name: pre-commit-hooks
+            group:
+              parallel: true
+              jobs:
+                - name: check-merge-conflict
+                  run: check-merge-conflict {staged_files}
+                - name: check-case-conflict
+                  run: check-case-conflict {staged_files}
+                - name: check-added-large-files
+                  run: check-added-large-files {staged_files}
+                - name: check-executables-have-shebangs
+                  file_types:
+                    - text
+                    - executable
+                  run: check-executables-have-shebangs {staged_files}
+                - name: check-shebang-scripts-are-executable
+                  exclude:
+                    - "home/**/executable_*"
+                    - "home/.chezmoiscripts/**/*"
+                    - "home/dot_config/nvim/skel/*"
+                    - "home/dot_config/tmux-powerline/config.sh"
+                  file_types: text
+                  run: check-shebang-scripts-are-executable {staged_files}
+          - name: editorconfig-checker
+            run: ec {staged_files}
+          - name: typos
+            exclude:
+              - "**/*.png"
+              - "**/*.mozlz4"
+            run: typos {staged_files}
+    - name: git
+      group:
+        jobs:
+          - name: lefthook
+            glob: "lefthook.yml"
+            run: lefthook validate
+    - name: json
+      glob: "**/*.json"
+      group:
+        jobs:
+          - name: prettier
+            run: prettier --check {staged_files}
+    - name: yaml
+      glob:
+        - "**/*.yaml"
+        - "**/*.yml"
+      group:
+        parallel: true
+        jobs:
+          - name: yamlfmt
+            run: yamlfmt -lint {staged_files}
+          - name: yamllint
+            run: yamllint {staged_files}
+    - name: toml
+      glob: "**/*.toml"
+      group:
+        jobs:
+          - name: taplo
+            group:
+              parallel: true
+              jobs:
+                - name: format
+                  exclude:
+                    - home/dot_config/pet/config.toml
+                    - home/dot_config/pet/snippet.toml
+                  run: taplo format --check {staged_files}
+                - name: lint
+                  run: taplo lint {staged_files}
+    - name: markdown
+      glob: "**/*.md"
+      group:
+        parallel: true
+        jobs:
+          - name: rumdl
+            group:
+              parallel: true
+              jobs:
+                - name: format
+                  run: rumdl fmt --check {staged_files}
+                - name: check
+                  run: rumdl check {staged_files}
+          - name: lychee
+            run: lychee -n {staged_files}
+    - name: shell
+      group:
+        parallel: true
+        jobs:
+          - name: shfmt
+            glob:
+              - "**/*.sh"
+              - "**/*.bash"
+              - "**/*.zsh"
+              - "**/dot_zshenv"
+              - "**/dot_zshrc"
+              - "**/dot_zshrc.d/functions/**"
+            exclude: "**/*.tmpl"
+            run: shfmt -d {staged_files}
+          - name: shellharden
+            glob:
+              - "**/*.sh"
+              - "**/*.bash"
+            exclude: "**/*.tmpl"
+            run: shellharden --check {staged_files}
+          - name: shellcheck
+            exclude:
+              - "**/*.tmpl"
+              - "**/*.zsh"
+              - "**/dot_zshenv"
+              - "**/dot_zshrc"
+            file_types: text/x-shellscript
+            run: shellcheck -x {staged_files}
+    - name: lua
+      glob: "**/*.lua"
+      group:
+        parallel: true
+        jobs:
+          - name: stylua
+            run: stylua --check {staged_files}
+          - name: selene
+            run: selene {staged_files}
+    - name: cicd
+      glob: ".github/workflows/**/*.{yml,yaml}"
+      group:
+        parallel: true
+        jobs:
+          - name: actionlint
+            run: actionlint {staged_files}
+          - name: zizmor
+            run: zizmor {staged_files}
+    - name: etc
+      group:
+        jobs:
+          - name: bats
+            skip:
+              - run: test -n "$CI"
+            run: bats test
+fmt:
+  parallel: true
+  jobs:
+    - name: prettier
+      glob: "**/*.json"
+      run: prettier --write {all_files}
+    - name: yamlfmt
+      glob:
+        - "**/*.yaml"
+        - "**/*.yml"
+      run: yamlfmt {all_files}
+    - name: taplo
+      glob: "**/*.toml"
+      exclude:
+        - home/dot_config/pet/config.toml
+        - home/dot_config/pet/snippet.toml
+      run: taplo format {all_files}
+    - name: rumdl
+      glob: "**/*.md"
+      run: rumdl fmt {all_files}
+    - name: shell
+      group:
+        jobs:
+          - name: shellharden
+            glob:
+              - "**/*.sh"
+              - "**/*.bash"
+            exclude: "**/*.tmpl"
+            run: shellharden --replace {all_files}
+          - name: shfmt
+            glob:
+              - "**/*.sh"
+              - "**/*.bash"
+              - "**/*.zsh"
+              - "**/dot_zshenv"
+              - "**/dot_zshrc"
+              - "**/dot_zshrc.d/functions/**"
+            exclude: "**/*.tmpl"
+            run: shfmt -w {all_files}
+    - name: stylua
+      glob: "**/*.lua"
+      run: stylua {all_files}
+commit-msg:
+  commands:
+    cocogitto:
+      run: cog verify --file {1}

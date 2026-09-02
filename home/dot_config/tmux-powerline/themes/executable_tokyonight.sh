@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+# NOTE: bash arrays are required in tmux-powerline
 
 TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
 TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
@@ -11,7 +12,7 @@ TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPA
 TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR:-$TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}
 
 # shellcheck disable=SC2128
-if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_CURRENT" ]; then
+if [ "$TMUX_POWERLINE_WINDOW_STATUS_CURRENT" = "" ]; then
 	# shellcheck disable=SC3030
 	TMUX_POWERLINE_WINDOW_STATUS_CURRENT=(
 		"#[$(format inverse)]"
@@ -25,7 +26,7 @@ if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_CURRENT" ]; then
 fi
 
 # shellcheck disable=SC2128
-if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_STYLE" ]; then
+if [ "$TMUX_POWERLINE_WINDOW_STATUS_STYLE" = "" ]; then
 	# shellcheck disable=SC3030
 	TMUX_POWERLINE_WINDOW_STATUS_STYLE=(
 		"$(format regular)"
@@ -33,7 +34,7 @@ if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_STYLE" ]; then
 fi
 
 # shellcheck disable=SC2128
-if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_FORMAT" ]; then
+if [ "$TMUX_POWERLINE_WINDOW_STATUS_FORMAT" = "" ]; then
 	# shellcheck disable=SC3030
 	TMUX_POWERLINE_WINDOW_STATUS_FORMAT=(
 		"#[$(format regular)]"
@@ -44,7 +45,7 @@ if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_FORMAT" ]; then
 fi
 
 # shellcheck disable=SC1143,SC2128
-if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
+if [ "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" = "" ]; then
 	# shellcheck disable=SC3030
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
 		"tmux_session_info #{?client_prefix,#7dcfff,#7aa2f7} #15161e"
@@ -53,7 +54,7 @@ if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
 fi
 
 # shellcheck disable=SC1143,SC2128
-if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
+if [ "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" = "" ]; then
 	# shellcheck disable=SC3030
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
 		"hostname #7aa2f7 #15161E"

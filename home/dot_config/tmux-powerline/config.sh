@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # General
 export TMUX_POWERLINE_PATCHED_FONT_IN_USE="true"
 export TMUX_POWERLINE_THEME="tokyonight"

@@ -1,4 +1,4 @@
-search_shortcut: off
+search_shortcut: "off"
 # HACK: Disable notification when startup
 # https://github.com/espanso/espanso/issues/1002
 # https://github.com/espanso/espanso/issues/1116

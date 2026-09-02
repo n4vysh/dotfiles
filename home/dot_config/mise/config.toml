@@ -83,7 +83,7 @@ cocogitto = { version = "7.0.0", postinstall = '''
 cog generate-completions zsh >~/.zshrc.d/site-functions/_cog
 ''' }
 bats = "1.14.0"
-pre-commit = "4.6.2"
+"pipx:pre-commit-hooks" = "6.0.0"
 editorconfig-checker = "3.11.1"
 typos = "1.49.0"
 actionlint = "1.7.12"
@@ -111,7 +111,7 @@ worktrunk = "0.23.2"
 "github:YiNNx/cmd-wrapped" = { version = "0.4.1", bin = "cmd-wrapped" }
 dyff = "1.10.1"
 jqp = "0.7.0"
-lefthook = "1.11.13"
+lefthook = "2.1.12"
 "npm:@redocly/cli" = "1.34.3"
 "npm:git-open" = "3.1.0"
 "aqua:knqyf263/pet" = "1.0.1"

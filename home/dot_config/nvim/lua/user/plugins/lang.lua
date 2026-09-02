@@ -569,7 +569,9 @@ return {
 						check_exit_code = check_formatter_exit_code,
 					}),
 					null_ls.builtins.formatting.shellharden,
-					null_ls.builtins.formatting.shfmt,
+					null_ls.builtins.formatting.shfmt.with({
+						filetypes = { "sh", "zsh" },
+					}),
 					null_ls.builtins.formatting.prettier.with({
 						disabled_filetypes = {
 							"markdown", -- use rumdl
