@@ -12,13 +12,9 @@ gum log --level info 'Install agent skills with apm command'
 apm install -g
 
 gum log --level info 'Install git hooks'
-if ! [ -f ~/.local/share/chezmoi/.git/hooks/pre-commit ]; then
-	cd ~/.local/share/chezmoi/ || exit
-	pre-commit install --install-hooks
-	cd - || exit
-else
-	gum log --level warn 'git hooks already exists -- skipping'
-fi
+cd ~/.local/share/chezmoi/ || exit
+lefthook install -f
+cd - || exit
 
 gum log --level info 'Download wpscan database'
 if ! [ -d .wpscan ]; then

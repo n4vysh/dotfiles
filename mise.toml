@@ -11,7 +11,8 @@ mise install \
   uv \
   cocogitto \
   bats \
-  pre-commit \
+  lefthook \
+  pipx:pre-commit-hooks \
   editorconfig-checker \
   typos \
   actionlint \

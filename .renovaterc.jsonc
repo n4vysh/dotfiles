@@ -4,7 +4,6 @@
     "config:best-practices",
     "security:minimumReleaseAgePypi",
     "security:openssf-scorecard",
-    ":enablePreCommit",
     "schedule:monthly",
     ":maintainLockFilesMonthly"
   ],
@@ -16,11 +15,10 @@
   // - mise (+ mise.lock maintenance)
   // - sheldon
   // - chezmoi-externals
-  // - pre-commit
-  // Maximum PRs: 5 x 2 (major/non-major) + 1 lock file maintenance = 14
-  "prConcurrentLimit": 14,
-  "prHourlyLimit": 14,
-  "commitHourlyLimit": 14,
+  // Maximum PRs: 4 x 2 (major/non-major) + 1 lock file maintenance = 9
+  "prConcurrentLimit": 9,
+  "prHourlyLimit": 9,
+  "commitHourlyLimit": 9,
   "separateMajorMinor": true,
   "customManagers": [
     {
@@ -101,13 +99,6 @@
       "commitMessageAction": ":package: bump",
       "groupName": "chezmoi-external",
       "groupSlug": "chezmoi-external"
-    },
-    {
-      "description": "Group pre-commit updates",
-      "matchManagers": ["pre-commit"],
-      "commitMessageAction": ":package: bump",
-      "groupName": "pre-commit",
-      "groupSlug": "pre-commit"
     },
     {
       "description": "Group mise.lock maintenance",

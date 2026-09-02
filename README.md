@@ -236,25 +236,24 @@ mise bootstrap --only task --yes
 
 ### Test
 
-Run `pre-commit run -a` to lint and format the source code with
-[pre-commit][pre-commit-link]. pre-commit run following tools.
+Run `lefthook run pre-commit --all-files` to lint the source code with
+[lefthook][lefthook-link]. lefthook runs following tools.
+Run `lefthook run fmt` to format all supported files.
 
-| Target type          | Formatter / Linter / Testing framework                                                |
-| :------------------- | :------------------------------------------------------------------------------------ |
-| all files            | [editorconfig-checker][ec-link] / [typos][typos-link]                                 |
-| JSON files           | [prettier][prettier-link]                                                             |
-| YAML files           | [yamlfmt][yamlfmt-link] / [yamllint][yamllint-link]                                   |
-| TOML files           | [taplo][taplo-link]                                                                   |
-| Markdown files       | [rumdl][rumdl-link] / [lychee][lychee-link]                                           |
-| shell scripts        | [shfmt][shfmt-link] / [shellharden][shellharden-link] / [shellcheck][shellcheck-link] |
-| zsh files            | `zsh --no-exec`                                                                       |
-| hyprland config file | `hyprctl configerrors`                                                                |
-| lua files            | [selene][selene-link] / [stylua][stylua-link]                                         |
-| etc files            | [bats][bats-link] / `visudo -c`                                                       |
-| CI/CD                | [actionlint][actionlint-link] / [zizmor][zizmor-link]                                 |
-| commit messages      | [Cocogitto][cocogitto-link]                                                           |
+| Target type     | Formatter / Linter / Testing framework                                                |
+| :-------------- | :------------------------------------------------------------------------------------ |
+| all files       | [editorconfig-checker][ec-link] / [typos][typos-link]                                 |
+| JSON files      | [prettier][prettier-link]                                                             |
+| YAML files      | [yamlfmt][yamlfmt-link] / [yamllint][yamllint-link]                                   |
+| TOML files      | [taplo][taplo-link]                                                                   |
+| Markdown files  | [rumdl][rumdl-link] / [lychee][lychee-link]                                           |
+| shell scripts   | [shfmt][shfmt-link] / [shellharden][shellharden-link] / [shellcheck][shellcheck-link] |
+| lua files       | [selene][selene-link] / [stylua][stylua-link]                                         |
+| etc files       | [bats][bats-link]                                                                     |
+| CI/CD           | [actionlint][actionlint-link] / [zizmor][zizmor-link]                                 |
+| commit messages | [cocogitto][cocogitto-link]                                                           |
 
-[pre-commit-link]: https://github.com/pre-commit/pre-commit
+[lefthook-link]: https://github.com/evilmartians/lefthook
 [ec-link]: https://github.com/editorconfig-checker/editorconfig-checker
 [typos-link]: https://github.com/crate-ci/typos
 [prettier-link]: https://github.com/prettier/prettier

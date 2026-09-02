@@ -35,6 +35,8 @@ indent_style = tab
 
 [**/{dot_zshenv,dot_zshrc,*.zsh,dot_zshrc.d/functions/**}]
 indent_style = tab
+# for shfmt
+shell_variant = zsh
 
 [**/*.tmux]
 indent_style = tab
