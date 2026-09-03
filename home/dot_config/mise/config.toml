@@ -152,7 +152,7 @@ nono profile schema \
   --output "$(chezmoi source-path)/dot_config/nono/nono-profile.schema.json"
 ''' }
 rtk = "0.43.0"
-herdr = "0.8.0"
+herdr = "0.8.2"
 hunk = "0.17.0"
 apm = "0.26.0"
 "npm:ctx7" = "0.5.5"
