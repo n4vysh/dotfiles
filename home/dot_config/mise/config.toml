@@ -124,10 +124,9 @@ stylua = "2.5.2"
 # Git
 lefthook = "2.1.12"
 gh = "2.98.0"
-cocogitto = { version = "7.0.0", postinstall = '''
-cog generate-completions zsh >~/.zshrc.d/site-functions/_cog
-''' }
 worktrunk = "0.23.2"
+"npm:@commitlint/cli" = "21.2.2"
+"npm:@commitlint/config-conventional" = "21.2.2"
 "npm:czg" = "1.13.0"
 "npm:gitmoji-cli" = "9.6.0"
 "npm:git-open" = "3.1.0"

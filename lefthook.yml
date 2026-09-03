@@ -187,5 +187,5 @@ fmt:
       run: stylua {all_files}
 commit-msg:
   commands:
-    cocogitto:
-      run: cog verify --file {1}
+    commitlint:
+      run: commitlint --edit {1}

@@ -1,7 +1,7 @@
 name: main
-"on": pull_request
+"on": [push, pull_request]
 jobs:
-  cocogitto:
+  commitlint:
     runs-on: ubuntu-26.04
     permissions:
       contents: read
@@ -26,8 +26,12 @@ jobs:
         with:
           bootstrap: true
           bootstrap_args: --only task --yes
+      - name: Validate current commit (last commit)
+        if: github.event_name == 'push'
+        run: commitlint -V --last
       - name: Validate PR commits
+        if: github.event_name == 'pull_request'
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: cog check "$BASE_SHA..$HEAD_SHA"
+        run: commitlint -V --from "$BASE_SHA" --to "$HEAD_SHA"
