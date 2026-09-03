@@ -613,6 +613,10 @@ backend = "npm:@mermaid-js/mermaid-cli"
 allow_builds = '["puppeteer"]'
 trust_policy_excludes = '["cytoscape@3.34.1"]'
 
+[[tools."npm:@owloops/claude-powerline"]]
+version = "1.30.1"
+backend = "npm:@owloops/claude-powerline"
+
 [[tools."npm:@redocly/cli"]]
 version = "1.34.3"
 backend = "npm:@redocly/cli"

@@ -1,0 +1,26 @@
+{
+  "theme": "custom",
+  "display": {
+    "style": "tui",
+    "tui": {
+      "widthReserve": 4,
+      "box": "invisible",
+      "title": {
+        "left": ""
+      },
+      "breakpoints": [
+        {
+          "minWidth": 0,
+          "areas": ["context.icon context.bar . context.tokens context.pct"],
+          "columns": ["auto", "10", "1fr", "auto", "auto"],
+          "align": ["left", "left", "right", "right", "right"]
+        }
+      ]
+    }
+  },
+  "colors": {
+    "custom": {
+      "context": { "fg": "#888888" }
+    }
+  }
+}

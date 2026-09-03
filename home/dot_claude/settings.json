@@ -28,5 +28,9 @@
     "defaultMode": "plan",
     "disableAutoMode": "disable",
     "deny": ["Bash(rm *)"]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "claude-powerline"
   }
 }
