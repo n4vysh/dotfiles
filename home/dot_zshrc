@@ -51,6 +51,15 @@ AUTO_NOTIFY_IGNORE+=(
 	"trans"
 )
 
+# NOTE: fix $TERM in herdr session
+#       herdr override $TERM with xterm-256color
+# https://github.com/herdrdev/herdr/discussions/554#discussioncomment-17612795
+if [[ -z "$TMUX" && -n "$HERDR_ENV" ]]; then
+	export TERM=xterm-ghostty
+elif [[ -n "$TMUX" && -n "$HERDR_ENV" ]]; then
+	export TERM=tmux-256color
+fi
+
 # kubectx
 # NOTE: set kubeconfig per shell session
 # WARN: Do not move to .zshenv
