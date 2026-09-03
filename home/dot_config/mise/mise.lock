@@ -653,6 +653,9 @@ backend = "npm:kubernetes-mcp-server"
 version = "0.0.8"
 backend = "npm:obsidian-headless"
 
+[tools."npm:obsidian-headless".options]
+allow_builds = '["better-sqlite3"]'
+
 [[tools."npm:renovate"]]
 version = "44.21.0"
 backend = "npm:renovate"
