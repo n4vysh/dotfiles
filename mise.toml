@@ -9,7 +9,8 @@ mise install \
   node \
   python \
   uv \
-  cocogitto \
+  npm:@commitlint/cli \
+  npm:@commitlint/config-conventional \
   bats \
   lefthook \
   pipx:pre-commit-hooks \

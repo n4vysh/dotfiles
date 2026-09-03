@@ -251,7 +251,7 @@ Run `lefthook run fmt` to format all supported files.
 | lua files       | [selene][selene-link] / [stylua][stylua-link]                                         |
 | etc files       | [bats][bats-link]                                                                     |
 | CI/CD           | [actionlint][actionlint-link] / [zizmor][zizmor-link]                                 |
-| commit messages | [cocogitto][cocogitto-link]                                                           |
+| commit messages | [commitlint][commitlint-link]                                                         |
 
 [lefthook-link]: https://github.com/evilmartians/lefthook
 [ec-link]: https://github.com/editorconfig-checker/editorconfig-checker
@@ -269,7 +269,7 @@ Run `lefthook run fmt` to format all supported files.
 [stylua-link]: https://github.com/JohnnyMorganz/StyLua
 [actionlint-link]: https://github.com/rhysd/actionlint
 [zizmor-link]: https://github.com/zizmorcore/zizmor
-[cocogitto-link]: https://github.com/cocogitto/cocogitto
+[commitlint-link]: https://github.com/conventional-changelog/commitlint
 
 ## ⌨️ Custom keybinds
 

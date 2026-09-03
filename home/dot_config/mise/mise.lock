@@ -159,15 +159,6 @@ url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x6
 checksum = "sha256:56a7d6806cf155536c0178f0ea5fbd098e684fa509ebdb4fc0a7e19fb65382dc"
 url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64-musl-baseline.zip"
 
-[[tools.cocogitto]]
-version = "7.0.0"
-backend = "aqua:cocogitto/cocogitto"
-
-[tools.cocogitto."platforms.linux-x64"]
-checksum = "sha256:e03938ff2c4c86d71c00c0f3284dbbe95c5ca76fe34a51f33e945c23010d59bb"
-url = "https://github.com/cocogitto/cocogitto/releases/download/7.0.0/cocogitto-7.0.0-x86_64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/cocogitto/cocogitto/releases/assets/366659350"
-
 [[tools.conftest]]
 version = "0.61.0"
 backend = "aqua:open-policy-agent/conftest"
@@ -604,6 +595,18 @@ provenance_verified = true
 [[tools."npm:@antfu/ni"]]
 version = "28.0.0"
 backend = "npm:@antfu/ni"
+
+[[tools."npm:@commitlint/cli"]]
+version = "21.2.2"
+backend = "npm:@commitlint/cli"
+
+[[tools."npm:@commitlint/config-conventional"]]
+version = "21.2.2"
+backend = "npm:@commitlint/config-conventional"
+
+[[tools."npm:@commitlint/types"]]
+version = "21.2.0"
+backend = "npm:@commitlint/types"
 
 [[tools."npm:@mermaid-js/mermaid-cli"]]
 version = "11.16.0"
