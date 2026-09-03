@@ -650,7 +650,7 @@ version = "0.0.66"
 backend = "npm:kubernetes-mcp-server"
 
 [[tools."npm:obsidian-headless"]]
-version = "0.0.8"
+version = "0.0.14"
 backend = "npm:obsidian-headless"
 
 [tools."npm:obsidian-headless".options]
