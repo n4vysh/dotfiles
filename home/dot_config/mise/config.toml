@@ -77,72 +77,86 @@ enabled = true
 on_change = "none"
 
 [tools]
-gh = "2.98.0"
-gopass = "1.16.1"
-cocogitto = { version = "7.0.0", postinstall = '''
-cog generate-completions zsh >~/.zshrc.d/site-functions/_cog
-''' }
-bats = "1.14.0"
-"pipx:pre-commit-hooks" = "6.0.0"
+# General
 editorconfig-checker = "3.11.1"
 typos = "1.49.0"
-actionlint = "1.7.12"
-"npm:eslint" = "10.9.0"
+ls-lint = "2.3.1"
+"pipx:pre-commit-hooks" = "6.0.0"
+
+# Markdown
+rumdl = "0.2.60"
 lychee = { version = "0.24.2", postinstall = '''
 lychee --generate complete-zsh >~/.zshrc.d/site-functions/_lychee
 ''' }
+
+# JSON
 prettier = "3.8.1"
-rumdl = "0.2.60"
-"aqua:Kampfkarren/selene" = "0.31.0"
-shellcheck = "0.11.0"
-"aqua:anordal/shellharden" = "4.3.2"
-shfmt = "3.13.1"
-"pipx:sqlfluff" = "4.3.0"
-stylua = "2.5.2"
-taplo = { version = "0.10.0", postinstall = '''
-taplo completions zsh >~/.zshrc.d/site-functions/_taplo
-''' }
-yamlfmt = "0.21.0"
-yamllint = "1.38.0"
-zizmor = "1.29.0"
-"npm:czg" = "1.13.0"
-worktrunk = "0.23.2"
-"npm:gitmoji-cli" = "9.6.0"
-"github:YiNNx/cmd-wrapped" = { version = "0.4.1", bin = "cmd-wrapped" }
-dyff = "1.10.1"
 jqp = "0.7.0"
-lefthook = "2.1.12"
-"npm:@redocly/cli" = "1.34.3"
-"npm:git-open" = "3.1.0"
-"aqua:knqyf263/pet" = "1.0.1"
-"go:github.com/hashicorp/hcl/v2/cmd/hclfmt" = "v2.24.0"
-ls-lint = "2.3.1"
-"npm:obsidian-headless" = { version = "0.0.14", allow_builds = [
-  "better-sqlite3",
-] }
-"npm:renovate" = { version = "44.21.0", allow_builds = [
-  "re2",
-], trust_policy_excludes = [
-  "@yarnpkg/libzip@3.2.2",
-] }
 fx = { version = "39.2.0", postinstall = '''
 fx --comp zsh >~/.zshrc.d/site-functions/_fx
 ''' }
+
+# YAML
+yamlfmt = "0.21.0"
+yamllint = "1.38.0"
+dyff = "1.10.1"
 yq = { version = "4.53.3", postinstall = '''
 yq shell-completion zsh >~/.zshrc.d/site-functions/_yq
 ''' }
-jwt = { version = "6.2.0", postinstall = '''
-jwt completion zsh >~/.zshrc.d/site-functions/_jwt
+
+# TOML
+taplo = { version = "0.10.0", postinstall = '''
+taplo completions zsh >~/.zshrc.d/site-functions/_taplo
 ''' }
-oxipng = "10.2.0"
+
+# Shell scripts
+shfmt = "3.13.1"
+"aqua:anordal/shellharden" = "4.3.2"
+shellcheck = "0.11.0"
+
+# Lua
+stylua = "2.5.2"
+"aqua:Kampfkarren/selene" = "0.31.0"
+
+# SQL
+"pipx:sqlfluff" = "4.3.0"
+
+# Git
+lefthook = "2.1.12"
+gh = "2.98.0"
+cocogitto = { version = "7.0.0", postinstall = '''
+cog generate-completions zsh >~/.zshrc.d/site-functions/_cog
+''' }
+worktrunk = "0.23.2"
+"npm:czg" = "1.13.0"
+"npm:gitmoji-cli" = "9.6.0"
+"npm:git-open" = "3.1.0"
+
+# Testing framework
+bats = "1.14.0"
+
+# CI/CD
+actionlint = "1.7.12"
+zizmor = "1.29.0"
+
+# docs
+"pipx:zensical" = "0.0.57"
+"npm:@redocly/cli" = "1.34.3"
 "npm:@mermaid-js/mermaid-cli" = { version = "11.16.0", allow_builds = [
   "puppeteer",
 ], trust_policy_excludes = [
   "cytoscape@3.34.1",
 ] }
+"npm:obsidian-headless" = { version = "0.0.14", allow_builds = [
+  "better-sqlite3",
+] }
 
-# docs
-"pipx:zensical" = "0.0.57"
+# compression optimiser
+oxipng = "10.2.0"
+
+# command
+"aqua:knqyf263/pet" = "1.0.1"
+"github:YiNNx/cmd-wrapped" = { version = "0.4.1", bin = "cmd-wrapped" }
 
 # AI
 nono = { version = "0.74.0", postinstall = '''
@@ -183,6 +197,7 @@ bun = { version = "1.3.14", postinstall = '''
 bun completions >~/.zshrc.d/site-functions/_bun
 ''' }
 "npm:@antfu/ni" = "28.0.0"
+"npm:eslint" = "10.9.0"
 ### CSS
 "npm:stylelint" = "17.11.0"
 "npm:stylelint-config-standard" = "40.0.0"
@@ -265,6 +280,7 @@ terraform-docs = "0.20.0"
 terraform-ls = "0.38.1"
 tflint = "0.64.0"
 terragrunt = "1.1.1"
+"go:github.com/hashicorp/hcl/v2/cmd/hclfmt" = "v2.24.0"
 
 ## kubernetes
 argocd = { version = "3.4.2", postinstall = '''
@@ -355,6 +371,15 @@ conftest = "0.61.0"
 ## Security
 trivy = { version = "0.73.0", postinstall = '''
 trivy completion zsh >~/.zshrc.d/site-functions/_trivy
+''' }
+gopass = "1.16.1"
+"npm:renovate" = { version = "44.21.0", allow_builds = [
+  "re2",
+], trust_policy_excludes = [
+  "@yarnpkg/libzip@3.2.2",
+] }
+jwt = { version = "6.2.0", postinstall = '''
+jwt completion zsh >~/.zshrc.d/site-functions/_jwt
 ''' }
 
 ### for mise verification
