@@ -54,6 +54,15 @@ checksum = "sha256:b1ca7d41485deea85c846caeccde28219fd5925a8c64585a4f87ae131b70d
 url = "https://github.com/awslabs/eks-node-viewer/releases/download/v0.7.4/eks-node-viewer_Linux_x86_64"
 url_api = "https://api.github.com/repos/awslabs/eks-node-viewer/releases/assets/249148436"
 
+[[tools."aqua:containers/kubernetes-mcp-server"]]
+version = "0.0.66"
+backend = "aqua:containers/kubernetes-mcp-server"
+
+[tools."aqua:containers/kubernetes-mcp-server"."platforms.linux-x64"]
+checksum = "sha256:692a7b283a96140311fd46f13b8373657b2e9bfe660a36bb6434e8c42d899dbc"
+url = "https://github.com/containers/kubernetes-mcp-server/releases/download/v0.0.66/kubernetes-mcp-server-linux-amd64"
+url_api = "https://api.github.com/repos/containers/kubernetes-mcp-server/releases/assets/496758985"
+
 [[tools."aqua:github/github-mcp-server"]]
 version = "1.10.1"
 backend = "aqua:github/github-mcp-server"
@@ -82,6 +91,15 @@ checksum = "sha256:0c7867e99f5786b7e1b5ea449cf540c14b67f40c1c92c0f93031eaa2e0c38
 url = "https://github.com/grafana/gcx/releases/download/v1.1.0/gcx_1.1.0_linux_amd64.tar.gz"
 url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/514303327"
 
+[[tools."aqua:grafana/mcp-grafana"]]
+version = "1.1.0"
+backend = "aqua:grafana/mcp-grafana"
+
+[tools."aqua:grafana/mcp-grafana"."platforms.linux-x64"]
+checksum = "sha256:8468b1e159412eb1ab738786cf0d2755a1ea0a44103ca8c0040849a227746e07"
+url = "https://github.com/grafana/mcp-grafana/releases/download/v1.1.0/mcp-grafana_Linux_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/grafana/mcp-grafana/releases/assets/508578480"
+
 [[tools."aqua:knqyf263/pet"]]
 version = "1.0.1"
 backend = "aqua:knqyf263/pet"
@@ -100,6 +118,15 @@ checksum = "sha256:61e6e8434577078aec6d8d07a0c8877d527f07db0963902bd4ca320d23bb1
 url = "https://github.com/kubescape/kubescape/releases/download/v4.0.10/kubescape_4.0.10_linux_amd64.tar.gz"
 url_api = "https://api.github.com/repos/kubescape/kubescape/releases/assets/461849343"
 provenance = "github-attestations"
+
+[[tools."aqua:vercel-labs/agent-browser"]]
+version = "0.27.0"
+backend = "aqua:vercel-labs/agent-browser"
+
+[tools."aqua:vercel-labs/agent-browser"."platforms.linux-x64"]
+checksum = "sha256:94725da72c38ce931118a0fa3be314dec5350100af645341af1e97277be88a0b"
+url = "https://github.com/vercel-labs/agent-browser/releases/download/v0.27.0/agent-browser-linux-musl-x64"
+url_api = "https://api.github.com/repos/vercel-labs/agent-browser/releases/assets/414527084"
 
 [[tools.argocd]]
 version = "3.4.2"
@@ -158,6 +185,10 @@ url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x6
 [tools.bun."platforms.linux-x64-musl-baseline"]
 checksum = "sha256:56a7d6806cf155536c0178f0ea5fbd098e684fa509ebdb4fc0a7e19fb65382dc"
 url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64-musl-baseline.zip"
+
+[[tools.claude-powerline]]
+version = "1.30.1"
+backend = "npm:@owloops/claude-powerline"
 
 [[tools.conftest]]
 version = "0.61.0"
@@ -573,6 +604,10 @@ checksum = "sha256:73657a111819a30c47c08352896796f23d64e4eb2b3ed39b6d32149241566
 url = "https://github.com/lycheeverse/lychee/releases/download/lychee-v0.24.2/lychee-x86_64-unknown-linux-musl.tar.gz"
 url_api = "https://api.github.com/repos/lycheeverse/lychee/releases/assets/409959271"
 
+[[tools.ni]]
+version = "28.0.0"
+backend = "npm:@antfu/ni"
+
 [[tools.node]]
 version = "24.11.0"
 backend = "core:node"
@@ -615,10 +650,6 @@ backend = "npm:@mermaid-js/mermaid-cli"
 [tools."npm:@mermaid-js/mermaid-cli".options]
 allow_builds = '["puppeteer"]'
 trust_policy_excludes = '["cytoscape@3.34.1"]'
-
-[[tools."npm:@owloops/claude-powerline"]]
-version = "1.30.1"
-backend = "npm:@owloops/claude-powerline"
 
 [[tools."npm:@redocly/cli"]]
 version = "1.34.3"
@@ -822,6 +853,18 @@ backend = "aqua:GoogleContainerTools/skaffold"
 [tools.skaffold."platforms.linux-x64"]
 checksum = "blake3:0d954128ae845bc951a394aa62a39186556c7171e3e5bef05e72c46154c296f8"
 url = "https://storage.googleapis.com/skaffold/releases/v2.24.0/skaffold-linux-amd64"
+
+[[tools.slsa-verifier]]
+version = "v2.7.1"
+backend = "aqua:slsa-framework/slsa-verifier"
+
+[tools.slsa-verifier."platforms.linux-x64"]
+checksum = "sha256:946dbec729094195e88ef78e1734324a27869f03e2c6bd2f61cbc06bd5350339"
+url = "https://github.com/slsa-framework/slsa-verifier/releases/download/v2.7.1/slsa-verifier-linux-amd64"
+url_api = "https://api.github.com/repos/slsa-framework/slsa-verifier/releases/assets/267893649"
+
+[tools.slsa-verifier."platforms.linux-x64".provenance.slsa]
+url = "https://github.com/slsa-framework/slsa-verifier/releases/download/v2.7.1/slsa-verifier-linux-amd64.intoto.jsonl"
 
 [[tools.sops]]
 version = "3.13.3"

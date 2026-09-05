@@ -170,19 +170,19 @@ hunk = "0.17.0"
 apm = "0.26.0"
 "npm:ctx7" = "0.5.5"
 "npm:skills" = "1.5.17"
-"npm:agent-browser" = "0.27.0"
+"aqua:vercel-labs/agent-browser" = "0.27.0"
 "pipx:semble" = "0.1.10"
 "pipx:markitdown" = { version = "0.1.5", extras = "all" }
 "npm:defuddle" = "0.18.1"
 "pipx:litellm" = { version = "1.88.0", extras = "proxy,extra_proxy", uvx_args = "--python 3.13.14" }
-"npm:@owloops/claude-powerline" = "1.30.1"
+claude-powerline = "1.30.1"
 ## token tracker
 "npm:tokscale" = "4.12.0"
 ## mcp
 "pipx:mcp-proxy-for-aws" = "1.6.4"
-"npm:kubernetes-mcp-server" = "0.0.66"
+"aqua:containers/kubernetes-mcp-server" = "0.0.66"
 "go:github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server" = "1.2.0"
-"pipx:mcp-grafana" = "1.1.0"
+"aqua:grafana/mcp-grafana" = "1.1.0"
 "aqua:github/github-mcp-server" = "1.10.1"
 
 # app
@@ -195,7 +195,7 @@ pnpm completion zsh >~/.zshrc.d/site-functions/_pnpm
 bun = { version = "1.3.14", postinstall = '''
 bun completions >~/.zshrc.d/site-functions/_bun
 ''' }
-"npm:@antfu/ni" = "28.0.0"
+ni = "28.0.0"
 "npm:eslint" = "10.9.0"
 ### CSS
 "npm:stylelint" = "17.11.0"
@@ -382,4 +382,4 @@ jwt completion zsh >~/.zshrc.d/site-functions/_jwt
 ''' }
 
 ### for mise verification
-"go:github.com/slsa-framework/slsa-verifier/v2/cli/slsa-verifier" = "v2.7.1"
+slsa-verifier = "v2.7.1"
