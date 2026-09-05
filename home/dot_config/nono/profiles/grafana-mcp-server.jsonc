@@ -2,9 +2,9 @@
   "$schema": "../nono-profile.schema.json",
   "command_policies": {
     "commands": {
-      "terraform-mcp-server": {
+      "mcp-grafana": {
         "from": {
-          "session": {
+          "gopass": {
             "sandbox": {
               "fs_read": [
                 "/etc/ssl",
@@ -12,23 +12,22 @@
                 "/lib64",
                 "/usr/lib",
                 "/usr/lib64",
-                "$XDG_DATA_HOME/mise/installs/go-github-com-hashicorp-terraform-mcp-server-cmd-terraform-mcp-server"
+                "/etc/ssl"
               ],
               "fs_read_file": [
-                "/usr/bin/mise",
                 "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
               ],
-              "network": {
-                "allow_all": true
-              },
               "environment": {
                 "allow_vars": [
                   "PATH",
-                  // for terraform-mcp-server
-                  "HOME",
-                  "TFE_*",
-                  "TF_MCP_*"
+                  // for mcp-grafana
+                  "GRAFANA_ORG_ID",
+                  "GRAFANA_URL",
+                  "GRAFANA_SERVICE_ACCOUNT_TOKEN"
                 ]
+              },
+              "network": {
+                "allow_all": true
               }
             }
           }

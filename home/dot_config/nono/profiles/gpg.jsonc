@@ -18,7 +18,7 @@
               "environment": {
                 "allow_vars": [
                   "HOME", // for ~/.gnupg
-                  "DISPLAY" // for pinentry-gtk
+                  "DISPLAY" // for GUI pinentry
                 ]
               }
             },
@@ -44,6 +44,42 @@
                   }
                 }
               ]
+            }
+          },
+          "granted": {
+            "sandbox": {
+              "fs_read": ["$HOME/.gnupg"],
+              "fs_write": ["$HOME/.gnupg"],
+              "environment": {
+                "allow_vars": [
+                  "HOME", // for ~/.gnupg
+                  "DISPLAY" // for GUI pinentry
+                ]
+              }
+            }
+          },
+          "pass": {
+            "sandbox": {
+              "fs_read": ["$HOME/.gnupg"],
+              "fs_write": ["$HOME/.gnupg"],
+              "environment": {
+                "allow_vars": [
+                  "HOME", // for ~/.gnupg
+                  "DISPLAY" // for GUI pinentry
+                ]
+              }
+            }
+          },
+          "gopass": {
+            "sandbox": {
+              "fs_read": ["$HOME/.gnupg"],
+              "fs_write": ["$HOME/.gnupg"],
+              "environment": {
+                "allow_vars": [
+                  "HOME", // for ~/.gnupg
+                  "DISPLAY" // for GUI pinentry
+                ]
+              }
             }
           }
         }

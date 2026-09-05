@@ -30,12 +30,15 @@ return {
 			{
 				"<C-.>",
 				function()
-					require("snacks.terminal").toggle("opencode --port", {
-						win = {
-							position = "right",
-							enter = false,
-						},
-					})
+					require("snacks.terminal").toggle(
+						"nono run --profile opencode -- opencode --port",
+						{
+							win = {
+								position = "right",
+								enter = false,
+							},
+						}
+					)
 				end,
 				desc = "Toggle sidebar for AI",
 				mode = { "n", "t" },
@@ -58,7 +61,8 @@ return {
 			},
 		},
 		config = function()
-			local opencode_cmd = "opencode --port"
+			local opencode_cmd =
+				"nono run --profile opencode -- opencode --port"
 
 			---@type snacks.terminal.Opts
 			local snacks_terminal_opts = {

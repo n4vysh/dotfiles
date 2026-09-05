@@ -2,33 +2,31 @@
   "$schema": "../nono-profile.schema.json",
   "command_policies": {
     "commands": {
-      "terraform-mcp-server": {
+      "kubernetes-mcp-server": {
         "from": {
           "session": {
             "sandbox": {
               "fs_read": [
-                "/etc/ssl",
                 "/lib",
                 "/lib64",
                 "/usr/lib",
                 "/usr/lib64",
-                "$XDG_DATA_HOME/mise/installs/go-github-com-hashicorp-terraform-mcp-server-cmd-terraform-mcp-server"
+                "/etc/ssl",
+                "$HOME/.kube/configs"
               ],
               "fs_read_file": [
-                "/usr/bin/mise",
                 "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
               ],
-              "network": {
-                "allow_all": true
-              },
               "environment": {
                 "allow_vars": [
                   "PATH",
-                  // for terraform-mcp-server
+                  // for kubernetes-mcp-server
                   "HOME",
-                  "TFE_*",
-                  "TF_MCP_*"
+                  "KUBECONFIG"
                 ]
+              },
+              "network": {
+                "allow_all": true
               }
             }
           }

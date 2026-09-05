@@ -1,29 +1,38 @@
 {
   "$schema": "../nono-profile.schema.json",
-  "filesystem": {
-    "read": ["$XDG_DATA_HOME/mise/installs/aqua-github-github-mcp-server"],
-    "read_file": ["$XDG_CONFIG_HOME/mise/config.toml"]
-  },
-  "network": {
-    "credentials": ["github"],
-    "custom_credentials": {
-      "github": {
-        "upstream": "https://api.github.com",
-        "credential_key": "cmd://github",
-        "env_var": "GITHUB_PERSONAL_ACCESS_TOKEN",
-        "inject_header": "Authorization",
-        "credential_format": "Bearer {}"
+  "command_policies": {
+    "commands": {
+      "github-mcp-server": {
+        "from": {
+          "gopass": {
+            "sandbox": {
+              "fs_read": [
+                "/etc/ssl",
+                "/lib",
+                "/lib64",
+                "/usr/lib",
+                "/usr/lib64",
+                "$XDG_DATA_HOME/mise/installs/aqua-github-github-mcp-server"
+              ],
+              "fs_read_file": [
+                "/usr/bin/mise",
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
+                "$XDG_CONFIG_HOME/mise/config.toml"
+              ],
+              "environment": {
+                "allow_vars": [
+                  "PATH",
+                  // for github-mcp-server
+                  "GITHUB_PERSONAL_ACCESS_TOKEN"
+                ]
+              },
+              "network": {
+                "allow_all": true
+              }
+            }
+          }
+        }
       }
-    }
-  },
-  "environment": {
-    "allow_vars": ["PATH"]
-  },
-  "credential_capture": {
-    "github": {
-      "command": ["/usr/sbin/mise", "x", "--", "gh", "auth", "token"],
-      "timeout_secs": 5,
-      "cache_ttl_secs": 900
     }
   }
 }

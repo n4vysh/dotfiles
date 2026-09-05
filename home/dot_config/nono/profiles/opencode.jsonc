@@ -1,10 +1,26 @@
 {
   "$schema": "../nono-profile.schema.json",
-  "extends": ["nolabs-ai/opencode", "dbus", "systemd-resolved", "git", "gpg"],
+  "extends": [
+    "nolabs-ai/opencode",
+    "dbus",
+    "systemd-resolved",
+    "git",
+    "gpg",
+    "gopass",
+    "terraform-mcp-server",
+    "github-mcp-server",
+    "aws-mcp-server",
+    "kubernetes-mcp-server",
+    "grafana-mcp-server"
+  ],
   "groups": {
     "include": ["mise_manager", "go_runtime", "go_runtime_linux"]
   },
   "filesystem": {
-    "allow": ["$WORKDIR"]
+    "allow": ["$WORKDIR", "$HOME/Workspaces", "$XDG_DATA_HOME/rtk/tee"],
+    "read": ["$XDG_CONFIG_HOME/nono"]
+  },
+  "network": {
+    "block": false
   }
 }

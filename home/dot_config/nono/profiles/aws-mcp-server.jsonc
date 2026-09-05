@@ -1,0 +1,197 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "extends": "gpg",
+  "command_policies": {
+    "session_export_env": [
+      "XDG_CONFIG_HOME",
+      "XDG_CACHE_HOME",
+      "XDG_STATE_HOME",
+      "AWS_PROFILE",
+      "AWS_REGION"
+    ],
+    "commands": {
+      "mcp-proxy-for-aws": {
+        "can_use": ["granted"],
+        "export_env": [
+          "HOME",
+          "XDG_CONFIG_HOME",
+          "XDG_CACHE_HOME",
+          "XDG_STATE_HOME",
+          "AWS_PROFILE",
+          "AWS_REGION"
+        ],
+        "from": {
+          "session": {
+            "sandbox": {
+              "fs_read": [
+                "/etc/ssl",
+                "/lib",
+                "/lib64",
+                "/usr/lib",
+                "/usr/lib64",
+                "$XDG_DATA_HOME/mise/installs/pipx-mcp-proxy-for-aws",
+                "$XDG_DATA_HOME/uv/python",
+                // granted
+                "$XDG_CONFIG_HOME/granted"
+              ],
+              "fs_read_file": [
+                "/usr/bin/mise",
+                "/etc/mime.types", // for fastmcp
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
+                // granted
+                "$HOME/.aws/config"
+              ],
+              "fs_write": [
+                // granted
+                "$XDG_CONFIG_HOME/granted",
+                "$XDG_CACHE_HOME/granted",
+                "$XDG_STATE_HOME/granted"
+              ],
+              "environment": {
+                "allow_vars": [
+                  "PATH",
+                  // for mcp-proxy-for-aws
+                  "HOME",
+                  "XDG_CONFIG_HOME",
+                  "XDG_CACHE_HOME",
+                  "XDG_STATE_HOME",
+                  "AWS_PROFILE",
+                  "AWS_REGION"
+                ]
+              },
+              "network": {
+                "allow_all": true
+              }
+            }
+          }
+        }
+      },
+      "granted": {
+        "can_use": ["gpg", "pass"],
+        "export_env": [
+          "HOME",
+          "DISPLAY" // GUI pinentry
+        ],
+        "from": {
+          "mcp-proxy-for-aws": {
+            "sandbox": {
+              "fs_read_file": [
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
+                // granted
+                "$HOME/.aws/config"
+              ],
+              "fs_read": [
+                // granted
+                "$XDG_CONFIG_HOME/granted"
+              ],
+              "fs_write": [
+                // granted
+                "$XDG_CONFIG_HOME/granted",
+                "$XDG_CACHE_HOME/granted",
+                "$XDG_STATE_HOME/granted"
+              ],
+              "environment": {
+                "allow_vars": [
+                  "PATH",
+                  // for mcp-proxy-for-aws
+                  "HOME",
+                  "XDG_CONFIG_HOME",
+                  "XDG_CACHE_HOME",
+                  "XDG_STATE_HOME",
+                  "AWS_PROFILE",
+                  "AWS_REGION",
+                  "DISPLAY" // GUI pinentry
+                ]
+              },
+              "network": {
+                "allow_all": true
+              }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [
+                {
+                  "argv": {
+                    "prefix": ["credential-process"]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "pass": {
+        "export_env": [
+          "HOME",
+          "DISPLAY" // GUI pinentry
+        ],
+        "from": {
+          "granted": {
+            "sandbox": {
+              "fs_read": [
+                // pass
+                "$HOME/.gnupg",
+                "$HOME/.password-store",
+                "/lib",
+                "/lib64",
+                "/usr/lib",
+                "/usr/lib64"
+              ],
+              "fs_read_file": [
+                // pass
+                "/usr/bin/base64",
+                "/usr/bin/dirname",
+                "/usr/bin/getopt",
+                "/usr/bin/gpg",
+                "/usr/bin/mkdir",
+                "/usr/bin/pass",
+                "/usr/bin/rm",
+                "/usr/bin/tty",
+                "/usr/bin/which",
+                "/usr/sbin/base64",
+                "/usr/sbin/dirname",
+                "/usr/sbin/getopt",
+                "/usr/sbin/gpg2",
+                "/usr/sbin/mkdir",
+                "/usr/sbin/rm",
+                "/usr/sbin/tty",
+                "/usr/sbin/which"
+              ],
+              "fs_write": [
+                // pass
+                "$HOME/.gnupg",
+                "$HOME/.password-store"
+              ],
+              "exec_paths": [
+                // pass
+                "/usr/bin/base64",
+                "/usr/bin/dirname",
+                "/usr/bin/getopt",
+                "/usr/bin/gpg",
+                "/usr/bin/mkdir",
+                "/usr/bin/rm",
+                "/usr/bin/tty",
+                "/usr/bin/which",
+                "/usr/sbin/base64",
+                "/usr/sbin/dirname",
+                "/usr/sbin/getopt",
+                "/usr/sbin/gpg2",
+                "/usr/sbin/mkdir",
+                "/usr/sbin/rm",
+                "/usr/sbin/tty",
+                "/usr/sbin/which"
+              ],
+              "environment": {
+                "allow_vars": [
+                  "PATH",
+                  "HOME", // for ~/.password-store
+                  "DISPLAY" // GUI pinentry
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

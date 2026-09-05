@@ -40,19 +40,30 @@
   "permission": {
     "external_directory": {
       "~": "deny",
-      "~/Workspaces/**": "allow",
+      "~/Workspaces/**": "allow", // ghq root
       "~/.config/opencode/**": "allow",
-      "~/.local/share/rtk/tee/**": "allow"
+      "~/.config/nono/**": "allow",
+      "~/.local/share/opencode/log/**": "allow",
+      "~/.local/share/rtk/tee/**": "allow",
+      "~/.local/share/mise/**": "allow",
+      "~/.local/state/nono/**": "allow"
     },
     "read": {
       "~/.aws/credentials": "deny",
       "~/.aws/sso/cache/*.json": "deny",
       "~/.kube/config": "deny",
       "~/.kube/configs/*.yaml": "deny",
-      "~/.config/gcx/config.yaml": "deny"
+      "~/.config/gcx/config.yaml": "deny",
+      "~/.ssh/**": "deny",
+      "~/.gnupg/**": "deny"
     },
     "edit": {
-      "~/.config/opencode/**": "deny"
+      "~/.config/opencode/**": "deny",
+      "~/.config/nono/**": "deny",
+      "~/.local/share/opencode/log/**": "deny",
+      "~/.local/share/rtk/tee/**": "deny",
+      "~/.local/share/mise/**": "deny",
+      "~/.local/state/nono/**": "deny"
     },
     "bash": {
       "*": "ask",
@@ -498,31 +509,21 @@
     "mcp_server_terraform": {
       "enabled": true,
       "type": "local",
-      "command": [
-        "nono",
-        "run",
-        "--profile",
-        "terraform-mcp-server",
-        "--",
-        "terraform-mcp-server"
-      ]
+      "command": ["terraform-mcp-server"]
     },
     // NOTE: github-mcp-server not support Dynamic Client Registration
     //       https://github.com/github/github-mcp-server/issues/1396#issuecomment-3895920244
-    //
-    // ```sh
-    // gh auth token |
-    //   gopass insert envs/github-mcp-server/GITHUB_PERSONAL_ACCESS_TOKEN
-    // ```
     "mcp_server_github": {
       "enabled": true,
       "type": "local",
+      // ```sh
+      // gh auth token |
+      //   gopass insert envs/github-mcp-server/GITHUB_PERSONAL_ACCESS_TOKEN
+      // ```
       "command": [
-        "nono",
-        "run",
-        "--profile",
-        "github-mcp-server",
-        "--",
+        "gopass",
+        "env",
+        "envs/github-mcp-server",
         "github-mcp-server",
         "stdio",
         "--read-only"
@@ -532,71 +533,77 @@
       "enabled": false,
       "type": "local",
       "command": [
-        "nono",
-        "run",
-        "--profile",
-        "aws-mcp-server-n4vysh-stg",
-        "--",
         "mcp-proxy-for-aws",
         "https://aws-mcp.us-east-1.api.aws/mcp",
         "--disable-telemetry"
-      ]
+      ],
+      "environment": {
+        "AWS_PROFILE": "n4vysh-stg",
+        "AWS_REGION": "ap-northeast-1"
+      }
     },
     "mcp_server_aws_n4vysh_prod": {
       "enabled": false,
       "type": "local",
       "command": [
-        "nono",
-        "run",
-        "--profile",
-        "aws-mcp-server-n4vysh-prod",
-        "--",
         "mcp-proxy-for-aws",
         "https://aws-mcp.us-east-1.api.aws/mcp",
         "--disable-telemetry"
-      ]
+      ],
+      "environment": {
+        "AWS_PROFILE": "n4vysh-prod",
+        "AWS_REGION": "ap-northeast-1"
+      }
     },
     "mcp_server_aws_n4vysh_common": {
       "enabled": false,
       "type": "local",
       "command": [
-        "nono",
-        "run",
-        "--profile",
-        "aws-mcp-server-n4vysh-common",
-        "--",
         "mcp-proxy-for-aws",
         "https://aws-mcp.us-east-1.api.aws/mcp",
         "--disable-telemetry"
-      ]
+      ],
+      "environment": {
+        "AWS_PROFILE": "n4vysh-common",
+        "AWS_REGION": "ap-northeast-1"
+      }
     },
     "mcp_server_kubernetes_kind_sandbox": {
       "enabled": false,
       "type": "local",
-      "command": [
-        "nono",
-        "run",
-        "--profile",
-        "kubernetes-mcp-server-kind-sandbox",
-        "--",
-        "kubernetes-mcp-server",
-        "--read-only"
-      ]
+      "command": ["kubernetes-mcp-server", "--read-only"],
+      "environment": {
+        // ```sh
+        // KUBECONFIG=~/.kube/config \
+        //   kubectl config view \
+        //     --raw \
+        //     --flatten \
+        //     --minify \
+        //     --context=kind-sandbox \
+        //     >|~/.kube/configs/kind-sandbox.yaml
+        // ```
+        "KUBECONFIG": "{env:HOME}/.kube/configs/kind-sandbox.yaml"
+      }
     },
     "mcp_server_grafana_n4vysh": {
       "enabled": false,
       "type": "local",
+      // ```sh
+      // gopass insert envs/mcp-grafana/n4vysh/GRAFANA_SERVICE_ACCOUNT_TOKEN
+      // ```
       "command": [
-        "nono",
-        "run",
-        "--profile",
-        "grafana-mcp-server-n4vysh",
-        "--",
+        "gopass",
+        "env",
+        "envs/mcp-grafana/n4vysh",
         "mcp-grafana",
         "--disable-write",
         "-t",
         "stdio"
-      ]
+      ],
+      "environment": {
+        "GRAFANA_ORG_ID": "0",
+        "GRAFANA_URL": "https://n4vysh.grafana.net"
+      }
     }
   }
 }

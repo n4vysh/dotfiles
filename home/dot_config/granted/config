@@ -1,0 +1,8 @@
+DefaultBrowser = "FIREFOX"
+CustomBrowserPath = "/usr/sbin/firefox"
+CustomSSOBrowserPath = ""
+Ordering = ""
+ExportCredentialSuffix = ""
+
+[Keyring]
+Backend = "pass"

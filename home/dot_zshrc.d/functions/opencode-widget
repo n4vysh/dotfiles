@@ -1,2 +1,2 @@
-BUFFER='opencode'
+BUFFER='nono run --profile opencode -- opencode'
 zle accept-line

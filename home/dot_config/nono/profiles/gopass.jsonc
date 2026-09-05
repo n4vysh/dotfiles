@@ -1,0 +1,50 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "extends": ["gpg", "github-mcp-server", "grafana-mcp-server"],
+  "command_policies": {
+    "commands": {
+      "gopass": {
+        "can_use": ["gpg", "github-mcp-server", "mcp-grafana"],
+        "export_env": [
+          // github-mcp-server
+          "GITHUB_PERSONAL_ACCESS_TOKEN",
+          // mcp-grafana
+          "GRAFANA_ORG_ID",
+          "GRAFANA_URL",
+          "GRAFANA_SERVICE_ACCOUNT_TOKEN"
+        ],
+        "from": {
+          "session": {
+            "sandbox": {
+              "fs_read": ["$HOME/.password-store", "$XDG_CONFIG_HOME/gopass"],
+              "environment": {
+                "allow_vars": [
+                  "PATH",
+                  // for gopass
+                  "HOME",
+                  "DISPLAY", // GUI pinentry
+                  // for nono proxy
+                  "HTTP_PROXY",
+                  "HTTPS_PROXY",
+                  // for mcp-grafana
+                  "GRAFANA_ORG_ID",
+                  "GRAFANA_URL"
+                ]
+              }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [
+                {
+                  "argv": {
+                    "prefix": ["env"]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

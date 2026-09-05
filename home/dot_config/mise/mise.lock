@@ -617,13 +617,13 @@ checksum = "sha256:b3c071cdf47aab867c3b2aa287257df12ec5d7c962bf922b32fd33226c429
 url = "https://nodejs.org/dist/v24.11.0/node-v24.11.0-linux-x64.tar.gz"
 
 [[tools.nono]]
-version = "0.74.0"
+version = "0.75.0"
 backend = "github:nolabs-ai/nono"
 
 [tools.nono."platforms.linux-x64"]
-checksum = "sha256:b625399efd48490d6367a6159e5241263aa7ac2e464d21a6ec29d9ebfbfdd4b3"
-url = "https://github.com/nolabs-ai/nono/releases/download/v0.74.0/nono-v0.74.0-x86_64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/nolabs-ai/nono/releases/assets/520878363"
+checksum = "sha256:2f883269824d85f96a75fb8788f6c31619e60d2c0865e93402d2f347461054fa"
+url = "https://github.com/nolabs-ai/nono/releases/download/v0.75.0/nono-v0.75.0-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/nolabs-ai/nono/releases/assets/539754562"
 provenance = "github-attestations"
 provenance_verified = true
 
