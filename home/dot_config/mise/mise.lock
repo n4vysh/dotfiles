@@ -635,14 +635,6 @@ backend = "npm:@antfu/ni"
 version = "21.2.2"
 backend = "npm:@commitlint/cli"
 
-[[tools."npm:@commitlint/config-conventional"]]
-version = "21.2.2"
-backend = "npm:@commitlint/config-conventional"
-
-[[tools."npm:@commitlint/types"]]
-version = "21.2.0"
-backend = "npm:@commitlint/types"
-
 [[tools."npm:@mermaid-js/mermaid-cli"]]
 version = "11.16.0"
 backend = "npm:@mermaid-js/mermaid-cli"

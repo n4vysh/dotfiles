@@ -10,7 +10,6 @@ mise install \
   python \
   uv \
   npm:@commitlint/cli \
-  npm:@commitlint/config-conventional \
   bats \
   lefthook \
   pipx:pre-commit-hooks \

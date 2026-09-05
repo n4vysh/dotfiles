@@ -1,6 +1,44 @@
-extends:
-  - "@commitlint/config-conventional"
+# WARN: manually include shared config when mise npm backend
+#       @commitlint/resolve-extends not work in mise npm backend
+# https://github.com/conventional-changelog/commitlint/blob/v21.2.2/%40commitlint/resolve-extends/src/index.ts#L315-L332
 rules:
+  # rule name: [severity, condition, value]
+  # severity:
+  #     0:	disabled
+  #     1:	warning
+  #     2:	error
+  body-empty: [0] # body is optional
+  body-leading-blank: [2, always]
+  body-max-line-length: [2, always, 100]
+  footer-empty: [0] # footer is optional
+  footer-leading-blank: [2, always]
+  footer-max-line-length: [2, always, 100]
+  header-max-length: [2, always, 100]
+  header-trim: [2, always]
+  subject-case:
+    - 2
+    - never
+    - [sentence-case, start-case, pascal-case, upper-case]
+  subject-empty: [2, never]
+  subject-full-stop: [2, never, "."]
+  type-case: [2, always, lower-case]
+  type-empty: [2, never]
+  type-enum:
+    - 2
+    - always
+    - - feat
+      - fix
+      - docs
+      - style
+      - refactor
+      - perf
+      - test
+      - build
+      - ci
+      - chore
+      - revert
+  scope-case: [2, always, lower-case]
+  scope-empty: [0] # scope is optional
   scope-enum:
     - 2
     - always
