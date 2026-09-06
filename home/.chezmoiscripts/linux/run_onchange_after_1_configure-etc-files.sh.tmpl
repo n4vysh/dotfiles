@@ -128,6 +128,14 @@ else
 	gum log --level warn "rkhunter ALLOWDEVFILE=/dev/shm/aomshm.* already set -- skipping"
 fi
 
+# For yazi
+if ! sudo grep -q "ALLOWDEVFILE=/dev/shm/yazi-*" /etc/rkhunter.conf; then
+	echo "ALLOWDEVFILE=/dev/shm/yazi-*" |
+		sudo tee -a /etc/rkhunter.conf >/dev/null
+else
+	gum log --level warn "rkhunter ALLOWDEVFILE=/dev/shm/yazi-* already set -- skipping"
+fi
+
 if ! sudo grep -q "ALLOWHIDDENDIR=/etc/.git" /etc/rkhunter.conf; then
 	echo "ALLOWHIDDENDIR=/etc/.git" |
 		sudo tee -a /etc/rkhunter.conf >/dev/null
