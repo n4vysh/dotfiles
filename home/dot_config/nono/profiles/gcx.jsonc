@@ -1,0 +1,75 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "extends": "dbus",
+  "command_policies": {
+    "commands": {
+      "gcx": {
+        "from": {
+          "session": {
+            "sandbox": {
+              "fs_read": [
+                "/etc/ssl",
+                "/lib",
+                "/lib64",
+                "/usr/lib",
+                "/usr/lib64",
+                "$XDG_DATA_HOME/mise/installs/aqua-grafana-gcx"
+              ],
+              "fs_read_file": [
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
+                "$XDG_CONFIG_HOME/gcx/config.yaml"
+              ],
+              "fs_write": ["$XDG_CONFIG_HOME/gcx", "$XDG_STATE_HOME/gcx"],
+              "environment": {
+                "allow_vars": [
+                  "PATH",
+                  "HOME",
+                  "XDG_CONFIG_HOME",
+                  "XDG_STATE_HOME",
+                  "DBUS_SESSION_BUS_ADDRESS"
+                ]
+              },
+              "network": {
+                "allow_all": true
+              }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [
+                { "argv": { "prefix": ["config", "check"] } },
+                { "argv": { "prefix": ["config", "current-context"] } },
+                { "argv": { "prefix": ["config", "list-contexts"] } },
+                { "argv": { "prefix": ["dashboards", "get"] } },
+                { "argv": { "prefix": ["dashboards", "list"] } },
+                { "argv": { "prefix": ["dashboards", "search"] } },
+                { "argv": { "prefix": ["datasources", "get"] } },
+                { "argv": { "prefix": ["datasources", "list"] } },
+                { "argv": { "prefix": ["datasources", "health"] } },
+                { "argv": { "prefix": ["datasources", "query"] } },
+                { "argv": { "prefix": ["logs", "labels"] } },
+                { "argv": { "prefix": ["logs", "query"] } },
+                { "argv": { "prefix": ["logs", "series"] } },
+                { "argv": { "prefix": ["metrics", "labels"] } },
+                { "argv": { "prefix": ["metrics", "metadata"] } },
+                { "argv": { "prefix": ["metrics", "query"] } },
+                { "argv": { "prefix": ["metrics", "series"] } },
+                { "argv": { "prefix": ["profiles", "labels"] } },
+                { "argv": { "prefix": ["profiles", "query"] } },
+                { "argv": { "prefix": ["traces", "get"] } },
+                { "argv": { "prefix": ["traces", "labels"] } },
+                { "argv": { "prefix": ["traces", "query"] } },
+                { "argv": { "prefix": ["alert", "rules", "get"] } },
+                { "argv": { "prefix": ["alert", "rules", "list"] } },
+                { "argv": { "prefix": ["cloud", "stacks", "get"] } },
+                { "argv": { "prefix": ["cloud", "stacks", "list"] } },
+                { "argv": { "prefix": ["slo", "definitions", "get"] } },
+                { "argv": { "prefix": ["slo", "definitions", "list"] } },
+                { "argv": { "prefix": ["slo", "definitions", "status"] } }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

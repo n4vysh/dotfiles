@@ -23,9 +23,6 @@
                   // for gopass
                   "HOME",
                   "DISPLAY", // GUI pinentry
-                  // for nono proxy
-                  "HTTP_PROXY",
-                  "HTTPS_PROXY",
                   // for mcp-grafana
                   "GRAFANA_ORG_ID",
                   "GRAFANA_URL"

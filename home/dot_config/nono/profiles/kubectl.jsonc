@@ -1,0 +1,46 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "command_policies": {
+    "commands": {
+      "kubectl": {
+        "from": {
+          "session": {
+            "sandbox": {
+              "fs_read": [
+                "/etc/ssl",
+                "/lib",
+                "/lib64",
+                "/usr/lib",
+                "/usr/lib64",
+                "$XDG_DATA_HOME/mise/installs/kubectl"
+              ],
+              "fs_read_file": [
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
+                "$HOME/.kube/config"
+              ],
+              "environment": {
+                "allow_vars": ["PATH", "HOME"]
+              },
+              "network": {
+                "allow_all": true
+              }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [
+                { "argv": { "prefix": ["get"] } },
+                { "argv": { "prefix": ["describe"] } },
+                { "argv": { "prefix": ["logs"] } },
+                { "argv": { "prefix": ["explain"] } },
+                { "argv": { "prefix": ["auth", "can-i"] } },
+                { "argv": { "prefix": ["auth", "whoami"] } },
+                { "argv": { "prefix": ["config", "current-context"] } },
+                { "argv": { "prefix": ["rollout", "history"] } }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

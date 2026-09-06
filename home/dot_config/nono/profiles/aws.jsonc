@@ -1,0 +1,439 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "extends": "aws-mcp-server",
+  "command_policies": {
+    "commands": {
+      "aws": {
+        "can_use": ["granted", "groff"],
+        "export_env": [
+          "HOME",
+          "XDG_CONFIG_HOME",
+          "XDG_CACHE_HOME",
+          "XDG_STATE_HOME",
+          "AWS_PROFILE"
+        ],
+        "from": {
+          "session": {
+            "sandbox": {
+              "fs_read": [
+                "/etc/ssl",
+                "/lib",
+                "/lib64",
+                "/usr/lib",
+                "/usr/lib64",
+                "$XDG_DATA_HOME/mise/installs/awscli",
+                "$XDG_CONFIG_HOME/granted"
+              ],
+              "fs_read_file": [
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
+                "/usr/bin/cat",
+                "$HOME/.aws/config"
+              ],
+              "exec_paths": ["/usr/bin/cat"],
+              "fs_write": [
+                "$XDG_CONFIG_HOME/granted",
+                "$XDG_CACHE_HOME/granted",
+                "$XDG_STATE_HOME/granted"
+              ],
+              "environment": {
+                "allow_vars": [
+                  "PATH",
+                  "HOME",
+                  "XDG_CONFIG_HOME",
+                  "XDG_CACHE_HOME",
+                  "XDG_STATE_HOME",
+                  "AWS_PROFILE"
+                ],
+                "set_vars": {
+                  "AWS_PAGER": "",
+                  "PAGER": "/usr/bin/cat"
+                }
+              },
+              "network": {
+                "allow_all": true
+              }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [
+                { "argv": { "exact": ["--version"] } },
+                { "argv": { "exact": ["help"] } },
+                { "argv": { "exact": ["ec2"] } },
+                { "argv": { "exact": ["ec2", "help"] } },
+                { "argv": { "exact": ["eks"] } },
+                { "argv": { "exact": ["eks", "help"] } },
+                { "argv": { "exact": ["iam"] } },
+                { "argv": { "exact": ["iam", "help"] } },
+                { "argv": { "exact": ["s3"] } },
+                { "argv": { "exact": ["s3", "help"] } },
+                { "argv": { "prefix": ["s3", "ls"] } },
+                { "argv": { "exact": ["s3api"] } },
+                { "argv": { "exact": ["s3api", "help"] } },
+                { "argv": { "exact": ["cloudformation"] } },
+                { "argv": { "exact": ["cloudformation", "help"] } },
+                { "argv": { "exact": ["cloudwatch"] } },
+                { "argv": { "exact": ["cloudwatch", "help"] } },
+                { "argv": { "exact": ["logs"] } },
+                { "argv": { "exact": ["logs", "help"] } },
+                { "argv": { "exact": ["ecs"] } },
+                { "argv": { "exact": ["ecs", "help"] } },
+                { "argv": { "exact": ["rds"] } },
+                { "argv": { "exact": ["rds", "help"] } },
+                { "argv": { "exact": ["organizations"] } },
+                { "argv": { "exact": ["organizations", "help"] } },
+                { "argv": { "exact": ["secretsmanager"] } },
+                { "argv": { "exact": ["secretsmanager", "help"] } },
+                { "argv": { "exact": ["acm"] } },
+                { "argv": { "exact": ["acm", "help"] } },
+                { "argv": { "prefix": ["acm", "describe-certificate"] } },
+                { "argv": { "prefix": ["acm", "get-account-configuration"] } },
+                { "argv": { "prefix": ["acm", "get-certificate"] } },
+                { "argv": { "prefix": ["acm", "list-certificates"] } },
+                { "argv": { "prefix": ["acm", "list-tags-for-certificate"] } },
+                { "argv": { "exact": ["athena"] } },
+                { "argv": { "exact": ["athena", "help"] } },
+                { "argv": { "prefix": ["athena", "get-database"] } },
+                { "argv": { "prefix": ["athena", "get-data-catalog"] } },
+                { "argv": { "prefix": ["athena", "get-named-query"] } },
+                { "argv": { "prefix": ["athena", "get-query-execution"] } },
+                { "argv": { "prefix": ["athena", "get-query-results"] } },
+                { "argv": { "prefix": ["athena", "get-table-metadata"] } },
+                { "argv": { "prefix": ["athena", "get-work-group"] } },
+                { "argv": { "prefix": ["athena", "list-data-catalogs"] } },
+                { "argv": { "prefix": ["athena", "list-databases"] } },
+                { "argv": { "prefix": ["athena", "list-named-queries"] } },
+                { "argv": { "prefix": ["athena", "list-query-executions"] } },
+                { "argv": { "prefix": ["athena", "list-table-metadata"] } },
+                { "argv": { "prefix": ["athena", "list-work-groups"] } },
+                { "argv": { "exact": ["ecr"] } },
+                { "argv": { "exact": ["ecr", "help"] } },
+                { "argv": { "prefix": ["ecr", "batch-get-image"] } },
+                { "argv": { "prefix": ["ecr", "describe-images"] } },
+                { "argv": { "prefix": ["ecr", "describe-repositories"] } },
+                { "argv": { "prefix": ["ecr", "describe-registry"] } },
+                { "argv": { "prefix": ["ecr", "get-lifecycle-policy"] } },
+                { "argv": { "prefix": ["ecr", "get-repository-policy"] } },
+                { "argv": { "prefix": ["ecr", "list-images"] } },
+                { "argv": { "prefix": ["ecr", "list-tags-for-resource"] } },
+                { "argv": { "exact": ["ecr-public"] } },
+                { "argv": { "exact": ["ecr-public", "help"] } },
+                { "argv": { "prefix": ["ecr-public", "batch-get-image"] } },
+                { "argv": { "prefix": ["ecr-public", "describe-images"] } },
+                { "argv": { "prefix": ["ecr-public", "describe-registries"] } },
+                {
+                  "argv": { "prefix": ["ecr-public", "describe-repositories"] }
+                },
+                {
+                  "argv": {
+                    "prefix": ["ecr-public", "get-registry-catalog-data"]
+                  }
+                },
+                {
+                  "argv": {
+                    "prefix": ["ecr-public", "get-repository-catalog-data"]
+                  }
+                },
+                {
+                  "argv": { "prefix": ["ecr-public", "get-repository-policy"] }
+                },
+                {
+                  "argv": { "prefix": ["ecr-public", "list-tags-for-resource"] }
+                },
+                { "argv": { "exact": ["guardduty"] } },
+                { "argv": { "exact": ["guardduty", "help"] } },
+                { "argv": { "prefix": ["guardduty", "get-detector"] } },
+                { "argv": { "prefix": ["guardduty", "get-findings"] } },
+                {
+                  "argv": { "prefix": ["guardduty", "get-findings-statistics"] }
+                },
+                { "argv": { "prefix": ["guardduty", "list-detectors"] } },
+                { "argv": { "prefix": ["guardduty", "list-findings"] } },
+                { "argv": { "prefix": ["guardduty", "list-filters"] } },
+                { "argv": { "prefix": ["guardduty", "list-members"] } },
+                { "argv": { "exact": ["glue"] } },
+                { "argv": { "exact": ["glue", "help"] } },
+                { "argv": { "prefix": ["glue", "get-crawler"] } },
+                { "argv": { "prefix": ["glue", "get-crawlers"] } },
+                { "argv": { "prefix": ["glue", "get-database"] } },
+                { "argv": { "prefix": ["glue", "get-databases"] } },
+                { "argv": { "prefix": ["glue", "get-job"] } },
+                { "argv": { "prefix": ["glue", "get-job-run"] } },
+                { "argv": { "prefix": ["glue", "get-job-runs"] } },
+                { "argv": { "prefix": ["glue", "get-jobs"] } },
+                { "argv": { "prefix": ["glue", "get-partition"] } },
+                { "argv": { "prefix": ["glue", "get-partitions"] } },
+                { "argv": { "prefix": ["glue", "get-table"] } },
+                { "argv": { "prefix": ["glue", "get-tables"] } },
+                { "argv": { "prefix": ["glue", "get-workflow"] } },
+                { "argv": { "prefix": ["glue", "list-crawlers"] } },
+                { "argv": { "prefix": ["glue", "list-jobs"] } },
+                { "argv": { "prefix": ["glue", "list-workflows"] } },
+                { "argv": { "prefix": ["glue", "search-tables"] } },
+                { "argv": { "exact": ["kms"] } },
+                { "argv": { "exact": ["kms", "help"] } },
+                { "argv": { "prefix": ["kms", "describe-key"] } },
+                { "argv": { "prefix": ["kms", "get-key-policy"] } },
+                { "argv": { "prefix": ["kms", "get-key-rotation-status"] } },
+                { "argv": { "prefix": ["kms", "get-public-key"] } },
+                { "argv": { "prefix": ["kms", "list-aliases"] } },
+                { "argv": { "prefix": ["kms", "list-keys"] } },
+                { "argv": { "prefix": ["kms", "list-resource-tags"] } },
+                { "argv": { "prefix": ["sts", "get-caller-identity"] } },
+                { "argv": { "prefix": ["ec2", "describe-instances"] } },
+                { "argv": { "prefix": ["ec2", "describe-vpcs"] } },
+                { "argv": { "prefix": ["ec2", "describe-subnets"] } },
+                { "argv": { "prefix": ["ec2", "describe-security-groups"] } },
+                { "argv": { "prefix": ["ec2", "describe-route-tables"] } },
+                {
+                  "argv": { "prefix": ["ec2", "describe-network-interfaces"] }
+                },
+                { "argv": { "prefix": ["ec2", "describe-volumes"] } },
+                { "argv": { "prefix": ["ec2", "describe-images"] } },
+                { "argv": { "prefix": ["eks", "list-clusters"] } },
+                { "argv": { "prefix": ["eks", "describe-cluster"] } },
+                { "argv": { "prefix": ["eks", "list-nodegroups"] } },
+                { "argv": { "prefix": ["eks", "describe-nodegroup"] } },
+                { "argv": { "prefix": ["eks", "list-addons"] } },
+                { "argv": { "prefix": ["eks", "describe-addon"] } },
+                { "argv": { "prefix": ["iam", "list-roles"] } },
+                { "argv": { "prefix": ["iam", "get-role"] } },
+                { "argv": { "prefix": ["iam", "list-policies"] } },
+                { "argv": { "prefix": ["iam", "get-policy"] } },
+                { "argv": { "prefix": ["iam", "get-policy-version"] } },
+                { "argv": { "prefix": ["s3api", "list-buckets"] } },
+                { "argv": { "prefix": ["s3api", "list-objects-v2"] } },
+                { "argv": { "prefix": ["s3api", "head-bucket"] } },
+                { "argv": { "prefix": ["s3api", "head-object"] } },
+                { "argv": { "prefix": ["cloudformation", "list-stacks"] } },
+                { "argv": { "prefix": ["cloudformation", "describe-stacks"] } },
+                {
+                  "argv": {
+                    "prefix": ["cloudformation", "list-stack-resources"]
+                  }
+                },
+                {
+                  "argv": {
+                    "prefix": ["cloudformation", "describe-stack-events"]
+                  }
+                },
+                { "argv": { "prefix": ["cloudformation", "get-template"] } },
+                { "argv": { "prefix": ["cloudwatch", "list-metrics"] } },
+                { "argv": { "prefix": ["cloudwatch", "get-metric-data"] } },
+                {
+                  "argv": { "prefix": ["cloudwatch", "get-metric-statistics"] }
+                },
+                { "argv": { "prefix": ["cloudwatch", "describe-alarms"] } },
+                { "argv": { "prefix": ["logs", "describe-log-groups"] } },
+                { "argv": { "prefix": ["logs", "describe-log-streams"] } },
+                { "argv": { "prefix": ["logs", "filter-log-events"] } },
+                { "argv": { "prefix": ["logs", "start-query"] } },
+                { "argv": { "prefix": ["logs", "get-query-results"] } },
+                { "argv": { "exact": ["lambda"] } },
+                { "argv": { "exact": ["lambda", "help"] } },
+                { "argv": { "prefix": ["lambda", "get-account-settings"] } },
+                { "argv": { "prefix": ["lambda", "get-alias"] } },
+                {
+                  "argv": { "prefix": ["lambda", "get-function-configuration"] }
+                },
+                {
+                  "argv": { "prefix": ["lambda", "get-function-concurrency"] }
+                },
+                { "argv": { "prefix": ["lambda", "get-function-url-config"] } },
+                { "argv": { "prefix": ["lambda", "get-policy"] } },
+                { "argv": { "prefix": ["lambda", "list-aliases"] } },
+                { "argv": { "prefix": ["lambda", "list-functions"] } },
+                { "argv": { "prefix": ["lambda", "list-layers"] } },
+                { "argv": { "prefix": ["lambda", "list-tags"] } },
+                {
+                  "argv": { "prefix": ["lambda", "list-versions-by-function"] }
+                },
+                { "argv": { "prefix": ["ecs", "list-clusters"] } },
+                { "argv": { "prefix": ["ecs", "list-services"] } },
+                { "argv": { "prefix": ["ecs", "list-tasks"] } },
+                { "argv": { "prefix": ["ecs", "describe-clusters"] } },
+                { "argv": { "prefix": ["ecs", "describe-services"] } },
+                { "argv": { "prefix": ["ecs", "describe-tasks"] } },
+                { "argv": { "prefix": ["rds", "describe-db-instances"] } },
+                { "argv": { "prefix": ["rds", "describe-db-clusters"] } },
+                { "argv": { "prefix": ["route53", "list-hosted-zones"] } },
+                {
+                  "argv": { "prefix": ["route53", "list-resource-record-sets"] }
+                },
+                { "argv": { "exact": ["route53"] } },
+                { "argv": { "exact": ["route53", "help"] } },
+                { "argv": { "prefix": ["route53", "get-change"] } },
+                { "argv": { "prefix": ["route53", "get-health-check"] } },
+                { "argv": { "prefix": ["route53", "get-hosted-zone"] } },
+                { "argv": { "prefix": ["route53", "list-health-checks"] } },
+                {
+                  "argv": {
+                    "prefix": ["route53", "list-query-logging-configs"]
+                  }
+                },
+                { "argv": { "exact": ["ses"] } },
+                { "argv": { "exact": ["ses", "help"] } },
+                {
+                  "argv": { "prefix": ["ses", "get-account-sending-enabled"] }
+                },
+                { "argv": { "prefix": ["ses", "get-send-quota"] } },
+                { "argv": { "prefix": ["ses", "get-send-statistics"] } },
+                { "argv": { "prefix": ["ses", "list-identities"] } },
+                { "argv": { "prefix": ["ses", "list-templates"] } },
+                { "argv": { "exact": ["sesv2"] } },
+                { "argv": { "exact": ["sesv2", "help"] } },
+                { "argv": { "prefix": ["sesv2", "get-account"] } },
+                { "argv": { "prefix": ["sesv2", "get-email-identity"] } },
+                { "argv": { "prefix": ["sesv2", "list-configuration-sets"] } },
+                { "argv": { "prefix": ["sesv2", "list-contact-lists"] } },
+                { "argv": { "prefix": ["sesv2", "list-email-identities"] } },
+                { "argv": { "exact": ["sns"] } },
+                { "argv": { "exact": ["sns", "help"] } },
+                {
+                  "argv": { "prefix": ["sns", "get-subscription-attributes"] }
+                },
+                { "argv": { "prefix": ["sns", "get-topic-attributes"] } },
+                { "argv": { "prefix": ["sns", "list-subscriptions"] } },
+                {
+                  "argv": { "prefix": ["sns", "list-subscriptions-by-topic"] }
+                },
+                { "argv": { "prefix": ["sns", "list-topics"] } },
+                { "argv": { "exact": ["sqs"] } },
+                { "argv": { "exact": ["sqs", "help"] } },
+                { "argv": { "prefix": ["sqs", "get-queue-attributes"] } },
+                { "argv": { "prefix": ["sqs", "get-queue-url"] } },
+                { "argv": { "prefix": ["sqs", "list-queues"] } },
+                { "argv": { "prefix": ["sqs", "list-queue-tags"] } },
+                { "argv": { "exact": ["ssm"] } },
+                { "argv": { "exact": ["ssm", "help"] } },
+                { "argv": { "prefix": ["ssm", "describe-parameters"] } },
+                {
+                  "argv": { "prefix": ["ssm", "describe-instance-information"] }
+                },
+                { "argv": { "prefix": ["ssm", "describe-sessions"] } },
+                { "argv": { "prefix": ["ssm", "list-command-invocations"] } },
+                { "argv": { "prefix": ["ssm", "list-commands"] } },
+                { "argv": { "prefix": ["ssm", "list-documents"] } },
+                { "argv": { "exact": ["sts"] } },
+                { "argv": { "exact": ["sts", "help"] } },
+                { "argv": { "prefix": ["sts", "get-access-key-info"] } },
+                { "argv": { "exact": ["waf"] } },
+                { "argv": { "exact": ["waf", "help"] } },
+                { "argv": { "prefix": ["waf", "get-rule"] } },
+                { "argv": { "prefix": ["waf", "get-web-acl"] } },
+                { "argv": { "prefix": ["waf", "list-rules"] } },
+                { "argv": { "prefix": ["waf", "list-web-acls"] } },
+                { "argv": { "exact": ["wafv2"] } },
+                { "argv": { "exact": ["wafv2", "help"] } },
+                { "argv": { "prefix": ["wafv2", "check-capacity"] } },
+                { "argv": { "prefix": ["wafv2", "get-rule-group"] } },
+                { "argv": { "prefix": ["wafv2", "get-web-acl"] } },
+                { "argv": { "prefix": ["wafv2", "list-rule-groups"] } },
+                { "argv": { "prefix": ["wafv2", "list-web-acls"] } },
+                {
+                  "argv": {
+                    "prefix": ["organizations", "describe-organization"]
+                  }
+                },
+                { "argv": { "prefix": ["organizations", "list-accounts"] } },
+                { "argv": { "prefix": ["secretsmanager", "list-secrets"] } },
+                { "argv": { "prefix": ["secretsmanager", "describe-secret"] } },
+                { "argv": { "prefix": ["ssm", "describe-parameters"] } }
+              ]
+            }
+          }
+        }
+      },
+      "groff": {
+        "can_use": ["preconv", "tbl", "troff", "grotty"],
+        "from": {
+          "aws": {
+            "sandbox": {
+              "fs_read": [
+                "/lib",
+                "/lib64",
+                "/usr/lib",
+                "/usr/lib64",
+                "/usr/share/groff"
+              ],
+              "environment": {
+                "allow_vars": ["PATH"]
+              }
+            }
+          }
+        }
+      },
+      "preconv": {
+        "from": {
+          "groff": {
+            "sandbox": {
+              "fs_read": ["/usr/share/groff"]
+            }
+          }
+        }
+      },
+      "tbl": {
+        "from": {
+          "groff": {
+            "sandbox": {
+              "fs_read": ["/usr/share/groff"]
+            }
+          }
+        }
+      },
+      "troff": {
+        "from": {
+          "groff": {
+            "sandbox": {
+              "fs_read": ["/usr/share/groff"]
+            }
+          }
+        }
+      },
+      "grotty": {
+        "from": {
+          "groff": {
+            "sandbox": {
+              "fs_read": ["/usr/share/groff"]
+            }
+          }
+        }
+      },
+      "granted": {
+        "from": {
+          "aws": {
+            "sandbox": {
+              "fs_read": ["$XDG_CONFIG_HOME/granted"],
+              "fs_read_file": [
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
+                "$HOME/.aws/config"
+              ],
+              "fs_write": [
+                "$XDG_CONFIG_HOME/granted",
+                "$XDG_CACHE_HOME/granted",
+                "$XDG_STATE_HOME/granted"
+              ],
+              "environment": {
+                "allow_vars": [
+                  "PATH",
+                  "HOME",
+                  "XDG_CONFIG_HOME",
+                  "XDG_CACHE_HOME",
+                  "XDG_STATE_HOME",
+                  "AWS_PROFILE",
+                  "DISPLAY"
+                ]
+              },
+              "network": {
+                "allow_all": true
+              }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [{ "argv": { "prefix": ["credential-process"] } }]
+            }
+          }
+        }
+      }
+    }
+  }
+}
