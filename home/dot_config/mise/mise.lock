@@ -712,6 +712,10 @@ backend = "npm:renovate"
 allow_builds = '["re2"]'
 trust_policy_excludes = '["@yarnpkg/libzip@3.2.2"]'
 
+[[tools."npm:repomix"]]
+version = "1.18.0"
+backend = "npm:repomix"
+
 [[tools."npm:skills"]]
 version = "1.5.17"
 backend = "npm:skills"
