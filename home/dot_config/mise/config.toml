@@ -157,6 +157,13 @@ oxipng = "10.2.0"
 "github:YiNNx/cmd-wrapped" = { version = "0.4.1", bin = "cmd-wrapped" }
 
 # AI
+opencode = { version = "1.18.30", postinstall = '''
+opencode completion >~/.zshrc.d/site-functions/_opencode
+''' }
+claude-code = "2.1.267"
+codex = { version = "0.152.0", postinstall = '''
+codex completion zsh >~/.zshrc.d/site-functions/_codex
+''' }
 nono = { version = "0.75.0", postinstall = '''
 nono completion zsh >~/.zshrc.d/site-functions/_nono
 nono pull nolabs-ai/opencode

@@ -186,9 +186,27 @@ url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x6
 checksum = "sha256:56a7d6806cf155536c0178f0ea5fbd098e684fa509ebdb4fc0a7e19fb65382dc"
 url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64-musl-baseline.zip"
 
+[[tools.claude-code]]
+version = "2.1.267"
+backend = "aqua:anthropics/claude-code"
+
+[tools.claude-code."platforms.linux-x64"]
+checksum = "sha256:449bc65dc82d68694103a801c8ac54b6549f9e12f469217c9e0d5560c1085023"
+url = "https://github.com/anthropics/claude-code/releases/download/v2.1.267/claude-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/anthropics/claude-code/releases/assets/553320444"
+
 [[tools.claude-powerline]]
 version = "1.30.1"
 backend = "npm:@owloops/claude-powerline"
+
+[[tools.codex]]
+version = "0.152.0"
+backend = "aqua:openai/codex"
+
+[tools.codex."platforms.linux-x64"]
+checksum = "sha256:352c24fbdc5aefaffde9c1df991b534b6bc72a06e49708794fc685fc3556c855"
+url = "https://github.com/openai/codex/releases/download/rust-v0.152.0/codex-package-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/openai/codex/releases/assets/538792457"
 
 [[tools.conftest]]
 version = "0.61.0"
@@ -709,6 +727,15 @@ backend = "npm:stylelint-config-standard"
 [[tools."npm:tokscale"]]
 version = "4.12.0"
 backend = "npm:tokscale"
+
+[[tools.opencode]]
+version = "1.18.30"
+backend = "aqua:anomalyco/opencode"
+
+[tools.opencode."platforms.linux-x64"]
+checksum = "sha256:55007246858165496ff85ba1c2b648f7421e8e2013bf4189a680c9ff8e699d17"
+url = "https://github.com/anomalyco/opencode/releases/download/v1.18.30/opencode-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/anomalyco/opencode/releases/assets/551875364"
 
 [[tools.oxipng]]
 version = "10.2.0"

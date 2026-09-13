@@ -243,7 +243,6 @@ packages:
       - extra/zram-generator
       # developer tools
       - aur/bazecor
-      - chaotic-aur/claude-code
       - chaotic-aur/playwright
       - core/openssh
       - extra/7zip # for yazi archive extraction and preview
@@ -267,8 +266,6 @@ packages:
       - extra/moreutils # for vidir and sponge
       - extra/neovide
       - extra/obsidian
-      - extra/openai-codex
-      - extra/opencode
       - extra/parallel
       - extra/postgresql
       - extra/qemu-user-static
