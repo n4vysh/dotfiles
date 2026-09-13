@@ -6,12 +6,22 @@
   "provider": {
     "openai": {
       "models": {
-        "gpt-6-astra": {
+        "gpt-6-astra-fast": {
           "options": {
             "textVerbosity": "low" // keep routine responses concise
           }
         },
-        "gpt-6-astra-fast": {
+        "gpt-5.6-sol-fast": {
+          "options": {
+            "textVerbosity": "low" // keep routine responses concise
+          }
+        },
+        "gpt-5.6-terra-fast": {
+          "options": {
+            "textVerbosity": "low" // keep routine responses concise
+          }
+        },
+        "gpt-5.6-luna-fast": {
           "options": {
             "textVerbosity": "low" // keep routine responses concise
           }
@@ -25,19 +35,29 @@
   "plugin": ["@devtheops/opencode-plugin-otel@1.5.0"],
   "agent": {
     // Built-in primary agents
-    "compaction": {
+    "build": {
+      "model": "openai/gpt-5.6-terra",
+      "reasoningEffort": "medium",
+      "textVerbosity": "low"
+    },
+    "plan": {
       "model": "openai/gpt-6-astra",
-      "reasoningEffort": "high",
+      "reasoningEffort": "low",
+      "textVerbosity": "low"
+    },
+    "compaction": {
+      "model": "openai/gpt-5.6-sol",
+      "reasoningEffort": "low",
       "textVerbosity": "high"
     },
     // Built-in subagents
     "general": {
-      "model": "openai/gpt-6-astra",
+      "model": "openai/gpt-5.6-luna",
       "reasoningEffort": "medium",
       "textVerbosity": "high"
     },
     "explore": {
-      "model": "openai/gpt-6-astra",
+      "model": "openai/gpt-5.6-luna",
       "reasoningEffort": "medium",
       "textVerbosity": "high"
     }
