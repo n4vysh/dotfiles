@@ -158,11 +158,11 @@ _install() {
 		etc/iwd/main.conf
 		etc/systemd/network/20-wired.network
 		etc/systemd/network/25-wireless.network
-		etc/systemd/resolved.conf.d/dns_servers.conf
-		etc/systemd/journald.conf.d/system_max_use.conf
-		etc/systemd/logind.conf.d/handle_power_key.conf
-		etc/systemd/logind.conf.d/handle_lid_switch.conf
-		etc/systemd/system.conf.d/default_timeout_stop_sec.conf
+		etc/systemd/resolved.conf.d/dns-servers.conf
+		etc/systemd/journald.conf.d/system-max-use.conf
+		etc/systemd/logind.conf.d/handle-power-key.conf
+		etc/systemd/logind.conf.d/handle-lid-switch.conf
+		etc/systemd/system.conf.d/default-timeout-stop-sec.conf
 		etc/systemd/system/systemd-fsck-root.service.d/io.conf
 		etc/systemd/system/systemd-fsck@.service.d/io.conf
 		etc/systemd/system/display-manager.service.d/color.conf

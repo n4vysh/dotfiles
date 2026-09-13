@@ -175,7 +175,7 @@
 - [Arch Linux][archlinux-link]
   (installation guide: [native][install-guide-link] / [wsl][install-guide-wsl-link])
 
-[install-guide-link]: ./docs/install-archlinux-without-virtulization.md
+[install-guide-link]: ./docs/install-archlinux-without-virtualization.md
 [install-guide-wsl-link]: ./docs/install-archlinux-on-wsl2.md
 
 ## 🚀 Usage
@@ -219,7 +219,7 @@ and restore settings from following files in [misc/firefox/](misc/firefox/) dire
 | :---------------------------------- | :------------------------------------------------ |
 | [uBlock Origin][ublock-origin-link] | [ublock.txt](misc/firefox/ublock.txt)             |
 | [LibRedirect][libredirect-link]     | [libredirect.json](misc/firefox/libredirect.json) |
-| [ZeroOmega][zero-omega-link]        | [zero_omega.bak](misc/firefox/zero_omega.bak)     |
+| [ZeroOmega][zero-omega-link]        | [zero-omega.bak](misc/firefox/zero-omega.bak)     |
 | [Translate Web Pages][twp-link]     | [twp.txt](misc/firefox/twp.txt)                   |
 
 [collections-link]: https://addons.mozilla.org/en-US/firefox/collections/17575539/n4vysh/

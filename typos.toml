@@ -17,6 +17,6 @@ extend-ignore-identifiers-re = [
   # .zshrc.d/functions/zvm_after_init
   "^ot",
 
-  # /etc/systemd/system/display-namager.service.d/color.conf
+  # /etc/systemd/system/display-manager.service.d/color.conf
   "P7c0caf5",
 ]
