@@ -1,3 +1,11 @@
+---
+icon: lucide/terminal
+tags:
+    - Getting started
+    - Installation
+    - WSL2
+---
+
 # Install Arch Linux on WSL2
 
 I use WSL only at work because the security software
@@ -8,7 +16,7 @@ Probably work following setup.
 - Window Manager: [GlazeWM][glazewm-link]
 - Terminal Emulator: [WezTerm][wezterm-link]
 
-[package list](../home/.chezmoidata/packages.yaml)
+[package list](https://github.com/n4vysh/dotfiles/blob/main/home/.chezmoidata/packages.yaml)
 
 [glazewm-link]: https://github.com/glzr-io/glazewm
 [wezterm-link]: https://wezterm.org/
@@ -66,8 +74,8 @@ with [SharpKeys][sharpkeys-link] and [AutoHotKey][ahk-link].
 | `Alt (Right)`  | `Ctrl (Right)` | `Escape` when pressed alone |
 | `Alt (Left)`   | `Alt (Left)`   |                             |
 
-[sharpkeys-config-link]: ../misc/wsl/remap.skl
-[ahk-config-link]: ../home/dot_glzr/glazewm/hotkeys.ahk
+[sharpkeys-config-link]: https://github.com/n4vysh/dotfiles/blob/main/misc/wsl/remap.skl
+[ahk-config-link]: https://github.com/n4vysh/dotfiles/blob/main/home/dot_glzr/glazewm/hotkeys.ahk
 [sharpkeys-link]: https://github.com/randyrants/sharpkeys
 [ahk-link]: https://www.autohotkey.com/
 

@@ -1,3 +1,11 @@
+---
+icon: lucide/monitor
+tags:
+    - Getting started
+    - Installation
+    - Arch Linux
+---
+
 # Install Arch Linux without virtualization
 
 ## Acquire an installation image

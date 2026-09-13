@@ -92,6 +92,8 @@ pre-commit:
                   run: rumdl check {staged_files}
           - name: lychee
             run: lychee -n {staged_files}
+          - name: zensical
+            run: zensical build --clean
     - name: shell
       group:
         parallel: true

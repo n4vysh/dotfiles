@@ -28,5 +28,6 @@ mise install \
   taplo \
   yamlfmt \
   yamllint \
-  zizmor
+  zizmor \
+  pipx:zensical
 '''

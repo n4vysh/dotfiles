@@ -2,6 +2,9 @@ ls:
   .*: kebab-case
   .dir: kebab-case
   .md: "kebab-case | SCREAMING_SNAKE_CASE"
+  .zensical:
+    .*: kebab-case
+    .dir: "kebab-case | regex:\\.zensical"
   .github:
     .*: snake_case
     .dir: "snake_case | regex:\\.github"
@@ -30,6 +33,9 @@ ls:
       mise/plugins/vfox-*/hooks:
         .*: snake_case
 ignore:
+  - .zensical/site
+  - .cache # zensical
   - .git
   - .rumdl_cache
+  - .ruff_cache
   - .worktrees

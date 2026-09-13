@@ -1,0 +1,81 @@
+name: publish-docs
+"on":
+  pull_request:
+    paths:
+      - ".github/workflows/publish-docs.yml"
+      - "CONTRIBUTING.md"
+      - "docs/**"
+      - ".zensical/overrides/**"
+      - "home/dot_config/mise/config.toml"
+      - "home/dot_config/mise/mise.lock"
+      - "home/dot_config/mise/plugins/**"
+      - "mise.toml"
+      - "zensical.toml"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/publish-docs.yml"
+      - "CONTRIBUTING.md"
+      - "docs/**"
+      - ".zensical/overrides/**"
+      - "home/dot_config/mise/config.toml"
+      - "home/dot_config/mise/mise.lock"
+      - "home/dot_config/mise/plugins/**"
+      - "mise.toml"
+      - "zensical.toml"
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: publish-docs-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build-docs:
+    runs-on: ubuntu-26.04
+    steps:
+      # yamllint disable-line rule:line-length
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Define XDG_DATA_HOME for mise env
+        run: echo "XDG_DATA_HOME=$HOME/.local/share" >>"$GITHUB_ENV"
+      - name: Create zsh completion directory for mise postinstall
+        run: mkdir -p "$HOME/.zshrc.d/site-functions"
+      - name: Make source mise plugin discoverable
+        run: |
+          mkdir -p "$HOME/.config/mise/plugins"
+          ln -s \
+            "$GITHUB_WORKSPACE/home/dot_config/mise/plugins/vfox-http-deb" \
+            "$HOME/.config/mise/plugins/vfox-http-deb"
+      - uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c # v4.3.0
+        env:
+          MISE_CONFIG_FILE: home/dot_config/mise/config.toml
+        with:
+          bootstrap: true
+          bootstrap_args: --only task --yes
+      - name: Build documentation
+        run: zensical build --clean
+      # yamllint disable-line rule:line-length
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        if: >-
+          github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        with:
+          path: .zensical/site
+  deploy-docs:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build-docs
+    runs-on: ubuntu-26.04
+    permissions:
+      contents: read
+      id-token: write
+      pages: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      # yamllint disable-line rule:line-length
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - id: deployment
+        # yamllint disable-line rule:line-length
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.0
