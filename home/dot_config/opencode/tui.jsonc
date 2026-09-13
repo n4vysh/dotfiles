@@ -9,5 +9,6 @@
     "session_child_cycle": "ctrl+meta+l",
     "session_child_cycle_reverse": "ctrl+meta+h",
     "session_parent": "<leader>k"
-  }
+  },
+  "plugin": ["./herdr-tui-session.js"]
 }
