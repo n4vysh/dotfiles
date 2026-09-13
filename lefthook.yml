@@ -37,6 +37,8 @@ pre-commit:
               - "**/*.png"
               - "**/*.mozlz4"
             run: typos {staged_files}
+          - name: ls-lint
+            run: ls-lint
     - name: git
       group:
         jobs:

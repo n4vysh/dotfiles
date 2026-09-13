@@ -1,0 +1,35 @@
+ls:
+  .*: kebab-case
+  .dir: kebab-case
+  .md: "kebab-case | SCREAMING_SNAKE_CASE"
+  .github:
+    .*: snake_case
+    .dir: "snake_case | regex:\\.github"
+    ISSUE_TEMPLATE:
+      .*: snake_case
+    workflows:
+      .*: kebab-case
+  etc:
+    .*: kebab-case
+    .dir: "kebab-case | regex:[a-z0-9.-]+\\.d"
+    ssh/sshd_config.d:
+      .*: snake_case
+    systemd/system:
+      .*: kebab-case
+      .dir: "kebab-case | regex:[a-z0-9@.-]+"
+  home:
+    .*: "kebab-case | regex:[a-z]+_[a-z0-9._-]+"
+    .md: "kebab-case | SCREAMING_SNAKE_CASE | regex:[a-z]+_[A-Za-z0-9._-]+"
+    .dir: "regex:[a-z0-9.-]+ | regex:[a-z]+_[a-z0-9._-]+"
+    .chezmoiscripts:
+      .*: "kebab-case | regex:run_(once|onchange)_(before|after)_[a-z0-9._-]+"
+      .dir: "kebab-case | regex:\\.[a-z]+"
+    dot_config:
+      Kvantum:
+        .*: kebab-case
+      mise/plugins/vfox-*/hooks:
+        .*: snake_case
+ignore:
+  - .git
+  - .rumdl_cache
+  - .worktrees

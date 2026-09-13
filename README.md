@@ -242,7 +242,7 @@ Run `lefthook run fmt` to format all supported files.
 
 | Target type     | Formatter / Linter / Testing framework                                                |
 | :-------------- | :------------------------------------------------------------------------------------ |
-| all files       | [editorconfig-checker][ec-link] / [typos][typos-link]                                 |
+| all files       | [editorconfig-checker][ec-link] / [typos][typos-link] / [ls-lint][ls-lint-link]       |
 | JSON files      | [prettier][prettier-link]                                                             |
 | YAML files      | [yamlfmt][yamlfmt-link] / [yamllint][yamllint-link]                                   |
 | TOML files      | [taplo][taplo-link]                                                                   |
@@ -256,6 +256,7 @@ Run `lefthook run fmt` to format all supported files.
 [lefthook-link]: https://github.com/evilmartians/lefthook
 [ec-link]: https://github.com/editorconfig-checker/editorconfig-checker
 [typos-link]: https://github.com/crate-ci/typos
+[ls-lint-link]: https://github.com/loeffel-io/ls-lint
 [prettier-link]: https://github.com/prettier/prettier
 [yamlfmt-link]: https://github.com/google/yamlfmt
 [yamllint-link]: https://github.com/adrienverge/yamllint
