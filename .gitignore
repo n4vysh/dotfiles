@@ -1,8 +1,8 @@
-home/dot_config/nono/nono-profile.schema.json
+/home/dot_config/nono/nono-profile.schema.json
 
 # zensical
-.cache/
-.zensical/site/
+/.cache/
+/.zensical/site/
 
 # Python tooling
-.ruff_cache/
+/.ruff_cache/
