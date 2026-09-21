@@ -31,7 +31,7 @@ pre-commit:
                   file_types: text
                   run: check-shebang-scripts-are-executable {staged_files}
           - name: editorconfig-checker
-            run: ec {staged_files}
+            run: editorconfig-checker {staged_files}
           - name: typos
             exclude:
               - "**/*.png"

@@ -51,7 +51,7 @@ AWS_VAULT_PASS_PREFIX = "aws-vault"
 
 [tools]
 # General
-editorconfig-checker = "3.11.1"
+editorconfig-checker = "4.0.1"
 typos = "1.49.0"
 ls-lint = "2.3.1"
 "pypi:pre-commit-hooks" = "6.0.0"

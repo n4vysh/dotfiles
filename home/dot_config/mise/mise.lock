@@ -274,14 +274,14 @@ url = "https://github.com/homeport/dyff/releases/download/v1.10.1/dyff_1.10.1_li
 url_api = "https://api.github.com/repos/homeport/dyff/releases/assets/235469133"
 
 [[tools.editorconfig-checker]]
-version = "3.11.1"
+version = "4.0.1"
 backend = "aqua:editorconfig-checker/editorconfig-checker"
-specifiers = ["3.11.1"]
+specifiers = ["4.0.1"]
 
 [tools.editorconfig-checker."platforms.linux-x64"]
-checksum = "sha256:5a37922963248451e88149251e49f6ae08f69717a3918202a51fe9945e19691e"
-url = "https://github.com/editorconfig-checker/editorconfig-checker/releases/download/v3.11.1/ec-linux-amd64.tar.gz"
-url_api = "https://api.github.com/repos/editorconfig-checker/editorconfig-checker/releases/assets/506306099"
+checksum = "sha256:90139c6ed52373c0acfc9deb2a07aa812e5184753afd4bc8252bf44eb4909155"
+url = "https://github.com/editorconfig-checker/editorconfig-checker/releases/download/v4.0.1/editorconfig-checker-linux-amd64.tar.gz"
+url_api = "https://api.github.com/repos/editorconfig-checker/editorconfig-checker/releases/assets/543952355"
 
 [[tools.fx]]
 version = "39.2.0"
