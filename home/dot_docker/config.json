@@ -3,6 +3,7 @@
 		"ghcr.io": {}
 	},
 	"detachKeys": "ctrl-\\",
+	"currentContext": "rootless",
 	"credsStore": "pass",
 	"credHelpers": {
 		"425691168956.dkr.ecr.ap-northeast-1.amazonaws.com": "ecr-login",

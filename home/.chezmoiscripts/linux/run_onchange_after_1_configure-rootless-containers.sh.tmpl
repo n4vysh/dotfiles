@@ -23,7 +23,6 @@ fi
 gum log --level info 'Configure docker rootless context'
 if ! docker context inspect rootless >/dev/null 2>&1; then
 	docker context create rootless --docker "host=unix://$XDG_RUNTIME_DIR/docker.sock"
-	docker context use rootless
 else
 	gum log --level warn 'docker rootless context already exists -- skipping'
 fi
