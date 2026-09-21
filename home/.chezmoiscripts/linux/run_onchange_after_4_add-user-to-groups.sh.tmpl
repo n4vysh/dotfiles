@@ -3,6 +3,8 @@
 set -eu
 
 gum log --level info "Add user to group"
+xargs -r -I {} sudo gpasswd -a "$USER" {} <<'EOF'
 {{ range .groups -}}
-sudo gpasswd -a "$USER" {{ . | quote }}
+{{ . }}
 {{ end -}}
+EOF

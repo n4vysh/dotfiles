@@ -116,7 +116,6 @@ pre-commit:
             run: shellharden --check {staged_files}
           - name: shellcheck
             exclude:
-              - "**/*.tmpl"
               - "**/*.zsh"
               - "**/dot_zshenv"
               - "**/dot_zshrc"

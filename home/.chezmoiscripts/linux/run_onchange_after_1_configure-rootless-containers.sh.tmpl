@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -euo pipefail
+set -eu
 
 gum log --level info 'Check systemd user session'
 systemctl --user show-environment >/dev/null

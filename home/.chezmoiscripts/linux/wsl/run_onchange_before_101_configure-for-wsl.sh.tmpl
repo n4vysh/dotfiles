@@ -75,6 +75,7 @@ cat <<-'EOF' >~/.local/bin/nmap
 EOF
 chmod +x ~/.local/bin/nmap
 
+# shellcheck disable=SC2016
 localappdata="$(
 	wslpath "$(
 		/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe \
