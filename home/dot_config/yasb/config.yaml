@@ -3,7 +3,7 @@
 watch_stylesheet: true
 watch_config: true
 debug: false
-update_check: true
+update_check: false
 bars:
   primary-bar:
     enabled: true
