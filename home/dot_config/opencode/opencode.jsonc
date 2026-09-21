@@ -643,6 +643,7 @@
         "--disable-telemetry"
       ],
       "environment": {
+        "AWS_CONFIG_FILE": "{env:HOME}/.aws/config",
         "AWS_PROFILE": "n4vysh-stg",
         "AWS_REGION": "ap-northeast-1"
       }
@@ -656,6 +657,7 @@
         "--disable-telemetry"
       ],
       "environment": {
+        "AWS_CONFIG_FILE": "{env:HOME}/.aws/config",
         "AWS_PROFILE": "n4vysh-prod",
         "AWS_REGION": "ap-northeast-1"
       }
@@ -669,6 +671,7 @@
         "--disable-telemetry"
       ],
       "environment": {
+        "AWS_CONFIG_FILE": "{env:HOME}/.aws/config",
         "AWS_PROFILE": "n4vysh-common",
         "AWS_REGION": "ap-northeast-1"
       }
