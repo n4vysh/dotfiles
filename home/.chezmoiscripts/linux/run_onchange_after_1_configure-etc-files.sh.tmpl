@@ -31,9 +31,9 @@ sudo sed \
 	/etc/ly/config.ini
 sudo sed \
 	-i \
-	-e '/^#governor=/s/ondemand/performance/' \
-	-e '/^#governor=/s/#//' \
-	-e '/^#max_freq=/s/#max_freq="[0-9]*GHz"/max_freq="2GHz"/' \
+	-e '/^#GOVERNOR=/s/ondemand/performance/' \
+	-e '/^#GOVERNOR=/s/#//' \
+	-e '/^#MAX_FREQ=/s/#MAX_FREQ="[0-9]*GHz"/MAX_FREQ="2GHz"/' \
 	/etc/default/cpupower-service.conf
 sudo sed \
 	-i \
