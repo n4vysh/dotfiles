@@ -152,23 +152,38 @@ pre-commit:
 fmt:
   parallel: true
   jobs:
-    - name: prettier
+    - name: json
       glob: "**/*.json"
-      run: prettier --write {all_files}
-    - name: yamlfmt
+      group:
+        jobs:
+          - name: prettier
+            run: prettier --write {all_files}
+    - name: yaml
       glob:
         - "**/*.yaml"
         - "**/*.yml"
-      run: yamlfmt {all_files}
-    - name: taplo
+      group:
+        jobs:
+          - name: yamlfmt
+            run: yamlfmt {all_files}
+    - name: toml
       glob: "**/*.toml"
-      exclude:
-        - home/dot_config/pet/config.toml
-        - home/dot_config/pet/snippet.toml
-      run: taplo format {all_files}
-    - name: rumdl
+      group:
+        jobs:
+          - name: taplo
+            exclude:
+              - home/dot_config/pet/config.toml
+              - home/dot_config/pet/snippet.toml
+            run: taplo format {all_files}
+          - name: mise
+            glob: "**/mise.toml"
+            run: mise fmt
+    - name: markdown
       glob: "**/*.md"
-      run: rumdl fmt {all_files}
+      group:
+        jobs:
+          - name: rumdl
+            run: rumdl fmt {all_files}
     - name: shell
       group:
         jobs:
@@ -188,9 +203,12 @@ fmt:
               - "**/dot_zshrc.d/functions/**"
             exclude: "**/*.tmpl"
             run: shfmt -w {all_files}
-    - name: stylua
+    - name: lua
       glob: "**/*.lua"
-      run: stylua {all_files}
+      group:
+        jobs:
+          - name: stylua
+            run: stylua {all_files}
 commit-msg:
   commands:
     commitlint:
