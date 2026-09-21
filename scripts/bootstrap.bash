@@ -141,20 +141,12 @@ _install() {
 	)"
 
 	_log::info 'Copy reflector config from live environment'
-	cp -fv /{,mnt/}etc/xdg/reflector/reflector.conf
+	install -C -D -v -m 0644 -o root -g root \
+		/etc/xdg/reflector/reflector.conf /mnt/etc/xdg/reflector/reflector.conf
 
 	_log::info 'Deploy config files from live environment'
 	dir=/tmp/dotfiles
-	mkdir -p \
-		/mnt/etc/iwd/ \
-		/mnt/etc/systemd/resolved.conf.d/ \
-		/mnt/etc/systemd/journald.conf.d/ \
-		/mnt/etc/systemd/logind.conf.d/ \
-		/mnt/etc/systemd/system.conf.d/ \
-		/mnt/etc/systemd/system/systemd-fsck-root.service.d/ \
-		/mnt/etc/systemd/system/systemd-fsck@.service.d/ \
-		/mnt/etc/systemd/system/display-manager.service.d/
-	xargs -I {} cp -v "$dir/{}" /mnt/{} <<-EOF
+	xargs -I {} install -C -D -v -m 0644 -o root -g root "$dir/{}" /mnt/{} <<-EOF
 		etc/iwd/main.conf
 		etc/systemd/network/20-wired.network
 		etc/systemd/network/25-wireless.network
@@ -170,6 +162,8 @@ _install() {
 		etc/systemd/system/rkhunter.timer
 		etc/makepkg.conf.d/makepkg.conf
 		etc/modprobe.d/disable-overlay-redirect-dir.conf
+	EOF
+	xargs -I {} install -C -D -v -m 0440 -o root -g root "$dir/{}" /mnt/{} <<-EOF
 		etc/sudoers.d/env-keep
 		etc/sudoers.d/pwfeedback
 		etc/sudoers.d/wheel
@@ -192,13 +186,13 @@ _install() {
 	_log::info 'Configure locale'
 	arch-chroot /mnt sed -i -e '/^#en_US.UTF-8 UTF-8  $/s/#//' /etc/locale.gen
 	arch-chroot /mnt locale-gen
-	cp -fv /tmp/dotfiles/etc/locale.conf /mnt/etc/
+	install -C -D -v -m 0644 -o root -g root /tmp/dotfiles/etc/locale.conf /mnt/etc/locale.conf
 
 	_log::info 'Configure keyboard'
 	arch-chroot /mnt bash -c 'echo KEYMAP=us >/etc/vconsole.conf'
 
 	_log::info 'Configure hostname'
-	cp -fv /tmp/dotfiles/etc/hostname /mnt/etc/
+	install -C -D -v -m 0644 -o root -g root /tmp/dotfiles/etc/hostname /mnt/etc/hostname
 
 	_log::info 'Configure Bootsplash'
 	sed \
@@ -207,7 +201,7 @@ _install() {
 		/usr/share/pixmaps/archlinux-logo.svg |
 		arch-chroot /mnt magick -size 80x80 -background 'rgb(0,0,0)' - \
 			/usr/share/systemd/bootctl/splash-arch-custom.bmp
-	xargs -I {} cp "$dir/{}" /mnt/{} <<-EOF
+	xargs -I {} install -C -D -v -m 0644 -o root -g root "$dir/{}" /mnt/{} <<-EOF
 		etc/sysctl.d/20-quiet-printk.conf
 	EOF
 	cat <<-EOF | sudo tee /mnt/etc/issue >/dev/null
@@ -265,7 +259,7 @@ _install() {
 		-e '/^#default_options=/s/^#//' \
 		-e 's/splash-arch.bmp/splash-arch-custom.bmp/g' \
 		/etc/mkinitcpio.d/linux-zen.preset
-	arch-chroot /mnt cp -v \
+	arch-chroot /mnt install -C -v -m 0644 -o root -g root \
 		/usr/lib/systemd/system/systemd-fsck{@,-root}.service /etc/systemd/system
 	arch-chroot /mnt mkinitcpio -P
 

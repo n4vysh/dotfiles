@@ -8,9 +8,8 @@ if [ -d /mnt/wsl ]; then
 fi
 
 gum log --level info 'Deploy etc files'
-sudo mkdir -p /etc/keyd/ /etc/rkhunter.d/
 dir="$HOME/.local/share/chezmoi"
-xargs -I {} sudo cp -v "$dir/{}" /{} <<-EOF
+xargs -I {} sudo install -C -D -v -m 0644 -o root -g root "$dir/{}" /{} <<-EOF
 	etc/keyd/default.conf
 	etc/polkit-1/rules.d/50-udisks.rules
 	etc/systemd/zram-generator.conf
@@ -63,7 +62,7 @@ else
 fi
 
 if ! [ -f /etc/pam.d/polkit-1 ]; then
-	sudo cp -v /usr/lib/pam.d/polkit-1 /etc/pam.d/polkit-1
+	sudo install -C -D -v -m 0644 -o root -g root /usr/lib/pam.d/polkit-1 /etc/pam.d/polkit-1
 fi
 if ! sudo grep -q "pam_u2f.so" /etc/pam.d/polkit-1; then
 	sudo sed \
