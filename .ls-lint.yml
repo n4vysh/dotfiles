@@ -1,5 +1,6 @@
 ls:
   .*: kebab-case
+  .*.*: kebab-case
   .dir: kebab-case
   .md: "kebab-case | SCREAMING_SNAKE_CASE"
   .zensical:
