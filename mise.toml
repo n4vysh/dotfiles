@@ -1,4 +1,5 @@
 [tasks.bootstrap]
+description = "Install development tools for dotfiles"
 run = '''
 # NOTE: install required tools only for dotfiles repository
 #       version pinning with global config
@@ -30,4 +31,32 @@ mise install \
   yamllint \
   zizmor \
   pipx:zensical
+'''
+
+[tasks.test]
+description = "Run all repository checks"
+run = "lefthook run pre-commit --all-files"
+
+[tasks.fmt]
+description = "Format supported files in place"
+run = "lefthook run fmt"
+
+[tasks."docs"]
+description = "Preview the documentation locally"
+run = "zensical serve"
+
+[tasks."screenshot:login-screen"]
+description = "Capture the login screen using sudo"
+run = "sudo fbgrab -c 2 docs/assets/screenshots/login-screen.png"
+
+[tasks."screenshot:bootsplash"]
+description = "Generate the bootsplash screenshot"
+run = '''
+magick \
+    -size 1920x1080 \
+    xc:black \
+    /usr/share/systemd/bootctl/splash-arch-custom.bmp \
+    -gravity center \
+    -composite \
+    docs/assets/screenshots/bootsplash.png
 '''

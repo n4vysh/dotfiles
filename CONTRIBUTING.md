@@ -8,18 +8,20 @@ Install the required development tools:
 mise bootstrap --only task --yes
 ```
 
+Select a task interactively with `mise run`, or list tasks with `mise tasks ls`.
+
 ## Validate changes
 
 Run all repository checks with [lefthook][lefthook-link]:
 
 ```sh
-lefthook run pre-commit --all-files
+mise run test
 ```
 
 Format supported files:
 
 ```sh
-lefthook run fmt
+mise run fmt
 ```
 
 | Target type     | Formatter / Linter / Testing framework                                                |
@@ -60,29 +62,24 @@ lefthook run fmt
 Preview the documentation locally:
 
 ```sh
-zensical serve
-```
-
-Build the static site and validate internal links:
-
-```sh
-zensical build --clean --strict
+mise run docs
 ```
 
 ## Screenshots
 
-Store screenshots in `docs/assets/screenshots/`.
+Save screenshots to `docs/assets/screenshots/` with the following tasks.
+
+Capture the login screen with `fbgrab` (requires `sudo`):
 
 ```sh
-sudo fbgrab -c 2 login-screen.png
+mise run screenshot:login-screen
+```
 
-magick \
-    -size 1920x1080 \
-    xc:black \
-    /usr/share/systemd/bootctl/splash-arch-custom.bmp \
-    -gravity center \
-    -composite \
-    bootsplash.png
+Generate the bootsplash image with ImageMagick using
+`/usr/share/systemd/bootctl/splash-arch-custom.bmp`:
+
+```sh
+mise run screenshot:bootsplash
 ```
 
 <!-- rumdl-configure-file
