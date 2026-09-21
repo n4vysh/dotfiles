@@ -71,7 +71,7 @@ return {
 				local function opts(desc)
 					return {
 						desc = "nvim-tree: " .. desc,
-						buffer = bufnr,
+						buf = bufnr,
 						noremap = true,
 						silent = true,
 						nowait = true,
@@ -79,7 +79,7 @@ return {
 				end
 
 				-- default mappings
-				api.config.mappings.default_on_attach(bufnr)
+				api.map.on_attach.default(bufnr)
 
 				-- custom mappings
 				vim.keymap.del("n", "g?", opts("Help"))

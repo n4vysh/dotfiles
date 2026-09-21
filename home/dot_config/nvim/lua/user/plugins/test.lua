@@ -182,7 +182,7 @@ return {
 							vim.keymap.set("n", "q", function()
 								pcall(vim.api.nvim_win_close, 0, true)
 							end, {
-								buffer = o.buf,
+								buf = o.buf,
 							})
 						end,
 					})

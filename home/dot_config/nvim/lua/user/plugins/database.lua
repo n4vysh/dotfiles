@@ -69,7 +69,7 @@ return {
 							{
 								silent = true,
 								desc = "Open and close",
-								buffer = true,
+								buf = true,
 								remap = true,
 							}
 						)

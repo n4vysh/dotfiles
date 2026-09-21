@@ -83,7 +83,7 @@ return {
 
 					vim.bo[buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-					local opts = { silent = true, buffer = buf }
+					local opts = { silent = true, buf = buf }
 					vim.keymap.set(
 						"n",
 						"gp",
@@ -225,7 +225,7 @@ return {
 
 						vim.api.nvim_create_autocmd("BufWritePre", {
 							group = augroup,
-							buffer = buf,
+							buf = buf,
 							callback = function()
 								vim.lsp.buf.format({ async = false })
 							end,
@@ -260,18 +260,18 @@ return {
 						vim.api.nvim_create_augroup(augroup, {})
 						vim.api.nvim_clear_autocmds({
 							group = augroup,
-							buffer = buf,
+							buf = buf,
 						})
 						vim.api.nvim_create_autocmd("CursorHold", {
 							group = augroup,
-							buffer = buf,
+							buf = buf,
 							callback = function()
 								vim.lsp.buf.document_highlight()
 							end,
 						})
 						vim.api.nvim_create_autocmd("CursorMoved", {
 							group = augroup,
-							buffer = buf,
+							buf = buf,
 							callback = function()
 								vim.lsp.buf.clear_references()
 							end,
@@ -398,7 +398,7 @@ return {
 					end
 
 					vim.api.nvim_create_autocmd("BufWritePre", {
-						buffer = bufnr,
+						buf = bufnr,
 						command = "LspEslintFixAll",
 					})
 				end,
@@ -626,10 +626,6 @@ return {
 				border = "single",
 			},
 		},
-		config = function(_, opts)
-			local buf = vim.api.nvim_get_current_buf()
-			require("lsp_signature").on_attach(opts, buf)
-		end,
 		dependencies = {
 			"neovim/nvim-lspconfig",
 		},
