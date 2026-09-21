@@ -15,6 +15,7 @@ mise install \
   lefthook \
   pipx:pre-commit-hooks \
   editorconfig-checker \
+  gitleaks \
   ls-lint \
   typos \
   actionlint \

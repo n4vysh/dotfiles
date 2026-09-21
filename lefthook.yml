@@ -192,3 +192,5 @@ commit-msg:
   commands:
     commitlint:
       run: commitlint --edit {1}
+    gitleaks:
+      run: gitleaks protect --verbose --redact --staged
