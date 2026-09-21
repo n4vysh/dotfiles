@@ -77,6 +77,9 @@ pre-commit:
                   run: taplo format --check {staged_files}
                 - name: lint
                   run: taplo lint {staged_files}
+          - name: mise
+            glob: "**/mise.toml"
+            run: mise fmt -c
     - name: markdown
       glob: "**/*.md"
       group:
