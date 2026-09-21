@@ -54,7 +54,7 @@ AWS_VAULT_PASS_PREFIX = "aws-vault"
 editorconfig-checker = "3.11.1"
 typos = "1.49.0"
 ls-lint = "2.3.1"
-"pipx:pre-commit-hooks" = "6.0.0"
+"pypi:pre-commit-hooks" = "6.0.0"
 
 # Markdown
 rumdl = "0.2.60"
@@ -92,7 +92,7 @@ stylua = "2.5.2"
 "aqua:Kampfkarren/selene" = "0.31.0"
 
 # SQL
-"pipx:sqlfluff" = "4.3.0"
+"pypi:sqlfluff" = "4.3.0"
 
 # Git
 lefthook = "2.1.12"
@@ -111,7 +111,7 @@ actionlint = "1.7.12"
 zizmor = "1.29.0"
 
 # docs
-"pipx:zensical" = "0.0.57"
+"pypi:zensical" = "0.0.57"
 "npm:@redocly/cli" = "1.34.3"
 "npm:@mermaid-js/mermaid-cli" = { version = "11.16.0", allow_builds = [
   "puppeteer",
@@ -155,15 +155,15 @@ apm = "0.26.0"
 "npm:ctx7" = "0.5.5"
 "npm:skills" = "1.5.17"
 "aqua:vercel-labs/agent-browser" = "0.27.0"
-"pipx:semble" = "0.1.10"
-"pipx:markitdown" = { version = "0.1.5", extras = "all" }
+"pypi:semble" = "0.1.10"
+"pypi:markitdown" = { version = "0.1.5", extras = "all" }
 "npm:defuddle" = "0.18.1"
-"pipx:litellm" = { version = "1.88.0", extras = "proxy,extra_proxy", uvx_args = "--python 3.13.14" }
+"pypi:litellm" = { version = "1.88.0", extras = "proxy,extra_proxy" }
 claude-powerline = "1.30.1"
 ## token tracker
 "npm:tokscale" = "4.12.0"
 ## mcp
-"pipx:mcp-proxy-for-aws" = "1.6.4"
+"pypi:mcp-proxy-for-aws" = "1.6.4"
 "aqua:containers/kubernetes-mcp-server" = "0.0.66"
 "go:github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server" = "1.2.0"
 "aqua:grafana/mcp-grafana" = "1.1.0"
@@ -199,7 +199,7 @@ gofumpt = "0.10.0"
 "go:golang.org/x/tools/cmd/goimports" = "0.49.0"
 ### Python
 python = "3.13.14"
-uv = { version = "0.12.5", postinstall = '''
+uv = { version = "0.12.10", postinstall = '''
 uv generate-shell-completion zsh >~/.zshrc.d/site-functions/_uv
 ''' }
 ruff = { version = "0.16.3", postinstall = '''
