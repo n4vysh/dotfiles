@@ -8,7 +8,7 @@ if [ -d /mnt/wsl ]; then
 fi
 
 gum log --level info 'Deploy etc files'
-sudo mkdir -p /etc/keyd/
+sudo mkdir -p /etc/keyd/ /etc/rkhunter.d/
 dir="$HOME/.local/share/chezmoi"
 xargs -I {} sudo cp -v "$dir/{}" /{} <<-EOF
 	etc/keyd/default.conf
@@ -19,6 +19,16 @@ xargs -I {} sudo cp -v "$dir/{}" /{} <<-EOF
 	etc/udev/rules.d/99-lowbat.rules
 	etc/ssh/sshd_config.d/permit_root_login.conf
 	etc/pacman.d/hooks/rkhunter-propupd.hook
+	etc/rkhunter.d/allow-etckeeper.conf
+	etc/rkhunter.d/allow-glibc.conf
+	etc/rkhunter.d/allow-grep.conf
+	etc/rkhunter.d/allow-krb5.conf
+	etc/rkhunter.d/allow-postgresql.conf
+	etc/rkhunter.d/allow-ssh.conf
+	etc/rkhunter.d/allow-systemd.conf
+	etc/rkhunter.d/allow-yazi.conf
+	etc/rkhunter.d/allow-zoom.conf
+	etc/rkhunter.d/disable-port-test.conf
 EOF
 
 gum log --level info 'Update etc files'
@@ -90,80 +100,6 @@ sudo sed \
 		}' /etc/pam.d/passwd
 
 # rkhunter
-set -- /usr/bin/egrep /usr/bin/fgrep /usr/bin/ldd
-for list in "$@"; do
-	if ! sudo grep -q "SCRIPTWHITELIST=$list" /etc/rkhunter.conf; then
-		echo "SCRIPTWHITELIST=$list" |
-			sudo tee -a /etc/rkhunter.conf >/dev/null
-	else
-		gum log --level warn "rkhunter SCRIPTWHITELIST=$list already set -- skipping"
-	fi
-done
-
-# NOTE: configure ssh and disable ports test
-#       ports test causes false positives
-sudo sed \
-	-i \
-	-e '/^#ALLOW_SSH_PROT_V1/s/#//' \
-	-e '/^ALLOW_SSH_PROT_V1/s/0/2/' \
-	-e '/^#ALLOW_SSH_ROOT_USER/s/#//' \
-	-e '/^ALLOW_SSH_ROOT_USER/s/no/unset/' \
-	-e '/^DISABLE_TESTS=/s/suspscan hidden_ports/suspscan ports hidden_ports/' \
-	/etc/rkhunter.conf
-
-if ! sudo grep -q "ALLOWDEVFILE=/dev/shm/PostgreSQL.*" /etc/rkhunter.conf; then
-	echo "ALLOWDEVFILE=/dev/shm/PostgreSQL.*" |
-		sudo tee -a /etc/rkhunter.conf >/dev/null
-else
-	gum log --level warn "rkhunter ALLOWDEVFILE=/dev/shm/PostgreSQL.* already set -- skipping"
-fi
-
-# For zoom
-if ! sudo grep -q "ALLOWDEVFILE=/dev/shm/aomshm.*" /etc/rkhunter.conf; then
-	echo "ALLOWDEVFILE=/dev/shm/aomshm.*" |
-		sudo tee -a /etc/rkhunter.conf >/dev/null
-else
-	gum log --level warn "rkhunter ALLOWDEVFILE=/dev/shm/aomshm.* already set -- skipping"
-fi
-
-# For yazi
-if ! sudo grep -q "ALLOWDEVFILE=/dev/shm/yazi-*" /etc/rkhunter.conf; then
-	echo "ALLOWDEVFILE=/dev/shm/yazi-*" |
-		sudo tee -a /etc/rkhunter.conf >/dev/null
-else
-	gum log --level warn "rkhunter ALLOWDEVFILE=/dev/shm/yazi-* already set -- skipping"
-fi
-
-if ! sudo grep -q "ALLOWHIDDENDIR=/etc/.git" /etc/rkhunter.conf; then
-	echo "ALLOWHIDDENDIR=/etc/.git" |
-		sudo tee -a /etc/rkhunter.conf >/dev/null
-else
-	gum log --level warn "rkhunter ALLOWHIDDENDIR=/etc/.git already set -- skipping"
-fi
-
-set -- \
-	/etc/.etckeeper \
-	/etc/.gitignore \
-	/etc/.updated \
-	/usr/share/man/man5/.k5identity.5.gz \
-	/usr/share/man/man5/.k5login.5.gz
-for list in "$@"; do
-	if ! sudo grep -q "ALLOWHIDDENFILE=$list" /etc/rkhunter.conf; then
-		echo "ALLOWHIDDENFILE=$list" |
-			sudo tee -a /etc/rkhunter.conf >/dev/null
-	else
-		gum log --level warn "rkhunter ALLOWHIDDENFILE=$list already set -- skipping"
-	fi
-done
-
-# NOTE: allow IPC for ueberzug
-if ! sudo grep -q "ALLOWIPCUSER=$USER" /etc/rkhunter.conf; then
-	echo "ALLOWIPCUSER=$USER" |
-		sudo tee -a /etc/rkhunter.conf >/dev/null
-else
-	gum log --level warn "rkhunter ALLOWIPCUSER=$USER already set -- skipping"
-fi
-
 gum log --level info 'Configure rkhunter'
 if ! systemctl is-active -q rkhunter.timer; then
 	# NOTE: use /dev/null to ignore grep warning
