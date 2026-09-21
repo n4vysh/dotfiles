@@ -51,6 +51,12 @@ pre-commit:
         jobs:
           - name: prettier
             run: prettier --check {staged_files}
+    - name: jsonc
+      glob: "**/*.jsonc"
+      group:
+        jobs:
+          - name: prettier
+            run: prettier --check --trailing-comma none {staged_files}
     - name: yaml
       glob:
         - "**/*.yaml"
@@ -158,6 +164,12 @@ fmt:
         jobs:
           - name: prettier
             run: prettier --write {all_files}
+    - name: jsonc
+      glob: "**/*.jsonc"
+      group:
+        jobs:
+          - name: prettier
+            run: prettier --write --trailing-comma none {all_files}
     - name: yaml
       glob:
         - "**/*.yaml"
