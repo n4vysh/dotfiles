@@ -10,6 +10,7 @@
   "timezone": "Asia/Tokyo",
   "automerge": false, // disable automerge to reduce supply-chain risk
   "prCreation": "not-pending",
+  "branchPrefix": "feature/renovate/",
   // Dependency update groups:
   // - github-actions
   // - mise (+ mise.lock maintenance)
