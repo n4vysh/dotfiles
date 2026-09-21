@@ -1,0 +1,25 @@
+[Unit]
+Description=LiteLLM PostgreSQL
+
+[Container]
+Image=docker.io/library/postgres:16.13-alpine3.23
+ContainerName=litellm-db
+PublishPort=127.0.0.1:54320:5432
+Environment=POSTGRES_DB=litellm
+Environment=POSTGRES_USER=llmproxy
+Environment=POSTGRES_PASSWORD_FILE=/run/secrets/postgres-password
+Volume=litellm-postgres.volume:/var/lib/postgresql/data
+Volume=%d/litellm-postgres-password:/run/secrets/postgres-password:ro
+HealthCmd=pg_isready -U llmproxy -d litellm
+HealthInterval=5s
+HealthStartPeriod=30s
+HealthRetries=12
+Notify=healthy
+
+[Service]
+LoadCredentialEncrypted=litellm-postgres-password
+Restart=on-failure
+TimeoutStartSec=300
+
+[Install]
+WantedBy=default.target

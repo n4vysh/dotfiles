@@ -42,39 +42,12 @@ AWS_VAULT_PASS_PREFIX = "aws-vault"
 "vfox-backend:http-deb" = "~/.config/mise/plugins/vfox-http-deb"
 
 [bootstrap.packages]
-"pacman:docker" = "latest"
-"pacman:docker-buildx" = "latest"
-"pacman:docker-compose" = "latest"
-"pacman:skopeo" = "latest"
 "pacman:drawio-desktop" = "latest"
 
 [bootstrap.repos]
 "~/.local/share/bats/bats-support" = { url = "https://github.com/bats-core/bats-support.git", ref = "v0.3.0" }
 "~/.local/share/bats/bats-assert" = { url = "https://github.com/bats-core/bats-assert.git", ref = "v2.2.4" }
 "~/.local/share/bats/bats-file" = { url = "https://github.com/bats-core/bats-file.git", ref = "v0.4.0" }
-
-[bootstrap.hooks.post-packages]
-run = '''
-if ! id -nG "$USER" | grep -qw docker; then
-  sudo usermod -aG docker "$USER"
-fi
-'''
-
-[bootstrap.directories."/etc/docker"]
-owner = "root"
-group = "root"
-mode = "0755"
-
-[bootstrap.files."/etc/docker/daemon.json"]
-source = "./files/etc/docker/daemon.json"
-owner = "root"
-group = "root"
-mode = "0644"
-
-[bootstrap.services."docker.socket"]
-state = "running"
-enabled = true
-on_change = "none"
 
 [tools]
 # General

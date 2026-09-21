@@ -48,6 +48,7 @@ rules:
       - bat
       - btop
       - claude
+      - containers
       - cz
       - docker
       - espanso

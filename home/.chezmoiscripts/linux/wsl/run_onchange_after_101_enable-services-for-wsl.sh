@@ -15,3 +15,9 @@ systemctl --user daemon-reload
 # NOTE: fix wslg bug of WSL
 # https://github.com/microsoft/wslg/issues/1032#issuecomment-2310369848
 systemctl --user enable --now wsl-wayland-symlink.service
+
+gum log --level info 'Enable and start Docker socket'
+systemctl --user enable --now docker.socket
+
+gum log --level info 'Start LiteLLM PostgreSQL'
+systemctl --user start litellm-postgres.service

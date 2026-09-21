@@ -19,24 +19,27 @@ windows:
     layout: tiled
     panes:
       - shell_command:
-          # NOTE: run following commands
-          #       ```sh
-          #       pwgen -c -n -y -B -1 20 1
-          #       gopass insert envs/litellm/POSTGRES_PASSWORD
-          #       ```
           - cmd: |
-              gopass env envs/litellm \
-                docker run \
-                  -it \
-                  --rm \
-                  -p 54320:5432 \
-                  -e POSTGRES_DB=litellm \
-                  -e POSTGRES_USER=llmproxy \
-                  -e POSTGRES_PASSWORD \
-                  -v litellm-postgres:/var/lib/postgresql/data \
-                  --name litellm-db \
-                  postgres:16.13-alpine3.23
-      - shell_command:
+              gopass ls --flat |
+                grep -Fx envs/litellm/POSTGRES_PASSWORD >/dev/null ||
+                systemd-creds decrypt \
+                  --user \
+                  --name=litellm-postgres-password \
+                  ~/.config/credstore.encrypted/litellm-postgres-password - |
+                  gopass insert envs/litellm/POSTGRES_PASSWORD
+          - cmd: |
+              gopass ls --flat |
+                grep -Fx envs/litellm/DATABASE_URL >/dev/null ||
+                printf 'postgresql://llmproxy:%s@127.0.0.1:54320/litellm\n' \
+                  "$(gopass show -o envs/litellm/POSTGRES_PASSWORD)" |
+                  gopass insert envs/litellm/DATABASE_URL
+          - cmd: |
+              gopass ls --flat |
+                grep -Fx envs/litellm/LITELLM_MASTER_KEY >/dev/null ||
+                openssl rand -base64 24 |
+                  tr '/+' '_-' |
+                  sed 's/^/sk-/' |
+                  gopass insert envs/litellm/LITELLM_MASTER_KEY
           - cmd: mkdir -p "$XDG_CACHE_HOME/litellm"
           - cmd: |
               cat <<EOF >|"$XDG_CACHE_HOME/litellm/config.yaml"
@@ -66,12 +69,6 @@ windows:
           - cmd: |
               PATH="$(mise where pipx:litellm)/litellm/bin:$PATH" \
                 prisma generate --schema "$XDG_CACHE_HOME/litellm/schema.prisma"
-          # NOTE: run following commands
-          #       ```sh
-          #       gopass insert envs/litellm/DATABASE_URL
-          #       echo "sk-$(pwgen -c -n -y -B -1 20 1)" |
-          #         gopass insert envs/litellm/LITELLM_MASTER_KEY
-          #       ```
           - cmd: |
               gopass env envs/litellm \
                 env \

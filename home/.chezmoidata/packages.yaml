@@ -243,6 +243,7 @@ packages:
       - extra/zram-generator
       # developer tools
       - aur/bazecor
+      - chaotic-aur/docker-rootless-extras
       - chaotic-aur/playwright
       - core/openssh
       - extra/7zip # for yazi archive extraction and preview
@@ -250,6 +251,9 @@ packages:
       - extra/atuin
       - extra/bat
       - extra/cosign # for mise verification
+      - extra/docker
+      - extra/docker-buildx
+      - extra/docker-compose
       - extra/expect # for unbuffer
       - extra/eza
       - extra/fd
@@ -260,6 +264,8 @@ packages:
       - extra/gum
       - extra/jpegoptim
       - extra/jq
+      - extra/podman
+      - extra/skopeo
       - extra/kitty # use kitty icat for fastfetch
       - extra/libwebp
       - extra/mise

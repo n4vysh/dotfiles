@@ -44,6 +44,7 @@ services:
         - ufw.service
     user:
       enabled:
+        - docker.socket
         - tmux.service
         - gcr-ssh-agent.socket
         - espanso.service
@@ -56,6 +57,8 @@ services:
         - reload-kanshi.path
         - reload-swaync.path
       running:
+        - docker.socket
+        - litellm-postgres.service
         - gcr-ssh-agent.socket
         - espanso.service
         - hypridle.service
