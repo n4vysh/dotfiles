@@ -448,7 +448,7 @@ return {
 		"JoosepAlviste/nvim-ts-context-commentstring",
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		main = "ts_context_commentstring",
-		ops = {
+		opts = {
 			enable_autocmd = false,
 		},
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
