@@ -11,6 +11,7 @@ mise install \
   python \
   uv \
   npm:@commitlint/cli \
+  npm:renovate \
   bats \
   lefthook \
   pipx:pre-commit-hooks \

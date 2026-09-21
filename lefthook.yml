@@ -52,11 +52,14 @@ pre-commit:
           - name: prettier
             run: prettier --check {staged_files}
     - name: jsonc
-      glob: "**/*.jsonc"
       group:
         jobs:
           - name: prettier
+            glob: "**/*.jsonc"
             run: prettier --check --trailing-comma none {staged_files}
+          - name: renovate-config-validator
+            glob: ".renovaterc.jsonc"
+            run: renovate-config-validator --strict --no-global {staged_files}
     - name: yaml
       glob:
         - "**/*.yaml"
