@@ -417,6 +417,9 @@ return {
 	},
 	{
 		"sphamba/smear-cursor.nvim",
+		-- HACK: pin commit hash to avoid guicursor bug
+		-- https://github.com/sphamba/smear-cursor.nvim/issues/179
+		commit = "9e9378d6ee34bb3782e0e8c63d9ec8ca618b479b",
 		event = { "VeryLazy" },
 		opts = {
 			stiffness = 0.8,
