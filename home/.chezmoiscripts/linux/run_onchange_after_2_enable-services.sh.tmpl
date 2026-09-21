@@ -20,10 +20,8 @@ sudo bash -c "systemctl start $(
 	EOF
 )"
 
-WSL_DISTRO_NAME="${WSL_DISTRO_NAME:=none}"
-
 gum log --level info 'Enable user services'
-if [ "$WSL_DISTRO_NAME" == "none" ]; then
+if ! [ -d /mnt/wsl ]; then
 	bash -c "systemctl --user enable $(
 		tr '\n' ' ' <<-EOF
 			{{ range .services.systemd.user.enabled -}}
@@ -36,7 +34,7 @@ else
 fi
 
 gum log --level info 'Start user services'
-if [ "$WSL_DISTRO_NAME" == "none" ]; then
+if ! [ -d /mnt/wsl ]; then
 	bash -c "systemctl --user start $(
 		tr '\n' ' ' <<-EOF
 			{{ range .services.systemd.user.running -}}

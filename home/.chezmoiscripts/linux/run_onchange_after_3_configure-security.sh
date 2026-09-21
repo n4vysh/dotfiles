@@ -2,9 +2,7 @@
 
 set -eu
 
-WSL_DISTRO_NAME="${WSL_DISTRO_NAME:=none}"
-
-if [ "$WSL_DISTRO_NAME" != "none" ]; then
+if [ -d /mnt/wsl ]; then
 	gum log --level warn "$0: running on WSL -- skipping"
 	exit 0
 fi

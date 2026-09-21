@@ -94,10 +94,8 @@ bash -c "yes '' | yay -S --noconfirm --needed --disable-download-timeout --batch
 	EOF
 )"
 
-WSL_DISTRO_NAME="${WSL_DISTRO_NAME:=none}"
-
 gum log --level info 'Install packages with flatpak'
-if [ "$WSL_DISTRO_NAME" == "none" ]; then
+if ! [ -d /mnt/wsl ]; then
 	bash -c "flatpak install -y flathub $(
 		tr '\n' ' ' <<-EOF
 			{{ range .packages.linux.flatpak.flathub -}}

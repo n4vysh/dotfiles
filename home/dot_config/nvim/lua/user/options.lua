@@ -84,7 +84,7 @@ vim.opt.listchars:append({
 vim.opt.clipboard = "unnamedplus"
 
 -- selene: allow(empty_if)
-if vim.env.WSL_DISTRO_NAME ~= nil then
+if vim.fn.isdirectory("/mnt/wsl") == 1 then
 	-- NOTE: use wl-copy and wl-paste when WSL
 elseif vim.env.WAYLAND_DISPLAY ~= nil then
 	vim.g.clipboard = {
