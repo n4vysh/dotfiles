@@ -27,10 +27,8 @@ indent_style = unset
 [**/dot_config/git/templates/hooks/*]
 indent_style = unset
 
-[**/*.sh{,.tmpl}]
-indent_style = tab
-
-[**/*.bash]
+# spellchecker:ignore-next-line
+[**/*.{,ba}sh{,.tmpl}]
 indent_style = tab
 
 [**/{dot_zshenv,dot_zshrc,*.zsh,dot_zshrc.d/functions/**}]

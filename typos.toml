@@ -1,4 +1,5 @@
 [default]
+extend-ignore-re = ["(#|//)\\s*spellchecker:ignore-next-line\\n.*"]
 extend-ignore-identifiers-re = [
   "ccahe", # makepkg.conf
 
