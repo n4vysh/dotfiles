@@ -26,7 +26,7 @@ mise run fmt
 
 | Target type     | Formatter / Linter / Testing framework                                                |
 | :-------------- | :------------------------------------------------------------------------------------ |
-| all files       | [editorconfig-checker][ec-link] / [typos][typos-link] / [ls-lint][ls-lint-link]       |
+| all files       | [editorconfig-checker][ec-link] / [typos][typos-link] / [ls-lint][ls-lint-link] / [gitleaks][gitleaks-link]      |
 | JSON files      | [prettier][prettier-link]                                                             |
 | YAML files      | [yamlfmt][yamlfmt-link] / [yamllint][yamllint-link]                                   |
 | TOML files      | [taplo][taplo-link]                                                                   |
@@ -41,6 +41,7 @@ mise run fmt
 [ec-link]: https://github.com/editorconfig-checker/editorconfig-checker
 [typos-link]: https://github.com/crate-ci/typos
 [ls-lint-link]: https://github.com/loeffel-io/ls-lint
+[gitleaks-link]: https://github.com/gitleaks/gitleaks
 [prettier-link]: https://github.com/prettier/prettier
 [yamlfmt-link]: https://github.com/google/yamlfmt
 [yamllint-link]: https://github.com/adrienverge/yamllint
