@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-08-19T15:26:13.964257+00:00'
+generated_at: '2026-09-21T15:59:06.849416+00:00'
 apm_version: 0.26.0
 dependencies:
 - repo_url: aws/agent-toolkit-for-aws
@@ -571,12 +571,30 @@ dependencies:
     .claude/skills/stop-slop/references/structures.md: sha256:ffbf1316c7fb5aaf552de005609a64a9639b546ecd76bfb0e482864d5bbe6f58
   content_hash: sha256:2e93df9fc59dbc268f98b75b51be8751f8db4e8c3943bb7f4beafa244a05785a
 - repo_url: hashicorp/agent-skills
+  name: refactor-module
+  host: github.com
+  resolved_commit: c2d65dfe492f74d360d35b859b88932222470bd8
+  resolved_ref: c2d65df
+  version: unknown
+  virtual_path: plugins/terraform/skills/refactor-module
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .agents/skills/refactor-module
+  - .agents/skills/refactor-module/SKILL.md
+  - .claude/skills/refactor-module
+  - .claude/skills/refactor-module/SKILL.md
+  deployed_file_hashes:
+    .agents/skills/refactor-module/SKILL.md: sha256:da0b9f3599ed0e513a92b57f0c0ff3fad3168ba461215a9197ebbffe4e0d538f
+    .claude/skills/refactor-module/SKILL.md: sha256:da0b9f3599ed0e513a92b57f0c0ff3fad3168ba461215a9197ebbffe4e0d538f
+  content_hash: sha256:08139a8310403095fafbe92ee1a0ceee6736d179fd235fb6ef1c434925b8cb0b
+- repo_url: hashicorp/agent-skills
   name: terraform-search-import
   host: github.com
-  resolved_commit: 1d09fac00f47e08164b3cfcd03468475d56146df
-  resolved_ref: 1d09fac
+  resolved_commit: c2d65dfe492f74d360d35b859b88932222470bd8
+  resolved_ref: c2d65df
   version: unknown
-  virtual_path: terraform/code-generation/skills/terraform-search-import
+  virtual_path: plugins/terraform/skills/terraform-search-import
   is_virtual: true
   package_type: claude_skill
   deployed_files:
@@ -589,20 +607,20 @@ dependencies:
   - .claude/skills/terraform-search-import/references/MANUAL-IMPORT.md
   - .claude/skills/terraform-search-import/scripts/list_resources.sh
   deployed_file_hashes:
-    .agents/skills/terraform-search-import/SKILL.md: sha256:4922006c3b2492486756da50fe176c9f380f07640420311715c4b7ed7355f88f
+    .agents/skills/terraform-search-import/SKILL.md: sha256:7884e0086042742202b86eb074318ccf51d2b3674ceb2a6ee7267a6175dbe233
     .agents/skills/terraform-search-import/references/MANUAL-IMPORT.md: sha256:705db1d5286a090e73cec26cd308b5add4f500a8332193a4e2a2fd7e83a8f220
     .agents/skills/terraform-search-import/scripts/list_resources.sh: sha256:8325fbf9e82e8b4ab1d281c02ad7058220a82878278a7f004c92f899167c79ea
-    .claude/skills/terraform-search-import/SKILL.md: sha256:4922006c3b2492486756da50fe176c9f380f07640420311715c4b7ed7355f88f
+    .claude/skills/terraform-search-import/SKILL.md: sha256:7884e0086042742202b86eb074318ccf51d2b3674ceb2a6ee7267a6175dbe233
     .claude/skills/terraform-search-import/references/MANUAL-IMPORT.md: sha256:705db1d5286a090e73cec26cd308b5add4f500a8332193a4e2a2fd7e83a8f220
     .claude/skills/terraform-search-import/scripts/list_resources.sh: sha256:8325fbf9e82e8b4ab1d281c02ad7058220a82878278a7f004c92f899167c79ea
-  content_hash: sha256:87e07d4cfece40910916e1abb9ffe9e95f918b971627e9ee59dfb4fc06a61559
+  content_hash: sha256:678d91d64c1531be0baa4837ddadebcff89903caa57715afac4486cafd972c41
 - repo_url: hashicorp/agent-skills
   name: terraform-style-guide
   host: github.com
-  resolved_commit: 1d09fac00f47e08164b3cfcd03468475d56146df
-  resolved_ref: 1d09fac
+  resolved_commit: c2d65dfe492f74d360d35b859b88932222470bd8
+  resolved_ref: c2d65df
   version: unknown
-  virtual_path: terraform/code-generation/skills/terraform-style-guide
+  virtual_path: plugins/terraform/skills/terraform-style-guide
   is_virtual: true
   package_type: claude_skill
   deployed_files:
@@ -614,17 +632,17 @@ dependencies:
   - .claude/skills/terraform-style-guide/SKILL.md
   deployed_file_hashes:
     .agents/skills/terraform-style-guide/SECURITY.md: sha256:3dc8ffa10139e9772c5c102fee6377f66f5167bd043a7c43e6e5df682dc75f92
-    .agents/skills/terraform-style-guide/SKILL.md: sha256:fea8a0eadf68f1ac45cae3b1d6dc4c66b489fb6e40a3d41762120059c49540c2
+    .agents/skills/terraform-style-guide/SKILL.md: sha256:3a5c2e06a1daa07600d03f48328d1479284e7a9d59d66b2663693ca972080e22
     .claude/skills/terraform-style-guide/SECURITY.md: sha256:3dc8ffa10139e9772c5c102fee6377f66f5167bd043a7c43e6e5df682dc75f92
-    .claude/skills/terraform-style-guide/SKILL.md: sha256:fea8a0eadf68f1ac45cae3b1d6dc4c66b489fb6e40a3d41762120059c49540c2
-  content_hash: sha256:e7776668ff288f856a8f9bb8bb3301dd2c78c70102d81fb1027c059b01f6b07b
+    .claude/skills/terraform-style-guide/SKILL.md: sha256:3a5c2e06a1daa07600d03f48328d1479284e7a9d59d66b2663693ca972080e22
+  content_hash: sha256:3b914c5ae01a7101d45b5222fbc38e0be6eb7412deba5f54d471905f22af70c6
 - repo_url: hashicorp/agent-skills
   name: terraform-test
   host: github.com
-  resolved_commit: 1d09fac00f47e08164b3cfcd03468475d56146df
-  resolved_ref: 1d09fac
+  resolved_commit: c2d65dfe492f74d360d35b859b88932222470bd8
+  resolved_ref: c2d65df
   version: unknown
-  virtual_path: terraform/code-generation/skills/terraform-test
+  virtual_path: plugins/terraform/skills/terraform-test
   is_virtual: true
   package_type: claude_skill
   deployed_files:
@@ -639,33 +657,15 @@ dependencies:
   - .claude/skills/terraform-test/references/EXAMPLES.md
   - .claude/skills/terraform-test/references/MOCK_PROVIDERS.md
   deployed_file_hashes:
-    .agents/skills/terraform-test/SKILL.md: sha256:f7b0c4d1e1381751f75c4a07b7a97d8c011f741723aea1cca7f73e54af27b138
+    .agents/skills/terraform-test/SKILL.md: sha256:bba613c50727af9a8e47e690b0e16a4093f0239afec495016e016b5152c9a598
     .agents/skills/terraform-test/references/CI_CD.md: sha256:88fdffa4d3b8f361c570cb7c0df90a44380c70eb4471b3e27d552f32820179c8
     .agents/skills/terraform-test/references/EXAMPLES.md: sha256:e57ef65b6c6545e00f7dc6106c71d44d29e819923ea8e0040efb38fbfbc60f50
     .agents/skills/terraform-test/references/MOCK_PROVIDERS.md: sha256:788a9fcb988df8a207c1251fd971a11d1cd59b6b8e4023907b00a0fee976c001
-    .claude/skills/terraform-test/SKILL.md: sha256:f7b0c4d1e1381751f75c4a07b7a97d8c011f741723aea1cca7f73e54af27b138
+    .claude/skills/terraform-test/SKILL.md: sha256:bba613c50727af9a8e47e690b0e16a4093f0239afec495016e016b5152c9a598
     .claude/skills/terraform-test/references/CI_CD.md: sha256:88fdffa4d3b8f361c570cb7c0df90a44380c70eb4471b3e27d552f32820179c8
     .claude/skills/terraform-test/references/EXAMPLES.md: sha256:e57ef65b6c6545e00f7dc6106c71d44d29e819923ea8e0040efb38fbfbc60f50
     .claude/skills/terraform-test/references/MOCK_PROVIDERS.md: sha256:788a9fcb988df8a207c1251fd971a11d1cd59b6b8e4023907b00a0fee976c001
-  content_hash: sha256:124fdde03e38d9942810e65e762eaf95f8680a1f1f6fdae3ecda16d86b10620b
-- repo_url: hashicorp/agent-skills
-  name: refactor-module
-  host: github.com
-  resolved_commit: 1d09fac00f47e08164b3cfcd03468475d56146df
-  resolved_ref: 1d09fac
-  version: unknown
-  virtual_path: terraform/module-generation/skills/refactor-module
-  is_virtual: true
-  package_type: claude_skill
-  deployed_files:
-  - .agents/skills/refactor-module
-  - .agents/skills/refactor-module/SKILL.md
-  - .claude/skills/refactor-module
-  - .claude/skills/refactor-module/SKILL.md
-  deployed_file_hashes:
-    .agents/skills/refactor-module/SKILL.md: sha256:d7a54b33f33989f567b10657ddaba018fdb42a28c2bb6c74dddc0d6e45cf5af4
-    .claude/skills/refactor-module/SKILL.md: sha256:d7a54b33f33989f567b10657ddaba018fdb42a28c2bb6c74dddc0d6e45cf5af4
-  content_hash: sha256:69059424621c33cacf429c19ec6f8be7ed8478f0531638e5f756d33bfa99dfcb
+  content_hash: sha256:763c156e79e37626c1953693af034c9801e115b1179acc8450b7f238d1b8b624
 - repo_url: herdrdev/herdr
   name: herdr
   host: github.com
@@ -2186,8 +2186,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/module-generation/skills/refactor-module
-  active_owner: hashicorp/agent-skills/terraform/module-generation/skills/refactor-module
+  - hashicorp/agent-skills/plugins/terraform/skills/refactor-module
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/refactor-module
   content_hash: null
 - kind: project-relative
   target: agent-skills
@@ -2195,9 +2195,9 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/module-generation/skills/refactor-module
-  active_owner: hashicorp/agent-skills/terraform/module-generation/skills/refactor-module
-  content_hash: sha256:d7a54b33f33989f567b10657ddaba018fdb42a28c2bb6c74dddc0d6e45cf5af4
+  - hashicorp/agent-skills/plugins/terraform/skills/refactor-module
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/refactor-module
+  content_hash: sha256:da0b9f3599ed0e513a92b57f0c0ff3fad3168ba461215a9197ebbffe4e0d538f
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/stop-slop
@@ -2420,8 +2420,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
   content_hash: null
 - kind: project-relative
   target: agent-skills
@@ -2429,17 +2429,17 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
-  content_hash: sha256:4922006c3b2492486756da50fe176c9f380f07640420311715c4b7ed7355f88f
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
+  content_hash: sha256:7884e0086042742202b86eb074318ccf51d2b3674ceb2a6ee7267a6175dbe233
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/terraform-search-import/references/MANUAL-IMPORT.md
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
   content_hash: sha256:705db1d5286a090e73cec26cd308b5add4f500a8332193a4e2a2fd7e83a8f220
 - kind: project-relative
   target: agent-skills
@@ -2447,8 +2447,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
   content_hash: sha256:8325fbf9e82e8b4ab1d281c02ad7058220a82878278a7f004c92f899167c79ea
 - kind: project-relative
   target: agent-skills
@@ -2456,8 +2456,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-style-guide
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-style-guide
   content_hash: null
 - kind: project-relative
   target: agent-skills
@@ -2465,8 +2465,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-style-guide
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-style-guide
   content_hash: sha256:3dc8ffa10139e9772c5c102fee6377f66f5167bd043a7c43e6e5df682dc75f92
 - kind: project-relative
   target: agent-skills
@@ -2474,17 +2474,17 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
-  content_hash: sha256:fea8a0eadf68f1ac45cae3b1d6dc4c66b489fb6e40a3d41762120059c49540c2
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-style-guide
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-style-guide
+  content_hash: sha256:3a5c2e06a1daa07600d03f48328d1479284e7a9d59d66b2663693ca972080e22
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/terraform-test
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-test
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-test
   content_hash: null
 - kind: project-relative
   target: agent-skills
@@ -2492,17 +2492,17 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
-  content_hash: sha256:f7b0c4d1e1381751f75c4a07b7a97d8c011f741723aea1cca7f73e54af27b138
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-test
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-test
+  content_hash: sha256:bba613c50727af9a8e47e690b0e16a4093f0239afec495016e016b5152c9a598
 - kind: project-relative
   target: agent-skills
   value: .agents/skills/terraform-test/references/CI_CD.md
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-test
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-test
   content_hash: sha256:88fdffa4d3b8f361c570cb7c0df90a44380c70eb4471b3e27d552f32820179c8
 - kind: project-relative
   target: agent-skills
@@ -2510,8 +2510,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-test
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-test
   content_hash: sha256:e57ef65b6c6545e00f7dc6106c71d44d29e819923ea8e0040efb38fbfbc60f50
 - kind: project-relative
   target: agent-skills
@@ -2519,8 +2519,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-test
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-test
   content_hash: sha256:788a9fcb988df8a207c1251fd971a11d1cd59b6b8e4023907b00a0fee976c001
 - kind: project-relative
   target: agent-skills
@@ -3923,8 +3923,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/module-generation/skills/refactor-module
-  active_owner: hashicorp/agent-skills/terraform/module-generation/skills/refactor-module
+  - hashicorp/agent-skills/plugins/terraform/skills/refactor-module
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/refactor-module
   content_hash: null
 - kind: project-relative
   target: claude
@@ -3932,9 +3932,9 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/module-generation/skills/refactor-module
-  active_owner: hashicorp/agent-skills/terraform/module-generation/skills/refactor-module
-  content_hash: sha256:d7a54b33f33989f567b10657ddaba018fdb42a28c2bb6c74dddc0d6e45cf5af4
+  - hashicorp/agent-skills/plugins/terraform/skills/refactor-module
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/refactor-module
+  content_hash: sha256:da0b9f3599ed0e513a92b57f0c0ff3fad3168ba461215a9197ebbffe4e0d538f
 - kind: project-relative
   target: claude
   value: .claude/skills/stop-slop
@@ -4157,8 +4157,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
   content_hash: null
 - kind: project-relative
   target: claude
@@ -4166,17 +4166,17 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
-  content_hash: sha256:4922006c3b2492486756da50fe176c9f380f07640420311715c4b7ed7355f88f
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
+  content_hash: sha256:7884e0086042742202b86eb074318ccf51d2b3674ceb2a6ee7267a6175dbe233
 - kind: project-relative
   target: claude
   value: .claude/skills/terraform-search-import/references/MANUAL-IMPORT.md
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
   content_hash: sha256:705db1d5286a090e73cec26cd308b5add4f500a8332193a4e2a2fd7e83a8f220
 - kind: project-relative
   target: claude
@@ -4184,8 +4184,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-search-import
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-search-import
   content_hash: sha256:8325fbf9e82e8b4ab1d281c02ad7058220a82878278a7f004c92f899167c79ea
 - kind: project-relative
   target: claude
@@ -4193,8 +4193,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-style-guide
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-style-guide
   content_hash: null
 - kind: project-relative
   target: claude
@@ -4202,8 +4202,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-style-guide
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-style-guide
   content_hash: sha256:3dc8ffa10139e9772c5c102fee6377f66f5167bd043a7c43e6e5df682dc75f92
 - kind: project-relative
   target: claude
@@ -4211,17 +4211,17 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-style-guide
-  content_hash: sha256:fea8a0eadf68f1ac45cae3b1d6dc4c66b489fb6e40a3d41762120059c49540c2
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-style-guide
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-style-guide
+  content_hash: sha256:3a5c2e06a1daa07600d03f48328d1479284e7a9d59d66b2663693ca972080e22
 - kind: project-relative
   target: claude
   value: .claude/skills/terraform-test
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-test
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-test
   content_hash: null
 - kind: project-relative
   target: claude
@@ -4229,17 +4229,17 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
-  content_hash: sha256:f7b0c4d1e1381751f75c4a07b7a97d8c011f741723aea1cca7f73e54af27b138
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-test
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-test
+  content_hash: sha256:bba613c50727af9a8e47e690b0e16a4093f0239afec495016e016b5152c9a598
 - kind: project-relative
   target: claude
   value: .claude/skills/terraform-test/references/CI_CD.md
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-test
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-test
   content_hash: sha256:88fdffa4d3b8f361c570cb7c0df90a44380c70eb4471b3e27d552f32820179c8
 - kind: project-relative
   target: claude
@@ -4247,8 +4247,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-test
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-test
   content_hash: sha256:e57ef65b6c6545e00f7dc6106c71d44d29e819923ea8e0040efb38fbfbc60f50
 - kind: project-relative
   target: claude
@@ -4256,8 +4256,8 @@ deployments:
   runtime: null
   scope: project
   owners:
-  - hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
-  active_owner: hashicorp/agent-skills/terraform/code-generation/skills/terraform-test
+  - hashicorp/agent-skills/plugins/terraform/skills/terraform-test
+  active_owner: hashicorp/agent-skills/plugins/terraform/skills/terraform-test
   content_hash: sha256:788a9fcb988df8a207c1251fd971a11d1cd59b6b8e4023907b00a0fee976c001
 - kind: project-relative
   target: claude
