@@ -1,0 +1,24 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      czg:
+        specifier: 1.13.0
+        version: 1.13.0
+
+packages:
+
+  czg@1.13.0:
+    resolution: {integrity: sha512-Y2f2gBpnCa3wJbBGic0mfNJt9zGbWKtrBlJFMclDNUyipvCgn0As2WPHaAtBkBSMlZgzORHRfwAP96C5lrCIYA==}
+    engines: {node: '>=v12.20.0'}
+    hasBin: true
+
+snapshots:
+
+  czg@1.13.0: {}

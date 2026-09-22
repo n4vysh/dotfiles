@@ -1,0 +1,24 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      git-open:
+        specifier: 3.1.0
+        version: 3.1.0
+
+packages:
+
+  git-open@3.1.0:
+    resolution: {integrity: sha512-ubAs69skujHjIO+qF/te+MXJDNmAfQ6003c2RppqfyGFVFMfTn/JKk6VvU1V0zyTVWcgSGK9INZHbD1MFZj2iQ==}
+    engines: {node: '>=0.10.3', npm: '>=2.0.0'}
+    hasBin: true
+
+snapshots:
+
+  git-open@3.1.0: {}

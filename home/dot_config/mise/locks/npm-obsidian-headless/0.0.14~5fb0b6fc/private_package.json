@@ -1,0 +1,12 @@
+{
+  "name": "mise-npm-install",
+  "private": true,
+  "aube": {
+    "allowBuilds": {
+      "better-sqlite3": true
+    }
+  },
+  "dependencies": {
+    "obsidian-headless": "0.0.14"
+  }
+}

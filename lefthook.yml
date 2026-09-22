@@ -17,6 +17,8 @@ pre-commit:
                   run: check-case-conflict {staged_files}
                 - name: check-added-large-files
                   run: check-added-large-files {staged_files}
+                  exclude:
+                    - home/dot_config/mise/locks/**
                 - name: check-executables-have-shebangs
                   file_types:
                     - text
@@ -36,6 +38,7 @@ pre-commit:
             exclude:
               - "**/*.png"
               - "**/*.mozlz4"
+              - home/dot_config/mise/locks/**
             run: typos {staged_files}
           - name: ls-lint
             run: ls-lint

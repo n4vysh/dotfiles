@@ -1,3 +1,4 @@
 exclude:
   - home/dot_apm/private_apm.lock.yaml
   - home/dot_config/yasb/config.yaml
+  - home/dot_config/mise/locks/
