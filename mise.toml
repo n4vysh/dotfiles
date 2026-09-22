@@ -13,9 +13,6 @@ disable_backends = ["asdf", "ubi"]
 [settings.npm]
 package_manager = "aube"
 
-[bootstrap.packages]
-"pacman:chezmoi" = "latest"
-
 [bootstrap.repos]
 "test/helper/bats-support" = { url = "https://github.com/bats-core/bats-support.git", ref = "v0.3.0" }
 "test/helper/bats-assert" = { url = "https://github.com/bats-core/bats-assert.git", ref = "v2.2.4" }
@@ -25,6 +22,8 @@ package_manager = "aube"
 BATS_LIB_PATH = "{{config_root}}/test/helper"
 
 [tools]
+chezmoi = "2.72.2"
+
 # General
 editorconfig-checker = "4.0.1"
 typos = "1.50.1"
@@ -91,14 +90,6 @@ uv = "0.12.10"
 [tasks.bootstrap]
 description = "Install git hooks with lefthook"
 run = "lefthook install"
-
-[tasks.diff]
-description = "Preview dotfile changes with chezmoi"
-run = "chezmoi diff"
-
-[tasks.apply]
-description = "Apply dotfiles with chezmoi"
-run = "chezmoi apply"
 
 [tasks.test]
 description = "Run all repository checks"

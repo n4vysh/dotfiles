@@ -7,6 +7,8 @@ pre-commit:
       group:
         parallel: true
         jobs:
+          - name: chezmoi
+            run: chezmoi apply --dry-run
           - name: pre-commit-hooks
             group:
               parallel: true
