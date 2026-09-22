@@ -17,12 +17,14 @@ jobs:
         run: pacman -S --noconfirm git
       - name: Install dotfiles manager
         run: pacman -S --noconfirm chezmoi
-      - name: Deploy dotfiles
+      - name: Setup dotfiles directory
         env:
           branch: ${{ github.ref_name }}
-        run: |
-          chezmoi init --branch "$branch" n4vysh && chezmoi apply
-          ls -l ~/.*
+        run: chezmoi init --branch "$branch" n4vysh
+      - name: Deploy dotfiles
+        run: chezmoi apply
+      - name: List dotfiles
+        run: ls -l ~/.*
   lefthook:
     runs-on: ubuntu-26.04
     permissions:
