@@ -326,6 +326,16 @@ checksum = "sha256:dc2d864f5f4e4ddfb23ef8e2193626f5f26eee5be1e49ff2a9ba40d429839
 url = "https://github.com/docker/docker-credential-helpers/releases/download/v0.9.3/docker-credential-pass-v0.9.3.linux-amd64"
 url_api = "https://api.github.com/repos/docker/docker-credential-helpers/releases/assets/237482408"
 
+[[tools.gitleaks]]
+version = "8.30.1"
+backend = "aqua:gitleaks/gitleaks"
+specifiers = ["8.30.1"]
+
+[tools.gitleaks."platforms.linux-x64"]
+checksum = "sha256:551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb"
+url = "https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz"
+url_api = "https://api.github.com/repos/gitleaks/gitleaks/releases/assets/378332058"
+
 [[tools.go]]
 version = "1.26.6"
 backend = "core:go"
@@ -877,6 +887,12 @@ version = "3.8.1"
 aube = { path = "locks/prettier/3.8.1", digest = "sha256:ff0d4bca0c4b6be4f134a49763cfdc3067020a81ca1f89c4668094c8bb879df3" }
 backend = "npm:prettier"
 specifiers = ["3.8.1"]
+
+[[tools."pypi:ansible-lint"]]
+version = "26.8.0"
+backend = "pypi:ansible-lint"
+specifiers = ["26.8.0"]
+uv = { path = "locks/pypi-ansible-lint/26.8.0", digest = "sha256:30e245dfcded4f9eeb312c0b8d4a31118acf3488cd6da27f478e397601c2fd73" }
 
 [[tools."pypi:litellm"]]
 version = "1.88.0"

@@ -352,6 +352,7 @@ infracost = "0.10.41"
 conftest = "0.61.0"
 
 ## Security
+gitleaks = "8.30.1"
 trivy = { version = "0.73.0", postinstall = '''
 trivy completion zsh >~/.zshrc.d/site-functions/_trivy
 ''' }
