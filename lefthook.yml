@@ -8,7 +8,7 @@ pre-commit:
         parallel: true
         jobs:
           - name: chezmoi
-            run: chezmoi apply --dry-run
+            run: chezmoi apply --dry-run --source .
           - name: pre-commit-hooks
             group:
               parallel: true
