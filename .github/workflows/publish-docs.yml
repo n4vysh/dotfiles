@@ -40,6 +40,7 @@ jobs:
         with:
           # renovate: datasource=github-releases depName=jdx/mise
           version: "2026.9.12"
+          install_args: "python uv pypi:zensical"
       - name: Build documentation
         run: zensical build --clean
       # yamllint disable-line rule:line-length
