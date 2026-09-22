@@ -13,7 +13,7 @@ ls:
       .*: snake_case
     workflows:
       .*: kebab-case
-  etc:
+  system/etc:
     .*: kebab-case
     .dir: "kebab-case | regex:[a-z0-9.-]+\\.d"
     ssh/sshd_config.d:

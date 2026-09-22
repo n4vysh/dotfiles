@@ -48,7 +48,7 @@ bats_load_library bats-file
 
 @test "etc files are deployed" {
   mapfile -t files < <(
-    find etc/ -type f |
+    find system/etc/ -type f |
       grep -v 'etc/kernel/cmdline' |
       grep -v 'etc/modprobe.d/disable-overlay-redirect-dir.conf' |
       grep -v 'etc/polkit-1/rules.d/50-udisks.rules' |
@@ -59,6 +59,6 @@ bats_load_library bats-file
   )
 
   for file in "${files[@]}"; do
-    assert_files_equal "/$file" "$file"
+    assert_files_equal "/${file#system/}" "$file"
   done
 }

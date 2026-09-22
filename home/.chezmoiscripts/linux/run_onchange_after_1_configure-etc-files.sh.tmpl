@@ -8,7 +8,7 @@ if [ -d /mnt/wsl ]; then
 fi
 
 gum log --level info 'Deploy etc files'
-dir="$HOME/.local/share/chezmoi"
+dir="$HOME/.local/share/chezmoi/system"
 xargs -I {} sudo install -C -D -v -m 0644 -o root -g root "$dir/{}" /{} <<-EOF
 	etc/keyd/default.conf
 	etc/polkit-1/rules.d/50-udisks.rules
@@ -126,7 +126,7 @@ fi
 # https://github.com/twpayne/chezmoi/issues/4364
 # https://github.com/alker0/chezmoi.vim/issues/76
 cat <<-EOF >/dev/null
-	{{ range (glob (joinPath .chezmoi.sourceDir "../etc/**")) -}}
+	{{ range (glob (joinPath .chezmoi.sourceDir "../system/etc/**")) -}}
 	{{   if eq (stat .).type "file" -}}
 	{{ includeTemplate . | sha256sum }}
 	{{   end }}

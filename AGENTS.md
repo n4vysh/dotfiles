@@ -12,13 +12,13 @@ Chezmoi-managed dotfiles for Arch Linux.
 
 ## Project Structure
 
-- `boot/`: Boot loader configuration.
 - `docs/`: Installation guides and screenshots.
-- `etc/`: System-wide configuration.
 - `home/`: Managed user dotfiles.
 - `misc/`: Manual setup files.
 - `scripts/`: Bootstrap and maintenance scripts.
-- `test/`: System-wide tests.
+- `system/boot/`: Boot loader configuration.
+- `system/etc/`: System-wide configuration.
+- `test/`: System and user environment tests.
 
 ## Safety
 

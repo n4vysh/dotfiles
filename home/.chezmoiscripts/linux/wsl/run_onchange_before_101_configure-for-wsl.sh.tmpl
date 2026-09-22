@@ -15,11 +15,11 @@ gum log --level info 'Enable progress bar of pacman'
 sudo sed -i -e '/^#NoProgressBar$/s/#//' /etc/pacman.conf
 
 gum log --level info 'Copy etc files'
-xargs -I {} sudo install -C -D -v -m 0644 -o root -g root ~/.local/share/chezmoi/{} /{} <<-EOF
+xargs -I {} sudo install -C -D -v -m 0644 -o root -g root ~/.local/share/chezmoi/system/{} /{} <<-EOF
 	etc/systemd/system/rkhunter.service
 	etc/systemd/system/rkhunter.timer
 EOF
-xargs -I {} sudo install -C -D -v -m 0440 -o root -g root ~/.local/share/chezmoi/{} /{} <<-EOF
+xargs -I {} sudo install -C -D -v -m 0440 -o root -g root ~/.local/share/chezmoi/system/{} /{} <<-EOF
 	etc/sudoers.d/env-keep
 	etc/sudoers.d/pwfeedback
 	etc/sudoers.d/wheel
@@ -27,19 +27,19 @@ EOF
 
 # https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-setting-for-wslconfig
 sudo install -C -D -v -m 0644 -o root -g root \
-	~/.local/share/chezmoi/etc/wsl.conf \
+	~/.local/share/chezmoi/system/etc/wsl.conf \
 	/etc/wsl.conf
 
 # NOTE: fix wslg bug of WSL
 # https://github.com/microsoft/wslg/issues/1032#issuecomment-2310369848
 sudo install -C -D -v -m 0644 -o root -g root \
-	~/.local/share/chezmoi/etc/tmpfiles.d/wslg.conf \
+	~/.local/share/chezmoi/system/etc/tmpfiles.d/wslg.conf \
 	/etc/tmpfiles.d/wslg.conf
 
 # NOTE: fix clock sync bug of WSL
 # https://github.com/microsoft/WSL/issues/8204#issuecomment-1339506778
 sudo install -C -D -v -m 0644 -o root -g root \
-	~/.local/share/chezmoi/etc/systemd/system/systemd-timesyncd.service.d/override.conf \
+	~/.local/share/chezmoi/system/etc/systemd/system/systemd-timesyncd.service.d/override.conf \
 	/etc/systemd/system/systemd-timesyncd.service.d/override.conf
 
 gum log --level info 'Override binaries with exe files'
@@ -103,13 +103,13 @@ chmod +x ~/.local/bin/notify-send
 # https://github.com/twpayne/chezmoi/issues/4364
 # https://github.com/alker0/chezmoi.vim/issues/76
 cat <<-EOF >/dev/null
-	{{ include (joinPath .chezmoi.sourceDir "../etc/wsl.conf") | sha256sum }}
-	{{ include (joinPath .chezmoi.sourceDir "../etc/tmpfiles.d/wslg.conf") | sha256sum }}
-	{{ include (joinPath .chezmoi.sourceDir "../etc/systemd/system/systemd-timesyncd.service.d/override.conf") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../system/etc/wsl.conf") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../system/etc/tmpfiles.d/wslg.conf") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../system/etc/systemd/system/systemd-timesyncd.service.d/override.conf") | sha256sum }}
 
-	{{ include (joinPath .chezmoi.sourceDir "../etc/systemd/system/rkhunter.service") | sha256sum }}
-	{{ include (joinPath .chezmoi.sourceDir "../etc/systemd/system/rkhunter.timer") | sha256sum }}
-	{{ include (joinPath .chezmoi.sourceDir "../etc/sudoers.d/env-keep") | sha256sum }}
-	{{ include (joinPath .chezmoi.sourceDir "../etc/sudoers.d/pwfeedback") | sha256sum }}
-	{{ include (joinPath .chezmoi.sourceDir "../etc/sudoers.d/wheel") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../system/etc/systemd/system/rkhunter.service") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../system/etc/systemd/system/rkhunter.timer") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../system/etc/sudoers.d/env-keep") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../system/etc/sudoers.d/pwfeedback") | sha256sum }}
+	{{ include (joinPath .chezmoi.sourceDir "../system/etc/sudoers.d/wheel") | sha256sum }}
 EOF

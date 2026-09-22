@@ -145,7 +145,7 @@ _install() {
 		/etc/xdg/reflector/reflector.conf /mnt/etc/xdg/reflector/reflector.conf
 
 	_log::info 'Deploy config files from live environment'
-	dir=/tmp/dotfiles
+	dir=/tmp/dotfiles/system
 	xargs -I {} install -C -D -v -m 0644 -o root -g root "$dir/{}" /mnt/{} <<-EOF
 		etc/iwd/main.conf
 		etc/systemd/network/20-wired.network
@@ -186,13 +186,13 @@ _install() {
 	_log::info 'Configure locale'
 	arch-chroot /mnt sed -i -e '/^#en_US.UTF-8 UTF-8  $/s/#//' /etc/locale.gen
 	arch-chroot /mnt locale-gen
-	install -C -D -v -m 0644 -o root -g root /tmp/dotfiles/etc/locale.conf /mnt/etc/locale.conf
+	install -C -D -v -m 0644 -o root -g root /tmp/dotfiles/system/etc/locale.conf /mnt/etc/locale.conf
 
 	_log::info 'Configure keyboard'
 	arch-chroot /mnt bash -c 'echo KEYMAP=us >/etc/vconsole.conf'
 
 	_log::info 'Configure hostname'
-	install -C -D -v -m 0644 -o root -g root /tmp/dotfiles/etc/hostname /mnt/etc/hostname
+	install -C -D -v -m 0644 -o root -g root /tmp/dotfiles/system/etc/hostname /mnt/etc/hostname
 
 	_log::info 'Configure Bootsplash'
 	sed \
