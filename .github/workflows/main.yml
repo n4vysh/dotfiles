@@ -31,8 +31,6 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - name: Install zsh
-        run: sudo apt-get update && sudo apt-get install --yes zsh
       - uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c # v4.3.0
         with:
           # renovate: datasource=github-releases depName=jdx/mise
