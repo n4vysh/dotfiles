@@ -47,20 +47,20 @@ indent_style = tab
 indent_size = unset
 trim_trailing_whitespace = false
 
-[misc/wsl/remap.skl]
+[extras/wsl/remap.skl]
 charset = binary
 insert_final_newline = false
 
 [home/dot_config/yasb/*]
 end_of_line = crlf
 
-[misc/firefox/ublock.txt]
+[extras/firefox/ublock.txt]
 insert_final_newline = false
 
-[misc/firefox/libredirect.json]
+[extras/firefox/libredirect.json]
 insert_final_newline = false
 
-[misc/firefox/zero-omega.bak]
+[extras/firefox/zero-omega.bak]
 insert_final_newline = false
 
 [home/dot_config/mozilla/firefox/*.default-release/search.json.mozlz4]
@@ -70,7 +70,7 @@ indent_style = unset
 insert_final_newline = false
 trim_trailing_whitespace = false
 
-[misc/firefox/twp.txt]
+[extras/firefox/twp.txt]
 insert_final_newline = false
 
 [home/dot_config/luacheck/dot_luacheckrc]

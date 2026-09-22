@@ -14,7 +14,7 @@ Chezmoi-managed dotfiles for Arch Linux.
 
 - `docs/`: Installation guides and screenshots.
 - `home/`: Managed user dotfiles.
-- `misc/`: Manual setup files.
+- `extras/`: Manual setup files.
 - `scripts/`: Bootstrap and maintenance scripts.
 - `system/boot/`: Boot loader configuration.
 - `system/etc/`: System-wide configuration.

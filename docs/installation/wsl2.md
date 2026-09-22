@@ -74,7 +74,7 @@ with [SharpKeys][sharpkeys-link] and [AutoHotKey][ahk-link].
 | `Alt (Right)`  | `Ctrl (Right)` | `Escape` when pressed alone |
 | `Alt (Left)`   | `Alt (Left)`   |                             |
 
-[sharpkeys-config-link]: https://github.com/n4vysh/dotfiles/blob/main/misc/wsl/remap.skl
+[sharpkeys-config-link]: https://github.com/n4vysh/dotfiles/blob/main/extras/wsl/remap.skl
 [ahk-config-link]: https://github.com/n4vysh/dotfiles/blob/main/home/dot_glzr/glazewm/hotkeys.ahk
 [sharpkeys-link]: https://github.com/randyrants/sharpkeys
 [ahk-link]: https://www.autohotkey.com/
