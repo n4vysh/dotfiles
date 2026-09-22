@@ -13,15 +13,30 @@
   "branchPrefix": "feature/renovate/",
   // Dependency update groups:
   // - github-actions
+  // - mise-runtime
   // - mise (+ mise.lock maintenance)
+  // - mise-global (+ mise.lock maintenance)
   // - sheldon
-  // - chezmoi-externals
-  // Maximum PRs: 4 x 2 (major/non-major) + 1 lock file maintenance = 9
-  "prConcurrentLimit": 9,
-  "prHourlyLimit": 9,
-  "commitHourlyLimit": 9,
+  // - chezmoi-external
+  // Maximum PRs: 6 x 2 (major/non-major) + 2 lock file maintenance = 14
+  "prConcurrentLimit": 14,
+  "prHourlyLimit": 14,
+  "commitHourlyLimit": 14,
   "separateMajorMinor": true,
+  "ignorePaths": [".mise/locks/**", "home/dot_config/mise/locks/**"],
   "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update mise runtime used by CI",
+      "managerFilePatterns": ["/^\\.github\\/workflows\\/[^/]+\\.yml$/"],
+      "matchStrings": [
+        "# renovate: datasource=github-releases depName=jdx/mise\\s+version: \"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "jdx/mise",
+      "extractVersionTemplate": "^v(?<version>.+)$",
+      "depTypeTemplate": "mise-runtime"
+    },
     {
       "customType": "regex",
       "description": "Update tagged chezmoi externals",
@@ -81,11 +96,27 @@
       "groupSlug": "github-actions"
     },
     {
-      "description": "Group mise updates",
+      "description": "Group mise runtime updates",
+      "matchDepTypes": ["mise-runtime"],
+      "commitMessageAction": ":package: bump",
+      "groupName": "mise-runtime",
+      "groupSlug": "mise-runtime"
+    },
+    {
+      "description": "Group repository development tool updates",
       "matchManagers": ["mise"],
+      "matchFileNames": ["mise.toml"],
       "commitMessageAction": ":package: bump",
       "groupName": "mise",
       "groupSlug": "mise"
+    },
+    {
+      "description": "Group personal environment tool updates",
+      "matchManagers": ["mise"],
+      "matchFileNames": ["home/dot_config/mise/config.toml"],
+      "commitMessageAction": ":package: bump",
+      "groupName": "mise-global",
+      "groupSlug": "mise-global"
     },
     {
       "description": "Group Sheldon plugin updates",
@@ -105,8 +136,6 @@
       "description": "Group mise.lock maintenance",
       "matchManagers": ["mise"],
       "matchUpdateTypes": ["lockFileMaintenance"],
-      "groupName": "mise",
-      "groupSlug": "mise",
       "commitMessageAction": ":package: maintain",
       "commitMessageTopic": "mise.lock"
     }

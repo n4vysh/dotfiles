@@ -3,3 +3,5 @@ home/dot_config/nvim/lazy-lock.json
 home/dot_config/opencode/package.json
 home/dot_config/mozilla/firefox/private_*.default-release/user.js
 misc/firefox/libredirect.json
+.mise/locks/**
+home/dot_config/mise/locks/**

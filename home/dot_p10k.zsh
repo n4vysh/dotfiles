@@ -199,13 +199,13 @@
 			# behind the remote
 			((VCS_STATUS_COMMITS_BEHIND)) && res+=" ${clean}⇣${VCS_STATUS_COMMITS_BEHIND}"
 			# ahead of the remote
-			((VCS_STATUS_COMMITS_AHEAD && !VCS_STATUS_COMMITS_BEHIND)) && res+=" "
+			((VCS_STATUS_COMMITS_AHEAD && ! VCS_STATUS_COMMITS_BEHIND)) && res+=" "
 			((VCS_STATUS_COMMITS_AHEAD)) && res+="${clean}⇡${VCS_STATUS_COMMITS_AHEAD}"
 		fi
 
 		# behind the push remote
 		((VCS_STATUS_PUSH_COMMITS_BEHIND)) && res+=" ${clean}⇠${VCS_STATUS_PUSH_COMMITS_BEHIND}"
-		((VCS_STATUS_PUSH_COMMITS_AHEAD && !VCS_STATUS_PUSH_COMMITS_BEHIND)) && res+=" "
+		((VCS_STATUS_PUSH_COMMITS_AHEAD && ! VCS_STATUS_PUSH_COMMITS_BEHIND)) && res+=" "
 		# ahead of the push remote
 		((VCS_STATUS_PUSH_COMMITS_AHEAD)) && res+="${clean}⇢${VCS_STATUS_PUSH_COMMITS_AHEAD}"
 		# stashes
@@ -304,7 +304,7 @@
 	typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
 
 	# NOTE: if p10k is already loaded, reload configuration
-	((!$+functions[p10k])) || p10k reload
+	((! $+functions[p10k])) || p10k reload
 }
 
 # NOTE: tell `p10k configure` which file it should overwrite

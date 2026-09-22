@@ -4,5 +4,8 @@
 /.cache/
 /.zensical/site/
 
-# Python tooling
+# ruff
 /.ruff_cache/
+
+# bats
+/test/helper/

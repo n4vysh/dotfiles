@@ -23,4 +23,4 @@ extend-ignore-identifiers-re = [
 ]
 
 [files]
-extend-exclude = ["home/dot_config/mise/locks/**"]
+extend-exclude = [".mise/locks/**", "home/dot_config/mise/locks/**"]

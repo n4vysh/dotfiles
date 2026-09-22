@@ -1,4 +1,6 @@
 exclude = [
+  ".mise/locks/**",
+  "home/dot_config/mise/locks/**",
   "home/dot_config/pet/config.toml",
   "home/dot_config/pet/snippet.toml",
 ]

@@ -1,11 +1,16 @@
 # Contributing
 
+## Requirements
+
+- Arch Linux
+- mise (v2026.9.9 or newer)
+
 ## Development environment
 
-Install the required development tools:
+Install development tools:
 
 ```sh
-mise bootstrap --only task --yes
+mise bootstrap --yes
 ```
 
 Select a task interactively with `mise run`, or list tasks with `mise tasks ls`.
@@ -76,8 +81,7 @@ Capture the login screen with `fbgrab` (requires `sudo`):
 mise run screenshot:login-screen
 ```
 
-Generate the bootsplash image with ImageMagick using
-`/usr/share/systemd/bootctl/splash-arch-custom.bmp`:
+Generate the bootsplash image with ImageMagick:
 
 ```sh
 mise run screenshot:bootsplash

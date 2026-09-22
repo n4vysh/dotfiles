@@ -1,39 +1,104 @@
+#:schema https://mise.jdx.dev/schema/mise.json
+
+min_version = "2026.9.9"
+
+[settings]
+jobs = 20
+minimum_release_age = "3d"
+pin = true
+lockfile = true
+lockfile_platforms = ["linux-x64"]
+disable_backends = ["asdf", "ubi"]
+
+[settings.npm]
+package_manager = "aube"
+
+[bootstrap.packages]
+"pacman:chezmoi" = "latest"
+
+[bootstrap.repos]
+"test/helper/bats-support" = { url = "https://github.com/bats-core/bats-support.git", ref = "v0.3.0" }
+"test/helper/bats-assert" = { url = "https://github.com/bats-core/bats-assert.git", ref = "v2.2.4" }
+"test/helper/bats-file" = { url = "https://github.com/bats-core/bats-file.git", ref = "v0.4.0" }
+
+[env]
+BATS_LIB_PATH = "{{config_root}}/test/helper"
+
+[tools]
+# General
+editorconfig-checker = "4.0.1"
+typos = "1.50.1"
+ls-lint = "2.3.1"
+"pypi:pre-commit-hooks" = "6.0.0"
+
+# Markdown
+rumdl = "0.2.73"
+lychee = "0.24.2"
+
+# JSON
+prettier = "3.9.6"
+
+# YAML
+yamlfmt = "0.21.0"
+yamllint = "1.38.0"
+
+# TOML
+taplo = "0.10.0"
+
+# Shell scripts
+shfmt = "3.14.1"
+"aqua:anordal/shellharden" = "4.3.2"
+shellcheck = "0.11.0"
+
+# Lua
+stylua = "2.5.2"
+"aqua:Kampfkarren/selene" = "0.31.0"
+
+# Git
+lefthook = "2.1.12"
+"npm:@commitlint/cli" = "21.2.2"
+
+# Testing framework
+bats = "1.14.0"
+
+# CI/CD
+actionlint = "1.7.12"
+zizmor = "1.29.0"
+
+# Documentation
+"pypi:zensical" = "0.0.57"
+
+# Security
+gitleaks = "8.30.1"
+"npm:renovate" = { version = "44.21.0", allow_builds = [
+  "re2",
+], trust_policy_excludes = [
+  "@yarnpkg/libzip@3.2.2",
+] }
+
+# language runtime
+## node
+##   used by:
+##     - renovate
+node = "24.15.0"
+## python + uv
+##   used by:
+##     - mise pypi backend
+##     - yamllint
+python = "3.13.14"
+uv = "0.12.10"
+
 [tasks.bootstrap]
-description = "Install development tools for dotfiles"
-run = '''
-# NOTE: install required tools only for dotfiles repository
-#       version pinning with global config
-#          home/dot_config/mise/config.toml
-export MISE_CONFIG_FILE=home/dot_config/mise/config.toml
-mise bootstrap repos apply --yes
-mise install \
-  node \
-  python \
-  uv \
-  npm:@commitlint/cli \
-  npm:renovate \
-  bats \
-  lefthook \
-  pipx:pre-commit-hooks \
-  editorconfig-checker \
-  gitleaks \
-  ls-lint \
-  typos \
-  actionlint \
-  lychee \
-  prettier \
-  rumdl \
-  aqua:Kampfkarren/selene \
-  shellcheck \
-  aqua:anordal/shellharden \
-  shfmt \
-  stylua \
-  taplo \
-  yamlfmt \
-  yamllint \
-  zizmor \
-  pipx:zensical
-'''
+description = "Install git hooks with lefthook"
+run = "lefthook install"
+
+[tasks.diff]
+description = "Preview dotfile changes with chezmoi"
+run = "chezmoi diff"
+
+[tasks.apply]
+description = "Apply dotfiles with chezmoi"
+run = "chezmoi apply"
 
 [tasks.test]
 description = "Run all repository checks"

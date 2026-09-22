@@ -18,6 +18,7 @@ pre-commit:
                 - name: check-added-large-files
                   run: check-added-large-files {staged_files}
                   exclude:
+                    - .mise/locks/**
                     - home/dot_config/mise/locks/**
                 - name: check-executables-have-shebangs
                   file_types:
@@ -33,11 +34,15 @@ pre-commit:
                   file_types: text
                   run: check-shebang-scripts-are-executable {staged_files}
           - name: editorconfig-checker
+            exclude:
+              - .mise/locks/**
+              - home/dot_config/mise/locks/**
             run: editorconfig-checker {staged_files}
           - name: typos
             exclude:
               - "**/*.png"
               - "**/*.mozlz4"
+              - .mise/locks/**
               - home/dot_config/mise/locks/**
             run: typos {staged_files}
           - name: ls-lint
