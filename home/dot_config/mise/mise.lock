@@ -709,13 +709,13 @@ backend = "npm:@antfu/ni"
 specifiers = ["28.0.0"]
 
 [[tools.node]]
-version = "24.11.0"
+version = "24.15.0"
 backend = "core:node"
-specifiers = ["24.11.0"]
+specifiers = ["24.15.0"]
 
 [tools.node."platforms.linux-x64"]
-checksum = "sha256:b3c071cdf47aab867c3b2aa287257df12ec5d7c962bf922b32fd33226c4295fd"
-url = "https://nodejs.org/dist/v24.11.0/node-v24.11.0-linux-x64.tar.gz"
+checksum = "sha256:44836872d9aec49f1e6b52a9a922872db9a2b02d235a616a5681b6a85fec8d89"
+url = "https://nodejs.org/dist/v24.15.0/node-v24.15.0-linux-x64.tar.gz"
 
 [[tools.nono]]
 version = "0.75.0"
