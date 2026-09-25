@@ -238,6 +238,8 @@
       "RTK_DISABLED=1 git show": "allow",
       "RTK_DISABLED=1 git show *": "allow",
       "git show-ref *": "allow",
+      "rtk git show-ref *": "allow",
+      "RTK_DISABLED=1 git show-ref *": "allow",
       "git status": "allow",
       "git status *": "allow",
       "rtk git status": "allow",
