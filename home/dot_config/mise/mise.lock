@@ -835,10 +835,9 @@ backend = "npm:stylelint-config-standard"
 specifiers = ["40.0.0"]
 
 [[tools."npm:tokscale"]]
-version = "4.12.0"
-aube = { path = "locks/npm-tokscale/4.12.0", digest = "sha256:c7a359a543323d8a6abb7141fb87a6e56a055807ac863217bc668c5555ef5717" }
+version = "4.17.0"
 backend = "npm:tokscale"
-specifiers = ["4.12.0"]
+specifiers = ["4.17.0"]
 
 [[tools.opencode]]
 version = "1.18.30"
