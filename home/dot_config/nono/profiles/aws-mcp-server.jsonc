@@ -29,7 +29,7 @@
                 "/lib64",
                 "/usr/lib",
                 "/usr/lib64",
-                "$XDG_DATA_HOME/mise/installs/pipx-mcp-proxy-for-aws",
+                "$XDG_DATA_HOME/mise/installs/pypi-mcp-proxy-for-aws",
                 "$XDG_DATA_HOME/uv/python",
                 // granted
                 "$XDG_CONFIG_HOME/granted"

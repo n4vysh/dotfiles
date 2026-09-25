@@ -62,12 +62,12 @@ windows:
           # yamllint disable rule:line-length
           - cmd: |
               sed \
-                "s|provider = \"prisma-client-py\"|provider = \"$(mise where pipx:litellm)/litellm/bin/prisma-client-py\"|" \
-                "$(mise where pipx:litellm)"/litellm/lib/python*/site-packages/litellm/proxy/schema.prisma \
+                "s|provider = \"prisma-client-py\"|provider = \"$(mise where pypi:litellm)/.mise-uv/.venv/bin/prisma-client-py\"|" \
+                "$(mise where pypi:litellm)"/.mise-uv/.venv/lib/python*/site-packages/litellm/proxy/schema.prisma \
                 >|"$XDG_CACHE_HOME/litellm/schema.prisma"
           # yamllint enable rule:line-length
           - cmd: |
-              PATH="$(mise where pipx:litellm)/litellm/bin:$PATH" \
+              PATH="$(mise where pypi:litellm)/.mise-uv/.venv/bin:$PATH" \
                 prisma generate --schema "$XDG_CACHE_HOME/litellm/schema.prisma"
           - cmd: |
               gopass env envs/litellm \
@@ -75,5 +75,5 @@ windows:
                 STORE_MODEL_IN_DB=True \
                 LITELLM_DROP_PARAMS=true \
                 LITELLM_MODIFY_PARAMS=true \
-                PATH="$(mise where pipx:litellm)/litellm/bin:$PATH" \
+                PATH="$(mise where pypi:litellm)/.mise-uv/.venv/bin:$PATH" \
                   litellm --config "$XDG_CACHE_HOME/litellm/config.yaml"
