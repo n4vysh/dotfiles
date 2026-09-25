@@ -85,7 +85,19 @@ vim.opt.clipboard = "unnamedplus"
 
 -- selene: allow(empty_if)
 if vim.fn.isdirectory("/mnt/wsl") == 1 then
-	-- NOTE: use wl-copy and wl-paste when WSL
+	-- WARN: do not use OSC 52 on Windows
+	--       use wl-copy to force LF instead of CRLF
+	vim.g.clipboard = {
+		name = "wl-copy and wl-paste",
+		copy = {
+			["+"] = { "wl-copy" },
+			["*"] = { "wl-copy" },
+		},
+		paste = {
+			["+"] = { "wl-paste", "--no-newline" },
+			["*"] = { "wl-paste", "--no-newline", "--primary" },
+		},
+	}
 elseif vim.env.WAYLAND_DISPLAY ~= nil then
 	vim.g.clipboard = {
 		name = "OSC 52 and wl-paste",
