@@ -1,0 +1,117 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      tokscale:
+        specifier: 4.17.0
+        version: 4.17.0
+
+packages:
+
+  '@tokscale/cli-android-arm64@4.17.0':
+    resolution: {integrity: sha512-hCwED1VFa57Sa6SOLFi4kdfiunOXJs8oTZagvCBYisPi1DA6J+/Y9RD2Uenw+zLLEmxcAfBwgL8vZ8blJY3pRQ==}
+    cpu: [arm64]
+    os: [android]
+
+  '@tokscale/cli-darwin-arm64@4.17.0':
+    resolution: {integrity: sha512-/Hmgh1VxxLdCo6ou+I7r12E0G4T4c0zzZwZ5iwdynlZKm1IEhoqPB0SagTmVEiLZSMV8zLxptO1GFuOKxMqwiQ==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@tokscale/cli-darwin-x64@4.17.0':
+    resolution: {integrity: sha512-AsAlm80CenvCv9pC/ys46Vmq7GJbgkufO2LxMAWRE5cubU4EBe0SqMew6+HpRY/BcAKJ5+4RFPQpEZS3Tx12lw==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@tokscale/cli-linux-arm64-gnu@4.17.0':
+    resolution: {integrity: sha512-wobrV3PJGeapz6ViLe5Ad6TU7+2QHQzZjf3XeVv5w25VOPZ+8XZN/pPpsdmawfguymPA2cAc34rxTj5G5M0wrg==}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  '@tokscale/cli-linux-arm64-musl@4.17.0':
+    resolution: {integrity: sha512-udoB3O3xHsFlQosK5pkmdJMO1Cb9uau7BLkBDFKW1M3uJq+5D2crTRKgv5NsAhjLTlTdr20C61KdGkkRWRhPXg==}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  '@tokscale/cli-linux-x64-gnu@4.17.0':
+    resolution: {integrity: sha512-wJfvqoU0dXOHVmgEdPtappcu05py0vc7jCVeWTWYS4UoJi0LuIGhTxRhLjfSb5oOUV9RE+7X+wZ3Xx7lIZ+6XA==}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  '@tokscale/cli-linux-x64-musl@4.17.0':
+    resolution: {integrity: sha512-ydYrHyGMBhub/t50EknkA5Xr0cp9p4TZxOCbBqPssXxwQRHHOCxpZQNW0s5ZdxOYW4igapmDRb0PiiheLJFLrQ==}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  '@tokscale/cli-win32-arm64-msvc@4.17.0':
+    resolution: {integrity: sha512-tovKL5nM84efBhJKqthZbH2HkuG2weKEbex4Pw0i7qOqOv7iCF+IIru39hJXx0FIicl8THhyYxQ9NHK1gGnfYQ==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@tokscale/cli-win32-x64-msvc@4.17.0':
+    resolution: {integrity: sha512-6NDfFj+LuBjnJDYzo5af9neLudojimL1y1SQvCvgNMvNmx94s+9tSyEZVlW9U6gL61MqvRaj2QK2w6iXYqyAfw==}
+    cpu: [x64]
+    os: [win32]
+
+  '@tokscale/cli@4.17.0':
+    resolution: {integrity: sha512-B3OFknGuiv4vKnfm7sX8uVrLj7pq6kk61TZ+GEO/5yLtGEzxc37GxsBUaOvA7jhH+VcWF7YY5SasiVxXgmZ9uA==}
+    hasBin: true
+
+  tokscale@4.17.0:
+    resolution: {integrity: sha512-v3JDNByUgjjT7uf7Wl+HG3jigJkMh3FHohaHzSTwjAxpzWsCXyJi8cwiwaCaddmUF4bdf+cBSJ4GzsRQYiZTOQ==}
+    hasBin: true
+
+snapshots:
+
+  '@tokscale/cli-android-arm64@4.17.0':
+    optional: true
+
+  '@tokscale/cli-darwin-arm64@4.17.0':
+    optional: true
+
+  '@tokscale/cli-darwin-x64@4.17.0':
+    optional: true
+
+  '@tokscale/cli-linux-arm64-gnu@4.17.0':
+    optional: true
+
+  '@tokscale/cli-linux-arm64-musl@4.17.0':
+    optional: true
+
+  '@tokscale/cli-linux-x64-gnu@4.17.0':
+    optional: true
+
+  '@tokscale/cli-linux-x64-musl@4.17.0':
+    optional: true
+
+  '@tokscale/cli-win32-arm64-msvc@4.17.0':
+    optional: true
+
+  '@tokscale/cli-win32-x64-msvc@4.17.0':
+    optional: true
+
+  '@tokscale/cli@4.17.0':
+    optionalDependencies:
+      '@tokscale/cli-android-arm64': 4.17.0
+      '@tokscale/cli-darwin-arm64': 4.17.0
+      '@tokscale/cli-darwin-x64': 4.17.0
+      '@tokscale/cli-linux-arm64-gnu': 4.17.0
+      '@tokscale/cli-linux-arm64-musl': 4.17.0
+      '@tokscale/cli-linux-x64-gnu': 4.17.0
+      '@tokscale/cli-linux-x64-musl': 4.17.0
+      '@tokscale/cli-win32-arm64-msvc': 4.17.0
+      '@tokscale/cli-win32-x64-msvc': 4.17.0
+
+  tokscale@4.17.0:
+    dependencies:
+      '@tokscale/cli': 4.17.0

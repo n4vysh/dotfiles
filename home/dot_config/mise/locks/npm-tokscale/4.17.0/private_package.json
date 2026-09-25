@@ -2,6 +2,6 @@
   "name": "mise-npm-install",
   "private": true,
   "dependencies": {
-    "tokscale": "4.12.0"
+    "tokscale": "4.17.0"
   }
 }

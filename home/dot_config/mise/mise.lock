@@ -836,6 +836,7 @@ specifiers = ["40.0.0"]
 
 [[tools."npm:tokscale"]]
 version = "4.17.0"
+aube = { path = "locks/npm-tokscale/4.17.0", digest = "sha256:c082e1ec132aba409752cc4f1007a268157d6cf770ac0c4d36b7c8ae69a5fa6c" }
 backend = "npm:tokscale"
 specifiers = ["4.17.0"]
 
