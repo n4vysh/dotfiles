@@ -148,7 +148,7 @@ nono profile schema \
 rtk = { version = "0.43.0", postinstall = '''
 rtk init -g --opencode
 ''' }
-herdr = { version = "0.8.2", postinstall = '''
+herdr = { version = "0.9.1", postinstall = '''
 herdr integration install opencode
 ''' }
 hunk = "0.17.0"
