@@ -888,12 +888,6 @@ aube = { path = "locks/prettier/3.8.1", digest = "sha256:ff0d4bca0c4b6be4f134a49
 backend = "npm:prettier"
 specifiers = ["3.8.1"]
 
-[[tools."pypi:ansible-lint"]]
-version = "26.8.0"
-backend = "pypi:ansible-lint"
-specifiers = ["26.8.0"]
-uv = { path = "locks/pypi-ansible-lint/26.8.0", digest = "sha256:30e245dfcded4f9eeb312c0b8d4a31118acf3488cd6da27f478e397601c2fd73" }
-
 [[tools."pypi:litellm"]]
 version = "1.88.0"
 backend = "pypi:litellm"
