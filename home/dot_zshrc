@@ -39,6 +39,7 @@ AUTO_NOTIFY_IGNORE+=(
 	"lazygit"
 	"y"
 	"yazi"
+	"nono run"
 	"opencode"
 	"claude"
 	"lazydocker"
