@@ -129,6 +129,10 @@ customCommands:
     context: "commits"
     description: "Continue the revert operation in progress"
     output: terminal
+os:
+  # OSC 52
+  # yamllint disable-line rule:line-length
+  copyToClipboardCmd: 'printf "\033Ptmux;\033\033]52;c;$(printf {{text}} | base64 -w 0)\a\033\\" > /dev/tty'
 # NOTE: self-hosted GitLab configuration for work
 # services:
 #   'example.com': 'gitlab:example.com'

@@ -75,7 +75,7 @@ Review the [applications](applications.md) and
 - Available prebuilt binaries with [Chaotic-AUR repository][chaotic-aur-link]
 - Support for OSC
     - OSC 8 - hyperlinks (tmux + eza + rg + fd + delta + ls)
-    - OSC 52 - clipboard integration for copy only (tmux + neovim)
+    - OSC 52 - clipboard integration for copy only (tmux + neovim + lazygit)
     - OSC 133 - shell integration (tmux + powerlevel10k)
 - Ergonomic keybinds with [keyd][keyd-link]
     - Thumb cluster
