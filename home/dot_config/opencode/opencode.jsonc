@@ -97,6 +97,7 @@
       "* --version": "allow",
       "ctx7 library *": "allow",
       "ctx7 docs *": "allow",
+      "nono profile guide": "allow",
       "nono profile list": "allow",
       "nono profile show *": "allow",
       "nono profile validate *": "allow",
