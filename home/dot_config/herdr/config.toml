@@ -12,6 +12,9 @@ navigate_workspace_down = "ctrl+n"
 split_vertical = "prefix+ctrl+v"
 split_horizontal = "prefix+ctrl+s"
 
+[ui]
+host_cursor = "native"
+
 [ui.sound]
 enabled = false
 
