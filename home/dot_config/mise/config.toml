@@ -274,6 +274,9 @@ argocd completion zsh >~/.zshrc.d/site-functions/_argocd
 kubectl = { version = "1.36.3", postinstall = '''
 kubectl completion zsh >~/.zshrc.d/site-functions/_kubectl
 ''' }
+argo-rollouts = { version = "1.8.3", postinstall = '''
+kubectl argo rollouts completion zsh >~/.zshrc.d/site-functions/_kubectl-argo-rollouts
+''' }
 kubectx = { version = "0.11.0", postinstall = '''
 tmp=$(mktemp)
 trap 'rm -f "$tmp"' 0

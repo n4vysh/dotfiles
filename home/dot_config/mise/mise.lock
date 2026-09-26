@@ -144,6 +144,19 @@ checksum = "sha256:94725da72c38ce931118a0fa3be314dec5350100af645341af1e97277be88
 url = "https://github.com/vercel-labs/agent-browser/releases/download/v0.27.0/agent-browser-linux-musl-x64"
 url_api = "https://api.github.com/repos/vercel-labs/agent-browser/releases/assets/414527084"
 
+[[tools.argo-rollouts]]
+version = "1.8.3"
+backend = "aqua:argoproj/argo-rollouts"
+specifiers = ["1.8.3"]
+
+[tools.argo-rollouts."platforms.linux-x64"]
+checksum = "sha256:6f60f3608ffc1e6b59c05ffc979d80ad1acd886d7fcbffb1e8e0c50291674373"
+url = "https://github.com/argoproj/argo-rollouts/releases/download/v1.8.3/kubectl-argo-rollouts-linux-amd64"
+url_api = "https://api.github.com/repos/argoproj/argo-rollouts/releases/assets/261035259"
+
+[tools.argo-rollouts."platforms.linux-x64".provenance.slsa]
+url = "https://github.com/argoproj/argo-rollouts/releases/download/v1.8.3/argo-rollouts.intoto.jsonl"
+
 [[tools.argocd]]
 version = "3.4.2"
 backend = "aqua:argoproj/argo-cd"
