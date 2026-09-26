@@ -339,6 +339,8 @@
       "go test *": "allow",
       "rtk go test *": "allow",
       "RTK_DISABLED=1 go test *": "allow",
+      "golangci-lint fmt *": "allow",
+      "golangci-lint run *": "allow",
       "gofmt *": "allow",
       "gofumpt *": "allow",
       "na exec vitest *": "allow",
