@@ -5,6 +5,7 @@
     "dbus",
     "systemd-resolved",
     "git",
+    "nvim",
     "gpg",
     "gopass",
     "aws",

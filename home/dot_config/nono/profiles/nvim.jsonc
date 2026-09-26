@@ -1,0 +1,11 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "filesystem": {
+    "allow": [
+      "$XDG_DATA_HOME/nvim",
+      "$XDG_STATE_HOME/nvim",
+      "$XDG_CACHE_HOME/nvim"
+    ],
+    "read": ["$XDG_CONFIG_HOME/nvim"]
+  }
+}
