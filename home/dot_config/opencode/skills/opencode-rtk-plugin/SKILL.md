@@ -17,7 +17,8 @@ compatibility: opencode
       differs from the original command.
     - `rtk` may summarize, compact, or truncate output.
     - This rewriting reduces token use.
-- Do not prefix normal commands with `rtk` based on your own judgment.
+- Never prefix commands with `rtk` on your own judgment.
+    - Leave `rtk` command rewriting and execution to the OpenCode plugin.
 - Do not run `rtk rewrite` manually; pass the original command to the Bash tool.
 - Treat rewritten output as valid unless a specific inconsistency exists:
     - Do not bypass rewritten output without a concrete reason.
