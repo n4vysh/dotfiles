@@ -65,7 +65,7 @@ lychee --generate complete-zsh >~/.zshrc.d/site-functions/_lychee
 ''' }
 
 # JSON
-prettier = "3.8.1"
+prettier = "3.9.6"
 jqp = "0.7.0"
 fx = { version = "39.2.0", postinstall = '''
 fx --comp zsh >~/.zshrc.d/site-functions/_fx

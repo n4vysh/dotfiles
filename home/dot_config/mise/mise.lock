@@ -896,10 +896,10 @@ url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/428449600"
 provenance = "github-attestations"
 
 [[tools.prettier]]
-version = "3.8.1"
-aube = { path = "locks/prettier/3.8.1", digest = "sha256:ff0d4bca0c4b6be4f134a49763cfdc3067020a81ca1f89c4668094c8bb879df3" }
+version = "3.9.6"
+aube = { path = "locks/prettier/3.9.6", digest = "sha256:2713c3c98701fa080a728710d5ffc1fd688e231373b202ebfedd8997711157e5" }
 backend = "npm:prettier"
-specifiers = ["3.8.1"]
+specifiers = ["3.9.6"]
 
 [[tools."pypi:litellm"]]
 version = "1.88.0"
