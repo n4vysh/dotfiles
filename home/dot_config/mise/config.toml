@@ -132,7 +132,7 @@ oxipng = "10.2.0"
 "github:YiNNx/cmd-wrapped" = { version = "0.4.1", bin = "cmd-wrapped" }
 
 # AI
-opencode = { version = "1.18.30", postinstall = '''
+opencode = { version = "1.18.32", postinstall = '''
 opencode completion >~/.zshrc.d/site-functions/_opencode
 ''' }
 claude-code = "2.1.267"
