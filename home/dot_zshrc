@@ -36,6 +36,7 @@ ABBR_REGULAR_ABBREVIATION_GLOB_PREFIXES+=(
 
 # zsh-auto-notify
 AUTO_NOTIFY_IGNORE+=(
+	"lg"
 	"lazygit"
 	"y"
 	"yazi"
@@ -50,6 +51,8 @@ AUTO_NOTIFY_IGNORE+=(
 	"impala"
 	"zi"
 	"trans"
+	"diff"
+	"delta"
 )
 
 # NOTE: fix $TERM in herdr session
