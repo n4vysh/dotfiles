@@ -13,39 +13,6 @@
 - Use emojis only when the user explicitly requests them.
 - Use @mention the relevant persons when reporting, communicating, or consulting.
 
-### Language Choice
-
-- Use established, widely recognized terms.
-    - Do not use invented terms.
-    - Avoid unnatural or uncommon word combinations.
-- Use Hiragana, Kanji, and the Latin alphabet as appropriate.
-    - Avoid Katakana.
-        - Use Kanji or Latin alphabet instead of Katakana.
-            - Write `user`, not `ユーザー`.
-        - Use Katakana only for names whose proper noun uses Katakana.
-    - Do not use `和製英語`.
-
-### Japanese Style
-
-- Always use `敬語`.
-- Use `敬体 (です・ます調)` when communicating with a person.
-- Use `常体` in issues, PR, and MR.
-    - Prefer natural verb endings such as `~する` and `~した`.
-        - Avoid sentence endings with `だ` or `である`.
-    - Prefer `体言止め` or `常体の過去形`.
-- Use `打ち言葉` in chats and issues.
-- Use `書き言葉` in email.
-- Describe specific outcomes, changes, or reasons when evaluating.
-    - Avoid the following expressions:
-        - `~が効きます`
-        - `~が刺さります`
-        - `~が響きます`
-- Use only `、` and `。` as full-width characters.
-    - Use half-width characters for all other symbols.
-        - Write `Amazon Web Services (AWS)`, not `Amazon Web Services（AWS）`.
-        - Write `例: ...`, not `例：...`.
-        - Write `$100`, not `＄100`.
-
 ## Output style
 
 The reader has ADHD. Shape every response so it can be acted on:
@@ -54,7 +21,7 @@ The reader has ADHD. Shape every response so it can be acted on:
 2. Number multi-step work; one bounded action per step.
 3. End with one next action doable in under two minutes.
 4. Finish the current issue before raising a new one.
-5. Restate progress each turn ("step 3 of 5 done").
+5. Restate progress each turn: what is done and what remains.
 6. Give time estimates in concrete units, never "a bit".
 7. After a change, show what now works.
 8. Errors: state location, cause, and fix. No drama.
@@ -73,86 +40,12 @@ Exceptions:
 ### Line Length and Paths
 
 - Limit each line to approximately 80 characters.
-    - Do not hard-wrap prose.
-    - Rewrite long text as shorter sentences or separate bullets.
+- Keep each sentence within approximately 80 characters.
+    - If a sentence exceeds 80 characters, split or rewrite it.
+        - Do not hard-wrap prose.
+        - Rewrite long text as shorter sentences or separate bullets.
 - Treat URLs and file paths as exceptions:
     - Do not wrap or split them across lines.
-
-### Japanese Spacing
-
-- Follow these spacing rules in running prose:
-    - Do not insert spaces between Japanese and Latin text.
-        - Write `AWSを使用する`, not `AWS を使用する`.
-    - Do not add spaces around Japanese particles, auxiliaries, or inflections.
-        - Write `設定を確認する`, not `設定 を 確認する`.
-- In headings and noun phrases, spaces may separate multi-word labels.
-    - `技術選定 結果` is acceptable.
-- Add one space before an ASCII `(` when adding text in parentheses.
-    - Use this mainly in headings, labels, noun phrases, and short phrases.
-    - Do not use this rule to add arbitrary spaces in running prose.
-
-### Japanese Punctuation
-
-- In conversational typed Japanese:
-    - Separate sentences with line breaks.
-    - Omit sentence-final periods.
-    - Omit unnecessary commas.
-- Keep commas when they serve a clear purpose:
-    - Improve readability.
-    - Clarify structure.
-    - Mark contrast, reason, or condition.
-    - Prevent ambiguity.
-- Do not add or remove `、` mechanically based only on an ending or character sequence.
-    - Decide whether to use a comma from sentence structure and readability.
-- In normal prose, prohibit only these exact forms:
-    - `で、`
-        - `この方針で、作業を進めます`
-    - `に、`
-        - `この方針に、従います`
-    - `から、`
-        - `上記理由から、採用します`
-    - `は、`
-        - `この観点は、重要です`
-    - `も、`
-        - `この観点も、重要です`
-    - `として、`
-    - `をもとに、`
-    - Do not extend this prohibition to similar endings such as `ため、` or `ので、`.
-- Rewrite a sentence that contains a prohibited form:
-    - Do not leave the comma in place.
-    - Do not delete the comma mechanically.
-- These forms are allowed:
-    - `ため、`
-        - `読みやすさのため、読点を残します`
-        - `補足が必要なため、説明を加えます`
-    - `ので、`
-        - `条件が重なるので、ここで区切ります`
-    - `が、`
-    - `けれど、`
-    - `ではなく、`
-        - `既存の制約ではなく、新しい規則を使います`
-    - `一方、`
-    - `ただし、`
-    - `また、`
-- Keep `、` under these conditions:
-    - Removing it would make the sentence harder to parse.
-    - Removing it would delay disambiguation.
-    - Removing it would blur a clause boundary.
-
-### Japanese Particle Repetition
-
-- In conversational typed Japanese, avoid repeating the same particle:
-    - Check repetition within a short span in one phrase or clause.
-    - Treat this as a local rule, not a sentence-wide ban.
-    - Do not apply it across separate clauses.
-    - Do not apply it across coordinated phrases.
-    - Do not apply it across parenthetical expressions.
-    - Do not apply it across common fixed expressions.
-- Avoid chains such as `AのBのC` in noun phrases:
-    - Rewrite them when a natural alternative is available.
-    - Treat repeated `の` as undesirable by default.
-    - Keep repeated `の` when rewriting would reduce clarity or naturalness.
-    - Write `AWS上で現行の構成要素を整理`, not `現行のAWS上の構成要素の整理`
 
 ### Markdown Structure
 
@@ -212,3 +105,126 @@ Exceptions:
     - Put all independent tool calls in one message.
     - Use multiple tool-call blocks in that message.
     - For example, launch multiple agents with multiple Task calls.
+
+## Japanese Rules
+
+### Word Choice (言葉選び)
+
+- 造語ではなく、一般的な用語を使用する
+    - 珍しい単語が組み合わさっている場合、自然な単語へ変更する
+- カタカナの代わりに漢字、または英字を使用する
+    - カタカナは可能な限り避ける
+    - 固有名詞のカタカナは使用を許可する
+    - 和製英語は使用しない
+    - 例:
+        - `ユーザー` -> `user`
+        - `ネクストアクション` -> `next action`
+
+### Style (文体)
+
+- 常に敬語を使う
+- 人間に対する会話、返信は敬体 (です・ます調)を使う
+- 人間に対する会話、返信以外は常体を使う
+    - 対象の例: issue、work item、PR、MRのdescription
+    - 体言止め、または`~する`や`~した`で終わる常体を使う
+        - `だ`、`である`のような断定的な表現は使わない
+    - 良い例
+        - `~する`
+        - `~した`
+    - 悪い例
+        - `~だ`
+        - `~である`
+- emailの文章は書き言葉を使う
+- emailの文章以外は打ち言葉を使う
+    - 対象の例: chat、issue、work itemの文章
+- 評価結果を表現する場合、具体的な結果、変化、または理由を説明する
+    - 悪い例
+        - `~が効きます`
+        - `~が刺さります`
+        - `~が響きます`
+- 全角文字の記号は `「` 、 `」` 、 `、` 、 `。` のみ使う
+    - `「` 、 `」` 、 `、` 、 `。` 以外の記号は全て半角文字に書き換える
+    - 例
+        - `Amazon Web Services（AWS）` -> `Amazon Web Services (AWS)`
+        - `例：...` -> `例: ...`
+        - `＄100` -> `$100`
+- 主語・主題と述語はできるだけ近くに配置する
+- 条件を示す`場合は、`は`場合、`に書き換える
+    - 例: `該当する場合は、設計を見直す` -> `該当する場合、設計を見直す`
+- 理由を表す `~ので` は `~ため` へ書き換える
+    - 文法に合わせて助詞も調整する
+    - 例
+        - `不足しているので、` -> `不足しているため、`
+        - `メンテナンスなので、` -> `メンテナンスのため、`
+- 実施済みの操作と結果を報告する場合、 `~すると` は `~した結果` へ書き換える
+    - 一般的な条件や動作を表す文には適用しない
+- 1文の中で同じ助詞を連続して使用しない
+    - 同じ助詞が連続する場合、以下の方法で重複を避ける
+        - 他の助詞を挟む
+        - 語順の変更
+        - 文の分割
+    - 良い例: `AWS上で現行の構成要素を整理`
+    - 悪い例: `現行のAWS上の構成要素の整理`
+
+### Spacing (空白)
+
+- 日本語と英字の間に空白は削除する
+    - 例: `AWS を使用する` -> `AWSを使用する`
+- 日本語の助詞、助動詞、活用形の周囲に含まれる空白は削除する
+    - 例: `設定 を 確認する` -> `設定を確認する`
+- 見出しの場合、複数の単語を空白で区切ることを許可する
+    - 許可される例: `技術選定 結果`
+- 括弧を使う場合、括弧の前に空白を含めることを許可する
+    - 許可される例: `調査結果 (YYYY/MM/DD)`
+
+### Punctuation (句読点)
+
+- 文頭の接続詞は接続詞の直後に読点を置く
+    - 例
+        - `また、`
+        - `ただし、`
+        - `しかし、`
+- 主語・主題の直後に不要な読点がある場合、削除する
+    - 条件節の区切り、列挙、曖昧さの解消に必要な読点は許可する
+        - ただし、以下は許可しない
+            - `<主語・主題>は、`
+            - `<主語・主題>が、`
+    - 例: `該当の機能は、実装済みです` -> `該当の機能は実装済みです`
+- `AとB` のように単語を並べる場合、「と」の直後に含まれる読点を削除する
+    - 例: `設計と、実装` -> `設計と実装`
+- 不要な読点は含めない
+    - 読みやすさや曖昧さを改善する場合のみ、読点を含める
+    - 読点を機械的に削除しない
+        - 語尾だけで読点の有無を決めない
+        - 以下の良い例・悪い例に該当する場合、その指定を優先する
+            - それ以外は文の構造と読みやすさで読点の有無を判断する
+        - 読点の削除により読みづらくなる場合、文の分割を検討する
+    - 読点を含めない場合
+        - 良い例
+            - `この方針で作業を進めます`
+            - `この方針に従います`
+            - `上記理由から採用します`
+            - `この観点も重要です`
+            - `として~`
+            - `をもとに~`
+        - 悪い例
+            - `この方針で、作業を進めます`
+            - `この方針に、従います`
+            - `上記理由から、採用します`
+            - `この観点も、重要です`
+            - `として、~`
+            - `をもとに、~`
+    - 読点を含める場合
+        - 良い例
+            - `の場合、~`
+            - `の場合のみ、~`
+            - `~ため、~`
+            - `~だが、~`
+        - 悪い例
+            - `の場合~`
+            - `の場合のみ~`
+            - `~ため~`
+            - `~だが~`
+- 会話の場合は以下に従う
+    - 文章を句点ではなく、改行で区切る
+    - 文末の句点は省略する
