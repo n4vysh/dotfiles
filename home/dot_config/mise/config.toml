@@ -362,7 +362,7 @@ trivy = { version = "0.73.0", postinstall = '''
 trivy completion zsh >~/.zshrc.d/site-functions/_trivy
 ''' }
 gopass = "1.16.1"
-"npm:renovate" = { version = "44.21.0", allow_builds = [
+"npm:renovate" = { version = "44.83.0", allow_builds = [
   "re2",
 ], trust_policy_excludes = [
   "@yarnpkg/libzip@3.2.2",

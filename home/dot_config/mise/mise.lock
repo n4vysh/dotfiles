@@ -814,10 +814,10 @@ specifiers = ["0.0.14"]
 allow_builds = '["better-sqlite3"]'
 
 [[tools."npm:renovate"]]
-version = "44.21.0"
-aube = { path = "locks/npm-renovate/44.21.0~026f02c4", digest = "sha256:ad6c5d000154c70bb64efad5befdfd2c607493de50da138119152ae4943e250f" }
+version = "44.83.0"
+aube = { path = "locks/npm-renovate/44.83.0~026f02c4", digest = "sha256:3e4bf68528392e74de313cb64d98dcc0c1daff247bb8e78139c192b338e4f4dc" }
 backend = "npm:renovate"
-specifiers = ["44.21.0"]
+specifiers = ["44.83.0"]
 
 [tools."npm:renovate".options]
 allow_builds = '["re2"]'

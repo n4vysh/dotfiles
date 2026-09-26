@@ -121,10 +121,10 @@ backend = "npm:@commitlint/cli"
 specifiers = ["21.2.2"]
 
 [[tools."npm:renovate"]]
-version = "44.21.0"
-aube = { path = ".mise/locks/npm-renovate/44.21.0~026f02c4", digest = "sha256:45ca55d19b984235ee7a62d48a00807f8a87cfb564fdcfb6bb80f8be244f16ea" }
+version = "44.83.0"
+aube = { path = ".mise/locks/npm-renovate/44.83.0~026f02c4", digest = "sha256:3e4bf68528392e74de313cb64d98dcc0c1daff247bb8e78139c192b338e4f4dc" }
 backend = "npm:renovate"
-specifiers = ["44.21.0"]
+specifiers = ["44.83.0"]
 
 [tools."npm:renovate".options]
 allow_builds = '["re2"]'

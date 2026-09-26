@@ -69,7 +69,7 @@ zizmor = "1.29.0"
 
 # Security
 gitleaks = "8.30.1"
-"npm:renovate" = { version = "44.21.0", allow_builds = [
+"npm:renovate" = { version = "44.83.0", allow_builds = [
   "re2",
 ], trust_policy_excludes = [
   "@yarnpkg/libzip@3.2.2",
