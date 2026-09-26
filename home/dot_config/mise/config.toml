@@ -143,7 +143,7 @@ nono = { version = "0.75.0", postinstall = '''
 nono completion zsh >~/.zshrc.d/site-functions/_nono
 nono pull nolabs-ai/opencode
 nono profile schema \
-  --output "$(chezmoi source-path)/dot_config/nono/nono-profile.schema.json"
+  --output "$XDG_DATA_HOME/chezmoi/home/dot_config/nono/profiles/nono-profile.schema.json"
 ''' }
 rtk = { version = "0.43.0", postinstall = '''
 rtk init -g --opencode
