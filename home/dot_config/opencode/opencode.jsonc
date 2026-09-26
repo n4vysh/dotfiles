@@ -315,7 +315,7 @@
       "check-added-large-files *": "allow",
       "check-executables-have-shebangs *": "allow",
       "check-shebang-scripts-are-executable *": "allow",
-      "ec *": "allow",
+      "editorconfig-checker *": "allow",
       "typos *": "allow",
       "ls-lint *": "allow",
       "yamlfmt *": "allow",
