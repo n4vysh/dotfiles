@@ -121,6 +121,7 @@
         }
       },
       "pass": {
+        "can_use": ["gpg"],
         "export_env": [
           "HOME",
           "DISPLAY" // GUI pinentry
