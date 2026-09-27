@@ -74,6 +74,7 @@
       // allow
       "~/.config/nono/**": "allow",
       "~/.config/opencode/**": "allow",
+      "~/.local/share/chezmoi/**": "allow",
       "~/.local/share/mise/**": "allow",
       "~/.local/share/opencode/log/**": "allow",
       "~/.local/share/opencode/tool-output/**": "allow",

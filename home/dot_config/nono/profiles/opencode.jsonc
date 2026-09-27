@@ -22,7 +22,12 @@
     "include": ["mise_manager", "go_runtime", "go_runtime_linux"]
   },
   "filesystem": {
-    "allow": ["$WORKDIR", "$HOME/Workspaces", "$XDG_DATA_HOME/rtk/tee"],
+    "allow": [
+      "$WORKDIR",
+      "$HOME/Workspaces", // ghq root
+      "$XDG_DATA_HOME/chezmoi", // dotfiles
+      "$XDG_DATA_HOME/rtk/tee"
+    ],
     "read": ["$XDG_CONFIG_HOME/nono"]
   },
   "network": {
