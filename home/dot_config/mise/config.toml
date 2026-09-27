@@ -141,7 +141,7 @@ codex completion zsh >~/.zshrc.d/site-functions/_codex
 ''' }
 nono = { version = "0.78.0", postinstall = '''
 nono completion zsh >~/.zshrc.d/site-functions/_nono
-nono pull nolabs-ai/opencode
+nono pull nolabs-ai/opencode@0.2.0
 nono profile schema \
   --output "$XDG_DATA_HOME/chezmoi/home/dot_config/nono/profiles/nono-profile.schema.json"
 ''' }
