@@ -1,8 +1,11 @@
 {
   "$schema": "../nono-profile.schema.json",
+  "extends": "aws",
   "command_policies": {
     "commands": {
       "kubectl": {
+        "can_use": ["aws"],
+        "export_env": ["AWS_CONFIG_FILE", "AWS_PROFILE"],
         "from": {
           "session": {
             "sandbox": {
@@ -15,11 +18,10 @@
                 "$XDG_DATA_HOME/mise/installs/kubectl"
               ],
               "fs_read_file": [
-                "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
-                "$HOME/.kube/config"
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
               ],
               "environment": {
-                "allow_vars": ["PATH", "HOME"]
+                "allow_vars": ["PATH", "HOME", "KUBECONFIG"]
               },
               "network": {
                 "allow_all": true

@@ -1,8 +1,11 @@
 {
   "$schema": "../nono-profile.schema.json",
+  "extends": "aws",
   "command_policies": {
     "commands": {
       "kubernetes-mcp-server": {
+        "can_use": ["aws"],
+        "export_env": ["AWS_CONFIG_FILE", "AWS_PROFILE"],
         "from": {
           "session": {
             "sandbox": {
@@ -11,8 +14,7 @@
                 "/lib64",
                 "/usr/lib",
                 "/usr/lib64",
-                "/etc/ssl",
-                "$HOME/.kube/configs"
+                "/etc/ssl"
               ],
               "fs_read_file": [
                 "/etc/ca-certificates/extracted/tls-ca-bundle.pem"

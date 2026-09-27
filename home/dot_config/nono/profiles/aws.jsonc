@@ -10,9 +10,98 @@
           "XDG_CONFIG_HOME",
           "XDG_CACHE_HOME",
           "XDG_STATE_HOME",
+          "AWS_CONFIG_FILE",
           "AWS_PROFILE"
         ],
         "from": {
+          "kubectl": {
+            "sandbox": {
+              "fs_read": [
+                "/etc/ssl",
+                "/lib",
+                "/lib64",
+                "/usr/lib",
+                "/usr/lib64",
+                "$XDG_DATA_HOME/mise/installs/awscli",
+                "$XDG_CONFIG_HOME/granted"
+              ],
+              "fs_read_file": [
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
+              ],
+              "fs_write": [
+                "$XDG_CONFIG_HOME/granted",
+                "$XDG_CACHE_HOME/granted",
+                "$XDG_STATE_HOME/granted"
+              ],
+              "environment": {
+                "allow_vars": [
+                  "PATH",
+                  "HOME",
+                  "XDG_CONFIG_HOME",
+                  "XDG_CACHE_HOME",
+                  "XDG_STATE_HOME",
+                  "AWS_PROFILE"
+                ],
+                "set_vars": {
+                  "AWS_PAGER": ""
+                }
+              },
+              "network": {
+                "allow_all": true
+              }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [
+                // for aws eks update-kubeconfig
+                { "argv": { "contains": ["eks", "get-token"] } }
+              ]
+            }
+          },
+          "kubernetes-mcp-server": {
+            "sandbox": {
+              "fs_read": [
+                "/etc/ssl",
+                "/lib",
+                "/lib64",
+                "/usr/lib",
+                "/usr/lib64",
+                "$XDG_DATA_HOME/mise/installs/awscli",
+                "$XDG_CONFIG_HOME/granted"
+              ],
+              "fs_read_file": [
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
+              ],
+              "fs_write": [
+                "$XDG_CONFIG_HOME/granted",
+                "$XDG_CACHE_HOME/granted",
+                "$XDG_STATE_HOME/granted"
+              ],
+              "environment": {
+                "allow_vars": [
+                  "PATH",
+                  "HOME",
+                  "XDG_CONFIG_HOME",
+                  "XDG_CACHE_HOME",
+                  "XDG_STATE_HOME",
+                  "AWS_PROFILE"
+                ],
+                "set_vars": {
+                  "AWS_PAGER": ""
+                }
+              },
+              "network": {
+                "allow_all": true
+              }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [
+                // for aws eks update-kubeconfig
+                { "argv": { "contains": ["eks", "get-token"] } }
+              ]
+            }
+          },
           "session": {
             "sandbox": {
               "fs_read": [
@@ -26,8 +115,7 @@
               ],
               "fs_read_file": [
                 "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
-                "/usr/bin/cat",
-                "$HOME/.aws/config"
+                "/usr/bin/cat"
               ],
               "exec_paths": ["/usr/bin/cat"],
               "fs_write": [
@@ -404,8 +492,7 @@
             "sandbox": {
               "fs_read": ["$XDG_CONFIG_HOME/granted"],
               "fs_read_file": [
-                "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
-                "$HOME/.aws/config"
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
               ],
               "fs_write": [
                 "$XDG_CONFIG_HOME/granted",

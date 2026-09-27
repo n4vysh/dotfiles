@@ -64,33 +64,22 @@
   },
   "permission": {
     "external_directory": {
+      // deny
       "~": "deny",
-      "~/Workspaces/**": "allow", // ghq root
-      "~/.config/opencode/**": "allow",
+      "~/.aws/**": "deny",
+      "~/.config/gcx/**": "deny",
+      "~/.gnupg/**": "deny",
+      "~/.kube/**": "deny",
+      "~/.ssh/**": "deny",
+      // allow
       "~/.config/nono/**": "allow",
+      "~/.config/opencode/**": "allow",
+      "~/.local/share/mise/**": "allow",
       "~/.local/share/opencode/log/**": "allow",
       "~/.local/share/opencode/tool-output/**": "allow",
       "~/.local/share/rtk/tee/**": "allow",
-      "~/.local/share/mise/**": "allow",
-      "~/.local/state/nono/**": "allow"
-    },
-    "read": {
-      "~/.aws/credentials": "deny",
-      "~/.aws/sso/cache/*.json": "deny",
-      "~/.kube/config": "deny",
-      "~/.kube/configs/*.yaml": "deny",
-      "~/.config/gcx/config.yaml": "deny",
-      "~/.ssh/**": "deny",
-      "~/.gnupg/**": "deny"
-    },
-    "edit": {
-      "~/.config/opencode/**": "deny",
-      "~/.config/nono/**": "deny",
-      "~/.local/share/opencode/log/**": "deny",
-      "~/.local/share/opencode/tool-output/**": "deny",
-      "~/.local/share/rtk/tee/**": "deny",
-      "~/.local/share/mise/**": "deny",
-      "~/.local/state/nono/**": "deny"
+      "~/.local/state/nono/**": "allow",
+      "~/Workspaces/**": "allow" // ghq root
     },
     "bash": {
       "*": "ask",
@@ -733,7 +722,7 @@
         "--read-only"
       ]
     },
-    "mcp_server_aws_n4vysh_stg": {
+    "mcp_server_aws": {
       "enabled": false,
       "type": "local",
       "command": [
@@ -742,54 +731,41 @@
         "--disable-telemetry"
       ],
       "environment": {
-        "AWS_CONFIG_FILE": "{env:HOME}/.aws/config",
-        "AWS_PROFILE": "n4vysh-stg",
+        // ```sh
+        // mkdir -p ~/.aws/configs
+        // $EDITOR ~/.aws/config ~/.aws/configs/opencode.ini
+        // ```
+        "AWS_CONFIG_FILE": "{env:HOME}/.aws/configs/opencode.ini",
+        "AWS_MCP_PROXY_PROFILES": "n4vysh-common n4vysh-stg n4vysh-prod",
         "AWS_REGION": "ap-northeast-1"
       }
     },
-    "mcp_server_aws_n4vysh_prod": {
-      "enabled": false,
-      "type": "local",
-      "command": [
-        "mcp-proxy-for-aws",
-        "https://aws-mcp.us-east-1.api.aws/mcp",
-        "--disable-telemetry"
-      ],
-      "environment": {
-        "AWS_CONFIG_FILE": "{env:HOME}/.aws/config",
-        "AWS_PROFILE": "n4vysh-prod",
-        "AWS_REGION": "ap-northeast-1"
-      }
-    },
-    "mcp_server_aws_n4vysh_common": {
-      "enabled": false,
-      "type": "local",
-      "command": [
-        "mcp-proxy-for-aws",
-        "https://aws-mcp.us-east-1.api.aws/mcp",
-        "--disable-telemetry"
-      ],
-      "environment": {
-        "AWS_CONFIG_FILE": "{env:HOME}/.aws/config",
-        "AWS_PROFILE": "n4vysh-common",
-        "AWS_REGION": "ap-northeast-1"
-      }
-    },
-    "mcp_server_kubernetes_kind_sandbox": {
+    "mcp_server_kubernetes": {
       "enabled": false,
       "type": "local",
       "command": ["kubernetes-mcp-server", "--read-only"],
       "environment": {
         // ```sh
-        // KUBECONFIG=~/.kube/config \
-        //   kubectl config view \
-        //     --raw \
-        //     --flatten \
-        //     --minify \
-        //     --context=kind-sandbox \
-        //     >|~/.kube/configs/kind-sandbox.yaml
+        // install -d -m 700 ~/.kube/configs
+        //
+        // # kind
+        // KUBECONFIG=~/.kube/config kind create cluster -n sandbox &&
+        //   kind export kubeconfig \
+        //     --name sandbox \
+        //     --kubeconfig ~/.kube/configs/opencode.yaml &&
+        //   KUBECONFIG=~/.kube/config kubectx -u &&
+        //   KUBECONFIG=~/.kube/configs/opencode.yaml kubectx -u
+        //
+        // # EKS
+        // AWS_CONFIG_FILE="$HOME/.aws/configs/opencode.ini" \
+        //   aws eks update-kubeconfig \
+        //     --profile <profile name> \
+        //     --region ap-northeast-1 \
+        //     --name <cluster name> \
+        //     --alias <alias name> \
+        //     --kubeconfig ~/.kube/configs/opencode.yaml
         // ```
-        "KUBECONFIG": "{env:HOME}/.kube/configs/kind-sandbox.yaml"
+        "KUBECONFIG": "{env:HOME}/.kube/configs/opencode.yaml"
       }
     },
     "mcp_server_grafana_n4vysh": {

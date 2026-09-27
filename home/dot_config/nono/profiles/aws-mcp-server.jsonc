@@ -6,6 +6,7 @@
       "XDG_CONFIG_HOME",
       "XDG_CACHE_HOME",
       "XDG_STATE_HOME",
+      "AWS_MCP_PROXY_PROFILES",
       "AWS_PROFILE",
       "AWS_REGION"
     ],
@@ -17,6 +18,7 @@
           "XDG_CONFIG_HOME",
           "XDG_CACHE_HOME",
           "XDG_STATE_HOME",
+          "AWS_CONFIG_FILE",
           "AWS_PROFILE",
           "AWS_REGION"
         ],
@@ -30,6 +32,7 @@
                 "/usr/lib",
                 "/usr/lib64",
                 "$XDG_DATA_HOME/mise/installs/pypi-mcp-proxy-for-aws",
+                "$XDG_DATA_HOME/mise/installs/python",
                 "$XDG_DATA_HOME/uv/python",
                 // granted
                 "$XDG_CONFIG_HOME/granted"
@@ -37,9 +40,7 @@
               "fs_read_file": [
                 "/usr/bin/mise",
                 "/etc/mime.types", // for fastmcp
-                "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
-                // granted
-                "$HOME/.aws/config"
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
               ],
               "fs_write": [
                 // granted
@@ -55,6 +56,7 @@
                   "XDG_CONFIG_HOME",
                   "XDG_CACHE_HOME",
                   "XDG_STATE_HOME",
+                  "AWS_MCP_PROXY_PROFILES",
                   "AWS_PROFILE",
                   "AWS_REGION"
                 ]
@@ -76,9 +78,7 @@
           "mcp-proxy-for-aws": {
             "sandbox": {
               "fs_read_file": [
-                "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
-                // granted
-                "$HOME/.aws/config"
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
               ],
               "fs_read": [
                 // granted

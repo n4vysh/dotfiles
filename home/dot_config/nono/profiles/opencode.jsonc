@@ -5,6 +5,7 @@
     "dbus",
     "systemd-resolved",
     "git",
+    "gh",
     "nvim",
     "gpg",
     "gopass",
@@ -26,5 +27,76 @@
   },
   "network": {
     "block": false
+  },
+  "environment": {
+    "set_vars": {
+      "AWS_CONFIG_FILE": "$HOME/.aws/configs/opencode.ini",
+      "KUBECONFIG": "$HOME/.kube/configs/opencode.yaml"
+    }
+  },
+  "command_policies": {
+    "session_export_env": ["AWS_CONFIG_FILE", "KUBECONFIG"],
+    "commands": {
+      "aws": {
+        "from": {
+          "session": {
+            "sandbox": {
+              "fs_read_file": ["$HOME/.aws/configs/opencode.ini"]
+            }
+          },
+          "kubectl": {
+            "sandbox": {
+              "fs_read_file": ["$HOME/.aws/configs/opencode.ini"]
+            }
+          },
+          "kubernetes-mcp-server": {
+            "sandbox": {
+              "fs_read_file": ["$HOME/.aws/configs/opencode.ini"]
+            }
+          }
+        }
+      },
+      "mcp-proxy-for-aws": {
+        "from": {
+          "session": {
+            "sandbox": {
+              "fs_read_file": ["$HOME/.aws/configs/opencode.ini"]
+            }
+          }
+        }
+      },
+      "granted": {
+        "from": {
+          "aws": {
+            "sandbox": {
+              "fs_read_file": ["$HOME/.aws/configs/opencode.ini"]
+            }
+          },
+          "mcp-proxy-for-aws": {
+            "sandbox": {
+              "fs_read_file": ["$HOME/.aws/configs/opencode.ini"]
+            }
+          }
+        }
+      },
+      "kubectl": {
+        "from": {
+          "session": {
+            "sandbox": {
+              "fs_read_file": ["$HOME/.kube/configs/opencode.yaml"]
+            }
+          }
+        }
+      },
+      "kubernetes-mcp-server": {
+        "from": {
+          "session": {
+            "sandbox": {
+              "fs_read_file": ["$HOME/.kube/configs/opencode.yaml"]
+            }
+          }
+        }
+      }
+    }
   }
 }

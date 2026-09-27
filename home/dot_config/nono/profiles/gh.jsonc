@@ -1,0 +1,63 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "command_policies": {
+    "credentials": {
+      "gh-keyring": {
+        "type": "local-socket",
+        "path": "$XDG_RUNTIME_DIR/bus",
+        "mode": "connect"
+      }
+    },
+    "commands": {
+      "gh": {
+        "from": {
+          "session": {
+            "sandbox": {
+              "use_credentials": ["gh-keyring"],
+              "fs_read": [
+                "/etc/ssl",
+                "/lib",
+                "/lib64",
+                "/usr/lib",
+                "/usr/lib64",
+                "$XDG_DATA_HOME/mise/installs/gh",
+                "$XDG_CONFIG_HOME/gh",
+                "$XDG_CONFIG_HOME/git",
+                "$WORKDIR"
+              ],
+              "fs_read_file": [
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
+                "/usr/bin/git",
+                "/usr/bin/cat"
+              ],
+              "exec_paths": ["/usr/bin/git", "/usr/bin/cat"],
+              "environment": {
+                "allow_vars": [
+                  "PATH",
+                  "HOME",
+                  "XDG_CONFIG_HOME",
+                  "XDG_RUNTIME_DIR",
+                  "DBUS_SESSION_BUS_ADDRESS",
+                  "GH_HOST",
+                  "GH_REPO",
+                  "GH_TOKEN",
+                  "GITHUB_TOKEN",
+                  "GH_ENTERPRISE_TOKEN",
+                  "GITHUB_ENTERPRISE_TOKEN"
+                ],
+                "set_vars": {
+                  "GH_PAGER": "/usr/bin/cat",
+                  "GH_PROMPT_DISABLED": "1",
+                  "GH_NO_UPDATE_NOTIFIER": "1"
+                }
+              },
+              "network": {
+                "allow_all": true
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
