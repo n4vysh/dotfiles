@@ -278,6 +278,7 @@ packages:
       - extra/qemu-user-static-binfmt
       - extra/ripgrep
       - extra/sheldon
+      - extra/slirp4netns # for docker-rootless-extras and kind
       - extra/testssl.sh
       - extra/tmuxp
       - extra/tree
