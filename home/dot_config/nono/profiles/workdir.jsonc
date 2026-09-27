@@ -1,0 +1,6 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "filesystem": {
+    "allow": ["$WORKDIR"]
+  }
+}

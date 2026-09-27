@@ -1,0 +1,6 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "groups": {
+    "include": ["mise_manager"]
+  }
+}
