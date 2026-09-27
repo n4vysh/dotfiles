@@ -6,9 +6,11 @@ gum log --level info 'Check systemd user session'
 systemctl --user show-environment >/dev/null
 
 gum log --level info 'Configure subordinate UID/GID mappings'
-# NOTE: use systemd-homed allocated range from 524288 to 589823
+# NOTE: use systemd-homed allocated range from 524288
 # https://github.com/systemd/systemd/issues/29297#issuecomment-1851193496
 # https://wiki.archlinux.org/title/Podman#Workaround_for_users_managed_by_homed
+# https://github.com/podman-container-tools/podman/issues/20040#issuecomment-1731335711
+# https://github.com/systemd/systemd/blob/v262/docs/UIDS-GIDS.md#special-systemd-uid-ranges
 if ! grep -q -e "^$(id -un):" -e "^$(id -u):" /etc/subuid; then
 	sudo usermod --add-subuids 524288-589823 "$(id -un)"
 else
