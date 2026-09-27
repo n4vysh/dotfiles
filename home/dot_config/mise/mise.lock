@@ -731,16 +731,15 @@ checksum = "sha256:44836872d9aec49f1e6b52a9a922872db9a2b02d235a616a5681b6a85fec8
 url = "https://nodejs.org/dist/v24.15.0/node-v24.15.0-linux-x64.tar.gz"
 
 [[tools.nono]]
-version = "0.75.0"
+version = "0.78.0"
 backend = "github:nolabs-ai/nono"
-specifiers = ["0.75.0"]
+specifiers = ["0.78.0"]
 
 [tools.nono."platforms.linux-x64"]
-checksum = "sha256:2f883269824d85f96a75fb8788f6c31619e60d2c0865e93402d2f347461054fa"
-url = "https://github.com/nolabs-ai/nono/releases/download/v0.75.0/nono-v0.75.0-x86_64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/nolabs-ai/nono/releases/assets/539754562"
+checksum = "sha256:af5e837973d547aaf6d3cdfbd12e3952224d1bb77b7292962ea19180399c38db"
+url = "https://github.com/nolabs-ai/nono/releases/download/v0.78.0/nono-v0.78.0-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/nolabs-ai/nono/releases/assets/568264582"
 provenance = "github-attestations"
-provenance_verified = true
 
 [[tools."npm:@antfu/ni"]]
 version = "28.0.0"
