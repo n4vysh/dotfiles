@@ -673,7 +673,6 @@
       "mise where *": "allow",
       "mise ls *": "allow",
       "mise current *": "allow",
-      "sha256sum *": "allow",
       "pgrep *": "allow"
     }
   },
