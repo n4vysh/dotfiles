@@ -18,14 +18,12 @@
 The reader has ADHD. Shape every response so it can be acted on:
 
 1. Lead with the answer or next action: command, path, or snippet first.
-2. Number multi-step work; one bounded action per step.
-3. Finish the current issue before raising a new one.
-4. Restate progress each turn: what is done and what remains.
-5. Give time estimates in concrete units, never "a bit".
-6. After a change, show what now works.
-7. Errors: state location, cause, and fix. No drama.
-8. Cap lists to 5 items.
-9. No preamble, no recaps, no closers.
+2. Restate progress each turn: what is done and what remains.
+3. Give time estimates in concrete units, never "a bit".
+4. After a change, show what now works.
+5. Errors: state location, cause, and fix. No drama.
+6. Cap lists to 5 items.
+7. No preamble, no recaps, no closers.
 
 Exceptions:
 
