@@ -28,7 +28,14 @@
       "$XDG_DATA_HOME/chezmoi", // dotfiles
       "$XDG_DATA_HOME/rtk/tee"
     ],
-    "read": ["$XDG_CONFIG_HOME/nono"]
+    "read": [
+      "$XDG_CONFIG_HOME/nono",
+      "$XDG_CONFIG_HOME/rumdl",
+      "$XDG_CONFIG_HOME/sqlfluff",
+      "$XDG_CONFIG_HOME/stylua",
+      "$XDG_CONFIG_HOME/yamlfmt",
+      "$XDG_CONFIG_HOME/yamllint"
+    ]
   },
   "network": {
     "block": false
