@@ -1,0 +1,2 @@
+[mounts]
+	path = ~/.password-store

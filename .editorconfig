@@ -14,6 +14,9 @@ indent_style = tab
 [*/dot_config/git/config]
 indent_style = tab
 
+[home/dot_config/private_gopass/private_config]
+indent_style = tab
+
 [*/dot_docker/config.json]
 indent_style = tab
 insert_final_newline = false
