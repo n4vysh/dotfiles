@@ -28,9 +28,18 @@
               "fs_read_file": [
                 "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
                 "/usr/bin/git",
-                "/usr/bin/cat"
+                "/usr/bin/cat",
+                // for local wrapper
+                "$HOME/.local/bin/git",
+                "/usr/bin/bash"
               ],
-              "exec_paths": ["/usr/bin/git", "/usr/bin/cat"],
+              "exec_paths": [
+                "/usr/bin/git",
+                "/usr/bin/cat",
+                // for local wrapper
+                "$HOME/.local/bin/git",
+                "/usr/bin/bash"
+              ],
               "environment": {
                 "allow_vars": [
                   "HOME",
