@@ -1,15 +1,20 @@
 {
   "$schema": "../nono-profile.schema.json",
-  "filesystem": {
-    "unix_socket": ["$XDG_RUNTIME_DIR/gnupg/S.gpg-agent"]
-  },
   "command_policies": {
+    "credentials": {
+      "gpg-agent": {
+        "type": "local-socket",
+        "path": "$XDG_RUNTIME_DIR/gnupg/S.gpg-agent",
+        "mode": "connect"
+      }
+    },
     "commands": {
       "gpg": {
         "executable": "/usr/bin/gpg",
         "from": {
           "session": {
             "sandbox": {
+              "use_credentials": ["gpg-agent"],
               "fs_read": [
                 "$HOME/.gnupg",
                 "$TMPDIR" // for git log --show-signature
