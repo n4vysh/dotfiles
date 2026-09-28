@@ -6,6 +6,7 @@
     "workspaces",
     "nvim",
     "trash",
+    "gopass",
     // version manager
     "mise",
     // runtime
