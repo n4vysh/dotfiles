@@ -26,6 +26,7 @@
     "git",
     "gh",
     // cloud
+    "aws",
     "kubectl",
     "gcx",
     // mcp servers

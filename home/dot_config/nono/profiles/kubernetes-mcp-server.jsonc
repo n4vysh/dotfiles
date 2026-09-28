@@ -1,6 +1,6 @@
 {
   "$schema": "../nono-profile.schema.json",
-  "extends": "aws",
+  "extends": "aws-credential-process",
   "command_policies": {
     "commands": {
       "kubernetes-mcp-server": {
@@ -29,6 +29,52 @@
               "network": {
                 "allow_all": true
               }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [{ "argv": { "exact": ["--read-only"] } }]
+            }
+          }
+        }
+      },
+      // for EKS
+      "aws": {
+        "from": {
+          "kubernetes-mcp-server": {
+            "sandbox": {
+              "fs_read": [
+                "/etc/ssl",
+                "/lib",
+                "/lib64",
+                "/usr/lib",
+                "/usr/lib64",
+                "$XDG_DATA_HOME/mise/installs/awscli"
+              ],
+              "fs_read_file": [
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
+              ],
+              "environment": {
+                "allow_vars": [
+                  "HOME",
+                  "XDG_CONFIG_HOME",
+                  "XDG_CACHE_HOME",
+                  "XDG_STATE_HOME",
+                  "AWS_PROFILE"
+                ],
+                "set_vars": {
+                  "AWS_PAGER": ""
+                }
+              },
+              "network": {
+                "allow_all": true
+              }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [
+                // for aws eks update-kubeconfig
+                { "argv": { "contains": ["eks", "get-token"] } }
+              ]
             }
           }
         }
