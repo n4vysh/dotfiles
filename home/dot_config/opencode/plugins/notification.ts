@@ -3,6 +3,14 @@ import type { Plugin } from "@opencode-ai/plugin";
 export const NotificationPlugin: Plugin = async ({ client, $, directory }) => {
   return {
     event: async ({ event }) => {
+      // NOTE: disable when running nono sandbox on WSL
+      //       nono not support plan9 (pwsh.exe and BurntToast)
+      if (
+        (await $`printenv NONO_CAP_FILE`.quiet().nothrow()).exitCode === 0 &&
+        (await $`test -d /mnt/wsl`.nothrow()).exitCode === 0
+      )
+        return;
+
       if (event.type === "question.asked") {
         await $`notify-send 'opencode: Question asked'`;
       }
