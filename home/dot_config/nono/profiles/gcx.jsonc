@@ -29,7 +29,6 @@
               "fs_write": ["$XDG_CONFIG_HOME/gcx", "$XDG_STATE_HOME/gcx"],
               "environment": {
                 "allow_vars": [
-                  "PATH",
                   "HOME",
                   "XDG_CONFIG_HOME",
                   "XDG_STATE_HOME",
@@ -44,6 +43,8 @@
             "invocation_policy": {
               "default": "deny",
               "allow": [
+                { "argv": { "exact": ["--help"] } },
+                { "argv": { "exact": ["--version"] } },
                 { "argv": { "prefix": ["config", "check"] } },
                 { "argv": { "prefix": ["config", "current-context"] } },
                 { "argv": { "prefix": ["config", "list-contexts"] } },

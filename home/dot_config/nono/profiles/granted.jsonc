@@ -1,0 +1,83 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "extends": "pass",
+  "command_policies": {
+    "commands": {
+      "granted": {
+        "can_use": ["gpg", "pass"],
+        "export_env": [
+          "HOME",
+          "DISPLAY" // GUI pinentry
+        ],
+        "from": {
+          "aws": {
+            "sandbox": {
+              "fs_read_file": [
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
+              ],
+              "fs_write": [
+                "$XDG_CONFIG_HOME/granted",
+                "$XDG_CACHE_HOME/granted",
+                "$XDG_STATE_HOME/granted"
+              ],
+              "environment": {
+                "allow_vars": [
+                  "HOME",
+                  "XDG_CONFIG_HOME",
+                  "XDG_CACHE_HOME",
+                  "XDG_STATE_HOME",
+                  "AWS_PROFILE",
+                  "DISPLAY"
+                ]
+              },
+              "network": {
+                "allow_all": true
+              }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [{ "argv": { "prefix": ["credential-process"] } }]
+            }
+          },
+          "mcp-proxy-for-aws": {
+            "sandbox": {
+              "fs_read_file": [
+                "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
+              ],
+              "fs_write": [
+                "$XDG_CONFIG_HOME/granted",
+                "$XDG_CACHE_HOME/granted",
+                "$XDG_STATE_HOME/granted"
+              ],
+              "environment": {
+                "allow_vars": [
+                  // for mcp-proxy-for-aws
+                  "HOME",
+                  "XDG_CONFIG_HOME",
+                  "XDG_CACHE_HOME",
+                  "XDG_STATE_HOME",
+                  "AWS_PROFILE",
+                  "AWS_REGION",
+                  "DISPLAY" // GUI pinentry
+                ]
+              },
+              "network": {
+                "allow_all": true
+              }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [
+                {
+                  "argv": {
+                    "prefix": ["credential-process"]
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

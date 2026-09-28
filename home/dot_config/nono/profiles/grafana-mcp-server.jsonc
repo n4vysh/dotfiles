@@ -1,7 +1,25 @@
 {
   "$schema": "../nono-profile.schema.json",
+  "extends": "gopass",
   "command_policies": {
     "commands": {
+      "gopass": {
+        "can_use": ["mcp-grafana"],
+        "export_env": [
+          "GRAFANA_ORG_ID",
+          "GRAFANA_URL",
+          "GRAFANA_SERVICE_ACCOUNT_TOKEN"
+        ],
+        "from": {
+          "session": {
+            "sandbox": {
+              "environment": {
+                "allow_vars": ["GRAFANA_ORG_ID", "GRAFANA_URL"]
+              }
+            }
+          }
+        }
+      },
       "mcp-grafana": {
         "from": {
           "gopass": {
@@ -11,15 +29,13 @@
                 "/lib",
                 "/lib64",
                 "/usr/lib",
-                "/usr/lib64",
-                "/etc/ssl"
+                "/usr/lib64"
               ],
               "fs_read_file": [
                 "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
               ],
               "environment": {
                 "allow_vars": [
-                  "PATH",
                   // for mcp-grafana
                   "GRAFANA_ORG_ID",
                   "GRAFANA_URL",

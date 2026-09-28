@@ -23,7 +23,6 @@
               },
               "environment": {
                 "allow_vars": [
-                  "PATH",
                   // for terraform-mcp-server
                   "HOME",
                   "TFE_*",

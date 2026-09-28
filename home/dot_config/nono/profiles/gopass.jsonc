@@ -1,32 +1,16 @@
 {
   "$schema": "../nono-profile.schema.json",
-  "extends": ["gpg", "github-mcp-server", "grafana-mcp-server"],
+  "extends": "gpg",
   "command_policies": {
     "commands": {
       "gopass": {
-        "can_use": ["gpg", "github-mcp-server", "mcp-grafana"],
-        "export_env": [
-          // github-mcp-server
-          "GITHUB_PERSONAL_ACCESS_TOKEN",
-          // mcp-grafana
-          "GRAFANA_ORG_ID",
-          "GRAFANA_URL",
-          "GRAFANA_SERVICE_ACCOUNT_TOKEN"
-        ],
+        "can_use": ["gpg"],
         "from": {
           "session": {
             "sandbox": {
               "fs_read": ["$HOME/.password-store", "$XDG_CONFIG_HOME/gopass"],
               "environment": {
-                "allow_vars": [
-                  "PATH",
-                  // for gopass
-                  "HOME",
-                  "DISPLAY", // GUI pinentry
-                  // for mcp-grafana
-                  "GRAFANA_ORG_ID",
-                  "GRAFANA_URL"
-                ]
+                "allow_vars": ["HOME"]
               }
             },
             "invocation_policy": {

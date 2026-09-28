@@ -16,7 +16,6 @@
             "sandbox": {
               "use_credentials": ["gpg-agent"],
               "fs_read": [
-                "$HOME/.gnupg",
                 "$TMPDIR" // for git log --show-signature
               ],
               "fs_write": ["$HOME/.gnupg"],
@@ -53,7 +52,6 @@
           },
           "granted": {
             "sandbox": {
-              "fs_read": ["$HOME/.gnupg"],
               "fs_write": ["$HOME/.gnupg"],
               "environment": {
                 "allow_vars": [
@@ -65,7 +63,6 @@
           },
           "pass": {
             "sandbox": {
-              "fs_read": ["$HOME/.gnupg", "$HOME/.password-store"],
               "fs_write": ["$HOME/.gnupg", "$HOME/.password-store"],
               "environment": {
                 "allow_vars": [
@@ -77,7 +74,6 @@
           },
           "gopass": {
             "sandbox": {
-              "fs_read": ["$HOME/.gnupg"],
               "fs_write": ["$HOME/.gnupg"],
               "environment": {
                 "allow_vars": [

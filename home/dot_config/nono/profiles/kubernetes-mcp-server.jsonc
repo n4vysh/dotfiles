@@ -21,7 +21,6 @@
               ],
               "environment": {
                 "allow_vars": [
-                  "PATH",
                   // for kubernetes-mcp-server
                   "HOME",
                   "KUBECONFIG"

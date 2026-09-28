@@ -1,6 +1,6 @@
 {
   "$schema": "../nono-profile.schema.json",
-  "extends": "aws-mcp-server",
+  "extends": "granted",
   "command_policies": {
     "commands": {
       "aws": {
@@ -22,20 +22,13 @@
                 "/lib64",
                 "/usr/lib",
                 "/usr/lib64",
-                "$XDG_DATA_HOME/mise/installs/awscli",
-                "$XDG_CONFIG_HOME/granted"
+                "$XDG_DATA_HOME/mise/installs/awscli"
               ],
               "fs_read_file": [
                 "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
               ],
-              "fs_write": [
-                "$XDG_CONFIG_HOME/granted",
-                "$XDG_CACHE_HOME/granted",
-                "$XDG_STATE_HOME/granted"
-              ],
               "environment": {
                 "allow_vars": [
-                  "PATH",
                   "HOME",
                   "XDG_CONFIG_HOME",
                   "XDG_CACHE_HOME",
@@ -66,20 +59,13 @@
                 "/lib64",
                 "/usr/lib",
                 "/usr/lib64",
-                "$XDG_DATA_HOME/mise/installs/awscli",
-                "$XDG_CONFIG_HOME/granted"
+                "$XDG_DATA_HOME/mise/installs/awscli"
               ],
               "fs_read_file": [
                 "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
               ],
-              "fs_write": [
-                "$XDG_CONFIG_HOME/granted",
-                "$XDG_CACHE_HOME/granted",
-                "$XDG_STATE_HOME/granted"
-              ],
               "environment": {
                 "allow_vars": [
-                  "PATH",
                   "HOME",
                   "XDG_CONFIG_HOME",
                   "XDG_CACHE_HOME",
@@ -110,22 +96,15 @@
                 "/lib64",
                 "/usr/lib",
                 "/usr/lib64",
-                "$XDG_DATA_HOME/mise/installs/awscli",
-                "$XDG_CONFIG_HOME/granted"
+                "$XDG_DATA_HOME/mise/installs/awscli"
               ],
               "fs_read_file": [
                 "/etc/ca-certificates/extracted/tls-ca-bundle.pem",
                 "/usr/bin/cat"
               ],
               "exec_paths": ["/usr/bin/cat"],
-              "fs_write": [
-                "$XDG_CONFIG_HOME/granted",
-                "$XDG_CACHE_HOME/granted",
-                "$XDG_STATE_HOME/granted"
-              ],
               "environment": {
                 "allow_vars": [
-                  "PATH",
                   "HOME",
                   "XDG_CONFIG_HOME",
                   "XDG_CACHE_HOME",
@@ -442,10 +421,7 @@
                 "/usr/lib",
                 "/usr/lib64",
                 "/usr/share/groff"
-              ],
-              "environment": {
-                "allow_vars": ["PATH"]
-              }
+              ]
             }
           }
         }
@@ -482,41 +458,6 @@
           "groff": {
             "sandbox": {
               "fs_read": ["/usr/share/groff"]
-            }
-          }
-        }
-      },
-      "granted": {
-        "from": {
-          "aws": {
-            "sandbox": {
-              "fs_read": ["$XDG_CONFIG_HOME/granted"],
-              "fs_read_file": [
-                "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
-              ],
-              "fs_write": [
-                "$XDG_CONFIG_HOME/granted",
-                "$XDG_CACHE_HOME/granted",
-                "$XDG_STATE_HOME/granted"
-              ],
-              "environment": {
-                "allow_vars": [
-                  "PATH",
-                  "HOME",
-                  "XDG_CONFIG_HOME",
-                  "XDG_CACHE_HOME",
-                  "XDG_STATE_HOME",
-                  "AWS_PROFILE",
-                  "DISPLAY"
-                ]
-              },
-              "network": {
-                "allow_all": true
-              }
-            },
-            "invocation_policy": {
-              "default": "deny",
-              "allow": [{ "argv": { "prefix": ["credential-process"] } }]
             }
           }
         }

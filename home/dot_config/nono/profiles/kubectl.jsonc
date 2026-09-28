@@ -21,7 +21,7 @@
                 "/etc/ca-certificates/extracted/tls-ca-bundle.pem"
               ],
               "environment": {
-                "allow_vars": ["PATH", "HOME", "KUBECONFIG"]
+                "allow_vars": ["HOME", "KUBECONFIG"]
               },
               "network": {
                 "allow_all": true
@@ -30,6 +30,8 @@
             "invocation_policy": {
               "default": "deny",
               "allow": [
+                { "argv": { "exact": ["--help"] } },
+                { "argv": { "prefix": ["version"] } },
                 { "argv": { "prefix": ["get"] } },
                 { "argv": { "prefix": ["describe"] } },
                 { "argv": { "prefix": ["logs"] } },

@@ -33,7 +33,6 @@
               "exec_paths": ["/usr/bin/git", "/usr/bin/cat"],
               "environment": {
                 "allow_vars": [
-                  "PATH",
                   "HOME",
                   "XDG_CONFIG_HOME",
                   "XDG_RUNTIME_DIR",

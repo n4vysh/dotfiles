@@ -1,0 +1,66 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "extends": "gpg",
+  "command_policies": {
+    "commands": {
+      "pass": {
+        "can_use": ["gpg"],
+        "export_env": [
+          "HOME",
+          "DISPLAY" // GUI pinentry
+        ],
+        "from": {
+          "granted": {
+            "sandbox": {
+              "fs_read": ["/lib", "/lib64", "/usr/lib", "/usr/lib64"],
+              "fs_read_file": [
+                "/usr/bin/base64",
+                "/usr/bin/dirname",
+                "/usr/bin/getopt",
+                "/usr/bin/gpg",
+                "/usr/bin/mkdir",
+                "/usr/bin/pass",
+                "/usr/bin/rm",
+                "/usr/bin/tty",
+                "/usr/bin/which",
+                "/usr/sbin/base64",
+                "/usr/sbin/dirname",
+                "/usr/sbin/getopt",
+                "/usr/sbin/gpg2",
+                "/usr/sbin/mkdir",
+                "/usr/sbin/rm",
+                "/usr/sbin/tty",
+                "/usr/sbin/which"
+              ],
+              "fs_write": ["$HOME/.gnupg", "$HOME/.password-store"],
+              "exec_paths": [
+                "/usr/bin/base64",
+                "/usr/bin/dirname",
+                "/usr/bin/getopt",
+                "/usr/bin/gpg",
+                "/usr/bin/mkdir",
+                "/usr/bin/rm",
+                "/usr/bin/tty",
+                "/usr/bin/which",
+                "/usr/sbin/base64",
+                "/usr/sbin/dirname",
+                "/usr/sbin/getopt",
+                "/usr/sbin/gpg2",
+                "/usr/sbin/mkdir",
+                "/usr/sbin/rm",
+                "/usr/sbin/tty",
+                "/usr/sbin/which"
+              ],
+              "environment": {
+                "allow_vars": [
+                  "HOME", // for ~/.password-store
+                  "DISPLAY" // GUI pinentry
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

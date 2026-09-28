@@ -1,7 +1,12 @@
 {
   "$schema": "../nono-profile.schema.json",
+  "extends": "gopass",
   "command_policies": {
     "commands": {
+      "gopass": {
+        "can_use": ["github-mcp-server"],
+        "export_env": ["GITHUB_PERSONAL_ACCESS_TOKEN"]
+      },
       "github-mcp-server": {
         "from": {
           "gopass": {
@@ -21,7 +26,6 @@
               ],
               "environment": {
                 "allow_vars": [
-                  "PATH",
                   // for github-mcp-server
                   "GITHUB_PERSONAL_ACCESS_TOKEN"
                 ]

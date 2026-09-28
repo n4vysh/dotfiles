@@ -7,8 +7,6 @@
     "systemd-resolved",
     "nvim",
     "trash",
-    "gpg",
-    "gopass",
     // version manager
     "mise",
     // runtime
@@ -28,7 +26,6 @@
     "git",
     "gh",
     // cloud
-    "aws",
     "kubectl",
     "gcx",
     // mcp servers
@@ -38,9 +35,6 @@
     "kubernetes-mcp-server",
     "grafana-mcp-server"
   ],
-  "network": {
-    "block": false
-  },
   "environment": {
     "set_vars": {
       "AWS_CONFIG_FILE": "$HOME/.aws/configs/opencode.ini",
