@@ -4,7 +4,6 @@
     "nolabs-ai/opencode",
     "workdir",
     "workspaces",
-    "systemd-resolved",
     "nvim",
     "trash",
     // version manager
