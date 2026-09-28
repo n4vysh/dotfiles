@@ -24,6 +24,7 @@
     "yamllint",
     // vcs
     "git",
+    "gpg",
     "gh",
     // cloud
     "aws",
