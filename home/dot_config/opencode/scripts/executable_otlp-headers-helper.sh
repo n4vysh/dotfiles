@@ -15,6 +15,10 @@
 #   sed 's/^/Basic /' |
 #   gopass insert opencode/otlp_authz_header
 # ```
-printf \
-	'{"Authorization":"%s"}' \
-	"$(gopass cat opencode/otlp_authz_header)"
+authz_header=$(gopass cat opencode/otlp_authz_header) || exit "$?"
+if [ "$authz_header" = "" ]; then
+	printf '%s\n' 'OTLP Authorization header is empty.' >&2
+	exit 1
+fi
+
+printf '{"Authorization":"%s"}\n' "$authz_header"

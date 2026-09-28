@@ -20,6 +20,11 @@
                   "argv": {
                     "prefix": ["env"]
                   }
+                },
+                {
+                  "argv": {
+                    "exact": ["cat", "opencode/otlp_authz_header"]
+                  }
                 }
               ]
             }
