@@ -13,7 +13,6 @@
     "mise",
     // runtime
     "go",
-    "python",
     // dotfiles
     "chezmoi",
     // ai agents

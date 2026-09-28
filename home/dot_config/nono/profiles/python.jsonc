@@ -1,6 +1,0 @@
-{
-  "$schema": "../nono-profile.schema.json",
-  "filesystem": {
-    "allow": ["$XDG_DATA_HOME/mise/installs/python"]
-  }
-}
