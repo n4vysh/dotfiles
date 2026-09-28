@@ -19,9 +19,7 @@ export const NotificationPlugin: Plugin = async ({ client, $, directory }) => {
             directory,
           })
           .catch(() => undefined);
-
-        // NOTE: ignore subagent
-        if (!session?.data || session.data.parentID) return;
+        if (session?.data?.parentID) return; // NOTE: ignore subagent
 
         await $`notify-send 'opencode: session completed'`;
       }
