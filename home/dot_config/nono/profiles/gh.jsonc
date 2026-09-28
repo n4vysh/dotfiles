@@ -2,7 +2,7 @@
   "$schema": "../nono-profile.schema.json",
   "command_policies": {
     "credentials": {
-      "gh-keyring": {
+      "gh-auth": {
         "type": "local-socket",
         "path": "$XDG_RUNTIME_DIR/bus",
         "mode": "connect"
@@ -13,7 +13,7 @@
         "from": {
           "session": {
             "sandbox": {
-              "use_credentials": ["gh-keyring"],
+              "use_credentials": ["gh-auth"],
               "fs_read": [
                 "/etc/ssl",
                 "/lib",

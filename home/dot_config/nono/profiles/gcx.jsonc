@@ -1,12 +1,19 @@
 {
   "$schema": "../nono-profile.schema.json",
-  "extends": "dbus",
   "command_policies": {
+    "credentials": {
+      "gcx-auth": {
+        "type": "local-socket",
+        "path": "$XDG_RUNTIME_DIR/bus",
+        "mode": "connect"
+      }
+    },
     "commands": {
       "gcx": {
         "from": {
           "session": {
             "sandbox": {
+              "use_credentials": ["gcx-auth"],
               "fs_read": [
                 "/etc/ssl",
                 "/lib",
@@ -26,6 +33,7 @@
                   "HOME",
                   "XDG_CONFIG_HOME",
                   "XDG_STATE_HOME",
+                  "XDG_RUNTIME_DIR",
                   "DBUS_SESSION_BUS_ADDRESS"
                 ]
               },
