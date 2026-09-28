@@ -4,7 +4,6 @@
     "nolabs-ai/opencode",
     "workdir",
     "workspaces",
-    "dbus",
     "systemd-resolved",
     "nvim",
     "trash",
