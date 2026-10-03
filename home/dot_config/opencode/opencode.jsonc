@@ -315,6 +315,7 @@
       "rtk yamllint *": "allow",
       "RTK_DISABLED=1 yamllint *": "allow",
       "taplo *": "allow",
+      "tsc *": "allow",
       "shfmt *": "allow",
       "shellharden *": "allow",
       "shellcheck *": "allow",
