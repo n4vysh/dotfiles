@@ -109,6 +109,7 @@
       "chezmoi diff": "allow",
       "chezmoi execute-template": "allow",
       "chezmoi execute-template *": "allow",
+      "chezmoi ignored": "allow",
       "chezmoi managed": "allow",
       "chezmoi status": "allow",
       "pacman -Si *": "allow",
