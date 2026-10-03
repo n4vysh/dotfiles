@@ -675,7 +675,9 @@
       "mise which *": "allow",
       "mise where *": "allow",
       "mise ls *": "allow",
+      "mise ls-remote *": "allow",
       "mise current *": "allow",
+      "mise search *": "allow",
       "pgrep *": "allow"
     }
   },
