@@ -132,6 +132,7 @@ packages:
       - extra/hyprlock
       - extra/hyprpaper
       - extra/hyprpicker
+      - extra/hyprpm
       - extra/hyprsunset
       - extra/kanshi
       - extra/keyd

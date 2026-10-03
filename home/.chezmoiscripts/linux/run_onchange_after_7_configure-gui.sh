@@ -10,7 +10,9 @@ fi
 gum log --level info 'Configure window manager'
 hyprpm update --no-shallow
 if ! (hyprpm list | grep -q 'Repository hy3'); then
-	yes | hyprpm add https://github.com/outfoxxed/hy3
+	# HACK: hy3 build error workaround for Hyprland 0.56.2
+	#       https://github.com/outfoxxed/hy3/issues/334
+	yes | hyprpm add https://github.com/kociap/hy3
 else
 	gum log --level warn 'hy3 already exists -- skipping'
 fi
