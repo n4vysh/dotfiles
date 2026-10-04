@@ -15,7 +15,7 @@
             "textVerbosity": "low" // keep routine responses concise
           }
         },
-        "gpt-6-sol-fast": {
+        "gpt-6.1-sol-fast": {
           "settings": {
             "textVerbosity": "low" // keep routine responses concise
           }
@@ -30,7 +30,7 @@
             "textVerbosity": "low" // keep routine responses concise
           }
         },
-        "gpt-6-sol": {
+        "gpt-6.1-sol": {
           "settings": {
             "textVerbosity": "low" // keep routine responses concise
           }
@@ -52,10 +52,16 @@
     "title": {
       "model": "openai/gpt-6-luna" // cost-efficient model
     },
-    "compaction": { "model": "openai/gpt-6-sol" },
+    "compaction": {
+      "model": "openai/gpt-6.1-sol" // balanced model
+    },
     // Built-in subagents
-    "general": { "model": "openai/gpt-6-luna" },
-    "explore": { "model": "openai/gpt-6-luna" }
+    "general": {
+      "model": "openai/gpt-6-luna" // cost-efficient model
+    },
+    "explore": {
+      "model": "openai/gpt-6-luna" // cost-efficient model
+    }
   },
   "permissions": [
     // external_directory: deny
