@@ -13,10 +13,11 @@ export default Plugin.define({
         signal: controller.signal,
       })) {
         if (
-          event.location?.directory !== ctx.location.directory ||
-          ("workspaceID" in event.location
-            ? event.location.workspaceID
-            : undefined) !== ctx.location.workspaceID
+          event.type !== "session.execution.succeeded" &&
+          (event.location?.directory !== ctx.location.directory ||
+            (event.location && "workspaceID" in event.location
+              ? event.location.workspaceID
+              : undefined) !== ctx.location.workspaceID)
         )
           continue;
 
@@ -31,10 +32,18 @@ export default Plugin.define({
             ]);
           }
 
-          if (event.type === "session.idle") {
+          if (event.type === "session.execution.succeeded") {
             const session = await ctx.session
               .get({ sessionID: event.data.sessionID })
               .catch(() => undefined);
+            if (
+              !session ||
+              session.location.directory !== ctx.location.directory ||
+              ("workspaceID" in session.location
+                ? session.location.workspaceID
+                : undefined) !== ctx.location.workspaceID
+            )
+              continue;
             if (session?.parentID) continue; // NOTE: ignore subagent
 
             await run("notify-send", ["opencode: session completed"]);
