@@ -279,7 +279,9 @@ argocd completion zsh >~/.zshrc.d/site-functions/_argocd
 kubectl = { version = "1.36.3", postinstall = '''
 kubectl completion zsh >~/.zshrc.d/site-functions/_kubectl
 ''' }
-argo-rollouts = { version = "1.8.3", postinstall = '''
+argo-rollouts = { version = "1.8.3", depends = [
+  "kubectl",
+], postinstall = '''
 kubectl argo rollouts completion zsh >~/.zshrc.d/site-functions/_kubectl-argo-rollouts
 ''' }
 kubectx = { version = "0.11.0", postinstall = '''
@@ -315,7 +317,7 @@ pluto = "5.24.0"
 k9s = { version = "0.51.0", postinstall = '''
 k9s completion zsh >~/.zshrc.d/site-functions/_k9s
 ''' }
-krew = { version = "0.5.0", postinstall = '''
+krew = { version = "0.5.0", depends = ["kubectl"], postinstall = '''
 if [ ! -x "${KREW_ROOT:-$HOME/.krew}/bin/kubectl-krew" ]; then
   krew install krew
 fi
