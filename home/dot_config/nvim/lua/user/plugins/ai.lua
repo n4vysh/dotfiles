@@ -31,7 +31,7 @@ return {
 				"<C-.>",
 				function()
 					require("snacks.terminal").toggle(
-						"nono run --profile opencode -- opencode --port",
+						"HERDR_AGENT=opencode nono run --profile opencode -- opencode --port",
 						{
 							win = {
 								position = "right",
@@ -62,7 +62,7 @@ return {
 		},
 		config = function()
 			local opencode_cmd =
-				"nono run --profile opencode -- opencode --port"
+				"HERDR_AGENT=opencode nono run --profile opencode -- opencode --port"
 
 			---@type snacks.terminal.Opts
 			local snacks_terminal_opts = {
