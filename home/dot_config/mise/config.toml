@@ -148,6 +148,8 @@ mkdir -p "$HOME/.config/opencode"
   cd "$HOME/.config/opencode"
   aube install --frozen-lockfile
 )
+ln -sfT "$HOME/.config/opencode/node_modules" \
+  "$XDG_DATA_HOME/chezmoi/home/dot_config/opencode/node_modules"
 ''' }
 claude-code = "2.1.267"
 codex = { version = "0.152.0", postinstall = '''
