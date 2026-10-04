@@ -1,2 +1,2 @@
-BUFFER='nono run --profile opencode -- opencode'
+BUFFER='HERDR_AGENT=opencode nono run --profile opencode -- opencode'
 zle accept-line
