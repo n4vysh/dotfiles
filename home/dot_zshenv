@@ -150,20 +150,11 @@ export HWLOC_HIDE_ERRORS=2
 export OMPI_MCA_opal_warn_on_missing_libcuda=0
 
 # opencode
-export OPENCODE_ENABLE_EXA=1
-export OPENCODE_DISABLE_CLAUDE_CODE=1
-export OPENCODE_EXPERIMENTAL_LSP_TOOL=true
-export OPENCODE_EXPERIMENTAL_WEBSOCKETS=true
-export OPENCODE_EXPERIMENTAL_CODE_MODE=true
-export OPENCODE_EXPERIMENTAL_BACKGROUND_SUBAGENTS=true
-## OTel
 export OPENCODE_ENABLE_TELEMETRY=1
 export OPENCODE_OTLP_ENDPOINT=https://otlp-gateway-prod-us-central-0.grafana.net/otlp
 export OPENCODE_OTLP_PROTOCOL=http/protobuf
 export OPENCODE_RESOURCE_ATTRIBUTES="host=$HOST"
 export OPENCODE_OTLP_HEADERS_HELPER=~/.config/opencode/scripts/otlp-headers-helper.sh
-### NOTE: do not send user prompt, assistant response, and tool input/output
-export OPENCODE_DISABLE_TRACES=llm,tool
 
 # local
 [[ -f ~/.zshenv.local ]] && source ~/.zshenv.local

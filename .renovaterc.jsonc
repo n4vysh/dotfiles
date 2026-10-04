@@ -16,12 +16,13 @@
   // - mise-runtime
   // - mise (+ mise.lock maintenance)
   // - mise-global (+ mise.lock maintenance)
+  // - opencode (+ package-lock.json maintenance)
   // - sheldon
   // - chezmoi-external
-  // Maximum PRs: 6 x 2 (major/non-major) + 2 lock file maintenance = 14
-  "prConcurrentLimit": 14,
-  "prHourlyLimit": 14,
-  "commitHourlyLimit": 14,
+  // Maximum PRs: 7 x 2 (major/non-major) + 3 lock file maintenance = 17
+  "prConcurrentLimit": 17,
+  "prHourlyLimit": 17,
+  "commitHourlyLimit": 17,
   "separateMajorMinor": true,
   "ignorePaths": [".mise/locks/**", "home/dot_config/mise/locks/**"],
   "customManagers": [
@@ -119,6 +120,25 @@
       "groupSlug": "mise-global"
     },
     {
+      "description": "Group opencode cli and plugin updates",
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["@opencode/cli", "@opencode/plugin"],
+      "commitMessageAction": ":package: bump",
+      "groupName": "opencode",
+      "groupSlug": "opencode"
+    },
+    {
+      "description": "Group opencode nodejs types updates",
+      "matchManagers": ["npm"],
+      "matchFileNames": ["home/dot_config/opencode/package.json"],
+      "matchPackageNames": ["@types/node"],
+      "allowedVersions": "24.x",
+      "rangeStrategy": "update-lockfile",
+      "commitMessageAction": ":package: bump",
+      "groupName": "opencode",
+      "groupSlug": "opencode"
+    },
+    {
       "description": "Group Sheldon plugin updates",
       "matchDepTypes": ["sheldon"],
       "commitMessageAction": ":package: bump",
@@ -138,6 +158,16 @@
       "matchUpdateTypes": ["lockFileMaintenance"],
       "commitMessageAction": ":package: maintain",
       "commitMessageTopic": "mise.lock"
+    },
+    {
+      "description": "Group opencode package-lock.json maintenance",
+      "matchManagers": ["npm"],
+      "matchFileNames": ["home/dot_config/opencode/package.json"],
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "groupName": "opencode",
+      "groupSlug": "opencode",
+      "commitMessageAction": ":package: maintain",
+      "commitMessageTopic": "opencode package-lock.json"
     }
   ]
 }

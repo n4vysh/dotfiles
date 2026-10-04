@@ -170,6 +170,16 @@ url_api = "https://api.github.com/repos/argoproj/argo-cd/releases/assets/4187145
 [tools.argocd."platforms.linux-x64".provenance.slsa]
 url = "https://github.com/argoproj/argo-cd/releases/download/v3.4.2/argocd-cli.intoto.jsonl"
 
+[[tools.aube]]
+version = "2.6.1"
+backend = "packslip:github.com/aubepkg/aube"
+specifiers = ["2.6.1"]
+
+[tools.aube."platforms.linux-x64"]
+checksum = "sha256:364b4cf201970cd5c943390dd3e736b4256b14a0ac52d304f8fb4acfd6a1fbd3"
+url = "https://github.com/aubepkg/aube/releases/download/v2.6.1/aube-v2.6.1-x86_64-unknown-linux-gnu.tar.gz"
+signer = "sigstore-oidc:https://github.com/aubepkg/aube/.github/workflows/release.yml"
+
 [[tools.aws-vault]]
 version = "7.13.3"
 backend = "aqua:ByteNess/aws-vault"
@@ -761,6 +771,15 @@ specifiers = ["11.16.0"]
 allow_builds = '["puppeteer"]'
 trust_policy_excludes = '["cytoscape@3.34.1"]'
 
+[[tools."npm:@opencode/cli"]]
+version = "2.0.20"
+aube = { path = "locks/npm-opencode-cli/2.0.20~009061c2", digest = "sha256:cc52d6822b11c4c29a7f1ab241aa45274d16fc258453a23ea4d2afc660f93f55" }
+backend = "npm:@opencode/cli"
+specifiers = ["2.0.20"]
+
+[tools."npm:@opencode/cli".options]
+allow_builds = '["@opencode/cli"]'
+
 [[tools."npm:@redocly/cli"]]
 version = "1.34.3"
 aube = { path = "locks/npm-redocly-cli/1.34.3", digest = "sha256:a4878ebd12c81c4c71808ec8a76faf74c8352c40649a542bec7c49fba7833b1f" }
@@ -851,16 +870,6 @@ version = "4.17.0"
 aube = { path = "locks/npm-tokscale/4.17.0", digest = "sha256:c082e1ec132aba409752cc4f1007a268157d6cf770ac0c4d36b7c8ae69a5fa6c" }
 backend = "npm:tokscale"
 specifiers = ["4.17.0"]
-
-[[tools.opencode]]
-version = "1.18.32"
-backend = "aqua:anomalyco/opencode"
-specifiers = ["1.18.32"]
-
-[tools.opencode."platforms.linux-x64"]
-checksum = "sha256:3046e0404fdc60fb80307e7a47824ba07477364178a4d09baa8548496dd6d43b"
-url = "https://github.com/anomalyco/opencode/releases/download/v1.18.32/opencode-linux-x64.tar.gz"
-url_api = "https://api.github.com/repos/anomalyco/opencode/releases/assets/580000044"
 
 [[tools.oxipng]]
 version = "10.2.0"

@@ -1,4 +1,4 @@
-import type { Plugin } from "@opencode-ai/plugin";
+import { Plugin } from "@opencode/plugin";
 
 const rewrites = [
   {
@@ -17,18 +17,19 @@ export function rewriteCommand(command: string): string {
   return command;
 }
 
-export const RewriteCommandsPlugin: Plugin = async () => {
-  return {
-    "tool.execute.before": async (input, output) => {
-      const tool = String(input?.tool ?? "").toLowerCase();
+export default Plugin.define({
+  id: "rewrite-commands",
+  async setup(ctx) {
+    await ctx.tool.hook("execute.before", (event) => {
+      const tool = event.tool.toLowerCase();
       if (tool !== "bash" && tool !== "shell") return;
 
-      const args = output?.args;
+      const args = event.input;
       if (!args || typeof args !== "object") return;
 
       const command = (args as Record<string, unknown>).command;
       if (typeof command !== "string" || !command) return;
       (args as Record<string, unknown>).command = rewriteCommand(command);
-    },
-  };
-};
+    });
+  },
+});

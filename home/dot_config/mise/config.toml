@@ -21,7 +21,12 @@ kubectl = "kubecolor"
 assume = ". assume"
 
 [env]
-_.path = ["~/.krew/bin", "{{env.XDG_DATA_HOME}}/pnpm"]
+_.path = { tools = true, path = [
+  "~/.krew/bin",
+  "{{env.XDG_DATA_HOME}}/pnpm",
+  # for nono sandbox
+  "{{ tools['npm:@opencode/cli'].path }}/node_modules/@opencode/cli/bin",
+] }
 BATS_LIB_PATH = "{{env.HOME}}/.local/share/bats"
 
 # czg
@@ -132,8 +137,17 @@ oxipng = "10.2.0"
 "github:YiNNx/cmd-wrapped" = { version = "0.4.1", bin = "cmd-wrapped" }
 
 # AI
-opencode = { version = "1.18.32", postinstall = '''
-opencode completion >~/.zshrc.d/site-functions/_opencode
+"npm:@opencode/cli" = { version = "2.0.20", depends = [
+  "aube",
+], allow_builds = [
+  "@opencode/cli",
+], postinstall = '''
+opencode --completions zsh >~/.zshrc.d/site-functions/_opencode
+mkdir -p "$HOME/.config/opencode"
+(
+  cd "$HOME/.config/opencode"
+  aube install --frozen-lockfile
+)
 ''' }
 claude-code = "2.1.267"
 codex = { version = "0.152.0", postinstall = '''
@@ -141,7 +155,7 @@ codex completion zsh >~/.zshrc.d/site-functions/_codex
 ''' }
 nono = { version = "0.78.0", postinstall = '''
 nono completion zsh >~/.zshrc.d/site-functions/_nono
-nono pull nolabs-ai/opencode@0.2.0
+nono pull nolabs-ai/opencode@0.3.0
 nono pull nolabs-ai/claude@0.1.4
 nono pull nolabs-ai/codex@0.2.3
 nono profile schema \
@@ -177,6 +191,7 @@ claude-powerline = "1.30.1"
 ## frontend
 ### TS
 node = "24.15.0"
+aube = "2.6.1"
 pnpm = { version = "11.3.0", postinstall = '''
 pnpm completion zsh >~/.zshrc.d/site-functions/_pnpm
 ''' }

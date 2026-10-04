@@ -79,11 +79,10 @@ Exceptions:
 
 ### Task Management
 
-- Always use `TodoWrite` tool throughout the conversation:
-    - Use it to plan and track tasks.
-    - Use it frequently to keep progress visible to the user.
-    - Break complex work into smaller tasks.
-- Mark each task complete as soon as it is finished:
+- For complex work, show a concise task list directly in the conversation:
+    - Break the work into smaller tasks.
+    - Update the list as work progresses to keep progress visible to the user.
+- Mark each task complete in the conversation as soon as it is finished:
     - Do not batch several completed tasks before updating their status.
 
 ### Parallel Tool Use

@@ -1,3 +1,7 @@
+# local dependencies
+.config/opencode/node_modules
+.config/opencode/node_modules/**
+
 # chezmoi scripts
 {{ if eq (env "CI") "true" }}
 .chezmoiscripts/**

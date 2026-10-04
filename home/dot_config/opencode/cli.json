@@ -1,0 +1,22 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "tokyonight"
+  },
+  "session": {
+    "thinking": "show"
+  },
+  "keybinds": {
+    "agent.cycle": "tab",
+    "session.background": "<leader>ctrl+b",
+    "input.submit": "ctrl+s",
+    "prompt.editor": "<leader>ctrl+e",
+    "input.newline": "return",
+    "session.tab.next": "alt+j",
+    "session.tab.previous": "alt+k",
+    "session.child.first": "<leader>j",
+    "session.child.next": "ctrl+alt+l",
+    "session.child.previous": "ctrl+alt+h",
+    "session.parent": "<leader>k"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "overrides": [
+    {
+      "files": "home/dot_config/opencode/opencode.jsonc",
+      "options": {
+        "printWidth": 120,
+        "objectWrap": "collapse"
+      }
+    }
+  ]
+}
