@@ -45,6 +45,16 @@
               "network": {
                 "allow_all": true
               }
+            },
+            "invocation_policy": {
+              "default": "deny",
+              "allow": [
+                {
+                  "argv": {
+                    "exact": ["--disable-write", "-t", "stdio"]
+                  }
+                }
+              ]
             }
           }
         }
