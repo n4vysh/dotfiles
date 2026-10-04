@@ -1,5 +1,4 @@
 import { execFile } from "node:child_process";
-import { stat } from "node:fs/promises";
 import { promisify } from "node:util";
 import { Plugin } from "@opencode/plugin";
 
@@ -8,14 +7,6 @@ const run = promisify(execFile);
 export default Plugin.define({
   id: "notification",
   async setup(ctx) {
-    // NOTE: disable when running nono sandbox on WSL
-    //       nono not support plan9 (pwsh.exe and BurntToast)
-    if (
-      process.env.NONO_CAP_FILE !== undefined &&
-      (await stat("/mnt/wsl").catch(() => undefined))?.isDirectory()
-    )
-      return;
-
     const controller = new AbortController();
     void (async () => {
       for await (const event of ctx.event.subscribe({

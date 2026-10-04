@@ -83,20 +83,80 @@ localappdata="$(
 			tr -d '\r'
 	)"
 )"
-cat <<-EOF >~/.local/bin/notify-send
+cat <<-EOF >~/.local/bin/win-notify-handler
 	#!/bin/sh
 
-	title="$(printf "%s" "\$1" | sed "s/'/''/g")"
-	message="$(printf "%s" "\$2" | sed "s/'/''/g")"
+	set -eu
+
+	IFS= read -r title_b64
+	IFS= read -r message_b64
 
 	# HACK: hide default app logo with fake image
 	#       redirect warning message to null
-	#       run in background to avoid waiting for pwsh startup
 	#       https://github.com/Windos/BurntToast/issues/150
-	exec $localappdata/Microsoft/WindowsApps/pwsh.exe \
-		-Command "New-BurntToastNotification -Text '\$title', '\$message' -AppLogo C:\fake.png 3>\\\$null" &
+	exec $localappdata/Microsoft/WindowsApps/pwsh.exe \\
+			-NoProfile \\
+			-NonInteractive \\
+			-Command "
+				\\\$title = [Text.Encoding]::UTF8.GetString(
+					[Convert]::FromBase64String('\$title_b64')
+				)
+				\\\$message = [Text.Encoding]::UTF8.GetString(
+					[Convert]::FromBase64String('\$message_b64')
+				)
+
+				New-BurntToastNotification \\
+					-Text \\\$title, \\\$message \\
+					-AppLogo 'C:\fake.png' \\
+					3>\\\$null
+		"
+EOF
+cat <<-'EOF' >~/.local/bin/notify-send
+	#!/bin/sh
+
+	set -eu
+
+	title="${1:-}"
+	message="${2:-}"
+
+	{
+		printf '%s\n' "$(printf '%s' "$title" | base64 -w0)"
+		printf '%s\n' "$(printf '%s' "$message" | base64 -w0)"
+	} | socat -u STDIN UNIX-CONNECT:"${XDG_RUNTIME_DIR}/win-notify.sock"
 EOF
 chmod +x ~/.local/bin/notify-send
+cat <<-'EOF' >~/.config/systemd/user/win-notify@.service
+	[Unit]
+	Description=Windows notification handler
+
+	[Service]
+	Type=oneshot
+	StandardInput=socket
+	ExecStart=%h/.local/bin/win-notify-handler
+	TimeoutStartSec=30
+EOF
+cat <<-'EOF' >~/.config/systemd/user/win-notify.socket
+	[Unit]
+	Description=Windows notification socket
+
+	[Socket]
+	ListenStream=%t/win-notify.sock
+	SocketMode=0600
+	Accept=yes
+	RemoveOnStop=yes
+
+	[Install]
+	WantedBy=sockets.target
+EOF
+systemctl --user enable win-notify.socket
+cat <<-'EOF' >~/.config/nono/profiles/wsl.jsonc
+{
+	"$schema": "../nono-profile.schema.json",
+	"filesystem": {
+		"unix_socket": ["$XDG_RUNTIME_DIR/win-notify.sock"]
+	}
+}
+EOF
 
 # NOTE: run a script when etc file changes
 # https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
