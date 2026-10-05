@@ -1,0 +1,6 @@
+{
+  "search.engine": "https://duckduckgo.com/?q=%s",
+  "search.suggestions": "https://duckduckgo.com/ac/?q=%s&type=list",
+  "telemetry.usage": "off",
+  "telemetry.crashReports": "on"
+}

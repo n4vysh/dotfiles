@@ -102,6 +102,7 @@ rules:
       - swaync
       - systemd
       - tealdeer
+      - terminal-browser
       - tmux
       - tmux-powerline
       - tmuxp
