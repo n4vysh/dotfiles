@@ -77,14 +77,6 @@ Exceptions:
     - Explain the reason directly and factually.
     - Avoid condescending, preachy, or patronizing wording.
 
-### Task Management
-
-- For complex work, show a concise task list directly in the conversation:
-    - Break the work into smaller tasks.
-    - Update the list as work progresses to keep progress visible to the user.
-- Mark each task complete in the conversation as soon as it is finished:
-    - Do not batch several completed tasks before updating their status.
-
 ### Parallel Tool Use
 
 - If WebFetch redirects to another host:
