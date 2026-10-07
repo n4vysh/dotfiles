@@ -66,6 +66,7 @@
   "permissions": [
     // external_directory:
     { "action": "external_directory", "resource": "~/*", "effect": "deny" },
+    { "action": "external_directory", "resource": "~/.config/chezmoi/*", "effect": "allow" },
     { "action": "external_directory", "resource": "~/.config/nono/*", "effect": "allow" },
     { "action": "external_directory", "resource": "~/.config/opencode/*", "effect": "allow" },
     { "action": "external_directory", "resource": "~/.local/share/chezmoi/*", "effect": "allow" },
@@ -75,6 +76,10 @@
     { "action": "external_directory", "resource": "~/.local/share/rtk/tee/*", "effect": "allow" },
     { "action": "external_directory", "resource": "~/.local/state/nono/*", "effect": "allow" },
     { "action": "external_directory", "resource": "~/Workspaces/*", "effect": "allow" }, // ghq root
+    // read:
+    { "action": "read", "resource": "~/.config/chezmoi/*", "effect": "allow" },
+    // edit:
+    { "action": "edit", "resource": "~/.config/chezmoi/*", "effect": "deny" },
     // shell:
     { "action": "shell", "resource": "*", "effect": "ask" },
     { "action": "shell", "resource": "rm *", "effect": "deny" }, // NOTE: use trash command

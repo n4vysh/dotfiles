@@ -1,6 +1,7 @@
 {
   "$schema": "../nono-profile.schema.json",
   "filesystem": {
+    "read": ["$XDG_CONFIG_HOME/chezmoi"],
     "allow": ["$XDG_DATA_HOME/chezmoi"]
   }
 }
