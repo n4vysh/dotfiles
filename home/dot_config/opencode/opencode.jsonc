@@ -87,6 +87,10 @@
     { "action": "shell", "resource": "uvx *", "effect": "deny" },
     { "action": "shell", "resource": "* --help", "effect": "allow" },
     { "action": "shell", "resource": "* --version", "effect": "allow" },
+    { "action": "shell", "resource": "set -e", "effect": "allow" },
+    { "action": "shell", "resource": "set -u", "effect": "allow" },
+    { "action": "shell", "resource": "set -o pipefail", "effect": "allow" },
+    { "action": "shell", "resource": "set -euo pipefail", "effect": "allow" },
     { "action": "shell", "resource": "ctx7 library *", "effect": "allow" },
     { "action": "shell", "resource": "ctx7 docs *", "effect": "allow" },
     { "action": "shell", "resource": "nono profile guide", "effect": "allow" },
@@ -549,6 +553,7 @@
     { "action": "shell", "resource": "systemctl --user is-failed *", "effect": "allow" },
     // Output measurement
     { "action": "shell", "resource": "jq *", "effect": "allow" },
+    { "action": "shell", "resource": "yq *", "effect": "allow" },
     { "action": "shell", "resource": "file *", "effect": "allow" },
     { "action": "shell", "resource": "wc *", "effect": "allow" },
     { "action": "shell", "resource": "rtk wc *", "effect": "allow" },
