@@ -78,8 +78,26 @@
     { "action": "external_directory", "resource": "~/Workspaces/*", "effect": "allow" }, // ghq root
     // read:
     { "action": "read", "resource": "~/.config/chezmoi/*", "effect": "allow" },
+    { "action": "read", "resource": "~/.config/nono/*", "effect": "allow" },
+    { "action": "read", "resource": "~/.config/opencode/*", "effect": "allow" },
+    { "action": "read", "resource": "~/.local/share/chezmoi/*", "effect": "allow" },
+    { "action": "read", "resource": "~/.local/share/mise/*", "effect": "allow" },
+    { "action": "read", "resource": "~/.local/share/opencode/log/*", "effect": "allow" },
+    { "action": "read", "resource": "~/.local/share/opencode/tool-output/*", "effect": "allow" },
+    { "action": "read", "resource": "~/.local/share/rtk/tee/*", "effect": "allow" },
+    { "action": "read", "resource": "~/.local/state/nono/*", "effect": "allow" },
+    { "action": "read", "resource": "~/Workspaces/*", "effect": "allow" },
     // edit:
     { "action": "edit", "resource": "~/.config/chezmoi/*", "effect": "deny" },
+    { "action": "edit", "resource": "~/.config/nono/*", "effect": "deny" },
+    { "action": "edit", "resource": "~/.config/opencode/*", "effect": "deny" },
+    { "action": "edit", "resource": "~/.local/share/chezmoi/*", "effect": "deny" },
+    { "action": "edit", "resource": "~/.local/share/mise/*", "effect": "deny" },
+    { "action": "edit", "resource": "~/.local/share/opencode/log/*", "effect": "deny" },
+    { "action": "edit", "resource": "~/.local/share/opencode/tool-output/*", "effect": "deny" },
+    { "action": "edit", "resource": "~/.local/share/rtk/tee/*", "effect": "deny" },
+    { "action": "edit", "resource": "~/.local/state/nono/*", "effect": "deny" },
+    { "action": "edit", "resource": "~/Workspaces/*", "effect": "deny" },
     // shell:
     { "action": "shell", "resource": "*", "effect": "ask" },
     { "action": "shell", "resource": "rm *", "effect": "deny" }, // NOTE: use trash command
