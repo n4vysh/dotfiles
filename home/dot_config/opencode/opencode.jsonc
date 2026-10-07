@@ -64,23 +64,17 @@
     }
   },
   "permissions": [
-    // external_directory: deny
-    { "action": "external_directory", "resource": "~", "effect": "deny" },
-    { "action": "external_directory", "resource": "~/.aws/**", "effect": "deny" },
-    { "action": "external_directory", "resource": "~/.config/gcx/**", "effect": "deny" },
-    { "action": "external_directory", "resource": "~/.gnupg/**", "effect": "deny" },
-    { "action": "external_directory", "resource": "~/.kube/**", "effect": "deny" },
-    { "action": "external_directory", "resource": "~/.ssh/**", "effect": "deny" },
-    // external_directory: allow
-    { "action": "external_directory", "resource": "~/.config/nono/**", "effect": "allow" },
-    { "action": "external_directory", "resource": "~/.config/opencode/**", "effect": "allow" },
-    { "action": "external_directory", "resource": "~/.local/share/chezmoi/**", "effect": "allow" },
-    { "action": "external_directory", "resource": "~/.local/share/mise/**", "effect": "allow" },
-    { "action": "external_directory", "resource": "~/.local/share/opencode/log/**", "effect": "allow" },
-    { "action": "external_directory", "resource": "~/.local/share/opencode/tool-output/**", "effect": "allow" },
-    { "action": "external_directory", "resource": "~/.local/share/rtk/tee/**", "effect": "allow" },
-    { "action": "external_directory", "resource": "~/.local/state/nono/**", "effect": "allow" },
-    { "action": "external_directory", "resource": "~/Workspaces/**", "effect": "allow" }, // ghq root
+    // external_directory:
+    { "action": "external_directory", "resource": "~/*", "effect": "deny" },
+    { "action": "external_directory", "resource": "~/.config/nono/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/.config/opencode/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/.local/share/chezmoi/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/.local/share/mise/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/.local/share/opencode/log/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/.local/share/opencode/tool-output/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/.local/share/rtk/tee/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/.local/state/nono/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/Workspaces/*", "effect": "allow" }, // ghq root
     // shell:
     { "action": "shell", "resource": "*", "effect": "ask" },
     { "action": "shell", "resource": "rm *", "effect": "deny" }, // NOTE: use trash command
