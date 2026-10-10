@@ -611,7 +611,7 @@ hl.define_submap(submaps.app, function()
     hl.bind("d", hl.dsp.submap("reset"), { repeating = true })
     hl.bind(
         "e",
-        hl.dsp.exec_cmd("uwsm app -- proton-mail"),
+        hl.dsp.exec_cmd("uwsm app -- flatpak run me.proton.Mail"),
         { repeating = true }
     )
     hl.bind("e", hl.dsp.submap("reset"), { repeating = true })

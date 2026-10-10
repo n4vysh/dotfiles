@@ -21,8 +21,6 @@ packages:
       - extra/sbctl
       - extra/tmux
       - extra/zsh
-      # email
-      - aur/proton-mail-bin
       # power management
       - extra/acpi
       - extra/cpupower
@@ -305,6 +303,7 @@ packages:
       flathub:
         - io.ente.photos
         - io.ente.auth
+        - me.proton.Mail
     gh:
       - dlvhdr/gh-dash
       - dlvhdr/gh-enhance
