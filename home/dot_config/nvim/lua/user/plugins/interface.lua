@@ -417,17 +417,21 @@ return {
 	},
 	{
 		"sphamba/smear-cursor.nvim",
-		-- HACK: pin commit hash to avoid guicursor bug
-		-- https://github.com/sphamba/smear-cursor.nvim/issues/179
-		commit = "9e9378d6ee34bb3782e0e8c63d9ec8ca618b479b",
 		event = { "VeryLazy" },
 		opts = {
 			stiffness = 0.8,
 			trailing_stiffness = 0.6,
-			trailing_exponent = 0,
+			stiffness_insert_mode = 0.7,
+			trailing_stiffness_insert_mode = 0.7,
+			damping = 0.95,
+			damping_insert_mode = 0.95,
 			distance_stop_animating = 0.5,
+			time_interval = 7,
+			trailing_exponent = 0,
 			hide_target_hack = false,
 			legacy_computing_symbols_support = true,
+			vertical_bar_cursor_insert_mode = false,
+			horizontal_bar_cursor_replace_mode = false,
 		},
 	},
 	{ "karb94/neoscroll.nvim", opts = {} },
