@@ -179,6 +179,7 @@
       - blackarch/payloadsallthethings
       - blackarch/webshells
     system_security: &pacman_system_security_packages
+      - extra/lsof # for rkhunter
       - extra/rkhunter
       - extra/ufw
     desktop: &pacman_desktop_packages
@@ -237,6 +238,7 @@
       - extra/kanshi
       - extra/wl-mirror
       # screen capture
+      - extra/fbgrab
       - extra/grim
       - extra/hyprpicker
       - extra/satty
