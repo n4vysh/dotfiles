@@ -45,7 +45,6 @@ services:
     user:
       enabled:
         - docker.socket
-        - tmux.service
         - gcr-ssh-agent.socket
         - espanso.service
         - hypridle.service
