@@ -2,7 +2,7 @@
 
 set -eu
 
-if [ -d /mnt/wsl ]; then
+if [ -f /usr/bin/wslinfo ]; then
 	gum log --level warn "$0: running on WSL -- skipping"
 	exit 0
 fi

@@ -84,7 +84,7 @@ vim.opt.listchars:append({
 vim.opt.clipboard = "unnamedplus"
 
 -- selene: allow(empty_if)
-if vim.fn.isdirectory("/mnt/wsl") == 1 then
+if (vim.uv.fs_stat("/usr/bin/wslinfo") or {}).type == "file" then
 	-- WARN: do not use OSC 52 on Windows
 	--       use wl-copy to force LF instead of CRLF
 	vim.g.clipboard = {

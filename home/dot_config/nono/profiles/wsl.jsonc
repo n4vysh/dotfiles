@@ -1,0 +1,6 @@
+{
+  "$schema": "../nono-profile.schema.json",
+  "filesystem": {
+    "unix_socket": ["$XDG_RUNTIME_DIR/wsl-notify.sock"]
+  }
+}

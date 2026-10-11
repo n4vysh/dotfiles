@@ -2,6 +2,14 @@
 
 set -eu
 
+# chezmoi template variables
+cat <<-'EOF' >/dev/null
+	{{- $isWSL := eq (stat "/usr/bin/wslinfo" | default (dict "type" "")).type "file" }}
+	{{- $platform := ternary "wsl" "linux" $isWSL }}
+	$isWSL={{ $isWSL }}
+	$platform={{ $platform }}
+EOF
+
 gum log --level info 'Configure pacman'
 sudo sed \
 	-i \
@@ -26,7 +34,7 @@ if ! sudo grep -q "\[chaotic-aur\]" /etc/pacman.conf; then
 		-U "https://$domain/$prefix/chaotic-mirrorlist.pkg.tar.zst" \
 		--noconfirm
 
-	sudo tee -a /etc/pacman.conf >/dev/null <<-EOF
+	sudo tee -a /etc/pacman.conf >/dev/null <<-'EOF'
 
 		[chaotic-aur]
 		Include = /etc/pacman.d/chaotic-mirrorlist
@@ -38,13 +46,18 @@ else
 fi
 
 gum log --level info 'Install official and chaotic-aur packages with pacman'
-sudo bash -c "yes '' | pacman -S --noconfirm --needed --disable-download-timeout $(
-	grep -E '^(core|extra|chaotic-aur)/' <<-EOF | tr '\n' ' '
-		{{ range .packages.linux.pacman -}}
+xargs -r sudo bash -c '
+	yes "" | pacman -S --noconfirm --needed \
+		--disable-download-timeout "$@"
+' _ <<-'EOF'
+	{{
+		range (index $.packages $platform).pacman
+		| jq `flatten | .[] | select(test("^(core|extra|chaotic-aur)/"))`
+		| uniq
+	-}}
 		{{ . }}
-		{{ end -}}
-	EOF
-)"
+	{{ end -}}
+EOF
 
 gum log --level info 'Add blackarch repository'
 if ! sudo grep -q "\[blackarch\]" /etc/pacman.conf; then
@@ -72,51 +85,61 @@ fi
 gum log --level info 'Install blackarch packages with pacman'
 # NOTE: install blackarch packages after official packages
 #       to avoid conflict between jack2 and pipewire-jack
-sudo bash -c "yes '' | pacman -S --noconfirm --needed --disable-download-timeout $(
-	grep '^blackarch/' <<-EOF | tr '\n' ' '
-		{{ range .packages.linux.pacman -}}
+xargs -r sudo bash -c '
+	yes "" | pacman -S --noconfirm --needed \
+		--disable-download-timeout "$@"
+' _ <<-'EOF'
+	{{
+		range (index $.packages $platform).pacman
+		| jq `flatten | .[] | select(startswith("blackarch/"))`
+		| uniq
+	-}}
 		{{ . }}
-		{{ end -}}
-	EOF
-)"
+	{{ end -}}
+EOF
 
 gum log --level info 'Import signing key'
-curl -sS https://downloads.1password.com/linux/keys/1password.asc |
-	gpg --import
+if ! [ -f /usr/bin/wslinfo ]; then
+	curl -sS https://downloads.1password.com/linux/keys/1password.asc |
+		gpg --import
+else
+	gum log --level warn 'running on WSL -- skipping'
+fi
 
 gum log --level info 'Install packages with yay'
 # NOTE: yay installed with chaotic-aur repository
 # HACK: enter password before running AUR helper to skip selection of package group with yes command
 sudo true
-bash -c "yes '' | yay -S --noconfirm --needed --disable-download-timeout --batchinstall $(
-	grep '^aur/' <<-EOF | tr '\n' ' '
-		{{ range .packages.linux.pacman -}}
+xargs -r bash -c '
+	yes "" | yay -S --noconfirm --needed \
+		--disable-download-timeout --batchinstall "$@"
+' _ <<-'EOF'
+	{{
+		range (index $.packages $platform).pacman
+		| jq `flatten | .[] | select(startswith("aur/"))`
+		| uniq
+	-}}
+		{{ . }}
+	{{ end -}}
+EOF
+
+gum log --level info 'Install packages with flatpak'
+if ! [ -f /usr/bin/wslinfo ]; then
+	xargs -r flatpak install -y flathub <<-'EOF'
+		{{ range .packages.linux.flatpak.flathub | jq "flatten | .[]" | uniq -}}
 		{{ . }}
 		{{ end -}}
 	EOF
-)"
-
-gum log --level info 'Install packages with flatpak'
-if ! [ -d /mnt/wsl ]; then
-	bash -c "flatpak install -y flathub $(
-		tr '\n' ' ' <<-EOF
-			{{ range .packages.linux.flatpak.flathub -}}
-			{{ . }}
-			{{ end -}}
-		EOF
-	)"
 else
 	gum log --level warn 'running on WSL -- skipping'
 fi
 
 gum log --level info 'Install packages with gh'
-bash -c "gh extension install $(
-	tr '\n' ' ' <<-EOF
-		{{ range .packages.linux.gh -}}
-		{{ . }}
-		{{ end -}}
-	EOF
-)"
+xargs -r gh extension install <<-'EOF'
+	{{ range (index $.packages $platform).gh | jq "flatten | .[]" | uniq -}}
+	{{ . }}
+	{{ end -}}
+EOF
 
 gum log --level info 'Install tresorit'
 if ! [ -f ~/.local/share/tresorit/tresorit-cli ]; then

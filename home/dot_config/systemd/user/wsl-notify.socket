@@ -1,0 +1,11 @@
+[Unit]
+Description=Windows notification socket
+
+[Socket]
+ListenStream=%t/wsl-notify.sock
+SocketMode=0600
+Accept=yes
+RemoveOnStop=yes
+
+[Install]
+WantedBy=sockets.target

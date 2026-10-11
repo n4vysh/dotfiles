@@ -2,7 +2,17 @@
 
 set -eu
 
-if [ -d /mnt/wsl ]; then
+gum log --level info 'Configure etckeeper'
+if ! [ -d /etc/.git ]; then
+	sudo etckeeper init
+	sudo git -C /etc/ config --local user.name "etckeeper"
+	sudo git -C /etc/ config --local user.email "etckeeper@localhost"
+	sudo etckeeper commit "Initial commit"
+else
+	gum log --level warn "etckeeper already configured -- skipping"
+fi
+
+if [ -f /usr/bin/wslinfo ]; then
 	gum log --level warn "$0: running on WSL -- skipping"
 	exit 0
 fi
@@ -110,16 +120,6 @@ if ! systemctl is-active -q rkhunter.timer; then
 	sudo rkhunter -c --sk 2>/dev/null
 else
 	gum log --level warn "rkhunter already configured -- skipping"
-fi
-
-gum log --level info 'Configure etckeeper'
-if ! [ -d /etc/.git ]; then
-	sudo etckeeper init
-	sudo git -C /etc/ config --local user.name "etckeeper"
-	sudo git -C /etc/ config --local user.email "etckeeper@localhost"
-	sudo etckeeper commit "Initial commit"
-else
-	gum log --level warn "etckeeper already configured -- skipping"
 fi
 
 # NOTE: run a script when etc file changes

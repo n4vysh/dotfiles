@@ -3,44 +3,55 @@
 bats_load_library bats-support
 bats_load_library bats-assert
 
-get_enabled_services() {
-  type="$1"
-  [ "$type" = user ] && opts=--user
-  yq e \
-    ".services.systemd.$type.enabled[]" \
-    "$(chezmoi source-path)/.chezmoidata/services.yaml" |
-    xargs -I {} sh -c "printf '{}: '; systemctl $opts is-enabled {}"
-}
+get_services() {
+  local type="$1" state="$2"
+  local platform=linux opts='' command
 
-get_running_services() {
-  type="$1"
-  [ "$type" = user ] && opts=--user
-  yq e \
-    ".services.systemd.$type.running[]" \
-    "$(chezmoi source-path)/.chezmoidata/services.yaml" |
-    xargs -I {} sh -c "printf '{}: '; systemctl $opts is-active {}"
+  [ -f /usr/bin/wslinfo ] && platform=wsl
+
+  [[ "$type" == user ]] && opts=--user
+
+  case "$state" in
+  enabled) command=is-enabled ;;
+  running) command=is-active ;;
+  *) return 1 ;;
+  esac
+
+  set -o pipefail
+  platform="$platform" type="$type" state="$state" yq '
+    explode(.)
+    | .services[strenv(platform)].systemd[strenv(type)][strenv(state)]
+    | flatten
+    | unique
+    | .[]
+  ' "$(chezmoi source-path)/.chezmoidata/services.yaml" |
+    xargs -I {} sh -c "printf '{}: '; systemctl $opts $command {}"
 }
 
 @test "system services are enabled" {
-  run get_enabled_services system
+  run get_services system enabled
 
+  assert_success
   refute_line --regexp '^.*: disabled$'
 }
 
 @test "system services are running" {
-  run get_running_services system
+  run get_services system running
 
+  assert_success
   refute_line --regexp '^.*: inactive$'
 }
 
 @test "user services are enabled" {
-  run get_enabled_services user
+  run get_services user enabled
 
+  assert_success
   refute_line --regexp '^.*: disabled$'
 }
 
 @test "user services are running" {
-  run get_running_services user
+  run get_services user running
 
+  assert_success
   refute_line --regexp '^.*: inactive$'
 }

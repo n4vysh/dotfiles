@@ -1,0 +1,8 @@
+[Unit]
+Description=Windows notification handler
+
+[Service]
+Type=oneshot
+StandardInput=socket
+ExecStart=%h/.local/bin/wsl-notify-handler
+TimeoutStartSec=30

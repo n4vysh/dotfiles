@@ -1,5 +1,5 @@
 {{ if eq .chezmoi.os "linux" -}}
-{{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{   if not (eq (stat "/usr/bin/wslinfo" | default (dict "type" "")).type "file") -}}
 pinentry-program /usr/bin/pinentry-gtk
 {{   else -}}
 pinentry-program /mnt/c/Program Files/Gpg4win/bin/pinentry.exe

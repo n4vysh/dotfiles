@@ -35,8 +35,11 @@
 .config/yasb
 {{ end }}
 {{ if eq .chezmoi.os "linux" }}
-{{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{   if not (eq (stat "/usr/bin/wslinfo" | default (dict "type" "")).type "file") }}
 .local/bin/*.exe
 .local/bin/*.ps1
+.local/bin/wsl-*
+.config/systemd/user/wsl-*
+.config/nono/profiles/wsl.jsonc
 {{   end }}
 {{ end }}

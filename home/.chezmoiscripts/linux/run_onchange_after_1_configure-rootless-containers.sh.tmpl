@@ -34,7 +34,7 @@ systemctl --user daemon-reload
 
 gum log --level info 'Prepare encrypted postgresql credential'
 if ! [ -f "$HOME/.config/credstore.encrypted/litellm-postgres-password" ]; then
-	if [ -d /mnt/wsl ]; then
+	if [ -f /usr/bin/wslinfo ]; then
 		with_key=host
 	else
 		with_key=host+tpm2

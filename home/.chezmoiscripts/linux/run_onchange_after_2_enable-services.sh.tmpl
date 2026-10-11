@@ -2,46 +2,40 @@
 
 set -eu
 
+# chezmoi template variables
+cat <<-'EOF' >/dev/null
+	{{- $isWSL := eq (stat "/usr/bin/wslinfo" | default (dict "type" "")).type "file" }}
+	{{- $platform := ternary "wsl" "linux" $isWSL }}
+	$isWSL={{ $isWSL }}
+	$platform={{ $platform }}
+EOF
+
 gum log --level info 'Enable system services'
-sudo bash -c "systemctl enable $(
-	tr '\n' ' ' <<-EOF
-		{{ range .services.systemd.system.enabled -}}
-		{{ . }}
-		{{ end -}}
-	EOF
-)"
+sudo systemctl daemon-reload
+xargs -r sudo systemctl enable <<-'EOF'
+	{{ range (index .services $platform).systemd.system.enabled | jq "flatten | .[]" | uniq -}}
+	{{ . }}
+	{{ end -}}
+EOF
 
 gum log --level info 'Start system services'
-sudo bash -c "systemctl start $(
-	tr '\n' ' ' <<-EOF
-		{{ range .services.systemd.system.running -}}
-		{{ . }}
-		{{ end -}}
-	EOF
-)"
+xargs -r sudo systemctl start <<-'EOF'
+	{{ range (index .services $platform).systemd.system.running | jq "flatten | .[]" | uniq -}}
+	{{ . }}
+	{{ end -}}
+EOF
 
 gum log --level info 'Enable user services'
-if ! [ -d /mnt/wsl ]; then
-	bash -c "systemctl --user enable $(
-		tr '\n' ' ' <<-EOF
-			{{ range .services.systemd.user.enabled -}}
-			{{ . }}
-			{{ end -}}
-		EOF
-	)"
-else
-	gum log --level warn 'running on WSL -- skipping'
-fi
+systemctl --user daemon-reload
+xargs -r systemctl --user enable <<-'EOF'
+	{{ range (index .services $platform).systemd.user.enabled | jq "flatten | .[]" | uniq -}}
+	{{ . }}
+	{{ end -}}
+EOF
 
 gum log --level info 'Start user services'
-if ! [ -d /mnt/wsl ]; then
-	bash -c "systemctl --user start $(
-		tr '\n' ' ' <<-EOF
-			{{ range .services.systemd.user.running -}}
-			{{ . }}
-			{{ end -}}
-		EOF
-	)"
-else
-	gum log --level warn 'running on WSL -- skipping'
-fi
+xargs -r systemctl --user start <<-'EOF'
+	{{ range (index .services $platform).systemd.user.running | jq "flatten | .[]" | uniq -}}
+	{{ . }}
+	{{ end -}}
+EOF

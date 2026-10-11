@@ -1,214 +1,34 @@
-packages:
-  linux:
-    pacman:
-      # base
+.anchors:
+  pacman:
+    base: &pacman_base_packages
       - core/base
       - core/base-devel
-      - core/btrfs-progs
-      - core/linux-firmware
-      - core/lvm2
-      - core/mkinitcpio
-      - core/tpm2-tss
-      - core/wireless-regdb
       - extra/chezmoi
-      - extra/fwupd
-      - extra/intel-ucode
-      - extra/iwd
-      - extra/linux-zen
       - extra/neovim
       - extra/pacman-contrib
       - extra/reflector
-      - extra/sbctl
       - extra/tmux
       - extra/zsh
-      # power management
-      - extra/acpi
-      - extra/cpupower
-      - extra/thermald
-      - extra/tlp
-      # messaging clients
-      - chaotic-aur/slack-electron
-      - chaotic-aur/zoom
-      - extra/discord
-      - extra/signal-desktop
       # package management
       - chaotic-aur/downgrade
       - chaotic-aur/yay
-      - core/zstd
-      - extra/ccache
       - extra/pkgfile
-      # password management
-      - aur/1password
-      - aur/1password-cli
-      - core/libsecret
-      - extra/gnome-keyring # for seahorse
-      - extra/gopass
-      - extra/pass
-      - extra/seahorse
       # network
       - core/inetutils
       - core/nfs-utils
+      - core/openssh
       - extra/bind
       - extra/dog
       - extra/gping
-      - extra/impala
       - extra/nmap
       - extra/openbsd-netcat
       - extra/openvpn
       - extra/rustscan
+      - extra/socat
       - extra/traceroute
-      - extra/ufw
       - extra/whois
       - extra/wireguard-tools
-      ## packet analyzer
-      - extra/qt6-multimedia-ffmpeg # for wireshark-qt
-      - extra/wireshark-cli
-      - extra/wireshark-qt
-      ## bluetooth
-      - extra/bluetui
-      - extra/bluez
-      - extra/bluez-utils
-      # appearance
-      - aur/plasma6-themes-fluent-git
-      - chaotic-aur/fluent-gtk-theme-git
-      - chaotic-aur/fluent-icon-theme-git
-      - extra/gtk3
-      - extra/gtk4
-      - extra/kvantum
-      - extra/noto-fonts
-      - extra/noto-fonts-cjk
-      - extra/noto-fonts-emoji
-      - extra/nwg-look
-      - extra/ttf-fira-code
-      - extra/ttf-nerd-fonts-symbols-mono
-      # multi media
-      - extra/gifsicle
-      - extra/imv
-      - extra/mpv
-      - extra/mpv-mpris
-      - extra/pamixer
-      - extra/pipewire
-      - extra/pipewire-alsa
-      - extra/pipewire-jack
-      - extra/pipewire-pulse
-      - extra/playerctl
-      - extra/pulsemixer
-      - extra/sound-theme-freedesktop
-      - extra/tesseract-data-eng # for zathura
-      - extra/wiremix
-      - extra/wireplumber
-      - extra/zathura
-      - extra/zathura-pdf-mupdf
-      # security key
-      - extra/ccid
-      - extra/libfido2
-      - extra/libusb-compat
-      - extra/opensc
-      - extra/pam-u2f
-      - extra/pcsc-tools
-      - extra/yubikey-manager
-      # mount helper
-      - extra/android-udev
-      - extra/polkit
-      - extra/udiskie
-      - extra/udisks2
-      # input method
-      - chaotic-aur/fcitx5-mozc-ut
-      - chaotic-aur/mozc-ut
-      - extra/fcitx5
-      - extra/fcitx5-configtool
-      - extra/fcitx5-gtk
-      - extra/fcitx5-qt
-      # window manager
-      - chaotic-aur/wlogout
-      - extra/brightnessctl
-      - extra/cliphist
-      - extra/cpio
-      - extra/grim
-      - extra/hypridle
-      - extra/hyprland
-      - extra/hyprlock
-      - extra/hyprpaper
-      - extra/hyprpicker
-      - extra/hyprpm
-      - extra/hyprsunset
-      - extra/kanshi
-      - extra/keyd
-      - extra/libglvnd # for hyprland
-      - extra/ly
-      - extra/meson
-      - extra/pipectl
-      - extra/qt6-wayland
-      - extra/quickshell
-      - extra/rofi
-      - extra/rofi-calc
-      - extra/rofimoji
-      - extra/satty
-      - extra/slurp
-      - extra/swaync
-      - extra/uwsm
-      - extra/waybar
-      - extra/wev
-      - extra/wf-recorder
-      - extra/wl-clip-persist
-      - extra/wl-clipboard
-      - extra/wl-mirror
-      - extra/wob
-      - extra/wtype
-      - extra/xdg-desktop-portal
-      - extra/xdg-desktop-portal-hyprland
-      - extra/xdg-user-dirs
-      - extra/xorg-xwayland
-      # security
-      - blackarch/burpsuite
-      - blackarch/cmseek
-      - blackarch/commix
-      - blackarch/dnsx
-      - blackarch/ffuf
-      - blackarch/hash-identifier
-      - blackarch/httpx
-      - blackarch/katana-pd
-      - blackarch/nuclei
-      - blackarch/payloadsallthethings
-      - blackarch/peass
-      - blackarch/python-chepy
-      - blackarch/recon-ng
-      - blackarch/retire
-      - blackarch/seclists
-      - blackarch/semgrep
-      - blackarch/sherlock
-      - blackarch/smbmap
-      - blackarch/smtp-user-enum
-      - blackarch/ssrfmap
-      - blackarch/stegseek
-      - blackarch/subfinder
-      - blackarch/wapiti
-      - blackarch/webshells
-      - blackarch/wordlistctl
-      - chaotic-aur/steghide
-      - extra/arch-audit
-      - extra/binwalk
-      - extra/exploitdb
-      - extra/hashcat
-      - extra/hydra
-      - extra/jdk-openjdk # for burpsuite
-      - extra/john
-      - extra/metasploit
-      - extra/nikto
-      - extra/osv-scanner
-      - extra/perl-image-exiftool
-      - extra/qflipper
-      - extra/rkhunter
-      - extra/socat
-      - extra/sqlmap
-      - extra/ssdeep
-      - extra/sslscan
-      - extra/torbrowser-launcher
-      - extra/wpscan
       # utilities
-      - chaotic-aur/espanso-wayland-git
-      - chaotic-aur/wps-office
-      - core/dosfstools
       - core/man-db
       - core/man-pages
       - extra/btop
@@ -218,78 +38,47 @@ packages:
       - extra/etckeeper
       - extra/eva
       - extra/fastfetch
-      - extra/firefox
-      - extra/flatpak
-      - extra/gptfdisk
-      - extra/imagemagick
-      - extra/intel-compute-runtime
-      - extra/irqbalance
       - extra/libsixel
-      - extra/moreutils
-      - extra/polkit-gnome
       - extra/poppler
       - extra/pwgen
-      - extra/remmina
-      - extra/rlwrap
       - extra/tealdeer
       - extra/tokei
       - extra/translate-shell
       - extra/trash-cli
-      - extra/unrar
-      - extra/unzip
       - extra/visidata
-      - extra/zip
-      - extra/zram-generator
-      # developer tools
-      - aur/bazecor
-      - chaotic-aur/docker-rootless-extras
-      - chaotic-aur/playwright
-      - core/openssh
+      - extra/wl-clipboard
+      # archiving
+      - core/zstd
       - extra/7zip # for yazi archive extraction and preview
       - extra/atool
-      - extra/atuin
-      - extra/bat
-      - extra/cosign # for mise verification
-      - extra/docker
-      - extra/docker-buildx
-      - extra/docker-compose
-      - extra/expect # for unbuffer
+      - extra/cpio
+      - extra/unrar
+      - extra/unzip
+      - extra/zip
+      # file management
       - extra/eza
       - extra/fd
+      - extra/ripgrep
+      - extra/tree
+      - extra/unison
+      - extra/yazi
+      # command-line utilities
+      - extra/atuin
+      - extra/bat
       - extra/fzf
-      - extra/ghostty
       - extra/glow
       - extra/grc
-      - extra/gum
-      - extra/jpegoptim
-      - extra/jq
-      - extra/podman
-      - extra/skopeo
-      - extra/kitty # use kitty icat for fastfetch
-      - extra/libwebp
-      - extra/mise
-      - extra/moreutils # for vidir and sponge
-      - extra/neovide
-      - extra/obsidian
-      - extra/parallel
-      - extra/postgresql
-      - extra/qemu-user-static
-      - extra/qemu-user-static-binfmt
-      - extra/ripgrep
+      - extra/rlwrap
       - extra/sheldon
-      - extra/slirp4netns # for docker-rootless-extras and kind
-      - extra/testssl.sh
       - extra/tmuxp
-      - extra/tree
-      - extra/tree-sitter-cli # for nvim-treesitter
-      - extra/unison
-      - extra/usage
-      - extra/vhs
       - extra/vivid
-      - extra/xh
-      - extra/yazi
       - extra/zoxide
-      ## VCS
+      # image processing
+      - extra/gifsicle
+      - extra/imagemagick
+      - extra/jpegoptim
+      - extra/libwebp
+      # version control
       - chaotic-aur/git-extras
       - extra/diffnav
       - extra/ghq
@@ -299,14 +88,295 @@ packages:
       - extra/github-cli
       - extra/glab
       - extra/lazygit
+      # secret management
+      - core/libsecret
+      - extra/gnome-keyring # for seahorse
+      - extra/gopass
+      - extra/pass
+      - extra/seahorse
+      # network diagnostics
+      - extra/wireshark-cli
+    development: &pacman_development_packages
+      # build tools
+      - extra/ccache
+      - extra/meson
+      # runtime management
+      - extra/cosign # for mise verification
+      - extra/mise
+      # containers
+      - chaotic-aur/docker-rootless-extras
+      - extra/docker
+      - extra/docker-buildx
+      - extra/docker-compose
+      - extra/podman
+      - extra/skopeo
+      - extra/slirp4netns # for docker-rootless-extras and kind
+      # emulation
+      - extra/qemu-user-static
+      - extra/qemu-user-static-binfmt
+      # databases
+      - extra/postgresql
+      # testing
+      - chaotic-aur/playwright
+      # HTTP clients
+      - extra/xh
+      # development utilities
+      - extra/expect # for unbuffer
+      - extra/gum
+      - extra/jq
+      - extra/moreutils # for vidir and sponge
+      - extra/parallel
+      - extra/tree-sitter-cli # for nvim-treesitter
+      - extra/usage
+      - extra/vhs
+    security_tools: &pacman_security_tools_packages
+      # reconnaissance
+      - blackarch/cmseek
+      - blackarch/dnsx
+      - blackarch/httpx
+      - blackarch/katana-pd
+      - blackarch/recon-ng
+      - blackarch/sherlock
+      - blackarch/smbmap
+      - blackarch/smtp-user-enum
+      - blackarch/subfinder
+      # vulnerability scanning
+      - blackarch/ffuf
+      - blackarch/nuclei
+      - blackarch/peass
+      - blackarch/retire
+      - blackarch/semgrep
+      - blackarch/wapiti
+      - extra/arch-audit
+      - extra/nikto
+      - extra/osv-scanner
+      - extra/sslscan
+      - extra/testssl.sh
+      - extra/wpscan
+      # exploitation
+      - blackarch/commix
+      - blackarch/ssrfmap
+      - extra/exploitdb
+      - extra/metasploit
+      - extra/sqlmap
+      # password auditing
+      - blackarch/hash-identifier
+      - extra/hashcat
+      - extra/hydra
+      - extra/john
+      # forensics
+      - blackarch/python-chepy
+      - extra/binwalk
+      - extra/perl-image-exiftool
+      - extra/ssdeep
+      # steganography
+      - blackarch/stegseek
+      - chaotic-aur/steghide
+      # wordlists
+      - blackarch/seclists
+      - blackarch/wordlistctl
+      # payloads
+      - blackarch/payloadsallthethings
+      - blackarch/webshells
+    system_security: &pacman_system_security_packages
+      - extra/rkhunter
+      - extra/ufw
+    desktop: &pacman_desktop_packages
+      # appearance
+      - aur/plasma6-themes-fluent-git
+      - chaotic-aur/fluent-gtk-theme-git
+      - chaotic-aur/fluent-icon-theme-git
+      - extra/kvantum
+      - extra/noto-fonts
+      - extra/noto-fonts-cjk
+      - extra/noto-fonts-emoji
+      - extra/nwg-look
+      - extra/ttf-fira-code
+      - extra/ttf-nerd-fonts-symbols-mono
+      # audio
+      - extra/pamixer
+      - extra/pipewire
+      - extra/pipewire-alsa
+      - extra/pipewire-jack
+      - extra/pipewire-pulse
+      - extra/pipectl
+      - extra/playerctl
+      - extra/pulsemixer
+      - extra/sound-theme-freedesktop
+      - extra/wiremix
+      - extra/wireplumber
+      # input methods
+      - chaotic-aur/fcitx5-mozc-ut
+      - chaotic-aur/mozc-ut
+      - extra/fcitx5
+      - extra/fcitx5-configtool
+      - extra/fcitx5-gtk
+      - extra/fcitx5-qt
+      # compositor
+      - extra/hyprland
+      - extra/hyprpm
+      - extra/libglvnd # for hyprland
+      # session management
+      - chaotic-aur/wlogout
+      - extra/hypridle
+      - extra/hyprlock
+      - extra/ly
+      - extra/uwsm
+      # panels
+      - extra/quickshell
+      - extra/waybar
+      # launchers
+      - extra/rofi
+      - extra/rofi-calc
+      # notifications
+      - extra/swaync
+      - extra/wob
+      # screen management
+      - extra/hyprpaper
+      - extra/hyprsunset
+      - extra/kanshi
+      - extra/wl-mirror
+      # screen capture
+      - extra/grim
+      - extra/hyprpicker
+      - extra/satty
+      - extra/slurp
+      - extra/wf-recorder
+      # clipboard
+      - extra/cliphist
+      - extra/wl-clip-persist
+      # text input
+      - chaotic-aur/espanso-wayland-git
+      - extra/rofimoji
+      - extra/wev
+      - extra/wtype
+      # desktop integration
+      - extra/gtk3
+      - extra/gtk4
+      - extra/polkit
+      - extra/polkit-gnome
+      - extra/qt6-wayland
+      - extra/xdg-desktop-portal
+      - extra/xdg-desktop-portal-hyprland
+      - extra/xdg-user-dirs
+      - extra/xorg-xwayland
+    gui_applications: &pacman_gui_applications_packages
+      # communication
+      - chaotic-aur/slack-electron
+      - chaotic-aur/zoom
+      - extra/discord
+      - extra/signal-desktop
+      # secret management
+      - aur/1password
+      - aur/1password-cli
+      # office
+      - chaotic-aur/wps-office
+      # notes
+      - extra/obsidian
+      # web browsers
+      - extra/firefox
+      - extra/torbrowser-launcher
+      # remote desktop
+      - extra/remmina
+      # package management
+      - extra/flatpak
+      # terminal emulators
+      - extra/ghostty
+      - extra/kitty # use kitty icat for fastfetch
+      # text editors
+      - extra/neovide
+      # network diagnostics
+      - extra/qt6-multimedia-ffmpeg # for wireshark-qt
+      - extra/wireshark-qt
+      # security testing
+      - blackarch/burpsuite
+      - extra/jdk-openjdk # for burpsuite
+      # image viewers
+      - extra/imv
+      # video players
+      - extra/mpv
+      - extra/mpv-mpris
+      # document viewers
+      - extra/tesseract-data-eng # for zathura
+      - extra/zathura
+      - extra/zathura-pdf-mupdf
+    hardware: &pacman_hardware_packages
+      # boot
+      - core/mkinitcpio
+      - core/tpm2-tss
+      - extra/linux-zen
+      - extra/sbctl
+      # firmware
+      - core/linux-firmware
+      - extra/fwupd
+      - extra/intel-ucode
+      # wireless
+      - core/wireless-regdb
+      - extra/impala
+      - extra/iwd
+      - extra/bluetui
+      - extra/bluez
+      - extra/bluez-utils
+      # GPU compute
+      - extra/intel-compute-runtime
+      # input devices
+      - aur/bazecor
+      - extra/keyd
+      # hardware authentication
+      - extra/ccid
+      - extra/libfido2
+      - extra/libusb-compat
+      - extra/opensc
+      - extra/pam-u2f
+      - extra/pcsc-tools
+      - extra/yubikey-manager
+      # device tools
+      - extra/qflipper
+      # backlight management
+      - extra/brightnessctl
+      # power management
+      - extra/acpi
+      - extra/cpupower
+      - extra/thermald
+      - extra/tlp
+      # mount tools
+      - extra/android-udev
+      - extra/udiskie
+      - extra/udisks2
+      # storage
+      - core/btrfs-progs
+      - core/dosfstools
+      - core/lvm2
+      - extra/gptfdisk
+      # performance tuning
+      - extra/irqbalance
+      - extra/zram-generator
+  gh:
+    base: &gh_base_packages
+      - dlvhdr/gh-dash
+      - dlvhdr/gh-enhance
+packages:
+  linux:
+    pacman:
+      - *pacman_base_packages
+      - *pacman_development_packages
+      - *pacman_security_tools_packages
+      - *pacman_system_security_packages
+      - *pacman_desktop_packages
+      - *pacman_gui_applications_packages
+      - *pacman_hardware_packages
+    gh: *gh_base_packages
     flatpak:
       flathub:
         - io.ente.photos
         - io.ente.auth
         - me.proton.Mail
-    gh:
-      - dlvhdr/gh-dash
-      - dlvhdr/gh-enhance
+  wsl:
+    pacman:
+      - *pacman_base_packages
+      - *pacman_development_packages
+      - *pacman_security_tools_packages
+    gh: *gh_base_packages
   windows:
     winget:
       - dandavison.delta # for chezmoi diff

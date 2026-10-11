@@ -1,50 +1,40 @@
-services:
+.anchors:
   systemd:
     system:
-      enabled:
-        - bluetooth.service
-        - cpupower.service
+      base: &systemd_system_base_services
         - etckeeper.timer
-        - fstrim.timer
-        - irqbalance.service
-        - iwd.service
-        - keyd.service
-        - ly@tty2.service
-        - paccache.timer
-        - pcscd.service
-        - pkgfile-update.timer
-        - rkhunter.timer
-        - systemd-homed.service
-        - systemd-networkd.service
-        - systemd-oomd.service
-        - systemd-resolved.service
-        - systemd-timesyncd.service
-        - thermald.service
-        - tlp.service
-        - ufw.service
-      running:
-        - bluetooth.service
-        - cpupower.service
-        - etckeeper.timer
-        - fstrim.timer
-        - irqbalance.service
-        - iwd.service
-        - keyd.service
-        - ly@tty2.service
         - paccache.timer
         - pkgfile-update.timer
-        - rkhunter.timer
-        - systemd-homed.service
-        - systemd-networkd.service
         - systemd-oomd.service
-        - systemd-resolved.service
         - systemd-timesyncd.service
-        - thermald.service
-        - tlp.service
+      storage: &systemd_system_storage_services
+        - fstrim.timer
+      identity: &systemd_system_identity_services
+        - systemd-homed.service
+      network: &systemd_system_network_services
+        - systemd-networkd.service
+        - systemd-resolved.service
+      security: &systemd_system_security_services
+        - rkhunter.timer
         - ufw.service
+      hardware:
+        running: &systemd_system_hardware_running_services
+          - bluetooth.service
+          - cpupower.service
+          - irqbalance.service
+          - iwd.service
+          - keyd.service
+          - thermald.service
+          - tlp.service
+        enabled: &systemd_system_hardware_enabled_services
+          - *systemd_system_hardware_running_services
+          - pcscd.service
+      desktop: &systemd_system_desktop_services
+        - ly@tty2.service
     user:
-      enabled:
+      base: &systemd_user_base_services
         - docker.socket
+      desktop: &systemd_user_desktop_services
         - gcr-ssh-agent.socket
         - espanso.service
         - hypridle.service
@@ -55,16 +45,50 @@ services:
         - reload-waybar.path
         - reload-kanshi.path
         - reload-swaync.path
-      running:
-        - docker.socket
+      development: &systemd_user_development_services
         - litellm-postgres.service
-        - gcr-ssh-agent.socket
-        - espanso.service
-        - hypridle.service
-        - hyprpaper.service
-        - obsidian-sync.service
-        - hyprsunset.service
-        - waybar.service
-        - reload-waybar.path
-        - reload-kanshi.path
-        - reload-swaync.path
+      wsl: &systemd_user_wsl_services
+        - wsl-notify.socket
+services:
+  linux:
+    systemd:
+      system:
+        enabled:
+          - *systemd_system_base_services
+          - *systemd_system_storage_services
+          - *systemd_system_identity_services
+          - *systemd_system_network_services
+          - *systemd_system_hardware_enabled_services
+          - *systemd_system_desktop_services
+          - *systemd_system_security_services
+        running:
+          - *systemd_system_base_services
+          - *systemd_system_storage_services
+          - *systemd_system_identity_services
+          - *systemd_system_network_services
+          - *systemd_system_security_services
+          - *systemd_system_hardware_running_services
+          - *systemd_system_desktop_services
+      user:
+        enabled:
+          - *systemd_user_base_services
+          - *systemd_user_desktop_services
+        running:
+          - *systemd_user_base_services
+          - *systemd_user_development_services
+          - *systemd_user_desktop_services
+  wsl:
+    systemd:
+      system:
+        enabled:
+          - *systemd_system_base_services
+        running:
+          - *systemd_system_base_services
+      user:
+        enabled:
+          - *systemd_user_wsl_services
+          - *systemd_user_base_services
+        running:
+          - *systemd_user_base_services
+          - *systemd_user_development_services
+          - *systemd_user_wsl_services

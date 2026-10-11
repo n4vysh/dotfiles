@@ -2,7 +2,7 @@
 
 set -eu
 
-if ! [ -d /mnt/wsl ]; then
+if ! [ -f /usr/bin/wslinfo ]; then
 	gum log --level warn "$0: not running on WSL -- skipping"
 	exit 0
 fi
@@ -15,10 +15,6 @@ gum log --level info 'Enable progress bar of pacman'
 sudo sed -i -e '/^#NoProgressBar$/s/#//' /etc/pacman.conf
 
 gum log --level info 'Copy etc files'
-xargs -I {} sudo install -C -D -v -m 0644 -o root -g root ~/.local/share/chezmoi/system/{} /{} <<-EOF
-	etc/systemd/system/rkhunter.service
-	etc/systemd/system/rkhunter.timer
-EOF
 xargs -I {} sudo install -C -D -v -m 0440 -o root -g root ~/.local/share/chezmoi/system/{} /{} <<-EOF
 	etc/sudoers.d/env-keep
 	etc/sudoers.d/pwfeedback
@@ -36,122 +32,6 @@ sudo install -C -D -v -m 0644 -o root -g root \
 	~/.local/share/chezmoi/system/etc/systemd/system/systemd-timesyncd.service.d/override.conf \
 	/etc/systemd/system/systemd-timesyncd.service.d/override.conf
 
-gum log --level info 'Override binaries with exe files'
-cat <<-'EOF' >~/.local/bin/firefox
-	#!/bin/sh
-
-	exec /mnt/c/Program\ Files/Mozilla\ Firefox/firefox.exe "$@"
-EOF
-chmod +x ~/.local/bin/firefox
-
-cat <<-'EOF' >~/.local/bin/wl-paste
-	#!/bin/sh
-
-	/usr/sbin/wl-paste "$@" | tr -d '\r'
-EOF
-chmod +x ~/.local/bin/wl-paste
-
-cat <<-'EOF' >~/.local/bin/xdg-open
-	#!/bin/sh
-
-	exec powershell.exe start "$@"
-EOF
-chmod +x ~/.local/bin/xdg-open
-
-# https://github.com/nmap/nmap/issues/1864
-# https://libreddit.garudalinux.org/r/bashonubuntuonwindows/comments/tikwt1/how_do_i_make_my_wsl_to_make_network_scans_for_my/
-# https://superuser.com/questions/1700040/alexa-device-not-found-via-nmap-in-wsl2
-
-cat <<-'EOF' >~/.local/bin/nmap
-	#!/bin/sh
-
-	exec /mnt/c/Program\ Files\ \(x86\)/Nmap/nmap.exe "$@"
-EOF
-chmod +x ~/.local/bin/nmap
-
-# shellcheck disable=SC2016
-localappdata="$(
-	wslpath "$(
-		/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe \
-			'$env:LOCALAPPDATA' |
-			tr -d '\r'
-	)"
-)"
-cat <<-EOF >~/.local/bin/win-notify-handler
-	#!/bin/sh
-
-	set -eu
-
-	IFS= read -r title_b64
-	IFS= read -r message_b64
-
-	# HACK: hide default app logo with fake image
-	#       redirect warning message to null
-	#       https://github.com/Windos/BurntToast/issues/150
-	exec $localappdata/Microsoft/WindowsApps/pwsh.exe \\
-			-NoProfile \\
-			-NonInteractive \\
-			-Command "
-				\\\$title = [Text.Encoding]::UTF8.GetString(
-					[Convert]::FromBase64String('\$title_b64')
-				)
-				\\\$message = [Text.Encoding]::UTF8.GetString(
-					[Convert]::FromBase64String('\$message_b64')
-				)
-
-				New-BurntToastNotification \\
-					-Text \\\$title, \\\$message \\
-					-AppLogo 'C:\fake.png' \\
-					3>\\\$null
-		"
-EOF
-cat <<-'EOF' >~/.local/bin/notify-send
-	#!/bin/sh
-
-	set -eu
-
-	title="${1:-}"
-	message="${2:-}"
-
-	{
-		printf '%s\n' "$(printf '%s' "$title" | base64 -w0)"
-		printf '%s\n' "$(printf '%s' "$message" | base64 -w0)"
-	} | socat -u STDIN UNIX-CONNECT:"${XDG_RUNTIME_DIR}/win-notify.sock"
-EOF
-chmod +x ~/.local/bin/notify-send
-cat <<-'EOF' >~/.config/systemd/user/win-notify@.service
-	[Unit]
-	Description=Windows notification handler
-
-	[Service]
-	Type=oneshot
-	StandardInput=socket
-	ExecStart=%h/.local/bin/win-notify-handler
-	TimeoutStartSec=30
-EOF
-cat <<-'EOF' >~/.config/systemd/user/win-notify.socket
-	[Unit]
-	Description=Windows notification socket
-
-	[Socket]
-	ListenStream=%t/win-notify.sock
-	SocketMode=0600
-	Accept=yes
-	RemoveOnStop=yes
-
-	[Install]
-	WantedBy=sockets.target
-EOF
-systemctl --user enable win-notify.socket
-cat <<-'EOF' >~/.config/nono/profiles/wsl.jsonc
-{
-	"$schema": "../nono-profile.schema.json",
-	"filesystem": {
-		"unix_socket": ["$XDG_RUNTIME_DIR/win-notify.sock"]
-	}
-}
-EOF
-
 # NOTE: run a script when etc file changes
 # https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
 # https://github.com/twpayne/chezmoi/issues/4364
@@ -160,8 +40,6 @@ cat <<-EOF >/dev/null
 	{{ include (joinPath .chezmoi.sourceDir "../system/etc/wsl.conf") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "../system/etc/systemd/system/systemd-timesyncd.service.d/override.conf") | sha256sum }}
 
-	{{ include (joinPath .chezmoi.sourceDir "../system/etc/systemd/system/rkhunter.service") | sha256sum }}
-	{{ include (joinPath .chezmoi.sourceDir "../system/etc/systemd/system/rkhunter.timer") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "../system/etc/sudoers.d/env-keep") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "../system/etc/sudoers.d/pwfeedback") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "../system/etc/sudoers.d/wheel") | sha256sum }}

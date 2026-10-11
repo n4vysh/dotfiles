@@ -133,12 +133,26 @@ _install() {
 	fi
 
 	_log::info 'Install the base packages'
-	yes '' | bash -c "pacstrap /mnt $(
-		sed -n '/# base/,/# .*/p' /tmp/dotfiles/home/.chezmoidata/packages.yaml |
-			grep -v '#' |
-			awk '{ print $2 }' |
-			tr '\n' ' '
-	)"
+	yes '' | pacstrap /mnt \
+		core/base \
+		core/base-devel \
+		core/btrfs-progs \
+		core/linux-firmware \
+		core/lvm2 \
+		core/mkinitcpio \
+		core/tpm2-tss \
+		core/wireless-regdb \
+		extra/chezmoi \
+		extra/fwupd \
+		extra/intel-ucode \
+		extra/iwd \
+		extra/linux-zen \
+		extra/neovim \
+		extra/pacman-contrib \
+		extra/reflector \
+		extra/sbctl \
+		extra/tmux \
+		extra/zsh
 
 	_log::info 'Copy reflector config from live environment'
 	install -C -D -v -m 0644 -o root -g root \
