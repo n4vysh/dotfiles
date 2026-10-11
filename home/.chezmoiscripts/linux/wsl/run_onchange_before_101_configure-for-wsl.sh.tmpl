@@ -30,12 +30,6 @@ sudo install -C -D -v -m 0644 -o root -g root \
 	~/.local/share/chezmoi/system/etc/wsl.conf \
 	/etc/wsl.conf
 
-# NOTE: fix wslg bug of WSL
-# https://github.com/microsoft/wslg/issues/1032#issuecomment-2310369848
-sudo install -C -D -v -m 0644 -o root -g root \
-	~/.local/share/chezmoi/system/etc/tmpfiles.d/wslg.conf \
-	/etc/tmpfiles.d/wslg.conf
-
 # NOTE: fix clock sync bug of WSL
 # https://github.com/microsoft/WSL/issues/8204#issuecomment-1339506778
 sudo install -C -D -v -m 0644 -o root -g root \
@@ -164,7 +158,6 @@ EOF
 # https://github.com/alker0/chezmoi.vim/issues/76
 cat <<-EOF >/dev/null
 	{{ include (joinPath .chezmoi.sourceDir "../system/etc/wsl.conf") | sha256sum }}
-	{{ include (joinPath .chezmoi.sourceDir "../system/etc/tmpfiles.d/wslg.conf") | sha256sum }}
 	{{ include (joinPath .chezmoi.sourceDir "../system/etc/systemd/system/systemd-timesyncd.service.d/override.conf") | sha256sum }}
 
 	{{ include (joinPath .chezmoi.sourceDir "../system/etc/systemd/system/rkhunter.service") | sha256sum }}
