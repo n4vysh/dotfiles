@@ -54,7 +54,6 @@ bats_load_library bats-file
       grep -v 'etc/polkit-1/rules.d/50-udisks.rules' |
       grep -v 'etc/sudoers.d/' |
       grep -v 'etc/wsl.conf' |
-      grep -v 'etc/tmpfiles.d/wslg.conf' |
       grep -v 'etc/systemd/system/systemd-timesyncd.service.d/override.conf'
   )
 
