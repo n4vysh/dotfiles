@@ -1,0 +1,35 @@
+#!/bin/sh
+
+set -eu
+
+IFS= read -r title_b64
+IFS= read -r message_b64
+
+exec /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe \
+	-NoProfile \
+	-NonInteractive \
+	-Command "
+		\$ErrorActionPreference = 'Stop'
+
+		[Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] > \$null
+		[Windows.UI.Notifications.ToastNotification, Windows.UI.Notifications, ContentType = WindowsRuntime] > \$null
+		[Windows.Data.Xml.Dom.XmlDocument, Windows.Data.Xml.Dom.XmlDocument, ContentType = WindowsRuntime] > \$null
+
+		\$title = [Text.Encoding]::UTF8.GetString(
+			[Convert]::FromBase64String('$title_b64')
+		)
+		\$message = [Text.Encoding]::UTF8.GetString(
+			[Convert]::FromBase64String('$message_b64')
+		)
+
+		\$xml = New-Object Windows.Data.Xml.Dom.XmlDocument
+		\$xml.LoadXml('<toast><visual><binding template=\"ToastGeneric\"><text></text><text></text></binding></visual></toast>')
+		\$nodes = \$xml.GetElementsByTagName('text')
+		\$nodes.Item(0).InnerText = \$title
+		\$nodes.Item(1).InnerText = \$message
+
+		\$toast = [Windows.UI.Notifications.ToastNotification]::new(\$xml)
+		\$appId = '{1AC14E77-02E7-4E5D-B744-2EB1AE5198B7}\WindowsPowerShell\v1.0\powershell.exe'
+		\$notifier = [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier(\$appId)
+		\$notifier.Show(\$toast)
+	"
