@@ -807,6 +807,12 @@ aube = { path = "locks/npm-redocly-cli/1.34.3", digest = "sha256:a4878ebd12c81c4
 backend = "npm:@redocly/cli"
 specifiers = ["1.34.3"]
 
+[[tools."npm:acpx"]]
+version = "0.19.4"
+aube = { path = "locks/npm-acpx/0.19.4", digest = "sha256:4d5a62dc9475d63a359d014165ebabb424165d0bbe6c0ab6bd4b337a40bb85c6" }
+backend = "npm:acpx"
+specifiers = ["0.19.4"]
+
 [[tools."npm:ctx7"]]
 version = "0.5.5"
 aube = { path = "locks/npm-ctx7/0.5.5", digest = "sha256:ac7e1ae8eb1a0e861e0d988251a6abe6e9d36e19c3e8d7d00f531b8be17956ae" }
