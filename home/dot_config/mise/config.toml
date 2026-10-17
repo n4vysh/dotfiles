@@ -137,7 +137,7 @@ oxipng = "10.2.0"
 "github:YiNNx/cmd-wrapped" = { version = "0.4.1", bin = "cmd-wrapped" }
 
 # AI
-"npm:@opencode/cli" = { version = "2.0.20", depends = [
+"npm:@opencode/cli" = { version = "2.0.29", depends = [
   "aube",
 ], allow_builds = [
   "@opencode/cli",

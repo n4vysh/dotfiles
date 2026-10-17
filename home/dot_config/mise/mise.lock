@@ -793,10 +793,10 @@ allow_builds = '["puppeteer"]'
 trust_policy_excludes = '["cytoscape@3.34.1"]'
 
 [[tools."npm:@opencode/cli"]]
-version = "2.0.20"
-aube = { path = "locks/npm-opencode-cli/2.0.20~009061c2", digest = "sha256:cc52d6822b11c4c29a7f1ab241aa45274d16fc258453a23ea4d2afc660f93f55" }
+version = "2.0.29"
+aube = { path = "locks/npm-opencode-cli/2.0.29~009061c2", digest = "sha256:3253348e583172c4065f5ad49e5f8bd3f5409401d739595e62997511aed46f7f" }
 backend = "npm:@opencode/cli"
-specifiers = ["2.0.20"]
+specifiers = ["2.0.29"]
 
 [tools."npm:@opencode/cli".options]
 allow_builds = '["@opencode/cli"]'
