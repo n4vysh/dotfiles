@@ -242,14 +242,14 @@ checksum = "sha256:56a7d6806cf155536c0178f0ea5fbd098e684fa509ebdb4fc0a7e19fb6538
 url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64-musl-baseline.zip"
 
 [[tools.claude-code]]
-version = "2.1.267"
+version = "2.1.296"
 backend = "aqua:anthropics/claude-code"
-specifiers = ["2.1.267"]
+specifiers = ["2.1.296"]
 
 [tools.claude-code."platforms.linux-x64"]
-checksum = "sha256:449bc65dc82d68694103a801c8ac54b6549f9e12f469217c9e0d5560c1085023"
-url = "https://github.com/anthropics/claude-code/releases/download/v2.1.267/claude-linux-x64.tar.gz"
-url_api = "https://api.github.com/repos/anthropics/claude-code/releases/assets/553320444"
+checksum = "sha256:45fe2b33f5cbdd114309618970bcd90b8b163e34252d66cf100d7e068d9b831d"
+url = "https://github.com/anthropics/claude-code/releases/download/v2.1.296/claude-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/anthropics/claude-code/releases/assets/625598991"
 
 [[tools.claude-powerline]]
 version = "1.30.1"

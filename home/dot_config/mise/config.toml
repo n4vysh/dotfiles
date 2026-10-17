@@ -152,7 +152,7 @@ ln -sfT "$HOME/.config/opencode/node_modules" \
   "$XDG_DATA_HOME/chezmoi/home/dot_config/opencode/node_modules"
 ''' }
 "npm:acpx" = "0.19.4"
-claude-code = "2.1.267"
+claude-code = "2.1.296"
 codex = { version = "0.152.0", postinstall = '''
 codex completion zsh >~/.zshrc.d/site-functions/_codex
 ''' }
