@@ -153,7 +153,7 @@ ln -sfT "$HOME/.config/opencode/node_modules" \
 ''' }
 "npm:acpx" = "0.19.4"
 claude-code = "2.1.296"
-codex = { version = "0.152.0", postinstall = '''
+codex = { version = "0.162.1", postinstall = '''
 codex completion zsh >~/.zshrc.d/site-functions/_codex
 ''' }
 nono = { version = "0.78.0", postinstall = '''

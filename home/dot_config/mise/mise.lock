@@ -258,14 +258,14 @@ backend = "npm:@owloops/claude-powerline"
 specifiers = ["1.30.1"]
 
 [[tools.codex]]
-version = "0.152.0"
+version = "0.162.1"
 backend = "aqua:openai/codex"
-specifiers = ["0.152.0"]
+specifiers = ["0.162.1"]
 
 [tools.codex."platforms.linux-x64"]
-checksum = "sha256:352c24fbdc5aefaffde9c1df991b534b6bc72a06e49708794fc685fc3556c855"
-url = "https://github.com/openai/codex/releases/download/rust-v0.152.0/codex-package-x86_64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/openai/codex/releases/assets/538792457"
+checksum = "sha256:a676f5722aae0d86cbe3764332f08eab1fdd89dc0a300b3ad4ffbf48611fa3e3"
+url = "https://github.com/openai/codex/releases/download/rust-v0.162.1/codex-package-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/openai/codex/releases/assets/625965833"
 
 [[tools.conftest]]
 version = "0.61.0"
