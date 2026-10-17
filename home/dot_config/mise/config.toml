@@ -156,9 +156,9 @@ claude-code = "2.1.296"
 codex = { version = "0.162.1", postinstall = '''
 codex completion zsh >~/.zshrc.d/site-functions/_codex
 ''' }
-nono = { version = "0.78.0", postinstall = '''
+nono = { version = "0.80.0", postinstall = '''
 nono completion zsh >~/.zshrc.d/site-functions/_nono
-nono pull nolabs-ai/opencode@0.3.0
+nono pull nolabs-ai/opencode@0.4.0
 nono pull nolabs-ai/claude@0.1.4
 nono pull nolabs-ai/codex@0.2.3
 nono profile schema \
