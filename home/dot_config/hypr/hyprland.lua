@@ -344,7 +344,7 @@ if hl.plugin.hyprbars ~= nil then
         bg_color = "rgb(d9d8d8)",
         size = 11,
         icon = "",
-        action = "hyprctl dispatch killactive",
+        action = "hyprctl dispatch 'hl.dsp.window.close()'",
     })
 
     hl.plugin.hyprbars.add_button({
@@ -352,7 +352,7 @@ if hl.plugin.hyprbars ~= nil then
         bg_color = "rgb(d9d8d8)",
         size = 11,
         icon = "",
-        action = "hyprctl dispatch fullscreen 0",
+        action = "hyprctl dispatch 'hl.dsp.window.fullscreen()'",
     })
 
     hl.plugin.hyprbars.add_button({
@@ -360,7 +360,10 @@ if hl.plugin.hyprbars ~= nil then
         bg_color = "rgb(d9d8d8)",
         size = 11,
         icon = "",
-        action = "scratchpad",
+        action = [[
+            hyprctl dispatch \
+                'hl.dsp.window.move({ workspace = "special:scratchpad", follow = false })'
+        ]],
     })
 end
 
@@ -453,12 +456,12 @@ hl.bind(
 -- scratchpad
 hl.bind(
     mainMod .. " + SHIFT + minus",
-    hl.dsp.exec_cmd("uwsm app -- scratchpad")
+    hl.dsp.window.move({
+        workspace = "special:scratchpad",
+        follow = false,
+    })
 )
-hl.bind(
-    mainMod .. " + minus",
-    hl.dsp.exec_cmd("uwsm app -- scratchpad -g -m 'head -n 1'")
-)
+hl.bind(mainMod .. " + minus", hl.dsp.workspace.toggle_special("scratchpad"))
 hl.bind(
     mainMod .. " + CTRL + minus",
     hl.dsp.workspace.toggle_special("scratchpad")
