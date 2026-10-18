@@ -169,6 +169,8 @@ rtk init -g --opencode
 ''' }
 herdr = { version = "0.9.1", postinstall = '''
 herdr integration install opencode
+herdr integration install claude
+herdr integration install codex
 ''' }
 hunk = "0.17.0"
 apm = "0.26.0"
