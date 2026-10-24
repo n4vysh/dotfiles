@@ -46,7 +46,7 @@
   "default_agent": "plan",
   "update": "disable",
   "share": "disabled",
-  "plugins": ["@devtheops/opencode-plugin-otel@2.0.0"],
+  "plugins": ["@devtheops/opencode-plugin-otel@2.0.1"],
   "agents": {
     // Built-in primary agents
     "title": {
