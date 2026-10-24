@@ -25,7 +25,7 @@ _.path = { tools = true, path = [
   "~/.krew/bin",
   "{{env.XDG_DATA_HOME}}/pnpm",
   # for nono sandbox
-  "{{ tools['npm:@opencode/cli'].path }}/node_modules/@opencode/cli/bin",
+  "{{ tools['opencode'].path }}/node_modules/@opencode/cli/bin",
 ] }
 BATS_LIB_PATH = "{{env.HOME}}/.local/share/bats"
 
@@ -137,11 +137,7 @@ oxipng = "10.2.0"
 "github:YiNNx/cmd-wrapped" = { version = "0.4.1", bin = "cmd-wrapped" }
 
 # AI
-"npm:@opencode/cli" = { version = "2.0.29", depends = [
-  "aube",
-], allow_builds = [
-  "@opencode/cli",
-], postinstall = '''
+opencode = { version = "2.1.2", postinstall = '''
 opencode --completions zsh >~/.zshrc.d/site-functions/_opencode
 mkdir -p "$HOME/.config/opencode"
 (

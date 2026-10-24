@@ -1,7 +1,7 @@
 {
   "private": true,
   "dependencies": {
-    "@opencode/plugin": "2.0.20"
+    "@opencode/plugin": "2.1.2"
   },
   "devDependencies": {
     "@types/node": "24"

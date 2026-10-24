@@ -792,15 +792,6 @@ specifiers = ["11.16.0"]
 allow_builds = '["puppeteer"]'
 trust_policy_excludes = '["cytoscape@3.34.1"]'
 
-[[tools."npm:@opencode/cli"]]
-version = "2.0.29"
-aube = { path = "locks/npm-opencode-cli/2.0.29~009061c2", digest = "sha256:3253348e583172c4065f5ad49e5f8bd3f5409401d739595e62997511aed46f7f" }
-backend = "npm:@opencode/cli"
-specifiers = ["2.0.29"]
-
-[tools."npm:@opencode/cli".options]
-allow_builds = '["@opencode/cli"]'
-
 [[tools."npm:@redocly/cli"]]
 version = "1.34.3"
 aube = { path = "locks/npm-redocly-cli/1.34.3", digest = "sha256:a4878ebd12c81c4c71808ec8a76faf74c8352c40649a542bec7c49fba7833b1f" }
@@ -897,6 +888,15 @@ version = "4.17.0"
 aube = { path = "locks/npm-tokscale/4.17.0", digest = "sha256:c082e1ec132aba409752cc4f1007a268157d6cf770ac0c4d36b7c8ae69a5fa6c" }
 backend = "npm:tokscale"
 specifiers = ["4.17.0"]
+
+[[tools.opencode]]
+version = "2.1.2"
+aube = { path = "locks/opencode/2.1.2~009061c2", digest = "sha256:5c5e06089c3aa5059165282877bb2dc4770fc0fcd45f0c05a882247fb7d80180" }
+backend = "npm:@opencode/cli"
+specifiers = ["2.1.2"]
+
+[tools.opencode.options]
+allow_builds = '["@opencode/cli"]'
 
 [[tools.oxipng]]
 version = "10.2.0"
