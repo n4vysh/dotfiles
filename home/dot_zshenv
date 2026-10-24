@@ -118,14 +118,14 @@ path=(
 
 # Less
 export LESS='-ciMR'
+export LESS_OSC8_OPEN_https='xdg-open'
 export GROFF_NO_SGR=1 # use legacy format for $LESS_TERMCAP_*
-export LESS_TERMCAP_mb=$'\e[1;31m'
-export LESS_TERMCAP_md=$'\e[1;38;05;75m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[1;44m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;36m'
+
+export LESS_TERMCAP_mb=$'\e[5;31m'       # blink (red)
+export LESS_TERMCAP_md=$'\e[1;38;05;75m' # bold (light blue)
+export LESS_TERMCAP_me=$'\e[0m'          # end attributes (reset all)
+export LESS_TERMCAP_so=$'\e[1;44m'       # standout (bold, blue background)
+export LESS_TERMCAP_se=$'\e[0m'          # end standout (reset all)
 
 # fzf
 export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'

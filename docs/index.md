@@ -74,7 +74,7 @@ Review the [applications](applications.md) and
 - Available a large amount of cyber security tools with [BlackArch repository][blackarch-link]
 - Available prebuilt binaries with [Chaotic-AUR repository][chaotic-aur-link]
 - Support for OSC
-    - OSC 8 - hyperlinks (tmux + eza + rg + fd + delta + ls)
+    - OSC 8 - hyperlinks (tmux + eza + rg + fd + delta + ls + less)
     - OSC 52 - clipboard integration for copy only (tmux + neovim + lazygit)
     - OSC 133 - shell integration (tmux + powerlevel10k)
 - Ergonomic keybinds with [keyd][keyd-link]
