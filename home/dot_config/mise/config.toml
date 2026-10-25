@@ -103,7 +103,7 @@ stylua = "2.5.2"
 
 # Git
 lefthook = "2.1.12"
-gh = "2.98.0"
+gh = "2.103.0"
 worktrunk = "0.23.2"
 "npm:@commitlint/cli" = "21.2.2"
 "npm:czg" = "1.13.0"
@@ -134,10 +134,9 @@ oxipng = "10.2.0"
 
 # command
 "aqua:knqyf263/pet" = "1.0.1"
-"github:YiNNx/cmd-wrapped" = { version = "0.4.1", bin = "cmd-wrapped" }
 
 # AI
-opencode = { version = "2.1.2", postinstall = '''
+opencode = { version = "2.1.3", postinstall = '''
 opencode --completions zsh >~/.zshrc.d/site-functions/_opencode
 mkdir -p "$HOME/.config/opencode"
 (
@@ -148,8 +147,8 @@ ln -sfT "$HOME/.config/opencode/node_modules" \
   "$XDG_DATA_HOME/chezmoi/home/dot_config/opencode/node_modules"
 ''' }
 "npm:acpx" = "0.19.4"
-claude-code = "2.1.296"
-codex = { version = "0.162.1", postinstall = '''
+claude-code = "2.1.308"
+codex = { version = "0.164.0", postinstall = '''
 codex completion zsh >~/.zshrc.d/site-functions/_codex
 ''' }
 nono = { version = "0.80.0", postinstall = '''
@@ -168,8 +167,8 @@ herdr integration install opencode
 herdr integration install claude
 herdr integration install codex
 ''' }
-hunk = "0.17.0"
-apm = "0.26.0"
+hunk = "0.24.1"
+apm = "0.34.0"
 "npm:repomix" = "1.18.0"
 "npm:ctx7" = "0.5.5"
 "npm:skills" = "1.5.17"
@@ -187,17 +186,17 @@ claude-powerline = "1.30.1"
 "aqua:containers/kubernetes-mcp-server" = "0.0.66"
 "go:github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server" = "1.2.0"
 "aqua:grafana/mcp-grafana" = "1.1.0"
-"aqua:github/github-mcp-server" = "1.10.1"
+"aqua:github/github-mcp-server" = "2.0.3"
 
 # app
 ## frontend
 ### TS
-node = "24.15.0"
-aube = "2.6.1"
-pnpm = { version = "11.3.0", postinstall = '''
+node = "24.22.1"
+aube = "2.8.1"
+pnpm = { version = "11.28.7", postinstall = '''
 pnpm completion zsh >~/.zshrc.d/site-functions/_pnpm
 ''' }
-bun = { version = "1.3.14", postinstall = '''
+bun = { version = "1.4.4", postinstall = '''
 bun completions >~/.zshrc.d/site-functions/_bun
 ''' }
 ni = "28.0.0"
@@ -208,7 +207,7 @@ biome = "2.5.15"
 "npm:stylelint-config-standard" = "40.0.0"
 ## backend
 ### go
-go = "1.26.6"
+go = "1.26.10"
 gotestsum = "1.13.0"
 "go:github.com/josharian/impl" = "1.4.0"
 "go:github.com/fatih/gomodifytags" = "1.17.0"
@@ -220,11 +219,11 @@ dlv completion zsh >~/.zshrc.d/site-functions/_dlv
 gofumpt = "0.10.0"
 "go:golang.org/x/tools/cmd/goimports" = "0.49.0"
 ### Python
-python = { version = "3.13.14", postinstall = '''
+python = { version = "3.13.17", postinstall = '''
 chmod go-w $XDG_DATA_HOME/mise/installs/python/*/bin/python*
 chmod go-w $XDG_DATA_HOME/mise/installs/python/*/bin/python
 ''' }
-uv = { version = "0.12.10", postinstall = '''
+uv = { version = "0.13.5", postinstall = '''
 uv generate-shell-completion zsh >~/.zshrc.d/site-functions/_uv
 ''' }
 ruff = { version = "0.16.3", postinstall = '''
@@ -236,7 +235,7 @@ ty generate-shell-completion zsh >~/.zshrc.d/site-functions/_ty
 
 # infra
 ## cloud
-awscli = { version = "2.36.31", postinstall = '''
+awscli = { version = "2.38.4", postinstall = '''
 cat >~/.zshrc.d/site-functions/_aws <<'EOF'
 #compdef aws
 
@@ -272,7 +271,7 @@ crane = "0.21.9"
 dive = "0.13.1"
 
 ## terraform
-terraform = { version = "1.15.8", postinstall = '''
+terraform = { version = "1.16.7", postinstall = '''
 cat >~/.zshrc.d/site-functions/_terraform <<'EOF'
 #compdef terraform
 
@@ -286,12 +285,12 @@ EOF
 ''' }
 terraform-docs = "0.20.0"
 terraform-ls = "0.38.1"
-tflint = "0.64.0"
-terragrunt = "1.1.1"
+tflint = "0.65.0"
+terragrunt = "1.2.1"
 "go:github.com/hashicorp/hcl/v2/cmd/hclfmt" = "v2.24.0"
 
 ## kubernetes
-argocd = { version = "3.4.2", postinstall = '''
+argocd = { version = "3.4.12", postinstall = '''
 argocd completion zsh >~/.zshrc.d/site-functions/_argocd
 ''' }
 kubectl = { version = "1.36.3", postinstall = '''
@@ -327,7 +326,7 @@ install -m 0644 "$tmp" ~/.zshrc.d/site-functions/_kubens
 kind = "0.32.0"
 kubecolor = "0.6.0"
 kube-score = "1.20.0"
-istioctl = { version = "1.30.2", postinstall = '''
+istioctl = { version = "1.30.7", postinstall = '''
 istioctl completion zsh >~/.zshrc.d/site-functions/_istioctl
 ''' }
 kyverno = "1.18.1"
@@ -358,7 +357,6 @@ sops completion zsh >~/.zshrc.d/site-functions/_sops
 stern = { version = "1.34.0", postinstall = '''
 stern completion zsh >~/.zshrc.d/site-functions/_stern
 ''' }
-"aqua:awslabs/eks-node-viewer" = "0.7.4"
 "aqua:kubescape/kubescape" = "4.0.10"
 
 ### helm
@@ -373,17 +371,17 @@ helm-diff = "3.15.10"
 helm-docs = "1.14.2"
 
 ## Grafana
-"aqua:grafana/gcx" = "1.1.0"
+"aqua:grafana/gcx" = "1.7.1"
 
 ## cost management
-infracost = "0.10.41"
+infracost = "0.10.47"
 
 ## Policy as Code
 conftest = "0.61.0"
 
 ## Security
 gitleaks = "8.30.1"
-trivy = { version = "0.73.0", postinstall = '''
+trivy = { version = "0.76.1", postinstall = '''
 trivy completion zsh >~/.zshrc.d/site-functions/_trivy
 ''' }
 gopass = "1.16.1"
@@ -395,6 +393,3 @@ gopass = "1.16.1"
 jwt = { version = "6.2.0", postinstall = '''
 jwt completion zsh >~/.zshrc.d/site-functions/_jwt
 ''' }
-
-### for mise verification
-slsa-verifier = "v2.7.1"

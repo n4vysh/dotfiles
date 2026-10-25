@@ -23,14 +23,14 @@ checksum = "sha256:c0054f2635b2f01b00f7bf6f88023ffe7fded15c533a85a493037607135ee
 url = "https://amazon-ecr-credential-helper-releases.s3.us-east-2.amazonaws.com/0.9.1/linux-amd64/docker-credential-ecr-login"
 
 [[tools.apm]]
-version = "0.26.0"
+version = "0.34.0"
 backend = "github:microsoft/apm"
-specifiers = ["0.26.0"]
+specifiers = ["0.34.0"]
 
 [tools.apm."platforms.linux-x64"]
-checksum = "sha256:3afba455c5283852ba4c392f668be7c27b65bc4a0fa60a8b53a4626c52628431"
-url = "https://github.com/microsoft/apm/releases/download/v0.26.0/apm-linux-x86_64.tar.gz"
-url_api = "https://api.github.com/repos/microsoft/apm/releases/assets/481831780"
+checksum = "sha256:4487af55604b4fa6f4587f3ee6e833b44ce99c491f11069790e4e13e297cde8c"
+url = "https://github.com/microsoft/apm/releases/download/v0.34.0/apm-linux-x86_64.tar.gz"
+url_api = "https://api.github.com/repos/microsoft/apm/releases/assets/656151923"
 
 [[tools."aqua:Kampfkarren/selene"]]
 version = "0.31.0"
@@ -52,16 +52,6 @@ checksum = "sha256:e81e97bc6bccff59b826d3b39328ab19b26721a236440f740ba71754531c7
 url = "https://github.com/anordal/shellharden/releases/download/v4.3.2/shellharden-x86_64-unknown-linux-gnu.tar.gz"
 url_api = "https://api.github.com/repos/anordal/shellharden/releases/assets/459690751"
 
-[[tools."aqua:awslabs/eks-node-viewer"]]
-version = "0.7.4"
-backend = "aqua:awslabs/eks-node-viewer"
-specifiers = ["0.7.4"]
-
-[tools."aqua:awslabs/eks-node-viewer"."platforms.linux-x64"]
-checksum = "sha256:b1ca7d41485deea85c846caeccde28219fd5925a8c64585a4f87ae131b70d01a"
-url = "https://github.com/awslabs/eks-node-viewer/releases/download/v0.7.4/eks-node-viewer_Linux_x86_64"
-url_api = "https://api.github.com/repos/awslabs/eks-node-viewer/releases/assets/249148436"
-
 [[tools."aqua:containers/kubernetes-mcp-server"]]
 version = "0.0.66"
 backend = "aqua:containers/kubernetes-mcp-server"
@@ -73,14 +63,14 @@ url = "https://github.com/containers/kubernetes-mcp-server/releases/download/v0.
 url_api = "https://api.github.com/repos/containers/kubernetes-mcp-server/releases/assets/496758985"
 
 [[tools."aqua:github/github-mcp-server"]]
-version = "1.10.1"
+version = "2.0.3"
 backend = "aqua:github/github-mcp-server"
-specifiers = ["1.10.1"]
+specifiers = ["2.0.3"]
 
 [tools."aqua:github/github-mcp-server"."platforms.linux-x64"]
-checksum = "sha256:c2629e850a344275cfc5a1590acdfd8c11476a44b688812d460163768e05572d"
-url = "https://github.com/github/github-mcp-server/releases/download/v1.10.1/github-mcp-server_Linux_x86_64.tar.gz"
-url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/522007554"
+checksum = "sha256:f797c20fe02a755865d0e2d46184ab47e31bf1619b0855b8d89c531e45a651c2"
+url = "https://github.com/github/github-mcp-server/releases/download/v2.0.3/github-mcp-server_Linux_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/github/github-mcp-server/releases/assets/662049507"
 provenance = "github-attestations"
 
 [[tools."aqua:go-delve/delve"]]
@@ -94,14 +84,14 @@ url = "https://github.com/go-delve/delve/releases/download/v1.26.3/dlv_1.26.3_li
 url_api = "https://api.github.com/repos/go-delve/delve/releases/assets/406886271"
 
 [[tools."aqua:grafana/gcx"]]
-version = "1.1.0"
+version = "1.7.1"
 backend = "aqua:grafana/gcx"
-specifiers = ["1.1.0"]
+specifiers = ["1.7.1"]
 
 [tools."aqua:grafana/gcx"."platforms.linux-x64"]
-checksum = "sha256:0c7867e99f5786b7e1b5ea449cf540c14b67f40c1c92c0f93031eaa2e0c38df9"
-url = "https://github.com/grafana/gcx/releases/download/v1.1.0/gcx_1.1.0_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/514303327"
+checksum = "sha256:5f1601feac13d850017064a9b556f11983de6def2986ba0bee402a947659c3e9"
+url = "https://github.com/grafana/gcx/releases/download/v1.7.1/gcx_1.7.1_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/grafana/gcx/releases/assets/662320576"
 
 [[tools."aqua:grafana/mcp-grafana"]]
 version = "1.1.0"
@@ -158,26 +148,26 @@ url_api = "https://api.github.com/repos/argoproj/argo-rollouts/releases/assets/2
 url = "https://github.com/argoproj/argo-rollouts/releases/download/v1.8.3/argo-rollouts.intoto.jsonl"
 
 [[tools.argocd]]
-version = "3.4.2"
+version = "3.4.12"
 backend = "aqua:argoproj/argo-cd"
-specifiers = ["3.4.2"]
+specifiers = [
+    "3.4.12",
+    "3.4.2",
+]
 
 [tools.argocd."platforms.linux-x64"]
-checksum = "sha256:d4cb1ac8002baab8afaca2da3de597b613df8459074bc7c6d96dc95161c2a33f"
-url = "https://github.com/argoproj/argo-cd/releases/download/v3.4.2/argocd-linux-amd64"
-url_api = "https://api.github.com/repos/argoproj/argo-cd/releases/assets/418714527"
-
-[tools.argocd."platforms.linux-x64".provenance.slsa]
-url = "https://github.com/argoproj/argo-cd/releases/download/v3.4.2/argocd-cli.intoto.jsonl"
+checksum = "sha256:fb1494014585e8448531d9a3e7e1456ef81bb4ea3b888a75ba8c72284b9d6bde"
+url = "https://github.com/argoproj/argo-cd/releases/download/v3.4.12/argocd-linux-amd64"
+url_api = "https://api.github.com/repos/argoproj/argo-cd/releases/assets/660607014"
 
 [[tools.aube]]
-version = "2.6.1"
+version = "2.8.1"
 backend = "packslip:github.com/aubepkg/aube"
-specifiers = ["2.6.1"]
+specifiers = ["2.8.1"]
 
 [tools.aube."platforms.linux-x64"]
-checksum = "sha256:364b4cf201970cd5c943390dd3e736b4256b14a0ac52d304f8fb4acfd6a1fbd3"
-url = "https://github.com/aubepkg/aube/releases/download/v2.6.1/aube-v2.6.1-x86_64-unknown-linux-gnu.tar.gz"
+checksum = "sha256:83ca5541a10a21b81189fc391d3853774826a439db28d3b0136648c37fbdbe79"
+url = "https://github.com/aubepkg/aube/releases/download/v2.8.1/aube-v2.8.1-x86_64-unknown-linux-gnu.tar.gz"
 signer = "sigstore-oidc:https://github.com/aubepkg/aube/.github/workflows/release.yml"
 
 [[tools.aws-vault]]
@@ -191,13 +181,12 @@ url = "https://github.com/ByteNess/aws-vault/releases/download/v7.13.3/aws-vault
 url_api = "https://api.github.com/repos/ByteNess/aws-vault/releases/assets/501551873"
 
 [[tools.awscli]]
-version = "2.36.31"
+version = "2.38.4"
 backend = "aqua:aws/aws-cli"
-specifiers = ["2.36.31"]
+specifiers = ["2.38.4"]
 
 [tools.awscli."platforms.linux-x64"]
-checksum = "blake3:2e9a06f513dabf8b64e46734c0327e4c2c4a4ba8bbc3f770d6fc28cca8d8b069"
-url = "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.36.31.zip"
+url = "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.38.4.zip"
 
 [[tools.bats]]
 version = "1.14.0"
@@ -221,35 +210,41 @@ url_api = "https://api.github.com/repos/biomejs/biome/releases/assets/601227626"
 provenance = "github-attestations"
 
 [[tools.bun]]
-version = "1.3.14"
+version = "1.4.4"
 backend = "core:bun"
-specifiers = ["1.3.14"]
+specifiers = [
+    "1.3.14",
+    "1.4.4",
+]
 
 [tools.bun."platforms.linux-x64"]
-checksum = "sha256:951ee2aee855f08595aeec6225226a298d3fea83a3dcd6465c09cbccdf7e848f"
-url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64.zip"
+checksum = "sha256:bf8ccbfb2b0b80159e0f9a6d15c55317add8077534dbc6130a3edb52fccb395c"
+url = "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64.zip"
 
 [tools.bun."platforms.linux-x64-baseline"]
-checksum = "sha256:a063908ae08b7852ca10939bbdc6ceed3ddabce8fb9402dce83d65d73b36e6c7"
-url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64-baseline.zip"
+checksum = "sha256:e0446eb55995772eb9894bebae9a6be368d985a8b9271ee124486f9946eedd76"
+url = "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-baseline.zip"
 
 [tools.bun."platforms.linux-x64-musl"]
-checksum = "sha256:14bd9aedeebf1dba67e8def9531c89bc989ecfdf1de42e5bfcaf1b8cd9294719"
-url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64-musl.zip"
+checksum = "sha256:a5a8ccc5e74dcb883fe974f125a7bdb3b41e5195ed1b870e73f17effd3eb2b2d"
+url = "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-musl.zip"
 
 [tools.bun."platforms.linux-x64-musl-baseline"]
-checksum = "sha256:56a7d6806cf155536c0178f0ea5fbd098e684fa509ebdb4fc0a7e19fb65382dc"
-url = "https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64-musl-baseline.zip"
+checksum = "sha256:6e9c37098b293920aed28bfb51ab240e26d23bfdd9bbfecb3ad428ac166549bc"
+url = "https://github.com/oven-sh/bun/releases/download/bun-v1.4.4/bun-linux-x64-musl-baseline.zip"
 
 [[tools.claude-code]]
-version = "2.1.296"
+version = "2.1.308"
 backend = "aqua:anthropics/claude-code"
-specifiers = ["2.1.296"]
+specifiers = [
+    "2.1.296",
+    "2.1.308",
+]
 
 [tools.claude-code."platforms.linux-x64"]
-checksum = "sha256:45fe2b33f5cbdd114309618970bcd90b8b163e34252d66cf100d7e068d9b831d"
-url = "https://github.com/anthropics/claude-code/releases/download/v2.1.296/claude-linux-x64.tar.gz"
-url_api = "https://api.github.com/repos/anthropics/claude-code/releases/assets/625598991"
+checksum = "sha256:6a699c7205d3c5f99e03a21d6b0511366f41c9a7284547b6e0785504ebdb261a"
+url = "https://github.com/anthropics/claude-code/releases/download/v2.1.308/claude-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/anthropics/claude-code/releases/assets/664635981"
 
 [[tools.claude-powerline]]
 version = "1.30.1"
@@ -258,14 +253,14 @@ backend = "npm:@owloops/claude-powerline"
 specifiers = ["1.30.1"]
 
 [[tools.codex]]
-version = "0.162.1"
+version = "0.164.0"
 backend = "aqua:openai/codex"
-specifiers = ["0.162.1"]
+specifiers = ["0.164.0"]
 
 [tools.codex."platforms.linux-x64"]
-checksum = "sha256:a676f5722aae0d86cbe3764332f08eab1fdd89dc0a300b3ad4ffbf48611fa3e3"
-url = "https://github.com/openai/codex/releases/download/rust-v0.162.1/codex-package-x86_64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/openai/codex/releases/assets/625965833"
+checksum = "sha256:3ec55053109608d5038f7e50750f7d25f768dfd740fef071aa710e2559b63aac"
+url = "https://github.com/openai/codex/releases/download/rust-v0.164.0/codex-package-x86_64-unknown-linux-musl.tar.gz"
+url_api = "https://api.github.com/repos/openai/codex/releases/assets/667994796"
 
 [[tools.conftest]]
 version = "0.61.0"
@@ -329,24 +324,18 @@ url = "https://github.com/antonmedv/fx/releases/download/39.2.0/fx_linux_amd64"
 url_api = "https://api.github.com/repos/antonmedv/fx/releases/assets/315468989"
 
 [[tools.gh]]
-version = "2.98.0"
+version = "2.103.0"
 backend = "aqua:cli/cli"
-specifiers = ["2.98.0"]
+specifiers = [
+    "2.103.0",
+    "2.98.0",
+]
 
 [tools.gh."platforms.linux-x64"]
-checksum = "sha256:3b8ac6b30336802fc1a858d7c084e11cdf24ac1a761ca90b68022d7d729208de"
-url = "https://github.com/cli/cli/releases/download/v2.98.0/gh_2.98.0_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/522857901"
+checksum = "sha256:fdd768eb70f6409f80fcfa9f3a1c0adf0fc98d827ab3ce0bed2ac22762c5d786"
+url = "https://github.com/cli/cli/releases/download/v2.103.0/gh_2.103.0_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/662956379"
 provenance = "github-attestations"
-
-[[tools."github:YiNNx/cmd-wrapped"]]
-version = "0.4.1"
-backend = "github:YiNNx/cmd-wrapped"
-specifiers = ["0.4.1"]
-
-[tools."github:YiNNx/cmd-wrapped"."platforms.linux-x64"]
-url = "https://github.com/YiNNx/cmd-wrapped/releases/download/v0.4.1/cmd-wrapped-x86_64-linux.zip"
-url_api = "https://api.github.com/repos/YiNNx/cmd-wrapped/releases/assets/189747255"
 
 [[tools."github:docker/docker-credential-helpers"]]
 version = "0.9.3"
@@ -382,13 +371,16 @@ url = "https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8
 url_api = "https://api.github.com/repos/gitleaks/gitleaks/releases/assets/378332058"
 
 [[tools.go]]
-version = "1.26.6"
+version = "1.26.10"
 backend = "core:go"
-specifiers = ["1.26.6"]
+specifiers = [
+    "1.26.10",
+    "1.26.6",
+]
 
 [tools.go."platforms.linux-x64"]
-checksum = "sha256:708effb774be8237570d0add163225abbdfaf4fca28b2611df167beba4feef89"
-url = "https://dl.google.com/go/go1.26.6.linux-amd64.tar.gz"
+checksum = "sha256:ccfe7ae822d2c2f41f4fe7c956199967a4dac22d0ee0d2b2bfdb440aab3b20c5"
+url = "https://dl.google.com/go/go1.26.10.linux-amd64.tar.gz"
 
 [[tools."go:github.com/cweill/gotests/..."]]
 version = "1.6.0"
@@ -545,34 +537,34 @@ backend = "http-deb:session-manager-plugin"
 specifiers = ["1.2.835.0"]
 
 [[tools.hunk]]
-version = "0.17.0"
+version = "0.24.1"
 backend = "aqua:modem-dev/hunk"
-specifiers = ["0.17.0"]
+specifiers = ["0.24.1"]
 
 [tools.hunk."platforms.linux-x64"]
-checksum = "sha256:0c626f7a6687a9826304ea1df696da5d49edf84271eccdf57ffff5834289e0e2"
-url = "https://github.com/modem-dev/hunk/releases/download/v0.17.0/hunkdiff-linux-x64.tar.gz"
-url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/468967650"
+checksum = "sha256:4b8c98f8d97745499916cc1e1d2f27ffd258c6d6358dd4532f61e41c5eb19692"
+url = "https://github.com/modem-dev/hunk/releases/download/v0.24.1/hunkdiff-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/modem-dev/hunk/releases/assets/673741222"
 
 [[tools.infracost]]
-version = "0.10.41"
+version = "0.10.47"
 backend = "aqua:infracost/infracost"
-specifiers = ["0.10.41"]
+specifiers = ["0.10.47"]
 
 [tools.infracost."platforms.linux-x64"]
-checksum = "sha256:9e37a53ba65dd4ad1e25d6023e8ef511c47c8d80d2b064e8bc2598d983ef79e5"
-url = "https://github.com/infracost/infracost/releases/download/v0.10.41/infracost-linux-amd64.tar.gz"
-url_api = "https://api.github.com/repos/infracost/infracost/releases/assets/235083393"
+checksum = "sha256:df098d5565b78cc23de57e1dac9f2a02491691322cbd690dca9b197e3e02fe93"
+url = "https://github.com/infracost/infracost/releases/download/v0.10.47/infracost-linux-amd64.tar.gz"
+url_api = "https://api.github.com/repos/infracost/infracost/releases/assets/661875220"
 
 [[tools.istioctl]]
-version = "1.30.2"
+version = "1.30.7"
 backend = "aqua:istio/istio/istioctl"
-specifiers = ["1.30.2"]
+specifiers = ["1.30.7"]
 
 [tools.istioctl."platforms.linux-x64"]
-checksum = "sha256:7d657367ab702d6fca03a1db626559435a10debc621fab5259d277e2822ed53e"
-url = "https://github.com/istio/istio/releases/download/1.30.2/istioctl-1.30.2-linux-amd64.tar.gz"
-url_api = "https://api.github.com/repos/istio/istio/releases/assets/456822902"
+checksum = "sha256:485d08aef8906023a014f725fbd6e12674661977c17007802137f40ab1fba85d"
+url = "https://github.com/istio/istio/releases/download/1.30.7/istioctl-1.30.7-linux-amd64.tar.gz"
+url_api = "https://api.github.com/repos/istio/istio/releases/assets/665100995"
 
 [[tools.jqp]]
 version = "0.7.0"
@@ -754,13 +746,16 @@ backend = "npm:@antfu/ni"
 specifiers = ["28.0.0"]
 
 [[tools.node]]
-version = "24.15.0"
+version = "24.22.1"
 backend = "core:node"
-specifiers = ["24.15.0"]
+specifiers = [
+    "24.15.0",
+    "24.22.1",
+]
 
 [tools.node."platforms.linux-x64"]
-checksum = "sha256:44836872d9aec49f1e6b52a9a922872db9a2b02d235a616a5681b6a85fec8d89"
-url = "https://nodejs.org/dist/v24.15.0/node-v24.15.0-linux-x64.tar.gz"
+checksum = "sha256:eb6728e77c576a35162c122c45ccadf224d89ff00abc8dae46cc2897c6002d7c"
+url = "https://nodejs.org/dist/v24.22.1/node-v24.22.1-linux-x64.tar.gz"
 
 [[tools.nono]]
 version = "0.80.0"
@@ -891,10 +886,10 @@ backend = "npm:tokscale"
 specifiers = ["4.17.0"]
 
 [[tools.opencode]]
-version = "2.1.2"
-aube = { path = "locks/opencode/2.1.2~009061c2", digest = "sha256:5c5e06089c3aa5059165282877bb2dc4770fc0fcd45f0c05a882247fb7d80180" }
+version = "2.1.3"
+aube = { path = "locks/opencode/2.1.3~009061c2", digest = "sha256:d7745dd3a75b33dfb09165f8eaa512c5496c7663368c7c59e9a61d0ad98aa911" }
 backend = "npm:@opencode/cli"
-specifiers = ["2.1.2"]
+specifiers = ["2.1.3"]
 
 [tools.opencode.options]
 allow_builds = '["@opencode/cli"]'
@@ -921,14 +916,14 @@ url_api = "https://api.github.com/repos/FairwindsOps/pluto/releases/assets/40681
 provenance = "cosign"
 
 [[tools.pnpm]]
-version = "11.3.0"
+version = "11.28.7"
 backend = "aqua:pnpm/pnpm"
-specifiers = ["11.3.0"]
+specifiers = ["11.28.7"]
 
 [tools.pnpm."platforms.linux-x64"]
-checksum = "sha256:6eb506b53297eb1186ba0cbff1577bb26d17713835a01a5342dcafae550827ce"
-url = "https://github.com/pnpm/pnpm/releases/download/v11.3.0/pnpm-linux-x64.tar.gz"
-url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/428449600"
+checksum = "sha256:62a7af5b9251558674bf2354f456e9b5b77cd03703892875c5c10f96c3eb215c"
+url = "https://github.com/pnpm/pnpm/releases/download/v11.28.7/pnpm-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/pnpm/pnpm/releases/assets/662237984"
 provenance = "github-attestations"
 
 [[tools.prettier]]
@@ -941,7 +936,7 @@ specifiers = ["3.9.6"]
 version = "1.88.0"
 backend = "pypi:litellm"
 specifiers = ["1.88.0"]
-uv = { path = "locks/pypi-litellm/1.88.0~b88a16cb", digest = "sha256:68be62faf9bd47fa9dd346279ecd24cac568861fbdc0f0439b4ec232400267cd" }
+uv = { path = "locks/pypi-litellm/1.88.0~b88a16cb", digest = "sha256:1a96cda92bc59c3710484da5776534e70063b515bfde16fa5cd8109fe7f0de92" }
 
 [tools."pypi:litellm".options]
 extras = "proxy,extra_proxy"
@@ -950,7 +945,7 @@ extras = "proxy,extra_proxy"
 version = "0.1.5"
 backend = "pypi:markitdown"
 specifiers = ["0.1.5"]
-uv = { path = "locks/pypi-markitdown/0.1.5~7346be43", digest = "sha256:ae3447ac77452492b80bc40982ab133a05c92a2ce7728b63995765670acf462e" }
+uv = { path = "locks/pypi-markitdown/0.1.5~7346be43", digest = "sha256:6596bceb889067611aab6b032362b03385bd2f756d894cf73cfe919e2f1b9c96" }
 
 [tools."pypi:markitdown".options]
 extras = "all"
@@ -959,40 +954,43 @@ extras = "all"
 version = "1.6.4"
 backend = "pypi:mcp-proxy-for-aws"
 specifiers = ["1.6.4"]
-uv = { path = "locks/pypi-mcp-proxy-for-aws/1.6.4", digest = "sha256:97fcbb34e84796ec3315f2f5d832936fa1b697bf8502113d5e19e2b5ee6cc3b1" }
+uv = { path = "locks/pypi-mcp-proxy-for-aws/1.6.4", digest = "sha256:cb88e89bd70e1873ecfa3987a22aca5226f23138bcd02a937f7ec20933b47ea4" }
 
 [[tools."pypi:pre-commit-hooks"]]
 version = "6.0.0"
 backend = "pypi:pre-commit-hooks"
 specifiers = ["6.0.0"]
-uv = { path = "locks/pypi-pre-commit-hooks/6.0.0", digest = "sha256:93d0202b30a8f8f11617d22fd0fd12bb69ea31d561ba121ae305706ce138ef64" }
+uv = { path = "locks/pypi-pre-commit-hooks/6.0.0", digest = "sha256:192cc83bb495c1d140db5ed6f24cb231f3a13bb1473ef7ac068e06a3fada4d1d" }
 
 [[tools."pypi:semble"]]
 version = "0.1.10"
 backend = "pypi:semble"
 specifiers = ["0.1.10"]
-uv = { path = "locks/pypi-semble/0.1.10", digest = "sha256:ddea89dc5fdaaa79a8f76180d4daa4cacf2dc701467bc53e63b27a1a8ac91db6" }
+uv = { path = "locks/pypi-semble/0.1.10", digest = "sha256:6810d699e40c0577f99bcdbf4a9f8dfff33610f9bec1e2c674875fc8a2dfafae" }
 
 [[tools."pypi:sqlfluff"]]
 version = "4.3.0"
 backend = "pypi:sqlfluff"
 specifiers = ["4.3.0"]
-uv = { path = "locks/pypi-sqlfluff/4.3.0", digest = "sha256:734ff812109457763cb8461307ef44eb7bbd1232b7d323616c9ca2690f7054b7" }
+uv = { path = "locks/pypi-sqlfluff/4.3.0", digest = "sha256:b9c16faa89b06827644f560283a5bf49aedfb9e1095e9abc4e94f4a24ffa9d78" }
 
 [[tools."pypi:zensical"]]
 version = "0.0.57"
 backend = "pypi:zensical"
 specifiers = ["0.0.57"]
-uv = { path = "locks/pypi-zensical/0.0.57", digest = "sha256:4b8b63b224378e824b6b210f76502246fe2d1694e02cc00d655445fa9942b2ac" }
+uv = { path = "locks/pypi-zensical/0.0.57", digest = "sha256:1ab2528b765020d15d2e6364aa8c07cf593c4268b1d5dfd9563d313333b2cce3" }
 
 [[tools.python]]
-version = "3.13.14"
+version = "3.13.17"
 backend = "core:python"
-specifiers = ["3.13.14"]
+specifiers = [
+    "3.13.14",
+    "3.13.17",
+]
 
 [tools.python."platforms.linux-x64"]
-checksum = "sha256:39e82d05926bdcd206732026bcd878d9f00e288cd227d91c1fabf379b6ea4fa5"
-url = "https://github.com/astral-sh/python-build-standalone/releases/download/20260805/cpython-3.13.14+20260805-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz"
+checksum = "sha256:f829adc9d888e76c8801b4799ed444188d35239fcae3a9808a99ec5cb0d8d92c"
+url = "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.13.17+20261021-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz"
 provenance = "github-attestations"
 
 [[tools.rtk]]
@@ -1056,19 +1054,6 @@ specifiers = ["2.24.0"]
 checksum = "sha256:702344081860a587c57937cd55dfa2e70f124c05d6fb845319832ee23fd144a8"
 url = "https://storage.googleapis.com/skaffold/releases/v2.24.0/skaffold-linux-amd64"
 
-[[tools.slsa-verifier]]
-version = "v2.7.1"
-backend = "aqua:slsa-framework/slsa-verifier"
-specifiers = ["v2.7.1"]
-
-[tools.slsa-verifier."platforms.linux-x64"]
-checksum = "sha256:946dbec729094195e88ef78e1734324a27869f03e2c6bd2f61cbc06bd5350339"
-url = "https://github.com/slsa-framework/slsa-verifier/releases/download/v2.7.1/slsa-verifier-linux-amd64"
-url_api = "https://api.github.com/repos/slsa-framework/slsa-verifier/releases/assets/267893649"
-
-[tools.slsa-verifier."platforms.linux-x64".provenance.slsa]
-url = "https://github.com/slsa-framework/slsa-verifier/releases/download/v2.7.1/slsa-verifier-linux-amd64.intoto.jsonl"
-
 [[tools.sops]]
 version = "3.13.3"
 backend = "aqua:getsops/sops"
@@ -1113,13 +1098,13 @@ url = "https://github.com/tamasfe/taplo/releases/download/0.10.0/taplo-linux-x86
 url_api = "https://api.github.com/repos/tamasfe/taplo/releases/assets/257322600"
 
 [[tools.terraform]]
-version = "1.15.8"
+version = "1.16.7"
 backend = "aqua:hashicorp/terraform"
-specifiers = ["1.15.8"]
+specifiers = ["1.16.7"]
 
 [tools.terraform."platforms.linux-x64"]
-checksum = "sha256:d25ce7b6902013ad905db3d2eab0be4cd905887fe88b81a6171b8d5503c31f3d"
-url = "https://releases.hashicorp.com/terraform/1.15.8/terraform_1.15.8_linux_amd64.zip"
+checksum = "sha256:5454efcf7fc87f0c2113111b9a5c7182f0ca1c6f0f23a1e110a50770a8fe473b"
+url = "https://releases.hashicorp.com/terraform/1.16.7/terraform_1.16.7_linux_amd64.zip"
 
 [[tools.terraform-docs]]
 version = "0.20.0"
@@ -1141,35 +1126,35 @@ checksum = "sha256:c5869f946b0d17e2c13157dc3bc2aea87fab12d39ac17b3a198102332e79b
 url = "https://releases.hashicorp.com/terraform-ls/0.38.1/terraform-ls_0.38.1_linux_amd64.zip"
 
 [[tools.terragrunt]]
-version = "1.1.1"
+version = "1.2.1"
 backend = "aqua:gruntwork-io/terragrunt"
-specifiers = ["1.1.1"]
+specifiers = ["1.2.1"]
 
 [tools.terragrunt."platforms.linux-x64"]
-checksum = "sha256:ce90077ac31ef17a2ba10d11d45f36c6501997a8f4f79d703bb7daba37032f53"
-url = "https://github.com/gruntwork-io/terragrunt/releases/download/v1.1.1/terragrunt_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/gruntwork-io/terragrunt/releases/assets/476785968"
+checksum = "sha256:08c8844cc69e4f03451ebb8f347cb57d9bd6b8db7b16e437ae5ec6f001228ef9"
+url = "https://github.com/gruntwork-io/terragrunt/releases/download/v1.2.1/terragrunt_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/gruntwork-io/terragrunt/releases/assets/670001904"
 
 [[tools.tflint]]
-version = "0.64.0"
+version = "0.65.0"
 backend = "aqua:terraform-linters/tflint"
-specifiers = ["0.64.0"]
+specifiers = ["0.65.0"]
 
 [tools.tflint."platforms.linux-x64"]
-checksum = "sha256:cca9d13e2e1d7a2c627af60ff899a3c9b74212899416aeb96ec764d2ef954537"
-url = "https://github.com/terraform-linters/tflint/releases/download/v0.64.0/tflint_linux_amd64.zip"
-url_api = "https://api.github.com/repos/terraform-linters/tflint/releases/assets/480528344"
+checksum = "sha256:d4c545ed2e29d6338604b586f34f544f380f70f243aa72f7b484713835eaec61"
+url = "https://github.com/terraform-linters/tflint/releases/download/v0.65.0/tflint_linux_amd64.zip"
+url_api = "https://api.github.com/repos/terraform-linters/tflint/releases/assets/666566850"
 provenance = "github-attestations"
 
 [[tools.trivy]]
-version = "0.73.0"
+version = "0.76.1"
 backend = "aqua:aquasecurity/trivy"
-specifiers = ["0.73.0"]
+specifiers = ["0.76.1"]
 
 [tools.trivy."platforms.linux-x64"]
-checksum = "sha256:2edd39da482bb4e9831962487b68f68e3928ec3137794757f54d00383d79547b"
-url = "https://github.com/aquasecurity/trivy/releases/download/v0.73.0/trivy_0.73.0_Linux-64bit.tar.gz"
-url_api = "https://api.github.com/repos/aquasecurity/trivy/releases/assets/499939909"
+checksum = "sha256:c7cbe3137fb8a48a17574bede3dd6beb16742d1e9772929940fc90082c39d9c0"
+url = "https://github.com/aquasecurity/trivy/releases/download/v0.76.1/trivy_0.76.1_Linux-64bit.tar.gz"
+url_api = "https://api.github.com/repos/aquasecurity/trivy/releases/assets/662254617"
 provenance = "cosign"
 
 [[tools.ty]]
@@ -1194,14 +1179,17 @@ url = "https://github.com/crate-ci/typos/releases/download/v1.49.0/typos-v1.49.0
 url_api = "https://api.github.com/repos/crate-ci/typos/releases/assets/500261019"
 
 [[tools.uv]]
-version = "0.12.10"
+version = "0.13.5"
 backend = "aqua:astral-sh/uv"
-specifiers = ["0.12.10"]
+specifiers = [
+    "0.12.10",
+    "0.13.5",
+]
 
 [tools.uv."platforms.linux-x64"]
-checksum = "sha256:173d95a0c32d18c896c46ba6fafbf3cf9c14ab74b033f81b76c883ef492a976b"
-url = "https://github.com/astral-sh/uv/releases/download/0.12.10/uv-x86_64-unknown-linux-gnu.tar.gz"
-url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/545034465"
+checksum = "sha256:f68d291c75783122dad58ab77def0e13f3233f358731db5d6d7e8715603b928f"
+url = "https://github.com/astral-sh/uv/releases/download/0.13.5/uv-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/astral-sh/uv/releases/assets/664336023"
 provenance = "github-attestations"
 
 [[tools.worktrunk]]
@@ -1228,7 +1216,7 @@ url_api = "https://api.github.com/repos/google/yamlfmt/releases/assets/336650203
 version = "1.38.0"
 backend = "pypi:yamllint"
 specifiers = ["1.38.0"]
-uv = { path = "locks/yamllint/1.38.0", digest = "sha256:732c6d49cb453cb21473f41362c50413833a456a436f1fe2352c24572c37228a" }
+uv = { path = "locks/yamllint/1.38.0", digest = "sha256:5161bacbefe2a49a98dcfd79abe205e3756e995126b6fb604bb1c89da3b2677d" }
 
 [[tools.yq]]
 version = "4.53.3"
