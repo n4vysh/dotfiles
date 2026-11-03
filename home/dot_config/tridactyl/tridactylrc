@@ -57,3 +57,4 @@ seturl ^https://.*\.console\.aws\.amazon\.com superignore true
 seturl ^https://miro\.com superignore true
 seturl ^https://www\.perplexity\.ai/ superignore true
 seturl ^https://whimsical\.com superignore true
+seturl ^https://chatgpt\.com superignore true
