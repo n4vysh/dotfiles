@@ -439,11 +439,6 @@ IsLauncher := false
 					Send("#4")
 				}
 				IsLauncher := false
-			} else {
-				if ! (PID := ProcessExist("slack.exe")) {
-					Run(USERPROFILE "\AppData\Local\slack\slack.exe")
-				}
-				IsLauncher := false
 			}
 		}
 	}
