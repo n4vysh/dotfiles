@@ -433,13 +433,11 @@ IsLauncher := false
 	{
 		global IsLauncher
 		if ! GetKeyState("Shift") {
-			if GetKeyState("Ctrl", "P") {
-				if ! (PID := ProcessExist("ms-teams.exe")) {
-					; NOTE: pin teams to task bar before use
-					Send("#4")
-				}
-				IsLauncher := false
+			if ! (PID := ProcessExist("ms-teams.exe")) {
+				; NOTE: pin teams to task bar before use
+				Send("#4")
 			}
+			IsLauncher := false
 		}
 	}
 
