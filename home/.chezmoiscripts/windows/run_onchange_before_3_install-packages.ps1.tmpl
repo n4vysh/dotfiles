@@ -4,5 +4,8 @@ winget install --no-upgrade -e --id {{ . | quote }}
 {{ end -}}
 
 echo 'Install fonts'
+if (-not (Get-Command scoop -ErrorAction SilentlyContinue)) {
+  Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+}
 scoop bucket add nerd-fonts
 sudo scoop install -g --no-update-scoop firacode
